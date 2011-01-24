@@ -1,13 +1,36 @@
 \chapter{Literature Review}
 The following literature review addresses five areas of current research integral to the work at hand. The contribution of computational nuclear fuel cycle simulation tools to sensitivity analyses of repository performance metrics is first summarized. A review of current computational repository models follows, including both standalone and those incorporated into nuclear fuel cycle simulation tools. Special focus is paid to the availability of supporting data and algorithms informing geochemical and hydrogeological transport on long time scales and in various geologies. Next, an overview is presented of available waste form performance models applicable to likely advanced fuel cycle waste streams, and finally, work is reviewed that concerns the need for simplified first order, physics based models of fuel cycle processes within the context of top level simulation. 
 \section{Sensitivity Analyses of Repository Performance}
-Comprehensive fuel cycle sensitivity analyses with an emphasis on used fuel disposition and waste management have been conducted by Li, Piet, Wilson, and Ahn. Primary repository performance metrics of interest have been heat, source term, and other metrics of envrionmental impact assessment.
+Fuel cycle sensitivity analyses emphasizing used fuel disposition and waste management in the Yucca Mountain Repository (YMR) have been conducted by Li, Piet, Wilson, and Ahn. With a focus on YMR capacity benefit, repository performance metrics of interest for these analyses were heat, source term, and more global envrionmental impact metrics. Sensitivity analyses for other geologies were conducted by other nations as well. See Table \ref{tab:red}.
+
+\begin{table}
+  \centering
+  \begin{tabular}{|l|c|c|c|c|r|}
+    Granite     & Spain       & HLW            & Heat Load & Enresa & <+CodeName+> \\
+    Granite     & Czech Rep.  & HLW            & Heat Load & NRI & <+CodeName+> \\
+    Clay        & Belgium     & HLW            & Heat Load & SCK$\cdot$CEN & SAFIR2 \\
+    Salt        & Germany     & HLW            & Heat Load & GRS & <+CodeName+> \\
+    Granite     & Spain       & HLW            & Dose      & Enresa & <+CodeName+> \\
+    Clay        & Belgium     & HLW            & Dose      & SCK$\cdot$CEN & SAFIR2 \\
+    Clay        & France      & HLW            & Dose      & CEA & ANDRA \\
+    Salt        & Germany     & HLW            & Dose      & GRS & <+CodeName+> \\
+    Granite     & Czech Rep.  & ILW            & LT Dose   & NRI & <+CodeName+> \\
+    Granite     & Spain       & ILW            & LT Dose   & Enresa & <+CodeName+> \\
+    Clay        & Belgium     & ILW            & LT Dose   & SCK$\cdot$CEN & SAFIR2 \\
+    Granit      & Spain       & HLW/ILW/Iodine & LT Dose   & Enresa & <+CodeName+> \\
+    Clay        & Belgium     & HLW/ILW/Iodine & LT Dose   & SCK$\cdot$CEN & SAFIR2 \\
+  \end{tabular}
+  \caption{International repository concepts evaluated in the RED Impact Assessment.\cite{RED}}
+  \label{tab:red}
+\end{table}
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % This is where CapacityNotes was inserted %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Capacity Dependence on Heat Load}
-\subsection{Heat Load Constraints}
+\subsection{Analyses Based On Heat Load}
 \paragraph{}
 Two heat load constraints primarily determine the heat-based SNF capacity limit in the Yucca Mountain Repository design. Thermal limits in the current design are intended to passively steward the repository's integrity against radionuclide release for the upcoming 10,000 years.
 \paragraph{}
@@ -186,9 +209,6 @@ where X is length of the unsaturated zone, U is the pore velocity of the water $
 %To make a back of the envelope set of calculations, we'll make use of the current projected price of Yucca Mountain (96 billion?). Dividing by 70,000 tonnes, we have a \$/tonne value for the repository.
 %In order to determine the amount saved in each scenario, we'll multiply the amount of additional SNF fit into the repository by that \$/tonne cost. This will give a very rough estimate of the Yucca Mountain equivalent expenditures avoided in each scenario. 
 
-\section{Capacity Dependence on Heat Load}
-\subsection{Heat Load Constraints}
-\paragraph{}<++>
 \subsection{Independent Fuel Cycle Parameters}
 Independent fuel cycle parameters of particular interest to academics have been those related to the front end of the fuel cycle. Deployment decisions concerning reactor types, Fast to Thermal reactor ratios, and burnup rates can all be independently varied in fuel cycle simulation codes in such a way as to inform domestic policy decisiong going forward. A Some of these parameters are coupled, however, to aspects of the back end of the fuel cycle. For example, the appropriate fast reactor ratio is significantly altered by the chosen method and magnitude of domestic spent fuel reprocessing (or not).
 
