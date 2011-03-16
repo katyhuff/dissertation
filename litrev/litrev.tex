@@ -12,31 +12,14 @@ order, physics based models of fuel cycle processes within the context of top le
 used fuel disposition and waste management in the Yucca Mountain Repository (YMR) have been 
 conducted by Li, Piet, Wilson, and Ahn. With a focus on YMR capacity benefit, repository performance 
 metrics of interest for these analyses were heat, source term, and more global envrionmental impact 
-metrics. Sensitivity analyses for other geologies were conducted by other nations as well. See Table 
-\ref{tab:red}.
+metrics. Sensitivity analyses for other geologies were conducted concerning repository concepts 
+relevant to other nations as well. See Table \ref{tab:red}.
 
-\begin{table}
-  \centering
-  \begin{tabular}{|l|c|c|c|c|r|}
-    Granite     & Spain       & HLW            & Heat Load & Enresa & <+CodeName+> \\
-    Granite     & Czech Rep.  & HLW            & Heat Load & NRI & <+CodeName+> \\
-    Clay        & Belgium     & HLW            & Heat Load & SCK$\cdot$CEN & SAFIR2 \\
-    Salt        & Germany     & HLW            & Heat Load & GRS & <+CodeName+> \\
-    Granite     & Spain       & HLW            & Dose      & Enresa & <+CodeName+> \\
-    Clay        & Belgium     & HLW            & Dose      & SCK$\cdot$CEN & SAFIR2 \\
-    Clay        & France      & HLW            & Dose      & CEA & ANDRA \\
-    Salt        & Germany     & HLW            & Dose      & GRS & <+CodeName+> \\
-    Granite     & Czech Rep.  & ILW            & LT Dose   & NRI & <+CodeName+> \\
-    Granite     & Spain       & ILW            & LT Dose   & Enresa & <+CodeName+> \\
-    Clay        & Belgium     & ILW            & LT Dose   & SCK$\cdot$CEN & SAFIR2 \\
-    Granit      & Spain       & HLW/ILW/Iodine & LT Dose   & Enresa & <+CodeName+> \\
-    Clay        & Belgium     & HLW/ILW/Iodine & LT Dose   & SCK$\cdot$CEN & SAFIR2 \\
-  \end{tabular}
-  \caption{International repository concepts evaluated in the RED Impact 
-  Assessment.\cite{von_lensa_red-impact_2008}}
-  \label{tab:red}
-\end{table}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% RED-IMPACT Table %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{litrev/red_tab}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -44,6 +27,22 @@ metrics. Sensitivity analyses for other geologies were conducted by other nation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Analyses Based On Heat Load}
+
+\section{Repository Focused Sensitivity Analyses}
+\subsection{Heat Load}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Heat Load Anal Models Table %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{litrev/heat_tab}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{Source Term}
+
+%%--------------------------------%%
+
+  
 \paragraph{}
 Two heat load constraints primarily determine the heat-based SNF capacity limit in the Yucca 
 Mountain Repository design. Thermal limits in the current design are intended to passively steward 
@@ -227,23 +226,13 @@ nuclide diffusion, but is employed in the context of the hydrogeology of the roc
 called EBSFAIL, a part of the EBSPAC module used in the TSPA code, other models incorporate their 
 own hydrogeologic approximations of canister degredation, and still others assume immediate waste 
 canister failure in order to focus on dissolution and transfer.  \newline
-\begin{centering}
-\begin{table}
-\begin{tabular}[h!bt]{l|r|r|r}
-Model&WP Failure Mode&Waste Form&Time at first failure\\
-\hline
-TSPA&EBSFAIL&&$300,000$ years\\
-\hline
-Ahn 2003&Instantaneous Failure&Borosilicate Glass&$t=0$\\
-\hline
-Ahn 2007& &CSNF $UO_2$ matrix &$T_f=75,000$ years\\
-& &Borosilicate Glass &$T_f=75,000$ years\\
-& & Naval $UO_2$ matrix &$T_f=75,000$ years\\
-\hline
-Jun&EBSFAIL&&$300,000$ years\\
-\end{tabular}
-\end{table}
-\end{centering}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% WP Failure Modes Table %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{litrev/wpfail_tab}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \paragraph{Nuclide dissolution rate} can also be understood as nuclide release rate from the waste 
 packages, and is the rate of mass transfer of a nuclide from its waste matrix into the saturation 
 water. Models calculating  nuclide dissolution rate have assumed waste package failure insofar as 
@@ -263,7 +252,7 @@ capacity. Sensitivity to concentration complicates the viability of alternate lo
 well as waste separation scenarios. Radionuclide concentration has been shown to be proportional to 
 the waste package loading configuration.\cite{ahn_relationship_2002,kawasaki_congruent_2004}
 
-The dissolution rate and the advective transfer rate through the granite tuff of a nuclide are 
+The dissolution rate and the advective transfer rate of a nuclide through granite tuff are 
 typically be taken to depend directly upon the diffusion coefficient of that nuclide, which for some 
 nuclides is heavily dependent upon the concentration of that nuclide relative to the flowthrough 
 water. 
@@ -475,7 +464,19 @@ On the back end, dependent variables are interesting as well.  \subsubsection{Cr
 % Under various waste classification scenarios?
 \subsubsection{Thermal Load}
 \subsubsection{Cost}
-\subsection{Current Methodologies}<++>
+\subsection{Current Methodologies}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Source Term in Many Geos Table %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{litrev/geosource_tab}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Andra Sub-Codes Table %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{litrev/andra_tab}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Repository Models}
 % The total system performance assessment is one type. Repository modules incorporated into VISION 
@@ -505,16 +506,16 @@ the fuel cycle according to various parameters. \cite{NuwastePres}
 % VISION
 VISION's repository model conducts decay calculations and tracks upwards of 83 isotopes of interest 
 in the nuclear fuel cycle. \cite{VISION} Are there wasteform models in VISION?
-\subsubsection{DANESS}<++>
+\subsubsection{DANESS}
 % DANESS
-\subsubsection{COSI}<++>
+\subsubsection{COSI}
 % COSI
-\subsubsection{DYMOND}<++>
+\subsubsection{DYMOND}
 % DYMOND ?
-\subsubsection{NFCSim}<++>
-\subsubsection{CAFCA}<++>
-\subsubsection{SMAFS}<++>
-\subsubsection{NFCSS}<++>
+\subsubsection{NFCSim}
+\subsubsection{CAFCA}
+\subsubsection{SMAFS}
+\subsubsection{NFCSS}
 % get rest of this list from MLDG paper.
 \section{Geochemical Migration Models}
 % Some mathematical models describing aqueous isotope transport in geologic settings are available 
