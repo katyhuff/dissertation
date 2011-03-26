@@ -1,19 +1,24 @@
 \chapter{Literature Review}\label{chap:litrev}
-The following literature review addresses five areas of current research integral to the work at 
-hand. The contribution of computational nuclear fuel cycle simulation tools to sensitivity analyses 
-of repository performance metrics is first summarized. A review of current computational repository 
-models follows, including both standalone and those incorporated into nuclear fuel cycle simulation 
-tools. Special focus is paid to the availability of supporting data and algorithms informing 
-geochemical and hydrogeological transport on long time scales and in various geologies. Next, an 
-overview is presented of available waste form performance models, and finally, work is reviewed that 
-concerns the need for simplified first order, physics based models of fuel cycle processes within 
-the context of top level simulation.  
+The following literature review addresses five areas of current 
+research integral to the work at hand. The contribution of 
+computational nuclear fuel cycle simulation tools to sensitivity 
+analyses of repository performance metrics is first summarized. A 
+review of current computational repository models follows, including 
+both standalone and those incorporated into nuclear fuel cycle 
+simulation tools. Special focus is paid to the availability of 
+supporting data and algorithms informing geochemical and 
+hydrogeological transport on long time scales and in various 
+geologies. Next, an overview is presented of available waste form 
+performance models, and finally, work is reviewed that concerns the 
+need for simplified first order, physics based models of fuel cycle 
+processes within the context of top level simulation.  
 
 
 
 %%%%%%%%%%%%%%%% Analytical Nuclide Transport %%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Analytical Models of Nuclide Transport}\label{sec:analytical_nuc}
+\section{Analytical Models of Nuclide 
+Transport}\label{sec:analytical_nuc}
 
 
 %%%%
@@ -62,52 +67,61 @@ the context of top level simulation.
 
 \subsubsection{Fracturation}
 
-% The distribution of fracture aperture sizes in a saturated fractured hard rock matrix determines the 
-% appropriate model with which to treat rock fracturation and subsequent nuclide transport through 
+% The distribution of fracture aperture sizes in a saturated fractured 
+% hard rock matrix determines the appropriate model with which to 
+% treat rock fracturation and subsequent nuclide transport through 
 % fracturous pathways. 
 
-% Fracturation within a saturated medium can be treated either as an effective porosity, in which n_eff is suggested according 
-% to the quantity of connected fractures, much like connected pores, in a rock matrix. If these are 
-% of similar sizes, 
+% Fracturation within a saturated medium can be treated either as an 
+% effective porosity, in which n_eff is suggested according to the 
+% quantity of connected fractures, much like connected pores, in a 
+% rock matrix. If these are of similar sizes, 
 
-% Fracturation in grantite, tuff, and basalt have a log normal distribution of of fracture 
-% apertures. Therefore, there are a few large fractures but the majority are microfractures. 
-% Therefore, the equivalent porous medium approach is inappropriate. Instead we must take the 
-% approach in which fractures of larger aperture are given greater importance and are modeled as primary 
-% conduits to the biosphere while minor fractures can be considered a part of the porous medium of 
-% the saturated rock. \cite{ahn_thesis}
+% Fracturation in grantite, tuff, and basalt have a log normal 
+% distribution of of fracture apertures. Therefore, there are a few 
+% large fractures but the majority are microfractures.  Therefore, the 
+% equivalent porous medium approach is inappropriate. Instead we must 
+% take the approach in which fractures of larger aperture are given 
+% greater importance and are modeled as primary conduits to the 
+% biosphere while minor fractures can be considered a part of the 
+% porous medium of the saturated rock. \cite{ahn_thesis}
 
 
-% For details about fracturation models in unsaturated rock, it's likely best to consult YMR 
-% TSPA models.
+% For details about fracturation models in unsaturated rock, it's 
+% likely best to consult YMR TSPA models.
 
 \paragraph{Sorption Into Matrix}
 
-%Sorption into the rock matrix is a method by which contaminants (and water? ) are removed from a 
-%fracture during flow through that fracture. However, this is a reversible process 
-%\cite{ahn_thesis, pg 16}, which means the contaminant might be returned to the fracture from the 
-%matrix with the same ''distribution coefficient`` with which they entered the rock matrix . 
+%Sorption into the rock matrix is a method by which contaminants (and 
+%water? ) are removed from a fracture during flow through that 
+%fracture. However, this is a reversible process \cite{ahn_thesis, pg 
+%16}, which means the contaminant might be returned to the fracture 
+%from the matrix with the same ''distribution coefficient`` with which 
+%they entered the rock matrix . 
 
-% One way to model sorption is by assuming a linear isotherm. What does that mean? 
-% \cite{ahn_thesis_pg20}
+% One way to model sorption is by assuming a linear isotherm. What 
+% does that mean?  \cite{ahn_thesis_pg20}
 
-% The concentration of sorbed contaminant onto the fracture surface can be demonstrated in terms of 
-% a rate equation (if surface diffusion is neglected.) (What is surface diffusion?) 
+% The concentration of sorbed contaminant onto the fracture surface 
+% can be demonstrated in terms of a rate equation (if surface 
+% diffusion is neglected.) (What is surface diffusion?) 
 % \cite{ahn_thesis_pg20)
 
-% Ahn finds that including sorption, the concentration of contaminant in the fracture satisfies the 
-% differential rate equation:
+% Ahn finds that including sorption, the concentration of contaminant 
+% in the fracture satisfies the differential rate equation:
 % 
 % \begin{align*}
-% R_f\frac{\partial N}{\partial t} + \nu \frac{\partial N}{\partial z} - D \frac{\partial^2 
-% D}{\partial z^2} + R_f \lambda N + \frac{q}{b} = 0, z>0 and t>0
+% R_f\frac{\partial N}{\partial t} + \nu \frac{\partial N}{\partial z} 
+% - D \frac{\partial^2 D}{\partial z^2} + R_f \lambda N + \frac{q}{b} 
+%   = 0, z>0 and t>0
 % \end{align*}
 %  
 % 
 
 
-% Also, there is sorption through the pores in the matrix. Again, we can model this with a ``linear 
-% sorption isotherm. . . '' whatever that is. 
+% Also, there is sorption through the pores in the matrix. Again, we 
+% can model this with a ``linear sorption isotherm. . . '' whatever 
+% that is. 
 
 
 \paragraph{Diffusion Into Fracture}
@@ -129,7 +143,8 @@ the context of top level simulation.
 
 %%%%%%%%%%%%%%%% Analytical Heat Transport %%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Analytical Models of Heat Transport}\label{sec:analytical_heat}
+\section{Analytical Models of Heat 
+Transport}\label{sec:analytical_heat}
 
 \subsection{Impact of Repository Designs}
 
@@ -137,51 +152,66 @@ the context of top level simulation.
 
 \paragraph{Unsaturated Tuff}
 
-Two heat load constraints primarily determine the heat-based SNF capacity limit in the Yucca 
-Mountain Repository design, which is located in unsaturated tuff. Thermal limits in that design are intended to passively steward 
-the repository's integrity against radionuclide release for the upcoming 10,000 years.
+Two heat load constraints primarily determine the heat-based SNF 
+capacity limit in the Yucca Mountain Repository design, which is 
+located in unsaturated tuff. Thermal limits in that design are 
+intended to passively steward the repository's integrity against 
+radionuclide release for the upcoming 10,000 years.
 
-The first constraint intends to prevent repository flooding and subsequent contaminated water flow 
-through the repository. It requires that the minimum temperature in the granite tuff between drifts 
-be no more than the boiling temperature of water which, at the altitude in question, is 
-$96^{\circ}C$. This is effectively a limit on the temperature halfway between adjacent drifts, where 
-the temperature will be at a minimum.
+The first constraint intends to prevent repository flooding and 
+subsequent contaminated water flow through the repository. It requires 
+that the minimum temperature in the granite tuff between drifts be no 
+more than the boiling temperature of water which, at the altitude in 
+question, is $96^{\circ}C$. This is effectively a limit on the 
+temperature halfway between adjacent drifts, where the temperature 
+will be at a minimum.
 
-The second constraint intends to prevent high rock temperatures that induce fractures and would 
-increase leach rates. It states that no part of the rock reach a temperature above $200^{\circ}C$, 
-and is effectively a limit on the temperature at the drift wall, where the rock temperature is a 
-maximum.  
+The second constraint intends to prevent high rock temperatures that 
+induce fractures and would increase leach rates. It states that no 
+part of the rock reach a temperature above $200^{\circ}C$, and is 
+effectively a limit on the temperature at the drift wall, where the 
+rock temperature is a maximum.  
 
 \subsection{Specific Temperature Integral}
 
-Line loading ($t/m$) and areal power density ($W/km^2$) are two common metrics for describing the 
-fullness of the repository. While these metrics are informative for mass capacity and power capacity 
-respectively, they fail to reflect differences in thermal behavior due to varying SNF compositions.  
-A closer look at the isotopics of the situtation has proven much more applicable to thermal 
-performance studies of the repository, and the preferred method in the current literature relies on 
-specific temperature integrals.
+Line loading ($t/m$) and areal power density ($W/km^2$) are two common 
+metrics for describing the fullness of the repository. While these 
+metrics are informative for mass capacity and power capacity 
+respectively, they fail to reflect differences in thermal behavior due 
+to varying SNF compositions.  A closer look at the isotopics of the 
+situtation has proven much more applicable to thermal performance 
+studies of the repository, and the preferred method in the current 
+literature relies on specific temperature integrals.
 
 
-Specific Temperature Integrals model the thermal source as linear along the repository 
-drifts, similar to the line loading and areal power density metrics. However, a temperate integral 
-takes account of heat transfer behavior in the rock, includes the effects of myriad SNF 
-compositions, and gives the thermal integration over time for any specific location within the rock.  
-Man-Sung Yim calls this the Specific Temperature Increase method\cite{YimSTI} though other 
-researchers have other names for this method. Tracy Radel calls her temperature metric at a point in 
-the rock the Specific Temperature Change.\cite{radel_repository_2007}
+Specific Temperature Integrals model the thermal source as linear 
+along the repository drifts, similar to the line loading and areal 
+power density metrics. However, a temperate integral takes account of 
+heat transfer behavior in the rock, includes the effects of myriad SNF 
+compositions, and gives the thermal integration over time for any 
+specific location within the rock.  Man-Sung Yim calls this the 
+Specific Temperature Increase method\cite{YimSTI} though other 
+researchers have other names for this method. Tracy Radel calls her 
+temperature metric at a point in the rock the Specific Temperature 
+Change.\cite{radel_repository_2007}
 
-In a repository with linear drifts, the Heat flux from the drifts can be expressed as the superposition of the linear heat flux 
-contributions of all the radionuclides in the waste. Each radionuclide contributes in proportion to 
-its decay heat generation and its weight fraction of the SNF. With information about isotopic 
-composition of the SNF, the Specific Temperature Increase can determine the maximum thermal capacity 
-of the repository in terms of tonnes/m. The length based accounting in $\frac{t}{m}$ is converted to 
-$\frac{t}{Repository}$ by multiplication with the total emplacement tunnel length of the repository. 
-In the case of Yucca Mountain, this was 67 km.
+In a repository with linear drifts, the Heat flux from the drifts can 
+be expressed as the superposition of the linear heat flux 
+contributions of all the radionuclides in the waste. Each radionuclide 
+contributes in proportion to its decay heat generation and its weight 
+fraction of the SNF. With information about isotopic composition of 
+the SNF, the Specific Temperature Increase can determine the maximum 
+thermal capacity of the repository in terms of tonnes/m. The length 
+based accounting in $\frac{t}{m}$ is converted to 
+$\frac{t}{Repository}$ by multiplication with the total emplacement 
+tunnel length of the repository.  In the case of Yucca Mountain, this 
+was 67 km.
 
 
 %%%%%%%%%%%%%%%% Detailed Stand-Alone Repository Analyses %%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Detailed, Stand-Alone Repository Codes}\label{sec:detailed_codes}
+\section{Detailed, Stand-Alone Repository 
+Codes}\label{sec:detailed_codes}
 
 \subsection{European RED-IMPACT}
 
@@ -193,11 +223,14 @@ In the case of Yucca Mountain, this was 67 km.
 
 %%%%%%%%%%%%%%%% Systems Analysis Repository Capabilities %%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Repository Analysis Capbabilities Within Systems Analysis Codes}\label{sec:SA_repos}
-% The total system performance assessment is one type. Repository modules incorporated into VISION 
-% and whatnot are another type.  Things to ask about each of them include:
+\section{Repository Analysis Capbabilities Within Systems Analysis 
+Codes}\label{sec:SA_repos}
+% The total system performance assessment is one type. Repository 
+% modules incorporated into VISION and whatnot are another type.  
+% Things to ask about each of them include:
 % Which geologies do they model?
-% How long do they take to run?  Are they proprietary?  How well validated are they?
+% How long do they take to run?  Are they proprietary?  How well 
+% validated are they?
 
 \subsection{VISION}
 
@@ -215,11 +248,14 @@ In the case of Yucca Mountain, this was 67 km.
 
 \section{System Level Analyses of Repository Performance} 
 
-Fuel cycle sensitivity analyses emphasizing used fuel disposition and wastie management in the Yucca 
-Mountain Repository (YMR) have been conducted by Li, Piet, Wilson, and Ahn. With a focus on YMR 
-capacity benefit, repository performance metrics of interest for these analyses were heat, source 
-term, and more global envrionmental impact metrics. Sensitivity analyses for other geologies were 
-conducted concerning repository concepts relevant to other nations as well. See Table \ref{tab:red}.
+Fuel cycle sensitivity analyses emphasizing used fuel disposition and 
+wastie management in the Yucca Mountain Repository (YMR) have been 
+conducted by Li, Piet, Wilson, and Ahn. With a focus on YMR capacity 
+benefit, repository performance metrics of interest for these analyses 
+were heat, source term, and more global envrionmental impact metrics. 
+Sensitivity analyses for other geologies were conducted concerning 
+repository concepts relevant to other nations as well. See Table 
+\ref{tab:red}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% RED-IMPACT Table %%%%%%%%%%%%
@@ -240,105 +276,139 @@ conducted concerning repository concepts relevant to other nations as well. See 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-The statutory limit of once-through, thermal PWR waste is 70,000 tonnes SNF. That is to say, the 
-statutory line load limit is approximately 1.04 tonnes/m for 67km of planned emplacement tunnels 
-(with 81 meters between drifts). The Office of Civilian Radioactive Waste Management Science and 
-Engineering Report gives this basic ``statutory limit", but suggests an inherent design flexibility 
-that could allow for expansion. The ``full inventory" Yucca Mountain design alternative gives a 
-maximum repository capacity of 97,000 tonnes. In addition, the current design for the repository has 
-flexibility for ``additional repository capacity" which would give a 119,000 tonne capacity at 1.04 
-tonnes/m.\cite{OCRWMSciEng} 
+The statutory limit of once-through, thermal PWR waste is 70,000 
+tonnes SNF. That is to say, the statutory line load limit is 
+approximately 1.04 tonnes/m for 67km of planned emplacement tunnels 
+(with 81 meters between drifts). The Office of Civilian Radioactive 
+Waste Management Science and Engineering Report gives this basic 
+``statutory limit", but suggests an inherent design flexibility that 
+could allow for expansion. The ``full inventory" Yucca Mountain design 
+alternative gives a maximum repository capacity of 97,000 tonnes. In 
+addition, the current design for the repository has flexibility for 
+``additional repository capacity" which would give a 119,000 tonne 
+capacity at 1.04 tonnes/m.\cite{OCRWMSciEng} 
 
-Specific Temperature Change analysis by Radel, Wilson, et al. find a maximum thermal capcity of 1.09 
-tonnes/m for commercial SNF (at an ELF of $49 GWd_{th}/m$).\cite{radel_effect_2007} 
+Specific Temperature Change analysis by Radel, Wilson, et al. find a 
+maximum thermal capcity of 1.09 tonnes/m for commercial SNF (at an ELF 
+of $49 GWd_{th}/m$).\cite{radel_effect_2007} 
 
-Elongation of cooling times has the potential to expand the capacity of the repository. `Cooling 
-time' refers to delaying complete loading of the repository. Longer cooling times allow high heat, 
-short lived isotopes to decay to lower activity before they begin to heat the repository. Much of 
-the benefit to repository capacity comes from the advantage that the cooling time allows a decrease 
-in the space between emplacement drifts. Aged SNF has lower heat flux and so, the drift spacing can 
-be decreased from 81 to 70 meters. A study by Man-Sung Yim and colleagues at North Carolina state 
-found that for a representative commercial SNF composition a cooling time of 75 years allows for 
-over 100 MTU SNF disposal without expanding the Yucca Mountain footprint.\cite{li_examining_2007}
+Elongation of cooling times has the potential to expand the capacity 
+of the repository. `Cooling time' refers to delaying complete loading 
+of the repository. Longer cooling times allow high heat, short lived 
+isotopes to decay to lower activity before they begin to heat the 
+repository. Much of the benefit to repository capacity comes from the 
+advantage that the cooling time allows a decrease in the space between 
+emplacement drifts. Aged SNF has lower heat flux and so, the drift 
+spacing can be decreased from 81 to 70 meters. A study by Man-Sung Yim 
+and colleagues at North Carolina state found that for a representative 
+commercial SNF composition a cooling time of 75 years allows for over 
+100 MTU SNF disposal without expanding the Yucca Mountain 
+footprint.\cite{li_examining_2007}
 
-Similarly, age based fuel mixing also allows for decreases in drift spacing. In aged based fuel 
-mixing, aged (long cool time) SNF is loaded in a mixture with young SNF. This age based fuel mixing 
-has been shown to achieve a $48\%$ increase in the repository capacity as constrained by heat 
-load.\cite{nicholson_thermal_2007} This factor uses a fiducial default footprint of $4.6 km^2$ used 
-in the NRC TSPA. The reported $48\%$ increase in capacity results in total repository capacity of 
-103,600 tonnes.\cite{williams_contract_2001}
+Similarly, age based fuel mixing also allows for decreases in drift 
+spacing. In aged based fuel mixing, aged (long cool time) SNF is 
+loaded in a mixture with young SNF. This age based fuel mixing has 
+been shown to achieve a $48\%$ increase in the repository capacity as 
+constrained by heat load.\cite{nicholson_thermal_2007} This factor 
+uses a fiducial default footprint of $4.6 km^2$ used in the NRC TSPA. 
+The reported $48\%$ increase in capacity results in total repository 
+capacity of 103,600 tonnes.\cite{williams_contract_2001}
 
-In addition to variable drift spacing, other modifications to repository layout have had promising 
-results in terms of heat-limited repository capacity. The Electric Power Research Institute (EPRI) 
-in their Room at the Mountain study found that with redesign of the repository an increased capacity 
-of at least $400\%$ (295 tonnes once-through SNF) and up to $900\%$ (663 tonnes) could be expected 
-to be achieved. Proposed design changes include decreased spacing between drifts, a larger areal 
-footprint, vertical expansion into second and third levels of repository space, and hybrid solutions 
-involving combinations of these ideas. In particular, EPRI suggests either an expansion of the 
-footprint with redesign of the current Upper Block line load design plan or a multi-level plan that 
-repeats the footprint and line load design of the current plan.\cite{kessler_room_2006}
+In addition to variable drift spacing, other modifications to 
+repository layout have had promising results in terms of heat-limited 
+repository capacity. The Electric Power Research Institute (EPRI) in 
+their Room at the Mountain study found that with redesign of the 
+repository an increased capacity of at least $400\%$ (295 tonnes 
+once-through SNF) and up to $900\%$ (663 tonnes) could be expected to 
+be achieved. Proposed design changes include decreased spacing between 
+drifts, a larger areal footprint, vertical expansion into second and 
+third levels of repository space, and hybrid solutions involving 
+combinations of these ideas. In particular, EPRI suggests either an 
+expansion of the footprint with redesign of the current Upper Block 
+line load design plan or a multi-level plan that repeats the footprint 
+and line load design of the current plan.\cite{kessler_room_2006}
 
 \input{litrev/footprint_tab}
 
 \subsection{Radiotoxicity and Source Term Constraints}
 
-The exposure limit set by the NRC is based on a `reasonably exposed individual.' That is to say, the 
-limiting case is a person who lives, grows food, drinks water and breathes air 18 km downstream from 
-the repository. The Yucca Mountain Repository legistlative regulations limit total dose from the 
-repository to 15 mrem/yr, and limit dose from drinking water to 4 mrem/yr. Predictions of that dose 
-rate depend on an enormous variety of factors. The primary pathway of radionuclides from an 
-accidental release will be from cracking aged canisters. Transport of the radionuclides to the water 
-table requires that the leakages come in contact with water and travel through the rock the water 
-table. This results in contamination of drinking water downstream.  
+The exposure limit set by the NRC is based on a `reasonably exposed 
+individual.' That is to say, the limiting case is a person who lives, 
+grows food, drinks water and breathes air 18 km downstream from the 
+repository. The Yucca Mountain Repository legistlative regulations 
+limit total dose from the repository to 15 mrem/yr, and limit dose 
+from drinking water to 4 mrem/yr. Predictions of that dose rate depend 
+on an enormous variety of factors. The primary pathway of 
+radionuclides from an accidental release will be from cracking aged 
+canisters. Transport of the radionuclides to the water table requires 
+that the leakages come in contact with water and travel through the 
+rock the water table. This results in contamination of drinking water 
+downstream.  
 
 \subsection{Radiotoxicity and Source Term Metrics}
 
-Source term is a measure of the quantity of a radionuclide released into the environment and 
-radiotoxicity is a measure of the hazardous effect of that particular radionuclide upon human 
-ingestion. In particular, radiotoxicity is measured in terms of the volume of water dilution 
-required to make it safe to ingest. Studies of source term and radiotoxicity therefore make 
-probabilistic assessments of radionuclide release, transport, and human exposure. The probabilistic 
-nature of these assessments mean a direct dependence of source term on repository capacity can be 
-difficult to arrive at. In order to give informative values for the risk associated with transport 
-of particular radionuclides, for example, studies make hundred thousand year predictions about waste 
-form degredation, water flow, etc.  
+Source term is a measure of the quantity of a radionuclide released 
+into the environment and radiotoxicity is a measure of the hazardous 
+effect of that particular radionuclide upon human ingestion. In 
+particular, radiotoxicity is measured in terms of the volume of water 
+dilution required to make it safe to ingest. Studies of source term 
+and radiotoxicity therefore make probabilistic assessments of 
+radionuclide release, transport, and human exposure. The probabilistic 
+nature of these assessments mean a direct dependence of source term on 
+repository capacity can be difficult to arrive at. In order to give 
+informative values for the risk associated with transport of 
+particular radionuclides, for example, studies make hundred thousand 
+year predictions about waste form degredation, water flow, etc.  
 
-A generalized metric of probablistic risk is fairly difficult to arrive at. The Peak Environmental 
-Impact metric from Berkeley \cite{bouvier_comparison_2007}, for example, is a complicated function 
-of spent fuel composition, waste conditioning, vitrification method, and radionuclide transport 
-through the repository walls and rock. Also, it makes the assumption that the waste canisters have 
-been breached at $t=0$. Furthermore, reported in $m^3$, PEI is a measure of radiotoxicity in the 
-environment in the event of total breach. While informative, this model on its own does not 
-completely determine a source-term limited maximum repository capacity. Additional waste package 
-failure and exposed individual radiotoxicity constraints must be incorporated into it.
+A generalized metric of probablistic risk is fairly difficult to 
+arrive at. The Peak Environmental Impact metric from Berkeley 
+\cite{bouvier_comparison_2007}, for example, is a complicated function 
+of spent fuel composition, waste conditioning, vitrification method, 
+and radionuclide transport through the repository walls and rock. 
+Also, it makes the assumption that the waste canisters have been 
+breached at $t=0$. Furthermore, reported in $m^3$, PEI is a measure of 
+radiotoxicity in the environment in the event of total breach. While 
+informative, this model on its own does not completely determine a 
+source-term limited maximum repository capacity. Additional waste 
+package failure and exposed individual radiotoxicity constraints must 
+be incorporated into it.
 
 \subsection{Current Wisdom}
-It has been shown with a great degree of uncertainty ($~50\%$) that the peak dose rate from a full, 
-base case repository will occur in 300,000 years, and will reach no greater than 2.6 
+It has been shown with a great degree of uncertainty ($~50\%$) that 
+the peak dose rate from a full, base case repository will occur in 
+300,000 years, and will reach no greater than 2.6 
 mrem/yr.\cite{li_methodology_2006}
 
-The Total System Performance Assessment on the other hand conservatively predicts a peak mean dose 
-rate in the first million years (where the peak occurs at approximately 300,000 years) to be on the 
-order of 150 mrem/yr.\cite{williams_contract_2001} 
+The Total System Performance Assessment on the other hand 
+conservatively predicts a peak mean dose rate in the first million 
+years (where the peak occurs at approximately 300,000 years) to be on 
+the order of 150 mrem/yr.\cite{williams_contract_2001} 
 
-Due to the incredible time scale and intrinsic uncertainties required in the probabilistic 
-assessment it is in general not advisable to base any maximum repository capacity estimates on 
-source term. However, source term is a useful metric for the comparison of alternative separations 
-and fuel cycle scenarios.
+Due to the incredible time scale and intrinsic uncertainties required 
+in the probabilistic assessment it is in general not advisable to base 
+any maximum repository capacity estimates on source term. However, 
+source term is a useful metric for the comparison of alternative 
+separations and fuel cycle scenarios.
 
 \subsection{Factors Affecting Source Term}
-A source term model will incorporate waste package failure rate, nuclide dissolution rate, and 
-advective transfer rate. Waste package failure rate depends on near field environmental factors such 
-as pH and humidity as well as decay heat and radiative damage anticipated from the contained waste.  
-In turn, the nuclide release rate from the waste package depends on the character of the waste form 
-matrix, treatment of water flow, nuclide solubility and the elemental diffusion constant. Similarly, 
-advective transfer through the granite tuff also depends on water flow, nuclide solubility, and 
-nuclide diffusion, but is employed in the context of the hydrogeology of the rock.   
+A source term model will incorporate waste package failure rate, 
+nuclide dissolution rate, and advective transfer rate. Waste package 
+failure rate depends on near field environmental factors such as pH 
+and humidity as well as decay heat and radiative damage anticipated 
+from the contained waste.  In turn, the nuclide release rate from the 
+waste package depends on the character of the waste form matrix, 
+treatment of water flow, nuclide solubility and the elemental 
+diffusion constant. Similarly, advective transfer through the granite 
+tuff also depends on water flow, nuclide solubility, and nuclide 
+diffusion, but is employed in the context of the hydrogeology of the 
+rock.   
 
-\paragraph{Waste package failure rate} varies between models. While some employ a simulation code 
-called EBSFAIL, a part of the EBSPAC module used in the TSPA code, other models incorporate their 
-own hydrogeologic approximations of canister degredation, and still others assume immediate waste 
-canister failure in order to focus on dissolution and transfer.  \newline
+\paragraph{Waste package failure rate} varies between models. While 
+some employ a simulation code called EBSFAIL, a part of the EBSPAC 
+module used in the TSPA code, other models incorporate their own 
+hydrogeologic approximations of canister degredation, and still others 
+assume immediate waste canister failure in order to focus on 
+dissolution and transfer.  \newline
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% WP Failure Modes Table %%%%%%%%%
@@ -346,124 +416,164 @@ canister failure in order to focus on dissolution and transfer.  \newline
 \input{litrev/wpfail_tab}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{Nuclide dissolution rate} can also be understood as nuclide release rate from the waste 
-packages, and is the rate of mass transfer of a nuclide from its waste matrix into the saturation 
-water. Models calculating  nuclide dissolution rate have assumed waste package failure insofar as 
-the water is assumed to saturate the waste matrix. The mode of water flowthrough heavily effects 
-nuclide dissolution rate and is treated differently in various models. While some, inspired by the 
-TSP assessment, assume water moves through the waste packages at a constant volumetric rate 
-(`flowthrough model'), others adopt less conservative assumptions incorporating weather based 
-predictions of hydrogeologic activity. as directly proportional to the nuclide concentration in some 
-cases,  \paragraph{Advective transfer rate} through the granite tuff is dependent upon diffusion 
-through the rock as well as water speed, etc. The diffusion coefficient varies per nuclide and is 
-heavily dependent upon the concentration of that nuclide in the flowthrough water. This is just 
-Fick's First Law.  \begin{equation}
+\paragraph{Nuclide dissolution rate} can also be understood as nuclide 
+release rate from the waste packages, and is the rate of mass transfer 
+of a nuclide from its waste matrix into the saturation water. Models 
+calculating  nuclide dissolution rate have assumed waste package 
+failure insofar as the water is assumed to saturate the waste matrix. 
+The mode of water flowthrough heavily effects nuclide dissolution rate 
+and is treated differently in various models. While some, inspired by 
+the TSP assessment, assume water moves through the waste packages at a 
+constant volumetric rate (`flowthrough model'), others adopt less 
+conservative assumptions incorporating weather based predictions of 
+hydrogeologic activity. as directly proportional to the nuclide 
+concentration in some cases,  \paragraph{Advective transfer rate} 
+through the granite tuff is dependent upon diffusion through the rock 
+as well as water speed, etc. The diffusion coefficient varies per 
+nuclide and is heavily dependent upon the concentration of that 
+nuclide in the flowthrough water. This is just Fick's First Law.  
+\begin{equation}
 J = -D\frac{\delta\phi}{\delta x}
 \end{equation}
 
-\paragraph{Source term dependence on concentration} has a significant effect on potential repository 
-capacity. Sensitivity to concentration complicates the viability of alternate loading schemes as 
-well as waste separation scenarios. Radionuclide concentration has been shown to be proportional to 
-the waste package loading configuration.\cite{ahn_relationship_2002,kawasaki_congruent_2004}
+\paragraph{Source term dependence on concentration} has a significant 
+effect on potential repository capacity. Sensitivity to concentration 
+complicates the viability of alternate loading schemes as well as 
+waste separation scenarios. Radionuclide concentration has been shown 
+to be proportional to the waste package loading 
+configuration.\cite{ahn_relationship_2002,kawasaki_congruent_2004}
 
-The dissolution rate and the advective transfer rate of a nuclide through granite tuff are typically 
-be taken to depend directly upon the diffusion coefficient of that nuclide, which for some nuclides 
-is heavily dependent upon the concentration of that nuclide relative to the flowthrough water. 
+The dissolution rate and the advective transfer rate of a nuclide 
+through granite tuff are typically be taken to depend directly upon 
+the diffusion coefficient of that nuclide, which for some nuclides is 
+heavily dependent upon the concentration of that nuclide relative to 
+the flowthrough water. 
 
-\subsubsection{Ahn Models (\cite{ahn_environmental_2004, ahn_environmental_2007})}
+\subsubsection{Ahn Models (\cite{ahn_environmental_2004, 
+ahn_environmental_2007})}
 
 \paragraph{Basic Flowthrough Path}
-Waste canisters are modelled as compartments of waste matrix surrounded by a buffer layer which is 
-in turn surrounded by layers of near field rock and far field rock. Water is introduced to the 
-system at a constant rate, and encounters an array of failed waste packages (at $t=0$ in the 2004 
-model, and at $T_f=75,000$ years in the 2007 model). The water immediately begins dissolving the 
-waste matrix. Nuclides with higher solubilities are preferentially dissolved and treated with a 
-`congruent release' model discussed below. Nuclides with lower solubilities are transported through 
-the buffer with the alternative `solubility limited release model. The water flow begins at one 
-waste package and travels through the matrix and buffer space to the next waste package, contacting 
-each waste package consecutively and then flowing on into the near field. In this way, the water is 
-increasingly contaminated as its path through the waste packages proceeds.  \paragraph{Congruent 
-Release Model} Nuclides with a high solubility coefficient are modeled with the congruent release 
-model. Nuclides of this type include most of the fission products, but not the actinides. This model 
-states that the release from the waste packages is congruent with the dissolution of the waste 
-matrix and is transported through the rock by advective transfer with the water that flows through 
-the waste packages.  \paragraph{Solubility Limited Release Model}
-Nuclides with lower solubility coefficients are modeled with the solubility limited release model.  
-Solubility values are assumed from TSPA for this model, and a solubility of $~5\times 1^{-2} 
-[mol/m^3]$ are taken to be `low.' Elements in this `low' category include the toxic actinides such 
-as Zr, Nb, Sn, Th, and Ra. This model suggests that a dominant mode of dissolution of the nuclide 
-into the flowthrough water is dominated instead by the diffusion coefficient, which is largely 
-dependent upon the concentration gradient between the waste matrix and the water. The mass balance 
-driving nuclide release takes the form:
+Waste canisters are modelled as compartments of waste matrix 
+surrounded by a buffer layer which is in turn surrounded by layers of 
+near field rock and far field rock. Water is introduced to the system 
+at a constant rate, and encounters an array of failed waste packages 
+(at $t=0$ in the 2004 model, and at $T_f=75,000$ years in the 2007 
+model). The water immediately begins dissolving the waste matrix. 
+Nuclides with higher solubilities are preferentially dissolved and 
+treated with a `congruent release' model discussed below. Nuclides 
+with lower solubilities are transported through the buffer with the 
+alternative `solubility limited release model. The water flow begins 
+at one waste package and travels through the matrix and buffer space 
+to the next waste package, contacting each waste package consecutively 
+and then flowing on into the near field. In this way, the water is 
+increasingly contaminated as its path through the waste packages 
+proceeds.  \paragraph{Congruent Release Model} Nuclides with a high 
+solubility coefficient are modeled with the congruent release model. 
+Nuclides of this type include most of the fission products, but not 
+the actinides. This model states that the release from the waste 
+packages is congruent with the dissolution of the waste matrix and is 
+transported through the rock by advective transfer with the water that 
+flows through the waste packages.  \paragraph{Solubility Limited 
+Release Model}
+Nuclides with lower solubility coefficients are modeled with the 
+solubility limited release model.  Solubility values are assumed from 
+TSPA for this model, and a solubility of $~5\times 1^{-2} [mol/m^3]$ 
+are taken to be `low.' Elements in this `low' category include the 
+toxic actinides such as Zr, Nb, Sn, Th, and Ra. This model suggests 
+that a dominant mode of dissolution of the nuclide into the 
+flowthrough water is dominated instead by the diffusion coefficient, 
+which is largely dependent upon the concentration gradient between the 
+waste matrix and the water. The mass balance driving nuclide release 
+takes the form:
 \begin{equation}
 \dot{m_i}=8\epsilon D_eS_iL\sqrt{\frac{Ur_0}{\pi D_e}}
 \end{equation}
-where $\epsilon$, U, $r_0$, and L are the geometric and hydrogeologic factors porosity, water 
-velocity, waste package radius, and waste package length, repsectively. $D_e$ is the diffusion 
-coefficient ($m^2/yr$) of the element \emph{e} and $S_i$ is the isotope's solubility ($kg/m^3$).
+where $\epsilon$, U, $r_0$, and L are the geometric and hydrogeologic 
+factors porosity, water velocity, waste package radius, and waste 
+package length, repsectively. $D_e$ is the diffusion coefficient 
+($m^2/yr$) of the element \emph{e} and $S_i$ is the isotope's 
+solubility ($kg/m^3$).
 
 \subsubsection{Li Model\cite{li_methodology_2006}}
 
 \paragraph{Basic Flowthrough Path}
-As a function of time, water enters the Engineered Barrier System and corrodes the waste packages.  
-These fail and from the failed waste packages nuclides are released according to advective transfer.  
-Further transportation through the near and far field rock medium is modeled in two modes, one 
-representing the Unsaturated Zone, and one representing the Saturated Zone.
+As a function of time, water enters the Engineered Barrier System and 
+corrodes the waste packages.  These fail and from the failed waste 
+packages nuclides are released according to advective transfer.  
+Further transportation through the near and far field rock medium is 
+modeled in two modes, one representing the Unsaturated Zone, and one 
+representing the Saturated Zone.
 
-\paragraph{Waste package failure and nuclide release} are modeled with two TSPA code modules called 
-EBSFAIL and EPSREL. The waste package failure rate is determined from EBSFAIL which incorporates 
-waste form chemistry, humidity, oxidation, etc and upon contact from water begins the degradation 
-process. The results of EBSFAIL become the input to EBSREL which models corresponding nuclide 
-release from those failed waste packages. Mass balance governing the nuclide release rate in this 
-model allows advective transfer to dominate and takes the form:
+\paragraph{Waste package failure and nuclide release} are modeled with 
+two TSPA code modules called EBSFAIL and EPSREL. The waste package 
+failure rate is determined from EBSFAIL which incorporates waste form 
+chemistry, humidity, oxidation, etc and upon contact from water begins 
+the degradation process. The results of EBSFAIL become the input to 
+EBSREL which models corresponding nuclide release from those failed 
+waste packages. Mass balance governing the nuclide release rate in 
+this model allows advective transfer to dominate and takes the form:
 \begin{equation}
 \dot{m_i}=w_{li}(t)-w_{ci}{t}-m_i\lambda_i+m_{i-1}\lambda_{i-1}\nonumber
 \end{equation}
-In this expression, $w_{li}(t)$ is the rate $[mol/yr]$ of isotope \emph{i} leached into the water.  
-It is a function of water flow rate, chemistry, and isotope solubility. $m_i$ describes the mass of 
-isotope \emph{i}, and $\lambda_i$ describes its decay constant. Finally, $w_{ci}(t)$ describes the 
-advective transfer rate $[mol/yr]$ of the isotope \emph{i}. This model defines $w_{ci}$ as:
+In this expression, $w_{li}(t)$ is the rate $[mol/yr]$ of isotope 
+\emph{i} leached into the water.  It is a function of water flow rate, 
+chemistry, and isotope solubility. $m_i$ describes the mass of isotope 
+\emph{i}, and $\lambda_i$ describes its decay constant. Finally, 
+$w_{ci}(t)$ describes the advective transfer rate $[mol/yr]$ of the 
+isotope \emph{i}. This model defines $w_{ci}$ as:
 \begin{equation}
 w_{ci}(t)=C_i(t)q_{out}(t)
-\end{equation} where $q_out$ is the volumetric flow rate of the water $[m^3/yr]$, and $C_i = 
-m_i/V_{wp}$ in $[mol/m^3]$. These assumptions fail to take into account any differences in the 
-varying solubilities of the isotopes, but are quite sensitive to the concentration of an isotope 
-\emph{i} in the waste package volume.  
+\end{equation} where $q_out$ is the volumetric flow rate of the water 
+$[m^3/yr]$, and $C_i = m_i/V_{wp}$ in $[mol/m^3]$. These assumptions 
+fail to take into account any differences in the varying solubilities 
+of the isotopes, but are quite sensitive to the concentration of an 
+isotope \emph{i} in the waste package volume.  
 
-\paragraph{The Unsaturated Zone} lies between the repository and the water table. This model 
-describes transport time in the porous rock as:
+\paragraph{The Unsaturated Zone} lies between the repository and the 
+water table. This model describes transport time in the porous rock 
+as:
 \begin{equation}
 T_a= \frac{X_u}{U_u}R_{du}
 \end{equation}
-where X is length of the unsaturated zone, U is the pore velocity of the water $[m/yr]$ and $R_{iu}$ 
-is the retardation factor for the isotope \emph{i}. The retardation factor is poorly described here, 
-but in general denotes migration distance of the solute over that of the solvent. Presumably, this 
-factor incorporates isotope specific characteristics and is independent of or weakly dependent on 
+where X is length of the unsaturated zone, U is the pore velocity of 
+the water $[m/yr]$ and $R_{iu}$ is the retardation factor for the 
+isotope \emph{i}. The retardation factor is poorly described here, but 
+in general denotes migration distance of the solute over that of the 
+solvent. Presumably, this factor incorporates isotope specific 
+characteristics and is independent of or weakly dependent on 
 concentration.  
 
-\paragraph{The Saturated Zone} lies below the water table. At this point, the nuclide transport is 
-taken to be completely advective, nuclide independent, and congruent with the volumetric flow of the 
+\paragraph{The Saturated Zone} lies below the water table. At this 
+point, the nuclide transport is taken to be completely advective, 
+nuclide independent, and congruent with the volumetric flow of the 
 water within the water table. 
 
 \subsection{Independent Fuel Cycle Parameters}
-Independent fuel cycle parameters of particular interest in fuel cycle systems analysis have been 
-those related to the front end of the fuel cycle. Deployment decisions concerning reactor types, 
-fast to thermal reactor ratios, and burnup rates can all be independently varied in fuel cycle 
-simulation codes in such a way as to inform domestic policy decisiong going forward. A Some of these 
-parameters are coupled, however, to aspects of the back end of the fuel cycle. For example, the 
-appropriate fast reactor ratio is significantly altered by the chosen method and magnitude of 
-domestic spent fuel reprocessing (or not).
+Independent fuel cycle parameters of particular interest in fuel cycle 
+systems analysis have been those related to the front end of the fuel 
+cycle. Deployment decisions concerning reactor types, fast to thermal 
+reactor ratios, and burnup rates can all be independently varied in 
+fuel cycle simulation codes in such a way as to inform domestic policy 
+decisiong going forward. A Some of these parameters are coupled, 
+however, to aspects of the back end of the fuel cycle. For example, 
+the appropriate fast reactor ratio is significantly altered by the 
+chosen method and magnitude of domestic spent fuel reprocessing (or 
+not).
 
-However, independent variables representing decisions concerning the back end of the fuel cycle are 
-of increasing interest as the United States further investigates repository alternatives to Yucca 
-Mountain. Parameters such as the repository geology, tunnel design, and appropriate loading 
-strategies and schedule are all independent variables up for debate. That said, some of these 
-parameters are coupled with decisions about the fuel cycle. 
+However, independent variables representing decisions concerning the 
+back end of the fuel cycle are of increasing interest as the United 
+States further investigates repository alternatives to Yucca Mountain. 
+Parameters such as the repository geology, tunnel design, and 
+appropriate loading strategies and schedule are all independent 
+variables up for debate. That said, some of these parameters are 
+coupled with decisions about the fuel cycle. 
 
-The point then, is that while independent parameters can be chosen and varied within a fuel cycle 
-simulation, some parameters are coupled in such a way as to require full synthesis with a systems 
-analysis code that appropriately determines the isotpic mass flows into the repository, their 
-appropriate conditioning, densities, and other physical properties.  
+The point then, is that while independent parameters can be chosen and 
+varied within a fuel cycle simulation, some parameters are coupled in 
+such a way as to require full synthesis with a systems analysis code 
+that appropriately determines the isotpic mass flows into the 
+repository, their appropriate conditioning, densities, and other 
+physical properties.  
 
 %
 %   * repository
@@ -560,50 +670,65 @@ appropriate conditioning, densities, and other physical properties.
 % TSPA - Think about Stephen L. Turner Document ( lessons learned ).
 % TSPA for wipp?
 % Sweden?
-% France?  Figure out which repositories acutally exist in the world. There's certainly a repository 
-% for each. 
+% France?  Figure out which repositories acutally exist in the world. 
+% There's certainly a repository for each. 
 
 \subsection{Models Incorporated into Systems Analysis Codes}
 
 
 %%%% FIX THIS TO AVOID PLAIGARIZING!! %%
-To date, most of these top-level simulators ignore the waste disposal phase entirely and simply 
-report a metric that measures the accumulated spent nuclear fuel and other wastes without 
-considering the impact of those waste streams on the performance of the geologic disposal system.  A 
-wider variety of waste management metrics will be necessary to fully inform the decision making 
-process, especially metrics that depend on the performance of the geologic disposal system.  A model 
-for repository capacity was developed for the VISION fuel cycle simulator [3] and recent efforts on 
-the NUWASTE simulator [4] have made some progress in addressing this deficiency, but many similar 
-efforts are lacking in this regard.  The DOE-NE Fuel Cycle Technology (FCT) program has three groups 
-of relevance to this effort.  These are the FCT Used Fuel Disposition (UFD), the Separations/Waste 
-Form (SWF), and System Analysis (SA) campaigns.  The SA campaign is developing the overall fuel 
-cycle simulation tools and interfaces with the other FCT campaigns, including UFD.  The UFD campaign 
-is conducting the RD\&D related to the storage, transportation, and disposal of radioactive wastes 
-generated under both the current and potential advanced fuel cycles.  The SWF campaign is conducting 
-RD\&D on potential waste forms that could be used to effectively isolate the wastes that would be 
-generated in advanced fuel cycles.  The SWF and UFD campaigns are developing the fundamental tools 
-and information base regarding the performance of waste forms and geologic disposal systems.  This 
-effort will interface with those campaigns to utilize the tools and information to develop the 
-higher-level dominant physics representations for use in fuel cycle system analysis tools.  The 
-scope of work encompasses the implementation of a comprehensive software library of medium fidelity 
-models to represent the thermal behavior and long-term disposal system performance of different 
-disposal system concepts in different geologic media for deployment in a modular systems analysis 
-platform.  This work will leverage upon previous work by the lead institution (Lead) to model 
-repository behavior as a function of the contents of the waste as well as recent developments by the 
-Lead to modularly incorporate dominant physics process models into a computational fuel cycle 
-analysis platform.  It will also rely on conceptual framework development and primary data 
-collection underway at the primary partner institution (Partner) and through interfaces with the FCT 
-program participants (Partner).  This integrated simulation tool will be demonstrated with 
-performance analysis of potential advanced fuel cycle options.  Key metrics will be demonstrated and 
-initial uncertainty/sensitivity analyses will be conducted
+To date, most of these top-level simulators ignore the waste disposal 
+phase entirely and simply report a metric that measures the 
+accumulated spent nuclear fuel and other wastes without considering 
+the impact of those waste streams on the performance of the geologic 
+disposal system.  A wider variety of waste management metrics will be 
+necessary to fully inform the decision making process, especially 
+metrics that depend on the performance of the geologic disposal 
+system.  A model for repository capacity was developed for the VISION 
+fuel cycle simulator [3] and recent efforts on the NUWASTE simulator 
+[4] have made some progress in addressing this deficiency, but many 
+similar efforts are lacking in this regard.  The DOE-NE Fuel Cycle 
+Technology (FCT) program has three groups of relevance to this effort.  
+These are the FCT Used Fuel Disposition (UFD), the Separations/Waste 
+Form (SWF), and System Analysis (SA) campaigns.  The SA campaign is 
+developing the overall fuel cycle simulation tools and interfaces with 
+the other FCT campaigns, including UFD.  The UFD campaign is 
+conducting the RD\&D related to the storage, transportation, and 
+disposal of radioactive wastes generated under both the current and 
+potential advanced fuel cycles.  The SWF campaign is conducting RD\&D 
+on potential waste forms that could be used to effectively isolate the 
+wastes that would be generated in advanced fuel cycles.  The SWF and 
+UFD campaigns are developing the fundamental tools and information 
+base regarding the performance of waste forms and geologic disposal 
+systems.  This effort will interface with those campaigns to utilize 
+the tools and information to develop the higher-level dominant physics 
+representations for use in fuel cycle system analysis tools.  The 
+scope of work encompasses the implementation of a comprehensive 
+software library of medium fidelity models to represent the thermal 
+behavior and long-term disposal system performance of different 
+disposal system concepts in different geologic media for deployment in 
+a modular systems analysis platform.  This work will leverage upon 
+previous work by the lead institution (Lead) to model repository 
+behavior as a function of the contents of the waste as well as recent 
+developments by the Lead to modularly incorporate dominant physics 
+process models into a computational fuel cycle analysis platform.  It 
+will also rely on conceptual framework development and primary data 
+collection underway at the primary partner institution (Partner) and 
+through interfaces with the FCT program participants (Partner).  This 
+integrated simulation tool will be demonstrated with performance 
+analysis of potential advanced fuel cycle options.  Key metrics will 
+be demonstrated and initial uncertainty/sensitivity analyses will be 
+conducted
 
-\subsubsection{NUWASTE} Nuclear Waste Technical Review Board code that determines many metrics about 
-the fuel cycle according to various parameters. \cite{NuwastePres} 
+\subsubsection{NUWASTE} Nuclear Waste Technical Review Board code that 
+determines many metrics about the fuel cycle according to various 
+parameters. \cite{NuwastePres} 
 
 \subsubsection{VISION}
 % VISION
-VISION's repository model conducts decay calculations and tracks upwards of 83 isotopes of interest 
-in the nuclear fuel cycle. \cite{VISION} Are there wasteform models in VISION?
+VISION's repository model conducts decay calculations and tracks 
+upwards of 83 isotopes of interest in the nuclear fuel cycle. 
+\cite{VISION} Are there wasteform models in VISION?
 \subsubsection{DANESS}
 % DANESS
 \subsubsection{COSI}
@@ -616,48 +741,63 @@ in the nuclear fuel cycle. \cite{VISION} Are there wasteform models in VISION?
 \subsubsection{NFCSS}
 % get rest of this list from MLDG paper.
 \section{Geochemical Migration Models}
-% Some mathematical models describing aqueous isotope transport in geologic settings are available 
-% absent of Engineered Barier Systems and the like. These solely model host rock transport.  
-% ``PHREEQC version 2 is a computer program written in the C programming language that is designed 
-% to perform a wide variety of low-temperature aqueous geochemical calculations. PHREEQC is based on 
-% an ion-association aqueous model and has capabilities for (1) speciation and saturation-index 
-% calculations; (2) batch-reaction and one-dimensional (1D) transport calculations involving 
-% reversible reactions, which include aqueous, mineral, gas, solid-solution, surface-complexation, 
-% and ion-exchange equilibria, and irreversible reactions, which include specified mole transfers of 
-% reactants, kinetically controlled reactions, mixing of solutions, and temperature changes; and (3) 
-% inverse modeling, which finds sets of mineral and gas mole transfers that account for differences 
-% in composition between waters, within specified compositional uncertainty limits.''
-% GTMCHEM — a simulation environment which “deterministically” models the one-dimensional migration 
-% of radionuclides through the geosphere up to the biosphere. Focusing on scenario and parametric 
-% uncertainty, we show that mean predicted maximum doses to humans on the earth's surface due to 
-% 1–129, and uncertainty bands around those predictions, are larger when scenario uncertainty is 
-% properly assessed and propagated. .
+% Some mathematical models describing aqueous isotope transport in 
+% geologic settings are available absent of Engineered Barier Systems 
+% and the like. These solely model host rock transport.  ``PHREEQC 
+% version 2 is a computer program written in the C programming 
+% language that is designed to perform a wide variety of 
+% low-temperature aqueous geochemical calculations. PHREEQC is based 
+% on an ion-association aqueous model and has capabilities for (1) 
+% speciation and saturation-index calculations; (2) batch-reaction and 
+% one-dimensional (1D) transport calculations involving reversible 
+% reactions, which include aqueous, mineral, gas, solid-solution, 
+% surface-complexation, and ion-exchange equilibria, and irreversible 
+% reactions, which include specified mole transfers of reactants, 
+% kinetically controlled reactions, mixing of solutions, and 
+% temperature changes; and (3) inverse modeling, which finds sets of 
+% mineral and gas mole transfers that account for differences in 
+% composition between waters, within specified compositional 
+% uncertainty limits.''
+% GTMCHEM — a simulation environment which “deterministically” models 
+% the one-dimensional migration of radionuclides through the geosphere 
+% up to the biosphere. Focusing on scenario and parametric 
+% uncertainty, we show that mean predicted maximum doses to humans on 
+% the earth's surface due to 1–129, and uncertainty bands around those 
+% predictions, are larger when scenario uncertainty is properly 
+% assessed and propagated. .
 % Things to ask about each of them include:
 % Which geologies do they model?
-% How long do they take to run?  Are they proprietary?  How well validated are they?
+% How long do they take to run?  Are they proprietary?  How well 
+% validated are they?
 \section{Waste Form Models}
 \subsection{TAD Canisters}
-% The canisters proposed for transportation, aging and disposal are called TAD canisters.  They are 
-% two concentric cylinders of steel and alloy22 inside and out respectively. 
+% The canisters proposed for transportation, aging and disposal are 
+% called TAD canisters.  They are two concentric cylinders of steel 
+% and alloy22 inside and out respectively. 
 \subsection{Borosilicate Glass}
-% Current borosilicate glass: Includes processing chemicals from original separations, with U/Pu 
-% removed, but minor actinides and Cs/Sr remaining
-% Potential borosilicate glass: No minor actinides and/or no Cs/Sr; Mo may be removed to increase 
-% glass loading of radionuclides; it has alower volumetric heat rate
+% Current borosilicate glass: Includes processing chemicals from 
+% original separations, with U/Pu removed, but minor actinides and 
+% Cs/Sr remaining
+% Potential borosilicate glass: No minor actinides and/or no Cs/Sr; Mo 
+% may be removed to increase glass loading of radionuclides; it has 
+% alower volumetric heat rate
 \subsection{Glass Ceramic}
-% Glass Ceramic:  This is glass-bonded sodalite from Echem processing of EBR-II, and from potential 
-% future Echem processing of oxide fuels o Metal Alloy: This includes subcategories
+% Glass Ceramic:  This is glass-bonded sodalite from Echem processing 
+% of EBR-II, and from potential future Echem processing of oxide fuels 
+% o Metal Alloy: This includes subcategories
 \subsection{Metal Alloy}
-% Metal alloy from Echem: Includes cladding as well as noble metals that did not dissolve in the 
-% Echem dissolution
-% Metal alloy from aqueous reprocessing:  Includes undissolved solids and transition metal fission 
-% products
+% Metal alloy from Echem: Includes cladding as well as noble metals 
+% that did not dissolve in the Echem dissolution
+% Metal alloy from aqueous reprocessing:  Includes undissolved solids 
+% and transition metal fission products
 \subsection{Advanced Ceramic}
-% Advanced Ceramic: An advanced waste form that includes iodine volatilized during chopping, which 
-% is then gettered during head-end processing of used fuels
+% Advanced Ceramic: An advanced waste form that includes iodine 
+% volatilized during chopping, which is then gettered during head-end 
+% processing of used fuels
 \subsection{Separated Streams}
-% Other:  Examples include radionuclides removed from other waste forms (e.g., Cs/Sr, I, C), as well 
-% as new waste forms such as a salt waste form
+% Other:  Examples include radionuclides removed from other waste 
+% forms (e.g., Cs/Sr, I, C), as well as new waste forms such as a salt 
+% waste form
 \subsection{Classes A, B, and C waste}
 % Lower Than High Level Waste (LTHLW): Includes Classes A, B, and C
 \subsection{GTCC LTHLW}
