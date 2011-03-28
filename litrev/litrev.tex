@@ -33,25 +33,21 @@ waste package depends on the character of the waste form matrix,
 treatment of water flow, nuclide solubility and the elemental 
 diffusion constant.  Similarly, advective transfer through the 
 engineered barrier system and into the geological medium also depends 
-on water flow, nuclide solubility, and nuclide diffusion, but is i
+on water flow, nuclide solubility, and nuclide diffusion, but must be 
 employed in the context of the hydrogeology of the rock.   
 
 %%%%
 
 \subsection{Waste Matrix Release Models}
 
-\subsubsection{Hedin Model (\cite{hedin_radionuclide_2002})}
-In the Hedin model of the Swedish KBS repository model, waste matrix
-dissolution is taken to occur at a steady rate. That is, degradation
-and congruent nuclide release occur at a constant rate until the the 
-fuel matrix is wholly degraded. Gradual dissolution of the initial 
-mass $M_{oi}$ of a nulcide $i$ can be described by a production rate 
-$P(t)$,
-\begin{align*}
-  P(t) = M_{oi}D_Fe^{-\lambda t}
-\end{align*}
-where $D_F$ is the dissolution rate of fuel matrix (mass fraction per 
-time) and t is the time since emplacement. 
+\subsubsection{Hedin Model (\cite{hedin_integrated_2002})}
+
+In a saturated fractured rock matrix representative of the KBS-3 
+granitic Swedish repository concept, copper canister waste packages 
+contain a waste matrix, and a bentonite buffer surrounds the canisters 
+within repository drift tunnels. Matrix dissolution within the Hedin 
+model  a rate based model which takes place within the waste package 
+
 
 \subsubsection{Ahn Models (\cite{ahn_environmental_2004, 
 ahn_environmental_2007})}
@@ -74,25 +70,41 @@ proceeds.
 
 \subsubsection{Congruent Release Model} 
 
-In the Ahn models, nuclides with a high solubility coefficient are modeled with the 
-congruent release model.  Nuclides of this type include most of the 
-fission products, but not the actinides. This model states that the 
-release from the waste packages is congruent with the dissolution of 
-the waste matrix and is transported through the rock by advective 
-transfer with the water that flows through the waste packages.  
+In the Ahn models, nuclides with a high solubility coefficient are 
+modeled with the congruent release model.  Nuclides of this type 
+include most of the fission products, but not the actinides. This 
+model states that the release from the waste packages is congruent 
+with the dissolution of the waste matrix and is transported through 
+the rock by advective transfer with the water that flows through the 
+waste packages.  
+
+In the Hedin model of the Swedish KBS repository, waste matrix 
+dissolution is taken to occur at a steady rate within the waste 
+package. That is, degradation and congruent nuclide release occur at a 
+constant rate until the the fuel matrix is wholly degraded, but remain 
+within the waste package until its failure. Gradual dissolution of the 
+initial mass $M_{oi}$ of a nulcide $i$ can be described by a 
+production rate $P(t)$,
+
+\begin{align*}
+  P(t) = M_{oi}D_Fe^{-\lambda t}
+\end{align*}
+where $D_F$ is the dissolution rate of fuel matrix (mass fraction per 
+time) and t is the time since emplacement. 
+
 
 \subsubsection{Solubility Limited Release Model}
 
-In the Ahn models, nuclides with lower solubility coefficients are modeled with the 
-solubility limited release model.  Solubility values are assumed from 
-TSPA for this model, and a solubility of $~5\times 1^{-2} [mol/m^3]$ 
-are taken to be `low.' Elements in this `low' category include the 
-toxic actinides such as Zr, Nb, Sn, Th, and Ra. This model suggests 
-that a dominant mode of dissolution of the nuclide into the 
-flowthrough water is dominated instead by the diffusion coefficient, 
-which is largely dependent upon the concentration gradient between the 
-waste matrix and the water. The mass balance driving nuclide release 
-takes the form:
+In the Ahn models, nuclides with lower solubility coefficients are 
+modeled with the solubility limited release model.  Solubility values 
+are assumed from TSPA for this model, and a solubility of $~5\times 
+1^{-2} [mol/m^3]$ are taken to be `low.' Elements in this `low' 
+category include the toxic actinides such as Zr, Nb, Sn, Th, and Ra.  
+This model suggests that a dominant mode of dissolution of the nuclide 
+into the flowthrough water is dominated instead by the diffusion 
+coefficient, which is largely dependent upon the concentration 
+gradient between the waste matrix and the water. The mass balance 
+driving nuclide release takes the form:
 
 \begin{equation}
 \dot{m_i}=8\epsilon D_eS_iL\sqrt{\frac{Ur_0}{\pi D_e}}
@@ -103,6 +115,19 @@ package length, repsectively. $D_e$ is the diffusion coefficient
 ($m^2/yr$) of the element \emph{e} and $S_i$ is the isotope's 
 solubility ($kg/m^3$).
 
+In the Hedin model of the waste matrix, the amount of solute available 
+within the waste package is solved for, and for nuclides with low 
+solubility, the mass fraction released from the waste matrix is 
+limited by a simplified description of their solubility. That is, 
+
+\begin{align*}
+  m_{1i}(t)\le v_{1i}(t)C_{sol}
+\end{align*}
+
+where the mass $m_{1i}$ $[g]$ of a nuclide, $i$ relased into the waste 
+package void volume $v_1$ in $[m^3]$, at a time t, is limited by 
+constant the maximum concentration, $C_{sol}$ in $[g/m^3]$ at which 
+that nuclide is soluble. \cite{hedin_integrated_2002}
 
 %%%%
 
@@ -117,6 +142,14 @@ solubility ($kg/m^3$).
 \subsubsection{Continuous}
 
 \subsubsection{Instantaneous}
+ 
+The Hedin model of waste package failure is effectively instantaneous, 
+but limited by release resistance coefficient. The release is assumed  
+to occur through a hole in the waste canister that exists throughout 
+the simulation, and the resistance coefficient limiting flow through 
+the hole represents the magnitude of the canister flaw in combination
+with the buffer-geosphere interface. 
+\cite{hedin_integrated_2002}
 
 \subsubsection{Probabilistic}
 
@@ -511,16 +544,6 @@ and line load design of the current plan.\cite{kessler_room_2006}
 
 \input{litrev/footprint_tab}
 
-\subsection{Current Wisdom}
-It has been shown with a great degree of uncertainty ($~50\%$) that 
-the peak dose rate from a full, base case repository will occur in 
-300,000 years, and will reach no greater than 2.6 
-mrem/yr.\cite{li_methodology_2006}
-
-The Total System Performance Assessment on the other hand 
-conservatively predicts a peak mean dose rate in the first million 
-years (where the peak occurs at approximately 300,000 years) to be on 
-the order of 150 mrem/yr.\cite{williams_contract_2001} 
 
 Due to the incredible time scale and intrinsic uncertainties required 
 in the probabilistic assessment it is in general not advisable to base 
@@ -552,12 +575,11 @@ conservative assumptions incorporating weather based predictions of
 hydrogeologic activity. as directly proportional to the nuclide 
 concentration in some cases,  
 
-\paragraph{Advective transfer rate} 
-through the granite tuff is dependent upon diffusion through the rock 
-as well as water speed, etc. The diffusion coefficient varies per 
-nuclide and is heavily dependent upon the concentration of that 
-nuclide in the flowthrough water. This is just Fick's First Law.  
-\begin{equation}
+\paragraph{Advective transfer rate} through the granite tuff is 
+dependent upon diffusion through the rock as well as water speed, etc.  
+The diffusion coefficient varies per nuclide and is heavily dependent 
+upon the concentration of that nuclide in the flowthrough water. This 
+is just Fick's First Law.  \begin{equation}
 J = -D\frac{\delta\phi}{\delta x}
 \end{equation}
 
@@ -765,8 +787,8 @@ disposal system.  A wider variety of waste management metrics will be
 necessary to fully inform the decision making process, especially 
 metrics that depend on the performance of the geologic disposal 
 system.  A model for repository capacity was developed for the VISION 
-fuel cycle simulator [3] and recent efforts on the NUWASTE simulator 
-[4] have made some progress in addressing this deficiency, but many 
+fuel cycle simulator \cite{VISION} and recent efforts on the NUWASTE simulator 
+\cite{NUWASTE} have made some progress in addressing this deficiency, but many 
 similar efforts are lacking in this regard.  The DOE-NE Fuel Cycle 
 Technology (FCT) program has three groups of relevance to this effort.  
 These are the FCT Used Fuel Disposition (UFD), the Separations/Waste 
