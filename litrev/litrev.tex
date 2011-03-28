@@ -1,4 +1,4 @@
-\chapter{Literature Review}\label{chap:litrev}
+\chapter{Literature Review}\label{ch:litrev}
 The following literature review addresses five areas of current 
 research integral to the work at hand. The contribution of 
 computational nuclear fuel cycle simulation tools to sensitivity 
@@ -17,22 +17,102 @@ processes within the context of top level simulation.
 
 %%%%%%%%%%%%%%%% Analytical Nuclide Transport %%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Analytical Models of Nuclide 
-Transport}\label{sec:analytical_nuc}
+\section{Analytical Models of Nuclide Transport} 
+\label{sec:analytical_nuc}
 
+A comprehensive model of radiotoxic source term must address nuclide 
+transport through the full release pathway including waste packages, 
+engineered barrier systems, and geologic media. A model of transport 
+through the waste package must incorporate waste package failure rate, 
+nuclide release rate via waste matrix dissolution, and advective 
+transfer rate into the engineered barrier system.  Waste package 
+failure rate depends on near field environmental factors such as pH 
+and humidity as well as decay heat and radiative damage anticipated 
+from the contained waste.  In turn, the nuclide release rate from the 
+waste package depends on the character of the waste form matrix, 
+treatment of water flow, nuclide solubility and the elemental 
+diffusion constant.  Similarly, advective transfer through the 
+engineered barrier system and into the geological medium also depends 
+on water flow, nuclide solubility, and nuclide diffusion, but is i
+employed in the context of the hydrogeology of the rock.   
 
 %%%%
 
 \subsection{Waste Matrix Release Models}
 
-\subsubsection{Congruent Release}
+\subsubsection{Hedin Model (\cite{hedin_radionuclide_2002})}
+In the Hedin model of the Swedish KBS repository model, waste matrix
+dissolution is taken to occur at a steady rate. That is, degradation
+and congruent nuclide release occur at a constant rate until the the 
+fuel matrix is wholly degraded. Gradual dissolution of the initial 
+mass $M_{oi}$ of a nulcide $i$ can be described by a production rate 
+$P(t)$,
+\begin{align*}
+  P(t) = M_{oi}D_Fe^{-\lambda t}
+\end{align*}
+where $D_F$ is the dissolution rate of fuel matrix (mass fraction per 
+time) and t is the time since emplacement. 
 
-\subsubsection{Solubility Limited Release}
+\subsubsection{Ahn Models (\cite{ahn_environmental_2004, 
+ahn_environmental_2007})}
+
+Waste canisters are modelled as compartments of waste matrix 
+surrounded by a buffer layer which is in turn surrounded by layers of 
+near field rock and far field rock. Water is introduced to the system 
+at a constant rate, and encounters an array of failed waste packages 
+(at $t=0$ in the 2004 model, and at $T_f=75,000$ years in the 2007 
+model). The water immediately begins dissolving the waste matrix.  
+Nuclides with higher solubilities are preferentially dissolved and 
+treated with a `congruent release' model discussed below. Nuclides 
+with lower solubilities are transported through the buffer with the 
+alternative `solubility limited' release model. The water flow begins 
+at one waste package and travels through the matrix and buffer space 
+to the next waste package, contacting each waste package consecutively 
+and then flowing on into the near field. In this way, the water is 
+increasingly contaminated as its path through the waste packages 
+proceeds.  
+
+\subsubsection{Congruent Release Model} 
+
+In the Ahn models, nuclides with a high solubility coefficient are modeled with the 
+congruent release model.  Nuclides of this type include most of the 
+fission products, but not the actinides. This model states that the 
+release from the waste packages is congruent with the dissolution of 
+the waste matrix and is transported through the rock by advective 
+transfer with the water that flows through the waste packages.  
+
+\subsubsection{Solubility Limited Release Model}
+
+In the Ahn models, nuclides with lower solubility coefficients are modeled with the 
+solubility limited release model.  Solubility values are assumed from 
+TSPA for this model, and a solubility of $~5\times 1^{-2} [mol/m^3]$ 
+are taken to be `low.' Elements in this `low' category include the 
+toxic actinides such as Zr, Nb, Sn, Th, and Ra. This model suggests 
+that a dominant mode of dissolution of the nuclide into the 
+flowthrough water is dominated instead by the diffusion coefficient, 
+which is largely dependent upon the concentration gradient between the 
+waste matrix and the water. The mass balance driving nuclide release 
+takes the form:
+
+\begin{equation}
+\dot{m_i}=8\epsilon D_eS_iL\sqrt{\frac{Ur_0}{\pi D_e}}
+\end{equation}
+where $\epsilon$, U, $r_0$, and L are the geometric and hydrogeologic 
+factors porosity, water velocity, waste package radius, and waste 
+package length, repsectively. $D_e$ is the diffusion coefficient 
+($m^2/yr$) of the element \emph{e} and $S_i$ is the isotope's 
+solubility ($kg/m^3$).
 
 
 %%%%
 
 \subsection{Waste Package Failure Models}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% WP Failure Modes Table %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{litrev/wpfail_tab}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Continuous}
 
@@ -52,6 +132,51 @@ Transport}\label{sec:analytical_nuc}
 %%%%
 
 \subsection{Hydrogeologic Transport Models}
+
+\subsubsection{Solute Transport in Permeable Porous Media}
+Clay, granite, salt, and shale can larely be characterized as 
+permeable porous media.
+
+% Solute Transport in permeable porous media
+% advection - transport at the velocity of water flow
+% hydraulic dispersion - transport due to anisotropies in the water 
+% velocity feild. It depends on concentration of solute, darcy 
+% velocity, and dispersivity.
+% diffusion - is from random brownian motion, tends to homogenize 
+% concentration field.
+%
+
+The equation representing solute transport in a permeable medium of 
+homogenous porosity can be written
+\begin{align*}
+  \frac{\partial \omega C}{\partial t} & = - \nabla \cdot  (F_c + 
+  F_{dc} + F_d) + m \intertext{where}
+   \omega &= \mbox{ solute accessible porosity } [\%]\\
+   C &= \mbox{ concentration } [kg \cdot m^{-3}]\\
+   F_c &= \mbox{ convetive flow } [kg \cdot m^{-2}\cdot s^{-1}]\\
+       &= qC \\
+   F_{dc} &= \mbox{ dispersive flow } [kg \cdot m^{-2}\cdot s^{-1}]\\
+       &= \alpha q \nabla C  \\
+   F_d &= \mbox{ diffusive flow } [kg \cdot m^{-2}\cdot s^{-1}]\\
+       &= D_e \nabla C\\
+   m &= \mbox{ solute source } [kg \cdot m^{-2}\cdot s^{-1}].\\
+\end{align*}
+In the expressions above,
+\begin{align*}
+  q &= \mbox{ Darcy velocity } [m\cdot s^{-1}] \\ \alpha &= \mbox{ 
+  dispersivity } [m] \intertext{and}
+  D_e &= \mbox{ effective diffusion coefficient } [m^2\cdot s^{-1}] 
+  .\\ \end{align*}
+The method by which the dominant solute transport mode is determined 
+for a particular porous medium is by use of the dimensionless Peclet 
+number,
+\begin{align*}
+  Pe &= \frac{qL}{\alpha q + D_e},
+  \intertext{where}
+  L &= \mbox{ transport distance } [m].\\
+\end{align*}
+
+
 
 \subsubsection{Reducing Environments}
 
@@ -148,7 +273,63 @@ Transport}\label{sec:analytical_heat}
 
 \subsection{Impact of Repository Designs}
 
+\subsection{Heat Limits in Various Waste Packages}
+% The CEA and ANDRA take 90$^\circ$C to be the maximum temperature for 
+% spent fuel waste packages. The reason for this is to remain within 
+% well understood limits of material evolution of waste packages and 
+% the surrounding (clay) repository. \cite{argile_geo_evo}  
+
+% Confinement capabilities of bitumen waste packages (B packages in 
+% ANDRA Argile evaluation) is only confident below 70$^\circ$C. Uncide 
+% the ``disposal cells'' a maximum temperature of 30$\circ$C is 
+% adopted.
+
+
 \subsection{Heat Limits in Various Geologies}
+
+\subsubsection{Clay}
+% Well understood behavior for agrillaceous clay is taken by the CEA 
+% to occur under 90$^\circ$C, as with the waste packages in this 
+% geology.
+% 
+% ``This low permeability of the Callovo-Oxfordian, linked to low 
+% hydraulic head gradients on either side of the formation, controls 
+% slow vertical water flow (Inset 3.5). The velocities of this water 
+% flow are fairly different in detail because of the medium's pore 
+% structure. Moreover, some pores are not connected and cannot take 
+% part in the water flow. A so-called kinematic porosity is therefore 
+% defined, which is a fraction of total porosity, used macroscopically 
+% to calculate mean water flow velocity in the direction of the 
+% hydraulic head gradient. For the Callovo-Oxfordian, this kinematic 
+% porosity has been taken as being the same as the fraction of free 
+% water in the rock, i.e. about 9 %, corresponding to half the total 
+% porosity. The very low permeability determines average flow speeds 
+% within the layer (Darcy velocity, inset 3.5) at around 3 cm per 
+% 100,000 years, which corresponds to a water transfer velocity of 
+% about 30 cm per 100,000 years, considering the kinematic porosity.
+% \cite{argile_geo_evo}
+
+% Water flow in a porous medium is dominated by darcy flow.  This 
+% would be a great place to describe darcy's law! 
+
+\subsubsection{Granite}
+
+\subsubsection{Salt}
+Response of a salt repository to heat has a significant mechanical 
+component. Bulk heating of a salt repository matrix causes coalescing  
+of the salt surrounding the heat source. In the case of a nuclear 
+waste repository, this phenomenon increases isolation capability of 
+the salt. A heat limit, then, is difficult to characterize, but 
+evolution of the heat in a salt environment is of great importance to 
+nuclide transport modeling. 
+
+A model of temperature dependent salt coalescent behavior is is order. 
+
+% WIPP, system model
+% Germany, GRS concept
+
+\subsubsection{Shale}
+
 
 \paragraph{Unsaturated Tuff}
 
@@ -252,7 +433,7 @@ Fuel cycle sensitivity analyses emphasizing used fuel disposition and
 wastie management in the Yucca Mountain Repository (YMR) have been 
 conducted by Li, Piet, Wilson, and Ahn. With a focus on YMR capacity 
 benefit, repository performance metrics of interest for these analyses 
-were heat, source term, and more global envrionmental impact metrics. 
+were heat, source term, and more global envrionmental impact metrics.  
 Sensitivity analyses for other geologies were conducted concerning 
 repository concepts relevant to other nations as well. See Table 
 \ref{tab:red}.
@@ -310,7 +491,7 @@ spacing. In aged based fuel mixing, aged (long cool time) SNF is
 loaded in a mixture with young SNF. This age based fuel mixing has 
 been shown to achieve a $48\%$ increase in the repository capacity as 
 constrained by heat load.\cite{nicholson_thermal_2007} This factor 
-uses a fiducial default footprint of $4.6 km^2$ used in the NRC TSPA. 
+uses a fiducial default footprint of $4.6 km^2$ used in the NRC TSPA.  
 The reported $48\%$ increase in capacity results in total repository 
 capacity of 103,600 tonnes.\cite{williams_contract_2001}
 
@@ -330,49 +511,6 @@ and line load design of the current plan.\cite{kessler_room_2006}
 
 \input{litrev/footprint_tab}
 
-\subsection{Radiotoxicity and Source Term Constraints}
-
-The exposure limit set by the NRC is based on a `reasonably exposed 
-individual.' That is to say, the limiting case is a person who lives, 
-grows food, drinks water and breathes air 18 km downstream from the 
-repository. The Yucca Mountain Repository legistlative regulations 
-limit total dose from the repository to 15 mrem/yr, and limit dose 
-from drinking water to 4 mrem/yr. Predictions of that dose rate depend 
-on an enormous variety of factors. The primary pathway of 
-radionuclides from an accidental release will be from cracking aged 
-canisters. Transport of the radionuclides to the water table requires 
-that the leakages come in contact with water and travel through the 
-rock the water table. This results in contamination of drinking water 
-downstream.  
-
-\subsection{Radiotoxicity and Source Term Metrics}
-
-Source term is a measure of the quantity of a radionuclide released 
-into the environment and radiotoxicity is a measure of the hazardous 
-effect of that particular radionuclide upon human ingestion. In 
-particular, radiotoxicity is measured in terms of the volume of water 
-dilution required to make it safe to ingest. Studies of source term 
-and radiotoxicity therefore make probabilistic assessments of 
-radionuclide release, transport, and human exposure. The probabilistic 
-nature of these assessments mean a direct dependence of source term on 
-repository capacity can be difficult to arrive at. In order to give 
-informative values for the risk associated with transport of 
-particular radionuclides, for example, studies make hundred thousand 
-year predictions about waste form degredation, water flow, etc.  
-
-A generalized metric of probablistic risk is fairly difficult to 
-arrive at. The Peak Environmental Impact metric from Berkeley 
-\cite{bouvier_comparison_2007}, for example, is a complicated function 
-of spent fuel composition, waste conditioning, vitrification method, 
-and radionuclide transport through the repository walls and rock. 
-Also, it makes the assumption that the waste canisters have been 
-breached at $t=0$. Furthermore, reported in $m^3$, PEI is a measure of 
-radiotoxicity in the environment in the event of total breach. While 
-informative, this model on its own does not completely determine a 
-source-term limited maximum repository capacity. Additional waste 
-package failure and exposed individual radiotoxicity constraints must 
-be incorporated into it.
-
 \subsection{Current Wisdom}
 It has been shown with a great degree of uncertainty ($~50\%$) that 
 the peak dose rate from a full, base case repository will occur in 
@@ -391,17 +529,6 @@ source term is a useful metric for the comparison of alternative
 separations and fuel cycle scenarios.
 
 \subsection{Factors Affecting Source Term}
-A source term model will incorporate waste package failure rate, 
-nuclide dissolution rate, and advective transfer rate. Waste package 
-failure rate depends on near field environmental factors such as pH 
-and humidity as well as decay heat and radiative damage anticipated 
-from the contained waste.  In turn, the nuclide release rate from the 
-waste package depends on the character of the waste form matrix, 
-treatment of water flow, nuclide solubility and the elemental 
-diffusion constant. Similarly, advective transfer through the granite 
-tuff also depends on water flow, nuclide solubility, and nuclide 
-diffusion, but is employed in the context of the hydrogeology of the 
-rock.   
 
 \paragraph{Waste package failure rate} varies between models. While 
 some employ a simulation code called EBSFAIL, a part of the EBSPAC 
@@ -410,24 +537,22 @@ hydrogeologic approximations of canister degredation, and still others
 assume immediate waste canister failure in order to focus on 
 dissolution and transfer.  \newline
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%% WP Failure Modes Table %%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{litrev/wpfail_tab}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \paragraph{Nuclide dissolution rate} can also be understood as nuclide 
 release rate from the waste packages, and is the rate of mass transfer 
 of a nuclide from its waste matrix into the saturation water. Models 
 calculating  nuclide dissolution rate have assumed waste package 
-failure insofar as the water is assumed to saturate the waste matrix. 
+failure insofar as the water is assumed to saturate the waste matrix.  
 The mode of water flowthrough heavily effects nuclide dissolution rate 
 and is treated differently in various models. While some, inspired by 
 the TSP assessment, assume water moves through the waste packages at a 
 constant volumetric rate (`flowthrough model'), others adopt less 
 conservative assumptions incorporating weather based predictions of 
 hydrogeologic activity. as directly proportional to the nuclide 
-concentration in some cases,  \paragraph{Advective transfer rate} 
+concentration in some cases,  
+
+\paragraph{Advective transfer rate} 
 through the granite tuff is dependent upon diffusion through the rock 
 as well as water speed, etc. The diffusion coefficient varies per 
 nuclide and is heavily dependent upon the concentration of that 
@@ -448,51 +573,6 @@ through granite tuff are typically be taken to depend directly upon
 the diffusion coefficient of that nuclide, which for some nuclides is 
 heavily dependent upon the concentration of that nuclide relative to 
 the flowthrough water. 
-
-\subsubsection{Ahn Models (\cite{ahn_environmental_2004, 
-ahn_environmental_2007})}
-
-\paragraph{Basic Flowthrough Path}
-Waste canisters are modelled as compartments of waste matrix 
-surrounded by a buffer layer which is in turn surrounded by layers of 
-near field rock and far field rock. Water is introduced to the system 
-at a constant rate, and encounters an array of failed waste packages 
-(at $t=0$ in the 2004 model, and at $T_f=75,000$ years in the 2007 
-model). The water immediately begins dissolving the waste matrix. 
-Nuclides with higher solubilities are preferentially dissolved and 
-treated with a `congruent release' model discussed below. Nuclides 
-with lower solubilities are transported through the buffer with the 
-alternative `solubility limited release model. The water flow begins 
-at one waste package and travels through the matrix and buffer space 
-to the next waste package, contacting each waste package consecutively 
-and then flowing on into the near field. In this way, the water is 
-increasingly contaminated as its path through the waste packages 
-proceeds.  \paragraph{Congruent Release Model} Nuclides with a high 
-solubility coefficient are modeled with the congruent release model. 
-Nuclides of this type include most of the fission products, but not 
-the actinides. This model states that the release from the waste 
-packages is congruent with the dissolution of the waste matrix and is 
-transported through the rock by advective transfer with the water that 
-flows through the waste packages.  \paragraph{Solubility Limited 
-Release Model}
-Nuclides with lower solubility coefficients are modeled with the 
-solubility limited release model.  Solubility values are assumed from 
-TSPA for this model, and a solubility of $~5\times 1^{-2} [mol/m^3]$ 
-are taken to be `low.' Elements in this `low' category include the 
-toxic actinides such as Zr, Nb, Sn, Th, and Ra. This model suggests 
-that a dominant mode of dissolution of the nuclide into the 
-flowthrough water is dominated instead by the diffusion coefficient, 
-which is largely dependent upon the concentration gradient between the 
-waste matrix and the water. The mass balance driving nuclide release 
-takes the form:
-\begin{equation}
-\dot{m_i}=8\epsilon D_eS_iL\sqrt{\frac{Ur_0}{\pi D_e}}
-\end{equation}
-where $\epsilon$, U, $r_0$, and L are the geometric and hydrogeologic 
-factors porosity, water velocity, waste package radius, and waste 
-package length, repsectively. $D_e$ is the diffusion coefficient 
-($m^2/yr$) of the element \emph{e} and $S_i$ is the isotope's 
-solubility ($kg/m^3$).
 
 \subsubsection{Li Model\cite{li_methodology_2006}}
 
@@ -562,7 +642,7 @@ not).
 
 However, independent variables representing decisions concerning the 
 back end of the fuel cycle are of increasing interest as the United 
-States further investigates repository alternatives to Yucca Mountain. 
+States further investigates repository alternatives to Yucca Mountain.  
 Parameters such as the repository geology, tunnel design, and 
 appropriate loading strategies and schedule are all independent 
 variables up for debate. That said, some of these parameters are 
@@ -670,7 +750,7 @@ physical properties.
 % TSPA - Think about Stephen L. Turner Document ( lessons learned ).
 % TSPA for wipp?
 % Sweden?
-% France?  Figure out which repositories acutally exist in the world. 
+% France?  Figure out which repositories acutally exist in the world.  
 % There's certainly a repository for each. 
 
 \subsection{Models Incorporated into Systems Analysis Codes}
@@ -727,7 +807,7 @@ parameters. \cite{NuwastePres}
 \subsubsection{VISION}
 % VISION
 VISION's repository model conducts decay calculations and tracks 
-upwards of 83 isotopes of interest in the nuclear fuel cycle. 
+upwards of 83 isotopes of interest in the nuclear fuel cycle.  
 \cite{VISION} Are there wasteform models in VISION?
 \subsubsection{DANESS}
 % DANESS
