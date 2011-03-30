@@ -1,18 +1,24 @@
 \chapter{Literature Review}\label{ch:litrev}
+
 The following literature review addresses five areas of current 
 research integral to the work at hand. The contribution of 
 computational nuclear fuel cycle simulation tools to sensitivity 
 analyses of repository performance metrics is first summarized. A 
-review of current computational repository models follows, including 
-both standalone and those incorporated into nuclear fuel cycle 
-simulation tools. Special focus is paid to the availability of 
-supporting data and algorithms informing geochemical and 
-hydrogeological transport on long time scales and in various 
-geologies. Next, an overview is presented of available waste form 
-performance models, and finally, work is reviewed that concerns the 
-need for simplified first order, physics based models of fuel cycle 
-processes within the context of top level simulation.  
+review of analytical models of nuclide transport follows, after which 
+follows a review of analytical models of heat transport. A review of 
+current computational models of heat transport in the waste disposal 
+system context follows, including both 
+standalone and those incorporated into nuclear fuel cycle simulation 
+tools. Finally, an overview of current detailed computational models, 
+available data and algorithms characterizing nuclide transport is 
+given.  Special focus is paid to the availability of supporting data 
+and algorithms informing geochemical and hydrogeological transport on 
+long time scales and in various geologies. 
 
+%Next, an overview is presented of available waste form performance 
+%models, and finally, work is reviewed that concerns the need for 
+%simplified first order, physics based models of fuel cycle processes 
+%within the context of top level simulation.  
 
 
 %%%%%%%%%%%%%%%% Analytical Nuclide Transport %%%%%%%%%%%%%%%%%%%%%%%%
@@ -148,8 +154,7 @@ but limited by release resistance coefficient. The release is assumed
 to occur through a hole in the waste canister that exists throughout 
 the simulation, and the resistance coefficient limiting flow through 
 the hole represents the magnitude of the canister flaw in combination
-with the buffer-geosphere interface. 
-\cite{hedin_integrated_2002}
+with the buffer-geosphere interface.  \cite{hedin_integrated_2002}
 
 \subsubsection{Probabilistic}
 
@@ -787,23 +792,24 @@ disposal system.  A wider variety of waste management metrics will be
 necessary to fully inform the decision making process, especially 
 metrics that depend on the performance of the geologic disposal 
 system.  A model for repository capacity was developed for the VISION 
-fuel cycle simulator \cite{VISION} and recent efforts on the NUWASTE simulator 
-\cite{NUWASTE} have made some progress in addressing this deficiency, but many 
-similar efforts are lacking in this regard.  The DOE-NE Fuel Cycle 
-Technology (FCT) program has three groups of relevance to this effort.  
-These are the FCT Used Fuel Disposition (UFD), the Separations/Waste 
-Form (SWF), and System Analysis (SA) campaigns.  The SA campaign is 
-developing the overall fuel cycle simulation tools and interfaces with 
-the other FCT campaigns, including UFD.  The UFD campaign is 
-conducting the RD\&D related to the storage, transportation, and 
-disposal of radioactive wastes generated under both the current and 
-potential advanced fuel cycles.  The SWF campaign is conducting RD\&D 
-on potential waste forms that could be used to effectively isolate the 
-wastes that would be generated in advanced fuel cycles.  The SWF and 
-UFD campaigns are developing the fundamental tools and information 
-base regarding the performance of waste forms and geologic disposal 
-systems.  This effort will interface with those campaigns to utilize 
-the tools and information to develop the higher-level dominant physics 
+fuel cycle simulator \cite{VISION} and recent efforts on the NUWASTE 
+simulator \cite{NUWASTE} have made some progress in addressing this 
+deficiency, but many similar efforts are lacking in this regard.  The 
+DOE-NE Fuel Cycle Technology (FCT) program has three groups of 
+relevance to this effort.  These are the FCT Used Fuel Disposition 
+(UFD), the Separations/Waste Form (SWF), and System Analysis (SA) 
+campaigns.  The SA campaign is developing the overall fuel cycle 
+simulation tools and interfaces with the other FCT campaigns, 
+including UFD.  The UFD campaign is conducting the RD\&D related to 
+the storage, transportation, and disposal of radioactive wastes 
+generated under both the current and potential advanced fuel cycles.  
+The SWF campaign is conducting RD\&D on potential waste forms that 
+could be used to effectively isolate the wastes that would be 
+generated in advanced fuel cycles.  The SWF and UFD campaigns are 
+developing the fundamental tools and information base regarding the 
+performance of waste forms and geologic disposal systems.  This effort 
+will interface with those campaigns to utilize the tools and 
+information to develop the higher-level dominant physics 
 representations for use in fuel cycle system analysis tools.  The 
 scope of work encompasses the implementation of a comprehensive 
 software library of medium fidelity models to represent the thermal 
