@@ -1,15 +1,18 @@
 \chapter{Introduction}\label{ch:introduction}
+% The scope of the work includes software and analysis.
 
 The scope of this work includes implementation of a comprehensive 
 software library of medium fidelity models to represent the long-term 
 disposal system performance of different disposal system concepts in 
 various geologic media for deployment in a modular systems analysis 
 platform.  This work will model repository behavior as a function of 
-arbitrary spent fuel composition as well as modularly incorporate 
-dominant physics disposal system models into a computational fuel 
-cycle analysis platform.
+arbitrary spent fuel composition by modularly incorporating dominant 
+physics disposal system models into a computational fuel cycle 
+analysis platform.
 
 \section{Motivation} 
+% There needs to be a system level approach to repository analysis 
+% which is both modular and efficient.
 
 The development of sustainable nuclear fuel cycles is a key challenge 
 as the use of nuclear power expands internationally and while fuel 
@@ -18,8 +21,10 @@ metrics, waste management metrics are of particular importance to the
 goal of sustainability. Since disposal options are heavily dependent 
 on upstream fuel cycle decisions, a relevant analysis of potential 
 geological disposal and waste package solutions therefore requires a 
-system level approach. 
+system level approach that is both modular and efficient. 
 
+% The approach must also be modular to support combinatiorically 
+% complex decision space 
 As the merits of numerous combinatoric fuel cycle possibilities are 
 investigated, a top-level simulation tool which will allow modular 
 substitution of various fuel cycle facility, repository, and waste 
@@ -32,6 +37,8 @@ underway in the development of computational tools to quantify these
 metrics and understand the merits of different fuel cycle 
 alternatives. 
 
+% The modeling approach must be efficient in order for many scenarios 
+% to be compared quickly
 System level fuel cycle simulation tools must facilitate efficient 
 simulation of a wide range of fuel cycle alternatives as well as 
 sensitivity and uncertainty analyses. Efficiency is achieved with 
@@ -43,6 +50,7 @@ salient features of the underlying physics is the method by which used
 fuel disposal system models are developed in this work. 
 
 \subsection{Future Fuel Cycle Options}
+% DOE is interested in many fuel cycle options. 
 
 Domestically, nuclear power expansion is motivated by the research, 
 development, and demonstration roadmap being pursued by the United 
@@ -50,7 +58,8 @@ States Department of Energy Office of Nuclear Energy (DOE-NE) which
 seeks to ensure that nuclear energy remain a viable domestic energy 
 option.  \cite{department_of_energy_-_nuclear_energy_nuclear_2010} 
 
-
+% DOE is considering 3 main options, each of which pose different 
+% waste management challenges . . .
 As the DOE-NE seeks to develop technologies and strategies to support 
 a sustainable future for nuclear energy, various fuel cycle strategies 
 and corresponding disposal system options are being considered.  
@@ -60,8 +69,10 @@ categories with the monikers Once Through, Full Recycle, and Modified
 Open, each category presenting unique disposal system siting and 
 design challenges. Systems analyses for evaluating these options must 
 be undertaken in order to inform a national decision to deploy a fuel 
-cycle system by 2050.  \cite{department_of_energy_-_nuclear_energy_nuclear_2010} 
+cycle system by 2050.  
+\cite{department_of_energy_-_nuclear_energy_nuclear_2010} 
 
+% Once through presents capacity issues . . . 
 A Once-Through Cycle represents the continuation of the business as 
 usual case in the United States,  neglecting reprocessing, and 
 presenting the challenges associated with high volumes of minimally 
@@ -76,6 +87,7 @@ volume of spent fuel that will necessitate the siting of two or more
 federal  geological repositories to accomodate spent fuel.  
 \cite{kessler_room_2006} 
 
+% Full Recycle presents the issue of variable waste streams. . .
 A Full Recycle option, on the other hand, requires the research, 
 development, and deployment of partititioning, transmutation, and 
 advanced reactor technology for the reprocessing of used nuclear fuel.  
@@ -89,6 +101,7 @@ under the Full Recycle scenario must adaptively support highly
 variable waste stream composition, as well as myriad waste forms and 
 packaging associated with isolation of differing waste streams.
 
+% Modified Open presents both problems. . . 
 Finally, the Modified Open Cycle category of options includes a 
 variety of fuel cycle options that fall between once through and fully 
 closed. Advanced fuel cycles such as deep burn and small modular 
@@ -97,8 +110,10 @@ options as will partial recycle options. Partitioning and reprocessing
 strategies, however, will be limited to simplified chemical 
 separations and volitilization under this scheme. Spent fuel volumes 
 and composition will vary dramatically among various possibilities 
-within this scheme.  \cite{department_of_energy_-_nuclear_energy_nuclear_2010} 
+within this scheme.  
+\cite{department_of_energy_-_nuclear_energy_nuclear_2010} 
 
+% Various waste streams require various WFs and WPs 
 Clearly, the range of waste streams resulting from potential fuel 
 cycles present an array of corresponding waste disposition, packaging, 
 and engineered barrier system options. A comprehensive analysis of the 
@@ -140,7 +155,7 @@ Heat load limits of various waste forms have their design basis in the
 temperature dependence of isolation integrity of the waste form. The 
 waste form dissolution behavior under heat generation from the 
 contained isotopics constrains loading density within the waste form 
-in an isotope specific way.  
+in a nuclide specific way.  
 
 Heat load limits of various engineered barrier systems similarly have 
 a design basis in the temperature dependent dissolution rate of the 
@@ -268,7 +283,7 @@ the accuracy and efficiency of the possible implementations.
 
 Specifically, geological models will focus on the hydrogeology and 
 thermal physics dominating nuclide transport and heat response in 
-candidate geologies as a function of isotope release and heat 
+candidate geologies as a function of nuclide release and heat 
 generation over long time scales from waste packages.  Disposal site 
 water chemistry (redox state) and dominant transport mechanism 
 (advection or diffusion) will provide primary differentiation between 
@@ -289,15 +304,16 @@ For example, analytic models and semi-empirical models are available
 specific temperature change \cite{radel_effect_2007}) which 
 approximate the thermal response from heat generation in the waste 
 packages as linear along the repository drifts, and arrive at thermal 
-evolution over time at any location in the rock as well as line 
-loading and areal power density metrics.  Such analytic models will 
-first be assessed to determine likely parameters upon which thermal 
-response will rely (e.g. tunnel spacing, nuclide inventories, etc.).
+evolution over time at any location in the rock. Subsequently, this 
+result can be converted easily into conventional line loading and 
+areal power density metrics.  Such analytic models will first be 
+assessed to determine likely parameters upon which thermal response 
+will rely (e.g. tunnel spacing, nuclide inventories, etc.).
 
 Thereafter, a regression analysis concerning those parameters will be 
 undertaken with available detailed models (e.g. 3D finite element 
 codes and full performance assessment models) to further characterize 
-the parametric dependence of thermal loading in a specific geology. 
+the parametric dependence of thermal loading in a specific geology.  
 Finally, the thermal behavior of a repository model so developed will 
 depend on empirical data (e.g.  heat transfer coefficients, water 
 presence etc.). Determination of appropriate values to make available 
@@ -307,23 +323,25 @@ salt, shale, granite). A similar process will be followed for nuclide
 transport models.
 
 The abstraction process in the development of waste form, package, and 
-engineered barrier system models will also employ the comparison of 
-semi-analytic models and analytic regression of rich code results as 
-well as existing empirical material data. 
+engineered barrier system models will be analgous to the abstraction 
+process of repository environment models. Concise models will result 
+from employing the comparison of semi-analytic models of those systems 
+with regression analysis of rich code in combination with existing 
+empirical material data.
 
-For instance, in the case of nuclide release for waste packages, 
+For instance, in the case of nuclide release from waste packages, 
 analytic models of nuclide release (e.g.  congruent or solubility 
 limited) will first be assessed to determine likely parameters upon 
 which nuclide release will rely (e.g.  nuclide concentration, water 
-flow rates, etc.) \cite{kawasaki_congruent_2004}.  Again, regression analysis 
-concerning those parameters will be undertaken with available detailed 
-models to further characterize the parametric dependence of nuclide 
-release from specific waste packages.  Finally, the nuclide release 
-model so developed will depend on empirical data (e.g. the waste 
-package dissolution rate).  Determination of appropriate values to 
-make available within the dominant physics model will rely on existing 
-empirical data concerning the specific package materials being modeled 
-(i.e.  extrapolations of known material failure rates).  
+flow rates, etc.) \cite{kawasaki_congruent_2004}.  Again, regression 
+analysis concerning those parameters will be undertaken with available 
+detailed models to further characterize the parametric dependence of 
+nuclide release from specific waste packages.  Finally, the nuclide 
+release model so developed will depend on empirical data (e.g. the 
+waste package dissolution rate).  Determination of appropriate values 
+to make available within the dominant physics model will rely on 
+existing empirical data concerning the specific package materials 
+being modeled (i.e.  extrapolations of known material failure rates).  
 
 Feedbacks from the geologic media response model on the response of 
 the engineered system, including waste forms, will have to be 
@@ -354,6 +372,16 @@ disposal system components with which they are concerned, and the
 level of detail and computational methodology with which they capture 
 physical phenomena. 
 
+Chapter \ref{ch:paradigm} will detail the computational 
+paradigm with which the components within the repository system are 
+modeled. Modules representing waste form, waste package, buffer, 
+backfill, and engineered barier systems will be defined by their 
+interfaces and their relationships as interconnected modules, 
+distinctly defined, but coupled. This modular paradigm allows exchange  
+of technological options (i.e. borosilicate glass and concrete waste 
+forms) for comparison but also exchange of equivalent models with 
+varying levels of detail.
+
 Chapter \ref{ch:repository} will detail the analytical and regression 
 analysis undertaken to acheive a generic repository model for the 
 chosen base repository type. A concise, dominant physics geological 
@@ -368,7 +396,6 @@ to illuminate behavioral differences between each of the geologic
 systems under consideration.  Verification and validation of 
 abstracted models will be conducted through iterative benchmarking 
 against more detailed repository models.
-
 
 Chapter \ref{ch:ebs} will adapt existing models and data to the 
 development of concise dominant physics waste form, waste package, and 
