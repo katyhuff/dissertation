@@ -1,0 +1,232 @@
+\section{Cyclus Simulator Paradigm }
+
+The \Cyclus project at the University of Wisconsin - Madison is the 
+simulation framework in which this repository model is designed to 
+operate.  Modular features within this software architecture provide a 
+great deal of flexibility, both in terms of modifying the underlying 
+modeling algorithms and exchanging components of a fuel cycle system.
+
+The \Cyclus fuel cycle simulator is the  result of lessons learned 
+from experience with previous nuclear fuel cycle simulation platforms.  
+The modeling paradigm follows the transacation of discrete quanta of 
+material among discrete facilities, arranged in a geographic and 
+institutional framework, and trading in
+flexible markets. Key concepts in the design of \Cyclus include open
+access to the simulation engine, modularity with regard to
+functionality, and relevance to both scientific and policy
+analyses. The combination of modular encapsulation within the
+software architecture and dynamic module loading allows for robust but 
+flexible reconfiguration of the basic building blocks of a simulation 
+without alteration of the simulation framework.  
+
+The modeling paradigm adopted by \Cyclus includes a number of
+fundamental concepts which comprise the bedrock on which other, more
+flexible, design choices have been made. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Dynamic Module Loading}
+
+The ability to dynamically load independently constructed modules is a
+heavy focus of \Cyclus development. Dynamically-loadable modules are
+the primary mechanism for extending \Cyclus' capability. The primary
+benefit of this approach is encapsulation: the trunk of the code is
+completely independent of the individual models. Additionally, any
+customization or extension is implemented only in the loadable
+module. A secondary benefit of this encapsulation is the ability for
+contributors to choose different distribution and licensing strategies
+for their contributions. By allowing models to have varied
+availability, the security concerns of developers can be
+assuaged. Finally, this strategy allows individual developers to
+explore different levels of complexity within their modules, including
+wrapping other simulation tools as loadable modules for \Cyclus. This
+last benefit of dynamically-loadable modules addresses another goal of
+\Cyclus: ubiquity amongst its potential user base. By engineering
+\Cyclus to easily handle varying levels of complexity, a single
+simulation engine can be used by both users keen on big-picture policy
+questions as well as users interested in more detailed, technical
+analyses.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Abstraction}
+
+\Cyclus implements a structure that takes advantage of 
+object-oriented software design techniques in order to create an 
+extensible and modular user and developer interface. A primary 
+workhorse for this implementation is the notion of dynamic module 
+loading in combination with the region institution facility  
+hierarchy. In this paradigm, the shared interface of polymorphic 
+objects is abstracted from the logic of their instantiation by the 
+model definition they inherit. 
+
+In this way, \Cyclus allows a level of abstraction to exist between 
+the simulation and model instantiation 
+as well as between model instantiation and behavior.
+An interface defines the set of shared functions of a set of 
+subclasses in an abstract superclass. In \Cyclus main superclasses are 
+RegionModel, InstitutionModel, FacilityModel, and MarketModel while 
+their subclasses are the concrete types (e.g. RecipeReactorFacility). 
+The interface for the FacilityModel class is the set of 
+virtual functions declared in the Facility class such as getName, 
+getID, executeOrder(), sendMaterial(), receiveMaterial() etc.  Through 
+such an interface, the members of a subclass can be treated as 
+interchangeable (polymorphic) instantiations of their shared 
+superclass. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Modularity and Extensibility}
+
+A modular code will have the traits of encapsulation and abstraction 
+appropriate for a user or developer to flexibly make alterations to 
+the simulation performance with minimal modification to the code. An 
+extensible code should be both robustly suited to the addition of 
+classes and subclasses and communication with other codes. Addition of 
+new models by dynamic loading is possible without any alteration of 
+the software trunk. The modular design of \Cyclus will stresses avoidance of rigidity, in 
+which changes to the code are potentially difficult, and fragility, in 
+which changes to the code are potentially damaging.
+
+\begin{figure}[htbp!]
+  \begin{center}
+    \includegraphics[height=10cm]{./chapters/paradigm/modularity.eps}
+  \end{center}
+  \caption{Modules are defined solely by their interfaces in a modular 
+  paradigm and can be arbitrarily interchanged with modules posessing 
+  equivalent interfaces.}
+  \label{fig:modularity}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Market-based Material Transactions}
+
+The foundation of a simulation is a commodity market that collects 
+offers and requests and matches them according to some algorithm.  The 
+user is able to select which type of algorithm is used for each market 
+by selecting a MarketModel and configure it with a particular set of 
+parameters defined by that MarketModel.  Changing the parameters of a 
+market changes its performance and selecting a different MarketModel 
+completely changes its behavior.
+
+The transaction of nuclear materials takes place in markets that act
+as brokers matching a set of requests for material with a set of
+offers for that material. A variety of market models will be available
+to perform this brokerage role. It is important to note that each
+market is defined for a single commodity and acts independently of
+other markets. Once the requests and offers have been matched by each
+market in a simulation, the facilities exchange material objects.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Region-Institution-Facility Hierarchy}
+
+Many times in a fuel-cycle simulation, parameters describing
+relationships between facilities are required. For instance, one may
+wish to account for the presence of a contract between two facilities,
+or one may wish to model two facilities operated by the same
+entity. Accordingly, \Cyclus implements this ability via a
+Region-Instituion-Facility hierarchy. Every discrete facility in
+\Cyclus is considered to be owned by an institution that operates in a
+geographic region.  An institution can be used to represent any entity
+that may own and operate a facility such as a private corporation, a
+government agency, or a non-governmental organization, among others.
+A region can be used to represent any geographic area, typically a
+politically relevant area such a sub-national region (e.g. a
+U.S. State), a nation-state, or a supranational
+region (e.g. the E.U.).  While some performance parameters of the
+facility may depend on its institutional ownership or geographical
+location, this capability is more useful in modeling the way in which
+a facility engages in a market for trade of nuclear material based on
+its ownership entity and/or region.
+
+For each of the global regions, the user defines available facility 
+configurations that can operate in those markets.  Multiple facility 
+configurations will typically be created in each region, including one 
+or more reactor configurations (AP1000  vs ESBWR vs EPR – or PWR vs.  
+HTGR vs CANDU) and one or more configurations for other facility 
+types.  The user is free to choose the level of detail used in 
+distinguishing one facility configuration from another.  Each facility 
+configuration will either be a supplier in one or more global markets, 
+a consumer in one or more global markets, or both a supplier and 
+consumer in non-intersecting sets of global markets.  The set of 
+facility configurations defines which facilities are available for 
+deployment in a given scenario, but multiple instances of each 
+facility configuration may exist.
+
+A facility configuration is created by selecting a FacilityModel and 
+defining the parameters for that facility configuration using that 
+model.  Each FacilityModel will define its own set of parameters that 
+govern its performance.  The same FacilityModel may be used for 
+multiple facility configurations in the same region, each with 
+parameters values appropriate for that facility configuration.
+
+The repository model which is the subject of this work is a facility 
+model within the \Cyclus simulation paradigm. 
+
+Facilities are deployed to issue offers and requests in these markets.  
+Like markets, the user may select which type of algorithm is used for 
+each facility by selecting a FacilityModel and configure it with a 
+particular set of parameters defined by that FacilityModel.  Changing 
+the parameters of a facility changes its performance and selecting a 
+different FacilityModel completely changes its behavior.  Unlike 
+markets, multiple independent instances of each facility configuration 
+can be deployed to represent individual facilities.
+
+Each instance of a facility is associated with a defined Institution 
+and each institution operates in a geographically defined Region.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Discrete Materials and Facilities}
+
+The \Cyclus modeling infrastructure is designed such that every
+facility in a global nuclear fuel cycle is treated and acts
+individually. While modeling options will exist to allow collective
+action, this will be as a special case of the individual facility
+basis. Each facility has two fundamental tasks: the transaction of
+goods or products with other facilities and the transformation of
+those goods or products from an input form to an output form.  For
+example, a reactor will receive fresh fuel assemblies from a fuel
+fabrication facility, transform them to used used fuel assemblies
+using some approximation of the reactor physics, and supply those used
+fuel assemblies to a storage facility.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Materials}
+
+The Materials class is the primary unit of information in \Cyclus.  
+Materials passed, traded, and modified between and within facilities 
+in the simulation are recorded at every timestep.  This material 
+history is stored in the output dataset of \Cyclus. In addition to 
+holding the map of isotopes and their masses, a material object holds 
+a comprehensive history of its own path as it moves through models 
+within the simulation. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[height=7cm]{./chapters/paradigm/openness.eps}
+  \end{center}
+  \caption{\Cyclus Open Repository Paradigm}
+  \label{fig:openness}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%----------%%%%%%%%%%%%%%%%%%%
+\subsection{Implications for Repository Model}
+
+The above sections outline the fuel cycle simulation platform
+currently under development at the University of Wisconsin at
+Madison in which the repository model at hand is to be implemented. 
+Implemented as a facility within this framework, the repository model 
+interface is defined by the FacilityModel interface defined withint 
+the \Cyclus paradigm. 
+
+Furthermore, the capability for dynamic module loading possible within 
+the \Cyclus paradigm allows the repository system subcomponents to be 
+interchangably loaded at runtime, enabling comparison of various 
+repository subcomponents, physical models of varying levels of detail. 
+
+%%%%%%% As Paul Dirac once said. . . In science one tries to tell
+%%%%%%% people, in such a way as to be understood by everyone,
+%%%%%%% something that no one ever knew before. But in the case of
+%%%%%%% poetry, it's the exact opposite!
+
+

@@ -1,0 +1,120 @@
+\section{Repository Modeling Paradigm}
+The repository model architecture is intended to modularly permit 
+exchange of disposal system subcomponents, accept arbitrary spent fuel 
+streams, and enable extending modules representing new or different 
+component models.
+
+\subsection{Simulation Interface}
+The interface of the repository model with the \Cyclus fuel cycle 
+simulation interface is intended to be minimally restrictive, 
+requiring only that the simulation supply waste stream information and 
+provide a bookkeeping framework with which to record repository 
+performance metrics. 
+
+\subsubsection{Waste Stream Input}
+The repository model must accept arbitrary spent fuel streams.  
+Material objects resulting from the simulated fuel cycle arrive at the  
+repository and are emplaced if all repository capacity limits allow 
+it.
+
+\subsubsection{Repository Performance Metrics Calculated}
+Repository performance metrics that may be calculated from the source 
+term and heat data calculated by the model will cover a broad space of 
+metrics of interest to sustainability goals. 
+
+Some metrics support analyses which seek to maximize safe repository 
+capacity under heat and source term limitations. Those include spatial 
+dimensions, spatial dimensions per kWh or equivalent, repository 
+footprint, and number of waste packages generated.
+
+Still other metrics which may be calculated from the calculations of 
+the repository model include environmental metrics such as peak 
+radiotoxic dose to the public, radiotoxic fluxes released to the 
+biosphere integrated over time, and the minimum managed lifetime. 
+
+\subsubsection{Facility Functionality}
+The repository will behave as a facility within the \Cyclus simulation 
+paradigm. The fundamental facility behavior within \Cyclus involves 
+participating in commodity markets. The repository will participate as 
+a requester of waste commodities. During reactor operation, the 
+repository will make requests to markets dealing in spent fuel streams 
+according to its available capacity..
+
+\subsection{Nested Component Concept}
+The fundamental unit of information in the repository model is the 
+nuclide release at each stage of containment, and the repository model 
+in this work mimics reality treating them as nested elements in a 
+release chain.
+
+\subsubsection{Structure and Linkages}
+Each component passes some information radially outward to the nested 
+component immediately containing it and some information radially 
+inward to the nested component it contains.
+
+Most component models require external information concerning the 
+water volume that has breached containment, so information concerning 
+incoming water volumes is passed radially inward. 
+
+Each component model similarly requires information about the nuclides 
+released from the component it immediately contains.  Thus, nuclide 
+release information is passed radially outward from the waste stream 
+sequentially through each containment layer to the geosphere.
+
+\subsubsection{Concept Generality}<++>
+\subsection{Components of the Nested System}
+\subsubsection{Waste Stream}
+The waste stream data object contains spent fuel isotopics over the 
+course of the simulation. As nuclides are lost from the spent fuel 
+object, it is kept track of in the waste stream object. 
+
+\subsubsection{Waste Form}
+The waste form model will calculate nuclide release due to dissolution 
+of the waste form. Various heuristics by which nuclide release is modeled in 
+accordance with waste form dissolution as well as the method by which 
+the dissolution is modeled.
+
+Dissolution can be instantaneous, rate based, water dependent, heat 
+dependent, or coupled.
+
+Dissolution related release can be modeled as congruent, solubility 
+limited, or both. Some nuclides are immediately accessible, and some 
+tend to remain in the fuel matrix. 
+
+\subsubsection{Waste Package}
+The waste package model calculates nuclide release due to waste 
+pacakge failure. Waste package failure is typically modeled as 
+instantaneous and complete or partial and constant. That is, a delay 
+before full release, or a constantly present hole in the package.
+
+Waste package time to failure is dependent on water contact and heat, 
+but can be modeled as an average, probabilistic, or a rate.
+
+In the case of highly deforming geologic media, such as salt, 
+mechanical failure can be the primary mechanism for release from the 
+waste package.
+
+\subsubsection{Buffer}
+Diffusion is the primary mechanism for nuclide transport through the 
+buffer component of the repository system.  
+
+Salt and borehole repositories may not have a buffer material.
+
+\subsubsection{Backfill}
+Similarly, diffusion is the primary mechanism for nuclide transport 
+throught he buffer component of the repository system.
+
+Borehole repository concepts may not have a backfill material. 
+
+\subsubsection{Tunnel Lining}
+Much like the waste package model, nuclide release is typically 
+modeled as either instantaneous and total or constant and partial. 
+
+\subsubsection{Geological Environment}
+Various hydrogeological models exist to represent travel through 
+porous media, fractured porous media, crystalline media, and clay.
+
+Sudicky and Frind give a model for fractured porous media which 
+analytically captures nuclide mobility due to advection through 
+fractures as well as competing retardation factors including sorption on the 
+fracture walls, diffusion into stagnant fluid in the rock matrix, and 
+sorption into rock matrix walls. 

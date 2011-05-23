@@ -1,17 +1,40 @@
 \chapter{Modeling Paradigm}\label{ch:paradigm}
 
+The modeling paradigm with which this repository model and simulation 
+platform are implemented are here described. Implications of the 
+simulation platform architecture on the design of the repository model 
+are discussed and the interfaces defining components of the repository 
+model follow. 
+
+% Modeling Paradigm of Cyclus
+\input{./chapters/paradigm/cycParadigm}
+
+\input{./chapters/paradigm/repoParadigm}
+
+% Modeling Paradigm of the Repository model
+
+% Structure
+% Conentric objects 
+% 
+% Modularity
+%% Encapsulation
+%% Interfaces
+
+
 % The modeling paradigm is modular
-% The modeling paradigm is like a russian doll 
-% Each component is defined by a generic interface
-% Components include 
-% the waste itself,
-% the waste form,
-% the waste package,
-% the buffer,
-% the backfill, 
-% the tunnel lining,
-% the near field geology
-% and the far field geology
-
-% the interfaces between the models
-
+%% components are within each other like a russian doll
+%% Components include 
+%% the waste itself,
+%% the waste form,
+%% the waste package,
+%% the buffer,
+%% the backfill, 
+%% the tunnel lining,
+%% the near field geology
+%% and the far field geology
+% Each component is defined by its interface
+%% The interface is defined by the functions available to other models
+%% The models within are interchangeable if they share an interface
+% the interfaces between the models are based on information in and 
+% out
+% The
