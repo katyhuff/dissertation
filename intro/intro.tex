@@ -128,22 +128,36 @@ loadings for arbitrary isotopic compositions is therefore required.
 
 \subsection{Future Waste Disposal System Options}
 
-In addition to the reconsideration of the domestic fuel cycle policy, 
-the uncertain future of the Yucca Mountain repository has driven the 
+% DOE is thinking about various geologies
+In addition to reconsideration of the domestic fuel cycle policy, the 
+uncertain future of the Yucca Mountain repository has driven the 
 expansion of the option space of potential repository geologies to 
 include, at the very least, granite, clay, shale, salt, and deep 
-borehole concepts. The physical, hydrogeologic, and geochemical 
-mechanisms which dictate nuclide and heat transport vary between these 
-geological systems.  Therefore, in support of the system level 
-simulation effort, models must be developed which capture the salient 
-physics of these geological options and quantify associated disposal 
-metrics and benefits.  Furthermore, modular linkage between 
-subcomponent process modules and the repository envrionmental model 
-must acheive a cohesively integrated disposal system model. 
+borehole concepts \cite{nutt_used_2010}. 
+
+% Various waste forms, packages, etc. are being considered.
+In accordance with various fuel cycle options, corresponding waste 
+form, waste package, and other engineered barrier systems are being 
+considered. Specifically, current considerations include ceramic (e.g.  
+Uranium Oxide), glass (e.g.  borosilicate glasses), and metallic (e.g.  
+hydride fuels) waste forms.. 
+
+% Various geologies, WFs, WPs, EBSs have various physics
+The physical, hydrogeologic, and geochemical mechanisms which dictate 
+nuclide and heat transport vary between the geological and engineered 
+containment systems in the domestic option space.  Therefore, in 
+support of the system level simulation effort, models must be 
+developed which capture the salient physics of these geological 
+options and quantify associated disposal metrics and benefits.  
+Furthermore, modular linkage between subcomponent process modules and 
+the repository envrionmental model must acheive a cohesively 
+integrated disposal system model. 
 
 
 \subsubsection{Thermal Modeling Needs}
-
+% repository loading limits
+% optimization of layout
+% necessary decay cooling time before emplacement.
 Heat limits within a used nuclear fuel disposal system are waste form, 
 package, and geology dependent. Heat generation from the waste form 
 and transport through the engineered barrier system and host 
@@ -252,14 +266,16 @@ radiotoxicity constraints must be incorporated into it.
 
 \section{Methodology} 
 
+% Scope
 In this work, concise dominant physics models suitable for system 
 level fuel cycle codes will be developed from comparison of analytical 
 models with more detailed repository modeling efforts. The ultimate 
 objective of this effort is to develop a software library capable of 
 assessing a wide range of combinations of fuel cycle alternatives, 
 potential waste forms, repository design concepts, and geological 
-media.  
+media. 
 
+% Categorization
 Categorization and characterization of phyisical mechanisms by which 
 nuclide and thermal transport take place within the materials and 
 media under consideration will first be undertaken. In this way, the 
@@ -270,6 +286,7 @@ which covers a foundational subspace of the parametric domain. Once
 complete, extended models and model variants will be developed to more 
 comprehensively cover the option space.  
 
+% Abstraction = Analytic Solutions + Regression Approximation
 In general, such concise models are a combination of two components: 
 semi-analytic mathematical models that represent a simplified 
 description of the most important physical phenomena, and 
@@ -280,7 +297,7 @@ limited between two models for the same system.  Different approaches
 will be compared in this work, with final modeling choices balancing 
 the accuracy and efficiency of the possible implementations.  
 
-
+% For example, Geology.
 Specifically, geological models will focus on the hydrogeology and 
 thermal physics dominating nuclide transport and heat response in 
 candidate geologies as a function of nuclide release and heat 
@@ -294,26 +311,32 @@ geology and the site in general) and the engineered system (such as
 package loading arrangements, tunnel spacing, and engineered 
 barriers).
 
-The abstraction process in the development of repository environment 
-models will employ the comparison of semi-analytic thermal and 
+% Abstraction in repository environment
+The abstraction process in the development of a geological environment 
+model will employ the comparison of semi-analytic thermal and 
 hydrogeologic models and analytic regression of rich code results as 
 well as existing empirical geologic data.  
 
+% Example, heat from WPs along repo drifts.
 For example, analytic models and semi-empirical models are available 
 (i.e. specific temperature integrals \cite{li_methodology_2006} or 
 specific temperature change \cite{radel_effect_2007}) which 
-approximate the thermal response from heat generation in the waste 
-packages as linear along the repository drifts, and arrive at thermal 
-evolution over time at any location in the rock. Subsequently, this 
-result can be converted easily into conventional line loading and 
-areal power density metrics.  Such analytic models will first be 
-assessed to determine likely parameters upon which thermal response 
-will rely (e.g. tunnel spacing, nuclide inventories, etc.).
+approximate thermal response from heat generation in waste packages as 
+linear along repository drifts. This analysis arrives at a thermal 
+evolution over time at any location in the rock by superpositioning 
+and integration. Subsequently, this result can be converted easily 
+into conventional line loading and areal power density metrics.  Such 
+analytic models will first be assessed to determine likely parameters 
+upon which thermal response will rely (e.g. tunnel spacing, nuclide 
+inventories, etc.).
 
+% Regression.
 Thereafter, a regression analysis concerning those parameters will be 
 undertaken with available detailed models (e.g. 3D finite element 
 codes and full performance assessment models) to further characterize 
 the parametric dependence of thermal loading in a specific geology.  
+
+% Incorporation of empirical data
 Finally, the thermal behavior of a repository model so developed will 
 depend on empirical data (e.g.  heat transfer coefficients, water 
 presence etc.). Determination of appropriate values to make available 
@@ -322,6 +345,7 @@ concerning the specific geologic environment being modeled (i.e. clay,
 salt, shale, granite). A similar process will be followed for nuclide 
 transport models.
 
+% Abstraction for WFs, WPs, EBS, etc. will be the same
 The abstraction process in the development of waste form, package, and 
 engineered barrier system models will be analgous to the abstraction 
 process of repository environment models. Concise models will result 
@@ -329,6 +353,7 @@ from employing the comparison of semi-analytic models of those systems
 with regression analysis of rich code in combination with existing 
 empirical material data.
 
+% Example, nuclide release
 For instance, in the case of nuclide release from waste packages, 
 analytic models of nuclide release (e.g.  congruent or solubility 
 limited) will first be assessed to determine likely parameters upon 
@@ -343,18 +368,19 @@ to make available within the dominant physics model will rely on
 existing empirical data concerning the specific package materials 
 being modeled (i.e.  extrapolations of known material failure rates).  
 
-Feedbacks from the geologic media response model on the response of 
-the engineered system, including waste forms, will have to be 
-considered carefully.  In particular, given the important role of 
-temperature in the system, thermal coupling between the models for the 
-engineered system and the geologic system will be important. Thermal 
-dependence of nuclide release and transport as well as package 
-degradation will necessarily be analyzed to determine the magnitude of 
-coupling effects in the system.
+% Coupling is confusing
+Coupling effects between components will have to be considered 
+carefully.  In particular, given the important role of temperature in 
+the system, thermal coupling between the models for the engineered 
+system and the geologic system will be important. Thermal dependence 
+of nuclide release and transport as well as package degradation will 
+necessarily be analyzed to determine the magnitude of coupling effects 
+in the system.
 
 
 \section{Outline}
 
+% Summarize document
 The following chapter will present a literature review which organizes 
 and reports upon previous relevant work. It will focus upon current 
 analytical and computational modeling of nuclide and heat transport 
@@ -364,6 +390,18 @@ generic geology repository modeling and the state of the art of
 repository modeling and integration within current systems analysis 
 tools. 
 
+% modeling paradigm
+Chapter \ref{ch:paradigm} will detail the computational paradigm with 
+which the components within the repository system are modeled. Modules 
+representing waste form, waste package, buffer, backfill, and 
+engineered barier systems will be defined by their interfaces and 
+their relationships as interconnected modules, distinctly defined, but 
+coupled. This modular paradigm allows exchange  of technological 
+options (i.e. borosilicate glass and concrete waste forms) for 
+comparison but also exchange of equivalent models with varying levels 
+of detail.
+
+% Categorization of current codes and physics
 Chapter \ref{ch:categorization} will categorize and characterize 
 detailed computational models of nuclide and heat transport available 
 for regression analysis. Specificially, detailed codes in current use 
@@ -372,16 +410,7 @@ disposal system components with which they are concerned, and the
 level of detail and computational methodology with which they capture 
 physical phenomena. 
 
-Chapter \ref{ch:paradigm} will detail the computational 
-paradigm with which the components within the repository system are 
-modeled. Modules representing waste form, waste package, buffer, 
-backfill, and engineered barier systems will be defined by their 
-interfaces and their relationships as interconnected modules, 
-distinctly defined, but coupled. This modular paradigm allows exchange  
-of technological options (i.e. borosilicate glass and concrete waste 
-forms) for comparison but also exchange of equivalent models with 
-varying levels of detail.
-
+%
 Chapter \ref{ch:repository} will detail the analytical and regression 
 analysis undertaken to acheive a generic repository model for the 
 chosen base repository type. A concise, dominant physics geological 
@@ -397,29 +426,32 @@ systems under consideration.  Verification and validation of
 abstracted models will be conducted through iterative benchmarking 
 against more detailed repository models.
 
-Chapter \ref{ch:ebs} will adapt existing models and data to the 
-development of concise dominant physics waste form, waste package, and 
-other engineered barriers (i.e., bentonite or cementitious materials) 
-models appropriate for treatment of key radionuclides within the waste 
-streams.  Material/barrier degradation, radionuclide release, and 
-radionuclide transport, and thermal processes and effects will be 
-included, as necessary, in the concise representations that will be 
-developed for subsequent use in the system-level architecture. A range 
-of waste forms, waste package materials, and other engineered barrier 
-materials (buffer, backfill) under consideration by the DOE-NE FCT 
-program (SWF and UFD campaigns) will be evaluated. The concise 
-dominant physics models will include appropriate load limiting factors 
-of the stabilizing medium and waste packaging including such as waste 
-composition, chemical form, and heat generation.
-
-Chapter \ref{ch:extension} will discuss the future work necessary to 
-extend developed models to comprehensively cover the potential 
-disposal system option space. The path forward for extension of the 
-geological base case model to cover all five geologic concepts of 
-interest (clay, granite, salt, shale, and deep boreholes) will be 
-discussed. Similarly, gaps in waste form and engineered barrier system 
-models and data will be addressed and a plan for data and model 
-coverage for that options space will be described.
+%%%%%%%%
+% These chapters may be saved for the thesis\ldots 
+%%%%%%%%
+% Chapter \ref{ch:ebs} will adapt existing models and data to the 
+% development of concise dominant physics waste form, waste package, and 
+% other engineered barriers (i.e., bentonite or cementitious materials) 
+% models appropriate for treatment of key radionuclides within the waste 
+% streams.  Material/barrier degradation, radionuclide release, and 
+% radionuclide transport, and thermal processes and effects will be 
+% included, as necessary, in the concise representations that will be 
+% developed for subsequent use in the system-level architecture. A range 
+% of waste forms, waste package materials, and other engineered barrier 
+% materials (buffer, backfill) under consideration by the DOE-NE FCT 
+% program (SWF and UFD campaigns) will be evaluated. The concise 
+% dominant physics models will include appropriate load limiting factors 
+% of the stabilizing medium and waste packaging including such as waste 
+% composition, chemical form, and heat generation.
+% 
+% Chapter \ref{ch:extension} will discuss the future work necessary to 
+% extend developed models to comprehensively cover the potential 
+% disposal system option space. The path forward for extension of the 
+% geological base case model to cover all five geologic concepts of 
+% interest (clay, granite, salt, shale, and deep boreholes) will be 
+% discussed. Similarly, gaps in waste form and engineered barrier system 
+% models and data will be addressed and a plan for data and model 
+% coverage for that options space will be described.
 
 Chapter \ref{ch:future} will summarize the conclusions reached 
 concerning the appropriate analytical and detailed models to utilize 
