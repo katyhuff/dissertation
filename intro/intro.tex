@@ -15,27 +15,27 @@ analysis platform.
 % which is both modular and efficient.
 
 The development of sustainable nuclear fuel cycles is a key challenge 
-as the use of nuclear power expands internationally and while fuel 
-cycle performance may be measured with respect to a variety of 
-metrics, waste management metrics are of particular importance to the 
-goal of sustainability. Since disposal options are heavily dependent 
-on upstream fuel cycle decisions, a relevant analysis of potential 
-geological disposal and waste package solutions therefore requires a 
-system level approach that is both modular and efficient. 
+as the use of nuclear power expands internationally. While fuel cycle 
+performance may be measured with respect to a variety of metrics, 
+waste management metrics are of particular importance to the goal of 
+sustainability. Since disposal options are heavily dependent on 
+upstream fuel cycle decisions, a relevant analysis of potential 
+geological disposal and engineered barrier solutions therefore 
+requires a system level approach that is both modular and efficient. 
 
 % The approach must also be modular to support combinatiorically 
 % complex decision space 
 As the merits of numerous combinatoric fuel cycle possibilities are 
 investigated, a top-level simulation tool which will allow modular 
-substitution of various fuel cycle facility, repository, and waste 
-package models is needed. The modular waste package and repository 
-models resulting from this work will assist in informing current 
-technology choices, identifying important parameters contributing to 
-key waste disposal metrics, and highlighting the most promising waste 
-disposal combinations. Specifically, such models will support efforts 
-underway in the development of computational tools to quantify these 
-metrics and understand the merits of different fuel cycle 
-alternatives. 
+substitution of various fuel cycle facility, repository, and 
+engineered barrier component models is needed. The modular waste 
+package and repository models resulting from this work will assist in 
+informing current technology choices, identifying important parameters 
+contributing to key waste disposal metrics, and highlighting the most 
+promising waste disposal combinations. Specifically, such models will 
+support efforts underway in the development of computational tools to 
+quantify these metrics and understand the merits of different fuel 
+cycle alternatives. 
 
 % The modeling approach must be efficient in order for many scenarios 
 % to be compared quickly
@@ -66,7 +66,7 @@ and corresponding disposal system options are being considered.
 Specifically, the domestic fuel cycle option space under current 
 consideration is described in terms of three distinct fuel cycle 
 categories with the monikers Once Through, Full Recycle, and Modified 
-Open, each category presenting unique disposal system siting and 
+Open. Each category presenting unique disposal system siting and 
 design challenges. Systems analyses for evaluating these options must 
 be undertaken in order to inform a national decision to deploy a fuel 
 cycle system by 2050.  
@@ -74,18 +74,18 @@ cycle system by 2050.
 
 % Once through presents capacity issues . . . 
 A Once-Through Cycle represents the continuation of the business as 
-usual case in the United States,  neglecting reprocessing, and 
+usual case in the United States, which neglects reprocessing, and 
 presenting the challenges associated with high volumes of minimally 
 treated spent fuel streams.  In a business as usual scenario, 
 conventional power reactors comprise the majority of nuclear energy 
 production and fuel takes a single pass through a reactor before it is 
 classified as waste and disposed of. In the open cycle, no 
 reprocessing is pursued, but research and development of advanced 
-fuels seek to reduce waste volumes, but calculations from the Electric 
+fuels seek to reduce waste volumes. Calculations from the Electric 
 Power Research Institute indicate that such a cycle will generate a 
 volume of spent fuel that will necessitate the siting of two or more 
 federal  geological repositories to accomodate spent fuel.  
-\cite{kessler_room_2006} 
+\cite{kessler_room_2006}  %% KDHFLAG WHEN? HOW LONG?
 
 % Full Recycle presents the issue of variable waste streams. . .
 A Full Recycle option, on the other hand, requires the research, 
@@ -94,12 +94,13 @@ advanced reactor technology for the reprocessing of used nuclear fuel.
 In this scheme, conventional once-through reactors will be phased out 
 in favor of fast reactor and Gen-IV reactor technologies with 
 transmutation capacity and greater fuel efficiency. All fuel in the 
-Fully Recycle strategy will be reprocessed and cycled through a 
-reactor numerous times and may undergo partitioning and waste 
-treatment before ultimate disposal in a repository. Such a repository 
-under the Full Recycle scenario must adaptively support highly 
-variable waste stream composition, as well as myriad waste forms and 
-packaging associated with isolation of differing waste streams.
+Full Recycle strategy will be reprocessed. It may be reprocessed using  
+an accelerator driven system or by cycling through an advanced fast 
+reactor. Such fuel may undergo partitioning and waste treatment before 
+ultimate disposal in a repository. Thus, a repository under the Full 
+Recycle scenario must adaptively support highly variable waste stream 
+composition, as well as myriad waste forms and packaging associated 
+with isolation of differing waste streams.
 
 % Modified Open presents both problems. . . 
 Finally, the Modified Open Cycle category of options includes a 
@@ -114,9 +115,9 @@ within this scheme.
 \cite{department_of_energy_-_nuclear_energy_nuclear_2010} 
 
 % Various waste streams require various WFs and WPs 
-Clearly, the range of waste streams resulting from potential fuel 
-cycles present an array of corresponding waste disposition, packaging, 
-and engineered barrier system options. A comprehensive analysis of the 
+Clearly, the myriad waste streams resulting from potential fuel cycles 
+present an array of corresponding waste disposition, packaging, and 
+engineered barrier system options. A comprehensive analysis of the 
 disposal system, dominant physics models must therefore be developed 
 for these subcomponents.  Differing spent fuel composition, 
 partitioning, transmutation, and chemical processing decisions 
@@ -140,7 +141,10 @@ In accordance with various fuel cycle options, corresponding waste
 form, waste package, and other engineered barrier systems are being 
 considered. Specifically, current considerations include ceramic (e.g.  
 Uranium Oxide), glass (e.g.  borosilicate glasses), and metallic (e.g.  
-hydride fuels) waste forms.. 
+hydride fuels) waste forms. Waste packages may be copper, steel, or 
+other alloys. Similarly, buffer and backfill materials vary from the 
+crushed salt recommended for a salt repository to bentonite concrete 
+in other lithologies. % KDHFLAG this paragraph needs explication
 
 % Various geologies, WFs, WPs, EBSs have various physics
 The physical, hydrogeologic, and geochemical mechanisms which dictate 
@@ -165,25 +169,25 @@ environment constrains fuel loading in waste forms and packages as
 well as placing requirements on the size, design, and loading strategy 
 in a potential geological repository.
 
-Heat load limits of various waste forms have their design basis in the 
-temperature dependence of isolation integrity of the waste form. The 
-waste form dissolution behavior under heat generation from the 
+Heat load limits of various waste forms have their technical basis in 
+the temperature dependence of isolation integrity of the waste form.  
+The waste form dissolution behavior under heat generation from the 
 contained isotopics constrains loading density within the waste form 
 in a nuclide specific way.  
 
 Heat load limits of various engineered barrier systems similarly have 
-a design basis in the temperature dependent dissolution rate of the 
+a technical basis in the temperature dependent dissolution rate of the 
 materials from whence they are constructed.  
 
-Heat load limits of the geologic environment on the other hand do not  
-have their design basis in the mechanical integrity of the rock.  
-Rather, the isolating characteristics of a geological environment are 
-most sensitive to hydrologic and geochemical phenomena, so heat load 
-contstraints are typically chosen to control hydrologic and 
-geochemical response to thermal loading. In the United States, current 
-regulations stipulate thermal limits in order to passively steward the 
-repository's hydrologic and geochemical integrity against radionuclide  
-release for the upcoming 10,000 years.
+Heat load limits of the geologic environment on the other hand are not  
+based on the mechanical integrity of the rock.  Rather, the isolating 
+characteristics of a geological environment are most sensitive to 
+hydrologic and geochemical phenomena, so heat load contstraints are 
+typically chosen to control hydrologic and geochemical response to 
+thermal loading. In the United States, current regulations stipulate 
+thermal limits in order to passively steward the repository's 
+hydrologic and geochemical integrity against radionuclide  release for 
+the upcoming 10,000 years.
 
 The two heat load constraints which primarily determined the 
 heat-based SNF capacity limit in the Yucca Mountain Repository design, 
@@ -245,24 +249,24 @@ transport of particular radionuclides, for example, studies make
 hundred thousand year predictions about waste form degredation, water 
 flow, etc.  
 
-Importantly, due to the incredible time scale and intrinsic 
-uncertainties required in probabilistic assessment it is in general 
-not advisable to base any maximum repository capacity estimates on 
-source term. However, source term is a useful metric for the 
-comparison of alternative separations and fuel cycle scenarios.
+Importantly, due to the long time scale and intrinsic uncertainties 
+required in probabilistic assessment it is in general not advisable to 
+base any maximum repository capacity estimates on source term.  
+However, source term is a useful metric for the comparison of 
+alternative separations and fuel cycle scenarios.
 
 A generalized metric of probablistic risk is fairly difficult to 
 arrive at. For example, the Peak Environmental Impact metric (PEI) 
-from Berkeley \cite{bouvier_comparison_2007}, for example, is a 
-multifaceted function of spent fuel composition, waste conditioning, 
-vitrification method, and radionuclide transport through the 
-repository walls and rock.  Also, it makes the assumption that the 
-waste canisters have been breached at $t=0$. Furthermore, reported in 
-$m^3$, PEI is a measure of radiotoxicity in the environment in the 
-event of total breach. While informative, this model on its own does 
-not completely determine a source-term limited maximum repository 
-capacity. Additional waste package failure and exposed individual 
-radiotoxicity constraints must be incorporated into it.
+from Berkeley \cite{bouvier_comparison_2007} is a multifaceted 
+function of spent fuel composition, waste conditioning, vitrification 
+method, and radionuclide transport through the repository walls and 
+rock.  Also, it makes the assumption that the waste canisters have 
+been breached at $t=0$. Furthermore, reported in $m^3$, PEI is a 
+measure of radiotoxicity in the environment in the event of total 
+breach. While informative, this model on its own does not completely 
+determine a source-term limited maximum repository capacity. 
+Additional waste package failure and exposed individual radiotoxicity 
+constraints must be incorporated into it.
 
 \section{Methodology} 
 
@@ -338,8 +342,8 @@ the parametric dependence of thermal loading in a specific geology.
 
 % Incorporation of empirical data
 Finally, the thermal behavior of a repository model so developed will 
-depend on empirical data (e.g.  heat transfer coefficients, water 
-presence etc.). Determination of appropriate values to make available 
+depend on empirical data (e.g.  heat transfer coefficients, hydraulic 
+conductivityetc.). Determination of appropriate values to make available 
 within the dominant physics model will rely on existing empirical data 
 concerning the specific geologic environment being modeled (i.e. clay, 
 salt, shale, granite). A similar process will be followed for nuclide 
@@ -384,7 +388,7 @@ in the system.
 The following chapter will present a literature review which organizes 
 and reports upon previous relevant work. It will focus upon current 
 analytical and computational modeling of nuclide and heat transport 
-through glass and ceramic waste forms, engineered barrier systems, and 
+through various waste forms, engineered barrier systems, and 
 geologies of interest. It will also address previous efforts in 
 generic geology repository modeling and the state of the art of 
 repository modeling and integration within current systems analysis 
@@ -430,28 +434,29 @@ against more detailed repository models.
 % These chapters may be saved for the thesis\ldots 
 %%%%%%%%
 % Chapter \ref{ch:ebs} will adapt existing models and data to the 
-% development of concise dominant physics waste form, waste package, and 
-% other engineered barriers (i.e., bentonite or cementitious materials) 
-% models appropriate for treatment of key radionuclides within the waste 
-% streams.  Material/barrier degradation, radionuclide release, and 
-% radionuclide transport, and thermal processes and effects will be 
-% included, as necessary, in the concise representations that will be 
-% developed for subsequent use in the system-level architecture. A range 
-% of waste forms, waste package materials, and other engineered barrier 
-% materials (buffer, backfill) under consideration by the DOE-NE FCT 
-% program (SWF and UFD campaigns) will be evaluated. The concise 
-% dominant physics models will include appropriate load limiting factors 
-% of the stabilizing medium and waste packaging including such as waste 
-% composition, chemical form, and heat generation.
+% development of concise dominant physics waste form, waste package, 
+% and other engineered barriers (i.e., bentonite or cementitious 
+% materials) models appropriate for treatment of key radionuclides 
+% within the waste streams.  Material/barrier degradation, 
+% radionuclide release, and radionuclide transport, and thermal 
+% processes and effects will be included, as necessary, in the concise 
+% representations that will be developed for subsequent use in the 
+% system-level architecture. A range of waste forms, waste package 
+% materials, and other engineered barrier materials (buffer, backfill) 
+% under consideration by the DOE-NE FCT program (SWF and UFD 
+% campaigns) will be evaluated. The concise dominant physics models 
+% will include appropriate load limiting factors of the stabilizing 
+% medium and waste packaging including such as waste composition, 
+% chemical form, and heat generation.
 % 
 % Chapter \ref{ch:extension} will discuss the future work necessary to 
 % extend developed models to comprehensively cover the potential 
 % disposal system option space. The path forward for extension of the 
 % geological base case model to cover all five geologic concepts of 
 % interest (clay, granite, salt, shale, and deep boreholes) will be 
-% discussed. Similarly, gaps in waste form and engineered barrier system 
-% models and data will be addressed and a plan for data and model 
-% coverage for that options space will be described.
+% discussed. Similarly, gaps in waste form and engineered barrier 
+% system models and data will be addressed and a plan for data and 
+% model coverage for that options space will be described.
 
 Chapter \ref{ch:future} will summarize the conclusions reached 
 concerning the appropriate analytical and detailed models to utilize 
