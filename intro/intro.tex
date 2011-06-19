@@ -26,11 +26,11 @@ requires a system level approach that is both modular and efficient.
 % The approach must also be modular to support combinatiorically 
 % complex decision space 
 As the merits of numerous combinatoric fuel cycle possibilities are 
-investigated, a top-level simulation tool which will allow modular 
+investigated, a top-level simulation tool capable of modular 
 substitution of various fuel cycle facility, repository, and 
-engineered barrier component models is needed. The modular waste 
-package and repository models resulting from this work will assist in 
-informing current technology choices, identifying important parameters 
+engineered barrier components is needed. The modular waste package and 
+repository models resulting from this work will assist in informing 
+current technology choices, identifying important parameters 
 contributing to key waste disposal metrics, and highlighting the most 
 promising waste disposal combinations. Specifically, such models will 
 support efforts underway in the development of computational tools to 
@@ -66,16 +66,16 @@ and corresponding disposal system options are being considered.
 Specifically, the domestic fuel cycle option space under current 
 consideration is described in terms of three distinct fuel cycle 
 categories with the monikers Once Through, Full Recycle, and Modified 
-Open. Each category presenting unique disposal system siting and 
-design challenges. Systems analyses for evaluating these options must 
-be undertaken in order to inform a national decision to deploy a 
+Open. Each category presents unique disposal system siting and design 
+challenges. Systems analyses for evaluating these options must be 
+undertaken in order to inform a national decision to deploy a 
 comprehensive fuel cycle system by 2050.  
 \cite{department_of_energy_-_nuclear_energy_nuclear_2010} 
 
 % Once through presents capacity issues . . . 
 A Once-Through Cycle represents the continuation of the business as 
-usual case in the United States, which neglects reprocessing, and 
-presenting the challenges associated with high volumes of minimally 
+usual case in the United States which neglects reprocessing and 
+presents the challenges associated with high volumes of minimally 
 treated spent fuel streams.  In a business as usual scenario, 
 conventional power reactors comprise the majority of nuclear energy 
 production and fuel takes a single pass through a reactor before it is 
@@ -109,9 +109,9 @@ closed. Advanced fuel cycles such as deep burn and small modular
 reactors will be considered within the Modified Open set of fuel cycle 
 options as will partial recycle options. Partitioning and reprocessing 
 strategies, however, will be limited to simplified chemical 
-separations and volitilization under this scheme. Spent fuel volumes 
-and composition will vary dramatically among various possibilities 
-within this scheme.  
+separations and volitilization under this scheme. This scheme presents
+a dual challenge in which spent fuel volumes and composition will both 
+vary dramatically among various possibilities within this scheme.  
 \cite{department_of_energy_-_nuclear_energy_nuclear_2010} 
 
 % Various waste streams require various WFs and WPs 
@@ -162,6 +162,12 @@ integrated disposal system model.
 % repository loading limits
 % optimization of layout
 % necessary decay cooling time before emplacement.
+A thermal modeling capability must be included in this repository 
+model in order to arrive at loading strategies which comply with 
+regulatory limits in the engineered barrier system and the geological 
+medium as well as in order to inform material and hydrogeologic 
+phenomena which are thermally coupled. 
+
 Heat limits within a used nuclear fuel disposal system are waste form, 
 package, and geology dependent. Heat generation from the waste form 
 and transport through the engineered barrier system and host 
@@ -212,6 +218,14 @@ environments will depend on heat transport parameters of the matrix,
 hydrogeologic state, and repository drift spacing, waste package 
 spacing, and repository footprint among other parameters. 
 
+In addition to development of a concept of heat transport within the 
+repository for reasons of complicance with heat load limitations, it 
+is also necessary to model temperature gradients in the repository in  
+order to support calculations with hydrologic and material phenomena.  
+Waste package dissolution rates, advective flow rates, and the 
+mechanical integrity of engineered barriers and geologic environment 
+are coupled with temperature behavior.  
+
 \subsubsection{Radiotoxicity and Source Term Modeling Needs}
 
 Domestically, the Nuclear Regulatory Commission has defined a limit on  
@@ -241,18 +255,20 @@ hazardous effect of that particular radionuclide upon human ingestion.
 In particular, radiotoxicity is measured in terms of the volume of 
 water dilution required to make it safe to ingest. Studies of source 
 term and radiotoxicity therefore make probabilistic assessments of 
-radionuclide release, transport, and human exposure.  The 
-probabilistic nature of these assessments mean a direct dependence of 
-source term on repository capacity can be difficult to arrive at. In 
-order to give informative values for the risk associated with 
-transport of particular radionuclides, for example, studies make 
-hundred thousand year predictions about waste form degredation, water 
-flow, etc.  
+radionuclide release, transport, and human exposure.  
 
 Importantly, due to the long time scale and intrinsic uncertainties 
-required in probabilistic assessment it is in general not advisable to 
-base any maximum repository capacity estimates on source term.  
-However, source term is a useful metric for the comparison of 
+required in such probabilistic assessments it is in general not 
+advisable to base any maximum repository capacity estimates on source 
+term.
+In order to give informative values for the risk associated with 
+transport of particular radionuclides, for example, it is necessary to 
+make highly uncertain  predictions concerning waste form degredation, 
+water flow, and other parameters on a long time scale. 
+%The probabilistic nature of these assessments mean a direct 
+%dependence of source term on repository capacity can be difficult to 
+%arrive at.  
+However, source term remains a useful metric for the comparison of 
 alternative separations and fuel cycle scenarios.
 
 A generalized metric of probablistic risk is fairly difficult to 
@@ -286,24 +302,22 @@ media under consideration will first be undertaken. In this way, the
 domain of applicability for which subprocesses may be generalized will 
 be assessed. In so doing, a preliminary set of combinations of fuel 
 cycles, waste forms, repository designs, and geologies can be chosen 
-which covers a foundational subspace of the parametric domain. Once 
-complete, extended models and model variants will be developed to more 
-comprehensively cover the option space.  
+which covers a foundational subspace of the parametric domain. 
 
 % Abstraction = Analytic Solutions + Regression Approximation
 In general, such concise models are a combination of two components: 
 semi-analytic mathematical models that represent a simplified 
 description of the most important physical phenomena, and 
 semi-empirical models that reproduce the results of detailed models.  
-By shifting the emphasis between the complexity of the analytic models 
-and regression against numerical experiments, variations can be 
-limited between two models for the same system.  Different approaches 
-will be compared in this work, with final modeling choices balancing 
-the accuracy and efficiency of the possible implementations.  
+By combining the complexity of the analytic models and regression 
+against numerical experiments, variations can be limited between two 
+models for the same system.  Different approaches will be compared in 
+this work, with final modeling choices balancing the accuracy and 
+efficiency of the possible implementations.  
 
 % For example, Geology.
 Specifically, geological models will focus on the hydrogeology and 
-thermal physics dominating nuclide transport and heat response in 
+thermal physics which dominate nuclide transport and heat response in 
 candidate geologies as a function of nuclide release and heat 
 generation over long time scales from waste packages.  Disposal site 
 water chemistry (redox state) and dominant transport mechanism 
@@ -344,14 +358,14 @@ in a specific geology.
 % Incorporation of empirical data
 Finally, the thermal behavior of a repository model so developed will 
 depend on empirical data (e.g.  heat transfer coefficients, hydraulic 
-conductivityetc.). Determination of appropriate values to make 
-available within the dominant physics model will rely on existing 
-empirical data concerning the specific geologic environment being 
-modeled (i.e. salt, clay/shale, and granite). A similar process will 
-be followed for nuclide transport models.
+conductivity). Determination of appropriate values to make available 
+within the dominant physics model will rely on existing empirical data 
+concerning the specific geologic environment being modeled (i.e. salt, 
+clay/shale, and granite). 
 
 % Abstraction for WFs, WPs, EBS, etc. will be the same
-The abstraction process in the development of waste form, package, and 
+A similar process will be followed for nuclide transport models.  The 
+abstraction process in the development of waste form, package, and 
 engineered barrier system models will be analgous to the abstraction 
 process of repository environment models. Concise models will result 
 from employing the comparison of semi-analytic models of those systems 
@@ -368,10 +382,11 @@ analysis concerning those parameters will be undertaken with available
 detailed models to further characterize the parametric dependence of 
 nuclide release from specific waste packages.  Finally, the nuclide 
 release model so developed will depend on empirical data (e.g. the 
-waste package dissolution rate).  Determination of appropriate values 
-to make available within the dominant physics model will rely on 
-existing empirical data concerning the specific package materials 
-being modeled (i.e.  extrapolations of known material failure rates).  
+waste form dissolution rate).  Determination of appropriate values to 
+make available within the dominant physics model will rely on existing 
+empirical data concerning the specific waste form  materials being 
+modeled (i.e. long time scale extrapolations of known glass failure 
+rates).  
 
 % Coupling is confusing
 Coupling effects between components will have to be considered 
@@ -394,6 +409,15 @@ of interest. It will also address previous efforts in generic geology
 repository modeling and the state of the art of repository modeling 
 and integration within current systems analysis tools. 
 
+% Categorization of current codes and physics
+Chapter \ref{ch:categorization} will categorize and characterize 
+detailed computational models of nuclide and heat transport available 
+for regression analysis. Specificially, detailed codes in current use 
+are categorized according to the physics which they model, the 
+disposal system components with which they are concerned, and the 
+level of detail and computational methodology with which they capture 
+physical phenomena. 
+
 % modeling paradigm
 Chapter \ref{ch:paradigm} will detail the computational paradigm of 
 the \Cyclus systems analysis platform as well as the components within 
@@ -406,18 +430,9 @@ options (i.e. borosilicate glass and concrete waste forms) for
 comparison but also exchange of equivalent models with varying levels 
 of detail.
 
-% Categorization of current codes and physics
-Chapter \ref{ch:categorization} will categorize and characterize 
-detailed computational models of nuclide and heat transport available 
-for regression analysis. Specificially, detailed codes in current use 
-are categorized according to the physics which they model, the 
-disposal system components with which they are concerned, and the 
-level of detail and computational methodology with which they capture 
-physical phenomena. 
-
-%
+% Work on generic repository model
 Chapter \ref{ch:repository} will detail the analytical and regression 
-analysis undertaken to acheive a generic repository model for the 
+analysis undertaken and forthcoming to acheive a generic repository model for the 
 chosen base repository type. A concise, dominant physics geological 
 repository model of the base case disposal environment will be 
 developed. Informed by semi-analytic mathematical models representing 
@@ -459,6 +474,7 @@ against more detailed repository models.
 % system models and data will be addressed and a plan for data and 
 % model coverage for that options space will be described.
 
+% Future work proposal
 Chapter \ref{ch:future} will summarize the conclusions reached 
 concerning the appropriate analytical and detailed models to utilize 
 in the process of abstraction for nuclide and heat transport through 
