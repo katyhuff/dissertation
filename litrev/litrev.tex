@@ -34,83 +34,74 @@ scales and in various geologies.
 
 %% This section comes from 2011 CFP Narrative 3067, only lightly edited %%
 Current top-level simulators largely disregard the waste disposal 
-phase of fuel cycle analysis. Choosing instead to report metrics such as 
-mass or volumes of accumulated spent nuclear fuel, these analyses fail to
-address the impact of those waste streams on the performance of the geologic 
-disposal system.  To fully inform the decision making process, 
-metrics that depend on the performance of the geologic disposal 
-system will be necessary. 
+phase of fuel cycle analysis. Choosing instead to report metrics such 
+as mass or volumes of accumulated spent nuclear fuel, these analyses 
+fail to
+address the impact of those waste streams on the performance of the 
+geologic disposal system.  To fully inform the decision making 
+process, metrics that depend on the performance of the geologic 
+disposal system will be necessary. 
 
-A model for repository capacity was developed for the VISION 
-fuel cycle simulator \cite{yacout_visionverifiable_2006}
-\cite{radel_repository_2007} and recent efforts on the NUWASTE simulator 
-\cite{ abkowitz_nuclear_2010} have made some progress in addressing this 
-deficiency, but despite a proliferation of sophisticated fuel cycle simulators, 
-similar efforts are lacking in this regard. 
+A model for repository capacity was developed for the VISION fuel 
+cycle simulator \cite{yacout_visionverifiable_2006}
+\cite{radel_repository_2007} and recent efforts on the NUWASTE 
+simulator \cite{ abkowitz_nuclear_2010} have made some progress in 
+addressing this deficiency, but despite a proliferation of 
+sophisticated fuel cycle simulators, similar efforts are lacking in 
+this regard. 
 
 %% What follows has not been edited since the CFP narrative %%
 The DOE-NE Fuel Cycle Technology (FCT) program has three groups of 
 relevance to this effort.  These are the FCT Used Fuel Disposition 
 (UFD), the Separations/Waste Form (SWF), and System Analysis (SA) 
-campaigns.  The SA campaign is developing the overall fuel cycle 
-simulation tools and interfaces with the other FCT campaigns, 
-including UFD.  The UFD campaign is conducting the RD\&D related to 
-the storage, transportation, and disposal of radioactive wastes 
-generated under both the current and potential advanced fuel cycles.  
-The SWF campaign is conducting RD\&D on potential waste forms that 
-could be used to effectively isolate the wastes that would be 
-generated in advanced fuel cycles.  The SWF and UFD campaigns are 
-developing the fundamental tools and information base regarding the 
-performance of waste forms and geologic disposal systems. 
+campaigns.  The UFD campaign is conducting the RD\&D related to the 
+storage, transportation, and disposal of radioactive wastes generated 
+under both the current and potential advanced fuel cycles.  The SWF 
+campaign is conducting RD\&D on potential waste forms that could be 
+used to effectively isolate the wastes that would be generated in 
+advanced fuel cycles.  The SWF and UFD campaigns are developing the 
+fundamental tools and information base regarding the performance of 
+waste forms and geologic disposal systems.  The SA campaign is 
+developing the overall fuel cycle simulation tools and interfaces with 
+the other FCT campaigns, including UFD. 
 
-This effort will interface with those campaigns to utilize the tools and 
-information to develop the higher-level dominant physics 
-representations for use in fuel cycle system analysis tools. 
+This effort will interface with those campaigns todevelop the 
+higher-level dominant physics representations for use in fuel cycle 
+system analysis tools.  Specifically, this work will leverage upon 
+conceptual framework development and primary data collection underway 
+within the Used Fuel Disposition Campaign as well as work by Radel, 
+Wilson, Bauer et. al. to model repository behavior as a function of 
+the contents of the waste.
+It will then incorporate dominant physics process models into the 
+\Cyclus computational fuel cycle analysis platform.
 
-This work encompasses the implementation of a comprehensive 
-software library of medium fidelity models to represent the thermal 
-behavior and long-term disposal system performance of different 
-disposal system concepts in different geologic media for deployment in 
-a modular systems analysis platform.  This work will leverage upon 
-previous work by Radel, Wilson, Bauer et. al. to model repository 
-behavior as a function of the contents of the waste as well as recent 
-developments to modularly incorporate dominant physics 
-process models into the \Cyclus computational fuel cycle analysis platform.
+%This work encompasses the implementation of a comprehensive software 
+%library of medium fidelity models to represent the thermal behavior 
+%and long-term disposal system performance of different disposal 
+%system concepts in different geologic media for deployment in a 
+%modular systems analysis platform. 
 
-It will also rely on conceptual framework development and primary data 
-collection underway within the Used Fuel Disposition Campaign and 
-through interfaces with the FCT program participants.  This 
-integrated simulation tool will be demonstrated with performance 
-analysis of potential advanced fuel cycle options.  Key metrics will 
-be demonstrated and initial uncertainty/sensitivity analyses will be 
-conducted.
-
-\subsection{Repository Focused Fuel Cycle Analyses}
-
-Focused fuel cycle sensitivity analyses emphasizing used fuel disposition and 
-waste management in the Yucca Mountain Repository (YMR) have been 
-conducted by Li, Piet, Wilson, and Ahn. With a focus on YMR capacity 
-benefit, repository performance metrics of interest for these analyses 
-were heat, source term, and more global envrionmental impact metrics.  
-Sensitivity analyses for other geologies were conducted concerning 
-repository concepts relevant to other nations as well. See Table 
-\ref{tab:red}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%% RED-IMPACT Table %%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{litrev/red_tab}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\clearpage
 
 \subsection{NUWASTE} Nuclear Waste Technical Review Board code that 
 determines many metrics about the fuel cycle according to various 
-parameters. \cite{abkowitz_nuclear_2010}
+parameters. \cite{abkowitz_nuclear_2010} This code tracks 65 isotopes 
+within material objects, discretely models individual shipping casks 
+and incorporates cooling time in both dry and wet intermediate storage 
+facilities.
 
 \subsection{VISION}
 VISION's repository model conducts decay calculations and tracks 
 upwards of 83 isotopes of interest in the nuclear fuel cycle.  
-\cite{yacout_visionverifiable_2006} Are there wasteform models in VISION?
+\cite{yacout_visionverifiable_2006} 
+% Are there wasteform models?
+% Is there nuclide transport, source term estimate?
+% Heat transport?
 
 \subsection{DANESS}
 
@@ -129,12 +120,46 @@ upwards of 83 isotopes of interest in the nuclear fuel cycle.
 \subsection{European RED-IMPACT}
 
 \subsection{Yucca Mountain Total System Performance Assesment}
+The Total System Performance Assessment (TSPA) is a very detailed 
+model of the Yucca Mountain disposal system. It includes 
+transportation issues and detailed emplacement timing and strategy 
+models, but considers only the fuel cycle associated with the current  
+U.S. reactor fleet. Casts are modeled discretely and nuclide and heat 
+transport are modeled in great detail. 
 
 \subsection{WIPP Performance Assessment Code}
 
 \subsection{Fuel Cycle Technology, UFD Codes Under Development}
 
+The Used Fuel Disposition campaign is currently conducting an effort 
+to produce generic disposal system models for various geological 
+environments. Teams from various national labs, Argonne, Lawrence 
+Livermore, and Sandia are developing models of generic clay, granite,   
+and salt disposal environments. Sandia is simultaneously constructing  
+a borehole disposal system mode. Each generic disposal system model 
+will perform detailed calculations of nuclide  and heat transport 
+within its respective lithology. 
 
+The nuclide transport calculations within the  clay model being 
+developed by Argonne National Lab (ANL) are performed within the 
+GoldSim simulation platform, and models a single repeatable waste 
+package cell. 
+
+Thermal modeling for the clay model is being conducted using the 
+SINDA$\$G heat transport solver.  
+
+\subsection{Repository Focused Fuel Cycle Analyses}
+
+Focused fuel cycle sensitivity analyses emphasizing used fuel 
+disposition and waste management in the Yucca Mountain Repository 
+(YMR) have been conducted by Li, Piet, Wilson, and Ahn. With a focus 
+on YMR capacity benefit, repository performance metrics of interest 
+for these analyses were heat, source term, and more global 
+envrionmental impact metrics.  Sensitivity analyses for other 
+geologies were conducted concerning repository concepts relevant to 
+other nations as well. See Table \ref{tab:red}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Analytical Models of Nuclide Transport} 
 \label{sec:analytical_nuc}
 
@@ -158,15 +183,15 @@ employed in the context of the hydrogeology of the rock.
 
 \subsection{Factors Affecting Source Term}
 
-Waste package failure rate varies between models. While 
-some employ a simulation code called EBSFAIL, a part of the EBSPAC 
-module used in the TSPA code, other models incorporate their own 
-hydrogeologic approximations of canister degredation, and still others 
-assume immediate waste canister failure in order to focus on 
-dissolution and transfer. 
+Waste package failure rate varies between models. While some employ a 
+simulation code called EBSFAIL, a part of the EBSPAC module used in 
+the TSPA code, other models incorporate their own hydrogeologic 
+approximations of canister degredation, and still others assume 
+immediate waste canister failure in order to focus on dissolution and 
+transfer. 
 
-Waste package release rate is the rate of mass transfer 
-of a nuclide from its waste form into the saturation water.
+Waste package release rate is the rate of mass transfer of a nuclide 
+from its waste form into the saturation water.
 The mode of water flowthrough heavily effects nuclide dissolution rate 
 and is treated differently in various models. While some, inspired by 
 the TSP assessment, assume water moves through the waste packages at a 
@@ -175,22 +200,23 @@ conservative assumptions incorporating weather based predictions of
 hydrogeologic activity. as directly proportional to the nuclide 
 concentration in some cases,  
 
-Nuclide transfer rate through the lithology is  dependent upon diffusion 
-as well as advection.  The diffusion coefficient varies per nuclide and 
-is heavily dependent upon the concentration of that nuclide in the 
-flowthrough water. Nuclide concentration in this model is described by 
-Fick's First Law, 
+Nuclide transfer rate through the lithology is  dependent upon 
+diffusion as well as advection.  The diffusion coefficient varies per 
+nuclide and is heavily dependent upon the concentration of that 
+nuclide in the flowthrough water. Nuclide concentration in this model 
+is described by Fick's First Law, 
 
 \begin{equation}
 J = -D\frac{\delta\phi}{\delta x}.
 \end{equation}
 
-Source term dependence on concentration has a significant 
-effect on potential repository capacity. Sensitivity to concentration 
+Source term dependence on concentration has a significant effect on 
+potential repository capacity. Sensitivity to concentration 
 complicates the viability of alternate loading schemes as well as 
 waste separation scenarios. Radionuclide concentration has been shown 
 to be proportional to the waste package loading configuration for the 
-Yucca Mountain case.\cite{ahn_relationship_2002,kawasaki_congruent_2004}
+Yucca Mountain 
+case.\cite{ahn_relationship_2002,kawasaki_congruent_2004}
 
 \subsection{Waste Form Release Models}
 
@@ -199,10 +225,10 @@ Yucca Mountain case.\cite{ahn_relationship_2002,kawasaki_congruent_2004}
 In a saturated fractured rock matrix representative of the KBS-3 
 granitic Swedish repository concept, copper canister waste packages 
 contain a waste matrix, and a bentonite buffer surrounds the canisters 
-within repository drift tunnels. Waste form dissolution within the Hedin 
-model is a rate based model which takes place within the waste package 
-void. Nuclides are released congruently until the waste form is 
-completely degraded. \cite{hedin_integrated_2002} 
+within repository drift tunnels. Waste form dissolution within the 
+Hedin model is a rate based model which takes place within the waste 
+package void. Nuclides are released congruently until the waste form 
+is completely degraded. \cite{hedin_integrated_2002} 
 
 \subsubsection{Ahn Models (\cite{ahn_environmental_2004, 
 ahn_environmental_2007})}
@@ -354,16 +380,16 @@ The models arrived at via this genre of approximation are appropriate
 for very fractured or very unfractured situations.
 
 Equivalent Porous Medium (EPM) models assert that a uniformly  
-fractured medium can be approximated as a fractureless matrix with 
-an effective porosity high enough to account for real fracturation.
+fractured medium can be approximated as a fractureless matrix with an 
+effective porosity high enough to account for real fracturation.
 \cite{berkowitz_continuum_1988}
 \cite{anderson_applied_1992}
 
 
-Dual Porosity Models make up one type. This model incorporates advective 
-transport in simplistic, uniform fractures and diffisive sorption and 
-desorption into the stagnant (no advective transfer) water contained in 
-the pores of the rock matrix
+Dual Porosity Models make up one type. This model incorporates 
+advective transport in simplistic, uniform fractures and diffisive 
+sorption and desorption into the stagnant (no advective transfer) 
+water contained in the pores of the rock matrix
 \cite{uleberg_dual_1996}
 \cite{ho_dual_2000}.
 
@@ -380,11 +406,12 @@ contaminants move only through the fracture network
 \cite{anderson_applied_1992}
 \cite{schwartz_fundamentals_2003}.
 
-The flow in each fracture can be approximated, as in Schwartz and Zhang, 
-with the flow between two parallel plates having an aperture $b$, the 
-mean fracture height \cite{schwartz_fundamentals_2003}. For a fracture 
-perpendicular to gravitational acceleration, $g$, the hydraulic 
-conductivity, $K$, is described according to the cubic law as 
+The flow in each fracture can be approximated, as in Schwartz and 
+Zhang, with the flow between two parallel plates having an aperture 
+$b$, the mean fracture height \cite{schwartz_fundamentals_2003}. For a 
+fracture perpendicular to gravitational acceleration, $g$, the 
+hydraulic conductivity, $K$, is described according to the cubic law 
+as 
 
 \begin{align}
   K&= \frac{\rho_w g b^2}{12 \mu}
@@ -405,7 +432,8 @@ $\frac{\partial h}{\partial L}$, as
 
 Calculation of the volumetric flow rate and corresponding solute
 transport in a discrete fracture network model for many non-parallel
-fractures is an intensive numerical computation. However, for uniformly
+fractures is an intensive numerical computation. However, for 
+uniformly
 fractured media, a fracture network can be approximated by a set of 
 parallel plates fractures. 
 
@@ -424,11 +452,14 @@ The fracture network permeability is then defined as,
   \label{fracperm}
 \end{align}
 
-The permeability, $k$, in an equivalent permeability model is thereby obtained
-by the permeabilities of the fracture network, $k_f$, and the permeability
-of the host matrix, $k_m$. Following the derivation in Schwartz and Zhang, in 
-terms of the cross sectional contact areas of the matrix and fractures 
-$A_m$ and $A_f$, the equivalent permeability, $k$, can be expressed
+The permeability, $k$, in an equivalent permeability model is thereby 
+obtained
+by the permeabilities of the fracture network, $k_f$, and the 
+permeability
+of the host matrix, $k_m$. Following the derivation in Schwartz and 
+Zhang, in terms of the cross sectional contact areas of the matrix and 
+fractures $A_m$ and $A_f$, the equivalent permeability, $k$, can be 
+expressed
 
 \begin{align}
   k = \frac{k_m + \frac{A_f}{A_m}k_f}{1+\frac{A_f}{A_m}}.
@@ -681,9 +712,9 @@ power density metrics. However, a temperate integral takes account of
 heat transfer behavior in the rock, includes the effects of myriad SNF 
 compositions, and gives the thermal integration over time for any 
 specific location within the rock.  Man-Sung Yim calls this the 
-Specific Temperature Increase method\cite{li_specific_2008} though other 
-researchers have other names for this method. Tracy Radel calls her 
-temperature metric at a point in the rock the Specific Temperature 
+Specific Temperature Increase method\cite{li_specific_2008} though 
+other researchers have other names for this method. Tracy Radel calls 
+her temperature metric at a point in the rock the Specific Temperature 
 Change.\cite{radel_repository_2007}
 
 In a repository with linear drifts, the Heat flux from the drifts can 
@@ -710,9 +741,6 @@ was 67 km.
 
 %%%%%%%%%%%%%%%% Detailed Heat Transport %%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-\section{Post-Awesome}
 
 %%%%%%%%%%%%%%%%%%%% Line of Awesomeness %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -753,11 +781,11 @@ isotope \emph{i}. This model defines $w_{ci}$ as:
 w_{ci}(t)=C_i(t)q_{out}(t)
 \end{equation}
 
-where $q_out$ is the volumetric flow rate of the water 
-$[m^3/yr]$, and $C_i = m_i/V_{wp}$ in $[mol/m^3]$. These assumptions 
-fail to take into account any differences in the varying solubilities 
-of the isotopes, but are quite sensitive to the concentration of an 
-isotope \emph{i} in the waste package volume.  
+where $q_out$ is the volumetric flow rate of the water $[m^3/yr]$, and 
+$C_i = m_i/V_{wp}$ in $[mol/m^3]$. These assumptions fail to take into 
+account any differences in the varying solubilities of the isotopes, 
+but are quite sensitive to the concentration of an isotope \emph{i} in 
+the waste package volume.  
 
 \paragraph{The Unsaturated Zone} lies between the repository and the 
 water table. This model describes transport time in the porous rock 
@@ -777,6 +805,7 @@ concentration.
 point, the nuclide transport is taken to be completely advective, 
 nuclide independent, and congruent with the volumetric flow of the 
 water within the water table. 
+
 
 
 \subsection{Independent Fuel Cycle Parameters}
