@@ -137,7 +137,7 @@ model of the Yucca Mountain disposal system. It includes
 transportation issues and detailed emplacement timing and strategy 
 models, but considers only the fuel cycle associated with the current  
 U.S. reactor fleet. Casts are modeled discretely and nuclide and heat 
-transport are modeled in great detail. 
+transport are modeled in great detail.\cite{turner_discrete_2010} 
 
 The TSM framework is based on the SimCAD platform. The 
 simulation steps through times in 8 hour time steps during the waste 
@@ -162,7 +162,14 @@ within its respective lithology.
 The nuclide transport calculations within the  clay model being 
 developed by Argonne National Lab (ANL) are performed within the 
 GoldSim simulation platform, and models a single repeatable waste 
-package cell. 
+package cell. GoldSim is a commercial off the shelf simulation 
+environment which ships with a contaminant transport system for 
+modeling of release and transport of contaminants as well as an 
+optional radionuclide transport module for decay calculations.
+
+Modules within GoldSim represent components of the waste disposal 
+system and are linked by diffusive, advective, precipited, direct, or  
+otherwise filtered mass transfer links.
 
 Thermal modeling for the clay model is being conducted using the 
 SINDA\ G heat transport solver.  
