@@ -139,6 +139,10 @@ models, but considers only the fuel cycle associated with the current
 U.S. reactor fleet. Casts are modeled discretely and nuclide and heat 
 transport are modeled in great detail. 
 
+The simulation framework is based on the SimCAD platform. The 
+simulation steps through times in 8 hour time steps during the waste 
+cask transportation, processing and emplacement.
+
 \subsection{WIPP Performance Assessment Code}
 
 \subsection{Fuel Cycle Technology, UFD Codes Under Development}
@@ -230,6 +234,7 @@ to be proportional to the waste package loading configuration for the
 Yucca Mountain 
 case.\cite{ahn_relationship_2002,kawasaki_congruent_2004}
 
+
 \subsection{Waste Form Release Models}
 
 \subsubsection{Hedin Model (\cite{hedin_integrated_2002})}
@@ -317,7 +322,6 @@ that nuclide is soluble. \cite{hedin_integrated_2002}
 \input{litrev/wpfail_tab}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Continuous}
 
 \subsubsection{Instantaneous}
  
@@ -327,6 +331,26 @@ to occur through a hole in the waste canister that exists throughout
 the simulation, and the resistance coefficient limiting flow through 
 the hole represents the magnitude of the canister flaw in combination
 with the buffer-geosphere interface.  \cite{hedin_integrated_2002}
+
+\subsubsection{Rate Based}
+When enough data exists, waste package failure can be represented more  
+realistically by fractional destruction according to experimentally 
+observed corrosion and dissolution rates. 
+
+However, this can be complicated to model even if the data exists. In  
+particular, the corrosion rate will depend 
+dramatically on hydrologic and thermal 
+conditions. Specificially, corrosion rates for the same material are 
+very different under dry oxidising conditions,
+%almost no corrosion
+aqueous oxidising conditions,
+%which means a steel corrosion rate (concentrated at the cell head) of 
+%several tens of microns per year. This phase is very limited in 
+%duration;
+or under anoxic and reducing conditions.
+%during which the steel corrosion rate is reduced to a few microns (or 
+%even less than a micron) per year.
+%see pg 283/525 of phenomenological evolution doc for details
 
 \subsubsection{Probabilistic}
 
@@ -746,6 +770,92 @@ was 67 km.
 \label{sec:detailed_nuclide}
 
 %%%%%%%%%%%%%%%% Detailed Nuclide Transport %%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{ANDRA Dossier 2005}
+The ANDRA Dossier 2005 studies provided detailed nuclide transport 
+calculations for both argillaceous clay and granite formations.
+
+\subsubsection{Clay}
+More complicated saturation and resaturation phenomena are neglected 
+and it is assumed that the initial repository condition is fully 
+resaturated. This is a conservative simplification. Another 
+conservative assumption is one in which the evacuation disturbed zone 
+does not heal. Rather, it is modeled in its damaged state immediately 
+after excavation. 
+
+This model only tracks 15 nuclides of importance.  
+These are chosen to be those with halflives over 1000 years and most 
+toxicity or mobility. \cite{andra_argile:_2005} %page 197
+The behavior of radionuclides in glass vitrification forms can be 
+summarized by categorizing them into mobile, intermediate, and well 
+retained elements. %more details in inset 10-2, andra argile phenom. . 
+
+%%%%%%%%%%%%%%%%% From Andra %%%%%%%%%%%% 
+% mobile elements. They comprise the alkalis (sodium, lithium), 
+% molybdenum and technetium. They are released congruently with the 
+% degradation of the vitreous matrix. (Andra, 2005d). Of the chemical 
+% toxins, boron corresponds to this category of elements.
+
+%intermediate elements are partially retained in the alteration layer 
+%when the glass degrades. These elements are caesium, alkaline earth 
+%metals (calcium, strontium, barium), silicon and aluminium (Andra, 
+%2005d).
+
+%Highly retained elements are insoluble at the basic pH imposed by the 
+%degradation of the glass. They include all the transition elements 
+%(iron, nickel, zinc, zirconium, etc.) and lanthanides and actinides 
+%(Andra, 2005d ; Fillet, 1987).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+Waste form dissolution and package release was assumed to be 
+immediate for some waste forms and corrosion rate based for those 
+where appropriate data was available. Vitrified waste package releases 
+were either modeled with a simple model or a two phase 
+phenomenological model. %(pg198 for references to the math)
+
+Transportation through the backfill is modeled as diffusive, with high 
+permeability.
+
+The evacuation disturbed zone has both a fracture zone and a 
+microfissure zone.
+
+In the host formation, movement is dominated by diffusion, and 
+advection is modeled, but is negligible.
+
+%advection dispersion equation is developed in the section entitled 
+% ``The retention and transport of solutes.''
+%inset 10-11 gives solubility and sorption values for important 
+%elements.
+
+% from andra pg 202:
+%
+%The permeability values determined in situ or on undisturbed samples 
+%are between 10-14 and 10-13 m/s. The structure of the medium suggests 
+%permeability anisotropy and leads to cautiously adopting a value ten 
+%times higher for the horizontal permeability.
+%The reference calculation therefore takes into account a vertical 
+%permeability value of 5.10-14 m/s and a horizontal permeability value 
+%of 5.10-13 m/s. The influence of temperature on the permeability 
+%value is not included in calculations for the normal evolution 
+%scenario, but it is taken into account in the altered evolution 
+%scenarios because of its greater influence.
+
+Tools used in the ALLIANCES software platform include Castem, PorFlow 
+and Trace for hydraulic calculations and nuclide transport and 
+Prediver and Colonbo for waste package failure.
+
+\subsection{SKB Model}
+SKB used ConnectFlow to model Forsmark particle transport. It also 
+used a model called MIKE SHE in conjunction with ConnectFlow in order 
+to model ``uses locally measured meteorological data to simulate 
+transient water flow in the saturated (groundwater) and unsaturated 
+zones, overland flow, and water losses due to evapotranspiration 
+processes (interception, evaporation and transpiration)''. CF contains 
+an elaborate description of flow within the rock, whereas the MS model 
+provides more detailed information on near-surface water flow paths 
+and the associated discharge paths.
+
 
 
 \section{Detailed Computational Models of Heat Transport}
