@@ -132,19 +132,19 @@ resulting doses.
 
 
 \subsection{OCRWM Yucca Mountain Total System Model}
-The Total System Model (TSM) is a very detailed 
-model of the Yucca Mountain disposal system. It includes 
-transportation issues and detailed emplacement timing and strategy 
-models, but considers only the fuel cycle associated with the current  
-U.S. reactor fleet. Casts are modeled discretely and nuclide and heat 
-transport are modeled in great detail.\cite{turner_discrete_2010} 
+The Total System Model (TSM) is a very detailed model of the Yucca 
+Mountain disposal system. It includes transportation issues and 
+detailed emplacement timing and strategy models, but considers only 
+the fuel cycle associated with the current  U.S. reactor fleet. Casts 
+are modeled discretely and nuclide and heat transport are modeled in 
+great detail.\cite{turner_discrete_2010} 
 
-The TSM framework is based on the SimCAD platform. The 
-simulation steps through times in 8 hour time steps during the waste 
-cask transportation, processing and emplacement. This event based 
-simulator is primarily focused on the operation stage of the Yucca 
-Mountain repository, but is equipped with a thermal managment model 
-which informs waste package emplacment.
+The TSM framework is based on the SimCAD platform. The simulation 
+steps through times in 8 hour time steps during the waste cask 
+transportation, processing and emplacement. This event based simulator 
+is primarily focused on the operation stage of the Yucca Mountain 
+repository, but is equipped with a thermal managment model which 
+informs waste package emplacment.
 
 \subsection{WIPP Performance Assessment Code}
 
@@ -186,7 +186,7 @@ geologies were conducted concerning repository concepts relevant to
 other nations as well. See Table \ref{tab:red}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Analytical Models of Nuclide Transport} 
+\subsubsection{Analytical Models of Nuclide Transport} 
 \label{sec:analytical_nuc}
 
 %%%%%%%%%%%%%%%% Analytical Nuclide Transport %%%%%%%%%%%%%%%%%%%%%%%%
@@ -196,18 +196,17 @@ transport through the full release pathway including waste packages,
 engineered barrier systems, and geologic media. A model of transport 
 through the waste package must incorporate waste package failure rate, 
 nuclide release rate via waste matrix dissolution, and advective 
-transfer rate into the engineered barrier system.  Waste package 
-failure rate depends on near field environmental factors such as pH 
-and humidity as well as decay heat and radiative damage anticipated 
-from the contained waste.  In turn, the nuclide release rate from the 
-waste package depends on the character of the waste form matrix, 
-treatment of water flow, nuclide solubility and the elemental 
+transfer rate into the engineered barrier system.  
+
+Waste package failure rate depends on near field environmental factors 
+such as pH and humidity as well as decay heat and radiative damage 
+anticipated from the contained waste.  In turn, the nuclide release 
+rate from the waste package depends on the character of the waste form 
+matrix, treatment of water flow, nuclide solubility and the elemental 
 diffusion constant.  Similarly, advective transfer through the 
 engineered barrier system and into the geological medium also depends 
 on water flow, nuclide solubility, and nuclide diffusion, but must be 
 employed in the context of the hydrogeology of the rock.   
-
-\subsection{Factors Affecting Source Term}
 
 Waste package failure rate varies between models. While some employ a 
 simulation code called EBSFAIL, a part of the EBSPAC module used in 
@@ -217,14 +216,13 @@ immediate waste canister failure in order to focus on dissolution and
 transfer. 
 
 Waste package release rate is the rate of mass transfer of a nuclide 
-from its waste form into the saturation water.
-The mode of water flowthrough heavily effects nuclide dissolution rate 
-and is treated differently in various models. While some, inspired by 
-the TSP assessment, assume water moves through the waste packages at a 
+from its waste form into the saturation water. The mode of water 
+flowthrough heavily effects nuclide dissolution rate and is treated 
+differently in various models. While some, inspired by the TSP 
+assessment, assume water moves through the waste packages at a 
 constant volumetric rate (`flowthrough model'), others adopt less 
 conservative assumptions incorporating weather based predictions of 
-hydrogeologic activity. as directly proportional to the nuclide 
-concentration in some cases,  
+hydrogeologic activity.
 
 Nuclide transfer rate through the lithology is  dependent upon 
 diffusion as well as advection.  The diffusion coefficient varies per 
@@ -244,10 +242,40 @@ to be proportional to the waste package loading configuration for the
 Yucca Mountain 
 case.\cite{ahn_relationship_2002,kawasaki_congruent_2004}
 
+The most important geochemical processes to source term that occur within 
+the waste, waste matrix, and near field as well as the host rock are 
+dissolution, precipitation, and sorption. \cite{bracke_safety_2008}
 
-\subsection{Waste Form Release Models}
+\subsubsection{Dissolution}
 
-\subsubsection{Hedin Model (\cite{hedin_integrated_2002})}
+Dissolution is the ``most important prerequisite'' for contribution of 
+a radionuclide to source term. Dissolution rates depend strongly on 
+pH, Eh, speciation of radionuclides (chemical oxidative state), and 
+radiolysis of the dissolving fluid.
+
+\subsubsection{Precipitation}
+
+Precipitation is the reverse of dissolution and occurs when a 
+soubility limit is reached. Interestingly the chemical equillibrium of 
+dissolution and precipitation is rate dependent and is highly 
+dependent on thermodynamics.  Predictions are not reliable in may 
+cases.
+
+\subsubsection{Sorption}
+
+Sorption is the interaction of a dissolved species with surfaces that 
+removes that species from the dissolving mediu models.
+
+
+\subsubsection{Colloidal Mobility}
+
+Colloids present in the near field dissolving solution have an effect 
+on the mobility of radionuclides. Studies addressing the subtle 
+differences betreverse of dissolution and occurs when a soubility
+
+\section{Waste Form Release Models}
+
+\subsection{Hedin Model (\cite{hedin_integrated_2002})}
 
 In a saturated fractured rock matrix representative of the KBS-3 
 granitic Swedish repository concept, copper canister waste packages 
@@ -257,7 +285,7 @@ Hedin model is a rate based model which takes place within the waste
 package void. Nuclides are released congruently until the waste form 
 is completely degraded. \cite{hedin_integrated_2002} 
 
-\subsubsection{Ahn Models (\cite{ahn_environmental_2004, 
+\subsection{Ahn Models (\cite{ahn_environmental_2004, 
 ahn_environmental_2007})}
 
 Waste canisters are modelled as compartments of waste matrix 
@@ -276,7 +304,7 @@ and then flowing on into the near field. In this way, the water is
 increasingly contaminated as its path through the waste packages 
 proceeds.  
 
-\subsubsection{Congruent Release Model} 
+\subsection{Congruent Release Model} 
 
 In the Ahn models, nuclides with a high solubility coefficient are 
 modeled with the congruent release model.  Nuclides of this type 
@@ -286,7 +314,7 @@ with the dissolution of the waste matrix and is transported through
 the rock by advective transfer with the water that flows through the 
 waste packages.  
 
-\subsubsection{Solubility Limited Release Model}
+\subsection{Solubility Limited Release Model}
 
 In the Ahn models, nuclides with lower solubility coefficients are 
 modeled with the solubility limited release model.  Solubility values 
@@ -324,7 +352,7 @@ that nuclide is soluble. \cite{hedin_integrated_2002}
 
 %%%%
 
-\subsection{Waste Package Failure Models}
+\section{Waste Package Failure Models}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% WP Failure Modes Table %%%%%%%%%
@@ -333,7 +361,7 @@ that nuclide is soluble. \cite{hedin_integrated_2002}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsubsection{Instantaneous}
+\subsection{Instantaneous}
  
 The Hedin model of waste package failure is effectively instantaneous, 
 but limited by release resistance coefficient. The release is assumed  
@@ -342,16 +370,15 @@ the simulation, and the resistance coefficient limiting flow through
 the hole represents the magnitude of the canister flaw in combination
 with the buffer-geosphere interface.  \cite{hedin_integrated_2002}
 
-\subsubsection{Rate Based}
+\subsection{Rate Based}
 When enough data exists, waste package failure can be represented more  
 realistically by fractional destruction according to experimentally 
 observed corrosion and dissolution rates. 
 
 However, this can be complicated to model even if the data exists. In  
-particular, the corrosion rate will depend 
-dramatically on hydrologic and thermal 
-conditions. Specificially, corrosion rates for the same material are 
-very different under dry oxidising conditions,
+particular, the corrosion rate will depend dramatically on hydrologic 
+and thermal conditions. Specificially, corrosion rates for the same 
+material are very different under dry oxidising conditions,
 %almost no corrosion
 aqueous oxidising conditions,
 %which means a steel corrosion rate (concentrated at the cell head) of 
@@ -362,22 +389,22 @@ or under anoxic and reducing conditions.
 %even less than a micron) per year.
 %see pg 283/525 of phenomenological evolution doc for details
 
-\subsubsection{Probabilistic}
+\subsection{Probabilistic}
 
 %%%%
 
-\subsection{Nuclide Transport Through Engineered Barriers}
+\section{Nuclide Transport Through Engineered Barriers}
 
-\subsubsection{Barrier Dissolution and Failure}
+\subsection{Barrier Dissolution and Failure}
 
-\subsubsection{Transport Through EBS Matrix}
+\subsection{Transport Through EBS Matrix}
 
 
 %%%%
 
-\subsection{Hydrogeologic Transport Models}
+\section{Hydrogeologic Transport Models}
 
-\subsubsection{Solute Transport in Permeable Porous Media}
+\subsection{Solute Transport in Permeable Porous Media}
 Clay, granite, salt, and shale can larely be characterized as 
 permeable porous media.
 
@@ -420,7 +447,7 @@ number,
   L &= \mbox{ transport distance } [m].\\
 \end{align*}
 
-\subsubsection{Solute Transport in Fractured Media}
+\subsection{Solute Transport in Fractured Media}
 \paragraph{Continuum Models}
 The models arrived at via this genre of approximation are appropriate 
 for very fractured or very unfractured situations.
@@ -503,7 +530,7 @@ obtained
 by the permeabilities of the fracture network, $k_f$, and the 
 permeability
 of the host matrix, $k_m$. Following the derivation in Schwartz and 
-Zhang, in terms of the cross sectional contact areas of the matrix and 
+Zhang, in terms of the cross subsubsectional contact areas of the matrix and 
 fractures $A_m$ and $A_f$, the equivalent permeability, $k$, can be 
 expressed
 
@@ -512,15 +539,15 @@ expressed
   \label{equivperm}
 \end{align}
 
-\subsubsection{Geochemical Transport Models}
+\subsection{Geochemical Transport Models}
 
-%\subsubsection{Reducing Environments}
+%\subsection{Reducing Environments}
 
 %\paragraph{Saturated Environments}
 
 %\paragraph{Unsaturated Environments}
 
-%\subsubsection{Oxidizing Environments}
+%\subsection{Oxidizing Environments}
 
 %\paragraph{Saturated Environments}
 
@@ -792,9 +819,9 @@ conservative assumption is one in which the evacuation disturbed zone
 does not heal. Rather, it is modeled in its damaged state immediately 
 after excavation. 
 
-This model only tracks 15 nuclides of importance.  
-These are chosen to be those with halflives over 1000 years and most 
-toxicity or mobility. \cite{andra_argile:_2005} %page 197
+This model only tracks 15 nuclides of importance.  These are chosen to 
+be those with halflives over 1000 years and most toxicity or mobility.  
+\cite{andra_argile:_2005} %page 197
 The behavior of radionuclides in glass vitrification forms can be 
 summarized by categorizing them into mobile, intermediate, and well 
 retained elements. %more details in inset 10-2, andra argile phenom. . 
@@ -818,11 +845,11 @@ retained elements. %more details in inset 10-2, andra argile phenom. .
 
 
 
-Waste form dissolution and package release was assumed to be 
-immediate for some waste forms and corrosion rate based for those 
-where appropriate data was available. Vitrified waste package releases 
-were either modeled with a simple model or a two phase 
-phenomenological model. %(pg198 for references to the math)
+Waste form dissolution and package release was assumed to be immediate 
+for some waste forms and corrosion rate based for those where 
+appropriate data was available. Vitrified waste package releases were 
+either modeled with a simple model or a two phase phenomenological 
+model. %(pg198 for references to the math)
 
 Transportation through the backfill is modeled as diffusive, with high 
 permeability.
@@ -834,7 +861,7 @@ In the host formation, movement is dominated by diffusion, and
 advection is modeled, but is negligible.
 
 %advection dispersion equation is developed in the section entitled 
-% ``The retention and transport of solutes.''
+%``The retention and transport of solutes.''
 %inset 10-11 gives solubility and sorption values for important 
 %elements.
 
