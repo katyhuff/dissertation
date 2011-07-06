@@ -14,6 +14,14 @@
 % You, the user, still hold the copyright to any document you produce
 % with this software (like your dissertation).
 
+
+%% To use the acronym package, you'll need to define any acronyms you intend to 
+%% use. You can define acronyms with \acrodef{label}[acronym]{written out form}
+%%  for example \acrodef{etacar}[$\eta$ Car]{Eta Carinae}, with the restriction 
+%% that the label should be simple ASCII. If label and acronym are the same, 
+%% just use \acronym{SN}{supernova}. Try \ac{SN}
+\usepackage[printonlyused,withpage]{acronym}
+
 %% You should use natbib
 \IfFileExists{natbib.sty}{%
 \usepackage[numbers]{natbib}%

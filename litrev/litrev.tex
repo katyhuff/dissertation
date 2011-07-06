@@ -19,16 +19,13 @@ transport on long time scales and in various geologies.
 %%%%%%%%%%%%%%%%%%%%%%%%
 % Systems Analysis Repository Capabilities
 %%%%%%%%%%%%%%%%%%%%%%%% 
-% The total system performance assessment is one type.Repository 
-% modules incorporated into VISION and whatnot are another type.  
-% Things to ask about each of them include: % Which geologies do they model?  
-% How long do they take to run?  Are they proprietary?  How well 
-% validated are they?  
-% Do they include any notion of repository capacity, dose, heat?  
-% Are they capable of dealing with waste of varying compositions?  
-% Are therewasteform models?  
-% Is there nuclide transport, source term estimate?  
-% Heattransport?
+% The total system performance assessment is one type.Repository modules 
+% incorporated into VISION and whatnot are another type.  Things to ask about 
+% each of them include: % Which geologies do they model?  How long do they take 
+% to run?  Are they proprietary?  How well validated are they?  Do they include 
+% any notion of repository capacity, dose, heat?  Are they capable of dealing 
+% with waste of varying compositions?  Are therewasteform models?  Is there 
+% nuclide transport, source term estimate?  Heattransport?
 
 %% This section comes from 2011 CFP Narrative 3067, only lightly edited %%
 
@@ -48,7 +45,18 @@ regard.
 
 %% What follows has not been edited since the CFP narrative %% 
 
-The DOE-NE Fuel Cycle Technology (FCT) program has three groups of relevance to this effort.  These are the FCT Used Fuel Disposition (UFD), the Separations/Waste Form (SWF), and System Analysis (SA) campaigns.  The UFD campaign is conducting the RD\&D related to the storage, transportation, and disposal of radioactive wastes generated under both the current and potential advanced fuel cycles.  The SWF campaign is conducting RD\&D on potential waste forms that could be used to effectively isolate the wastes that would be generated in advanced fuel cycles.  The SWF and UFD campaigns are developing the fundamental tools and information base regarding the performance of waste forms and geologic disposal systems.  The SA campaign is developing the overall fuel cycle simulation tools and interfaces with the other FCT campaigns, including UFD.  
+The DOE-NE Fuel Cycle Technology (FCT) program has three groups of relevance to 
+this effort.  These are the FCT Used Fuel Disposition (UFD), the 
+Separations/Waste Form (SWF), and System Analysis (SA) campaigns.  The UFD 
+campaign is conducting the RD\&D related to the storage, transportation, and 
+disposal of radioactive wastes generated under both the current and potential 
+advanced fuel cycles.  The SWF campaign is conducting RD\&D on potential waste 
+forms that could be used to effectively isolate the wastes that would be 
+generated in advanced fuel cycles.  The SWF and UFD campaigns are developing the 
+fundamental tools and information base regarding the performance of waste forms 
+and geologic disposal systems.  The SA campaign is developing the overall fuel 
+cycle simulation tools and interfaces with the other FCT campaigns, including 
+UFD.  
 
 This effort will interface with those campaigns to develop the higher level
 dominant physics representations for use in fuel cycle system analysis tools.
@@ -60,8 +68,9 @@ physics process models into the \Cyclus computational fuel cycle analysis
 platform.
 
 %%%%%%%% RED-IMPACT Table %%%%%%%%%%%% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \input{litrev/red_tab}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage
@@ -74,7 +83,11 @@ time in both dry and wet intermediate storage facilities.
 
 \subsection{VISION} VISION's repository model conducts decay calculations and
 tracks upwards of 80 isotopes of interest in the nuclear fuel cycle.
-\cite{yacout_visionverifiable_2006} 
+\cite{yacout_visionverifiable_2006} While it calculates some basic information 
+about waste package heat production and heat based repository capacity, discrete  
+waste packages are not modeled and emplaced spent fuel composition is assumed to  
+be spatially homogeneous.\cite{radel_simulation_2005}
+\cite{boucher_international_2010}
 
 \subsection{DANESS} DANESS is developed at Argonne National Laboratory and
 discretely models reactors within regional reactor parks and material movement
@@ -87,18 +100,36 @@ modern PC.\cite{wlodarski_daness_2011,van_den_durpel_daness:_2006}
 
 \subsection{COSI}
 
+COSI is a code from the CEA of France implemented in the Java programming 
+language. It is capable of performing a large range of full fuel cycle 
+scenarios. COSI6 is capable of making assessments of repository capacity as 
+well as radiotoxicity and decay heat calculations of waste packages. 
+\cite{boucher_international_2010}. Nuclide transport through the repository 
+post-emplacement is, however, not calculated. 
+
 \subsection{DYMOND}
+
+
 
 \subsection{NFCSim}
 
+NFCSim was implemented in the Java programming language by Erich Schneider of the 
+University of Texas - Austin. Primarily a mass tracking code, the repository 
+model was limited to a heat analysis. Uniquely, in NFCSim the transportation of 
+each waste package was modeled discretely. \cite{schneider_nfcsim_2004}
+
 \subsection{CAFCA}
 
-\subsection{SMAFS}
+CAFCA is a fuel cycle code from MIT. It does not do detailed repository modeling 
+or capacity estimations.
 
-\subsection{NFCSS}
 
 \subsection{ORION} This code is a proprietary code developed at the United
-Kingdom's National Nuclear Laboratory.
+Kingdom's National Nuclear Laboratory. While there is no heat-limited capacity 
+model or calculation of nuclide transport, the material destined for the 
+repository can be described with a number of mass multiplied metrics (activity 
+(Bq), Radiotoxicity (Sv),  Toxic potential ($m^3$),Spontaneous neutron emission 
+($s^{-1}$), Heat production (W)).
 
 \subsection{European RED-IMPACT} Granite, clay and salt are analyzed by various
 countries and codes.
@@ -205,7 +236,9 @@ well as advection.  The diffusion coefficient varies per nuclide and is heavily
 dependent upon the concentration of that nuclide in the flowthrough water.
 Nuclide concentration in this model is described by Fick's First Law, 
 
-\begin{equation} J = -D\frac{\delta\phi}{\delta x}.  \end{equation}
+\begin{equation} 
+  J = -D\frac{\delta\phi}{\delta x}.  
+\end{equation}
 
 Source term dependence on concentration has a significant effect on potential
 repository capacity. Sensitivity to concentration complicates the viability of
@@ -316,8 +349,10 @@ concentration, $C_{sol}$ in $[g/m^3]$ at which that nuclide is soluble.
 
 \subsection{Waste Package Failure Models}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%% WP Failure Modes Table %%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \input{litrev/wpfail_tab}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%% WP Failure Modes Table %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\input{litrev/wpfail_tab}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -330,25 +365,42 @@ the resistance coefficient limiting flow through the hole represents the
 magnitude of the canister flaw in combination with the buffer-geosphere
 interface.  \cite{hedin_integrated_2002}
 
-\subsubsection{Rate Based} When enough data exists, waste package failure can
+Other models also use an instantaneous waste package failure mode, assuming that 
+either at the beginning of the simulation or at th e
+
+\subsubsection{Rate Based} 
+
+When enough data exists, waste package failure can
 be represented more  realistically by fractional destruction according to
 experimentally observed corrosion and dissolution rates. 
 
 However, this can be complicated to model even if the data exists. In
 particular, the corrosion rate will depend dramatically on hydrologic and
 thermal conditions. Specificially, corrosion rates for the same material are
-very different under dry oxidising conditions, %almost no corrosion aqueous
-oxidising conditions, %which means a steel corrosion rate (concentrated at the
-cell head) of %several tens of microns per year. This phase is very limited in
-%duration; or under anoxic and reducing conditions.  %during which the steel
-corrosion rate is reduced to a few microns (or %even less than a micron) per
-year.  %see pg 283/525 of phenomenological evolution doc for details
+very different under dry oxidising conditions, 
+
+%almost no corrosion aqueous oxidising conditions, which means a steel corrosion 
+%rate (concentrated at the cell head) of several tens of microns per year. This 
+%phase is very limited in
+%duration; or under anoxic and reducing conditions.  during which the steel 
+%corrosion rate is reduced to a few microns (or even less than a micron) per 
+%year.  see pg 283/525 of phenomenological evolution doc for details
 
 \subsubsection{Probabilistic}
 
+When a probability distribution of waste package failure is available, the 
+discrete waste packages can be modeled to fail according to that distribution. 
+For example, if the expected lifetime of a waste package is 30,000 years, a 
+gaussian distribution around that number would provide a probabilistic number of 
+waste package failures per time step. 
+
 %%%%
 
-\subsection{Nuclide Transport Through Engineered Barriers}
+\subsection{Nuclide Transport Through Secondary Engineered Barriers}
+
+When the waste package is breached, nuclide transport through secondary 
+engineered barriers such as the buffer zone, tunnel walls, and Evacuation 
+Disturbed Zone (EDZ)
 
 \subsubsection{Barrier Dissolution and Failure}
 
@@ -464,61 +516,56 @@ and $A_f$, the equivalent permeability, $k$, can be expressed
 %\paragraph{Unsaturated Environments}
 
 
-% The distribution of fracture aperture sizes in a saturated fractured 
-% hard rock matrix determines the appropriate model with which to 
-% treat rock fracturation and subsequent nuclide transport through
+% The distribution of fracture aperture sizes in a saturated fractured hard rock 
+% matrix determines the appropriate model with which to treat rock fracturation 
+% and subsequent nuclide transport through
 % fracturous pathways. 
 
-% Fracturation within a saturated medium can be treated either as an 
-% effective porosity, in which n_eff is suggested according to the 
-% quantity of connected fractures, much like connected pores, in a 
-% rock matrix. If these are of similar sizes, 
+% Fracturation within a saturated medium can be treated either as an effective 
+% porosity, in which n_eff is suggested according to the quantity of connected 
+% fractures, much like connected pores, in a rock matrix. If these are of 
+% similar sizes, 
 
-% Fracturation in grantite, tuff, and basalt have a log normal 
-% distribution of of fracture apertures. Therefore, there are a few 
-% large fractures but the majority are microfractures.  Therefore, the 
-% equivalent porous medium approach is inappropriate. Instead we must 
-% take the approach in which fractures of larger aperture are given 
-% greater importance and are modeled as primary conduits to the 
-% biosphere while minor fractures can be considered a part of the 
-% porous medium of the saturated rock. \cite{ahn_thesis}
+% Fracturation in grantite, tuff, and basalt have a log normal distribution of 
+% of fracture apertures. Therefore, there are a few large fractures but the 
+% majority are microfractures.  Therefore, the equivalent porous medium approach 
+% is inappropriate. Instead we must take the approach in which fractures of 
+% larger aperture are given greater importance and are modeled as primary 
+% conduits to the biosphere while minor fractures can be considered a part of 
+% the porous medium of the saturated rock. \cite{ahn_thesis}
 
 
-% For details about fracturation models in unsaturated rock, it's 
-% likely best to consult YMR TSPA models.
+% For details about fracturation models in unsaturated rock, it's likely best to 
+% consult YMR TSPA models.
 
 
 %\paragraph{Sorption Into Matrix}
 
 
-%Sorption into the rock matrix is a method by which contaminants (and 
-%water? ) are removed from a fracture during flow through that 
-%fracture. However, this is a reversible process \cite{ahn_thesis, pg 
-%16}, which means the contaminant might be returned to the fracture 
-%from the matrix with the same ''distribution coefficient`` with which 
-%they entered the rock matrix . 
+%Sorption into the rock matrix is a method by which contaminants (and water? ) 
+%are removed from a fracture during flow through that fracture. However, this is 
+%a reversible process \cite{ahn_thesis, pg 16}, which means the contaminant 
+%might be returned to the fracture from the matrix with the same ''distribution 
+%coefficient`` with which they entered the rock matrix . 
 
 
-% One way to model sorption is by assuming a linear isotherm. What 
-% does that mean?  \cite{ahn_thesis_pg20}
+% One way to model sorption is by assuming a linear isotherm. What does that 
+% mean?  \cite{ahn_thesis_pg20}
 
-% The concentration of sorbed contaminant onto the fracture surface 
-% can be demonstrated in terms of a rate equation (if surface 
-% diffusion is neglected.) (What is surface diffusion?) 
-% \cite{ahn_thesis_pg20)
+% The concentration of sorbed contaminant onto the fracture surface can be 
+% demonstrated in terms of a rate equation (if surface diffusion is neglected.) 
+% (What is surface diffusion?) \cite{ahn_thesis_pg20)
 
 
-% Ahn finds that including sorption, the concentration of contaminant 
-% in the fracture satisfies the differential rate equation: 
-% % \begin{align*} 
+% Ahn finds that including sorption, the concentration of contaminant in the 
+% fracture satisfies the differential rate equation: % \begin{align*} 
 % R_f\frac{\partial N}{\partial t} + \nu \frac{\partial N}{\partial z} 
-% - D \frac{\partial^2 D}{\partial z^2} + R_f \lambda N + \frac{q}{b} 
-%   = 0, z>0 and t>0 
+% - D \frac{\partial^2 D}{\partial z^2} + R_f \lambda N + \frac{q}{b} = 0, z>0 
+%   and t>0 
 % \end{align*} 
 
-% Also, there is sorption through the pores in the matrix. Again, we 
-% can model this with a ``linear sorption isotherm. . . '' whatever 
-% that is.  
+% Also, there is sorption through the pores in the matrix. Again, we can model 
+% this with a ``linear sorption isotherm. . . '' whatever that is.  
 
 
 %\paragraph{Diffusion Into Fracture}
@@ -538,45 +585,40 @@ and $A_f$, the equivalent permeability, $k$, can be expressed
 \subsection{Impact of Repository Designs}
 
 \subsection{Heat Limits in Various Waste Packages} 
-% The CEA and ANDRA take 90$^\circ$C to be the maximum temperature for 
-% spent fuel waste packages. The reason for this is to remain within 
-% well understood limits of material evolution of waste packages and 
-% the surrounding (clay) repository.  \cite{argile_geo_evo}  
+% The CEA and ANDRA take 90$^\circ$C to be the maximum temperature for spent 
+% fuel waste packages. The reason for this is to remain within well understood 
+% limits of material evolution of waste packages and the surrounding (clay) 
+% repository.  \cite{argile_geo_evo}  
 
 
-% Confinement capabilities of bitumen waste packages (B packages in 
-% ANDRA Argile evaluation) is only confident below 70$^\circ$C. Uncide 
-% the ``disposal cells'' a maximum temperature of 30$\circ$C is 
-% adopted.
+% Confinement capabilities of bitumen waste packages (B packages in ANDRA Argile 
+% evaluation) is only confident below 70$^\circ$C. Uncide the ``disposal cells'' 
+% a maximum temperature of 30$\circ$C is adopted.
 
 
 \subsection{Heat Limits in Various Geologies}
 
 \subsubsection{Clay} 
-% Well understood behavior for agrillaceous clay is taken by the CEA 
-% to occur under 90$^\circ$C, as with the waste packages in this 
-% geology.  
+% Well understood behavior for agrillaceous clay is taken by the CEA to occur 
+% under 90$^\circ$C, as with the waste packages in this geology.  
 % 
-% ``This low permeability of the Callovo-Oxfordian, linked to low 
-% hydraulic head gradients on either side of the formation, controls 
-% slow vertical water flow (Inset 3.5). The velocities of this water 
-% flow are fairly different in detail because of the medium's pore 
-% structure. Moreover, some pores are not connected and cannot take 
-% part in the water flow. A so-called kinematic porosity is therefore 
-% defined, which is a fraction of total porosity, used macroscopically 
-% to calculate mean water flow velocity in the direction of the 
-% hydraulic head gradient. For the Callovo-Oxfordian, this kinematic 
-% porosity has been taken as being the same as the fraction of free 
-% water in the rock, i.e. about 9 
-%, corresponding to half the total 
-% porosity.  The very low permeability determines average flow speeds 
-% within the layer (Darcy velocity, inset 3.5) at around 3 cm per 
-% 100,000 years, which corresponds to a water transfer velocity of 
-% about 30 cm per 100,000 years, considering the kinematic porosity.  
-% \cite{argile_geo_evo} 
+% ``This low permeability of the Callovo-Oxfordian, linked to low hydraulic head 
+% gradients on either side of the formation, controls slow vertical water flow 
+% (Inset 3.5). The velocities of this water flow are fairly different in detail 
+% because of the medium's pore structure. Moreover, some pores are not connected 
+% and cannot take part in the water flow. A so-called kinematic porosity is 
+% therefore defined, which is a fraction of total porosity, used macroscopically 
+% to calculate mean water flow velocity in the direction of the hydraulic head 
+% gradient. For the Callovo-Oxfordian, this kinematic porosity has been taken as 
+% being the same as the fraction of free water in the rock, i.e. about 9 
+%, corresponding to half the total porosity.  The very low permeability 
+%determines average flow speeds within the layer (Darcy velocity, inset 3.5) at 
+%around 3 cm per 100,000 years, which corresponds to a water transfer velocity 
+%of about 30 cm per 100,000 years, considering the kinematic porosity.  
+%\cite{argile_geo_evo} 
 
-% Water flow in a porous medium is dominated by darcy flow.  This 
-% would be a great place to describe darcy's law! 
+% Water flow in a porous medium is dominated by darcy flow.  This would be a 
+% great place to describe darcy's law! 
 \subsubsection{Granite}
 
 \subsubsection{Salt} Response of a salt repository to heat has a significant
@@ -589,8 +631,7 @@ salt environment is of great importance to nuclide transport modeling.
 A model of temperature dependent salt coalescent behavior is is order. 
 
 
-% WIPP, system model 
-% Germany, GRS concept
+% WIPP, system model Germany, GRS concept
 
 \subsubsection{Shale}
 
@@ -722,28 +763,27 @@ it is modeled in its damaged state immediately after excavation.
 
 This model only tracks 15 nuclides of importance.  These are chosen to be those
 with halflives over 1000 years and most toxicity or mobility.
-\cite{andra_argile:_2005} %page 197 
-The behavior of radionuclides in glassvitrification forms can be summarized by categorizing them into mobile,
+\cite{andra_argile:_2005} %page 197 The behavior of radionuclides in 
+glassvitrification forms can be summarized by categorizing them into mobile,
 intermediate, and well retained elements. 
 %more details in inset 10-2, andra argile phenom. . 
 
 %%%%%%%%%%%%%%%%% From Andra %%%%%%%%%%%% 
-% mobile elements. They comprise the alkalis (sodium, lithium), 
-% molybdenum and technetium. They are released congruently with the 
-% degradation of the vitreous matrix. (Andra, 2005d). Of the chemical 
-% toxins, boron corresponds to this category of elements.  
+% mobile elements. They comprise the alkalis (sodium, lithium), molybdenum and 
+% technetium. They are released congruently with the degradation of the vitreous 
+% matrix. (Andra, 2005d). Of the chemical toxins, boron corresponds to this 
+% category of elements.  
 
-%intermediate elements are partially retained in the alteration layer 
-%when the glass degrades. These elements are caesium, alkaline earth 
-%metals (calcium, strontium, barium), silicon and aluminium (Andra, 
-%2005d).
+%intermediate elements are partially retained in the alteration layer when the 
+%glass degrades. These elements are caesium, alkaline earth metals (calcium, 
+%strontium, barium), silicon and aluminium (Andra, 2005d).
 
 
 %Highly retained elements are insoluble at the basic pH imposed by the
 
-%degradation of the glass. They include all the transition elements 
-%(iron, nickel, zinc, zirconium, etc.) and lanthanides and actinides 
-%(Andra, 2005d ; Fillet, 1987).  
+%degradation of the glass. They include all the transition elements (iron, 
+%nickel, zinc, zirconium, etc.) and lanthanides and actinides (Andra, 2005d ; 
+%Fillet, 1987).  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -763,24 +803,22 @@ The evacuation disturbed zone has both a fracture zone and a microfissure zone.
 In the host formation, movement is dominated by diffusion, and advection is
 modeled, but is negligible.
 
-%advection dispersion equation is developed in the section entitled 
-%``The retention and transport of solutes.'' 
-%inset 10-11 gives solubility and sorption values for important 
-%elements.
+%advection dispersion equation is developed in the section entitled ``The 
+%retention and transport of solutes.'' inset 10-11 gives solubility and sorption 
+%values for important elements.
 
 
 % from andra pg 202: 
 % 
-%The permeability values determined in situ or on undisturbed samples 
-%are between 10-14 and 10-13 m/s. The structure of the medium suggests 
-%permeability anisotropy and leads to cautiously adopting a value ten 
-%times higher for the horizontal permeability.  
-%The reference calculation therefore takes into account a vertical 
-%permeability value of 5.10-14 m/s and a horizontal permeability value 
-%of 5.10-13 m/s. The influence of temperature on the permeability 
-%value is not included in calculations for the normal evolution 
-%scenario, but it is taken into account in the altered evolution 
-%scenarios because of its greater influence.  
+%The permeability values determined in situ or on undisturbed samples are 
+%between 10-14 and 10-13 m/s. The structure of the medium suggests permeability 
+%anisotropy and leads to cautiously adopting a value ten times higher for the 
+%horizontal permeability.  The reference calculation therefore takes into 
+%account a vertical permeability value of 5.10-14 m/s and a horizontal 
+%permeability value of 5.10-13 m/s. The influence of temperature on the 
+%permeability value is not included in calculations for the normal evolution 
+%scenario, but it is taken into account in the altered evolution scenarios 
+%because of its greater influence.  
 
 Tools used in the ALLIANCES software platform include Castem, PorFlow and Trace
 for hydraulic calculations and nuclide transport and Prediver and Colonbo for
@@ -839,7 +877,9 @@ $\lambda_i$ describes its decay constant. Finally, $w_{ci}(t)$ describes the
 advective transfer rate $[mol/yr]$ of the isotope \emph{i}. This model defines
 $w_{ci}$ as:
 
-\begin{equation} w_{ci}(t)=C_i(t)q_{out}(t) \end{equation}
+\begin{equation}
+  w_{ci}(t)=C_i(t)q_{out}(t) 
+\end{equation}
 
 where $q_out$ is the volumetric flow rate of the water $[m^3/yr]$, and $C_i =
 m_i/V_{wp}$ in $[mol/m^3]$. These assumptions fail to take into account any
@@ -885,84 +925,31 @@ require full synthesis with a systems analysis code that appropriately
 determines the isotpic mass flows into the repository, their appropriate
 conditioning, densities, and other physical properties.  
 
-% %   * repository 
-%      * geology 
-%         * reducing/oxidizing 
-%         * salt 
-%         * granite 
-%         * clay 
-%         * deep boreholes (srsly) 
-%        * design 
-%         * tunnel widths?  
-%         * tunnel lengths?  
-%         * distance between tunnels?  
-%         * depths 
-%         * distance from water table 
-%      * loading strategies 
-%         * cooling pad timing 
-%         * interim storage timing (i.e. between fuel cycle stages) 
-%         * utilizing short lived ILW facilities 
-%         * tunnel ventilation 
-%         * packing optimization 
-%   * partitioning/separations 
-%      * separation efficiency * of MAs 
-%         * of Pu 
-%         * of Iodine 
-%         * etc.  
-%      * separation strategy 
-%         * isotope decisions 
-%            * MAs?  
-% * Pu?  
-%            * etc.?  
-%         * chemistry decisions 
-%            * aqueous?  
-%            * pyro?  
-%            * does it matter?  
-%   * transmutation 
-%      * Advanced Reactors 
-%         * deployment timing 
-% * Pu or MA content of fuels 
-%         * types of reactors 
-%            * high burnup 
-%            * MOX 
-%            * various Fast Reactors 
-% * various conversion/breeding ratios 
-%               * Integral Fast Reactor 
-% *  * wave reactor 
-%            * candle reactor 
-%      * Thermal Reactors 
-% * initial UO_2 enrichment 
-%         * maximum burnup * Pu / MA content of fuels
+% %   * repository * geology * reducing/oxidizing * salt * granite * clay * deep 
+% boreholes (srsly) * design * tunnel widths?  * tunnel lengths?  * distance 
+% between tunnels?  * depths * distance from water table * loading strategies * 
+% cooling pad timing * interim storage timing (i.e. between fuel cycle stages) * 
+% utilizing short lived ILW facilities * tunnel ventilation * packing 
+% optimization * partitioning/separations * separation efficiency * of MAs * of 
+% Pu * of Iodine * etc.  * separation strategy * isotope decisions * MAs?  * Pu?  
+% * etc.?  * chemistry decisions * aqueous?  * pyro?  * does it matter?  * 
+% transmutation * Advanced Reactors * deployment timing * Pu or MA content of 
+% fuels * types of reactors * high burnup * MOX * various Fast Reactors * 
+% various conversion/breeding ratios * Integral Fast Reactor *  * wave reactor * 
+% candle reactor * Thermal Reactors * initial UO_2 enrichment * maximum burnup * 
+% Pu / MA content of fuels
 
-%         * Thorium ?  
-%         * Reactor Type 
-%            * PWR 
-% * BWR * VVER 
-%      * Accelerator Driven Systems 
-%         * target MA content
+%         * Thorium ?  * Reactor Type * PWR * BWR * VVER * Accelerator Driven 
+%         Systems * target MA content
 
-%         * burnup efficiency 
-%      * power share of various installed reactor types 
-%   * conditioning 
-%      * waste packaging 
-%         * forms 
-% * liquids 
-%               * glass vitrification 
-%               * cement 
-% * bitumen 
-%            * solids 
-%               * steel 
-%               * combined material canisters 
-%               * dual purpose transport and storage canisters 
-%               * overpack characteristics 
-%            * etc?  
-%         * densities 
-%            * impacted by density-dependent release rates 
-%         * volumes 
-%      * incineration/compaction (solid waste) 
-%      * evaporation/filtration/ion exchange (liquid waste) 
-%      * engineered barriers 
-%      * likelihood of human intrusion ?  %
+%         * burnup efficiency * power share of various installed reactor types * 
+%         conditioning * waste packaging * forms * liquids * glass vitrification 
+%         * cement * bitumen * solids * steel * combined material canisters * 
+%         dual purpose transport and storage canisters * overpack 
+%         characteristics * etc?  * densities * impacted by density-dependent 
+%         release rates * volumes * incineration/compaction (solid waste) * 
+%         evaporation/filtration/ion exchange (liquid waste) * engineered 
+%         barriers * likelihood of human intrusion ?  %
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %% Source Term in Many Geos Table %%%%
@@ -984,82 +971,69 @@ conditioning, densities, and other physical properties.
 \subsection{Models Incorporated into Systems Analysis Codes}
 
 % get rest of this list from MLDG paper.  
-%\section{Geochemical Migration Models} 
-% Some mathematical models describing aqueous isotope transport in 
-% geologic settings are available absent of Engineered Barier Systems 
-% and the like. These solely model host rock transport.  ``PHREEQC 
-% version 2 is a computer program written in the C programming 
-% language that is designed to perform a wide variety of 
-% low-temperature aqueous geochemical calculations.  PHREEQC is based 
-% on an ion-association aqueous model and has capabilities for (1) 
-% speciation and saturation-index calculations; (2) batch-reaction and
-% one-dimensional (1D) transport calculations involving reversible 
-% reactions, which include aqueous, mineral, gas, solid-solution, 
-% surface-complexation, and ion-exchange equilibria, and irreversible 
-% reactions, which include specified mole transfers of reactants, 
-% kinetically controlled reactions, mixing of solutions, and 
-% temperature changes; and (3) inverse modeling, which finds sets of 
-% mineral and gas mole transfers that account for differences in 
-% composition between waters, within specified compositional 
-% uncertainty limits.'' 
-% GTMCHEM — a simulation environment which “deterministically” models
+%\section{Geochemical Migration Models} Some mathematical models describing 
+%aqueous isotope transport in geologic settings are available absent of 
+%Engineered Barier Systems and the like. These solely model host rock transport.  
+%``PHREEQC version 2 is a computer program written in the C programming language 
+%that is designed to perform a wide variety of low-temperature aqueous 
+%geochemical calculations.  PHREEQC is based on an ion-association aqueous model 
+%and has capabilities for (1) speciation and saturation-index calculations; (2) 
+%batch-reaction and
+% one-dimensional (1D) transport calculations involving reversible reactions, 
+% which include aqueous, mineral, gas, solid-solution, surface-complexation, and 
+% ion-exchange equilibria, and irreversible reactions, which include specified 
+% mole transfers of reactants, kinetically controlled reactions, mixing of 
+% solutions, and temperature changes; and (3) inverse modeling, which finds sets 
+% of mineral and gas mole transfers that account for differences in composition 
+% between waters, within specified compositional uncertainty limits.'' GTMCHEM — 
+% a simulation environment which “deterministically” models
 
-% the one-dimensional migration of radionuclides through the geosphere 
-% up to the biosphere. Focusing on scenario and parametric 
-% uncertainty, we show that mean predicted maximum doses to humans on 
-% the earth's surface due to 1–129, and uncertainty bands around those 
-% predictions, are larger when scenario uncertainty is properly 
-% assessed and propagated. .  
-% Things to ask about each of them include: 
-% Which geologies do they model? 
-% How long do they take to run?  Are they proprietary?  How well 
-% validated are they?
+% the one-dimensional migration of radionuclides through the geosphere up to the 
+% biosphere. Focusing on scenario and parametric uncertainty, we show that mean 
+% predicted maximum doses to humans on the earth's surface due to 1–129, and 
+% uncertainty bands around those predictions, are larger when scenario 
+% uncertainty is properly assessed and propagated. .  Things to ask about each 
+% of them include: Which geologies do they model?  How long do they take to run?  
+% Are they proprietary?  How well validated are they?
 
 
 %\section{Waste Form Models}
 
 
-%\subsection{TAD Canisters} 
-% The canisters proposed for transportation, aging and disposal are 
-% called TAD canisters.  They are two concentric cylinders of steel 
-% and alloy22 inside and out respectively. 
+%\subsection{TAD Canisters} The canisters proposed for transportation, aging and 
+%disposal are called TAD canisters.  They are two concentric cylinders of steel 
+%and alloy22 inside and out respectively. 
 
 
-%\subsection{Borosilicate Glass} 
-% Current borosilicate glass: Includes processing chemicals from 
-% original separations, with U/Pu removed, but minor actinides and 
-% Cs/Sr remaining 
-% Potential borosilicate glass: No minor actinides and/or no Cs/Sr; Mo 
-% may be removed to increase glass loading of radionuclides; it has 
-% alower volumetric heat rate
+%\subsection{Borosilicate Glass} Current borosilicate glass: Includes processing 
+%chemicals from original separations, with U/Pu removed, but minor actinides and 
+%Cs/Sr remaining Potential borosilicate glass: No minor actinides and/or no 
+%Cs/Sr; Mo may be removed to increase glass loading of radionuclides; it has 
+%alower volumetric heat rate
 
 
-%\subsection{Glass Ceramic} 
-% Glass Ceramic:  This is glass-bonded sodalite from Echem processing 
-% of EBR-II, and from potential future Echem processing of oxide fuels 
-% o Metal Alloy: This includes subcategories
+%\subsection{Glass Ceramic} Glass Ceramic:  This is glass-bonded sodalite from 
+%Echem processing of EBR-II, and from potential future Echem processing of oxide 
+%fuels o Metal Alloy: This includes subcategories
 
 
-%\subsection{Metal Alloy} 
-% Metal alloy from Echem: Includes cladding as well as noble metals 
-% that did not dissolve in the Echem dissolution 
-% Metal alloy from aqueous reprocessing:  Includes undissolved solids 
-% and transition metal fission products
+%\subsection{Metal Alloy} Metal alloy from Echem: Includes cladding as well as 
+%noble metals that did not dissolve in the Echem dissolution Metal alloy from 
+%aqueous reprocessing:  Includes undissolved solids and transition metal fission 
+%products
 
 
-%\subsection{Advanced Ceramic} 
-% Advanced Ceramic: An advanced waste form that includes iodine 
-% volatilized during chopping, which is then gettered during head-end 
-% processing of used fuels
+%\subsection{Advanced Ceramic} Advanced Ceramic: An advanced waste form that 
+%includes iodine volatilized during chopping, which is then gettered during 
+%head-end processing of used fuels
 
 
-%\subsection{Separated Streams} 
-% Other:  Examples include radionuclides removed from other waste 
-% forms (e.g., Cs/Sr, I, C), as well as new waste forms such as a salt 
-% waste form
+%\subsection{Separated Streams} Other:  Examples include radionuclides removed 
+%from other waste forms (e.g., Cs/Sr, I, C), as well as new waste forms such as 
+%a salt waste form
 
-%\subsection{Classes A, B, and C waste} 
-% Lower Than High Level Waste (LTHLW): Includes Classes A, B, and C
+%\subsection{Classes A, B, and C waste} Lower Than High Level Waste (LTHLW): 
+%Includes Classes A, B, and C
 
 %\subsection{GTCC LTHLW} % Greater Than Class C (GTCC)
 
