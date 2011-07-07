@@ -15,12 +15,11 @@
 % with this software (like your dissertation).
 
 
-%% To use the acronym package, you'll need to define any acronyms you intend to 
-%% use. You can define acronyms with \acrodef{label}[acronym]{written out form}
-%%  for example \acrodef{etacar}[$\eta$ Car]{Eta Carinae}, with the restriction 
-%% that the label should be simple ASCII. If label and acronym are the same, 
-%% just use \acronym{SN}{supernova}. Try \ac{SN}
-\usepackage[printonlyused,withpage]{acronym}
+%% To use the glossaries acronym package, you'll need to define any acronyms you intend to 
+%% use. You can define acronyms with \newacronym{label}[acronym]{written out form}
+%% To refer to them in the text use \gls{label}
+\usepackage[acronym,toc]{glossaries}
+\makeglossaries
 
 %% You should use natbib
 \IfFileExists{natbib.sty}{%
@@ -69,6 +68,9 @@
 
 %% Custom Katy Huff Commands
 \newcommand{\Cyclus}{\textsc{Cyclus} }
+\newcommand{\nucl}[2]{
+\ensuremath{^{#1}}\mbox{#2}
+}
 
 %% Get rid of ugly borders around PDF hyperlinks (e.g. for cross-references, bib entries, or URLs)
 \hypersetup{pdfborder = 0 0 0}

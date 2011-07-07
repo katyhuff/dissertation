@@ -165,26 +165,55 @@ managment model which informs waste package emplacment.
 \subsection{Fuel Cycle Technology, UFD Codes Under Development}
 
 The Used Fuel Disposition campaign is currently conducting an effort to produce
-generic disposal system models for various geological environments. Teams from
+\gls{GDSE} models for various geological environments. Teams from
 various national labs, Argonne, Lawrence Livermore, and Sandia are developing
 models of generic clay, granite,   and salt disposal environments. Sandia is
-simultaneously constructing  a borehole disposal system mode. Each generic
+simultaneously constructing  a borehole disposal system model. Each generic
 disposal system model will perform detailed calculations of nuclide  and heat
-transport within its respective lithology. 
+transport within its respective lithology. A longer term goal of the project 
+includes an overarching generic model which incorporates the various 
+geologically distinct submodels in order to provide a fully generic repository 
+model. 
 
-The nuclide transport calculations within the  clay model being developed by
-Argonne National Lab (ANL) are performed within the GoldSim simulation
-platform, and models a single repeatable waste package cell. GoldSim is a
-commercial off the shelf simulation environment which ships with a contaminant
-transport system for modeling of release and transport of contaminants as well
-as an optional radionuclide transport module for decay calculations.
+The nuclide transport calculations for the geologically distinct models 
+are performed within the GoldSim simulation platform. GoldSim is a commercial
+off the shelf simulation environment which ships with a contaminant transport 
+system for modeling of release and transport of contaminants as well as an 
+optional radionuclide transport module for decay calculations. Each models a 
+single repeatable waste package cell to arrive a a full repository model. 
+Probabilistic elemnts of the GoldSim modelling framework enable the models to 
+incorporate \gls{FEPs} expected to take place probabilistically during the 
+evolution of the repository.  
 
-Modules within GoldSim represent components of the waste disposal system and
+Cells within GoldSim represent components of the waste disposal system and
 are linked by diffusive, advective, precipited, direct, or  otherwise filtered
-mass transfer links.
+mass transfer links. 
 
 Thermal modeling for the clay model is being conducted using the SINDA\ G heat
 transport solver.  
+
+\subsubsection{Clay GDSE Model}
+
+The Clay \gls{GDSE} model is being pursued by the team at \gls{ANL} and will be 
+the primary model with which this work will conduct parametric regression 
+analyses. 
+
+The Clay \gls{GDSE} models a single waste form, waste package, \gls{EBS}, 
+\gls{EDZ}, and 
+
+\subsubsection{Salt GDSE Model}
+
+<++>
+
+
+\subsubsection{Granite GDSE Model}
+
+<++>
+
+\subsubsection{ Borehole GDSE Model}
+
+
+<++>
 
 \subsection{Repository Focused Fuel Cycle Analyses}
 
@@ -365,14 +394,15 @@ the resistance coefficient limiting flow through the hole represents the
 magnitude of the canister flaw in combination with the buffer-geosphere
 interface.  \cite{hedin_integrated_2002}
 
-Other models also use an instantaneous waste package failure mode, assuming that 
-either at the beginning of the simulation or at th e
+Other models also use an instantaneous waste package failure mode for all waste  
+packages simultaneously, assuming that either at the beginning of the simulation
+or at the onset of the simulation.
 
 \subsubsection{Rate Based} 
 
 When enough data exists, waste package failure can
 be represented more  realistically by fractional destruction according to
-experimentally observed corrosion and dissolution rates. 
+experimentally observed corrosion and dissolution rate functions.
 
 However, this can be complicated to model even if the data exists. In
 particular, the corrosion rate will depend dramatically on hydrologic and
@@ -394,13 +424,16 @@ For example, if the expected lifetime of a waste package is 30,000 years, a
 gaussian distribution around that number would provide a probabilistic number of 
 waste package failures per time step. 
 
+The instantaneous case is a special case of the probabilistic situation. 
+Specfically, it is a Dirac Delta function. 
+
 %%%%
 
 \subsection{Nuclide Transport Through Secondary Engineered Barriers}
 
-When the waste package is breached, nuclide transport through secondary 
-engineered barriers such as the buffer zone, tunnel walls, and Evacuation 
-Disturbed Zone (EDZ)
+When the waste package is breached, nuclides are transported through secondary 
+engineered barriers such as the buffer zone, and tunnel walls before 
+they reach the geological matrix. 
 
 \subsubsection{Barrier Dissolution and Failure}
 
@@ -421,23 +454,41 @@ velocity, and dispersivity.  % diffusion - is from random brownian motion,
 tends to homogenize % concentration field.  %
 
 The equation representing solute transport in a permeable medium of homogenous
-porosity can be written \begin{align*} \frac{\partial \omega C}{\partial t} & =
-- \nabla \cdot  (F_c + F_{dc} + F_d) + m \intertext{where} \omega &= \mbox{
-solute accessible porosity } [\%]\\ C &= \mbox{ concentration } [kg \cdot
-m^{-3}]\\ F_c &= \mbox{ convetive flow } [kg \cdot m^{-2}\cdot s^{-1}]\\ &= qC
-\\ F_{dc} &= \mbox{ dispersive flow } [kg \cdot m^{-2}\cdot s^{-1}]\\ &= \alpha
-q \nabla C  \\ F_d &= \mbox{ diffusive flow } [kg \cdot m^{-2}\cdot s^{-1}]\\
-&= D_e \nabla C\\ m &= \mbox{ solute source } [kg \cdot m^{-2}\cdot s^{-1}].\\
-\end{align*} In the expressions above, \begin{align*} q &= \mbox{ Darcy
-velocity } [m\cdot s^{-1}] \\ \alpha &= \mbox{ dispersivity } [m]
-\intertext{and} D_e &= \mbox{ effective diffusion coefficient } [m^2\cdot
-s^{-1}] .\\ \end{align*} The method by which the dominant solute transport mode
-is determined for a particular porous medium is by use of the dimensionless
-Peclet number, \begin{align*} Pe &= \frac{qL}{\alpha q + D_e},
-\intertext{where} L &= \mbox{ transport distance } [m].\\ \end{align*}
+porosity can be written
 
-\subsubsection{Solute Transport in Fractured Media} \paragraph{Continuum
-Models} The models arrived at via this genre of approximation are appropriate
+\begin{align*} 
+  \frac{\partial \omega C}{\partial t} & =
+  - \nabla \cdot  (F_c + F_{dc} + F_d) + m \intertext{where} \omega 
+  &= \mbox{solute accessible porosity } [\%]\\ 
+  C &= \mbox{ concentration } [kg \cdot
+  m^{-3}]\\ F_c &= \mbox{ convetive flow } [kg \cdot m^{-2}\cdot s^{-1}]\\ &= qC \\ 
+  F_{dc} &= \mbox{ dispersive flow } [kg \cdot m^{-2}\cdot s^{-1}]\\ 
+  &= \alpha q \nabla C  \\ F_d &= \mbox{ diffusive flow } [kg \cdot m^{-2}\cdot s^{-1}]\\
+  &= D_e \nabla C\\ m &= \mbox{ solute source } [kg \cdot m^{-2}\cdot s^{-1}].\\
+\end{align*} 
+
+In the expressions above, 
+
+\begin{align*} 
+  q &= \mbox{ Darcy velocity } [m\cdot s^{-1}] \\ 
+  \alpha &= \mbox{ dispersivity } [m]
+  \intertext{and} D_e &= \mbox{ effective diffusion coefficient } [m^2\cdot s^{-1}] .\\ 
+\end{align*} 
+
+The method by which the dominant solute transport mode
+is determined for a particular porous medium is by use of the dimensionless
+Peclet number, 
+\begin{align*} 
+  Pe &= \frac{qL}{\alpha q + D_e},
+  \intertext{where} 
+  L &= \mbox{ transport distance } [m].\\ 
+\end{align*}
+
+\subsubsection{Solute Transport in Fractured Media} 
+
+\paragraph{Continuum Models} 
+
+The models arrived at via this genre of approximation are appropriate
 for very fractured or very unfractured situations.
 
 Equivalent Porous Medium (EPM) models assert that a uniformly  fractured medium
@@ -467,8 +518,10 @@ height \cite{schwartz_fundamentals_2003}. For a fracture perpendicular to
 gravitational acceleration, $g$, the hydraulic conductivity, $K$, is described
 according to the cubic law as 
 
-\begin{align} K&= \frac{\rho_w g b^2}{12 \mu} \label{Kplates} \intertext{where}
-\rho_w &= \mbox{water density,}\nonumber\\ \mu &= \mbox{viscosity}.\nonumber
+\begin{align} 
+  K&= \frac{\rho_w g b^2}{12 \mu} \label{Kplates} 
+  \intertext{where}
+  \rho_w &= \mbox{water density,}\nonumber\\ \mu &= \mbox{viscosity}.\nonumber
 \end{align}
 
 Accordingly, the volumetric flow rate in the single fracture of width, $w$, can
@@ -907,7 +960,7 @@ parameters of particular interest in fuel cycle systems analysis have been
 those related to the front end of the fuel cycle. Deployment decisions
 concerning reactor types, fast to thermal reactor ratios, and burnup rates can
 all be independently varied in fuel cycle simulation codes in such a way as to
-inform domestic policy decisiong going forward. A Some of these parameters are
+inform domestic policy decisiong going forward. Some of these parameters are
 coupled, however, to aspects of the back end of the fuel cycle. For example,
 the appropriate fast reactor ratio is significantly altered by the chosen
 method and magnitude of domestic spent fuel reprocessing (or not).
@@ -968,7 +1021,7 @@ conditioning, densities, and other physical properties.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsection{Models Incorporated into Systems Analysis Codes}
+%\subsection{Models Incorporated into Systems Analysis Codes}
 
 % get rest of this list from MLDG paper.  
 %\section{Geochemical Migration Models} Some mathematical models describing 
