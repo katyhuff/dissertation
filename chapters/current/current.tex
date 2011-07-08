@@ -124,6 +124,36 @@ The tunnel geometry can be altered in two dimensions.
 
 \subsection{Conceptual Model}
 
+\subsubsection{Volumes}
+
+Volumes are defined by their dimensions, interfaces, contained matter, and 
+contained contaminants. 
+
+Dimensions fully define the shape and magnitude of the volume.
+\textbf{Volume shape? Can be more than just cylindrical?}
+
+Interfaces are defined by a shared surface area, a flux type, and a flux 
+direction.  Any single volume may only interface with one inner and one outer 
+volume. 
+
+Contained matter must sum to the full volume of the volume.
+
+\subsubsection{Matter}
+
+This model treats matter in solid and liquid phases. Gaseous matter is not 
+supported. 
+
+
+Liquids are defined by their dynamic viscosities ($\mu$, [Pascal seconds]) and
+by characteristic diffusivity ($d_i$, $[m^2/s]$) and solubility ($K$,$[kg/m^3]$) 
+coefficients for each nuclide.  
+
+
+Solids are assumed to be porous media and are defined by their porosity 
+($n$, $\%$), tortuosity ($\tau$, $[-]$), and dry (bulk) density ($\rho$). 
+Fracturation is dealt with separateea, a flux type, and a flux 
+direction.  Any single volume may only interface with one 
+
 \subsection{Mathematical Model}
 
 \subsubsection{Mass Balances Within Cells}
