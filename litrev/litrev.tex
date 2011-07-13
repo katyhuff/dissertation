@@ -32,11 +32,12 @@ transport on long time scales and in various geologies.
 Current top-level simulators largely disregard the waste disposal phase of fuel
 cycle analysis. Choosing instead to report metrics such as mass or volumes of
 accumulated spent nuclear fuel, these analyses fail to address the impact of
-those waste streams on the performance of the geologic disposal system.  To
-fully inform the decision making process, metrics that depend on the
-performance of the geologic disposal system will be necessary. 
+those waste streams on the performance of the geologic disposal system. 
+\cite{wilson_comparing_2011}  To fully inform the decision making process, 
+metrics that depend on the performance of the geologic disposal system will be
+necessary. 
 
-A model for repository capacity was developed for the VISION fuel cycle
+A model for repository capacity was developed for the \gls{VISION} fuel cycle
 simulator \cite{yacout_visionverifiable_2006} \cite{radel_repository_2007} and
 recent efforts on the NUWASTE simulator \cite{ abkowitz_nuclear_2010} have made
 some progress in addressing this deficiency, but despite a proliferation of
@@ -46,17 +47,16 @@ regard.
 %% What follows has not been edited since the CFP narrative %% 
 
 The DOE-NE Fuel Cycle Technology (FCT) program has three groups of relevance to 
-this effort.  These are the FCT Used Fuel Disposition (UFD), the 
-Separations/Waste Form (SWF), and System Analysis (SA) campaigns.  The UFD 
-campaign is conducting the RD\&D related to the storage, transportation, and 
-disposal of radioactive wastes generated under both the current and potential 
-advanced fuel cycles.  The SWF campaign is conducting RD\&D on potential waste 
-forms that could be used to effectively isolate the wastes that would be 
-generated in advanced fuel cycles.  The SWF and UFD campaigns are developing the 
-fundamental tools and information base regarding the performance of waste forms 
-and geologic disposal systems.  The SA campaign is developing the overall fuel 
-cycle simulation tools and interfaces with the other FCT campaigns, including 
-UFD.  
+this effort.  These are the \gls{FCT} \gls{UFD}, the \gls{SWF}, and \gls{SA} 
+campaigns.  The \gls{UFD} campaign is conducting the \gls{RDD} related to the 
+storage, transportation, and disposal of radioactive wastes generated under both 
+the current and potential advanced fuel cycles.  The SWF campaign is conducting 
+\gls{RDD} on potential waste forms that could be used to effectively isolate 
+the wastes that would be generated in advanced fuel cycles.  The \gls{SWF} and
+\gls{UFD} campaigns are developing the fundamental tools and information base 
+regarding the performance of waste forms and geologic disposal systems.  The 
+\gls{SA} campaign is developing the overall fuel cycle simulation tools and 
+interfaces with the other FCT campaigns, including \gls{UFD}.  
 
 This effort will interface with those campaigns to develop the higher level
 dominant physics representations for use in fuel cycle system analysis tools.
@@ -81,8 +81,8 @@ many metrics about the fuel cycle according to various parameters.
 objects, discretely models individual shipping casks and incorporates cooling
 time in both dry and wet intermediate storage facilities.
 
-\subsection{VISION} VISION's repository model conducts decay calculations and
-tracks upwards of 80 isotopes of interest in the nuclear fuel cycle.
+\subsection{VISION} \gls{VISION}'s repository model conducts decay calculations
+and tracks upwards of 80 isotopes of interest in the nuclear fuel cycle.
 \cite{yacout_visionverifiable_2006} While it calculates some basic information 
 about waste package heat production and heat based repository capacity, discrete  
 waste packages are not modeled and emplaced spent fuel composition is assumed to  
@@ -147,12 +147,15 @@ package thermal power, corrosion of matrices, transport of radioisotopes and
 resulting doses.
 
 
-\subsection{OCRWM Yucca Mountain Total System Model} The Total System Model
-(TSM) is a very detailed model of the Yucca Mountain disposal system. It
-includes transportation issues and detailed emplacement timing and strategy
-models, but considers only the fuel cycle associated with the current  U.S.
-reactor fleet. Casts are modeled discretely and nuclide and heat transport are
-modeled in great detail.\cite{turner_discrete_2010} 
+\subsection{OCRWM Yucca Mountain Total System Model} The \gls{TSM} code, 
+developed at \gls{OCRWM} is a very detailed model of the Yucca Mountain disposal 
+system. It includes transportation issues and detailed emplacement timing and 
+strategy models, but considers only the fuel cycle associated with the current  
+U.S.  reactor fleet. Casks are modeled discretely and nuclide and heat transport 
+are modeled in great detail.\cite{turner_discrete_2010} This level of detail 
+results in a dramatically extended run time. The \gls{TSM} model can only be 
+run by its development team and typically runs for approximately one week. 
+\textbf{double check.} 
 
 The TSM framework is based on the SimCAD platform. The simulation steps through
 times in 8 hour time steps during the waste cask transportation, processing and
@@ -299,14 +302,14 @@ Predictions are not reliable in may cases.
 \subsubsection{Sorption}
 
 Sorption is the interaction of a dissolved species with surfaces that removes
-that species from the dissolving mediu models.
+that species from the dissolving medium models.
 
 
 \subsubsection{Colloidal Mobility}
 
 Colloids present in the near field dissolving solution have an effect on the
-mobility of radionuclides. Studies addressing the subtle differences betreverse
-of dissolution and occurs when a soubility
+mobility of radionuclides. Studies addressing the subtle differences between 
+resultant behavior of various isotopes exist.
 
 \subsection{Waste Form Release Models}
 
@@ -323,7 +326,7 @@ congruently until the waste form is completely degraded.
 \subsubsection{Ahn Models (\cite{ahn_environmental_2004,
 ahn_environmental_2007})}
 
-Waste canisters are modelled as compartments of waste matrix surrounded by a
+Waste canisters are modelled as compartments of waste form surrounded by a
 buffer layer which is in turn surrounded by layers of near field rock and far
 field rock. Water is introduced to the system at a constant rate, and
 encounters an array of failed waste packages (at $t=0$ in the 2004 model, and
@@ -390,7 +393,7 @@ concentration, $C_{sol}$ in $[g/m^3]$ at which that nuclide is soluble.
 \subsubsection{Instantaneous}
  
 The Hedin model of waste package failure is effectively instantaneous, but
-limited by release resistance coefficient. The release is assumed  to occur
+limited by a release resistance coefficient. The release is assumed  to occur
 through a hole in the waste canister that exists throughout the simulation, and
 the resistance coefficient limiting flow through the hole represents the
 magnitude of the canister flaw in combination with the buffer-geosphere
@@ -398,7 +401,14 @@ interface.  \cite{hedin_integrated_2002}
 
 Other models also use an instantaneous waste package failure mode for all waste  
 packages simultaneously, assuming that either at the beginning of the simulation
-or at the onset of the simulation.
+or at the onset of the simulation. The mathematical representation of this 
+probability density function is clearly just the delta function, with $n_F$ 
+being the number of failed waste packages, $N$ being the total number of waste 
+packages, and $t_F$ being the time to failure.
+\begin{align}
+  n_F(t) = N\diracdelta{t-t_F}
+  \label{instantaneous}
+\end{align}
 
 \subsubsection{Rate Based} 
 
@@ -409,7 +419,7 @@ experimentally observed corrosion and dissolution rate functions.
 However, this can be complicated to model even if the data exists. In
 particular, the corrosion rate will depend dramatically on hydrologic and
 thermal conditions. Specificially, corrosion rates for the same material are
-very different under dry oxidising conditions, 
+very different under dry oxidising conditions and wet reducing conditions. 
 
 %almost no corrosion aqueous oxidising conditions, which means a steel corrosion 
 %rate (concentrated at the cell head) of several tens of microns per year. This 
@@ -417,6 +427,14 @@ very different under dry oxidising conditions,
 %duration; or under anoxic and reducing conditions.  during which the steel 
 %corrosion rate is reduced to a few microns (or even less than a micron) per 
 %year.  see pg 283/525 of phenomenological evolution doc for details
+
+An expression of the number of failed waste packages per year is a simple 
+functional relationship. 
+
+\begin{align}
+  n_F = Nf(t,T,\cdots)
+  \label{rate}
+\end{align}
 
 \subsubsection{Probabilistic}
 
@@ -426,8 +444,14 @@ For example, if the expected lifetime of a waste package is 30,000 years, a
 gaussian distribution around that number would provide a probabilistic number of 
 waste package failures per time step. 
 
+\begin{align}
+  n_F=Nf(t)
+  \label{probabilistic}
+\end{align}
+
 The instantaneous case is a special case of the probabilistic situation. 
-Specfically, it is a Dirac Delta function. 
+Specfically, it is the Dirac delta function mentioned in equation 
+\eqref{intantaneous}.
 
 %%%%
 

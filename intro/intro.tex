@@ -1,8 +1,8 @@
 \chapter{Introduction}\label{ch:introduction}
 % The scope of the work includes software and analysis.
 
-The scope of this work includes implementation of a comprehensive 
-software library of medium fidelity models to represent the long-term 
+The scope of this work includes implementation of a software library 
+of medium fidelity models to comprehensively represent the long-term 
 disposal system performance of different disposal system concepts in 
 various geologic media for deployment in a modular systems analysis 
 platform.  This work will model repository behavior as a function of 
@@ -33,7 +33,7 @@ repository models resulting from this work will assist in informing
 current technology choices, identifying important parameters 
 contributing to key waste disposal metrics, and highlighting the most 
 promising waste disposal combinations. Specifically, such models will 
-support efforts underway in the development of research and development 
+support efforts underway in focusing domestic research and development 
 priorities as well as computational tools under development which 
 quantify these metrics and understand the merits of different fuel 
 cycle alternatives. 
@@ -168,8 +168,8 @@ regulatory limits in the engineered barrier system and the geological
 medium as well as in order to inform material and hydrogeologic 
 phenomena which are thermally coupled. 
 
-Heat limits within a used nuclear fuel disposal system are waste form, 
-package, and geology dependent. Heat generation from the waste form 
+Heat load limits within a used nuclear fuel disposal system are waste 
+form, package, and geology dependent. Heat generation from the waste form 
 and transport through the engineered barrier system and host 
 environment constrains fuel loading in waste forms and packages as 
 well as placing requirements on the size, design, and loading strategy 
@@ -296,8 +296,8 @@ of alternative separations and fuel cycle scenarios.
 %arrive at.  
 
 A generalized metric of probablistic risk is fairly difficult to 
-arrive at. For example, the Peak Environmental Impact metric (PEI) 
-from Berkeley \cite{bouvier_comparison_2007} is a multifaceted 
+arrive at. For example, the \gls{PEI} metric from Berkeley 
+\cite{bouvier_comparison_2007} is a multifaceted 
 function of spent fuel composition, waste conditioning, vitrification 
 method, and radionuclide transport through the repository walls and 
 rock.  Also, it makes the assumption that the waste canisters have 
@@ -433,15 +433,6 @@ of interest. It will also address previous efforts in generic geology
 repository modeling and the state of the art of repository modeling 
 and integration within current systems analysis tools. 
 
-% Categorization of current codes and physics
-Chapter \ref{ch:categorization} will categorize and characterize 
-detailed computational models of nuclide and heat transport available 
-for regression analysis. Specificially, detailed codes in current use 
-are categorized according to the physics which they model, the 
-disposal system components with which they are concerned, and the 
-level of detail and computational methodology with which they capture 
-physical phenomena. 
-
 % modeling paradigm
 Chapter \ref{ch:paradigm} will detail the computational paradigm of 
 the \Cyclus systems analysis platform as well as the components within 
@@ -453,6 +444,16 @@ coupled. This modular paradigm allows exchange  of technological
 options (i.e. borosilicate glass and concrete waste forms) for 
 comparison but also exchange of equivalent models with varying levels 
 of detail.
+
+
+% Categorization of current codes and physics
+Chapter \ref{ch:categorization} will categorize and characterize 
+detailed computational models of nuclide and heat transport available 
+for regression analysis. Specificially, detailed codes in current use 
+are categorized according to the physics which they model, the 
+disposal system components with which they are concerned, and the 
+level of detail and computational methodology with which they capture 
+physical phenomena. 
 
 % Work on generic repository model
 Chapter \ref{ch:current} will detail the analytical and regression 
