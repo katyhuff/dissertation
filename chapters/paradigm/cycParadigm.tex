@@ -36,7 +36,17 @@ module. A secondary benefit of this encapsulation is the ability for
 contributors to choose different distribution and licensing strategies
 for their contributions. By allowing models to have varied
 availability, the security concerns of developers can be
-assuaged. Finally, this strategy allows individual developers to
+assuaged (See Figure \ref{fig:repo}. 
+
+\begin{figure}[hp!]
+  \begin{center}
+    \includegraphics{./chapters/paradigm/openness.eps}
+  \end{center}
+  \caption{The \Cyclus code repository allows for varied accessibility.}
+  \label{fig:repo}
+\end{figure}
+
+Finally, this strategy allows individual developers to
 explore different levels of complexity within their modules, including
 wrapping other simulation tools as loadable modules for \Cyclus. This
 last benefit of dynamically-loadable modules addresses another goal of
