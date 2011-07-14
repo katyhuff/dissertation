@@ -249,9 +249,9 @@ transfer through the engineered barrier system and into the geological medium
 also depends on water flow, nuclide solubility, and nuclide diffusion, but must
 be employed in the context of the hydrogeology of the rock.   
 
-Waste package failure rate varies between models. While some employ a
-simulation code called EBSFAIL, a part of the EBSPAC module used in the TSPA
-code, other models incorporate their own hydrogeologic approximations of
+Waste package failure rate varies between models. While some employ simulators
+such as GoldSim or EBSFAIL (a part of the EBSPAC module used in the TSPA
+code), other models incorporate their own hydrogeologic approximations of
 canister degredation, and still others assume immediate waste canister failure
 in order to focus on dissolution and transfer. 
 
@@ -406,7 +406,7 @@ probability density function is clearly just the delta function, with $n_F$
 being the number of failed waste packages, $N$ being the total number of waste 
 packages, and $t_F$ being the time to failure.
 \begin{align}
-  n_F(t) = N\diracdelta{t-t_F}
+  n_F(t) = N\delta{t-t_F}
   \label{instantaneous}
 \end{align}
 
@@ -458,10 +458,13 @@ Specfically, it is the Dirac delta function mentioned in equation
 \subsection{Nuclide Transport Through Secondary Engineered Barriers}
 
 When the waste package is breached, nuclides are transported through secondary 
-engineered barriers such as the buffer zone, and tunnel walls before 
-they reach the geological matrix. 
+engineered barriers which includes the buffer zone and tunnel walls. After 
+transportation through the secondary EBS nuclides reach the geological matrix. 
 
 \subsubsection{Barrier Dissolution and Failure}
+
+The same models of waste package failure (instantaneous, rate based, and 
+probabilistic) can be applied to buffers.
 
 \subsubsection{Transport Through EBS Matrix}
 
@@ -469,29 +472,48 @@ they reach the geological matrix.
 %%%%
 
 \subsection{Hydrogeologic Transport Models}
+Clay, granite, and salt can largely be characterized as permeable porous media. 
+Solute transport in permeable porous media involves advection, hydraulic 
+dispersion, and diffusion. 
 
-\subsubsection{Solute Transport in Permeable Porous Media} Clay, granite, salt,
-and shale can larely be characterized as permeable porous media.
+Advection is transport congruent with the water velocity, diffusion is the 
+result of brownian motion accross concentration gradients, and hydraulic 
+dispersion is transport resulting from anisotropies in the water velocity field. 
 
-% Solute Transport in permeable porous media % advection - transport at the
-velocity of water flow % hydraulic dispersion - transport due to anisotropies
-in the water % velocity feild. It depends on concentration of solute, darcy %
-velocity, and dispersivity.  % diffusion - is from random brownian motion,
-tends to homogenize % concentration field.  %
+
+
+% Solute Transport in permeable porous media 
+
+% advection - transport at the velocity of water flow 
+
+% hydraulic dispersion - transport due to anisotropies in the water 
+
+% velocity feild. It depends on concentration of solute, darcy 
+
+% velocity, and dispersivity.  
+
+% diffusion - is from random brownian motion, tends to homogenize 
+% concentration field.  %
 
 The equation representing solute transport in a permeable medium of homogenous
 porosity can be written
 
-\begin{align*} 
+\begin{align} 
   \frac{\partial \omega C}{\partial t} & =
-  - \nabla \cdot  (F_c + F_{dc} + F_d) + m \intertext{where} \omega 
-  &= \mbox{solute accessible porosity } [\%]\\ 
+  - \nabla \cdot  (F_c + F_{dc} + F_d) + m 
+  \intertext{where} \omega 
+  &= \mbox{solute accessible porosity } [\%]\nonumber\\ 
   C &= \mbox{ concentration } [kg \cdot
-  m^{-3}]\\ F_c &= \mbox{ convetive flow } [kg \cdot m^{-2}\cdot s^{-1}]\\ &= qC \\ 
-  F_{dc} &= \mbox{ dispersive flow } [kg \cdot m^{-2}\cdot s^{-1}]\\ 
-  &= \alpha q \nabla C  \\ F_d &= \mbox{ diffusive flow } [kg \cdot m^{-2}\cdot s^{-1}]\\
-  &= D_e \nabla C\\ m &= \mbox{ solute source } [kg \cdot m^{-2}\cdot s^{-1}].\\
-\end{align*} 
+  m^{-3}]\\ F_c &= \mbox{ convetive flow } [kg \cdot m^{-2}\cdot 
+  s^{-1}]\nonumber\\
+  &= qC \nonumber \\
+  F_{dc} &= \mbox{ dispersive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\ 
+  &= \alpha q \nabla C  \\ F_d &= \mbox{ diffusive flow } [kg \cdot m^{-2}\cdot 
+  s^{-1}]\nonumber\\
+  &= D_e \nabla C\nonumber\\
+  m &= \mbox{ solute source } [kg \cdot m^{-2}\cdot s^{-1}].\nonumber\\
+  \label{solperm}
+\end{align} 
 
 In the expressions above, 
 
@@ -509,6 +531,11 @@ Peclet number,
   \intertext{where} 
   L &= \mbox{ transport distance } [m].\\ 
 \end{align*}
+
+The analytical expression in equation \eqref{solperm} will be the foundation of 
+simplification by regression analyses for the nuclide transport interface 
+between components of the repository system model representing permeable porous 
+media.  
 
 \subsubsection{Solute Transport in Fractured Media} 
 
@@ -547,7 +574,8 @@ according to the cubic law as
 \begin{align} 
   K&= \frac{\rho_w g b^2}{12 \mu} \label{Kplates} 
   \intertext{where}
-  \rho_w &= \mbox{water density,}\nonumber\\ \mu &= \mbox{viscosity}.\nonumber
+  \rho_w &= \mbox{water density,}\nonumber\\ 
+  \mu &= \mbox{viscosity}.\nonumber
 \end{align}
 
 Accordingly, the volumetric flow rate in the single fracture of width, $w$, can
@@ -568,8 +596,13 @@ spaced a distance, $s$, apart,
 \begin{align} N &= \mbox{fracture frequency}\nonumber\\ &=
 \frac{cos(\theta_f)}{s}.  \label{fracfreq} \end{align}
 
-The fracture network permeability is then defined as, \begin{align} k_f =
-\frac{b^3}{12N}.  \label{fracperm} \end{align}
+The fracture network permeability is then defined as, 
+
+\begin{align} 
+  k_f =
+\frac{b^3}{12N}.  
+\label{fracperm} 
+\end{align}
 
 The permeability, $k$, in an equivalent permeability model is thereby obtained
 by the permeabilities of the fracture network, $k_f$, and the permeability of
@@ -712,7 +745,6 @@ A model of temperature dependent salt coalescent behavior is is order.
 
 % WIPP, system model Germany, GRS concept
 
-\subsubsection{Shale}
 
 
 \paragraph{Unsaturated Tuff}
@@ -735,13 +767,13 @@ fractures and would increase leach rates. It states that no part of the rock
 reach a temperature above $200^{\circ}C$, and is effectively a limit on the
 temperature at the drift wall, where the rock temperature is a maximum.  
 
-\subsection{Tuff}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%%%%% Heat Load Analytical Models Table%%%%%%%%% 
+%%%%% Heat Load Computational Models Table %%%%% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
 \input{litrev/heat_tab}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -794,7 +826,10 @@ footprint with redesign of the current Upper Block line load design plan or a
 multi-level plan that repeats the footprint and line load design of the current
 plan.\cite{kessler_room_2006}
 
-\input{litrev/footprint_tab} \subsection{Specific Temperature Integral}
+\input{litrev/footprint_tab} 
+
+
+\subsection{Specific Temperature Integral}
 
 Line loading ($t/m$) and areal power density ($W/km^2$) are two common metrics
 for describing the fullness of the repository. While these metrics are
@@ -825,6 +860,26 @@ The length based accounting in $\frac{t}{m}$ is converted to
 $\frac{t}{Repository}$ by multiplication with the total emplacement tunnel
 length of the repository.  In the case of Yucca Mountain, this was 67 km.
 
+\subsection{Lumped Capacitance}
+The lumped heat capacitance model makes an analogy to electrical circuits. Heat  
+flux is analgous to current, resistance analgous to heat conductivity 
+connections ( ? ), etc. Components within the heat transfer circuit are
+represented by  characteristic lumped parameters which take the place of 
+resistors, capacitors, etc.
+
+
+\subsection{Conduction}
+
+When convection can be neglected, a pure conduction model can be used to 
+represent heat transfer.  The dimensionless number which determines the 
+appropriateness of neglecting convection is the (<++>) number.
+
+\subsection{Convection}
+
+When conduction can be neglected, a pure convection model can be used to 
+represent heat transfer.  The dimensionless number which determines the 
+appropriateness of neglecting convection is the (<++>) number.
+
 
 \section{Detailed Computational Models of Nuclide Transport}
 \label{sec:detailed_nuclide}
@@ -834,8 +889,8 @@ length of the repository.  In the case of Yucca Mountain, this was 67 km.
 detailed nuclide transport calculations for both argillaceous clay and granite
 formations.
 
-\subsubsection{Clay} More complicated saturation and resaturation phenomena are
-neglected and it is assumed that the initial repository condition is fully
+\subsubsection{Clay/Shale} More complicated saturation and resaturation phenomena 
+are neglected and it is assumed that the initial repository condition is fully
 resaturated. This is a conservative simplification. Another conservative
 assumption is one in which the evacuation disturbed zone does not heal. Rather,
 it is modeled in its damaged state immediately after excavation. 
@@ -864,7 +919,6 @@ intermediate, and well retained elements.
 %nickel, zinc, zirconium, etc.) and lanthanides and actinides (Andra, 2005d ; 
 %Fillet, 1987).  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 
 Waste form dissolution and package release was assumed to be immediate for some
@@ -918,16 +972,44 @@ discharge paths.
 \section{Detailed Computational Models of Heat Transport}
 \label{sec:detailed_heat}
 
-
 %%%%%%%%%%%%%%%% Detailed Heat Transport %%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%%%%%%%%%%%%%%%%%%%% Line of Awesomeness %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{LLNL MathCAD Model}
 
+This model, created at \gls{LLNL} for the \gls{UFD} campaign, is written in a 
+combination of MathCAD and Excel. The model consists of two parts. The first is 
+a MathCAD solution, with explicit error function evaluation, of the transient 
+conduction equation. The solution of this equation is then treated as a boundary  
+condition to the steady state solver, which advances the simulation and 
+calculates values through the geometry. The process is then iterated with  
+
+
+\subsection{Bauer SINDA\\G Model}
+
+This model, created at Argonne National Lab by Ted Bauer uses a lumped 
+capacitance solver, called SINDA. 
+
+\subsection{Finite Difference Codes}
+
+An array of finite difference codes exist which have been used to make 
+repository heat evaluations. See the table. 
+
+\subsection{Finite Element Codes}
+
+An array of finite element codes exist which have been used to make 
+repository heat evaluations. See the table. 
+
+\subsection{ANDRA/RED-IMPACT Codes?}
+
+Codes used by ANDRA and other programs within the RED-IMPACT assessment may not  
+fit in any of the categories above.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % This is where CapacityNotes wasinserted % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Flotsam and Jetsam}
 
 \subsubsection{Li Model\cite{li_methodology_2006}} As a function of time, water
 enters the Engineered Barrier System and corrodes the waste packages.  These
@@ -952,16 +1034,17 @@ takes the form:
 In this expression, $w_{li}(t)$ is the rate $[mol/yr]$ of isotope \emph{i}
 leached into the water.  It is a function of water flow rate, chemistry, and
 isotope solubility. $m_i$ describes the mass of isotope \emph{i}, and
-$\lambda_i$ describes its decay constant. Finally, $w_{ci}(t)$ describes the
-advective transfer rate $[mol/yr]$ of the isotope \emph{i}. This model defines
-$w_{ci}$ as:
+$\lambda_i$ $[s{-1}]$ describes its decay constant. Finally, $w_{ci}(t)$
+describes the advective transfer rate $[mol/yr]$ of the isotope \emph{i}. This 
+model defines $w_{ci}$ as:
 
 \begin{equation}
   w_{ci}(t)=C_i(t)q_{out}(t) 
 \end{equation}
 
-where $q_out$ is the volumetric flow rate of the water $[m^3/yr]$, and $C_i =
-m_i/V_{wp}$ in $[mol/m^3]$. These assumptions fail to take into account any
+where $q_out$ is the volumetric flow rate of the water $[m^3/yr]$, and 
+$C_i$ is the concentration on isotope $i$ in the waste package volume 
+$m_i/V_{wp}$ in $[mol/m^3]$. These assumptions fail to take into account any
 differences in the varying solubilities of the isotopes, but are quite
 sensitive to the concentration of an isotope \emph{i} in the waste package
 volume.  
