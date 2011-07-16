@@ -1073,10 +1073,32 @@ model solves the Fourier equation,
   \dot{q} &= G( T_i - T_j )\\
   \label{sindafourier}
   \intertext{where}
-  G &= \texttt{conductance}\nonumber\\
-  T &= \texttt{Temperature}\nonumber\\
-  \dot{q} &= \texttt{heat rate}\nonumber
+  G &= ~~\mbox{conductance}\nonumber\\
+  T &= ~~\mbox{Temperature}\nonumber\\
+  \intertext{and}
+  \dot{q} &= ~~\mbox{heat rate}.\nonumber
 \end{align}
+
+Lumps are connected by conduction, convection, radiation, and mass flow heat 
+transfer links. Briefly, these are represented by
+
+\begin{align*}
+  G_{cond} &= \frac{kA}{L}\\
+  G_{conv} &= h\cdot A\\
+  G_{mf}  &= \dot{m}c_p\\
+  G_{rad}  &= G_{in}\left[ T_i + T_A + T_j + T_A 
+  \right]\left[(T_i+T_A)^2+(T_j+T_A)^2\right]
+  \intertext{where}
+  &G_{in}=\sigma F_{ij}A\\ 
+  &k= ~~\mbox{conductivity}[] \\
+  &A= ~~\mbox{area} [m^2]\\
+  &c_p=~~\mbox{specific heat capacity} []  \\\
+  &h= ~~\mbox{heat transfer coefficient}[] \\
+  &\dot{m}= ~~\mbox{mass transfer rate}[kg\cdot s^{-1}] \\
+  &T_i= ~~\mbox{lump temperature} [^\circ C] \\
+  &T_A= ~~\mbox{absolute temperature} [^\circ C] \\
+  &F_{ij}= ~~\mbox{radiation interchange factor} [-] 
+\end{align*}
 
 \subsection{Finite Difference Codes}
 
