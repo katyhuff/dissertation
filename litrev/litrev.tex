@@ -593,8 +593,11 @@ network can be approximated by a set of parallel plates fractures.
 If flow is expect in the $\theta_f$ direction, and the fractures of the set are
 spaced a distance, $s$, apart,
 
-\begin{align} N &= \mbox{fracture frequency}\nonumber\\ &=
-\frac{cos(\theta_f)}{s}.  \label{fracfreq} \end{align}
+\begin{align} 
+  N &= \mbox{fracture frequency}\nonumber\\ 
+  &= \frac{cos(\theta_f)}{s}.  
+  \label{fracfreq} 
+\end{align}
 
 The fracture network permeability is then defined as, 
 
@@ -693,6 +696,60 @@ and $A_f$, the equivalent permeability, $k$, can be expressed
 \section{Analytical Models of Heat Transport} \label{sec:analytical_heat}
 
 %%%%%%%%%%%%%%%% Analytical Heat Transport %%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Conduction}
+
+Conductive heat transfer occurs as a result of a temperature gradient. Heat 
+flows diffusively from the hotter material to the cooler material over time and
+steadily approaches thermal equillibrium. A heat flux, $\vec{q} [W\cdot 
+m^{-2}]$ can be expressed with the  differential form of Fourier's law of heat 
+conduction with respect to  the thermal conductivity of the material, $k [W 
+\cdot m^{-1} \cdot K^{-1}]$, and the temperature gradient $\nabla T [K/m]$
+
+\begin{align}
+  \vec{q}= -k\nabla T.
+  \label{fourier}
+\end{align}
+
+For the one dimensional case, equation \ref{fourier} can be reduce using a 
+finite difference approximation. For a body at $x_1$ with temperature $T_1$
+and a body with temperature $T_2$ at position $x_2$,
+
+\begin{align*}
+  q_x &= \frac{dT}{dx}\\
+  &=-k_x\frac{(T_1-T_2)}{x_1-x_2}.
+\end{align*}
+
+
+\subsection{Convection}
+
+Convective heat transfer occurs advectively in accordance with fluid movement. 
+The form of Fourier's Law which describes convection is very similar to equation  
+\ref{fourier} for conduction, though the convective heat transfer coefficient 
+$h [W m^{-2} K^{-1}]$ and the surface area of heat transfer $A [m^2]$ replace 
+the conductivity coefficient. Convection is typically expressed as
+
+\begin{align}
+  \vec{q}&= -hA\nabla T
+  \intertext{such that}
+  q_x &= hA\frac{dT}{dx}\\
+  &=-h_xA\frac{(T_1-T_2)}{x_1-x_2}.
+\end{align}
+
+
+\subsection{Radiation}
+
+Heat transfer by radiation is the result of the emmission of electromagnetic 
+waves. Plack black body radiation is analytically described, using $\sigma$, the   
+Stefan–Boltzmann constant as
+
+\begin{align}
+  \vec{q} &= \sigma A_1 F_{1\rightarrow 2}(T_1^4 - T_2^4)
+  \label{planck}
+  \intertext{where}
+  \sigma &=5.670373\times 10^{−8} [W\cdot m^{−2}\cdot K^{−4}].\nonumber\\
+\end{align}
+
+\subsection{Lumped Capacity Model}
 
 \subsection{Impact of Repository Designs}
 
@@ -861,25 +918,33 @@ $\frac{t}{Repository}$ by multiplication with the total emplacement tunnel
 length of the repository.  In the case of Yucca Mountain, this was 67 km.
 
 \subsection{Lumped Capacitance}
-The lumped heat capacitance model makes an analogy to electrical circuits. Heat  
-flux is analgous to current, resistance analgous to heat conductivity 
-connections ( ? ), etc. Components within the heat transfer circuit are
-represented by  characteristic lumped parameters which take the place of 
-resistors, capacitors, etc.
+The lumped heat capacitance model makes an analogy to electrical circuit by 
+reducing a thermal system into discrete lumps. Such an approximation is 
+appropriate when it can be assumed that the temperature gradient within each 
+lump is approximately uniform. the appropriateness of this approximation can 
+quantitatively expressed by comparison of the internal thermal resistance to the 
+external thermal resistance. The Biot number, 
 
+\begin{align}
+  Bi = \frac{hA}{k}\\
+  \label{biot}
+\end{align}
 
-\subsection{Conduction}
+indicates the relative speeds with which heat conducts within an object and 
+accross the boundary of that object. If the Biot number is low $(<0.1)$, and 
+therefore conduction is faster within the object than at the boundary, the 
+assumption of a uniform internal temperature is appropriate and the lumped 
+parameter model may be expected to give a result within $5\%$ error. 
+\textbf{CHECK THIS NUMBER, FIND SOURCE, EXCEPTIONS.}
 
-When convection can be neglected, a pure conduction model can be used to 
-represent heat transfer.  The dimensionless number which determines the 
-appropriateness of neglecting convection is the (<++>) number.
+The lumped capacitance model can address multiple media and multiple heat
+transfer modes. and the amount of heat transfer through a circuit is simply 
+given as the quotient of the temperature difference and the thermal resistance
+of the multiple lumps,
 
-\subsection{Convection}
-
-When conduction can be neglected, a pure convection model can be used to 
-represent heat transfer.  The dimensionless number which determines the 
-appropriateness of neglecting convection is the (<++>) number.
-
+\begin{align*}
+  \dot{q} = \frac{\Delta T}{\sum _{i=0}^{N}R_i}.
+\end{align*}
 
 \section{Detailed Computational Models of Nuclide Transport}
 \label{sec:detailed_nuclide}
@@ -897,9 +962,10 @@ it is modeled in its damaged state immediately after excavation.
 
 This model only tracks 15 nuclides of importance.  These are chosen to be those
 with halflives over 1000 years and most toxicity or mobility.
-\cite{andra_argile:_2005} %page 197 The behavior of radionuclides in 
+\cite{andra_argile:_2005} The behavior of radionuclides in 
 glassvitrification forms can be summarized by categorizing them into mobile,
 intermediate, and well retained elements. 
+
 %more details in inset 10-2, andra argile phenom. . 
 
 %%%%%%%%%%%%%%%%% From Andra %%%%%%%%%%%% 
@@ -979,16 +1045,38 @@ discharge paths.
 
 This model, created at \gls{LLNL} for the \gls{UFD} campaign, is written in a 
 combination of MathCAD and Excel. The model consists of two parts. The first is 
-a MathCAD solution, with explicit error function evaluation, of the transient 
-conduction equation. The solution of this equation is then treated as a boundary  
-condition to the steady state solver, which advances the simulation and 
-calculates values through the geometry. The process is then iterated with  
+a MathCAD solution of the transient homogeneous conduction equation. The 
+solution of this equation at the boundary of the EBS and the waste package is 
+then treated as a boundary condition for the heterogeneous steady state solver, 
+which advances the simulation and calculates values through the geometry. The 
+process is then iterated with a one year resolution in order to arrive at a heat 
+evolution over  the lifetime of the repository. This model seeks to inform heat
+limited waste capacity calculations for each geology, for many waste package 
+loading densities, and for many fuel cycle options.  
 
 
 \subsection{Bauer SINDA\\G Model}
 
 This model, created at Argonne National Lab by Ted Bauer uses a lumped 
-capacitance solver, called SINDA. 
+capacitance solver, called SINDA.
+
+The Bauer model is geometrically adjustable. 
+
+The SINDA lumped capacitance solver solves a thermal circuit, for which 
+conducting nodes may be of four types corresponding to the four modes of heat 
+transfer. 
+
+For heat flux rate through each conducting node, the SINDA lumped parameter 
+model solves the Fourier equation,
+
+\begin{align}
+  \dot{q} &= G( T_i - T_j )\\
+  \label{sindafourier}
+  \intertext{where}
+  G &= \texttt{conductance}\nonumber\\
+  T &= \texttt{Temperature}\nonumber\\
+  \dot{q} &= \texttt{heat rate}\nonumber
+\end{align}
 
 \subsection{Finite Difference Codes}
 
