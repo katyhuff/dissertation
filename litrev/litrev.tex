@@ -406,7 +406,7 @@ probability density function is clearly just the delta function, with $n_F$
 being the number of failed waste packages, $N$ being the total number of waste 
 packages, and $t_F$ being the time to failure.
 \begin{align}
-  n_F(t) = N\delta{t-t_F}
+  n_F(t) = N\delta(t-t_F)
   \label{instantaneous}
 \end{align}
 
@@ -749,7 +749,87 @@ Stefan–Boltzmann constant as
   \sigma &=5.670373\times 10^{−8} [W\cdot m^{−2}\cdot K^{−4}].\nonumber\\
 \end{align}
 
-\subsection{Lumped Capacity Model}
+
+\subsection{Mass Transfer}
+
+Heat transfer by mass transfer is straightforward, resulting in the change in 
+temperature in adjacent volumes as a result of matter movement. If the specific 
+heat capacity of the transferred mass can be expressed as $c_p$, then the heat 
+conductance is simply, 
+
+\begin{align*}
+  G = \dot{m}c_p.\\
+\end{align*}
+
+\subsection{Lumped Parameter Model}
+
+The lumped heat capacitance model makes an analogy to electrical circuit by 
+reducing a thermal system into discrete lumps. Such an approximation is 
+appropriate when it can be assumed that the temperature gradient within each 
+lump is approximately uniform. the appropriateness of this approximation can 
+quantitatively expressed by comparison of the internal thermal resistance to the 
+external thermal resistance. The Biot number, 
+
+\begin{align}
+  Bi = \frac{hA}{k}\\
+  \label{biot}
+\end{align}
+
+indicates the relative speeds with which heat conducts within an object and 
+accross the boundary of that object. If the Biot number is low $(<0.1)$, and 
+therefore conduction is faster within the object than at the boundary, the 
+assumption of a uniform internal temperature is appropriate and the lumped 
+parameter model may be expected to give a result within $5\%$ 
+error.\cite{incropera_fundamentals_2006} 
+
+The lumped capacitance model can address multiple media and multiple heat
+transfer modes. and the amount of heat transfer through a circuit is simply 
+given as the quotient of the temperature difference and the thermal resistance
+of the multiple lumps,
+
+\begin{align*}
+  \dot{q} = \frac{\Delta T}{\sum _{i=0}^{N}R_i}.
+\end{align*}
+
+By representing the various modes of heat transport (i.e. conduction, 
+convection, radiation, and mass transfer) with various expressions for 
+resistance, the lumped capacitance model provides a solution to the transient 
+problem described by the energy balance,
+
+\begin{align*}
+  \left( \mbox{Energy added to body j in dt} \right) &= \left( \mbox{Heat 
+  transfer from adjacent bodies to body j} \right)\\
+  c_j\rho_j V_j dT_j(t) &= \sum_{i=0}^{i=N}\left[\dot{q_{i,j}}\right]dt,
+\end{align*}
+
+where $c_j\rho_jV_j$ is the total lumped thermal capacitance of the body.
+
+For the case of a simple conductive circuit between two bodies, $i$ and $j$, the 
+resistance of $j$ can be described as 
+\begin{align*}
+  R_{cond} &= 1/hA
+  \intertext{such that}
+  c_j\rho_j V_j dT_j(t) &= \sum_{i=0}^{i=N}\left[ hA_j [T_i - T_j(t) \right]dt\\
+\end{align*}
+
+Under integration a time constant appears which describes the speed with which 
+the body $i$ changes temperature with respect to the maximum temperature change,
+
+\begin{align*}
+  \int_{T_j=T_0}^{T_j(t)} 
+  \frac{dT_j(t)}{T_i-T_j}&=\frac{hA_j}{c_j\rho_jV_j}\int_0^t dt\\
+  -ln\frac{T_i-T_j(t)}{T_i-T_0}&=\frac{hA_j}{c_j\rho_jV_j}t\\
+  \frac{T_i-T_j(t)}{T_i-T_0}&= e^{-(hA_j/c_j\rho_jV_j)t}\\
+  \intertext{such that}
+  \frac{T_j(t)-T_i}{T_i-T_0}&= 1- e^{-t/\tau}\\
+  \intertext{where}
+  \tau &= \left( c_j\rho_jV_j/hA_j \right).
+\end{align*}
+
+The time constant, $\tau$ is the time it takes for the body to change 
+$(1-(1/e))\%\Delta T$ and is equal to the product of the thermal capacitance and 
+thermal resistance of the body, $CR$, analgous to an electrical circuit. 
+\cite{el-wakil_nuclear_1981}
 
 \subsection{Impact of Repository Designs}
 
@@ -804,9 +884,10 @@ A model of temperature dependent salt coalescent behavior is is order.
 
 
 
-\paragraph{Unsaturated Tuff}
+\subsubsection{Unsaturated Tuff}
 
-Two heat load constraints primarily determine the heat-based SNF capacity limit
+For comparision with the geologic media under consideration, it is important to 
+note that two heat load constraints primarily determine the heat-based SNF capacity
 in the Yucca Mountain Repository design, which is located in unsaturated tuff.
 Thermal limits in that design are intended to passively steward the
 repository's integrity against radionuclide release for the upcoming 10,000
@@ -917,35 +998,6 @@ The length based accounting in $\frac{t}{m}$ is converted to
 $\frac{t}{Repository}$ by multiplication with the total emplacement tunnel
 length of the repository.  In the case of Yucca Mountain, this was 67 km.
 
-\subsection{Lumped Capacitance}
-The lumped heat capacitance model makes an analogy to electrical circuit by 
-reducing a thermal system into discrete lumps. Such an approximation is 
-appropriate when it can be assumed that the temperature gradient within each 
-lump is approximately uniform. the appropriateness of this approximation can 
-quantitatively expressed by comparison of the internal thermal resistance to the 
-external thermal resistance. The Biot number, 
-
-\begin{align}
-  Bi = \frac{hA}{k}\\
-  \label{biot}
-\end{align}
-
-indicates the relative speeds with which heat conducts within an object and 
-accross the boundary of that object. If the Biot number is low $(<0.1)$, and 
-therefore conduction is faster within the object than at the boundary, the 
-assumption of a uniform internal temperature is appropriate and the lumped 
-parameter model may be expected to give a result within $5\%$ error. 
-\textbf{CHECK THIS NUMBER, FIND SOURCE, EXCEPTIONS.}
-
-The lumped capacitance model can address multiple media and multiple heat
-transfer modes. and the amount of heat transfer through a circuit is simply 
-given as the quotient of the temperature difference and the thermal resistance
-of the multiple lumps,
-
-\begin{align*}
-  \dot{q} = \frac{\Delta T}{\sum _{i=0}^{N}R_i}.
-\end{align*}
-
 \section{Detailed Computational Models of Nuclide Transport}
 \label{sec:detailed_nuclide}
 
@@ -1055,7 +1107,7 @@ limited waste capacity calculations for each geology, for many waste package
 loading densities, and for many fuel cycle options.  
 
 
-\subsection{Bauer SINDA\\G Model}
+\subsection{Bauer SINDA\ G Model}
 
 This model, created at Argonne National Lab by Ted Bauer uses a lumped 
 capacitance solver, called SINDA.
@@ -1070,11 +1122,11 @@ For heat flux rate through each conducting node, the SINDA lumped parameter
 model solves the Fourier equation,
 
 \begin{align}
-  \dot{q} &= G( T_i - T_j )\\
+  \dot{q} &= \frac{1}{R}( T_i - T_j )\\
   \label{sindafourier}
   \intertext{where}
-  G &= ~~\mbox{conductance}\nonumber\\
-  T &= ~~\mbox{Temperature}\nonumber\\
+  R &= ~~\mbox{resistance}\nonumber\\
+  T &= ~~\mbox{temperature}\nonumber\\
   \intertext{and}
   \dot{q} &= ~~\mbox{heat rate}.\nonumber
 \end{align}
@@ -1083,13 +1135,12 @@ Lumps are connected by conduction, convection, radiation, and mass flow heat
 transfer links. Briefly, these are represented by
 
 \begin{align*}
-  G_{cond} &= \frac{kA}{L}\\
-  G_{conv} &= h\cdot A\\
-  G_{mf}  &= \dot{m}c_p\\
-  G_{rad}  &= G_{in}\left[ T_i + T_A + T_j + T_A 
-  \right]\left[(T_i+T_A)^2+(T_j+T_A)^2\right]
+  R_{cond} &= \frac{L}{kA}\\
+  R_{conv} &= \frac{1}{ h\cdot A}\\
+  R_{mf}  &= \frac{1}{\dot{m}c_p}\\
+  R_{rad}  &= \frac{1}{\sigma F_{ij}A\left[ T_i + T_A + T_j + T_A 
+  \right]\left[(T_i+T_A)^2+(T_j+T_A)^2\right]}
   \intertext{where}
-  &G_{in}=\sigma F_{ij}A\\ 
   &k= ~~\mbox{conductivity}[] \\
   &A= ~~\mbox{area} [m^2]\\
   &c_p=~~\mbox{specific heat capacity} []  \\\
