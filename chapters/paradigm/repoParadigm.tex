@@ -1,10 +1,12 @@
 \section{Repository Modeling Paradigm}
+
 The repository model architecture is intended to modularly permit 
 exchange of disposal system subcomponents, accept arbitrary spent fuel 
 streams, and enable extending modules representing new or different 
 component models.
 
 \subsection{Simulation Interface}
+
 The interface of the repository model with the \Cyclus fuel cycle 
 simulation interface is intended to be minimally restrictive, 
 requiring only that the simulation supply waste stream information and 
@@ -12,12 +14,19 @@ provide a bookkeeping framework with which to record repository
 performance metrics. 
 
 \subsubsection{Waste Stream Input}
+
 The repository model must accept arbitrary spent fuel streams.  
 Material objects resulting from the simulated fuel cycle arrive at the  
 repository and are emplaced if all repository capacity limits allow 
 it.
 
+As the set of disposable material in the simulation is of heterogeneous 
+composition and therefore heterogeneous heat production capability, the 
+repository model will sometime need to recalculate its own capacity in terms of  
+new materials.
+
 \subsubsection{Repository Performance Metrics Calculated}
+
 Repository performance metrics that may be calculated from the source 
 term and heat data calculated by the model will cover a broad space of 
 metrics of interest to sustainability goals. 
@@ -30,7 +39,9 @@ footprint, and number of waste packages generated.
 Still other metrics which may be calculated from the calculations of 
 the repository model include environmental metrics such as peak 
 radiotoxic dose to the public, radiotoxic fluxes released to the 
-biosphere integrated over time, and the minimum managed lifetime. 
+biosphere integrated over time, and the minimum managed lifetime.  
+These metrics are recorded in a database flexibly defined by the repository 
+model.
 
 \subsubsection{Facility Functionality}
 The repository will behave as a facility within the \Cyclus simulation 
