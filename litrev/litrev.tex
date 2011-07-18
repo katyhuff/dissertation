@@ -847,9 +847,36 @@ thermal resistance of the body, $CR$, analgous to an electrical circuit.
 
 \subsection{Heat Limits in Various Geologies}
 
+The repository concepts under consideration are closed concepts. That is, 
+closure of the repository happens very shortly after emplacement.
+Enclosed modes are appropriate for low permeability rock formations (clay/shale, 
+granite, salt). Low permeability does not permit oxygen entry, so these are
+reducing environments. Since heat is carried away less effectively once closure 
+has occured, heat limits are lower in  closed repository concepts than in open 
+ones such as \gls{YMR} where drift tunnels are ventilated for a number of years
+after emplacement before closure.
+
 \subsubsection{Clay} 
-% Well understood behavior for agrillaceous clay is taken by the CEA to occur 
-% under 90$^\circ$C, as with the waste packages in this geology.  
+
+Heat limits in clay are based on the domain of known behavior in clay and the 
+tendency for bentonite fill material to lose its isolating properties with heat. 
+The alteration high smectite bentonite to non-expandable clays is a primary 
+limitation for heat tolerance in the clay concept. The isolation characteristics 
+of bentonite buffer materials is reduced after this alteration. The time 
+integral of this phenomenon determines total bentonite alteration. While short 
+bursts of heat might be allowable, because the bentonite will not alter 
+immediately, the kinetic alteration into smectite clays is hastened by 
+temperatures above approximately 100$^\circ C$. \cite{pusch_alteration_1987} 
+Well understood behavior for agrillaceous clay and bentonite buffer backfill
+is conservatively assumed by the \gls{ANDRA} assessment to occur under 
+90$^\circ C$, which is effectively a limit at the waste package interface with 
+the bentonite buffer material.\cite{andra_argile:_2005} 
+The \gls{NAGRA} Opalinus Clay assessment less conservatively 
+uses a maximum heat limit in the bentonite buffer of $125^\circ C$.
+\cite{johnson_project_2002} 
+
+%as with the waste packages in this geology.  
+
 % 
 % ``This low permeability of the Callovo-Oxfordian, linked to low hydraulic head 
 % gradients on either side of the formation, controls slow vertical water flow 
@@ -868,9 +895,25 @@ thermal resistance of the body, $CR$, analgous to an electrical circuit.
 
 % Water flow in a porous medium is dominated by darcy flow.  This would be a 
 % great place to describe darcy's law! 
+
 \subsubsection{Granite}
 
-\subsubsection{Salt} Response of a salt repository to heat has a significant
+Granite repository concepts are limited by the bentonite buffer in a manner 
+similar to that of clay. 
+Well understood behavior for generic granite and bentonite buffer backfill
+is conservatively assumed by the \gls{ANDRA} assessment to occur under 
+90$^\circ C$, a limit that must be imposed at the waste package interface with 
+the buffer material.  Mechanical stresses and strains due to heating at this 
+level were analyzed by \gls{ANDRA} and shown to have a negligible effect of 
+flow behavior. Similarly, thermo-hydraulic effects due to thermally induced 
+fluid density changes are expected to be slight. \cite{andra_argile:_2005}
+Similarly, for reasons of buffer isolation integrity, the Czech and Spanish
+granite disposal concepts both maintained a thermal limit at the waste package
+interface with the buffer of $100^\circ C$.  \cite{von_lensa_red-impact_2008}
+
+\subsubsection{Salt} 
+
+Response of a salt repository to heat has a significant
 mechanical component. Bulk heating of a salt repository matrix causes
 coalescing  of the salt surrounding the heat source. In the case of a nuclear
 waste repository, this phenomenon increases isolation capability of the salt. A
@@ -879,9 +922,24 @@ salt environment is of great importance to nuclide transport modeling.
 
 A model of temperature dependent salt coalescent behavior is is order. 
 
+\textbf{The following needs revision:}
+
+Generic Salt repository study Carter et al. 2011. This concept was based on some 
+experience trying to construct and maintain the horizontal borings at WIPP. The 
+idea now is that you would put crushed salt in an alcove, after laying down the 
+packages. The issue is largely that the crushed salt has abysmal conductivity. 
+Older waste is going to have time to cool off before emplacement, but the newer 
+waste will be at its peak temperature within a few years of emplacement.
+
+There is a current ongoing debate as to whether the crushed salt will collapse 
+under high heat. The issue involves the behavior of the moisture. Whether the salt 
+is consolidataed or not makes a very big difference in the understanding of what 
+happens in the event of high heat.
+
+
+For the purposes of this discussion, the salt will creep with higher heat.
 
 % WIPP, system model Germany, GRS concept
-
 
 
 \subsubsection{Unsaturated Tuff}
@@ -1223,57 +1281,6 @@ characteristics and is independent of or weakly dependent on concentration.
 nuclide transport is taken to be completely advective, nuclide independent, and
 congruent with the volumetric flow of the water within the water table. 
 
-
-
-\subsection{Independent Fuel Cycle Parameters} Independent fuel cycle
-parameters of particular interest in fuel cycle systems analysis have been
-those related to the front end of the fuel cycle. Deployment decisions
-concerning reactor types, fast to thermal reactor ratios, and burnup rates can
-all be independently varied in fuel cycle simulation codes in such a way as to
-inform domestic policy decisiong going forward. Some of these parameters are
-coupled, however, to aspects of the back end of the fuel cycle. For example,
-the appropriate fast reactor ratio is significantly altered by the chosen
-method and magnitude of domestic spent fuel reprocessing (or not).
-
-However, independent variables representing decisions concerning the back end
-of the fuel cycle are of increasing interest as the United States further
-investigates repository alternatives to Yucca Mountain.  Parameters such as the
-repository geology, tunnel design, and appropriate loading strategies and
-schedule are all independent variables up for debate. That said, some of these
-parameters are coupled with decisions about the fuel cycle. 
-
-Thus, while independent parameters can be chosen and varied
-within a fuel cycle simulation, some parameters are coupled in such a way as to
-require full synthesis with a systems analysis code that appropriately
-determines the isotpic mass flows into the repository, their appropriate
-conditioning, densities, and other physical properties.  
-
-% %   * repository * geology * reducing/oxidizing * salt * granite * clay * deep 
-% boreholes (srsly) * design * tunnel widths?  * tunnel lengths?  * distance 
-% between tunnels?  * depths * distance from water table * loading strategies * 
-% cooling pad timing * interim storage timing (i.e. between fuel cycle stages) * 
-% utilizing short lived ILW facilities * tunnel ventilation * packing 
-% optimization * partitioning/separations * separation efficiency * of MAs * of 
-% Pu * of Iodine * etc.  * separation strategy * isotope decisions * MAs?  * Pu?  
-% * etc.?  * chemistry decisions * aqueous?  * pyro?  * does it matter?  * 
-% transmutation * Advanced Reactors * deployment timing * Pu or MA content of 
-% fuels * types of reactors * high burnup * MOX * various Fast Reactors * 
-% various conversion/breeding ratios * Integral Fast Reactor *  * wave reactor * 
-% candle reactor * Thermal Reactors * initial UO_2 enrichment * maximum burnup * 
-% Pu / MA content of fuels
-
-%         * Thorium ?  * Reactor Type * PWR * BWR * VVER * Accelerator Driven 
-%         Systems * target MA content
-
-%         * burnup efficiency * power share of various installed reactor types * 
-%         conditioning * waste packaging * forms * liquids * glass vitrification 
-%         * cement * bitumen * solids * steel * combined material canisters * 
-%         dual purpose transport and storage canisters * overpack 
-%         characteristics * etc?  * densities * impacted by density-dependent 
-%         release rates * volumes * incineration/compaction (solid waste) * 
-%         evaporation/filtration/ion exchange (liquid waste) * engineered 
-%         barriers * likelihood of human intrusion ?  %
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %% Source Term in Many Geos Table %%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -1290,34 +1297,6 @@ conditioning, densities, and other physical properties.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-%\subsection{Models Incorporated into Systems Analysis Codes}
-
-% get rest of this list from MLDG paper.  
-%\section{Geochemical Migration Models} Some mathematical models describing 
-%aqueous isotope transport in geologic settings are available absent of 
-%Engineered Barier Systems and the like. These solely model host rock transport.  
-%``PHREEQC version 2 is a computer program written in the C programming language 
-%that is designed to perform a wide variety of low-temperature aqueous 
-%geochemical calculations.  PHREEQC is based on an ion-association aqueous model 
-%and has capabilities for (1) speciation and saturation-index calculations; (2) 
-%batch-reaction and
-% one-dimensional (1D) transport calculations involving reversible reactions, 
-% which include aqueous, mineral, gas, solid-solution, surface-complexation, and 
-% ion-exchange equilibria, and irreversible reactions, which include specified 
-% mole transfers of reactants, kinetically controlled reactions, mixing of 
-% solutions, and temperature changes; and (3) inverse modeling, which finds sets 
-% of mineral and gas mole transfers that account for differences in composition 
-% between waters, within specified compositional uncertainty limits.'' GTMCHEM — 
-% a simulation environment which “deterministically” models
-
-% the one-dimensional migration of radionuclides through the geosphere up to the 
-% biosphere. Focusing on scenario and parametric uncertainty, we show that mean 
-% predicted maximum doses to humans on the earth's surface due to 1–129, and 
-% uncertainty bands around those predictions, are larger when scenario 
-% uncertainty is properly assessed and propagated. .  Things to ask about each 
-% of them include: Which geologies do they model?  How long do they take to run?  
-% Are they proprietary?  How well validated are they?
 
 
 %\section{Waste Form Models}
