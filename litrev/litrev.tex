@@ -154,8 +154,8 @@ strategy models, but considers only the fuel cycle associated with the current
 U.S.  reactor fleet. Casks are modeled discretely and nuclide and heat transport 
 are modeled in great detail.\cite{turner_discrete_2010} This level of detail 
 results in a dramatically extended run time. The \gls{TSM} model can only be 
-run by its development team and typically runs for approximately one week. 
-\textbf{double check.} 
+run by its development team and runs a typical simulation, processing 70,000 
+MTHM in 12-15 hours. 
 
 The TSM framework is based on the SimCAD platform. The simulation steps through
 times in 8 hour time steps during the waste cask transportation, processing and
@@ -257,11 +257,13 @@ transfer through the engineered barrier system and into the geological medium
 also depends on water flow, nuclide solubility, and nuclide diffusion, but must
 be employed in the context of the hydrogeology of the rock.   
 
-Waste package failure rate varies between models. While some employ simulators
-such as GoldSim or EBSFAIL (a part of the EBSPAC module used in the TSPA
-code), other models incorporate their own hydrogeologic approximations of
-canister degredation, and still others assume immediate waste canister failure
-in order to focus on dissolution and transfer. 
+Waste package failure rate varies between models. While some employ detailed 
+computational tools such as GoldSim or EBSFAIL (a part of the EBSPAC module 
+used in the TSPA code) which will be discussed in section 
+\ref{sec:detailed_nuclide}, 
+analytic models incorporate their own hydrogeologic approximations of
+canister degredation or make simpler assumptions of immediate waste canister 
+failure in order to focus on dissolution and transfer. 
 
 Waste package release rate is the rate of mass transfer of a nuclide from its
 waste form into the saturation water. The mode of water flowthrough heavily
@@ -274,18 +276,25 @@ hydrogeologic activity.
 Nuclide transfer rate through the lithology is  dependent upon diffusion as
 well as advection.  The diffusion coefficient varies per nuclide and is heavily
 dependent upon the concentration of that nuclide in the flowthrough water.
-Nuclide concentration in this model is described by Fick's First Law, 
+The way in which diffusion affects nuclide concentration is described by Fick's 
+Second Law, 
 
 \begin{equation} 
-  J = -D\frac{\delta\phi}{\delta x}.  
+  \frac{\partial C_i}{\partial t}  = D_i\nabla^2 C_i.  
 \end{equation}
 
 Source term dependence on concentration has a significant effect on potential
 repository capacity. Sensitivity to concentration complicates the viability of
-alternate loading schemes as well as waste separation scenarios. Radionuclide
-concentration has been shown to be proportional to the waste package loading
-configuration for the Yucca Mountain
-case.\cite{ahn_relationship_2002,kawasaki_congruent_2004}
+alternate loading schemes as well as waste separation scenarios. Specifically, 
+Fick's Second Law becomes 
+
+\begin{equation} 
+  \frac{\partial C_i}{\partial t}  = \nabla \cdot ( D_i \nabla C_i ). 
+\end{equation}
+
+Radionuclide concentration has been shown to be proportional to the waste package
+loading configuration for the Yucca Mountain case. 
+\cite{ahn_relationship_2002,kawasaki_congruent_2004}
 
 The most important geochemical processes to source term that occur within the
 waste, waste matrix, and near field as well as the host rock are dissolution,
@@ -938,24 +947,17 @@ salt environment is of great importance to nuclide transport modeling.
 
 A model of temperature dependent salt coalescent behavior is is order. 
 
-\textbf{The following needs revision:}
-
-Generic Salt repository study Carter et al. 2011. This concept was based on some 
+The \gls{UFD} salt repository concept was based on some 
 experience trying to construct and maintain the horizontal borings at WIPP. The 
-idea now is that you would put crushed salt in an alcove, after laying down the 
-packages. The issue is largely that the crushed salt has abysmal conductivity. 
-Older waste is going to have time to cool off before emplacement, but the newer 
-waste will be at its peak temperature within a few years of emplacement.
+current geometry involves emplacement of crushed salt in an alcove over waste
+packages which are arranged at the corner of the alcove. Notably,  crushed salt 
+has low conductivity, which increases the sensitivity of rock salt temperature 
+on emplaced package temperature. 
 
-There is a current ongoing debate as to whether the crushed salt will collapse 
-under high heat. The issue involves the behavior of the moisture. Whether the salt 
-is consolidataed or not makes a very big difference in the understanding of what 
-happens in the event of high heat.
-
-
-For the purposes of this discussion, the salt will creep with higher heat.
-
-% WIPP, system model Germany, GRS concept
+There is a current open question involving the behavior of moisture under high 
+heat. Though it is clear that the salt will creep and coalesce with higher heat, 
+the movement of brine within the salt at high heat is a pertinent issue for the 
+understanding of nuclide transport within salt.
 
 The German salt repository concept maintains a $180^\circ C$ temperature limit 
 in the salt. This requirement is based on the geochemical stability of the rock  
