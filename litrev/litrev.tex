@@ -233,6 +233,14 @@ nations as well. See Table \ref{tab:red}.
 
 %%%%%%%%%%%%%%%% Analytical Nuclide Transport %%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% Source Term in Many Geos Table %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\input{litrev/geosource_tab}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 A comprehensive model of radiotoxic source term must address nuclide transport
 through the full release pathway including waste packages, engineered barrier
 systems, and geologic media. A model of transport through the waste package
@@ -847,6 +855,14 @@ thermal resistance of the body, $CR$, analgous to an electrical circuit.
 
 \subsection{Heat Limits in Various Geologies}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%% Heat Load Computational Models Table %%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\input{litrev/heat_tab}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 The repository concepts under consideration are closed concepts. That is, 
 closure of the repository happens very shortly after emplacement.
 Enclosed modes are appropriate for low permeability rock formations (clay/shale, 
@@ -941,6 +957,11 @@ For the purposes of this discussion, the salt will creep with higher heat.
 
 % WIPP, system model Germany, GRS concept
 
+The German salt repository concept maintains a $180^\circ C$ temperature limit 
+in the salt. This requirement is based on the geochemical stability of the rock  
+salt. At temperatures above $220^\circ C$ the salt formation may release 
+brines.\cite{von_lensa_red-impact_2008}\cite{brewitz_long_2002}
+
 
 \subsubsection{Unsaturated Tuff}
 
@@ -962,16 +983,6 @@ The second constraint intends to prevent high rock temperatures that induce
 fractures and would increase leach rates. It states that no part of the rock
 reach a temperature above $200^{\circ}C$, and is effectively a limit on the
 temperature at the drift wall, where the rock temperature is a maximum.  
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%%%%% Heat Load Computational Models Table %%%%% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
-\input{litrev/heat_tab}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 The statutory limit of once-through, thermal PWR waste is 70,000 tonnes SNF.
 That is to say, the statutory line load limit is approximately 1.04 tonnes/m
@@ -1060,6 +1071,46 @@ length of the repository.  In the case of Yucca Mountain, this was 67 km.
 \label{sec:detailed_nuclide}
 
 %%%%%%%%%%%%%%%% Detailed Nuclide Transport %%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Li Model\cite{li_methodology_2006}} As a function of time, water
+enters the Engineered Barrier System and corrodes the waste packages.  These
+fail and from the failed waste packages nuclides are released according to
+advective transfer.  Further transportation through the near and far field rock
+medium is modeled in two modes, one representing the Unsaturated Zone, and one
+representing the Saturated Zone.
+
+\paragraph{Waste package failure and nuclide release} are modeled with two TSPA
+code modules called EBSFAIL and EPSREL. The waste package failure rate is
+determined from EBSFAIL which incorporates waste form chemistry, humidity,
+oxidation, etc and upon contact from water begins the degradation process. The
+results of EBSFAIL become the input to EBSREL which models corresponding
+nuclide release from those failed waste packages. Mass balance governing the
+nuclide release rate in this model allows advective transfer to dominate and
+takes the form:
+
+\begin{equation}
+\dot{m_i}=w_{li}(t)-w_{ci}{t}-m_i\lambda_i+m_{i-1}\lambda_{i-1}\nonumber
+\end{equation}
+
+In this expression, $w_{li}(t)$ is the rate $[mol/yr]$ of isotope \emph{i}
+leached into the water.  It is a function of water flow rate, chemistry, and
+isotope solubility. $m_i$ describes the mass of isotope \emph{i}, and
+$\lambda_i$ $[s{-1}]$ describes its decay constant. Finally, $w_{ci}(t)$
+describes the advective transfer rate $[mol/yr]$ of the isotope \emph{i}. This 
+model defines $w_{ci}$ as:
+
+\begin{equation}
+  w_{ci}(t)=C_i(t)q_{out}(t) 
+\end{equation}
+
+where $q_out$ is the volumetric flow rate of the water $[m^3/yr]$, and 
+$C_i$ is the concentration on isotope $i$ in the waste package volume 
+$m_i/V_{wp}$ in $[mol/m^3]$. These assumptions fail to take into account any
+differences in the varying solubilities of the isotopes, but are quite
+sensitive to the concentration of an isotope \emph{i} in the waste package
+volume.  
+characteristics and is independent of or weakly dependent on concentration.  
+
 \subsection{ANDRA Dossier 2005} The ANDRA Dossier 2005 studies provided
 detailed nuclide transport calculations for both argillaceous clay and granite
 formations.
@@ -1228,66 +1279,8 @@ fit in any of the categories above.
 % This is where CapacityNotes wasinserted % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Flotsam and Jetsam}
 
-\subsubsection{Li Model\cite{li_methodology_2006}} As a function of time, water
-enters the Engineered Barrier System and corrodes the waste packages.  These
-fail and from the failed waste packages nuclides are released according to
-advective transfer.  Further transportation through the near and far field rock
-medium is modeled in two modes, one representing the Unsaturated Zone, and one
-representing the Saturated Zone.
 
-\paragraph{Waste package failure and nuclide release} are modeled with two TSPA
-code modules called EBSFAIL and EPSREL. The waste package failure rate is
-determined from EBSFAIL which incorporates waste form chemistry, humidity,
-oxidation, etc and upon contact from water begins the degradation process. The
-results of EBSFAIL become the input to EBSREL which models corresponding
-nuclide release from those failed waste packages. Mass balance governing the
-nuclide release rate in this model allows advective transfer to dominate and
-takes the form:
-
-\begin{equation}
-\dot{m_i}=w_{li}(t)-w_{ci}{t}-m_i\lambda_i+m_{i-1}\lambda_{i-1}\nonumber
-\end{equation}
-
-In this expression, $w_{li}(t)$ is the rate $[mol/yr]$ of isotope \emph{i}
-leached into the water.  It is a function of water flow rate, chemistry, and
-isotope solubility. $m_i$ describes the mass of isotope \emph{i}, and
-$\lambda_i$ $[s{-1}]$ describes its decay constant. Finally, $w_{ci}(t)$
-describes the advective transfer rate $[mol/yr]$ of the isotope \emph{i}. This 
-model defines $w_{ci}$ as:
-
-\begin{equation}
-  w_{ci}(t)=C_i(t)q_{out}(t) 
-\end{equation}
-
-where $q_out$ is the volumetric flow rate of the water $[m^3/yr]$, and 
-$C_i$ is the concentration on isotope $i$ in the waste package volume 
-$m_i/V_{wp}$ in $[mol/m^3]$. These assumptions fail to take into account any
-differences in the varying solubilities of the isotopes, but are quite
-sensitive to the concentration of an isotope \emph{i} in the waste package
-volume.  
-
-\paragraph{The Unsaturated Zone} lies between the repository and the water
-table. This model describes transport time in the porous rock as:
-\begin{equation} T_a= \frac{X_u}{U_u}R_{du} \end{equation} where X is length of
-the unsaturated zone, U is the pore velocity of the water $[m/yr]$ and $R_{iu}$
-is the retardation factor for the isotope \emph{i}. The retardation factor is
-poorly described here, but in general denotes migration distance of the solute
-over that of the solvent. Presumably, this factor incorporates isotope specific
-characteristics and is independent of or weakly dependent on concentration.  
-
-\paragraph{The Saturated Zone} lies below the water table. At this point, the
-nuclide transport is taken to be completely advective, nuclide independent, and
-congruent with the volumetric flow of the water within the water table. 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%% Source Term in Many Geos Table %%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
-\input{litrev/geosource_tab}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%%% Andra Sub-Codes Table %%%%%%%%%
