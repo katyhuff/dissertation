@@ -721,25 +721,48 @@ and $A_f$, the equivalent permeability, $k$, can be expressed
 
 Conductive heat transfer occurs as a result of a temperature gradient. Heat 
 flows diffusively from the hotter material to the cooler material over time and
-steadily approaches thermal equillibrium. A heat flux, $\vec{q} [W\cdot 
-m^{-2}]$ can be expressed with the  differential form of Fourier's law of heat 
-conduction with respect to  the thermal conductivity of the material, $k [W 
-\cdot m^{-1} \cdot ^\circ K^{-1}]$, and the temperature gradient $\nabla T [K/m]$
+steadily approaches thermal equillibrium. The general form of the conduction 
+equation can be expressed
 
 \begin{align}
-  \vec{q}= -k\nabla T.
+  \nabla^2T + \frac{q'''}{k} = \frac{1}{\alpha}\frac{\partial T}{\partial t},
+  \label{general}
+  \intertext{which with no heat source becomes the transient Fourier equation,}
+  \nabla^2T  = \frac{1}{\alpha}\frac{\partial T}{\partial t},
+  \label{transfourier}
+  \intertext{or to the Laplace equation in steady state,}
+  \nabla^2T = 0.
+  \label{laplace}
+  \intertext{Replacing the source gives the steady state Poisson equation,}
+  \nabla^2T + \frac{q'''}{k} = 0.
+  \label{poisson}
+\end{align}
+
+An areal heat flux, $q'' [W\cdot m^{-2}]$ can be derived from an integration of  
+Poisson's equation \eqref{poisson}  and expressed in terms of the thermal 
+conductivity of the material, $k [W \cdot m^{-1} \cdot ^\circ K^{-1}]$, and the
+temperature gradient $\nabla T [K\cdot m^{-1}]$
+
+\begin{align}
+  q''= -k\nabla T.
   \label{fourier}
 \end{align}
 
-For the one dimensional case, equation \ref{fourier} can be reduce using a 
+For the one dimensional case, equation \ref{fourier} can be reduced using a 
 finite difference approximation. For a body at $x_1$ with temperature $T_1$
 and a body with temperature $T_2$ at position $x_2$,
 
 \begin{align*}
-  q_x &= \frac{dT}{dx}\\
+  q_x'' &= -k_x\frac{dT}{dx}\\
   &=-k_x\frac{(T_1-T_2)}{x_1-x_2}.
 \end{align*}
 
+A one dimensional heat flux rate can be found by integration over the surface 
+area of the representative volume, 
+
+\begin{align*}
+  \dot{q} = -kA\frac{\Delta T}{\Delta x}.
+\end{align*}
 
 \subsection{Convection}
 
@@ -750,9 +773,9 @@ $h [W m^{-2} K^{-1}]$ and the surface area of heat transfer $A [m^2]$ replace
 the conductivity coefficient. Convection is typically expressed as
 
 \begin{align}
-  \vec{q}&= -hA\nabla T
+  q'' &= -hA\nabla T
   \intertext{such that}
-  q_x &= hA\frac{dT}{dx}\\
+  q_x'' &= hA\frac{dT}{dx}\\
   &=-h_xA\frac{(T_1-T_2)}{x_1-x_2}.
 \end{align}
 
@@ -764,7 +787,7 @@ waves. Plack black body radiation is analytically described, using $\sigma$, the
 Stefan-Boltzmann constant as
 
 \begin{align}
-  \vec{q} &= \sigma A_1 F_{1\rightarrow 2}(T_1^4 - T_2^4)
+  q'' &= \sigma A_1 F_{1\rightarrow 2}(T_1^4 - T_2^4)
   \label{planck}
   \intertext{where}
   \sigma &=5.670373\times 10^{−8} [W\cdot m^{−2}\cdot ^\circ K^{−4}].\nonumber\\
@@ -779,7 +802,7 @@ heat capacity of the transferred mass can be expressed as $c_p$, then the heat
 conductance is simply, 
 
 \begin{align*}
-  G = \dot{m}c_p.\\
+  \dot{q} = \dot{m}c_p\left( T_j - T_i \right).\\
 \end{align*}
 
 \subsection{Lumped Parameter Model}
@@ -825,8 +848,8 @@ problem described by the energy balance,
 
 where $c_j\rho_jV_j$ is the total lumped thermal capacitance of the body.
 
-For the case of a simple conductive circuit between two bodies, $i$ and $j$, the 
-resistance of $j$ can be described as 
+For example, in the case of a simple conductive circuit between two bodies, $i$ 
+and $j$, the resistance of $j$ can be described as 
 \begin{align*}
   R_{cond} &= 1/hA
   \intertext{such that}
@@ -860,26 +883,20 @@ representing modes of heat transfer. Thus, one can say, in general
 \subsection{Impact of Repository Designs}
 
 \subsection{Heat Limits in Various Waste Packages} 
-% The CEA and ANDRA take 90$^\circ$C to be the maximum temperature for spent 
-% fuel waste packages. The reason for this is to remain within well understood 
-% limits of material evolution of waste packages and the surrounding (clay) 
-% repository.  \cite{argile_geo_evo}  
 
+Various waste package constraints exist which limit fuel loading. These are 
+in general less restrictive than heat limits resulting from geological medium 
+constraints, however in some cases they are more restrictive. 
 
-% Confinement capabilities of bitumen waste packages (B packages in ANDRA Argile 
-% evaluation) is only confident below 70$^\circ$C. Uncide the ``disposal cells'' 
-% a maximum temperature of 30$\circ$C is adopted.
+For example, confinement capabilities of bitumen waste packages are only known 
+with confidence below $70^\circ C$. Inside the ``disposal cells'' a maximum 
+temperature of $ 30 ^\circ C$ is adopted in the \gls{ANDRA} analysis. 
+\cite{andra_argile:_2005}
 
+<++>
 
 \subsection{Heat Limits in Various Geologies}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%%%%% Heat Load Computational Models Table %%%%% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
-\input{litrev/heat_tab}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The repository concepts under consideration are closed concepts. That is, 
 closure of the repository happens very shortly after emplacement.
@@ -954,7 +971,7 @@ waste repository, this phenomenon increases isolation capability of the salt. A
 heat limit, then, is difficult to characterize, but evolution of the heat in a
 salt environment is of great importance to nuclide transport modeling. 
 
-A model of temperature dependent salt coalescent behavior is is order. 
+A model of temperature dependent salt coalescent behavior is in order.  <++ <++>>
 
 The \gls{UFD} salt repository concept was based on some 
 experience trying to construct and maintain the horizontal borings at WIPP. The 
@@ -963,15 +980,15 @@ packages which are arranged at the corner of the alcove. Notably,  crushed salt
 has low conductivity, which increases the sensitivity of rock salt temperature 
 on emplaced package temperature. 
 
-There is a current open question involving the behavior of moisture under high 
-heat. Though it is clear that the salt will creep and coalesce with higher heat, 
-the movement of brine within the salt at high heat is a pertinent issue for the 
-understanding of nuclide transport within salt.
+The behavior of moisture in a salt repository under high heat is not well 
+characterized . Though it is clear that the salt will creep and coalesce with 
+increased temperature, the potential generation of brines within the salt at 
+high heat is a pertinent issue for salt disposal characterization. 
 
 The German salt repository concept maintains a $180^\circ C$ temperature limit 
-in the salt. This requirement is based on the geochemical stability of the rock  
 salt. At temperatures above $220^\circ C$ the salt formation may release 
-brines.\cite{von_lensa_red-impact_2008}\cite{brewitz_long_2002}
+brines capable of facilitating nuclide transport.
+\cite{von_lensa_red-impact_2008}\cite{brewitz_long_2002}
 
 
 \subsubsection{Unsaturated Tuff}
@@ -1124,7 +1141,7 @@ characteristics and is independent of or weakly dependent on concentration.
 
 \subsection{ANDRA Dossier 2005} The ANDRA Dossier 2005 studies provided
 detailed nuclide transport calculations for both argillaceous clay and granite
-formations.
+formations. 
 
 \subsubsection{Clay/Shale} More complicated saturation and resaturation phenomena 
 are neglected and it is assumed that the initial repository condition is fully
@@ -1137,6 +1154,17 @@ with halflives over 1000 years and most toxicity or mobility.
 \cite{andra_argile:_2005} The behavior of radionuclides in 
 glassvitrification forms can be summarized by categorizing them into mobile,
 intermediate, and well retained elements. 
+
+Some specific codes used in the \gls{ANDRA} clay assessment are listed in Table  
+\ref{tab:andra}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%% Andra Sub-Codes Table %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\input{litrev/andra_tab}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %more details in inset 10-2, andra argile phenom. . 
 
@@ -1217,22 +1245,30 @@ discharge paths.
 
 This model, created at \gls{LLNL} for the \gls{UFD} campaign, is written in a 
 combination of MathCAD and Excel. The model consists of two parts. The first is 
-a MathCAD solution of the transient homogeneous conduction equation. The 
+a MathCAD solution of the transient homogeneous conduction equation
+
+<+equation+>. 
+
+The 
 solution of this equation at the boundary of the EBS and the waste package is 
-then treated as a boundary condition for the heterogeneous steady state solver, 
-which advances the simulation and calculates values through the geometry. The 
+then treated as a boundary condition for the heterogeneous steady state 
+equation, 
+
+<+equation+>
+
+which in turn calculates a resulting gradient through the geometry. The 
 process is then iterated with a one year resolution in order to arrive at a heat 
 evolution over  the lifetime of the repository. This model seeks to inform heat
 limited waste capacity calculations for each geology, for many waste package 
 loading densities, and for many fuel cycle options.  
 
 
-\subsection{Bauer SINDA\ G Model}
+\subsection{Bauer SINDA\textbackslash G Model}
 
 This model, created at Argonne National Lab by Ted Bauer uses a lumped 
 capacitance solver, called SINDA.
 
-The Bauer model is geometrically adjustable. 
+The Bauer model is geometrically adjustable. <+figure+>
 
 The SINDA lumped capacitance solver solves a thermal circuit, for which 
 conducting nodes may be of four types corresponding to the four modes of heat 
@@ -1284,20 +1320,13 @@ repository heat evaluations. See the table.
 \subsection{ANDRA/RED-IMPACT Codes?}
 
 Codes used by ANDRA and other programs within the RED-IMPACT assessment may not  
-fit in any of the categories above.
+fit in any of the categories above. They are listed in Table \ref{tab:heat}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% This is where CapacityNotes wasinserted % 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%% Heat Load Computational Models Table %%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%%%%%% Andra Sub-Codes Table %%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-
-\input{litrev/andra_tab}
+\input{litrev/heat_tab}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

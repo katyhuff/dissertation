@@ -71,12 +71,16 @@ released from the component it immediately contains.  Thus, nuclide
 release information is passed radially outward from the waste stream 
 sequentially through each containment layer to the geosphere.
 
-\subsubsection{Concept Generality}<++>
+\subsubsection{Concept Generality}
+Th capability to allow each model to define the models within it gives this 
+repository model concept the ability to model many types of repository concept 
+while maintaining a simple interface with the simulation. 
+
 \subsection{Components of the Nested System}
 \subsubsection{Waste Stream}
 The waste stream data object contains spent fuel isotopics over the 
 course of the simulation. As nuclides are lost from the spent fuel 
-object, it is kept track of in the waste stream object. 
+object, a history of its isotopic composition is recorded. 
 
 \subsubsection{Waste Form}
 The waste form model will calculate nuclide release due to dissolution 
@@ -112,7 +116,7 @@ Salt and borehole repositories may not have a buffer material.
 
 \subsubsection{Backfill}
 Similarly, diffusion is the primary mechanism for nuclide transport 
-throught he buffer component of the repository system.
+through the buffer component of the repository system.
 
 Borehole repository concepts may not have a backfill material. 
 
@@ -129,3 +133,4 @@ analytically captures nuclide mobility due to advection through
 fractures as well as competing retardation factors including sorption on the 
 fracture walls, diffusion into stagnant fluid in the rock matrix, and 
 sorption into rock matrix walls. 
+

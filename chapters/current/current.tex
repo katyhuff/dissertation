@@ -19,7 +19,7 @@ These will be essential for providing interesting scenarios for comparison.
 
 \section{GDSE Analysis}
 
-Much of my future work is based on the parametric analysis I've been doing with  
+Much of my future work is based on the parametric analysis that has begun with  
 the base case Clay \gls{GDSE} model.
 
 \subsection{Sensitivity Analyses}
@@ -118,20 +118,29 @@ Maybe earlier in lit review instead.
 
 The tunnel geometry can be altered in two dimensions.
 
+\subsection{Thermal Conductivities, etc.}
+
+Sensitivity to various physical parameters of the model will be found. 
+
+\section{LLNL Model Analysis}
+
+An analysis similar to that conducted with the SINDA model will be conducted 
+for the LLNL thermal model.
+
 \section{Demonstration}
 
 \subsection{Conceptual Model}
 
 \subsubsection{Volumes}
 
-Volumes are defined by their dimensions, interfaces, contained matter, and 
+Volumes are defined by their dimensions, surfaces, temperature, contained matter, and 
 contained contaminants. 
 
 Dimensions fully define the shape and magnitude of the volume.
 \textbf{Volume shape? Can be more than just cylindrical?}
 
 Interfaces are defined by a shared surface area, a flux type, and a flux 
-direction.  Any single volume may only interface with one inner and one outer 
+direction. Any single volume may only interface with one inner and one outer 
 volume. 
 
 Contained matter must sum to the full volume of the volume.
@@ -150,7 +159,18 @@ coefficients for each nuclide.
 Solids are assumed to be porous media and are defined by their porosity 
 ($n$, $\%$), tortuosity ($\tau$, $[-]$), and dry (bulk) density ($\rho$). 
 Fracturation is dealt with separateea, a flux type, and a flux 
-direction.  Any single volume may only interface with one 
+direction.  
+
+\subsubsection{Connections}
+
+Heat transfer connections include at least conductive and convective connections. 
+Radiative and mass transfer heat connections will be a secondary extension to 
+the modeling paradigm. 
+
+Nuclide transport connections will include at least diffusive and advective 
+connections. These will incorporate available porosity of the surface interface. 
+Solubility limitations will be a characteristic of the mixing volume cell rather  
+than the release pathway. 
 
 \subsection{Mathematical Model}
 
