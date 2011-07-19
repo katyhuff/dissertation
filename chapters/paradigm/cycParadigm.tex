@@ -30,7 +30,7 @@ The ability to dynamically load independently constructed modules is a
 heavy focus of \Cyclus development. Dynamically-loadable modules are
 the primary mechanism for extending \Cyclus' capability. The primary
 benefit of this approach is encapsulation: the trunk of the code is
-completely independent of the individual models. Additionally, any
+completely independent of the individual models. Thus, any
 customization or extension is implemented only in the loadable
 module. A secondary benefit of this encapsulation is the ability for
 contributors to choose different distribution and licensing strategies
@@ -48,10 +48,10 @@ assuaged (See Figure \ref{fig:repo}.
 
 Finally, this strategy allows individual developers to
 explore different levels of complexity within their modules, including
-wrapping other simulation tools as loadable modules for \Cyclus. This
-last benefit of dynamically-loadable modules addresses another goal of
-\Cyclus: ubiquity amongst its potential user base. By engineering
-\Cyclus to easily handle varying levels of complexity, a single
+wrapping other simulation tools as loadable modules within the \Cyclus 
+framework. This last benefit of dynamically-loadable modules addresses 
+another goal of \Cyclus: ubiquity amongst its potential user base. By
+engineering \Cyclus to easily handle varying levels of complexity, a single
 simulation engine can be used by both users keen on big-picture policy
 questions as well as users interested in more detailed, technical
 analyses.
@@ -63,7 +63,7 @@ analyses.
 object-oriented software design techniques in order to create an 
 extensible and modular user and developer interface. A primary 
 workhorse for this implementation is the notion of dynamic module 
-loading in combination with the region institution facility  
+loading in combination with a region institution facility  
 hierarchy. In this paradigm, the shared interface of polymorphic 
 objects is abstracted from the logic of their instantiation by the 
 model definition they inherit. 
@@ -85,15 +85,15 @@ superclass.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Modularity and Extensibility}
 
-A modular code will have the traits of encapsulation and abstraction 
+A modular code must have the traits of encapsulation and abstraction 
 appropriate for a user or developer to flexibly make alterations to 
 the simulation performance with minimal modification to the code. An 
 extensible code should be both robustly suited to the addition of 
-classes and subclasses and communication with other codes. Addition of 
-new models by dynamic loading is possible without any alteration of 
-the software trunk. The modular design of \Cyclus will stresses avoidance of rigidity, in 
-which changes to the code are potentially difficult, and fragility, in 
-which changes to the code are potentially damaging.
+classes and subclasses as well as suited to communication with other codes.
+In \Cyclus, addition of new models by dynamic loading is possible without 
+any alteration of the software trunk. The modular design of \Cyclus stresses
+avoidance of rigidity, in which changes to the code are potentially difficult, 
+and fragility, in which changes to the code are potentially damaging.
 
 \begin{figure}[htbp!]
   \begin{center}
@@ -161,8 +161,8 @@ deployment in a given scenario, but multiple instances of each
 facility configuration may exist.
 
 A facility configuration is created by selecting a FacilityModel and 
-defining the parameters for that facility configuration using that 
-model.  Each FacilityModel will define its own set of parameters that 
+defining the parameters for that facility configuration.
+Each FacilityModel will define its own set of parameters that 
 govern its performance.  The same FacilityModel may be used for 
 multiple facility configurations in the same region, each with 
 parameters values appropriate for that facility configuration.
@@ -187,7 +187,7 @@ and each institution operates in a geographically defined Region.
 
 The \Cyclus modeling infrastructure is designed such that every
 facility in a global nuclear fuel cycle is treated and acts
-individually. While modeling options will exist to allow collective
+individually. While modeling options exist to allow collective
 action, this will be as a special case of the individual facility
 basis. Each facility has two fundamental tasks: the transaction of
 goods or products with other facilities and the transformation of
@@ -200,7 +200,7 @@ fuel assemblies to a storage facility.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Materials}
 
-The Materials class is the primary unit of information in \Cyclus.  
+Material movement is the primary unit of information in \Cyclus.  
 Materials passed, traded, and modified between and within facilities 
 in the simulation are recorded at every timestep.  This material 
 history is stored in the output dataset of \Cyclus. In addition to 

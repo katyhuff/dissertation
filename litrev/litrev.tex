@@ -546,24 +546,27 @@ porosity can be written (as in Schwartz and Zhang
   \frac{\partial \omega C}{\partial t} & = - \nabla \cdot  (F_c + F_{dc} + F_d) + m 
   \label{solperm}
   \intertext{where} 
+  \displaybreak[0]
   \omega &= \mbox{solute accessible porosity } [\%]\nonumber\\
   C &= \mbox{ concentration } [kg \cdot m^{-3}]\nonumber\\ 
   F_c &= \mbox{ convetive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
   &= qC \nonumber \\
+  \displaybreak[0]
   F_{dc} &= \mbox{ dispersive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\ 
   &= \alpha q \nabla C  \nonumber\\ 
+  \displaybreak[0]
   F_d &= \mbox{ diffusive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
   &= D_e \nabla C\nonumber\\
+  \displaybreak[0]
   m &= \mbox{ solute source } [kg \cdot m^{-2}\cdot s^{-1}].\nonumber
+  \displaybreak[0]
+  \intertext{In the expressions above,} 
+  q &= \mbox{ Darcy velocity } [m\cdot s^{-1}] \nonumber\\
+  \alpha &= \mbox{ dispersivity } [m]\nonumber
+  \displaybreak[0]
+  \intertext{and} 
+  D_e &= \mbox{ effective diffusion coefficient } [m^2\cdot s^{-1}] .\nonumber
 \end{align} 
-
-In the expressions above, 
-
-\begin{align*} 
-  q &= \mbox{ Darcy velocity } [m\cdot s^{-1}] \\ 
-  \alpha &= \mbox{ dispersivity } [m]
-  \intertext{and} D_e &= \mbox{ effective diffusion coefficient } [m^2\cdot s^{-1}] .\\ 
-\end{align*} 
 
 The method by which the dominant solute transport mode (diffusive or advective)
 is determined for a particular porous medium is by use of the dimensionless
@@ -1108,7 +1111,7 @@ medium is modeled in two modes, one representing the Unsaturated Zone, and one
 representing the Saturated Zone.
 
 \paragraph{Waste package failure and nuclide release} are modeled with two TSPA
-code modules called EBSFAIL and EPSREL. The waste package failure rate is
+code modules called EBSFAIL and EBSREL. The waste package failure rate is
 determined from EBSFAIL which incorporates waste form chemistry, humidity,
 oxidation, etc and upon contact from water begins the degradation process. The
 results of EBSFAIL become the input to EBSREL which models corresponding
