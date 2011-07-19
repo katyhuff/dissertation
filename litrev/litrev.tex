@@ -315,6 +315,32 @@ Sorption is the interaction of a dissolved species with surfaces that removes
 that species from the dissolving medium models.
 
 
+Sorption into the rock matrix is a method by which contaminants (and water? ) %
+are removed from a fracture during flow through that fracture. However, this is 
+a reversible process \cite{ahn_mass_1988}, which means the contaminant 
+might be returned to the fracture from the matrix with the same ''distribution 
+coefficient`` with which they entered the rock matrix . 
+
+% One way to model sorption is by assuming a linear isotherm. <+What does that 
+% mean? +> \cite{ahn_thesis_pg20}
+
+% The concentration of sorbed contaminant onto the fracture surface can be 
+% demonstrated in terms of a rate equation (if surface diffusion is neglected.) 
+% (What is surface diffusion?) \cite{ahn_thesis_pg20)
+
+
+% Ahn finds that including sorption, the concentration of contaminant in the 
+% fracture satisfies the differential rate equation: % \begin{align*} 
+% R_f\frac{\partial N}{\partial t} + \nu \frac{\partial N}{\partial z} 
+% - D \frac{\partial^2 D}{\partial z^2} + R_f \lambda N + \frac{q}{b} = 0, z>0 
+%   and t>0 
+% \end{align*} 
+
+% Also, there is sorption through the pores in the matrix. Again, we can model 
+% this with a ``linear sorption isotherm. . . '' whatever that is.  
+
+
+
 \subsubsection{Colloidal Mobility}
 
 Colloids present in the near field dissolving solution have an effect on the
@@ -639,13 +665,13 @@ and $A_f$, the equivalent permeability, $k$, can be expressed
 
 \subsection{Geochemical Transport Models}
 
-%\subsection{Reducing Environments}
+\subsubsection{Reducing Environments}
 
 %\paragraph{Saturated Environments}
 
 %\paragraph{Unsaturated Environments}
 
-%\subsection{Oxidizing Environments}
+\subsubsection{Oxidizing Environments}
 
 %\paragraph{Saturated Environments}
 
@@ -654,8 +680,7 @@ and $A_f$, the equivalent permeability, $k$, can be expressed
 
 % The distribution of fracture aperture sizes in a saturated fractured hard rock 
 % matrix determines the appropriate model with which to treat rock fracturation 
-% and subsequent nuclide transport through
-% fracturous pathways. 
+% and subsequent nuclide transport through fracturous pathways. 
 
 % Fracturation within a saturated medium can be treated either as an effective 
 % porosity, in which n_eff is suggested according to the quantity of connected 
@@ -673,35 +698,6 @@ and $A_f$, the equivalent permeability, $k$, can be expressed
 
 % For details about fracturation models in unsaturated rock, it's likely best to 
 % consult YMR TSPA models.
-
-
-%\paragraph{Sorption Into Matrix}
-
-
-%Sorption into the rock matrix is a method by which contaminants (and water? ) 
-%are removed from a fracture during flow through that fracture. However, this is 
-%a reversible process \cite{ahn_thesis, pg 16}, which means the contaminant 
-%might be returned to the fracture from the matrix with the same ''distribution 
-%coefficient`` with which they entered the rock matrix . 
-
-
-% One way to model sorption is by assuming a linear isotherm. What does that 
-% mean?  \cite{ahn_thesis_pg20}
-
-% The concentration of sorbed contaminant onto the fracture surface can be 
-% demonstrated in terms of a rate equation (if surface diffusion is neglected.) 
-% (What is surface diffusion?) \cite{ahn_thesis_pg20)
-
-
-% Ahn finds that including sorption, the concentration of contaminant in the 
-% fracture satisfies the differential rate equation: % \begin{align*} 
-% R_f\frac{\partial N}{\partial t} + \nu \frac{\partial N}{\partial z} 
-% - D \frac{\partial^2 D}{\partial z^2} + R_f \lambda N + \frac{q}{b} = 0, z>0 
-%   and t>0 
-% \end{align*} 
-
-% Also, there is sorption through the pores in the matrix. Again, we can model 
-% this with a ``linear sorption isotherm. . . '' whatever that is.  
 
 
 %\paragraph{Diffusion Into Fracture}
