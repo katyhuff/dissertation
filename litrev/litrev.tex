@@ -113,49 +113,63 @@ repository can be described with a number of mass indexed metrics such as activi
 $[Bq]$, radiotoxicity $[Sv]$,  toxic potential $[m^3]$, spontaneous neutron emission 
 $[s^{-1}]$, and heat production $[W]$.
 
+
+
+\subsection{OCRWM Yucca Mountain Total System Model}
+
+The \gls{TSM} code, 
+developed at \gls{OCRWM} is a very detailed model of the Yucca Mountain disposal 
+system. It includes transportation issues and detailed emplacement timing and 
+strategy models, but considers only the fuel cycle associated with the current  
+U.S.  reactor fleet. Casks are modeled discretely and nuclide and heat transport 
+are modeled in great detail .  This level of detail 
+results in a dramatically extended run time. The \gls{TSM} model can only be 
+run by its development team and runs a typical simulation, processing 70,000 
+MTHM in 12-15 hours.  \cite{turner_discrete_2010} 
+
+The TSM framework is based on the proprietary SimCAD platform. The simulation 
+steps through times in 8 hour time steps during the waste cask transportation, 
+processing and emplacement. This event based simulator is primarily focused on 
+the operation stage of the Yucca Mountain repository, but is equipped with a 
+thermal managment model which informs waste package emplacment.
+
+
+\subsection{Repository Focused Fuel Cycle Analyses}
+
+Focused fuel cycle sensitivity analyses emphasizing used fuel disposition and
+waste management in the Yucca Mountain Repository (YMR) have been conducted by
+Li, Piet, Wilson, and Ahn. With a focus on YMR capacity benefit, repository
+performance metrics of interest for these analyses were heat, source term, and
+more global envrionmental impact metrics.  Sensitivity analyses for other
+geologies were conducted concerning repository concepts relevant to other
+nations as well. See Table \ref{tab:red}.
+
 \subsection{European RED-IMPACT} 
-
-Granite, clay and salt are analyzed by various countries and codes.
-
-\subsubsection{ANDRA - Clay}
-
-\subsubsection{ANDRA - Granite}
-
-% This needs to be edited. . .  clearly. 
 
 The RED-IMPACT assessment compared
 results from European fuel cycle codes for various specific waste package
 forms, radioactive and radiotoxic inventories, reprocessing discharges,  waste
 package thermal power, corrosion of matrices, transport of radioisotopes and
-resulting doses.
+resulting doses.  Granite, clay and salt were analyzed by various countries and 
+codes as listed in table \ref{tab:red}.
 
 
-\subsection{OCRWM Yucca Mountain Total System Model} The \gls{TSM} code, 
-developed at \gls{OCRWM} is a very detailed model of the Yucca Mountain disposal 
-system. It includes transportation issues and detailed emplacement timing and 
-strategy models, but considers only the fuel cycle associated with the current  
-U.S.  reactor fleet. Casks are modeled discretely and nuclide and heat transport 
-are modeled in great detail.\cite{turner_discrete_2010} This level of detail 
-results in a dramatically extended run time. The \gls{TSM} model can only be 
-run by its development team and runs a typical simulation, processing 70,000 
-MTHM in 12-15 hours. 
+%%%%%%%% RED-IMPACT Table %%%%%%%%%%%% 
 
-The TSM framework is based on the SimCAD platform. The simulation steps through
-times in 8 hour time steps during the waste cask transportation, processing and
-emplacement. This event based simulator is primarily focused on the operation
-stage of the Yucca Mountain repository, but is equipped with a thermal
-managment model which informs waste package emplacment.
+\input{litrev/red_tab}
 
-\subsection{WIPP Performance Assessment Code}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
 
 \subsection{Fuel Cycle Technology, UFD Codes Under Development}
 
-The Used Fuel Disposition campaign is currently conducting an effort to produce
+The \gls{UFD} campaign is currently conducting an effort to produce
 \gls{GDSE} models for various geological environments. Teams from
 various national labs, Argonne, Lawrence Livermore, and Sandia are developing
 models of generic clay, granite,   and salt disposal environments. Sandia is
 simultaneously constructing  a borehole disposal system model. Each generic
-disposal system model will perform detailed calculations of nuclide  and heat
+disposal system model will perform detailed calculations of nuclide 
 transport within its respective lithology. A longer term goal of the project 
 includes an overarching generic model which incorporates the various 
 geologically distinct submodels in order to provide a fully generic repository 
@@ -175,8 +189,11 @@ Cells within GoldSim represent components of the waste disposal system and
 are linked by diffusive, advective, precipited, direct, or  otherwise filtered
 mass transfer links. 
 
-Thermal modeling for the clay model is being conducted using the SINDA\ G heat
-transport solver.  
+Thermal modeling for the \gls{GDSE} models are conducted independently with 
+associated codes capable of modeling thermal evolution for all geologies. For 
+example, one thermal model is being created using the SINDA$\\$G heat
+transport solver and another is under development which utilizes a combination 
+of  mathCAD and Excel. 
 
 \subsubsection{Clay GDSE Model}
 
@@ -185,7 +202,9 @@ the primary model with which this work will conduct parametric regression
 analyses. 
 
 The Clay \gls{GDSE} models a single waste form, waste package, \gls{EBS}, 
-\gls{EDZ}, and 
+\gls{EDZ}, and far field zone.
+
+<++>
 
 \subsubsection{Salt GDSE Model}
 
@@ -200,25 +219,6 @@ The Clay \gls{GDSE} models a single waste form, waste package, \gls{EBS},
 
 
 <++>
-
-\subsection{Repository Focused Fuel Cycle Analyses}
-
-Focused fuel cycle sensitivity analyses emphasizing used fuel disposition and
-waste management in the Yucca Mountain Repository (YMR) have been conducted by
-Li, Piet, Wilson, and Ahn. With a focus on YMR capacity benefit, repository
-performance metrics of interest for these analyses were heat, source term, and
-more global envrionmental impact metrics.  Sensitivity analyses for other
-geologies were conducted concerning repository concepts relevant to other
-nations as well. See Table \ref{tab:red}.
-
-
-%%%%%%%% RED-IMPACT Table %%%%%%%%%%%% 
-
-\input{litrev/red_tab}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\clearpage
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -238,7 +238,7 @@ A comprehensive model of radiotoxic source term must address nuclide transport
 through the full release pathway including waste packages, engineered barrier
 systems, and geologic media. A model of transport through the waste package
 must incorporate waste package failure rate, nuclide release rate via waste
-matrix dissolution, and advective transfer rate into the engineered barrier
+form dissolution, and advective transfer rate into the engineered barrier
 system.  
 
 Waste package failure rate depends on near field environmental factors such as
