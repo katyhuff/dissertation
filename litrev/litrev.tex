@@ -46,64 +46,76 @@ regard.
 
 
 
-\subsection{NUWASTE} Nuclear Waste Technical Review Board code that determines
+\subsection{NUWASTE} 
+
+\gls{NUWASTE} is a Nuclear Waste Technical Review Board code that determines
 many metrics about the fuel cycle according to various parameters.
 \cite{abkowitz_nuclear_2010} This code tracks 65 isotopes within material
 objects, discretely models individual shipping casks and incorporates cooling
 time in both dry and wet intermediate storage facilities.
 
-\subsection{VISION} \gls{VISION}'s repository model conducts decay calculations
+Though it tracks the number of assemblies through a simulation and their 
+isotopic composition, \gls{NUWASTE} lacks waste package, waste form, source 
+term, and dose calculations.
+
+\subsection{VISION} 
+
+\gls{VISION}'s repository model conducts decay calculations
 and tracks upwards of 80 isotopes of interest in the nuclear fuel cycle.
 \cite{yacout_visionverifiable_2006} While it calculates some basic information 
 about waste package heat production and heat based repository capacity, discrete  
 waste packages are not modeled and emplaced spent fuel composition is assumed to  
-be spatially homogeneous.\cite{radel_simulation_2005}
+be spatially homogeneous. \cite{radel_simulation_2005}
 \cite{boucher_international_2010}
 
-\subsection{DANESS} DANESS is developed at Argonne National Laboratory and
-discretely models reactors within regional reactor parks and material movement
-is based on a fuel ordering paradigm. Input and output are in Microsoft Excel
-format, relies on the proprietary IThink simulation platform and the code has a
-secure license sensitive to export control and requiring explicit developer
-approval. It is written in a combination of FortranIV and C, but is limited to
-a 10 reactor simulation and requires 15 minutes for a 100 year simulation on a
-modern PC.\cite{yacout_daness_2011,van_den_durpel_daness:_2006} 
+\subsection{DANESS} 
+
+\gls{DANESS} is developed at Argonne National Laboratory and
+discretely models reactors within regional reactor parks. Material movement
+is based on a fuel ordering paradigm and is written in a combination of
+FortranIV and C, but is limited to a 10 reactor simulation and requires 
+15 minutes for a 100 year simulation on a modern PC.  Input and output are 
+in Microsoft Excel format and \gls{DANESS} relies on the proprietary IThink 
+simulation platform. The code therefore has a secure license sensitive to 
+export control and requiring explicit developer approval. 
+\cite{yacout_daness_2011,van_den_durpel_daness:_2006} 
 
 \subsection{COSI}
 
-COSI is a code from the CEA of France implemented in the Java programming 
+\gls{COSI} is a code from the CEA of France implemented in the Java programming 
 language. It is capable of performing a large range of full fuel cycle 
 scenarios. COSI6 is capable of making assessments of repository capacity as 
 well as radiotoxicity and decay heat calculations of waste packages. 
 \cite{boucher_international_2010}. Nuclide transport through the repository 
-post-emplacement is, however, not calculated. 
-
-\subsection{DYMOND}
-
+post-emplacement is, however, not calculated and the distribution liscence is 
+very restrictive.
 
 
 \subsection{NFCSim}
 
-NFCSim was implemented in the Java programming language by Erich Schneider of the 
-University of Texas - Austin. Primarily a mass tracking code, the repository 
+\gls{NFCSim} was implemented in the Java programming language by Erich Schneider 
+and Los Alamos National Lab. Primarily a mass tracking code, the repository 
 model was limited to a heat analysis. Uniquely, in NFCSim the transportation of 
 each waste package was modeled discretely. \cite{schneider_nfcsim_2004}
 
 \subsection{CAFCA}
 
-CAFCA is a fuel cycle code from MIT. It does not do detailed repository modeling 
-or capacity estimations.
+\gls{CAFCA} is a fuel cycle code from MIT. While \gls{CAFCA} is capable of 
+tracking processed fuel assemblies and isotopics, it does not calculate 
+capacity estimations or conduct detailed nuclide or heat transport.  
 
+\subsection{ORION} 
 
-\subsection{ORION} This code is a proprietary code developed at the United
+This code is a proprietary code developed at the United
 Kingdom's National Nuclear Laboratory. While there is no heat-limited capacity 
 model or calculation of nuclide transport, the material destined for the 
-repository can be described with a number of mass multiplied metrics (activity 
-(Bq), Radiotoxicity (Sv),  Toxic potential ($m^3$),Spontaneous neutron emission 
-($s^{-1}$), Heat production (W)).
+repository can be described with a number of mass indexed metrics such as activity 
+$[Bq]$, radiotoxicity $[Sv]$,  toxic potential $[m^3]$, spontaneous neutron emission 
+$[s^{-1}]$, and heat production $[W]$.
 
-\subsection{European RED-IMPACT} Granite, clay and salt are analyzed by various
-countries and codes.
+\subsection{European RED-IMPACT} 
+
+Granite, clay and salt are analyzed by various countries and codes.
 
 \subsubsection{ANDRA - Clay}
 
