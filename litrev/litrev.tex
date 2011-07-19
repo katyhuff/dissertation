@@ -724,7 +724,7 @@ flows diffusively from the hotter material to the cooler material over time and
 steadily approaches thermal equillibrium. A heat flux, $\vec{q} [W\cdot 
 m^{-2}]$ can be expressed with the  differential form of Fourier's law of heat 
 conduction with respect to  the thermal conductivity of the material, $k [W 
-\cdot m^{-1} \cdot K^{-1}]$, and the temperature gradient $\nabla T [K/m]$
+\cdot m^{-1} \cdot ^\circ K^{-1}]$, and the temperature gradient $\nabla T [K/m]$
 
 \begin{align}
   \vec{q}= -k\nabla T.
@@ -767,7 +767,7 @@ Stefan-Boltzmann constant as
   \vec{q} &= \sigma A_1 F_{1\rightarrow 2}(T_1^4 - T_2^4)
   \label{planck}
   \intertext{where}
-  \sigma &=5.670373\times 10^{−8} [W\cdot m^{−2}\cdot K^{−4}].\nonumber\\
+  \sigma &=5.670373\times 10^{−8} [W\cdot m^{−2}\cdot ^\circ K^{−4}].\nonumber\\
 \end{align}
 
 
@@ -804,9 +804,9 @@ parameter model may be expected to give a result within $5\%$
 error.\cite{incropera_fundamentals_2006} 
 
 The lumped capacitance model can address multiple media and multiple heat
-transfer modes. and the amount of heat transfer through a circuit is simply 
-given as the quotient of the temperature difference and the thermal resistance
-of the multiple lumps,
+transfer modes. The rate of heat transfer $[W \cdot m^{-2} \cdot ^\circ K \cdot 
+s]$ through a circuit is simply given as the quotient of the temperature 
+difference and the thermal resistance of the multiple lumps,
 
 \begin{align*}
   \dot{q} = \frac{\Delta T}{\sum _{i=0}^{N}R_i}.
@@ -819,7 +819,7 @@ problem described by the energy balance,
 
 \begin{align*}
   \left( \mbox{Energy added to body j in dt} \right) &= \left( \mbox{Heat 
-  transfer from adjacent bodies to body j} \right)\\
+  out of adjacent bodies into body j} \right)\\
   c_j\rho_j V_j dT_j(t) &= \sum_{i=0}^{i=N}\left[\dot{q_{i,j}}\right]dt,
 \end{align*}
 
@@ -849,8 +849,13 @@ the body $i$ changes temperature with respect to the maximum temperature change,
 
 The time constant, $\tau$ is the time it takes for the body to change 
 $(1-(1/e))\%\Delta T$ and is equal to the product of the thermal capacitance and 
-thermal resistance of the body, $CR$, analgous to an electrical circuit. 
-\cite{el-wakil_nuclear_1981}
+thermal resistance of the body, $CR$, analgous to an electrical circuit.
+\cite{el-wakil_nuclear_1981} This is the case for all resistances, $R_i$ 
+representing modes of heat transfer. Thus, one can say, in general
+
+\begin{align*}
+  \tau_j = c_j \rho_j V_j R_j.
+\end{align*}
 
 \subsection{Impact of Repository Designs}
 
