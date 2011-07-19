@@ -181,7 +181,7 @@ off the shelf simulation environment which ships with a contaminant transport
 system for modeling of release and transport of contaminants as well as an 
 optional radionuclide transport module for decay calculations. Each models a 
 single repeatable waste package cell to arrive a a full repository model. 
-Probabilistic elemnts of the GoldSim modelling framework enable the models to 
+Probabilistic elements of the GoldSim modelling framework enable the models to 
 incorporate \gls{FEPs} expected to take place probabilistically during the 
 evolution of the repository.  
 
@@ -463,6 +463,9 @@ The instantaneous case is a special case of the probabilistic situation.
 Specfically, it is the Dirac delta function mentioned in equation 
 \eqref{intantaneous}.
 
+A particularly attractive probability distribution for use in the case of failed 
+engineered barriers is the Weibull distribution. <++>
+
 %%%%
 
 \subsection{Nuclide Transport Through Secondary Engineered Barriers}
@@ -476,8 +479,12 @@ transportation through the secondary EBS nuclides reach the geological matrix.
 The same models of waste package failure (instantaneous, rate based, and 
 probabilistic) can be applied to buffers.
 
-\subsubsection{Transport Through EBS Matrix}
+\subsubsection{Transport Through Degraded Barrier Matrix}
 
+Diffusive and advective transport occur in the barrier matrix both before and 
+after degradation. Before degradation, transport is primarily diffusive. 
+Thereafter, transport is primarily advective. Cracking can be modeled explicitly 
+or as a continuum model.  
 
 %%%%
 
@@ -509,20 +516,18 @@ The equation representing solute transport in a permeable medium of homogenous
 porosity can be written
 
 \begin{align} 
-  \frac{\partial \omega C}{\partial t} & =
-  - \nabla \cdot  (F_c + F_{dc} + F_d) + m 
-  \intertext{where} \omega 
-  &= \mbox{solute accessible porosity } [\%]\nonumber\\ 
-  C &= \mbox{ concentration } [kg \cdot
-  m^{-3}]\\ F_c &= \mbox{ convetive flow } [kg \cdot m^{-2}\cdot 
-  s^{-1}]\nonumber\\
+  \frac{\partial \omega C}{\partial t} & = - \nabla \cdot  (F_c + F_{dc} + F_d) + m 
+  \label{solperm}
+  \intertext{where} 
+  \omega &= \mbox{solute accessible porosity } [\%]\nonumber\\
+  C &= \mbox{ concentration } [kg \cdot m^{-3}]\nonumber\\ 
+  F_c &= \mbox{ convetive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
   &= qC \nonumber \\
   F_{dc} &= \mbox{ dispersive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\ 
-  &= \alpha q \nabla C  \\ F_d &= \mbox{ diffusive flow } [kg \cdot m^{-2}\cdot 
-  s^{-1}]\nonumber\\
+  &= \alpha q \nabla C  \nonumber\\ 
+  F_d &= \mbox{ diffusive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
   &= D_e \nabla C\nonumber\\
-  m &= \mbox{ solute source } [kg \cdot m^{-2}\cdot s^{-1}].\nonumber\\
-  \label{solperm}
+  m &= \mbox{ solute source } [kg \cdot m^{-2}\cdot s^{-1}].\nonumber
 \end{align} 
 
 In the expressions above, 
