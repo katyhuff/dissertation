@@ -208,18 +208,64 @@ The Clay \gls{GDSE} models a single waste form, waste package, \gls{EBS},
 
 \subsubsection{Salt GDSE Model}
 
-<++>
+The salt repository concept has an alcove gallery geometry and is located in a 
+bedded salt formation in a reducing, saturated environment. Once waste packages  
+are horizontally placed in a corner of the alcove, the space is backfilled with 
+crushed salt. 
 
+Decay heat induced salt consolidation and brine flow are primary focuses of 
+this analysis and inform nuclide transport calculations.   
+
+A constant, temperature independent annual degradation rate model is used to 
+represent waste form dissolution for both canonical borosilicate glass and 
+commercial used fuel waste forms. Waste package failure is conservatively 
+assumed to be instantaneous, and all near field components are modeled as a 
+single mixed cell, the water volume of which is determined by the bulk volumes 
+and degraded porosities of contained materials (e.g. bentonite buffer). A block  
+of rock below the salt provides the pathway interface to an aquifer below. 
+Nuclide transport into that interface is modeled as diffusive, advective, and 
+solubility limited.
+
+The far field is modeled using an equillibrium $K_d$ sorption model in addition 
+to solubility limited diffusion and advection. Nuclide transport in the far 
+field takes place of 5km, and ends in a biosphere model. 
 
 \subsubsection{Granite GDSE Model}
 
-<++>
+\gls{LANL} and \gls{SNL} have created a model of the granite repository concept  
+in a saturated, reducing envrionment.
+
+Waste form degradation is modeled as a constant, fractional rate to represent 
+dissolution for both canonical borosilicate glass and commercial used fuel 
+waste forms.  
+
+Though waste package failure is conservatively assumed to be instantaneous,
+waste package release into the near field is solubility limited as is the near 
+field to far field interface. 
+
+Transport through the buffer is modeled as entirely diffusive coupled with 
+sorption. Advection is neglected.
+
+The far field was represented using a model which includes advection, diffusion 
+and sorption. Specifically, the Finite Element Heat and Mass Transfer code was 
+coupled into GoldSim to represent the far field. 
+
+Heat was modeled with the FEHM.  
 
 \subsubsection{ Borehole GDSE Model}
 
+The borehole model concept consists of some 400 waste canisters in a 5km deep 
+hole within a low permeability, high salinity region characteristic of 
+crystalline rock formations at depth. The lower 2km of the hole are filled 
+by waste packages as well as spacing and sealing plugs. A 1km sealing zone 
+extends above the waste disposal region.
 
-<++>
+As with the salt model, a constant, temperature independent annual degradation
+rate model is used to represent waste form dissolution for both canonical 
+borosilicate glass and commercial used fuel waste forms. Waste package failure 
+is conservatively assumed to be instantaneous.
 
+\cite{nutt_generic_2011}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{Analytical Models of Nuclide Transport} \label{sec:analytical_nuc}
@@ -531,7 +577,7 @@ dispersion is transport resulting from anisotropies in the water velocity field.
 
 % hydraulic dispersion - transport due to anisotropies in the water 
 
-% velocity feild. It depends on concentration of solute, darcy 
+% velocity field. It depends on concentration of solute, darcy 
 
 % velocity, and dispersivity.  
 
