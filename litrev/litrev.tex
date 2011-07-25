@@ -166,10 +166,10 @@ codes as listed in table \ref{tab:red}.
 \subsection{Fuel Cycle Technology, UFD Codes Under Development}
 
 The \gls{UFD} campaign is currently conducting an effort to produce
-\gls{GDSE} models for various geological environments. Teams from
-various national labs, Argonne, Lawrence Livermore, and Sandia are developing
-models of generic clay, granite,   and salt disposal environments. Sandia is
-simultaneously constructing  a borehole disposal system model. Each generic
+\gls{GDSE} models for various geological environments. Teams from Argonne
+Lawrence Berkeley, Los Alamos, and Sandia National Laboratories are developing
+models of generic clay, granite, and salt disposal environments. Sandia is
+simultaneously constructing a borehole disposal system model. Each generic
 disposal system model will perform detailed calculations of nuclide 
 transport within its respective lithology. A longer term goal of the project 
 includes an overarching generic model which incorporates the various 
@@ -210,12 +210,12 @@ The Clay \gls{GDSE} models a single waste form, waste package, \gls{EBS},
 \subsubsection{Salt GDSE Model}
 
 The salt repository concept has an alcove gallery geometry and is located in a 
-bedded salt formation in a reducing, saturated environment. Once waste packages  
-are horizontally placed in a corner of the alcove, the space is backfilled with 
-crushed salt. 
+bedded salt formation. The formation is located in a reducing, saturated 
+environment. Once waste packages  are horizontally placed in a corner of the 
+alcove, the space is backfilled with crushed salt. 
 
 Decay heat induced salt consolidation and brine flow are primary focuses of 
-this analysis and inform nuclide transport calculations.   
+this analysis and inform nuclide transport calculations. 
 
 A constant, temperature independent annual degradation rate model is used to 
 represent waste form dissolution for both canonical borosilicate glass and 
@@ -230,6 +230,10 @@ solubility limited.
 The far field is modeled using an equillibrium $K_d$ sorption model in addition 
 to solubility limited diffusion and advection. Nuclide transport in the far 
 field takes place of 5km, and ends in a biosphere model. 
+
+Two nuclide release pathways are considered. One is the nominal, undisturbed 
+case, whicl the other is a fast pathway simulating a disturbed case.
+\cite{nutt_generic_2011}
 
 \subsubsection{Granite GDSE Model}
 
@@ -248,10 +252,8 @@ Transport through the buffer is modeled as entirely diffusive coupled with
 sorption. Advection is neglected.
 
 The far field was represented using a model which includes advection, diffusion 
-and sorption. Specifically, the Finite Element Heat and Mass Transfer code was 
-coupled into GoldSim to represent the far field. 
-
-Heat was modeled with the FEHM.  
+and sorption. Specifically, the \gls{FEHM} code was coupled into GoldSim to 
+represent the far field.
 
 \subsubsection{ Borehole GDSE Model}
 
@@ -265,6 +267,10 @@ As with the salt model, a constant, temperature independent annual degradation
 rate model is used to represent waste form dissolution for both canonical 
 borosilicate glass and commercial used fuel waste forms. Waste package failure 
 is conservatively assumed to be instantaneous.
+
+Flow in the vicinity of the borehole was modeled using tabulated groundwater 
+flow velocities obtained from simulations run using the \gls{FEHM} code 
+meshed in three full dimensions with the \gls{CUBIT} meshing tool. 
 
 \cite{nutt_generic_2011}
 
