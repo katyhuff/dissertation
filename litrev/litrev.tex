@@ -203,9 +203,18 @@ the primary model with which this work will conduct parametric regression
 analyses. 
 
 The Clay \gls{GDSE} models a single waste form, waste package, \gls{EBS}, 
-\gls{EDZ}, and far field zone.
+\gls{EDZ}, and far field zone. This waste unit cell is modeled with boundary 
+conditions such that it may be repeated throughout the extent of a repository 
+configuration. 
 
-<++>
+The waste form and engineered barrier system are modeled as well mixed volumes 
+and radial transport away from the cylindrical base case unit cell is modeled as  
+one dimensional.
+
+Two nuclide release pathways are considered. One is the nominal, undisturbed 
+case, while the other is a fast pathway simulating a disturbed case.
+\cite{nutt_generic_2011}
+
 
 \subsubsection{Salt GDSE Model}
 
@@ -577,7 +586,6 @@ result of brownian motion accross concentration gradients, and hydraulic
 dispersion is transport resulting from anisotropies in the water velocity field. 
 
 
-
 % Solute Transport in permeable porous media 
 
 % advection - transport at the velocity of water flow 
@@ -639,6 +647,120 @@ The analytical expression in equation \eqref{solperm} will be the foundation of
 simplification by regression analyses for the nuclide transport interface 
 between components of the repository system model representing permeable porous 
 media.  
+
+\subsubsection{From Schwartz and Zhang Ch. 23}
+
+Fundamentally, flow through a control volume is bounded by the mass conservation 
+equation:
+\begin{align}
+  \mbox{In} - \mbox{Out} &= \mbox{Change in Storage}\nonumber
+  \intertext{which can be stated more precisely as}
+  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) &= \frac{\partial(nC)}{\partial t}
+  \label{massbal} 
+  \intertext{ Adding a chemical reaction rate, r,}
+  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) + r  &= \frac{\partial(nC)}{\partial t}
+  \label{withchem} 
+  \intertext{Adding sorption, by accounting for a change in mass storage}
+  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) + r  &= 
+  \frac{\partial(nC)}{\partial t}  + \frac{\partial(s\rho_b)}{\partial t} 
+  \label{withsorption} 
+\end{align}
+
+If it is assumed that sorption can be approximated as a linear equilibrium, 
+reversible reaction,
+
+\begin{align}
+  \frac{\partial(s\rho_b)}{\partial t} &= \left( R_f - 1 
+  \right)\frac{\partial(nC)}{\partial t}\nonumber
+  \intertext{equation \eqref{withsorption} becomes}
+  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) + r  &= 
+  R_f\frac{\partial(nC)}{\partial t}    
+  \label{withlinsorption}
+  \intertext{where}
+  R_f &= \mbox{retardation factor}\\
+  &= 1+\frac{\rho_bK_d}{n}\\
+  \rho_b &=\mbox{bulk density of the rock matrix}
+  \intertext{and}
+  K_d &= \mbox{distribution coefficient of the species in the rock.}
+\end{align}
+
+To incorporate radioactive decay it is necessary to represent the reaction rate, 
+r, as a function of $\lambda$ and $R_f$ such that equation 
+\eqref{withlinsorption} becomes
+
+\begin{align}
+  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) + nR_f\lambda C = 
+  R_f\frac{\partial(nC)}{\partial t}. 
+  \label{withdecay}
+\end{align}
+
+For uniform flow, the dispersion tensor, $D$, becomes
+
+\begin{align}
+  D_x &= D_L \nonumber\\
+      &= \alpha_L v_x + \tau D_m\\
+  D_y &= D_{TH} \nonumber\\
+      &= \alpha_{TH} v_x + \tau D_m\\
+  D_z &= D_{TV} \nonumber\\
+      &= \alpha_{TV} v_x + \tau D_m\\
+  \intertext{where}
+  \alpha_L &= \mbox{longitudinal dispersivity [m]}\nonumber\\
+  \alpha_{TH} &= \mbox{horizontal dispersivity [m]}\nonumber\\
+  \alpha_{TV} &= \mbox{vertical dispersivity [m]}\nonumber
+  \intertext{and}
+  \tau &= \mbox{tortuosity}.
+  \label{disptensor}
+\end{align}
+
+The unidirectional dispersion tensor gives 
+
+\begin{align}
+  D_x \frac{\partial^2 C}{\partial x^2} +
+  D_y \frac{\partial^2 C}{\partial y^2} +
+  D_z \frac{\partial^2 C}{\partial z^2} +
+  v_x \frac{\partial C}{\partial x} - \lambda R_f C = R_f 
+  \frac{\partial(nC)}{\partial t} 
+  \label{unidirflow}
+\end{align}
+
+A special case of uniform flow, no flow, simplifies to the diffusion equation,
+\begin{align}
+  D_x \frac{\partial^2 C}{\partial x^2} +
+  D_y \frac{\partial^2 C}{\partial y^2} +
+  D_z \frac{\partial^2 C}{\partial z^2} +
+  - \lambda R_f C = R_f 
+  \frac{\partial(nC)}{\partial t} 
+  \label{diffusion}
+\end{align}
+
+Solutions to these equations can be categorized by their boundary conditions. 
+The first, or Dirichlet type boundary conditions define a specified species 
+concentration on some section of the bouncary of the representative volume. 
+
+\begin{align*}
+  C(\vec{r},t) = C_0(\vec{r},t)\mbox{for} \vec{r} \in \Gamma
+\end{align*}
+
+The second type or Neumann type boundary conditions describe a full set of 
+fluxes at  the boundary of the domain.
+
+\begin{align*}
+  \frac{\partial C(\vec{r},t)}{\partial x} = nD\vec{J} \mbox{for} \vec{r} \in \Gamma
+\end{align*}
+
+The third, Cauchy, type describes a combination of the Dirichlet and Neumann 
+type conditions, defining both a concentration at a boundary and a flux at that 
+boundary. 
+
+\begin{align*}
+  C(\vec{r},t) = C_0(\vec{r},t)\mbox{for} r \in \Gamma\\
+  \frac{\partial C(\vec{r},t)}{\partial x} = nD\vec{J} \mbox{for} \vec{r} \in \Gamma
+\end{align*}
+
+
+
+
+
 
 \subsubsection{Solute Transport in Fractured Media} 
 
