@@ -2,7 +2,12 @@
 
 \section{\Cyclus}
 
-I currently work on \Cyclus , something I explained in an earlier chapter. 
+The \Cyclus framework discussed in chapter \ref{ch:paradigm} provides a fuel 
+cycle simulation platform on which to initially develop and deploy the 
+repository model that is the subject of this effort. As a part of this effort 
+also under development, \Cyclus has been developed with an architecture that 
+supports the goals of this effort and will continue to mature in parallel with 
+the development of this model.
 
 \subsection{Framework}
 
@@ -12,15 +17,26 @@ This will be essential for implementing and testing the repository model.
 
 \subsection{Available Models}
 
-\Cyclus has a base set of models.
+\Cyclus has a base set of models which are currently available and will support 
+open and some closed fuel cycle simulations. These include a source and a sink 
+facility model as well as recipe based reactor models, an enrichment facility, 
+an intermediate storage facility, and a fleet of markets which direct material 
+movement in the simulation.
 
-These will be essential for providing interesting scenarios for comparison. 
+Further fuel cycle facility models are being developed within \Cyclus  which 
+will be essential for providing interesting scenarios for comparison via 
+repository metrics. For a modified open cycle, a separations facility is 
+necessary which will be capable of conducting arbitrarily complex chemical 
+separations of used fuel. Similarly, an associated reprocessing facility  will 
+be neccessary which is equipped to handle the so called `winery' problem of 
+constructing critical fresh fuel assemblies appropriate for specific reactors 
+from separated streams.
 
 
 \section{GDSE Analysis}
 
-Much of my future work is based on the parametric analysis that has begun with  
-the base case Clay \gls{GDSE} model.
+Much of my future work is based on the parametric and regression analysis that
+has begun with the base case Clay \gls{GDSE} model at \gls{ANL}.
 
 \subsection{Sensitivity Analyses}
 
@@ -33,11 +49,34 @@ parameters and source term over time for each isotope.
 
 \subsubsection{Cooling Time}
 
-No sensitivity. \cite{UFDC}
+Extending the cooling time between discharge and emplacement results
+in an altered waste stream. The emplacement capacity and resulting source term 
+of this waste stream may be expected to differ from base case results. 
+Nonetheless it was found that for the clay \gls{GDSE} model there was approximately 
+no Mean Annual Dose sensitivity to the cooling period length.
+\cite{nutt_generic_2011}
+Since the cooling period will be modeled outside of the repository model within  
+the \Cyclus analysis, this sensitivity will not be incorporated into the 
+repository modeling effort at the heart of this work, but gives an intuition for 
+appropriate sensitivity to altered waste streams.
+
+It is expected that the cooling time alters heat based capacity. 
+
+<+sindaAnalysis+>
+<+coolingVScapacityGRAPH+>
 
 \subsubsection{Burnup}
 
-Waste forms become more important linearly as burnup increases.\cite{UFDC}
+The burnup of a used fuel assembly results in an altered waste stream at the 
+time of emplacement. It was found that for the clay \gls{GDSE} model, the mean 
+annual dose sensitivity to waste form dissolution rate became more important 
+linearly with increased burnup.  \cite{nutt_generic_2011}
+
+It is expected that the burnup will alter heat based capacity. 
+
+<+sindaAnalysis+>
+<+burnupVScapacityGRAPH+>
+
 
 \subsubsection{Drift Spacing}
 
@@ -46,16 +85,16 @@ Not much sensitivity.
 \subsubsection{Vertical Distance to Aquifer}
 
 Very sensitive to the distance between waste and the overlying aquifer. 
-\cite{UFDC}
+\cite{nutt_generic_2011}
 
 \subsubsection{Vertical Darcy Velocity}
 
 Sensitivity to vertical Darcy velocity is similar to the sensitivity to vertical 
-distance to aquifer, for obvious reasons. \cite{UFDC}
+distance to aquifer, for obvious reasons. \cite{nutt_generic_2011}
 
 \subsubsection{Hypothetical Intersecting Fast Advective Pathway}
 
-Sensitivity is very nuclide specific.\cite{UFDC} 
+Sensitivity is very nuclide specific.\cite{nutt_generic_2011} 
 
 \subsubsection{Dimensions of Hypothetical Fast Pathway}
 
