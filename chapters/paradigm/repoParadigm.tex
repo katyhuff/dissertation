@@ -72,15 +72,21 @@ release information is passed radially outward from the waste stream
 sequentially through each containment layer to the geosphere.
 
 \subsubsection{Concept Generality}
-Th capability to allow each model to define the models within it gives this 
+The capability to allow each model to define the models within it gives this 
 repository model concept the ability to model many types of repository concept 
 while maintaining a simple interface with the simulation. 
 
 \subsection{Components of the Nested System}
 \subsubsection{Waste Stream}
 The waste stream data object contains spent fuel isotopics over the 
-course of the simulation. As nuclides are lost from the spent fuel 
-object, a history of its isotopic composition is recorded. 
+course of the simulation. As nuclides are gained, lost, and transmuted within 
+the spent fuel object, a history of its isotopic composition is recorded.
+
+For waste streams that vary from each other in composition, the thermal capacity 
+of the repository must be recalculated. One way to model this will be to 
+recalculate the appropriate lengthwise spacing of waste packages when the heat 
+generation rate of a new package is significantly different than other waste 
+packages in the repository. 
 
 \subsubsection{Waste Form}
 The waste form model will calculate nuclide release due to dissolution 
@@ -126,7 +132,7 @@ modeled as either instantaneous and total or constant and partial.
 
 \subsubsection{Geological Environment}
 Various hydrogeological models exist to represent travel through 
-porous media, fractured porous media, crystalline media, and clay.
+porous media, fractured porous media, crystalline media, and clays.
 
 Sudicky and Frind give a model for fractured porous media which 
 analytically captures nuclide mobility due to advection through 

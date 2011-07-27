@@ -65,7 +65,7 @@ and tracks upwards of 80 isotopes of interest in the nuclear fuel cycle.
 \cite{yacout_visionverifiable_2006} While it calculates some basic information 
 about waste package heat production and heat based repository capacity, discrete  
 waste packages are not modeled and emplaced spent fuel composition is assumed to  
-be spatially homogeneous. \cite{radel_simulation_2005}
+be spatially homogeneous. \cite{radel_repository_2007}
 \cite{boucher_international_2010}
 
 \subsection{DANESS} 
@@ -103,7 +103,7 @@ transportation of each waste package was modeled discretely.
 
 \gls{CAFCA} is a fuel cycle code from MIT. While \gls{CAFCA} is capable of 
 tracking processed fuel assemblies and isotopics, it does not calculate 
-capacity estimations or conduct detailed nuclide or heat transport.  
+capacity metrics or conduct detailed nuclide or heat transport.  
 
 \subsection{ORION} 
 
@@ -196,7 +196,7 @@ example, one thermal model is being created using the SINDA$\\$G heat
 transport solver and another is under development which utilizes a combination 
 of  mathCAD and Excel. 
 
-\subsubsection{Clay GDSE Model}
+\subsubsection{Clay/Shale GDSE Model}
 
 The Clay \gls{GDSE} model is being pursued by the team at \gls{ANL} and will be 
 the primary model with which this work will conduct parametric regression 
@@ -353,7 +353,7 @@ loading configuration for the Yucca Mountain case.
 
 The most important geochemical processes to source term that occur within the
 waste, waste matrix, and near field as well as the host rock are dissolution,
-precipitation, and sorption.  \cite{bracke_safety_2008}
+precipitation, and sorption.  \cite{bracke_safety_2008} 
 
 \subsubsection{Dissolution}
 
@@ -577,7 +577,7 @@ or as a continuum model.
 %%%%
 
 \subsection{Hydrogeologic Transport Models}
-Clay, granite, and salt can largely be characterized as permeable porous media. 
+Clay, shale, granite, and salt can largely be characterized as permeable porous media. 
 Solute transport in permeable porous media involves advection, hydraulic 
 dispersion, and diffusion. 
 
@@ -757,10 +757,7 @@ boundary.
   \frac{\partial C(\vec{r},t)}{\partial x} = nD\vec{J} \mbox{for} \vec{r} \in \Gamma
 \end{align*}
 
-
-
-
-
+\cite{schwartz_fundamentals_2003})
 
 \subsubsection{Solute Transport in Fractured Media} 
 
@@ -993,7 +990,7 @@ quantitatively expressed by comparison of the internal thermal resistance to the
 external thermal resistance. The Biot number, 
 
 \begin{align}
-  Bi = \frac{hA}{k}\\
+  Bi = \frac{hA}{k}
   \label{biot}
 \end{align}
 
@@ -1076,8 +1073,8 @@ temperature of $ 30 ^\circ C$ is adopted in the \gls{ANDRA} analysis.
 \subsection{Heat Limits in Various Geologies}
 
 
-The repository concepts under consideration are closed concepts. That is, 
-closure of the repository happens very shortly after emplacement.
+The repository concepts under consideration are so called `closed' concepts. 
+That is, closure of the repository happens very shortly after emplacement.
 Enclosed modes are appropriate for low permeability rock formations (clay/shale, 
 granite, salt). Low permeability does not permit oxygen entry, so these are
 reducing environments. Since heat is carried away less effectively once closure 
@@ -1085,10 +1082,11 @@ has occured, heat limits are lower in  closed repository concepts than in open
 ones such as \gls{YMR} where drift tunnels are ventilated for a number of years
 after emplacement before closure.
 
-\subsubsection{Clay} 
+\subsubsection{Clay/Shale} 
 
 Heat limits in clay are based on the domain of known behavior in clay and the 
-tendency for bentonite fill material to lose its isolating properties with heat. 
+tendency for bentonite fill material to lose its isolating properties with high 
+temperatures. 
 The alteration high smectite bentonite to non-expandable clays is a primary 
 limitation for heat tolerance in the clay concept. The isolation characteristics 
 of bentonite buffer materials is reduced after this alteration. The time 
@@ -1315,7 +1313,8 @@ $m_i/V_{wp}$ in $[mol/m^3]$. These assumptions fail to take into account any
 differences in the varying solubilities of the isotopes, but are quite
 sensitive to the concentration of an isotope \emph{i} in the waste package
 volume.  
-characteristics and is independent of or weakly dependent on concentration.  
+characteristics and is independent of or weakly dependent on concentration. 
+\cite{li_methodology_2006}
 
 \subsection{ANDRA Dossier 2005} The ANDRA Dossier 2005 studies provided
 detailed nuclide transport calculations for both argillaceous clay and granite
@@ -1446,7 +1445,16 @@ loading densities, and for many fuel cycle options.
 This model, created at Argonne National Lab by Ted Bauer uses a lumped 
 capacitance solver, called SINDA.
 
-The Bauer model is geometrically adjustable. <+figure+>
+The Bauer model is geometrically adjustable. 
+
+\begin{figure}[htbp!]
+  \begin{center}
+    \includegraphics[height=10cm]{./chapters/current/sindageom.eps}
+  \end{center}
+  \caption{The geometry of the thermal model can be adjusted in two dimensions, 
+  altering the tunnel spacing and the vertical distance from the aquifer.}
+  \label{fig:sindageom}
+\end{figure}
 
 The SINDA lumped capacitance solver solves a thermal circuit, for which 
 conducting nodes may be of four types corresponding to the four modes of heat 
@@ -1469,21 +1477,26 @@ Lumps are connected by conduction, convection, radiation, and mass flow heat
 transfer links. Briefly, these are represented by
 
 \begin{align*}
-  R_{cond} &= \frac{L}{kA}\\
-  R_{conv} &= \frac{1}{ h\cdot A}\\
-  R_{mf}  &= \frac{1}{\dot{m}c_p}\\
-  R_{rad}  &= \frac{1}{\sigma F_{ij}A\left[ T_i + T_A + T_j + T_A 
+  R_{cond} &&= \frac{L}{kA}\\
+  R_{conv} &&= \frac{1}{ h\cdot A}\\
+  R_{mf}  &&= \frac{1}{\dot{m}c_p}\\
+  R_{rad}  &&= \frac{1}{\sigma F_{ij}A\left[ T_i + T_A + T_j + T_A 
   \right]\left[(T_i+T_A)^2+(T_j+T_A)^2\right]}
   \intertext{where}
-  &k= ~~\mbox{conductivity}[] \\
-  &A= ~~\mbox{area} [m^2]\\
-  &c_p=~~\mbox{specific heat capacity} []  \\\
-  &h= ~~\mbox{heat transfer coefficient}[] \\
-  &\dot{m}= ~~\mbox{mass transfer rate}[kg\cdot s^{-1}] \\
-  &T_i= ~~\mbox{lump temperature} [^\circ C] \\
-  &T_A= ~~\mbox{absolute temperature} [^\circ C] \\
-  &F_{ij}= ~~\mbox{radiation interchange factor} [-] 
+  &k&= ~~\mbox{conductivity}[] \\
+  &A&= ~~\mbox{area} [m^2]\\
+  &c_p&=~~\mbox{specific heat capacity} []  \\\
+  &h&= ~~\mbox{heat transfer coefficient}[] \\
+  &\dot{m}&= ~~\mbox{mass transfer rate}[kg\cdot s^{-1}] \\
+  &T_i&= ~~\mbox{lump temperature} [^\circ C] \\
+  &T_A&= ~~\mbox{absolute temperature} [^\circ C] \\
+  &F_{ij}&= ~~\mbox{radiation interchange factor} [-] .
 \end{align*}
+
+With these representations of thermal resistance, a lumped parameter model will 
+require an analysis which determines the appropriate length scale for the lumped 
+parameter approximation.
+
 
 \subsection{Finite Difference Codes}
 
@@ -1495,10 +1508,11 @@ repository heat evaluations. See the table.
 An array of finite element codes exist which have been used to make 
 repository heat evaluations. See the table. 
 
-\subsection{ANDRA/RED-IMPACT Codes?}
+\subsection{ANDRA/RED-IMPACT Codes}
 
 Codes used by ANDRA and other programs within the RED-IMPACT assessment may not  
 fit in any of the categories above. They are listed in Table \ref{tab:heat}.
+<++>
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%%%% Heat Load Computational Models Table %%%%% 
