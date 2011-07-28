@@ -50,22 +50,11 @@ parameters and source term over time for each isotope.
 \subsubsection{Cooling Time}
 
 Extending the cooling time between discharge and emplacement results
-in an altered waste stream. The emplacement capacity and resulting source term 
-of this waste stream may be expected to differ from base case results. 
+in an altered waste stream. The resulting source term releases
+of this waste stream were expected to differ from base case results. 
 Nonetheless it was found that for the clay \gls{GDSE} model there was approximately 
 no Mean Annual Dose sensitivity to the cooling period length 
 \cite{nutt_generic_2011}.
-
-Since the cooling period will be modeled outside of the repository model within  
-the \Cyclus analysis, this sensitivity will not be incorporated into the 
-repository modeling effort at the heart of this work, but gives an intuition for 
-appropriate sensitivity to altered waste streams.
-
-It is expected that the cooling time alters heat based capacity. 
-
-<+sindaAnalysis+>
-
-<+coolingVScapacityGRAPH+>
 
 \subsubsection{Burnup}
 
@@ -86,28 +75,12 @@ It is expected that the burnup will alter heat based capacity.
 The mean annual dose is not very sensitive to the horizontal spacing between 
 drifts. 
 
-
-It is expected that the heat based capacity will be highly sensitive to the 
-spacing between drifts. A higher drift density produces larger amounts of heat 
-generation per repository footprint area. Constrained by heat limits typically 
-at the drift tunnel boundaries, the repository capacity is reduced by increased 
-areal loading density. 
-
-<+sindaAnalysis+>
-
-<+spacingVScapacityGRAPH+>
-
 \subsubsection{Vertical Distance to Aquifer}
 
 The vertical distance to the aquifer above the disposal configuration defines 
 the distance separating source term nuclide contaminants from the biospere. The 
 clay model indicates that the mean annual dose is very sensitive to this 
 distance \cite{nutt_generic_2011}.
-
-It is expected that the thermal model will not demonstrate significant
-sensitivity to the distance to the overlying aquifer. Heat disspiation over 
-the length scales at hand, in the hundreds of meters, renders the distance of 
-the boundary at the far field irrelevant. 
 
 \subsubsection{Vertical Darcy Velocity}
 
@@ -188,6 +161,119 @@ parameters.
 
 
 \section{SINDA Model Analysis}
+\subsection{Sensitivity Analysis}
+\subsubsection{Cooling Time}
+
+Extending the cooling time between discharge and emplacement results
+in an altered waste stream. The emplacement capacity
+of this waste stream may be expected to differ from base case results. 
+
+Since the cooling period will be modeled outside of the repository model within  
+the \Cyclus analysis, this sensitivity will not be incorporated into the 
+repository modeling effort at the heart of this work, but gives an intuition for 
+appropriate sensitivity to altered waste streams.
+
+It is expected that the cooling time alters heat based capacity. 
+
+<+sindaAnalysis+>
+
+<+coolingVScapacityGRAPH+>
+
+\subsubsection{Burnup}
+
+The burnup of a used fuel assembly results in an altered waste stream at the 
+time of emplacement. It was found that for the clay \gls{GDSE} model, the mean 
+annual dose sensitivity to waste form dissolution rate became more important 
+linearly with increased burnup \cite{nutt_generic_2011}.
+
+It is expected that the burnup will significantly alter heat based capacity. 
+
+<+sindaAnalysis+>
+
+<+burnupVScapacityGRAPH+>
+
+\subsubsection{Heat Generating Isotopes}
+
+Some nuclides are dominant contributors to heat. Sensitivity to the waste stream 
+content of these isotopes could significantly simplify the heat analysis. 
+ 
+For each of these, a sensitivity analysis of capacity to the nuclide will be 
+developed by analyzing the thermal repository capacity for a waste stream of 
+that nuclide alone.  
+
+<+sindaAnalysis+>
+
+<+contributorMassVSCapacityGRAPH+>
+
+\subsubsection{Drift Spacing}
+
+It is expected that the heat based capacity will be highly sensitive to the 
+spacing between drifts. A higher drift density produces larger amounts of heat 
+generation per repository footprint area. Constrained by heat limits typically 
+at the drift tunnel boundaries, the repository capacity is reduced by increased 
+areal loading density. 
+
+<+sindaAnalysis+>
+
+<+spacingVScapacityGRAPH+>
+
+\subsubsection{Waste Package Separation}
+
+It is expected that the heat based capacity will be highly sensitive to the 
+spacing between packages linearly within the drifts. A higher line loading 
+density produces larger amounts of heat generation per repository footprint 
+area.  Again, the repository capacity is reduced by increased areal loading 
+density. 
+
+<+sindaAnalysis+>
+
+<+lineloadingVScapacityGRAPH+>
+
+
+\subsubsection{Waste Package Loading Density}
+
+It is expected that the heat based capacity will be highly sensitive to the 
+mass loading per waste package. A higher package loading density produces larger amounts 
+of heat 
+generation per repository footprint area. Constrained by heat limits typically 
+at the drift tunnel boundaries, the repository capacity is reduced by increased 
+areal loading density. 
+
+<+sindaAnalysis+>
+
+<+pkgloadingVScapacityGRAPH+>
+
+\subsubsection{Clay Porosity}
+
+It is expected that the heat based capacity will be fairly sensitive to the 
+clay matrix porosity. A higher porosity allows greater diffusive flowthrough and 
+heat removal. Constrained by heat limits typically at the drift tunnel
+boundaries, the repository capacity is increased by increased clay porosity. 
+
+<+sindaAnalysis+>
+
+<+porosityVScapacityGRAPH+>
+
+
+\subsubsection{Buffer Porosity}
+
+It is expected that the heat based capacity will be fairly sensitive to the 
+buffer matrix porosity. A higher porosity allows greater diffusive flowthrough and 
+heat removal. Constrained by heat limits typically at the drift tunnel
+boundaries, the repository capacity is increased by increased clay porosity. 
+
+<+sindaAnalysis+>
+
+<+porosityVScapacityGRAPH+>
+
+\subsubsection{Vertical Distance to Aquifer}
+
+It is expected that the thermal model will not demonstrate significant
+sensitivity to the distance to the overlying aquifer. Heat disspiation over 
+the length scales at hand, in the hundreds of meters, renders the distance of 
+the boundary at the far field irrelevant. 
+
+
 
 \subsection{Review of Radel Analysis}
 
