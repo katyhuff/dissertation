@@ -53,8 +53,9 @@ Extending the cooling time between discharge and emplacement results
 in an altered waste stream. The emplacement capacity and resulting source term 
 of this waste stream may be expected to differ from base case results. 
 Nonetheless it was found that for the clay \gls{GDSE} model there was approximately 
-no Mean Annual Dose sensitivity to the cooling period length.
-\cite{nutt_generic_2011}
+no Mean Annual Dose sensitivity to the cooling period length 
+\cite{nutt_generic_2011}.
+
 Since the cooling period will be modeled outside of the repository model within  
 the \Cyclus analysis, this sensitivity will not be incorporated into the 
 repository modeling effort at the heart of this work, but gives an intuition for 
@@ -63,6 +64,7 @@ appropriate sensitivity to altered waste streams.
 It is expected that the cooling time alters heat based capacity. 
 
 <+sindaAnalysis+>
+
 <+coolingVScapacityGRAPH+>
 
 \subsubsection{Burnup}
@@ -70,31 +72,69 @@ It is expected that the cooling time alters heat based capacity.
 The burnup of a used fuel assembly results in an altered waste stream at the 
 time of emplacement. It was found that for the clay \gls{GDSE} model, the mean 
 annual dose sensitivity to waste form dissolution rate became more important 
-linearly with increased burnup.  \cite{nutt_generic_2011}
+linearly with increased burnup \cite{nutt_generic_2011}.
 
 It is expected that the burnup will alter heat based capacity. 
 
 <+sindaAnalysis+>
+
 <+burnupVScapacityGRAPH+>
 
 
 \subsubsection{Drift Spacing}
 
-Not much sensitivity.
+The mean annual dose is not very sensitive to the horizontal spacing between 
+drifts. 
+
+
+It is expected that the heat based capacity will be highly sensitive to the 
+spacing between drifts. A higher drift density produces larger amounts of heat 
+generation per repository footprint area. Constrained by heat limits typically 
+at the drift tunnel boundaries, the repository capacity is reduced by increased 
+areal loading density. 
+
+<+sindaAnalysis+>
+
+<+spacingVScapacityGRAPH+>
 
 \subsubsection{Vertical Distance to Aquifer}
 
-Very sensitive to the distance between waste and the overlying aquifer. 
-\cite{nutt_generic_2011}
+The vertical distance to the aquifer above the disposal configuration defines 
+the distance separating source term nuclide contaminants from the biospere. The 
+clay model indicates that the mean annual dose is very sensitive to this 
+distance \cite{nutt_generic_2011}.
+
+It is expected that the thermal model will not demonstrate significant
+sensitivity to the distance to the overlying aquifer. Heat disspiation over 
+the length scales at hand, in the hundreds of meters, renders the distance of 
+the boundary at the far field irrelevant. 
 
 \subsubsection{Vertical Darcy Velocity}
 
 Sensitivity to vertical Darcy velocity is similar to the sensitivity to vertical 
-distance to aquifer, for obvious reasons. \cite{nutt_generic_2011}
+distance to aquifer in the sense that it directly determines the nuclide travel 
+time to the biosphere. The clay model indicates that the mean annual dose is 
+very sensitive to this parameter \cite{nutt_generic_2011}.
+
+It is assumed that the thermal model will not demonstrate any
+sensitivity to the vertical Darcy velocity. Since heat dissipation in the far 
+field is taken to be completely diffusive in clay, the Darcy velocity and the 
+thermal model are entirely independent.
 
 \subsubsection{Hypothetical Intersecting Fast Advective Pathway}
 
-Sensitivity is very nuclide specific.\cite{nutt_generic_2011} 
+A fast pathway model intended to demonstrate a disrupted scenario is modeled as 
+a single intersecting fracture in the clay matrix. The importance of the various 
+ways in which this fast pathway intersects the model is very nuclide specific 
+\cite{nutt_generic_2011}. In the clay model the fast pathway intersects the 
+engineered barrier system either directly in the emplaced waste or just outside 
+the secondary engineered barrier system.
+
+It is assumed that the thermal model will not demonstrate any
+sensitivity to the presence of a fast pathway. Since advective heat dissipation 
+in such a crack would be minimal at the water speeds being considered. The 
+thermal mocel takes the far field to be completely advective, also, and does not 
+currently have the capability to model a fast pathway.
 
 \subsubsection{Dimensions of Hypothetical Fast Pathway}
 
