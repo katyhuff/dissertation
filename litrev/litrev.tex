@@ -501,9 +501,9 @@ packages simultaneously, assuming that either at the beginning of the simulation
 or at the onset of the simulation. The mathematical representation of this 
 probability density function is clearly just the delta function, with $n_F$ 
 being the number of failed waste packages, $N$ being the total number of waste 
-packages, and $t_F$ being the time to failure.
+packages, and $t_F$ being the time to failure,
 \begin{align}
-  n_F(t) = N\delta(t-t_F)
+  n_F(t) = N\delta(t-t_F).
   \label{instantaneous}
 \end{align}
 
@@ -526,10 +526,10 @@ very different under dry oxidising conditions and wet reducing conditions.
 %year.  see pg 283/525 of phenomenological evolution doc for details
 
 An expression of the number of failed waste packages per year is a simple 
-functional relationship. 
+functional relationship
 
 \begin{align}
-  n_F = Nf(t,T,\cdots)
+  n_F = Nf(t,T,\cdots).
   \label{rate}
 \end{align}
 
@@ -539,19 +539,21 @@ When a probability distribution of waste package failure is available, the
 discrete waste packages can be modeled to fail according to that distribution. 
 For example, if the expected lifetime of a waste package is 30,000 years, a 
 gaussian distribution around that number would provide a probabilistic number of 
-waste package failures per time step. 
+waste package failures per time step
 
 \begin{align}
-  n_F=Nf(t)
+  n_F=Nf(t).
   \label{probabilistic}
 \end{align}
 
 The instantaneous case is a special case of the probabilistic situation. 
 Specfically, it is the Dirac delta function mentioned in equation 
-\eqref{intantaneous}.
+\eqref{instantaneous}.
 
 A particularly attractive probability distribution for use in the case of failed 
-engineered barriers is the Weibull distribution. <++>
+engineered barriers is the Weibull distribution. 
+
+<++>
 
 %%%%
 
@@ -680,7 +682,7 @@ reversible reaction,
   &= 1+\frac{\rho_bK_d}{n}\\
   \rho_b &=\mbox{bulk density of the rock matrix}
   \intertext{and}
-  K_d &= \mbox{distribution coefficient of the species in the rock.}
+  K_d &= \mbox{species distribution coefficient.}
 \end{align}
 
 To incorporate radioactive decay it is necessary to represent the reaction rate, 
@@ -752,8 +754,8 @@ type conditions, defining both a concentration at a boundary and a flux at that
 boundary. 
 
 \begin{align*}
-  C(\vec{r},t) = C_0(\vec{r},t)\mbox{for} r \in \Gamma\\
-  \frac{\partial C(\vec{r},t)}{\partial x} = nD\vec{J} \mbox{for} \vec{r} \in \Gamma
+  C(\vec{r},t) = C_0(\vec{r},t)\mbox{ for } \vec{r} \in \Gamma\\
+  \frac{\partial C(\vec{r},t)}{\partial x} = nD\vec{J} \mbox{ for } \vec{r} \in \Gamma
 \end{align*}
 
 
@@ -802,7 +804,9 @@ Accordingly, the volumetric flow rate in the single fracture of width, $w$, can
 be described in terms of the hydraulic head gradient, $\frac{\partial
 h}{\partial L}$, as
 
-\begin{align} Q & = -Kbw\frac{\partial h}{\partial L} \label{Qplates}
+\begin{align} 
+  Q & = -Kbw\frac{\partial h}{\partial L}.
+  \label{Qplates}
 \end{align}
 
 Calculation of the volumetric flow rate and corresponding solute transport in a
@@ -914,7 +918,7 @@ equation can be expressed
 An areal heat flux, $q'' [W\cdot m^{-2}]$ can be derived from an integration of  
 Poisson's equation \eqref{poisson}  and expressed in terms of the thermal 
 conductivity of the material, $k [W \cdot m^{-1} \cdot ^\circ K^{-1}]$, and the
-temperature gradient $\nabla T [K\cdot m^{-1}]$
+temperature gradient $\nabla T [K\cdot m^{-1}]$ by the expression
 
 \begin{align}
   q''= -k\nabla T.
@@ -1026,7 +1030,7 @@ and $j$, the resistance of $j$ can be described as
 \begin{align*}
   R_{cond} &= 1/hA
   \intertext{such that}
-  c_j\rho_j V_j dT_j(t) &= \sum_{i=0}^{i=N}\left[ hA_j [T_i - T_j(t) \right]dt\\
+  c_j\rho_j V_j dT_j(t) &= \sum_{i=0}^{i=N}\left[ hA_j [T_i - T_j(t) \right]dt.\\
 \end{align*}
 
 Under integration a time constant appears which describes the speed with which 
@@ -1291,7 +1295,7 @@ nuclide release rate in this model allows advective transfer to dominate and
 takes the form:
 
 \begin{equation}
-\dot{m_i}=w_{li}(t)-w_{ci}{t}-m_i\lambda_i+m_{i-1}\lambda_{i-1}\nonumber
+\dot{m_i}=w_{li}(t)-w_{ci}{t}-m_i\lambda_i+m_{i-1}\lambda_{i-1}.\nonumber
 \end{equation}
 
 In this expression, $w_{li}(t)$ is the rate $[mol/yr]$ of isotope \emph{i}
@@ -1302,7 +1306,7 @@ describes the advective transfer rate $[mol/yr]$ of the isotope \emph{i}. This
 model defines $w_{ci}$ as:
 
 \begin{equation}
-  w_{ci}(t)=C_i(t)q_{out}(t) 
+  w_{ci}(t)=C_i(t)q_{out}(t). 
 \end{equation}
 
 where $q_out$ is the volumetric flow rate of the water $[m^3/yr]$, and 
@@ -1475,20 +1479,20 @@ Lumps are connected by conduction, convection, radiation, and mass flow heat
 transfer links. Briefly, these are represented by
 
 \begin{align*}
-  R_{cond} &&= \frac{L}{kA}\\
-  R_{conv} &&= \frac{1}{ h\cdot A}\\
-  R_{mf}  &&= \frac{1}{\dot{m}c_p}\\
-  R_{rad}  &&= \frac{1}{\sigma F_{ij}A\left[ T_i + T_A + T_j + T_A 
+  R_{cond} &= \frac{L}{kA}\\
+  R_{conv} &= \frac{1}{ h\cdot A}\\
+  R_{mf}  &= \frac{1}{\dot{m}c_p}\\
+  R_{rad}  &= \frac{1}{\sigma F_{ij}A\left[ T_i + T_A + T_j + T_A 
   \right]\left[(T_i+T_A)^2+(T_j+T_A)^2\right]}
   \intertext{where}
-  &k&= ~~\mbox{conductivity}[] \\
-  &A&= ~~\mbox{area} [m^2]\\
-  &c_p&=~~\mbox{specific heat capacity} []  \\\
-  &h&= ~~\mbox{heat transfer coefficient}[] \\
-  &\dot{m}&= ~~\mbox{mass transfer rate}[kg\cdot s^{-1}] \\
-  &T_i&= ~~\mbox{lump temperature} [^\circ C] \\
-  &T_A&= ~~\mbox{absolute temperature} [^\circ C] \\
-  &F_{ij}&= ~~\mbox{radiation interchange factor} [-] .
+  k&= ~~\mbox{conductivity}[] \\
+  A&= ~~\mbox{area} [m^2]\\
+  c_p&=~~\mbox{specific heat capacity} []  \\\
+  h&= ~~\mbox{heat transfer coefficient}[] \\
+  \dot{m}&= ~~\mbox{mass transfer rate}[kg\cdot s^{-1}] \\
+  T_i&= ~~\mbox{lump temperature} [^\circ C] \\
+  T_A&= ~~\mbox{absolute temperature} [^\circ C] \\
+  F_{ij}&= ~~\mbox{radiation interchange factor} [-] .
 \end{align*}
 
 With these representations of thermal resistance, a lumped parameter model will 
