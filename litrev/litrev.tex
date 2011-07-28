@@ -32,25 +32,25 @@ transport on long time scales and in various geologies.
 Current top-level simulators largely disregard the waste disposal phase of fuel
 cycle analysis. Choosing instead to report metrics such as mass or volumes of
 accumulated spent nuclear fuel, these analyses fail to address the impact of
-those waste streams on the performance of the geologic disposal system. 
-\cite{wilson_comparing_2011}  To fully inform the decision making process, 
+those waste streams on the performance of the geologic disposal system
+\cite{wilson_comparing_2011}.  To fully inform the decision making process, 
 metrics that depend on the performance of the geologic disposal system will be
 necessary. 
 
 A model for repository capacity was developed for the \gls{VISION} fuel cycle
-simulator \cite{yacout_visionverifiable_2006} \cite{radel_repository_2007} and
-recent efforts on the NUWASTE simulator \cite{ abkowitz_nuclear_2010} have made
+simulator and recent efforts on the NUWASTE simulator have made
 some progress in addressing this deficiency, but despite a proliferation of
 sophisticated fuel cycle simulators, similar efforts are lacking in this
-regard. 
+regard \cite{yacout_visionverifiable_2006} \cite{radel_repository_2007} 
+\cite{abkowitz_nuclear_2010}. 
 
 
 
 \subsection{NUWASTE} 
 
 \gls{NUWASTE} is a Nuclear Waste Technical Review Board code that determines
-many metrics about the fuel cycle according to various parameters.
-\cite{abkowitz_nuclear_2010} This code tracks 65 isotopes within material
+many metrics about the fuel cycle according to various parameters
+\cite{abkowitz_nuclear_2010}. This code tracks 65 isotopes within material
 objects, discretely models individual shipping casks and incorporates cooling
 time in both dry and wet intermediate storage facilities.
 
@@ -61,12 +61,12 @@ term, and dose calculations.
 \subsection{VISION} 
 
 \gls{VISION}'s repository model conducts decay calculations
-and tracks upwards of 80 isotopes of interest in the nuclear fuel cycle.
-\cite{yacout_visionverifiable_2006} While it calculates some basic information 
+and tracks upwards of 80 isotopes of interest in the nuclear fuel cycle
+\cite{yacout_visionverifiable_2006}. While it calculates some basic information 
 about waste package heat production and heat based repository capacity, discrete  
 waste packages are not modeled and emplaced spent fuel composition is assumed to  
-be spatially homogeneous. \cite{radel_repository_2007}
-\cite{boucher_international_2010}
+be spatially homogeneous \cite{radel_repository_2007}
+\cite{boucher_international_2010}.
 
 \subsection{DANESS} 
 
@@ -77,15 +77,15 @@ FortranIV and C, but is limited to a 10 reactor simulation and requires
 15 minutes for a 100 year simulation on a modern PC.  Input and output are 
 in Microsoft Excel format and \gls{DANESS} relies on the proprietary IThink 
 simulation platform. The code therefore has a secure license sensitive to 
-export control and requiring explicit developer approval. 
-\cite{yacout_daness_2011,van_den_durpel_daness:_2006} 
+export control and requiring explicit developer approval 
+\cite{yacout_daness_2011,van_den_durpel_daness:_2006}. 
 
 \subsection{COSI}
 
 \gls{COSI} is a code from the CEA of France implemented in the Java programming 
 language. It is capable of performing a large range of full fuel cycle 
 scenarios. COSI6 is capable of making assessments of repository capacity as 
-well as radiotoxicity and decay heat calculations of waste packages. 
+well as radiotoxicity and decay heat calculations of waste packages
 \cite{boucher_international_2010}. Nuclide transport through the repository 
 post-emplacement is, however, not calculated and the distribution liscence is 
 very restrictive.
@@ -96,8 +96,8 @@ very restrictive.
 The \gls{NFCSim} code was implemented in the Java programming language by Erich 
 Schneider and Los Alamos National Lab. Primarily a mass tracking code, the 
 repository model was limited to a heat analysis. Uniquely, in NFCSim the 
-transportation of each waste package was modeled discretely. 
-\cite{schneider_nfcsim_2004}
+transportation of each waste package was modeled discretely 
+\cite{schneider_nfcsim_2004}.
 
 \subsection{CAFCA}
 
@@ -126,7 +126,7 @@ U.S.  reactor fleet. Casks are modeled discretely and nuclide and heat transport
 are modeled in great detail .  This level of detail 
 results in a dramatically extended run time. The \gls{TSM} model can only be 
 run by its development team and runs a typical simulation, processing 70,000 
-MTHM in 12-15 hours.  \cite{turner_discrete_2010} 
+MTHM in 12-15 hours \cite{turner_discrete_2010}. 
 
 The TSM framework is based on the proprietary SimCAD platform. The simulation 
 steps through times in 8 hour time steps during the waste cask transportation, 
@@ -212,8 +212,8 @@ and radial transport away from the cylindrical base case unit cell is modeled as
 one dimensional.
 
 Two nuclide release pathways are considered. One is the nominal, undisturbed 
-case, while the other is a fast pathway simulating a disturbed case.
-\cite{nutt_generic_2011}
+case, while the other is a fast pathway simulating a disturbed case
+\cite{nutt_generic_2011}.
 
 
 \subsubsection{Salt GDSE Model}
@@ -241,8 +241,8 @@ to solubility limited diffusion and advection. Nuclide transport in the far
 field takes place of 5km, and ends in a biosphere model. 
 
 Two nuclide release pathways are considered. One is the nominal, undisturbed 
-case, whicl the other is a fast pathway simulating a disturbed case.
-\cite{nutt_generic_2011}
+case, whicl the other is a fast pathway simulating a disturbed case
+\cite{nutt_generic_2011}.
 
 \subsubsection{Granite GDSE Model}
 
@@ -279,9 +279,8 @@ is conservatively assumed to be instantaneous.
 
 Flow in the vicinity of the borehole was modeled using tabulated groundwater 
 flow velocities obtained from simulations run using the \gls{FEHM} code 
-meshed in three full dimensions with the \gls{CUBIT} meshing tool. 
-
-\cite{nutt_generic_2011}
+meshed in three full dimensions with the \gls{CUBIT} meshing tool 
+\cite{nutt_generic_2011}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{Analytical Models of Nuclide Transport} \label{sec:analytical_nuc}
@@ -348,17 +347,17 @@ Fick's Second Law becomes
 \end{equation}
 
 Radionuclide concentration has been shown to be proportional to the waste package
-loading configuration for the Yucca Mountain case. 
-\cite{ahn_relationship_2002,kawasaki_congruent_2004}
+loading configuration for the Yucca Mountain case
+\cite{ahn_relationship_2002,kawasaki_congruent_2004}.
 
 The most important geochemical processes to source term that occur within the
 waste, waste matrix, and near field as well as the host rock are dissolution,
-precipitation, and sorption.  \cite{bracke_safety_2008} 
+precipitation, and sorption \cite{bracke_safety_2008}. 
 
 \subsubsection{Dissolution}
 
 Dissolution is the ``most important prerequisite'' for contribution of a
-radionuclide to source term.\cite{bracke_safety_2008} That is, the initial 
+radionuclide to source term\cite{bracke_safety_2008}. That is, the initial 
 dissolution of a radionuclide from its waste from is a breach of the ultimate 
 barrier, or final line of defense. Dissolution rates depend strongly on pH, Eh,
 speciation of radionuclides (chemical oxidative state), and radiolysis of the
@@ -379,9 +378,9 @@ that species from the dissolving medium models.
 
 Sorption into the rock matrix is a method by which contaminants (and water? ) %
 are removed from a fracture during flow through that fracture. However, this is 
-a reversible process \cite{ahn_mass_1988}, which means the contaminant 
-might be returned to the fracture from the matrix with the same ''distribution 
-coefficient`` with which they entered the rock matrix . 
+a reversible process , which means the contaminant might be returned to the 
+fracture from the matrix with the same ''distribution coefficient`` with which 
+they entered the rock matrix \cite{ahn_mass_1988} . 
 
 % One way to model sorption is by assuming a linear isotherm. <+What does that 
 % mean? +> \cite{ahn_thesis_pg20}
@@ -474,8 +473,8 @@ of their solubility. That is,
 
 where the mass $m_{1i}$ $[g]$ of a nuclide, $i$ relased into the waste package
 void volume $v_1$ in $[m^3]$, at a time t, is limited by constant the maximum
-concentration, $C_{sol}$ in $[g/m^3]$ at which that nuclide is soluble.
-\cite{hedin_integrated_2002}
+concentration, $C_{sol}$ in $[g/m^3]$ at which that nuclide is soluble 
+\cite{hedin_integrated_2002}.
 
 %%%%
 
@@ -495,7 +494,7 @@ limited by a release resistance coefficient. The release is assumed  to occur
 through a hole in the waste canister that exists throughout the simulation, and
 the resistance coefficient limiting flow through the hole represents the
 magnitude of the canister flaw in combination with the buffer-geosphere
-interface.  \cite{hedin_integrated_2002}
+interface\cite{hedin_integrated_2002}.
 
 Other models also use an instantaneous waste package failure mode for all waste  
 packages simultaneously, assuming that either at the beginning of the simulation
@@ -757,7 +756,6 @@ boundary.
   \frac{\partial C(\vec{r},t)}{\partial x} = nD\vec{J} \mbox{for} \vec{r} \in \Gamma
 \end{align*}
 
-\cite{schwartz_fundamentals_2003})
 
 \subsubsection{Solute Transport in Fractured Media} 
 
@@ -768,8 +766,8 @@ for very fractured or very unfractured situations.
 
 Equivalent Porous Medium (EPM) models assert that a uniformly  fractured medium
 can be approximated as a fractureless matrix with an effective porosity high
-enough to account for real fracturation.  \cite{berkowitz_continuum_1988}
-\cite{anderson_applied_1992}
+enough to account for real 
+fracturation\cite{berkowitz_continuum_1988}\cite{anderson_applied_1992}.
 
 
 Dual Porosity Models make up one type. This model incorporates advective
@@ -780,8 +778,8 @@ pores of the rock matrix \cite{uleberg_dual_1996} \cite{ho_dual_2000}.
 
 Dual Permeability Models are another type. These are similar to dual porosity
 models, but incorporate advective transfer within the rock matrix and between
-the rock matrix and the fracture volume.  \cite{uleberg_dual_1996}
-\cite{ho_dual_2000}
+the rock matrix and the fracture volume\cite{uleberg_dual_1996}
+\cite{ho_dual_2000}.
 
 \paragraph{Discrete Fracture Network Models} Discrete fracture network models
 approximate that water and contaminants move only through the fracture network
@@ -872,7 +870,7 @@ and $A_f$, the equivalent permeability, $k$, can be expressed
 % is inappropriate. Instead we must take the approach in which fractures of 
 % larger aperture are given greater importance and are modeled as primary 
 % conduits to the biosphere while minor fractures can be considered a part of 
-% the porous medium of the saturated rock. \cite{ahn_thesis}
+% the porous medium of the saturated rock\cite{ahn_thesis}.
 
 
 % For details about fracturation models in unsaturated rock, it's likely best to 
@@ -999,7 +997,7 @@ accross the boundary of that object. If the Biot number is low $(<0.1)$, and
 therefore conduction is faster within the object than at the boundary, the 
 assumption of a uniform internal temperature is appropriate and the lumped 
 parameter model may be expected to give a result within $5\%$ 
-error.\cite{incropera_fundamentals_2006} 
+error\cite{incropera_fundamentals_2006}. 
 
 The lumped capacitance model can address multiple media and multiple heat
 transfer modes. The rate of heat transfer $[W \cdot m^{-2} \cdot ^\circ K \cdot 
@@ -1093,7 +1091,7 @@ of bentonite buffer materials is reduced after this alteration. The time
 integral of this phenomenon determines total bentonite alteration. While short 
 bursts of heat might be allowable, because the bentonite will not alter 
 immediately, the kinetic alteration into smectite clays is hastened by 
-temperatures above approximately 100$^\circ C$. \cite{pusch_alteration_1987} 
+temperatures above approximately 100$^\circ C$\cite{pusch_alteration_1987}. 
 Well understood behavior for agrillaceous clay and bentonite buffer backfill
 is conservatively assumed by the \gls{ANDRA} assessment to occur under 
 90$^\circ C$, which is effectively a limit at the waste package interface with 
@@ -1201,7 +1199,7 @@ tonnes. In addition, the current design for the repository has flexibility for
 
 Specific Temperature Change analysis by Radel, Wilson, et al. find a maximum
 thermal capcity of 1.09 tonnes/m for commercial SNF (at an ELF of $49
-GWd_{th}/m$).\cite{radel_effect_2007} 
+GWd_{th}/m$)\cite{radel_effect_2007}. 
 
 Elongation of cooling times has the potential to expand the capacity of the
 repository. `Cooling time' refers to delaying complete loading of the
@@ -1213,16 +1211,16 @@ and so, the drift spacing can be decreased from 81 to 70 meters. A study by
 Man-Sung Yim and colleagues at North Carolina state found that for a
 representative commercial SNF composition a cooling time of 75 years allows for
 over 100 MTU SNF disposal without expanding the Yucca Mountain
-footprint.\cite{li_examining_2007}
+footprint\cite{li_examining_2007}.
 
 Similarly, age based fuel mixing also allows for decreases in drift spacing. In
 aged based fuel mixing, aged (long cool time) SNF is loaded in a mixture with
 young SNF. This age based fuel mixing has been shown to achieve a $48\%$
 increase in the repository capacity as constrained by heat
-load.\cite{nicholson_thermal_2007} This factor uses a fiducial default
+load\cite{nicholson_thermal_2007}. This factor uses a fiducial default
 footprint of $4.6 km^2$ used in the NRC TSPA.  The reported $48\%$ increase in
 capacity results in total repository capacity of 103,600
-tonnes.\cite{williams_contract_2001}
+tonnes\cite{williams_contract_2001}.
 
 In addition to variable drift spacing, other modifications to repository layout
 have had promising results in terms of heat-limited repository capacity. The
@@ -1235,7 +1233,7 @@ third levels of repository space, and hybrid solutions involving combinations
 of these ideas. In particular, EPRI suggests either an expansion of the
 footprint with redesign of the current Upper Block line load design plan or a
 multi-level plan that repeats the footprint and line load design of the current
-plan.\cite{kessler_room_2006}
+plan\cite{kessler_room_2006}.
 
 \input{litrev/footprint_tab} 
 
@@ -1259,7 +1257,7 @@ integration over time for any specific location within the rock.  Man-Sung Yim
 calls this the Specific Temperature Increase method\cite{li_specific_2008}
 though other researchers have other names for this method. Tracy Radel calls
 her temperature metric at a point in the rock the Specific Temperature
-Change.\cite{radel_repository_2007}
+Change\cite{radel_repository_2007}.
 
 In a repository with linear drifts, the Heat flux from the drifts can be
 expressed as the superposition of the linear heat flux contributions of all the
