@@ -236,9 +236,12 @@ of rock below the salt provides the pathway interface to an aquifer below.
 Nuclide transport into that interface is modeled as diffusive, advective, and 
 solubility limited.
 
-The far field is modeled using an equillibrium $K_d$ sorption model in addition 
-to solubility limited diffusion and advection. Nuclide transport in the far 
-field takes place of 5km, and ends in a biosphere model. 
+The far field is modeled using an equillibrium sorption model in addition 
+to solubility limited diffusion and advection. In such an equillibrium sorption 
+model, the sorption to precipitation balance is assumed to be at a 
+reaction equillibrium. In this way, the partitioning coeffient $K_d$ is used to 
+quantify the ratio between dissolved and undisolved reactant. Nuclide transport
+in the far field takes place for 5km, and ends in a biosphere model. 
 
 Two nuclide release pathways are considered. One is the nominal, undisturbed 
 case, whicl the other is a fast pathway simulating a disturbed case
@@ -758,18 +761,29 @@ boundary.
   \frac{\partial C(\vec{r},t)}{\partial x} = nD\vec{J} \mbox{ for } \vec{r} \in \Gamma
 \end{align*}
 
+\subsubsection{Continuum Models} 
 
-\subsubsection{Solute Transport in Fractured Media} 
+There exist various conceptual models for incorporating fractures into a porous  
+medium model. Some examples are given in figure \ref{fig:fractureModels}.
 
-\paragraph{Continuum Models} 
+\begin{figure}[htbp!]
+  \begin{center}
+    \includegraphics{./litrev/fractureModels.eps}
+  \end{center}
+  \caption{Various conceptual models may be used for the same natural system 
+  \cite{anderson_applied_1992}}
+  \label{fig:fractureModels}
+\end{figure}
 
-The models arrived at via this genre of approximation are appropriate
-for very fractured or very unfractured situations.
+
+The models arrived at via a continuum approximation are appropriate
+for very fractured or very unfractured situations. This approximation is not 
+suitable for ituations in which the fracture width or frequency varies greatly.
 
 Equivalent Porous Medium (EPM) models assert that a uniformly  fractured medium
 can be approximated as a fractureless matrix with an effective porosity high
-enough to account for real 
-fracturation\cite{berkowitz_continuum_1988}\cite{anderson_applied_1992}.
+enough to account for real fracturation 
+\cite{berkowitz_continuum_1988}\cite{anderson_applied_1992}.
 
 
 Dual Porosity Models make up one type. This model incorporates advective
@@ -783,7 +797,9 @@ models, but incorporate advective transfer within the rock matrix and between
 the rock matrix and the fracture volume\cite{uleberg_dual_1996}
 \cite{ho_dual_2000}.
 
-\paragraph{Discrete Fracture Network Models} Discrete fracture network models
+\paragraph{Discrete Fracture Network Models} 
+
+Discrete fracture network models
 approximate that water and contaminants move only through the fracture network
 \cite{anderson_applied_1992} \cite{schwartz_fundamentals_2003}.
 
@@ -1426,14 +1442,21 @@ This model, created at \gls{LLNL} for the \gls{UFD} campaign, is written in a
 combination of MathCAD and Excel. The model consists of two parts. The first is 
 a MathCAD solution of the transient homogeneous conduction equation
 
-<+equation+>. 
+\begin{align}
+  \nabla^2T  = frac{1}{\alpha}\frac{\partial T}{\partial t}.
+  \label{condGl}
+\end{align}
 
-The 
-solution of this equation at the boundary of the EBS and the waste package is 
-then treated as a boundary condition for the heterogeneous steady state 
+The solution of this equation at the boundary of the EBS and the waste package 
+is then treated as a boundary condition for the heterogeneous steady state 
 equation, 
 
-<+equation+>
+\begin{align}
+  \nabla^2T + \frac{q'''}{k} = 0.
+  \label{condGeneral}
+\end{align}
+
+% this needs to be re-checked <++>  
 
 which in turn calculates a resulting gradient through the geometry. The 
 process is then iterated with a one year resolution in order to arrive at a heat 
@@ -1503,12 +1526,12 @@ parameter approximation.
 \subsection{Finite Difference Codes}
 
 An array of finite difference codes exist which have been used to make 
-repository heat evaluations. See the table. 
+repository heat evaluations. See Table \ref{tab:heat_tab}. 
 
 \subsection{Finite Element Codes}
 
 An array of finite element codes exist which have been used to make 
-repository heat evaluations. See the table. 
+repository heat evaluations. See Table \ref{tab:heat_tab} 
 
 \subsection{ANDRA/RED-IMPACT Codes}
 
