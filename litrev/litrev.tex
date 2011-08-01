@@ -128,7 +128,7 @@ results in a dramatically extended run time. The \gls{TSM} model can only be
 run by its development team and runs a typical simulation, processing 70,000 
 MTHM in 12-15 hours \cite{turner_discrete_2010}. 
 
-The TSM framework is based on the proprietary SimCAD platform. The simulation 
+The TSM framework is based on the commercial SimCAD platform. The simulation 
 steps through times in 8 hour time steps during the waste cask transportation, 
 processing and emplacement. This event based simulator is primarily focused on 
 the operation stage of the Yucca Mountain repository, but is equipped with a 
@@ -166,7 +166,7 @@ codes as listed in table \ref{tab:red}.
 \subsection{Fuel Cycle Technology, UFD Codes Under Development}
 
 The \gls{UFD} campaign is currently conducting an effort to produce
-\gls{GDSE} models for various geological environments. Teams from Argonne
+\gls{GDSM}s for various geological environments. Teams from Argonne
 Lawrence Berkeley, Los Alamos, and Sandia National Laboratories are developing
 models of generic clay, granite, and salt disposal environments. Sandia is
 simultaneously constructing a borehole disposal system model. Each generic
@@ -190,19 +190,19 @@ Cells within GoldSim represent components of the waste disposal system and
 are linked by diffusive, advective, precipited, direct, or  otherwise filtered
 mass transfer links. 
 
-Thermal modeling for the \gls{GDSE} models are conducted independently with 
+Thermal modeling for the \gls{GDSM}s are conducted independently with 
 associated codes capable of modeling thermal evolution for all geologies. For 
 example, one thermal model is being created using the SINDA\textbackslash G heat
 transport solver and another is under development which utilizes a combination 
 of  mathCAD and Excel. 
 
-\subsubsection{Clay/Shale GDSE Model}
+\subsubsection{Clay/Shale GDSM}
 
-The Clay \gls{GDSE} model is being pursued by the team at \gls{ANL} and will be 
+The Clay \gls{GDSM} is being pursued by the team at \gls{ANL} and will be 
 the primary model with which this work will conduct parametric regression 
 analyses. 
 
-The Clay \gls{GDSE} models a single waste form, waste package, \gls{EBS}, 
+The Clay \gls{GDSM}s a single waste form, waste package, \gls{EBS}, 
 \gls{EDZ}, and far field zone. This waste unit cell is modeled with boundary 
 conditions such that it may be repeated throughout the extent of a repository 
 configuration. 
@@ -216,7 +216,7 @@ case, while the other is a fast pathway simulating a disturbed case
 \cite{clayton_generic_2011}.
 
 
-\subsubsection{Salt GDSE Model}
+\subsubsection{Salt GDSM}
 
 The salt repository concept has an alcove gallery geometry and is located in a 
 bedded salt formation. The formation is located in a reducing, saturated 
@@ -247,7 +247,7 @@ Two nuclide release pathways are considered. One is the nominal, undisturbed
 case, whicl the other is a fast pathway simulating a disturbed case
 \cite{clayton_generic_2011}.
 
-\subsubsection{Granite GDSE Model}
+\subsubsection{Granite GDSM}
 
 \gls{LANL} and \gls{SNL} have created a model of the granite repository concept  
 in a saturated, reducing envrionment.
@@ -267,7 +267,7 @@ The far field was represented using a model which includes advection, diffusion
 and sorption. Specifically, the \gls{FEHM} code was coupled into GoldSim to 
 represent the far field.
 
-\subsubsection{ Borehole GDSE Model}
+\subsubsection{ Borehole GDSM}
 
 The borehole model concept consists of some 400 waste canisters in a 5km deep 
 hole within a low permeability, high salinity region characteristic of 

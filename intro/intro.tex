@@ -179,7 +179,7 @@ for these subcomponents.  Differing spent fuel composition,
 partitioning, transmutation, and chemical processing decisions 
 upstream in the fuel cycle demand differing performance and loading 
 requirements of waste forms and packaging. The capability to model 
-thermal and nuclide transport phenomena through, for example, 
+thermal and radionuclide transport phenomena through, for example, 
 vitrified glass as well as ceramic waste forms with with various 
 loadings for arbitrary isotopic compositions is therefore required.  
 
@@ -198,18 +198,18 @@ considered. Specifically, current considerations include ceramic (e.g.
 Uranium Oxide), glass (e.g.  borosilicate glasses), and metallic (e.g.  
 hydride fuels) waste forms. Waste packages may be copper, steel, or 
 other alloys. Similarly, buffer and backfill materials vary from the 
-crushed salt recommended for a salt repository to bentonite concrete 
+crushed salt recommended for a salt repository to bentonite or concrete 
 in other lithologies. % KDHFLAG this paragraph needs explication
 
 % Various geologies, WFs, WPs, EBSs have various physics
 The physical, hydrogeologic, and geochemical mechanisms which dictate 
-nuclide and heat transport vary between the geological and engineered 
+radionuclide and heat transport vary between the geological and engineered 
 containment systems in the domestic option space.  Therefore, in 
 support of the system level simulation effort, models must be 
 developed which capture the salient physics of these geological 
 options and quantify associated disposal metrics and benefits.  
 Furthermore, modular linkage between subcomponent process modules and 
-the repository envrionmental model must acheive a cohesively 
+the repository environmental model must acheive a cohesively 
 integrated disposal system model. 
 
 
@@ -217,16 +217,16 @@ integrated disposal system model.
 % repository loading limits
 % optimization of layout
 % necessary decay cooling time before emplacement.
-A thermal modeling capability must be included in this repository 
+A thermal modeling capability must be included in the repository 
 model in order to arrive at loading strategies which comply with 
-regulatory limits in the engineered barrier system and the geological 
+thermal limits in the engineered barrier system and the geological 
 medium as well as in order to inform material and hydrogeologic 
 phenomena which are thermally coupled. 
 
 Heat load limits within a used nuclear fuel disposal system are waste 
 form, package, and geology dependent. Heat generation from the waste form 
 and transport through the engineered barrier system and host 
-environment constrains fuel loading in waste forms and packages as 
+environment constrains waste form loadingss and package loadings as 
 well as placing requirements on the size, design, and loading strategy 
 in a potential geological repository.
 
@@ -235,7 +235,7 @@ the temperature dependence of isolation integrity of the waste form.
 The waste form dissolution behavior as a function of waste form decay heat 
 constrains loading density within the waste form. Plutonium, Americium, and 
 their decay daughters dominate decay heat contribution within used nuclear 
-fuels. Other contributing nuclides include Cesium, Strontium, and Curium 
+fuels. Other contributing radionuclides include Cesium, Strontium, and Curium 
 \cite{piet_which_2007}. 
  
 Heat load limits of various engineered barrier systems similarly have 
@@ -258,24 +258,25 @@ for example, are specific to unsaturated tuff. These are given here as an
 example of the type of regulatory constraints which this model will seek to 
 capture for various geologies. 
 
-The first Yucca Mountain heat load constraint intended to prevent repository 
-flooding and subsequent contaminated water flow through the repository. It 
-requires that the minimum temperature in the granite tuff between drifts be no  
+The first Yucca Mountain heat load constraint intended to promote constant 
+drainage, thereby preventing repository flooding and subsequent 
+contaminated water flow through the repository. It 
+requires that the minimum temperature in the tuff between drifts be no  
 more than the boiling temperature of water which, at the altitude in 
 question, is $96^{\circ}C$. For a repository with homogenous waste composition 
-in parallel drifts, this constraint is effectively a limit on the 
-temperature halfway between adjacent drifts, where the temperature 
-would be at a minimum.
+in parallel drifts, this constraint limits the temperature exactly 
+halfway between adjacent drifts, where the temperature is at a minimum.
 
 The second constraint intended to prevent high rock temperatures that 
-could induce fractures and would increase leach rates. It stated that no 
-part of the rock reach a temperature above $200^{\circ}C$, and was 
+could induce fractures and alteration of the crystalline rock. It stated 
+that no part of the rock reach a temperature above $200^{\circ}C$, and was 
 effectively a limit on the temperature at the drift wall, where the 
 rock temperature is a maximum.  
 
 Analgous constraints for a broader set of possible geological 
-environments will depend on heat transport parameters of the matrix, 
-hydrogeologic state, and repository drift spacing, waste package 
+environments will depend on heat transport properties and geochemical 
+behaviors of the rock matrix as well as its hydrogeologic state.  
+Such constraints will affect the  repository drift spacing, waste package 
 spacing, and repository footprint among other parameters. 
 
 %Clay repositories should have a ~70 degrees C limit, because temps 
@@ -292,18 +293,16 @@ spacing, and repository footprint among other parameters.
 %respect to thermal effects.''
 
 In addition to development of a concept of heat transport within the 
-repository for reasons of complicance with heat load limitations, it 
+repository in order to meet heat load limitations, it 
 is also necessary to model temperature gradients in the repository in  
 order to support modeling of thermally dependent hydrologic and material 
-phenomena.  As mentioned above, waste package dissolution rates, diffusive and 
-advective coefficients, and the mechanical integrity of engineered barriers 
-and geologic environment are coupled with temperature behavior. Only a coarse 
-time resolution will likely be necessary however, since time evolution of 
-repository heat is such that thermal coupling can typically be neglected for 
-long time scales
+phenomena.  As mentioned above, waste package corrosion processes, waste form
+dissolution rates, diffusion coefficients, and the mechanical 
+integrity of engineered barriers and geologic environment are coupled with 
+temperature behavior. Only a coarse time resolution will likely be necessary 
+to capture that coupling however, since time evolution of repository heat is
+such that thermal coupling can typically be neglected for long time scales
 \cite{andra_argile:_2005}. %andra, clay, evaluation, page 195)
-
-
 
 \subsubsection{Radiotoxicity and Source Term Modeling Needs}
 
@@ -311,27 +310,28 @@ Domestically, the Nuclear Regulatory Commission has defined a limit on
 human exposure due to the repository. This regulation places important 
 limitations on capacity, design, and loading techniques for repository 
 concepts under consideration. Repository concepts developed in this 
-work must therefore quantify nuclide transport through the geological 
+work must therefore quantify radionuclide transport through the geological 
 environment in order to calculate repository capacity and other 
 benefit metrics. 
 
-The exposure limit set by the NRC is based on a `reasonably exposed 
-individual.' That is to say, the limiting case is a person who lives, 
+The exposure limit set by the NRC is based on a `reasonably maximally 
+exposed individual.' That is to say, the limiting case is a person who lives, 
 grows food, drinks water and breathes air 18 km downstream from the 
-repository. The Yucca Mountain Repository legistlative regulations 
+repository. The Yucca Mountain Repository \gls{EPA} regulations 
 limit total dose from the repository to 15 mrem/yr, and limit dose 
 from drinking water to 4 mrem/yr.  Predictions of that dose rate 
 depend on an enormous variety of factors, most important of which is 
 the primary pathway for release. In the \gls{YMR} primary pathway of 
 radionuclides from an accidental release will be from cracking aged 
 canisters. Subsequently, transport of the radionuclides to the water 
-table requires that the leakages come in contact with water and travel 
+table requires that the radionuclides come in contact with water and travel 
 through the rock the water table. This results in contamination of 
 drinking water downstream.  
 
 Source term is a measure of the quantity of a radionuclide released 
 into the environment whereas radiotoxicity is a measure of the 
-hazardous effect of that particular radionuclide upon human ingestion.  
+hazardous effect of that particular radionuclide upon human ingestion or 
+inhalation. 
 In particular, radiotoxicity is measured in terms of the volume of 
 water dilution required to make it safe to ingest. Studies of source 
 term and radiotoxicity therefore make probabilistic assessments of 
@@ -368,7 +368,7 @@ constraints must be incorporated into it.
 \subsection{Domestic Research and Development Program}
 
 The DOE-NE Fuel Cycle Technology (FCT) program has three groups of relevance to 
-this effort.  These are the \gls{FCT} \gls{UFD}, the \gls{SWF}, and \gls{SA} 
+this effort.  These are the \gls{UFD}, the \gls{SWF}, and \gls{SA} 
 campaigns.  The \gls{UFD} campaign is conducting the \gls{RDD} related to the 
 storage, transportation, and disposal of radioactive wastes generated under both 
 the current and potential advanced fuel cycles.  The SWF campaign is conducting 
@@ -402,8 +402,8 @@ potential waste forms, repository design concepts, and geological
 media. 
 
 % Categorization
-Categorization and characterization of phyisical mechanisms by which 
-nuclide and thermal transport take place within the materials and 
+Categorization and characterization of physical mechanisms by which 
+radionuclide and thermal transport take place within the materials and 
 media under consideration will first be undertaken. In this way, the 
 domain of applicability for which subprocesses may be generalized will 
 be assessed. In so doing, a preliminary set of combinations of fuel 
@@ -423,9 +423,9 @@ efficiency of the possible implementations.
 
 % For example, Geology.
 Specifically, geological models will focus on the hydrogeology and 
-thermal physics which dominate nuclide transport and heat response in 
-candidate geologies as a function of nuclide release and heat 
-generation over long time scales from waste packages.  D ominant 
+thermal physics which dominate radionuclide transport and heat response in 
+candidate geologies as a function of radionuclide release and heat 
+generation over long time scales from waste packages.  Dominant 
 transport mechanism (advection or diffusion) and disposal site water 
 chemistry (redox state) will provide primary differentiation between 
 the different geologic media under consideration. In addition, the 
@@ -438,39 +438,42 @@ barriers).
 % Abstraction in repository environment
 The abstraction process in the development of a geological environment 
 model will employ the comparison of semi-analytic thermal and 
-hydrogeologic models and analytic regression of rich code results as 
-well as existing empirical geologic data.  
+hydrogeologic models and analytic regression of rich code results from more 
+detailed models as well as existing empirical geologic data. Such results and 
+data will be derived primarily from the \gls{UFD} campaign \glspl{GDSM} and  
+data as well as European efforts such as the \gls{RED-IMPACT} asessment 
+and \gls{ANDRA} Dossier efforts 
 
 % Example, heat from WPs along repo drifts.
 For example, analytic models and semi-empirical models are available 
-(i.e. specific temperature integrals (ref. \cite{li_methodology_2006}) or 
-specific temperature change (ref. \cite{radel_effect_2007})) which 
+(i.e. specific temperature integrals (ref. \cite{li_methodology_2006}) and 
+specific temperature change index (ref. \cite{radel_effect_2007})) which 
 approximate thermal response from heat generation in waste packages as 
-linear along repository drifts. This analysis arrives at a thermal 
+linear along repository drifts. These analyses arrive at a thermal 
 evolution over time at any location in the rock by superpositioning 
-and integration. Subsequently, this result can be converted easily 
+and integration. Subsequently, their results can be converted easily 
 into conventional line loading and areal power density metrics.  Such 
 analytic models will first be assessed to determine likely parameters 
-upon which thermal response will rely (e.g. tunnel spacing, nuclide 
+upon which thermal response will rely (e.g. tunnel spacing, radionuclide 
 inventories, etc.).
 
 % Regression.
 Thereafter, a regression analysis concerning those parameters will be 
 undertaken with available detailed models (e.g. 2D and 3D finite 
-differencing, finite element, and full performance assessment codes) 
+differencing, finite element, and thermal performance assessment codes) 
 to further characterize the parametric dependence of thermal loading 
 in a specific geology.  
 
 % Incorporation of empirical data
 Finally, the thermal behavior of a repository model so developed will 
 depend on empirical data (e.g.  heat transfer coefficients, hydraulic 
-conductivity). Determination of appropriate values to make available 
+conductivity). Determination of representative values to make available 
 within the dominant physics model will rely on existing empirical data 
 concerning the specific geologic environment being modeled (i.e. salt, 
 clay/shale, and granite). 
 
 % Abstraction for WFs, WPs, EBS, etc. will be the same
-A similar process will be followed for nuclide transport models.  The 
+A similar process will be followed for radionuclide transport models.  The 
 abstraction process in the development of waste form, package, and 
 engineered barrier system models will be analgous to the abstraction 
 process of repository environment models. Concise models will result 
@@ -478,20 +481,20 @@ from employing the comparison of semi-analytic models of those systems
 with regression analysis of rich code in combination with existing 
 empirical material data.
 
-% Example, nuclide release
-For instance, in the case of nuclide release from waste packages, 
-analytic models of nuclide release (e.g.  congruent or solubility 
+% Example, radionuclide release
+For instance, in the case of radionuclide release from waste packages, 
+analytic models of radionuclide release (e.g.  congruent or solubility 
 limited) will first be assessed to determine likely parameters upon 
-which nuclide release will rely (e.g.  nuclide concentration, water 
+which radionuclide release will rely (e.g.  radionuclide concentration, water 
 flow rates, etc.) \cite{kawasaki_congruent_2004}.  Again, regression 
 analysis concerning those parameters will be undertaken with available 
 detailed models to further characterize the parametric dependence of 
-nuclide release from specific waste packages.  Finally, the nuclide 
+radionuclide release from specific waste packages.  Finally, the radionuclide 
 release model so developed will depend on empirical data (e.g. the 
-waste form dissolution rate).  Determination of appropriate values to 
+waste form dissolution rate).  Determination of representative values to 
 make available within the dominant physics model will rely on existing 
 empirical data concerning the specific waste form  materials being 
-modeled (i.e. long time scale extrapolations of known glass failure 
+modeled (i.e. long time scale extrapolations of known glass degradation 
 rates).  
 
 % Coupling is confusing
@@ -499,7 +502,7 @@ Coupling effects between components will have to be considered
 carefully.  In particular, given the important role of temperature in 
 the system, thermal coupling between the models for the engineered 
 system and the geologic system may be important. Thermal dependence of 
-nuclide release and transport as well as package degradation will 
+radionuclide release and transport as well as package degradation will 
 necessarily be analyzed to determine the magnitude of coupling effects 
 in the system.
 
@@ -509,7 +512,7 @@ in the system.
 % Summarize document
 The following chapter will present a literature review which organizes 
 and reports upon previous relevant work. It will focus upon current 
-analytical and computational modeling of nuclide and heat transport 
+analytical and computational modeling of radionuclide and heat transport 
 through various waste forms, engineered barrier systems, and geologies 
 of interest. It will also address previous efforts in generic geology 
 repository modeling and the state of the art of repository modeling 
@@ -530,7 +533,7 @@ of detail.
 
 % Categorization of current codes and physics
 Chapter \ref{ch:categorization} will categorize and characterize 
-detailed computational models of nuclide and heat transport available 
+detailed computational models of radionuclide and heat transport available 
 for regression analysis. Specificially, detailed codes in current use 
 are categorized according to the physics which they model, the 
 disposal system components with which they are concerned, and the 
@@ -584,7 +587,7 @@ against more detailed repository models.
 % Future work proposal
 Chapter \ref{ch:future} will summarize the conclusions reached 
 concerning the appropriate analytical and detailed models to utilize 
-in the process of abstraction for nuclide and heat transport through 
+in the process of abstraction for radionuclide and heat transport through 
 various components of the disposal system. Categorization of models 
 and determination of the coverage within the option space domain will 
 also be summarized. Finally, remaining future work and expected 
