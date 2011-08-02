@@ -36,14 +36,14 @@ capacity under heat and source term limitations. Those include spatial
 dimensions, spatial dimensions per kWh or equivalent, repository 
 footprint, and number of waste packages generated.
 
-Still other metrics which may be calculated from the calculations of 
-the repository model include environmental metrics such as peak 
-radiotoxic dose to the public, radiotoxic fluxes released to the 
+Still other metrics which may be calculated include environmental metrics 
+such as peak radiotoxic dose to the public, radiotoxic fluxes released to the 
 biosphere integrated over time, and the minimum managed lifetime.  
 These metrics are recorded in a database flexibly defined by the repository 
 model.
 
 \subsubsection{Facility Functionality}
+
 The repository will behave as a facility within the \Cyclus simulation 
 paradigm. The fundamental facility behavior within \Cyclus involves 
 participating in commodity markets. The repository will participate as 
@@ -52,12 +52,15 @@ repository will make requests to markets dealing in spent fuel streams
 according to its available capacity..
 
 \subsection{Nested Component Concept}
+
 The fundamental unit of information in the repository model is the 
 nuclide release at each stage of containment, and the repository model 
 in this work mimics reality treating them as nested elements in a 
 release chain.
 
+
 \subsubsection{Structure and Linkages}
+
 Each component passes some information radially outward to the nested 
 component immediately containing it and some information radially 
 inward to the nested component it contains.
@@ -72,12 +75,15 @@ release information is passed radially outward from the waste stream
 sequentially through each containment layer to the geosphere.
 
 \subsubsection{Concept Generality}
+
 The capability to allow each model to define the models within it gives this 
 repository model concept the ability to model many types of repository concept 
 while maintaining a simple interface with the simulation. 
 
 \subsection{Components of the Nested System}
+
 \subsubsection{Waste Stream}
+
 The waste stream data object contains spent fuel isotopics over the 
 course of the simulation. As nuclides are gained, lost, and transmuted within 
 the spent fuel object, a history of its isotopic composition is recorded.
@@ -118,13 +124,14 @@ waste package.
 Diffusion is the primary mechanism for nuclide transport through the 
 buffer component of the repository system.  
 
-Salt and borehole repositories may not have a buffer material.
+Salt, clay, and borehole repository conceptys may not have a buffer 
+material.
 
 \subsubsection{Backfill}
 Similarly, diffusion is the primary mechanism for nuclide transport 
 through the buffer component of the repository system.
 
-Borehole repository concepts may not have a backfill material. 
+Clay concepts and borehole concepts may not have a backfill material. 
 
 \subsubsection{Tunnel Lining}
 Much like the waste package model, nuclide release is typically 

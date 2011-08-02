@@ -166,19 +166,19 @@ codes as listed in table \ref{tab:red}.
 \subsection{Fuel Cycle Technology, UFD Codes Under Development}
 
 The \gls{UFD} campaign is currently conducting an effort to produce
-\gls{GDSM}s for various geological environments. Teams from Argonne
+\glspl{GDSM} for various geological environments. Teams from Argonne
 Lawrence Berkeley, Los Alamos, and Sandia National Laboratories are developing
 models of generic clay, granite, and salt disposal environments. Sandia is
-simultaneously constructing a borehole disposal system model. Each generic
-disposal system model will perform detailed calculations of nuclide 
-transport within its respective lithology. A longer term goal of the project 
-includes an overarching generic model which incorporates the various 
+simultaneously constructing a deep borehole disposal system model in crystalline 
+rock. Each generic disposal system model will perform detailed calculations of 
+nuclide transport within its respective lithology. A 2012 goal of the 
+project includes an overarching generic model which incorporates the various 
 geologically distinct submodels in order to provide a fully generic repository 
-model. 
+model. This overarching \gls{GPAM} work will be incorporated into this effort.
 
 The nuclide transport calculations for the geologically distinct models 
 are performed within the GoldSim simulation platform. GoldSim is a commercial
-off the shelf simulation environment which ships with a contaminant transport 
+off the shelf simulation environment which can include a contaminant transport 
 system for modeling of release and transport of contaminants as well as an 
 optional radionuclide transport module for decay calculations. Each models a 
 single repeatable waste package cell to arrive a a full repository model. 
@@ -190,11 +190,11 @@ Cells within GoldSim represent components of the waste disposal system and
 are linked by diffusive, advective, precipited, direct, or  otherwise filtered
 mass transfer links. 
 
-Thermal modeling for the \gls{GDSM}s are conducted independently with 
+Thermal modeling for the \glspl{GDSM} are conducted independently with 
 associated codes capable of modeling thermal evolution for all geologies. For 
 example, one thermal model is being created using the SINDA\textbackslash G heat
 transport solver and another is under development which utilizes a combination 
-of  mathCAD and Excel. 
+of MathCAD and Excel. 
 
 \subsubsection{Clay/Shale GDSM}
 
@@ -202,7 +202,7 @@ The Clay \gls{GDSM} is being pursued by the team at \gls{ANL} and will be
 the primary model with which this work will conduct parametric regression 
 analyses. 
 
-The Clay \gls{GDSM}s a single waste form, waste package, \gls{EBS}, 
+The Clay \glspl{GDSM} a single waste form, waste package, \gls{EBS}, 
 \gls{EDZ}, and far field zone. This waste unit cell is modeled with boundary 
 conditions such that it may be repeated throughout the extent of a repository 
 configuration. 
@@ -302,13 +302,13 @@ A comprehensive model of radiotoxic source term must address nuclide transport
 through the full release pathway including waste packages, engineered barrier
 systems, and geologic media. A model of transport through the waste package
 must incorporate waste package failure rate, nuclide release rate via waste
-form dissolution, and advective transfer rate into the engineered barrier
-system.  
+form dissolution, and advective and diffusive transport through the 
+engineered barrier system.  
 
 Waste package failure rate depends on near field environmental factors such as
-pH and humidity as well as decay heat and radiative damage anticipated from the
+pH well as decay heat and radiative damage anticipated from the
 contained waste.  In turn, the nuclide release rate from the waste package
-depends on the character of the waste form matrix, treatment of water flow,
+depends on the character of the waste form matrix, water flow,
 nuclide solubility and the elemental diffusion constant.  Similarly, advective
 transfer through the engineered barrier system and into the geological medium
 also depends on water flow, nuclide solubility, and nuclide diffusion, but must
@@ -500,8 +500,8 @@ magnitude of the canister flaw in combination with the buffer-geosphere
 interface\cite{hedin_integrated_2002}.
 
 Other models also use an instantaneous waste package failure mode for all waste  
-packages simultaneously, assuming that either at the beginning of the simulation
-or at the onset of the simulation. The mathematical representation of this 
+packages simultaneously, assuming that either at the onset of the simulation
+or at some distinct time during the simulation. The mathematical representation of this 
 probability density function is clearly just the delta function, with $n_F$ 
 being the number of failed waste packages, $N$ being the total number of waste 
 packages, and $t_F$ being the time to failure,
@@ -564,7 +564,7 @@ engineered barriers is the Weibull distribution.
 
 When the waste package is breached, nuclides are transported through secondary 
 engineered barriers which includes the buffer zone and tunnel walls. After 
-transportation through the secondary EBS nuclides reach the geological matrix. 
+transportation through the secondary EBS nuclides reach the geosphere. 
 
 \subsubsection{Barrier Dissolution and Failure}
 
@@ -787,7 +787,7 @@ enough to account for real fracturation
 
 
 Dual Porosity Models make up one type. This model incorporates advective
-transport in simplistic, uniform fractures and diffisive sorption and
+transport in simplistic, uniform fractures and diffusive sorption and
 desorption into the stagnant (no advective transfer) water contained in the
 pores of the rock matrix \cite{uleberg_dual_1996} \cite{ho_dual_2000}.
 
@@ -1106,14 +1106,14 @@ after emplacement before closure.
 Heat limits in clay are based on the domain of known behavior in clay and the 
 tendency for bentonite fill material to lose its isolating properties with high 
 temperatures. 
-The alteration high smectite bentonite to non-expandable clays is a primary 
+The alteration of high smectite bentonite to non-expandable clays is a primary 
 limitation for heat tolerance in the clay concept. The isolation characteristics 
 of bentonite buffer materials is reduced after this alteration. The time 
 integral of this phenomenon determines total bentonite alteration. While short 
 bursts of heat might be allowable, because the bentonite will not alter 
 immediately, the kinetic alteration into smectite clays is hastened by 
 temperatures above approximately 100$^\circ C$\cite{pusch_alteration_1987}. 
-Well understood behavior for agrillaceous clay and bentonite buffer backfill
+Well understood behavior for argillaceous clay and bentonite buffer backfill
 is conservatively assumed by the \gls{ANDRA} assessment to occur under 
 90$^\circ C$, which is effectively a limit at the waste package interface with 
 the bentonite buffer material.\cite{andra_argile:_2005} 
@@ -1262,7 +1262,7 @@ plan\cite{kessler_room_2006}.
 \subsection{Specific Temperature Integral}
 
 Line loading ($t/m$) and areal power density ($W/km^2$) are two common metrics
-for describing the fullness of the repository. While these metrics are
+for describing the loading of the repository. While these metrics are
 informative for mass capacity and power capacity respectively, they fail to
 reflect differences in thermal behavior due to varying SNF compositions.  A
 closer look at the isotopics of the situtation has proven much more applicable
@@ -1436,6 +1436,12 @@ discharge paths.
 
 %%%%%%%%%%%%%%%% Detailed Heat Transport %%%%%%%%%%%%%%%%%%%%%%%%
 
+Detailed heat transport models seek to quantify the heat evolution within a 
+repository envrionment due to heat generating waste forms. Such models are 
+detailed with respect to their detailed spatial and temporal resolution or 
+with respect to the incorporation and coupling of numerous physical phenomena. 
+Such codes typically utilize finite differencing or finite element methods in 
+many dimensions or sophisticated numerical solvers, respectively. 
 
 \subsection{LLNL MathCAD Model}
 
