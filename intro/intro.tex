@@ -19,7 +19,7 @@ The development of sustainable nuclear fuel cycles is a key challenge
 as the use of nuclear power expands internationally. While fuel cycle 
 performance may be measured with respect to a variety of metrics, 
 waste management metrics are of particular importance to the goal of 
-sustainability. Since disposal options are heavily dependent on 
+sustainability. Since disposal options are heavily influenced by 
 upstream fuel cycle decisions, a relevant analysis of potential 
 geological disposal and engineered barrier solutions therefore 
 requires a system level approach that is both modular and efficient. 
@@ -42,8 +42,8 @@ demonstrate the merits of different fuel cycle alternatives.
 % The modeling approach must be efficient in order for many scenarios 
 % to be compared quickly
 System level fuel cycle simulation tools must facilitate efficient 
-simulation of a wide range of fuel cycle alternatives as well as 
-sensitivity and uncertainty analyses. Efficiency is achieved with 
+sensitivity and uncertainty analysese as well as simulation of a wide 
+range of fuel cycle alternatives.  Efficiency is achieved with 
 models at a level of detail which successfully captures significant 
 aspects of the underlying physics while acheiving a calculation speed 
 in accordance with use cases requiring repeated simulations. Often 
@@ -140,7 +140,8 @@ production and fuel takes a single pass through a reactor before it is
 classified as waste and disposed of. In the open cycle, no 
 reprocessing is pursued, but research and development of advanced 
 fuels seek to reduce waste volumes. Calculations from the Electric 
-Power Research Institute indicate that such a cycle will generate a 
+Power Research Institute indicate that without an increase in the legislated 
+footprint of the repository, such a cycle will generate a 
 volume of spent fuel that will necessitate the siting of two or more 
 federal  geological repositories to accomodate spent fuel 
 \cite{kessler_room_2006}.  %% KDHFLAG WHEN? HOW LONG?
@@ -150,15 +151,16 @@ A Full Recycle option, on the other hand, requires the research,
 development, and deployment of partititioning, transmutation, and 
 advanced reactor technology for the reprocessing of used nuclear fuel.  
 In this scheme, conventional once-through reactors will be phased out 
-in favor of fast reactor and Gen-IV reactor technologies with 
-transmutation capacity and greater fuel efficiency. All fuel in the 
+in favor of fast reactor and so called Generation IV reactor technologies which  
+demonstrate transmutation capacity and greater fuel efficiency. All fuel in the 
 Full Recycle strategy will be reprocessed. It may be reprocessed using  
 an accelerator driven system or by cycling through an advanced fast 
 reactor. Such fuel may undergo partitioning, the losses from which will 
 require waste treatment ultimate disposal in a repository. Thus, a 
 repository under the Full Recycle scenario must support highly 
-variable waste stream composition, as well as myriad waste forms and 
-packaging associated with isolation of differing waste streams.
+variable waste stream composition during transition periods, as well as 
+myriad waste forms and packaging associated with isolation of differing waste 
+streams.
 
 % Modified Open presents both problems. . . 
 Finally, the Modified Open Cycle category of options includes a 
@@ -219,11 +221,19 @@ integrated disposal system model.
 % repository loading limits
 % optimization of layout
 % necessary decay cooling time before emplacement.
-A thermal modeling capability must be included in the repository 
-model in order to arrive at loading strategies which comply with 
-thermal limits in the engineered barrier system and the geological 
-medium as well as in order to inform material and hydrogeologic 
-phenomena which are thermally coupled. 
+The decay heat from nuclear material presents a significant heat source 
+within a repository. In order to arrive at loading strategies which comply with   
+thermal limits in the engineered barrier system and the geological medium , a 
+thermal modeling capability must be included in the repository model. Such a 
+model is also necessary to inform material and hydrogeologic phenomena which 
+effect radionuclide transport and are thermally coupled. 
+
+Since the partitioning and transmutation of heat generating radionuclides within  
+some fuel cycles will alter the heat evolution of the repository 
+\cite{swift_applying_2010}. To distinguish  
+between the repository heat evolution associated with various fuel cycles, a 
+systems analysis model must capture the decay heat behavior of dominant heat 
+contributors. 
 
 Thermal limits within a used nuclear fuel disposal system are waste 
 form, package, and geology dependent. Heat generation from the waste form 
