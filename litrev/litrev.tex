@@ -1539,7 +1539,7 @@ the current literature relies on specific temperature integrals.
 
 
 Specific Temperature Integrals model the thermal source as linear along the
-repository drifts, similar to the line loading and areal power density metrics.
+emplacement paths, similar to the line loading and areal power density metrics.
 However, a temperate integral takes account of heat transfer behavior in the
 rock, includes the effects of myriad SNF compositions, and gives the thermal
 integration over time for any specific location within the rock.  Man-Sung Yim
@@ -1558,8 +1558,18 @@ The length based accounting in $\frac{t}{m}$ is converted to
 $\frac{t}{Repository}$ by multiplication with the total emplacement tunnel
 length of the repository.  In the case of Yucca Mountain, this was 67 km.
 
-\section{Detailed Computational Models of Nuclide Transport}
+\section{Detailed Computational Models of Radionuclide Transport}
 \label{sec:detailed_nuclide}
+
+Detailed computational models of nuclide transport seek to quantify the spatial 
+movement of radionuclides within a repository envrionment due to heat 
+generating waste forms. Such models are detailed with respect to their fine 
+spatial and temporal resolution or with respect to the incorporation and 
+coupling of numerous physical phenomena. Current detailed computational models 
+addressing various repository geologies and geometries will be reviewed here 
+which utilize finite differencing and finite element methos in many dimensions, 
+sophisticated numerical solvers, and other high fidelity approaches.
+
 
 %%%%%%%%%%%%%%%% Detailed Nuclide Transport %%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1607,7 +1617,9 @@ characteristics and is independent of or weakly dependent on concentration.
 detailed nuclide transport calculations for both argillaceous clay and granite
 formations. 
 
-\subsubsection{Clay/Shale} More complicated saturation and resaturation phenomena 
+\subsubsection{ANDRA Clay Model} 
+
+In the \gls{ANDRA} clay model, complicated saturation and resaturation phenomena 
 are neglected and it is assumed that the initial repository condition is fully
 resaturated. This is a conservative simplification. Another conservative
 assumption is one in which the evacuation disturbed zone does not heal. Rather,
@@ -1687,7 +1699,13 @@ Tools used in the ALLIANCES software platform include Castem, PorFlow and Trace
 for hydraulic calculations and nuclide transport and Prediver and Colonbo for
 waste package failure.
 
-\subsection{SKB Model} SKB used ConnectFlow to model Forsmark particle
+\subsubsection{ANDRA Granite Model} 
+
+<++>
+
+
+\subsection{SKB Model} 
+\gls{SKB} used ConnectFlow to model Forsmark particle
 transport. It also used a model called MIKE SHE in conjunction with ConnectFlow
 in order to model ``uses locally measured meteorological data to simulate
 transient water flow in the saturated (groundwater) and unsaturated zones,
