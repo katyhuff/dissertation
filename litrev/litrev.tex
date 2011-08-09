@@ -1503,202 +1503,202 @@ brines capable of facilitating nuclide transport.
 %footprint\cite{li_examining_2007}.
 %
 %Similarly, age based fuel mixing also allows for decreases in drift spacing. In
-%aged based fuel mixing, aged (long cool time) SNF is loaded in a mixture with
-%young SNF. This age based fuel mixing has been shown to achieve a $48\%$
-%increase in the repository capacity as constrained by heat
-%load\cite{nicholson_thermal_2007}. This factor uses a fiducial default
-%footprint of $4.6 km^2$ used in the NRC TSPA.  The reported $48\%$ increase in
-%capacity results in total repository capacity of 103,600
-%tonnes\cite{williams_contract_2001}.
-%
-%In addition to variable drift spacing, other modifications to repository layout
-%have had promising results in terms of heat-limited repository capacity. The
-%Electric Power Research Institute (EPRI) in their Room at the Mountain study
-%found that with redesign of the repository an increased capacity of at least
-%$400\%$ (295 tonnes once-through SNF) and up to $900\%$ (663 tonnes) could be
-%expected to be achieved. Proposed design changes include decreased spacing
-%between drifts, a larger areal footprint, vertical expansion into second and
-%third levels of repository space, and hybrid solutions involving combinations
-%of these ideas. In particular, EPRI suggests either an expansion of the
-%footprint with redesign of the current Upper Block line load design plan or a
-%multi-level plan that repeats the footprint and line load design of the current
-%plan\cite{kessler_room_2006}.
-%
-%\input{litrev/footprint_tab} 
-%
-%
-%\subsection{Specific Temperature Integral}
-%
-%Line loading ($t/m$) and areal power density ($W/km^2$) are two common metrics
-%for describing the loading of the repository. While these metrics are
-%informative for mass capacity and power capacity respectively, they fail to
-%reflect differences in thermal behavior due to varying SNF compositions.  A
-%closer look at the isotopics of the situtation has proven much more applicable
-%to thermal performance studies of the repository, and the preferred method in
-%the current literature relies on specific temperature integrals.
-%
-%
-%Specific Temperature Integrals model the thermal source as linear along the
-%repository drifts, similar to the line loading and areal power density metrics.
-%However, a temperate integral takes account of heat transfer behavior in the
-%rock, includes the effects of myriad SNF compositions, and gives the thermal
-%integration over time for any specific location within the rock.  Man-Sung Yim
-%calls this the Specific Temperature Increase method\cite{li_specific_2008}
-%though other researchers have other names for this method. Tracy Radel calls
-%her temperature metric at a point in the rock the Specific Temperature
-%Change\cite{radel_repository_2007}.
-%
-%In a repository with linear drifts, the Heat flux from the drifts can be
-%expressed as the superposition of the linear heat flux contributions of all the
-%radionuclides in the waste. Each radionuclide contributes in proportion to its
-%decay heat generation and its weight fraction of the SNF. With information
-%about isotopic composition of the SNF, the Specific Temperature Increase can
-%determine the maximum thermal capacity of the repository in terms of tonnes/m.
-%The length based accounting in $\frac{t}{m}$ is converted to
-%$\frac{t}{Repository}$ by multiplication with the total emplacement tunnel
-%length of the repository.  In the case of Yucca Mountain, this was 67 km.
-%
-%\section{Detailed Computational Models of Nuclide Transport}
-%\label{sec:detailed_nuclide}
-%
-%%%%%%%%%%%%%%%%% Detailed Nuclide Transport %%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\subsection{Li Model\cite{li_methodology_2006}} As a function of time, water
-%enters the Engineered Barrier System and corrodes the waste packages.  These
-%fail and from the failed waste packages nuclides are released according to
-%advective transfer.  Further transportation through the near and far field rock
-%medium is modeled in two modes, one representing the Unsaturated Zone, and one
-%representing the Saturated Zone.
-%
-%\paragraph{Waste package failure and nuclide release} are modeled with two TSPA
-%code modules called EBSFAIL and EBSREL. The waste package failure rate is
-%determined from EBSFAIL which incorporates waste form chemistry, humidity,
-%oxidation, etc and upon contact from water begins the degradation process. The
-%results of EBSFAIL become the input to EBSREL which models corresponding
-%nuclide release from those failed waste packages. Mass balance governing the
-%nuclide release rate in this model allows advective transfer to dominate and
-%takes the form:
-%
-%\begin{equation}
-%\dot{m_i}=w_{li}(t)-w_{ci}{t}-m_i\lambda_i+m_{i-1}\lambda_{i-1}.\nonumber
-%\end{equation}
-%
-%In this expression, $w_{li}(t)$ is the rate $[mol/yr]$ of isotope \emph{i}
-%leached into the water.  It is a function of water flow rate, chemistry, and
-%isotope solubility. $m_i$ describes the mass of isotope \emph{i}, and
-%$\lambda_i$ $[s{-1}]$ describes its decay constant. Finally, $w_{ci}(t)$
-%describes the advective transfer rate $[mol/yr]$ of the isotope \emph{i}. This 
-%model defines $w_{ci}$ as:
-%
-%\begin{equation}
-%  w_{ci}(t)=C_i(t)q_{out}(t). 
-%\end{equation}
-%
-%where $q_out$ is the volumetric flow rate of the water $[m^3/yr]$, and 
-%$C_i$ is the concentration on isotope $i$ in the waste package volume 
-%$m_i/V_{wp}$ in $[mol/m^3]$. These assumptions fail to take into account any
-%differences in the varying solubilities of the isotopes, but are quite
-%sensitive to the concentration of an isotope \emph{i} in the waste package
-%volume.  
-%characteristics and is independent of or weakly dependent on concentration. 
-%\cite{li_methodology_2006}
-%
-%\subsection{ANDRA Dossier 2005} The ANDRA Dossier 2005 studies provided
-%detailed nuclide transport calculations for both argillaceous clay and granite
-%formations. 
-%
-%\subsubsection{Clay/Shale} More complicated saturation and resaturation phenomena 
-%are neglected and it is assumed that the initial repository condition is fully
-%resaturated. This is a conservative simplification. Another conservative
-%assumption is one in which the evacuation disturbed zone does not heal. Rather,
-%it is modeled in its damaged state immediately after excavation. 
-%
-%This model only tracks 15 nuclides of importance.  These are chosen to be those
-%with halflives over 1000 years and most toxicity or mobility.
-%\cite{andra_argile:_2005} The behavior of radionuclides in 
-%glassvitrification forms can be summarized by categorizing them into mobile,
-%intermediate, and well retained elements. 
-%
-%Some specific codes used in the \gls{ANDRA} clay assessment are listed in Table  
-%\ref{tab:andra}.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%%%%%%% Andra Sub-Codes Table %%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%
-%\input{litrev/andra_tab}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%%more details in inset 10-2, andra argile phenom. . 
-%
-%%%%%%%%%%%%%%%%%% From Andra %%%%%%%%%%%% 
-%% mobile elements. They comprise the alkalis (sodium, lithium), molybdenum and 
-%% technetium. They are released congruently with the degradation of the vitreous 
-%% matrix. (Andra, 2005d). Of the chemical toxins, boron corresponds to this 
-%% category of elements.  
-%
-%%intermediate elements are partially retained in the alteration layer when the 
-%%glass degrades. These elements are caesium, alkaline earth metals (calcium, 
-%%strontium, barium), silicon and aluminium (Andra, 2005d).
-%
-%
-%%Highly retained elements are insoluble at the basic pH imposed by the
-%
-%%degradation of the glass. They include all the transition elements (iron, 
-%%nickel, zinc, zirconium, etc.) and lanthanides and actinides (Andra, 2005d ; 
-%%Fillet, 1987).  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%
-%Waste form dissolution and package release was assumed to be immediate for some
-%waste forms and corrosion rate based for those where appropriate data was
-%available. Vitrified waste package releases were either modeled with a simple
-%model or a two phase phenomenological model. 
-%
-%%(pg198 for references to themath)
-%
-%Transportation through the backfill is modeled as diffusive, with high
-%permeability.
-%
-%The evacuation disturbed zone has both a fracture zone and a microfissure zone.
-%
-%In the host formation, movement is dominated by diffusion, and advection is
-%modeled, but is negligible.
-%
-%%advection dispersion equation is developed in the section entitled ``The 
-%%retention and transport of solutes.'' inset 10-11 gives solubility and sorption 
-%%values for important elements.
-%
-%
-%% from andra pg 202: 
-%% 
-%%The permeability values determined in situ or on undisturbed samples are 
-%%between 10-14 and 10-13 m/s. The structure of the medium suggests permeability 
-%%anisotropy and leads to cautiously adopting a value ten times higher for the 
-%%horizontal permeability.  The reference calculation therefore takes into 
-%%account a vertical permeability value of 5.10-14 m/s and a horizontal 
-%%permeability value of 5.10-13 m/s. The influence of temperature on the 
-%%permeability value is not included in calculations for the normal evolution 
-%%scenario, but it is taken into account in the altered evolution scenarios 
-%%because of its greater influence.  
-%
-%Tools used in the ALLIANCES software platform include Castem, PorFlow and Trace
-%for hydraulic calculations and nuclide transport and Prediver and Colonbo for
-%waste package failure.
-%
-%\subsection{SKB Model} SKB used ConnectFlow to model Forsmark particle
-%transport. It also used a model called MIKE SHE in conjunction with ConnectFlow
-%in order to model ``uses locally measured meteorological data to simulate
-%transient water flow in the saturated (groundwater) and unsaturated zones,
-%overland flow, and water losses due to evapotranspiration processes
-%(interception, evaporation and transpiration)''. CF contains an elaborate
-%description of flow within the rock, whereas the MS model provides more
-%detailed information on near-surface water flow paths and the associated
-%discharge paths.
-%
-%
-%
+aged based fuel mixing, aged (long cool time) SNF is loaded in a mixture with
+young SNF. This age based fuel mixing has been shown to achieve a $48\%$
+increase in the repository capacity as constrained by heat
+load\cite{nicholson_thermal_2007}. This factor uses a fiducial default
+footprint of $4.6 km^2$ used in the NRC TSPA.  The reported $48\%$ increase in
+capacity results in total repository capacity of 103,600
+tonnes\cite{williams_contract_2001}.
+
+In addition to variable drift spacing, other modifications to repository layout
+have had promising results in terms of heat-limited repository capacity. The
+Electric Power Research Institute (EPRI) in their Room at the Mountain study
+found that with redesign of the repository an increased capacity of at least
+$400\%$ (295 tonnes once-through SNF) and up to $900\%$ (663 tonnes) could be
+expected to be achieved. Proposed design changes include decreased spacing
+between drifts, a larger areal footprint, vertical expansion into second and
+third levels of repository space, and hybrid solutions involving combinations
+of these ideas. In particular, EPRI suggests either an expansion of the
+footprint with redesign of the current Upper Block line load design plan or a
+multi-level plan that repeats the footprint and line load design of the current
+plan\cite{kessler_room_2006}.
+
+\input{litrev/footprint_tab} 
+
+
+\subsection{Specific Temperature Integral}
+
+Line loading ($t/m$) and areal power density ($W/km^2$) are two common metrics
+for describing the loading of the repository. While these metrics are
+informative for mass capacity and power capacity respectively, they fail to
+reflect differences in thermal behavior due to varying SNF compositions.  A
+closer look at the isotopics of the situtation has proven much more applicable
+to thermal performance studies of the repository, and the preferred method in
+the current literature relies on specific temperature integrals.
+
+
+Specific Temperature Integrals model the thermal source as linear along the
+repository drifts, similar to the line loading and areal power density metrics.
+However, a temperate integral takes account of heat transfer behavior in the
+rock, includes the effects of myriad SNF compositions, and gives the thermal
+integration over time for any specific location within the rock.  Man-Sung Yim
+calls this the Specific Temperature Increase method\cite{li_specific_2008}
+though other researchers have other names for this method. Tracy Radel calls
+her temperature metric at a point in the rock the Specific Temperature
+Change\cite{radel_repository_2007}.
+
+In a repository with linear drifts, the Heat flux from the drifts can be
+expressed as the superposition of the linear heat flux contributions of all the
+radionuclides in the waste. Each radionuclide contributes in proportion to its
+decay heat generation and its weight fraction of the SNF. With information
+about isotopic composition of the SNF, the Specific Temperature Increase can
+determine the maximum thermal capacity of the repository in terms of tonnes/m.
+The length based accounting in $\frac{t}{m}$ is converted to
+$\frac{t}{Repository}$ by multiplication with the total emplacement tunnel
+length of the repository.  In the case of Yucca Mountain, this was 67 km.
+
+\section{Detailed Computational Models of Nuclide Transport}
+\label{sec:detailed_nuclide}
+
+%%%%%%%%%%%%%%%% Detailed Nuclide Transport %%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Li Model\cite{li_methodology_2006}} As a function of time, water
+enters the Engineered Barrier System and corrodes the waste packages.  These
+fail and from the failed waste packages nuclides are released according to
+advective transfer.  Further transportation through the near and far field rock
+medium is modeled in two modes, one representing the Unsaturated Zone, and one
+representing the Saturated Zone.
+
+\paragraph{Waste package failure and nuclide release} are modeled with two TSPA
+code modules called EBSFAIL and EBSREL. The waste package failure rate is
+determined from EBSFAIL which incorporates waste form chemistry, humidity,
+oxidation, etc and upon contact from water begins the degradation process. The
+results of EBSFAIL become the input to EBSREL which models corresponding
+nuclide release from those failed waste packages. Mass balance governing the
+nuclide release rate in this model allows advective transfer to dominate and
+takes the form:
+
+\begin{equation}
+\dot{m_i}=w_{li}(t)-w_{ci}{t}-m_i\lambda_i+m_{i-1}\lambda_{i-1}.\nonumber
+\end{equation}
+
+In this expression, $w_{li}(t)$ is the rate $[mol/yr]$ of isotope \emph{i}
+leached into the water.  It is a function of water flow rate, chemistry, and
+isotope solubility. $m_i$ describes the mass of isotope \emph{i}, and
+$\lambda_i$ $[s{-1}]$ describes its decay constant. Finally, $w_{ci}(t)$
+describes the advective transfer rate $[mol/yr]$ of the isotope \emph{i}. This 
+model defines $w_{ci}$ as:
+
+\begin{equation}
+  w_{ci}(t)=C_i(t)q_{out}(t). 
+\end{equation}
+
+where $q_out$ is the volumetric flow rate of the water $[m^3/yr]$, and 
+$C_i$ is the concentration on isotope $i$ in the waste package volume 
+$m_i/V_{wp}$ in $[mol/m^3]$. These assumptions fail to take into account any
+differences in the varying solubilities of the isotopes, but are quite
+sensitive to the concentration of an isotope \emph{i} in the waste package
+volume.  
+characteristics and is independent of or weakly dependent on concentration. 
+\cite{li_methodology_2006}
+
+\subsection{ANDRA Dossier 2005} The ANDRA Dossier 2005 studies provided
+detailed nuclide transport calculations for both argillaceous clay and granite
+formations. 
+
+\subsubsection{Clay/Shale} More complicated saturation and resaturation phenomena 
+are neglected and it is assumed that the initial repository condition is fully
+resaturated. This is a conservative simplification. Another conservative
+assumption is one in which the evacuation disturbed zone does not heal. Rather,
+it is modeled in its damaged state immediately after excavation. 
+
+This model only tracks 15 nuclides of importance.  These are chosen to be those
+with halflives over 1000 years and most toxicity or mobility.
+\cite{andra_argile:_2005} The behavior of radionuclides in 
+glassvitrification forms can be summarized by categorizing them into mobile,
+intermediate, and well retained elements. 
+
+Some specific codes used in the \gls{ANDRA} clay assessment are listed in Table  
+\ref{tab:andra}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%% Andra Sub-Codes Table %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\input{litrev/andra_tab}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%more details in inset 10-2, andra argile phenom. . 
+
+%%%%%%%%%%%%%%%%% From Andra %%%%%%%%%%%% 
+% mobile elements. They comprise the alkalis (sodium, lithium), molybdenum and 
+% technetium. They are released congruently with the degradation of the vitreous 
+% matrix. (Andra, 2005d). Of the chemical toxins, boron corresponds to this 
+% category of elements.  
+
+%intermediate elements are partially retained in the alteration layer when the 
+%glass degrades. These elements are caesium, alkaline earth metals (calcium, 
+%strontium, barium), silicon and aluminium (Andra, 2005d).
+
+
+%Highly retained elements are insoluble at the basic pH imposed by the
+
+%degradation of the glass. They include all the transition elements (iron, 
+%nickel, zinc, zirconium, etc.) and lanthanides and actinides (Andra, 2005d ; 
+%Fillet, 1987).  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Waste form dissolution and package release was assumed to be immediate for some
+waste forms and corrosion rate based for those where appropriate data was
+available. Vitrified waste package releases were either modeled with a simple
+model or a two phase phenomenological model. 
+
+%(pg198 for references to themath)
+
+Transportation through the backfill is modeled as diffusive, with high
+permeability.
+
+The evacuation disturbed zone has both a fracture zone and a microfissure zone.
+
+In the host formation, movement is dominated by diffusion, and advection is
+modeled, but is negligible.
+
+%advection dispersion equation is developed in the section entitled ``The 
+%retention and transport of solutes.'' inset 10-11 gives solubility and sorption 
+%values for important elements.
+
+
+% from andra pg 202: 
+% 
+%The permeability values determined in situ or on undisturbed samples are 
+%between 10-14 and 10-13 m/s. The structure of the medium suggests permeability 
+%anisotropy and leads to cautiously adopting a value ten times higher for the 
+%horizontal permeability.  The reference calculation therefore takes into 
+%account a vertical permeability value of 5.10-14 m/s and a horizontal 
+%permeability value of 5.10-13 m/s. The influence of temperature on the 
+%permeability value is not included in calculations for the normal evolution 
+%scenario, but it is taken into account in the altered evolution scenarios 
+%because of its greater influence.  
+
+Tools used in the ALLIANCES software platform include Castem, PorFlow and Trace
+for hydraulic calculations and nuclide transport and Prediver and Colonbo for
+waste package failure.
+
+\subsection{SKB Model} SKB used ConnectFlow to model Forsmark particle
+transport. It also used a model called MIKE SHE in conjunction with ConnectFlow
+in order to model ``uses locally measured meteorological data to simulate
+transient water flow in the saturated (groundwater) and unsaturated zones,
+overland flow, and water losses due to evapotranspiration processes
+(interception, evaporation and transpiration)''. CF contains an elaborate
+description of flow within the rock, whereas the MS model provides more
+detailed information on near-surface water flow paths and the associated
+discharge paths.
+
+
+
 \section{Detailed Computational Models of Heat Transport}
 \label{sec:detailed_heat}
 
