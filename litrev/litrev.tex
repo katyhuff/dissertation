@@ -1034,29 +1034,29 @@ A special case of uniform flow, no flow, simplifies to the diffusion equation,
 
 Solutions to these equations can be categorized by their boundary conditions. 
 The first, or Dirichlet type boundary conditions define a specified species 
-concentration on some section of the bouncary of the representative volume. 
+concentration on some section of the bouncary of the representative volume, 
 
 \begin{align*}
-  C(\vec{r},t) = C_0(\vec{r},t)\mbox{for} \vec{r} \in \Gamma
+  C(\vec{r},t) = C_0(\vec{r},t)\hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
 \end{align*}
 
 The second type or Neumann type boundary conditions describe a full set of 
-fluxes at  the boundary of the domain.
+fluxes at  the boundary of the domain
 
 \begin{align*}
-  \frac{\partial C(\vec{r},t)}{\partial x} = nD\vec{J} \mbox{for} \vec{r} \in \Gamma
+  \frac{\partial C(\vec{r},t)}{\partial x} = nD\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
 \end{align*}
 
 The third, Cauchy, type describes a combination of the Dirichlet and Neumann 
 type conditions, defining both a concentration at a boundary and a flux at that 
-boundary. 
+boundary, 
 
 \begin{align*}
-  C(\vec{r},t) = C_0(\vec{r},t)\mbox{ for } \vec{r} \in \Gamma\\
-  \frac{\partial C(\vec{r},t)}{\partial x} = nD\vec{J} \mbox{ for } \vec{r} \in \Gamma
+  C(\vec{r},t) = C_0(\vec{r},t)\hspace{1mm}\mbox{ for } \vec{r} \in \Gamma\\
+  \frac{\partial C(\vec{r},t)}{\partial x} = nD\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
 \end{align*}
 
-\subsubsection{Continuum Models} 
+\subsubsection{Continuum Models of Fractured Media} 
 
 There exist various conceptual models for incorporating fractures into a porous  
 medium model. Some examples are given in figure \ref{fig:fractureModels}.
@@ -1092,11 +1092,13 @@ models, but incorporate advective transfer within the rock matrix and between
 the rock matrix and the fracture volume\cite{uleberg_dual_1996}
 \cite{ho_dual_2000}.
 
-\paragraph{Discrete Fracture Network Models} 
+\subsubsection{Discrete Fracture Network Models} 
 
 Discrete fracture network models
 approximate that water and contaminants move only through the fracture network
-\cite{anderson_applied_1992} \cite{schwartz_fundamentals_2004}.
+\cite{anderson_applied_1992} \cite{schwartz_fundamentals_2004}. Such an 
+approximation is appropriate when flow through fractures is fast relative to 
+porous flow.
 
 The flow in each fracture can be approximated, as in Schwartz and Zhang, with
 the flow between two parallel plates having an aperture $b$, the mean fracture
@@ -1148,22 +1150,14 @@ the host matrix, $k_m$. Following the derivation in Schwartz and Zhang, in
 terms of the cross-sectional contact areas of the matrix and fractures $A_m$
 and $A_f$, the equivalent permeability, $k$, can be expressed
 
-\begin{align} k = \frac{k_m + \frac{A_f}{A_m}k_f}{1+\frac{A_f}{A_m}}.
-\label{equivperm} \end{align}
+\begin{align} 
+  k = \frac{k_m + \frac{A_f}{A_m}k_f}{1+\frac{A_f}{A_m}}.
+  \label{equivperm} 
+\end{align}
 
-\subsection{Geochemical Transport Models}
-
-\subsubsection{Reducing Environments}
-
-<++>
-
-%\paragraph{Saturated Environments}
-
-%\paragraph{Unsaturated Environments}
-
-\subsubsection{Oxidizing Environments}
-
-<++>
+This permeability is then used as the effective permeability of the rock in 
+expression which utilize it to determine the darcy velocity, such as Equation 
+\eqref{solperm}.
 
 %\paragraph{Saturated Environments}
 
@@ -1377,12 +1371,10 @@ Various waste package constraints exist which limit fuel loading. These are
 in general less restrictive than heat limits resulting from geological medium 
 constraints, however in some cases they are more restrictive. 
 
-For example, confinement capabilities of bitumen waste packages are only known 
-with confidence below $70^\circ C$. Inside the ``disposal cells'' a maximum 
-temperature of $ 30 ^\circ C$ is adopted in the \gls{ANDRA} analysis. 
-\cite{andra_argile:_2005}
-
-<++>
+For example, the current constraining heat limit in borosillicated glass 
+reported by the \gls{UFD} campaign is $500^\circ C$, corresponding to the 
+temperature at which the glass can be expected to begin devitrifying 
+\cite{carter_2010, hardin_generic_2011, soelberg_heat_2009}.
 
 \subsection{Heat Limits in Various Geologies}
 
