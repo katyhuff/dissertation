@@ -199,8 +199,7 @@ The nuclide transport calculations for the geologically distinct models
 are performed within the GoldSim simulation platform. GoldSim is a commercial
 off the shelf simulation environment which can include a contaminant transport 
 system for modeling of release and transport of contaminants as well as an 
-optional radionuclide transport module for decay calculations. Each models a 
-single repeatable waste package cell to arrive a a full repository model. 
+optional radionuclide transport module for decay calculations. 
 Probabilistic elements of the GoldSim modelling framework enable the models to 
 incorporate \gls{FEPs} expected to take place probabilistically during the 
 evolution of the repository.  
@@ -596,18 +595,22 @@ Radionuclide concentration has been shown to be proportional to the waste packag
 loading configuration for the Yucca Mountain case
 \cite{ahn_relationship_2002,kawasaki_congruent_2004}.
 
+
+\subsection{Geochemical Nuclide Transport Phenomena}
+
 The most important geochemical processes to source term that occur within the
 waste, waste matrix, and near field as well as the host rock are dissolution,
 precipitation, and sorption \cite{bracke_safety_2008}. 
 
 \subsubsection{Dissolution}
 
-Dissolution is the ``most important prerequisite'' for contribution of a
-radionuclide to source term\cite{bracke_safety_2008}. That is, the initial 
-dissolution of a radionuclide from its waste from is a breach of the ultimate 
-barrier, or final line of defense. Dissolution rates depend strongly on pH, Eh,
+Dissolution is prerequisite to contribution of a radionuclide to source term 
+\cite{bracke_safety_2008}. That is, the initial 
+dissolution of a radionuclide from its waste from is a breach of the primary
+barrier. Dissolution rates depend strongly on pH, Eh,
 speciation of radionuclides (chemical oxidative state), and radiolysis of the
-dissolving fluid.
+dissolving fluid, and primarily on material properties of the waste form.
+
 
 \subsubsection{Precipitation}
 
@@ -618,15 +621,16 @@ Predictions are not reliable in may cases.
 
 \subsubsection{Sorption}
 
-Sorption is the interaction of a dissolved species with surfaces that removes
-that species from the dissolving medium models.
+Sorption, which includes both absorption and adsorption,  is the interaction of a
+dissolved species with surfaces that removes that species from the dissolving
+medium models.
 
+Durin sorption,  contaminants are removed from the flowthrough water and taken up 
+by the walls of pores or fractures in the rock matrix. Importantly, sorption is a 
+reversible process, the  counter process of which is desorption in which the 
+contaminant is returned to the pore or fracture fluid from the matrix 
+ \cite{ahn_mass_1988} . 
 
-Sorption into the rock matrix is a method by which contaminants (and water? ) %
-are removed from a fracture during flow through that fracture. However, this is 
-a reversible process , which means the contaminant might be returned to the 
-fracture from the matrix with the same ''distribution coefficient`` with which 
-they entered the rock matrix \cite{ahn_mass_1988} . 
 
 % One way to model sorption is by assuming a linear isotherm. <+What does that 
 % mean? +> \cite{ahn_thesis_pg20}
@@ -657,7 +661,10 @@ resultant behavior of various isotopes exist.
 \subsection{Waste Form Release Models}
 
 Nuclide release from various possible waste form types will be dominated by an 
-array of degradation, alteration, and dissolution phenomena. 
+array of degradation, alteration, and dissolution phenomena. These phenomena 
+begin when surrounding waste packages are breached, exposing the waste form to 
+water. Some phenomena dominating the release from canonical waste forms such as  
+\gls{CSNF}, \gls{DSNF}, and \gls{HTGR} are discussed in Table \ref{tab:wf}.
 \input{litrev/wf_tab.tex}
 
 \subsubsection{Hedin Model (\cite{hedin_integrated_2002})}
@@ -673,7 +680,8 @@ congruently until the waste form is completely degraded.
 \subsubsection{Ahn Models (\cite{ahn_environmental_2004,
 ahn_environmental_2007})}
 
-Waste canisters are modelled as compartments of waste form surrounded by a
+In an oxidizing, unsaturated environment, waste canisters are modelled as 
+compartments of waste form surrounded by a
 buffer layer which is in turn surrounded by layers of near field rock and far
 field rock. Water is introduced to the system at a constant rate, and
 encounters an array of failed waste packages (at $t=0$ in the 2004 model, and
@@ -687,7 +695,7 @@ waste package, contacting each waste package consecutively and then flowing on
 into the near field. In this way, the water is increasingly contaminated as its
 path through the waste packages proceeds.  
 
-\subsubsection{Congruent Release Model} 
+\subsubsection{Ahn Congruent Release Model} 
 
 In the Ahn models, nuclides with a high solubility coefficient are modeled with
 the congruent release model.  Nuclides of this type include most of the fission
@@ -696,13 +704,16 @@ waste packages is congruent with the dissolution of the waste matrix and is
 transported through the rock by advective transfer with the water that flows
 through the waste packages.  
 
-\subsubsection{Solubility Limited Release Model}
+\subsubsection{Ahn Solubility Limited Release Model}
 
 In the Ahn models, nuclides with lower solubility coefficients are modeled with
 the solubility limited release model.  Solubility values are assumed from TSPA
 for this model, and a solubility of $~5\times 1^{-2} [mol/m^3]$ are taken to be
 `low.' Elements in this `low' category include the toxic actinides such as Zr,
-Nb, Sn, Th, and Ra.  This model suggests that a dominant mode of dissolution of
+Nb, Sn, Th, and Ra for an oxidizing, unsaturated environment similar to \gls{YMR}.
+In should be noted that in a reducing environment, the actinides are not as mobile, 
+and the high and low solubility nuclides will differ from this model.
+This model suggests that a dominant mode of dissolution of
 the nuclide into the flowthrough water is dominated instead by the diffusion
 coefficient, which is largely dependent upon the concentration gradient between
 the waste matrix and the water. The mass balance driving nuclide release takes
@@ -764,7 +775,8 @@ be represented more  realistically by fractional destruction according to
 experimentally observed corrosion and dissolution rate functions.
 
 However, this can be complicated to model even if the data exists. In
-particular, the corrosion rate will depend dramatically on hydrologic and
+particular, the corrosion rate will depend dramatically on the chosen material 
+as well as hydrologic and
 thermal conditions. Specificially, corrosion rates for the same material are
 very different under dry oxidising conditions and wet reducing conditions. 
 
@@ -775,8 +787,10 @@ very different under dry oxidising conditions and wet reducing conditions.
 %corrosion rate is reduced to a few microns (or even less than a micron) per 
 %year.  see pg 283/525 of phenomenological evolution doc for details
 
-An expression of the number of failed waste packages per year is a simple 
-functional relationship
+An expression of the number of failed waste packages, $n_F$ per time step is a simple 
+product between the inital number of waste packages, $N$ and the rate $f$ of
+package  failure as a function of time ($t$), temperature ($T$), and other 
+parameters.
 
 \begin{align}
   n_F = Nf(t,T,\cdots).
@@ -787,13 +801,22 @@ functional relationship
 
 When a probability distribution of waste package failure is available, the 
 discrete waste packages can be modeled to fail according to that distribution. 
-For example, if the expected lifetime of a waste package is 30,000 years, a 
-gaussian distribution around that number would provide a probabilistic number of 
-waste package failures per time step
+For example, if the expected lifetime of a waste package is some known $t_F$, a 
+gaussian distribution around $t_F$ would provide probability density function 
+for waste package failures per time step, $f(t)$
 
 \begin{align}
   n_F=Nf(t).
   \label{probabilistic}
+\end{align}
+
+Expressed with a cumulative distribution function $F(t)$ rather than the
+probability distribution function, 
+
+
+\begin{align}
+  \sum_{t=0}^{t=t}n_F=NF(t).
+  \label{cdf}
 \end{align}
 
 The instantaneous case is a special case of the probabilistic situation. 
@@ -801,9 +824,28 @@ Specfically, it is the Dirac delta function mentioned in equation
 \eqref{instantaneous}.
 
 A particularly attractive probability distribution for use in the case of failed 
-engineered barriers is the Weibull distribution. 
+engineered barriers is the Weibull distribution, 
 
-<++>
+\begin{align}
+  f(t,\lambda,k) =  \begin{cases}
+    \frac{k}{\lambda}\left(\frac{t}{\lambda}\right)^{k-1}e^{-(t/\lambda)^{k}} & 
+    t\geq0 ,\\
+    0 & t<0 ,\end{cases}.
+  \label{weibullpdf}
+\end{align}
+
+
+In this expression, k is a shape parameter and $\lambda$ is a scale
+parameter. The time to failure, $t$ in the Weibull distribution gives a 
+distribution for which the failure rate is proportional to a power of time 
+\cite{papoulis_probability_2002}. Its complementary cumulative distribution
+function is 
+
+\begin{align}
+  f(t,\lambda,k) = 1-e^{-(t/\lambda)^k}.
+  \label{weibullcdf}
+\end{align}
+
 
 %%%%
 
@@ -816,21 +858,27 @@ transportation through the secondary EBS nuclides reach the geosphere.
 \subsubsection{Barrier Dissolution and Failure}
 
 The same models of waste package failure (instantaneous, rate based, and 
-probabilistic) can be applied to buffers.
+probabilistic) can be applied to buffers. While concretes are expected to 
+degrade, bentonite buffers are quite stable in a reducing environment and help 
+to keep the environment reducing. Furthermore, if preserved by  a low heat 
+environment, the plastic deformation characteristics of bentonite clays,
+they tend to swell over time and exhibit increased isolating behavior.
 
 \subsubsection{Transport Through Degraded Barrier Matrix}
 
 Diffusive and advective transport occur in the barrier matrix both before and 
 after degradation. Before degradation, transport is primarily diffusive. 
-Thereafter, transport is primarily advective. Cracking can be modeled explicitly 
-or as a continuum model.  
+Thereafter, transport can become advective due to cracking. Cracking can be 
+modeled explicitly or as a continuum model.  
 
 %%%%
 
 \subsection{Hydrogeologic Transport Models}
-Clay, shale, granite, and salt can largely be characterized as permeable porous media. 
-Solute transport in permeable porous media involves advection, hydraulic 
-dispersion, and diffusion. 
+Clay, shale, granite, and salt can largely be characterized as permeable porous 
+media. While clay shale and salt do not exhibit significant fracturation and can 
+often be modeled as homogeneous, granite is  characterized as a fractured 
+permeable porous media.  Solute transport in both fracture and homogeneous 
+permeable porous media involves advection, hydraulic dispersion, and diffusion. 
 
 Advection is transport congruent with the water velocity, diffusion is the 
 result of brownian motion accross concentration gradients, and hydraulic 
