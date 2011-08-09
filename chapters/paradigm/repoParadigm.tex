@@ -15,9 +15,9 @@ performance metrics.
 
 \subsubsection{Waste Stream Input}
 
-The repository model must accept arbitrary spent fuel streams.  
-Material objects resulting from the simulated fuel cycle arrive at the  
-repository and are emplaced if all repository capacity limits allow 
+The repository model must accept arbitrary spent fuel and high level waste
+streams.  Material objects resulting from the simulated fuel cycle arrive at 
+the  repository and are emplaced if all repository capacity limits allow 
 it.
 
 As the set of disposable material in the simulation is of heterogeneous 
@@ -36,11 +36,13 @@ capacity under heat and source term limitations. Those include spatial
 dimensions, spatial dimensions per kWh or equivalent, repository 
 footprint, and number of waste packages generated.
 
-Still other metrics which may be calculated include environmental metrics 
-such as peak radiotoxic dose to the public, radiotoxic fluxes released to the 
-biosphere integrated over time, and the minimum managed lifetime.  
-These metrics are recorded in a database flexibly defined by the repository 
-model.
+Still other metrics which may be calculated include those being considered by 
+the \gls{UFD} campaign in a Fuel Cycle Data Package task underway 
+\cite{nutt_personal_2011}. Additional metrics which will be considered in this
+context will likely include environmental metrics such as peak radiotoxic dose 
+to the public, radiotoxic fluxes released to the biosphere integrated over time, 
+and the minimum managed lifetime.  These metrics are recorded in a database 
+flexibly defined by the repository model. 
 
 \subsubsection{Facility Functionality}
 
@@ -49,7 +51,8 @@ paradigm. The fundamental facility behavior within \Cyclus involves
 participating in commodity markets. The repository will participate as 
 a requester of waste commodities. During reactor operation, the 
 repository will make requests to markets dealing in spent fuel streams 
-according to its available capacity..
+according to its available capacity. Possible optional intermediate storage facility 
+model is available for cooling periods.
 
 \subsection{Nested Component Concept}
 

@@ -36,7 +36,7 @@ module. A secondary benefit of this encapsulation is the ability for
 contributors to choose different distribution and licensing strategies
 for their contributions. By allowing models to have varied
 availability, the security concerns of developers can be
-assuaged (See Figure \ref{fig:repo}. 
+assuaged (See Figure \ref{fig:repo}). 
 
 \begin{figure}[hp!]
   \begin{center}
@@ -57,30 +57,42 @@ questions as well as users interested in more detailed, technical
 analyses.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Abstraction}
+\subsubsection{Encapsulation}
 
-\Cyclus implements a structure that takes advantage of 
+\Cyclus implements an encapsulated structure that takes advantage of 
 object-oriented software design techniques in order to create an 
 extensible and modular user and developer interface. A primary 
 workhorse for this implementation is the notion of dynamic module 
-loading in combination with a region institution facility  
-hierarchy. In this paradigm, the shared interface of polymorphic 
-objects is abstracted from the logic of their instantiation by the 
-model definition they inherit. 
+loading in combination with  well defined module interfaces within 
+a region, institution, and facility  hierarchy. In this paradigm, 
+the shared interface of polymorphic objects is abstracted from the 
+logic of their instantiation by the model definition they inherit.  
 
 In this way, \Cyclus allows a level of abstraction to exist between 
-the simulation and model instantiation 
-as well as between model instantiation and behavior.
-An interface defines the set of shared functions of a set of 
-subclasses in an abstract superclass. In \Cyclus main superclasses are 
-RegionModel, InstitutionModel, FacilityModel, and MarketModel while 
-their subclasses are the concrete types (e.g. RecipeReactorFacility). 
+the simulation and model instantiation as well as between model 
+instantiation and behavior.  An interface defines the set of shared 
+functions of a set of subclasses in an abstract superclass. In \Cyclus
+main superclasses are Regions, Institutions, Facilities, and Markets 
+while their subclasses are the concrete available model types (e.g. a 
+RecipeReactorFacility). See Figure \ref{fig:modularity}.
+
 The interface for the FacilityModel class is the set of 
 virtual functions declared in the Facility class such as getName, 
 getID, executeOrder(), sendMaterial(), receiveMaterial() etc.  Through 
 such an interface, the members of a subclass can be treated as 
 interchangeable (polymorphic) instantiations of their shared 
 superclass. 
+
+\begin{figure}[htbp!]
+  \begin{center}
+    \includegraphics[height=10cm]{./chapters/paradigm/modularity.png}
+  \end{center}
+  \caption[Module Interfaces and Encapsulation]{Modules are defined solely 
+  by their interfaces in a modular paradigm and can be arbitrarily 
+  interchanged with modules posessing equivalent interfaces.}
+  \label{fig:modularity}
+\end{figure}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Modularity and Extensibility}
@@ -94,16 +106,6 @@ In \Cyclus, addition of new models by dynamic loading is possible without
 any alteration of the software trunk. The modular design of \Cyclus stresses
 avoidance of rigidity, in which changes to the code are potentially difficult, 
 and fragility, in which changes to the code are potentially damaging.
-
-\begin{figure}[htbp!]
-  \begin{center}
-    \includegraphics[height=10cm]{./chapters/paradigm/modularity.png}
-  \end{center}
-  \caption[Module Interfaces and Encapsulation]{Modules are defined solely 
-  by their interfaces in a modular paradigm and can be arbitrarily 
-  interchanged with modules posessing equivalent interfaces.}
-  \label{fig:modularity}
-\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Market-based Material Transactions}
