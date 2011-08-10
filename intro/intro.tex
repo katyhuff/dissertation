@@ -13,7 +13,7 @@ various geologic media and as a function of arbitrary spent fuel composition.
 
 \section{Motivation} 
 
-% There needs to be a system level approach to repository analysis which is both 
+% There needs to be a system level approach to repository analysis that is both 
 % modular and efficient.
 
 The development of sustainable nuclear fuel cycles is a key challenge as the use 
@@ -36,7 +36,7 @@ parameters contributing to key waste disposal metrics, and highlighting the most
 promising waste disposal combinations with respect to metrics chosen by
 the user. Specifically, such models will support efforts underway in focusing 
 domestic research and development priorities as well as computational tools 
-under development which quantify these metrics and demonstrate the merits of 
+under development that quantify these metrics and demonstrate the merits of 
 different fuel cycle alternatives. 
 
 % The modeling approach must be efficient in order for many scenarios to be 
@@ -44,7 +44,7 @@ different fuel cycle alternatives.
 
 System level fuel cycle simulation tools must facilitate efficient sensitivity 
 and uncertainty analysese as well as simulation of a wide range of fuel cycle 
-alternatives.  Efficiency is achieved with models at a level of detail which 
+alternatives.  Efficiency is achieved with models at a level of detail that 
 successfully captures significant aspects of the underlying physics while 
 acheiving a calculation speed in accordance with use cases requiring repeated 
 simulations. Often termed abstraction, the process of simplifying while 
@@ -112,7 +112,7 @@ conditioning, densities, and other physical properties.
 
 Domestically, nuclear power expansion is motivated by the research, development, 
 and demonstration roadmap being pursued by the United States Department of 
-Energy Office of Nuclear Energy (DOE-NE) which seeks to ensure that nuclear 
+Energy Office of Nuclear Energy (DOE-NE), which seeks to ensure that nuclear 
 energy remain a viable domestic energy option \cite{doe_nuclear_2010}. 
 
 % DOE is considering 3 main options, each of which pose different waste 
@@ -150,7 +150,7 @@ A Full Recycle option, on the other hand, requires the research, development,
 and deployment of partititioning, transmutation, and advanced reactor technology 
 for the reprocessing of used nuclear fuel.  In this scheme, conventional 
 once-through reactors will be phased out in favor of fast reactor and so called 
-Generation IV reactor technologies which  demonstrate transmutation capacity and 
+Generation IV reactor technologies, which demonstrate transmutation capacity and 
 greater fuel efficiency. All fuel in the Full Recycle strategy will be 
 reprocessed. It may be reprocessed using  an accelerator driven system or by 
 cycling through an advanced fast reactor. Such fuel may undergo partitioning, 
@@ -207,10 +207,10 @@ paragraph needs explication
 
 % Various geologies, WFs, WPs, EBSs have various physics
 
-The physical, hydrogeologic, and geochemical mechanisms which dictate 
+The physical, hydrogeologic, and geochemical mechanisms that dictate 
 radionuclide and heat transport vary between the geological and engineered 
 containment systems in the domestic option space.  Therefore, in support of the 
-system level simulation effort, models must be developed which capture the 
+system level simulation effort, models must be developed that capture the 
 salient physics of these geological options and quantify associated disposal 
 metrics and benefits.  Furthermore, modular linkage between subcomponent process 
 modules and the repository environmental model must acheive a cohesively 
@@ -222,10 +222,10 @@ integrated disposal system model.
 % optimization of layout
 % necessary decay cooling time before emplacement.
 The decay heat from nuclear material presents a significant heat source within a 
-repository. In order to arrive at loading strategies which comply with   thermal 
+repository. In order to arrive at loading strategies that comply with thermal 
 limits in the engineered barrier system and the geological medium , a thermal 
 modeling capability must be included in the repository model. Such a model is 
-also necessary to inform material and hydrogeologic phenomena which effect 
+also necessary to inform material and hydrogeologic phenomena that effect 
 radionuclide transport and are thermally coupled. 
 
 Since the partitioning and transmutation of heat generating radionuclides within  
@@ -261,17 +261,17 @@ loading. In the United States, current regulations stipulate thermal limits in
 order to passively steward the repository's hydrologic and geochemical integrity 
 against radionuclide  release for the upcoming 10,000 years.
 
-The two heat load constraints which primarily determined the heat-based SNF 
+The two heat load constraints that primarily determined the heat-based SNF 
 capacity limit in the Yucca Mountain Repository design, for example, are 
 specific to unsaturated tuff. These are given here as an example of the type of 
-regulatory constraints which this model will seek to capture for various 
+regulatory constraints that this model will seek to capture for various 
 geologies. 
 
 The first Yucca Mountain heat load constraint intended to promote constant 
 drainage, thereby preventing repository flooding and subsequent contaminated 
 water flow through the repository. It requires that the minimum temperature in 
-the tuff between drifts be no  more than the boiling temperature of water which, 
-at the altitude in question, is $96^{\circ}C$. For a repository with homogenous 
+the tuff between drifts be no  more than the boiling temperature of water, which 
+is $96^{\circ}C$ at the altitude in question. For a repository with homogenous 
 waste composition in parallel drifts, this constraint limits the temperature 
 exactly halfway between adjacent drifts, where the temperature is at a minimum.
 
@@ -398,11 +398,38 @@ physics process models into the \Cyclus computational fuel cycle analysis
 % Scope
 
 In this work, concise dominant physics models suitable for system level fuel 
-cycle codes will be developed from comparison of analytical models with more 
+cycle codes will be developed by comparison of analytical models with more 
 detailed repository modeling efforts. The ultimate objective of this effort is 
 to develop a software library capable of assessing a wide range of combinations 
 of fuel cycle alternatives, potential waste forms, repository design concepts, 
 and geological media. 
+
+% Selection of base set of subcomponents to model
+
+Current candidate repository concepts have been investigated and reviewd in 
+order to arrive at a fundamental set of components to model. Four candidate 
+geologies and four corresponding repository concepts under consideration by the  
+\gls{DOE} \gls{UFD} campaign.
+
+
+% Review of available analytical models
+
+A review and characterization of the physical mechanisms by which radionuclide 
+and thermal transport take place within the materials and media under 
+consideration will first be undertaken. Potential analytical models to  
+
+% Review of available current detailed tools
+
+
+% For each component, abstraction of current tools and analytical models
+
+% Iterate
+
+% Test using canonical data for those subcomponents
+
+% Expand to other subcomponents
+
+
 
 % Categorization
 
@@ -411,7 +438,7 @@ and thermal transport take place within the materials and media under
 consideration will first be undertaken. In this way, the domain of applicability 
 for which subprocesses may be generalized will be assessed. In so doing, a 
 preliminary set of combinations of fuel cycles, waste forms, repository designs, 
-and geologies can be chosen which covers a foundational subspace of the 
+and geologies can be chosen that covers a foundational subspace of the 
 parametric domain. 
 
 % Abstraction = Analytic Solutions + Regression Approximation
@@ -428,7 +455,7 @@ possible implementations.
 % For example, Geology.
 
 Specifically, geological models will focus on the hydrogeology and thermal 
-physics which dominate radionuclide transport and heat response in candidate 
+physics that dominate radionuclide transport and heat response in candidate 
 geologies as a function of radionuclide release and heat generation over long 
 time scales from waste packages.  Dominant transport mechanism (advection or 
 diffusion) and disposal site water chemistry (redox state) will provide primary 
@@ -452,7 +479,7 @@ efforts such as the RED-IMPACT asessment and \gls{ANDRA} Dossier efforts
 
 For example, analytic models and semi-empirical models are available (i.e. 
 specific temperature integrals (ref. \cite{li_methodology_2006}) and specific 
-temperature change index (ref. \cite{radel_effect_2007})) which approximate 
+temperature change index (ref. \cite{radel_effect_2007})) that approximate 
 thermal response from heat generation in waste packages as linear along 
 repository drifts. These analyses arrive at a thermal evolution over time at any 
 location in the rock by superpositioning and integration. Subsequently, their 
@@ -515,7 +542,7 @@ magnitude of coupling effects in the system.
 
 % Summarize document
 
-The following chapter will present a literature review which organizes and 
+The following chapter will present a literature review that organizes and 
 reports upon previous relevant work. It will focus upon current analytical and 
 computational modeling of radionuclide and heat transport through various waste 
 forms, engineered barrier systems, and geologies of interest. It will also 
@@ -541,7 +568,7 @@ levels of detail.
 Chapter \ref{ch:categorization} will categorize and characterize detailed 
 computational models of radionuclide and heat transport available for regression 
 analysis. Specificially, detailed codes in current use are categorized according 
-to the physics which they model, the disposal system components with which they 
+to the physics that they model, the disposal system components with which they 
 are concerned, and the level of detail and computational methodology with which 
 they capture physical phenomena. 
 
