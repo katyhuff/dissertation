@@ -407,39 +407,43 @@ and geological media.
 % Selection of base set of subcomponents to model
 
 Current candidate repository concepts have been investigated and reviewd in 
-order to arrive at a fundamental set of components to model. Four candidate 
-geologies and four corresponding repository concepts under consideration by the  
-\gls{DOE} \gls{UFD} campaign.
+order to arrive at a fundamental set of components to model. A preliminary 
+set of combinations of fuel cycles, repository concepts, and geologies has 
+been chosen that fundamentally captures the fundamental domestic option 
+space. Specifically, three candidate geologies and four corresponding 
+repository concepts under consideration by the \gls{DOE} \gls{UFD} campaign 
+have been chosen for modeling in this work. These will be expected to interface
+with \Cyclus simulations of a canonical set of potential fuel cycles within 
+three broad candidate scenarios put forth by the \gls{US} \gls{DOE}.
 
 
 % Review of available analytical models
 
 A review and characterization of the physical mechanisms by which radionuclide 
 and thermal transport take place within the materials and media under 
-consideration will first be undertaken. Potential analytical models to  
+consideration was first undertaken. Potential analytical models to represnt  
+these phenomena were investigated and categorized within the literature review. 
 
 % Review of available current detailed tools
 
-
+A review and characterization of current detailed computational tools for
+repository focused analysis was next conducted. Both international and domestic
+repository modeling efforts were summarized within the literature review. Of 
+these, candidate computational tools with which to perform abstraction and 
+regression analyses were identified. Specifically, a suite of \gls{GDSM} 
+tools under development by the \gls{DOE} \gls{UFD} campaign will inform  
+radionuclide transport models and a pair of corresponding thermal analysis 
+codes will inform the thermal models.
+ 
 % For each component, abstraction of current tools and analytical models
 
-% Iterate
-
-% Test using canonical data for those subcomponents
-
-% Expand to other subcomponents
-
-
-
-% Categorization
-
-Categorization and characterization of physical mechanisms by which radionuclide 
-and thermal transport take place within the materials and media under 
-consideration will first be undertaken. In this way, the domain of applicability 
-for which subprocesses may be generalized will be assessed. In so doing, a 
-preliminary set of combinations of fuel cycles, waste forms, repository designs, 
-and geologies can be chosen that covers a foundational subspace of the 
-parametric domain. 
+Continuation of this work will consist of the development of a suite of 
+subcomponent modules appropriate for use within the \Cyclus fuel cycle simulator. 
+This process will include the development of a robust architecture within the 
+repository module that will allow for interchangeable loading of system components. 
+Within the system components, dominant physics will be modeled based on 
+domain appropriate approximation of analytical models and supported by abstraction 
+with the chosen \gls{GDSM} tools and thermal tools. 
 
 % Abstraction = Analytic Solutions + Regression Approximation
 
@@ -536,6 +540,18 @@ coupling between the models for the engineered system and the geologic system
 may be important. Thermal dependence of radionuclide release and transport as 
 well as package degradation will necessarily be analyzed to determine the 
 magnitude of coupling effects in the system.
+
+% Iterate
+
+The full abstraction process will be iterated to achieve a balance between calculation 
+speed and simulation detail. Model improvements during this stage will seek a
+level of detail appropriate for informative comparison of subcomponents, but with 
+sufficient speed to enable systems analysis. 
+
+% Test using canonical data for those subcomponents
+
+By varying input parameters and comparing with corresponding results from detailed 
+tools, each model's behavior on its full parameter domain will be validated.
 
 
 \section{Outline}
