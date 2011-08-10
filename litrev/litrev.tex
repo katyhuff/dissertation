@@ -151,7 +151,7 @@ The TSM framework is based on the commercial SimCAD platform. The simulation
 steps through times in 8 hour time steps during the waste cask transportation, 
 processing and emplacement. This event based simulator is primarily focused on 
 the operation stage of the Yucca Mountain repository, but is equipped with a 
-thermal managment model which informs waste package emplacment.
+thermal managment model that informs waste package emplacment.
 
 
 
@@ -191,13 +191,13 @@ models of generic clay, granite, and salt disposal environments. Sandia is
 simultaneously constructing a deep borehole disposal system model in crystalline 
 rock. Each generic disposal system model will perform detailed calculations of 
 nuclide transport within its respective lithology. A 2012 goal of the 
-project includes an overarching generic model which incorporates the various 
+project includes an overarching generic model that incorporates the various 
 geologically distinct submodels in order to provide a fully generic repository 
 model. This overarching \gls{GPAM} work will be incorporated into this effort.
 
 The nuclide transport calculations for the geologically distinct models 
 are performed within the GoldSim simulation platform. GoldSim is a commercial
-off the shelf simulation environment which can include a contaminant transport 
+off the shelf simulation environment that can include a contaminant transport 
 system for modeling of release and transport of contaminants as well as an 
 optional radionuclide transport module for decay calculations. 
 Probabilistic elements of the GoldSim modelling framework enable the models to 
@@ -211,7 +211,7 @@ mass transfer links.
 Thermal modeling for the \glspl{GDSM} are conducted independently with 
 associated codes capable of modeling thermal evolution for all geologies. For 
 example, one thermal model is being created using the SINDA\textbackslash G heat
-transport solver and another is under development which utilizes a combination 
+transport solver and another is under development that utilizes a combination 
 of MathCAD and Excel. 
 
 \subsubsection{Clay/Shale GDSM}
@@ -281,7 +281,7 @@ field to far field interface.
 Transport through the buffer is modeled as entirely diffusive coupled with 
 sorption. Advection is neglected.
 
-The far field was represented using a model which includes advection, diffusion 
+The far field was represented using a model that includes advection, diffusion 
 and sorption. Specifically, the \gls{FEHM} code was coupled into GoldSim to 
 represent the far field.
 
@@ -321,7 +321,7 @@ meshed in three full dimensions with the \gls{CUBIT} meshing tool
 Granite disposal concepts have been considered in Finland, Japan, Sweden and 
 Switzerland. 
 
-Attributes of granite which make it an attractive candidate geology for nuclear 
+Attributes of granite that make it an attractive candidate geology for nuclear 
 waste disposal include its very low porosity and permeability and high thermal 
 conductivity. Fracturation in granite, however, has a negative effect on the 
 isolation properties of the rock.  
@@ -371,7 +371,7 @@ isolation properties of the rock.
 \subsection{Borehole Disposal Environments}
 
 Deep Borehole disposal system concepts are being evaluated in Sweden and the 
-United States. Attributes of this concept which are favorable for waste 
+United States. Attributes of this concept that are favorable for waste 
 isolation include the stability of the crystalline basement rock in which the 
 borehole emplacement would occur and the elongated diffusion path length for 
 release. Unfavorable aspects, however, include the potential technical 
@@ -426,8 +426,8 @@ difficulty of well controlled emplacement at great depth
 The salt disposal concept has been investigated in Germany and demonstrated for 
 non-heat-generating waste at the \gls{WIPP} facility in the US. Salt 
 demonstrates many attractive properties including ease of mining, creep behavior 
-over time which is expedited by heat, low permeability, and a high thermal 
-conductivity which affords a high temperature limit near $200^\circ C$ 
+over time, which is expedited by heat, low permeability, and a high thermal 
+conductivity, which affords a high temperature limit near $200^\circ C$ 
 \cite{hardin_generic_2011} .
 
 \input{./litrev/salt_tab.tex}
@@ -558,7 +558,7 @@ be employed in the context of the hydrogeology of the rock.
 
 Waste package failure rate varies between models. While some employ detailed 
 computational tools such as GoldSim or EBSFAIL (a part of the EBSPAC module 
-used in the TSPA code) which will be discussed in section 
+used in the TSPA code), which will be discussed in section 
 \ref{sec:detailed_nuclide}, 
 analytic models incorporate their own hydrogeologic approximations of
 canister degredation or make simpler assumptions of immediate waste canister 
@@ -673,7 +673,7 @@ In a saturated fractured rock matrix representative of the KBS-3 granitic
 Swedish repository concept, copper canister waste packages contain a waste
 matrix, and a bentonite buffer surrounds the canisters within repository drift
 tunnels. Waste form dissolution within the Hedin model is a rate based model
-which takes place within the waste package void. Nuclides are released
+that takes place within the waste package void. Nuclides are released
 congruently until the waste form is completely degraded.
 \cite{hedin_integrated_2002} 
 
@@ -682,7 +682,7 @@ ahn_environmental_2007})}
 
 In an oxidizing, unsaturated environment, waste canisters are modelled as 
 compartments of waste form surrounded by a
-buffer layer which is in turn surrounded by layers of near field rock and far
+buffer layer that is in turn surrounded by layers of near field rock and far
 field rock. Water is introduced to the system at a constant rate, and
 encounters an array of failed waste packages (at $t=0$ in the 2004 model, and
 at $T_f=75,000$ years in the 2007 model). The water immediately begins
@@ -852,7 +852,7 @@ function is
 \subsection{Nuclide Transport Through Secondary Engineered Barriers}
 
 When the waste package is breached, nuclides are transported through secondary 
-engineered barriers which includes the buffer zone and tunnel walls. After 
+engineered barrier, which includes the buffer, backfill, and tunnel wall. After 
 transportation through the secondary EBS nuclides reach the geosphere. 
 
 \subsubsection{Barrier Dissolution and Failure}
@@ -1156,7 +1156,7 @@ and $A_f$, the equivalent permeability, $k$, can be expressed
 \end{align}
 
 This permeability is then used as the effective permeability of the rock in 
-expression which utilize it to determine the darcy velocity, such as Equation 
+expressions that utilize it to determine the darcy velocity, such as Equation 
 \eqref{solperm}.
 
 %\paragraph{Saturated Environments}
@@ -1249,7 +1249,7 @@ area of the representative volume,
 \subsection{Convection}
 
 Convective heat transfer occurs advectively in accordance with fluid movement. 
-The form of Fourier's Law which describes convection is very similar to equation  
+The form of Fourier's Law that describes convection is very similar to equation  
 \ref{fourier} for conduction, though the convective heat transfer coefficient 
 $h [W m^{-2} K^{-1}]$ and the surface area of heat transfer $A [m^2]$ replace 
 the conductivity coefficient. Convection is typically expressed as
@@ -1339,7 +1339,7 @@ and $j$, the resistance of $j$ can be described as
   c_j\rho_j V_j dT_j(t) &= \sum_{i=0}^{i=N}\left[ hA_j [T_i - T_j(t) \right]dt.\\
 \end{align*}
 
-Under integration a time constant appears which describes the speed with which 
+A time constant appears under integration that describes the speed with which 
 the body $i$ changes temperature with respect to the maximum temperature change,
 
 \begin{align*}
@@ -1367,7 +1367,7 @@ representing modes of heat transfer. Thus, one can say, in general
 
 \subsection{Heat Limits in Various Waste Packages} 
 
-Various waste package constraints exist which limit fuel loading. These are 
+Various waste package constraints exist that limit fuel loading. These are 
 in general less restrictive than heat limits resulting from geological medium 
 constraints, however in some cases they are more restrictive. 
 
@@ -1458,7 +1458,7 @@ A model of temperature dependent salt coalescent behavior is in order.  <++ <++>
 The \gls{UFD} salt repository concept was based on some 
 experience trying to construct and maintain the horizontal borings at WIPP. The 
 current geometry involves emplacement of crushed salt in an alcove over waste
-packages which are arranged at the corner of the alcove. Notably,  crushed salt 
+packages that are arranged at the corner of the alcove. Notably,  crushed salt 
 has low conductivity, which increases the sensitivity of rock salt temperature 
 on emplaced package temperature. 
 
@@ -1567,7 +1567,7 @@ generating waste forms. Such models are detailed with respect to their fine
 spatial and temporal resolution or with respect to the incorporation and 
 coupling of numerous physical phenomena. Current detailed computational models 
 addressing various repository geologies and geometries will be reviewed here 
-which utilize finite differencing and finite element methos in many dimensions, 
+that utilize finite differencing and finite element methos in many dimensions, 
 sophisticated numerical solvers, and other high fidelity approaches.
 
 
@@ -1582,9 +1582,9 @@ representing the Saturated Zone.
 
 \paragraph{Waste package failure and nuclide release} are modeled with two TSPA
 code modules called EBSFAIL and EBSREL. The waste package failure rate is
-determined from EBSFAIL which incorporates waste form chemistry, humidity,
+determined from EBSFAIL, which incorporates waste form chemistry, humidity,
 oxidation, etc and upon contact from water begins the degradation process. The
-results of EBSFAIL become the input to EBSREL which models corresponding
+results of EBSFAIL become the input to EBSREL, which models corresponding
 nuclide release from those failed waste packages. Mass balance governing the
 nuclide release rate in this model allows advective transfer to dominate and
 takes the form:
@@ -1745,7 +1745,7 @@ is then treated as a boundary condition for the heterogeneous steady state
 equation, 
 
 \begin{align}
-  \nabla^2T + \frac{q'''}{k} = 0.
+  \nabla^2T + \frac{q'''}{k} = 0,
   \label{condGeneral}
 \end{align}
 
@@ -1812,7 +1812,7 @@ transfer links. Briefly, these are represented by
 \end{align*}
 
 With these representations of thermal resistance, a lumped parameter model will 
-require an analysis which determines the appropriate length scale for the lumped 
+require an analysis that determines the appropriate length scale for the lumped 
 parameter approximation.
 
 The Bauer model utilizes the SINDA\textbackslash G lumped capacitance solver to 
@@ -1822,12 +1822,12 @@ package.
 
 \subsection{Finite Difference Codes}
 
-An array of finite difference codes exist which have been used to make 
+An array of finite difference codes exist that have been used to make 
 repository heat evaluations. See Table \ref{tab:heat_tab}. 
 
 \subsection{Finite Element Codes}
 
-An array of finite element codes exist which have been used to make 
+An array of finite element codes exist that have been used to make 
 repository heat evaluations. See Table \ref{tab:heat_tab} 
 
 \subsection{ANDRA/RED-IMPACT Codes}
