@@ -182,10 +182,10 @@ codes as listed in table \ref{tab:red}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage
-\subsection{Fuel Cycle Technology, UFD Codes Under Development}
+\subsubsection{UFD Generic Performance Assessment Model}
 
 The \gls{UFD} campaign is currently conducting an effort to produce
-\glspl{GDSM} for various geological environments. Teams from Argonne
+a \acrlong{GPAM} for analysis of {\glspl{GDSM} for various geological environments. Teams from Argonne
 Lawrence Berkeley, Los Alamos, and Sandia National Laboratories are developing
 models of generic clay, granite, and salt disposal environments. Sandia is
 simultaneously constructing a deep borehole disposal system model in crystalline 
@@ -262,7 +262,7 @@ quantify the ratio between dissolved and undisolved reactant. Nuclide transport
 in the far field takes place for 5km, and ends in a biosphere model. 
 
 Two nuclide release pathways are considered. One is the nominal, undisturbed 
-case, whicl the other is a fast pathway simulating a disturbed case
+case, which the other is a fast pathway simulating a disturbed case
 \cite{clayton_generic_2011}.
 
 \subsubsection{Granite GDSM}
@@ -305,16 +305,60 @@ meshed in three full dimensions with the \gls{CUBIT} meshing tool
 
 \section{Conceptual Discussion of Disposal Environments}
 
-<+fourconcepts+>
+% To capture the broad distinctions, we'll model three geologies
+% and four concepts
+% with flexible layouts
+% and an array of available canonical subcomponents. 
 
-<+allreducing+>
+% Certain things are true about the concepts we're considering
+% reducing vs. oxidizing
+% fractured vs. unfractured
+% varying permeability
+% varying depth
+% varying layout
 
-<+allclosed+>
+
+% We've looked at many international and domestic efforts
+% They mostly involve closed, saturated, reducing concepts in granite, clay, and 
+% salt media. Numerous tunnel emplacement types and repository layouts have been 
+% considered and it's the goal of this work to capture the distinctions between 
+% this option space.
+
+A suite of three geologic media and four disposal concepts of interest were
+chosen to capture the primary geologies and concepts found in the above review 
+of international and domestical efforts. Granite, clay, and salt geologic 
+environments will be modeled with flexible layouts and an array of available 
+canonical engineered subcomponent models.  The detailed \gls{GPAM} effort and 
+associated \gls{GDSM} tools will were chosen to support the for this work will 
+support abstraction for these concepts and further comparison with \gls{ANDRA} 
+and RED-IMPACT results will provide further benchmarks for validation.  
+
+The concepts that have been investigated internationally and will be
+investigated this work are dominated by satuirated, closed concepts. Saturated 
+concepts are those located below the water table such that, in contrast to 
+\gls{YMR}, the porosity within the rock matrix as well as fractures 
+and other open spaces is suffused with water. A closed concept is one that 
+neither relies on ventilation shafts nor an extended open period after waste 
+emplacement.
+
+Such closed, saturated environments are typically chemically 
+reducing. Chemically reducing environments are reducing insofar as redox 
+reactions taking place within it proceed in the reduction direction. This 
+attribute has the primary effect of slowing corrosion, dissolution, and  
+alteration rates in materials that are subject to degradation. A reducing 
+disposal environment also lowers solubility limits and sorption coefficients. 
+Furthermore, rather than being kinetically limited, as in an oxidizing 
+environment, sorption behavior is thermodynamically limited 
+\cite{nutt_personal_2011 , schwartz_fundamentals_2004}. The models created here 
+will be designed such that these distinctions between reducing and oxidizing 
+environments may be parsed. 
 
 <+allSameWasteForms+>
 
-<+distinctions below+>
 
+Distinctions between the four repository concepts that will be considered here 
+include varying coefficients of hydraulic conductivity, thermal conductivity, 
+sorption, solubility, etc.
 
 \subsection{Granite Disposal Environments}
 
@@ -625,12 +669,16 @@ Sorption, which includes both absorption and adsorption,  is the interaction of 
 dissolved species with surfaces that removes that species from the dissolving
 medium models.
 
-Durin sorption,  contaminants are removed from the flowthrough water and taken up 
+During sorption, contaminants are removed from the flowthrough water and taken up 
 by the walls of pores or fractures in the rock matrix. Importantly, sorption is a 
 reversible process, the  counter process of which is desorption in which the 
 contaminant is returned to the pore or fracture fluid from the matrix 
  \cite{ahn_mass_1988} . 
 
+Sorption is typically expressed in terms of the distribution coefﬁcient, $K_d$ , 
+the ratio at equillibrium between the mass of a radionuclide sorbed into the 
+rock and the mass left in solution. $K_d$ values are heavily radionuclide and 
+geochemically dependent.  
 
 % One way to model sorption is by assuming a linear isotherm. <+What does that 
 % mean? +> \cite{ahn_thesis_pg20}
@@ -1453,16 +1501,23 @@ waste repository, this phenomenon increases isolation capability of the salt. A
 heat limit, then, is difficult to characterize, but evolution of the heat in a
 salt environment is of great importance to nuclide transport modeling. 
 
-A model of temperature dependent salt coalescent behavior is in order.  <++ <++>>
+A model of temperature dependent salt coalescent behavior is in order. While 
+coalescent phenomena has been observed within the \gls{WIPP} facility, the 
+emplaced material in \gls{WIPP} is not high heat generating. Thus, high heat 
+salt coalescent behavior warrants further study \cite{carter_disposal_2011}.
 
-The \gls{UFD} salt repository concept was based on some 
-experience trying to construct and maintain the horizontal borings at WIPP. The 
-current geometry involves emplacement of crushed salt in an alcove over waste
-packages that are arranged at the corner of the alcove. Notably,  crushed salt 
+The \gls{UFD} salt repository concept was based on some experience with 
+construction and maintenence of the horizontal borings at WIPP. The 
+current geometry involves emplacement of waste packages arranged at the corner 
+of an alcove. This alcove is then backfilled with crushed salt. Notably, crushed salt 
 has low conductivity, which increases the sensitivity of rock salt temperature 
-on emplaced package temperature. 
+on emplaced package temperature. However, as the crushed salt coalesces with 
+heat over time, its thermal conductivity approaches that of intact salt. Further 
+investigation toward a comprehensive model of the thermal behavior of dry salt 
+has been recommended both domestically and internationally 
+\cite{carter_disposal_2011}. 
 
-The behavior of moisture in a salt repository under high heat is not well 
+The behavior of moisture in a salt repository under high heat is also not well 
 characterized . Though it is clear that the salt will creep and coalesce with 
 increased temperature, the potential generation of brines within the salt at 
 high heat is a pertinent issue for salt disposal characterization. 
