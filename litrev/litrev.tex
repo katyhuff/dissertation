@@ -285,10 +285,10 @@ The far field was represented using a model that includes advection, diffusion
 and sorption. Specifically, the \gls{FEHM} code was coupled into GoldSim to 
 represent the far field.
 
-\subsubsection{ Borehole GDSM}
+\subsubsection{ Deep Borehole GDSM}
 
-The borehole model concept consists of some 400 waste canisters in a 5km deep 
-hole within a low permeability, high salinity region characteristic of 
+The deep borehole model concept consists of some 400 waste canisters in a 5km 
+deep hole within a low permeability, high salinity region characteristic of 
 crystalline rock formations at depth. The lower 2km of the hole are filled 
 by waste packages as well as spacing and sealing plugs. A 1km sealing zone 
 extends above the waste disposal region.
@@ -350,7 +350,7 @@ alteration rates in materials that are subject to degradation. A reducing
 disposal environment also lowers solubility limits and increases sorption of the 
 actinides. The dominant dose contributors in a reducing environment are 
 therefore the soluble, long lived fission and activation products such as $^{129}I$ 
-and $^{79}Se$ \cite{NEA , von_lensa_red-impact_2008}
+and $^{79}Se$ \cite{oecd_advanced_2006 , von_lensa_red-impact_2008}
 Furthermore, rather than being kinetically limited, as in an oxidizing 
 environment, sorption behavior is thermodynamically limited 
 \cite{nutt_personal_2011 , schwartz_fundamentals_2004}. The models created here 
@@ -398,66 +398,42 @@ low thermal limit around $100^{\circ}C$ temperature limit to prevent alteration
 
 \subsubsection{Disposal System Components}
 
-The French \gls{ANDRA} analysis modeled borosillicate glass as well as ceramic 
+The French \gls{ANDRA}  analysis modeled borosillicate glass as well as ceramic 
 oxide wasteforms within carbon steel waste packages in combination with a bentonite 
 buffer material and a crushed clay or shale backfill \cite{andra_argile:_2005}.
 The Belgian reference concept focused on a highly plastic Boom Clay, which 
 eventually completely seals around stainless steel, nickel, or titanium waste 
-packages. These analyses primarily consider horizontal emplacment in multiple 
-package drifts. 
-
-
-Alternatively, in the <+study+> study, <+WF+> wasteform, a q waste package, a 
-buffer material, and a <+backfill+> backfill material.
-
-This analysis will model <+WF+> waste forms. It is distinct due to its 
-<+qualities+>.
-
-This analysis will model <+WP+> waste packages. These are distinct due to its 
-<+qualities+>.
-
-This analysis will model <+buffer+> buffer material. It is distinct due to its 
-<+qualities+>.
-
-This analysis will model <+backfill+> backfill. It is distinct due to its 
-<+qualities+>.
+packages \cite{ondraf-niras_technical_2001}.  The Swiss concept modeled glass 
+wasteforms in stainless steel waste packages with a bentonite buffer and a 
+bentonite and sand backfill
+\cite{johnson_calculations_2002}. Each of these analyses considered 
+horizontal emplacment in multiple-package emplacement drifts. 
 
 
 \subsubsection{Hydrology}
 
-In the <+material+> disposal environment, a <+low/high+> porosity combined with 
-<+velocity+> water velocity and <+fracturation+> fracturation, the overall 
-<+medium+> <+hydraulicconducitivity+> is low. Within this environment, the  
-general <+waterbehavior+>.
-
+In the clay disposal environment, an exceptionally low porosity combined with 
+low, diffusion dominated water movement and no fracturation, the overall 
+hydraulic conducitivity of clay is very low. Hydrology in the far field is 
+typically assumed to be entirely diffusive.
 
 \subsubsection{Geochemistry}
 
-This environment is <+redox+> reducing in the near field and <+also?+> in the 
-far field. The <+salinity+> of this environment <+characteristics+>. It is 
-expected that the pH will be near neutral in this environment, but with the 
-introduction of concretes, the pH becomes significantly alkaline, resulting in 
-increased breakdown of some materials. 
-
-<+redox+>
-
-<+sorption+>
-
-<+solubility+>
-
-<+pH+>
-
-<+salinity+>
-
-<+radiolysis+>
+This environment is very reducing in both the near and far field.
+The salinity of this environment increases with depth and it is 
+expected that the pH will be near neutral in this environment. However, for 
+some concepts incorporating cementitious backfill materials for protection 
+of steel, the pH can become significantly alkaline, resulting in 
+expedited alteration of the clay matrix as well as the bentonite buffer 
+\cite{andra_argile:_2005}.
 
 \subsubsection{Thermal Behavior}
 
 The thermal conductivity of clay is typically lower than 
 $2[W/m^{\circ}K]$\footnote{
-Belgium used values between 1.25 and 1.7 $[W/m\cdot^{\circ}K]$.\\
-France used values between 1.9 and 2.7 $[W/m\cdot^{\circ}K]$.\\
-Switzerland used 1.8 $[W/m\cdot^{\circ}K]$.
+Belgium (ref. \cite{ondraf-niras_technical_2001}) used values between 1.25 and 1.7 $[W/m\cdot^{\circ}K]$.\\
+France (ref. \cite{andra_argile:_2005}) used values between 1.9 and 2.7 $[W/m\cdot^{\circ}K]$.\\
+Switzerland (ref. \cite{johnson_calculations_2003}) used 1.8 $[W/m\cdot^{\circ}K]$.
 }.
 
 Heat limits in clay are based on the domain of known behavior in clay and the 
@@ -501,12 +477,6 @@ uses a maximum heat limit in the bentonite buffer of $125^{\circ}C$.
 % Water flow in a porous medium is dominated by darcy flow.  This would be a 
 % great place to describe darcy's law! 
 
-<+thermalconductivity+>
-
-<+density+>
-
-<+limits+>
-
 \subsection{Granite Disposal Environments}
 
 Granite disposal concepts have been considered in Finland, Japan, Sweden, China,  
@@ -547,12 +517,6 @@ In the granite disposal environment, a low porosity combined with
 higher expected water velocity (relative to other repository concepts in this 
 work) and significant fracturation, the overall 
 granite hydraulic conductivity is low, typically
-\footnote{
-Sweden (ref. \cite{ab_long-term_2006}) used 3.4 - 4 $[W/m\cdot^{\circ}K]$ and 2.45 - 2.9 $[W/m\cdot^{\circ}K]$.\\
-France (ref. \cite{andra_argile:_2005}) used 2.4 - 3.8 $[W/m\cdot^{\circ}K]$.\\
-Finland (ref. \cite{posiva_interim_2010}) used 2.3 - 3.2 $[W/m\cdot^{\circ}K]$. 
-}
-found between 2.4 and 4 $[W/m\cdot^{\circ}K]$ 
 \cite{schwartz_fundamentals_2004, 
 hardin_generic_2011}. Within this environment, the  
 water behavior in the far field must be modeled as both diffusive and advective.
@@ -573,23 +537,32 @@ alkaline, resulting in more rapid alteration of bentonite buffers.
 
 \subsubsection{Thermal Behavior}
 
-The thermal conductivity of <+medium+> is <+low/high+>. The thermal  <+limits+> 
-of <+medium+> due to <+phenomenon+> are <+limits+> at the <+location+>.
-
 Granite repository concepts are limited by the bentonite buffer in a manner 
-similar to that of clay. 
-Well understood behavior for generic granite and bentonite buffer backfill
-is conservatively assumed by the \gls{ANDRA} assessment to occur under 
-90$^{\circ}C$, a limit that must be imposed at the waste package interface with 
-the buffer material.  Mechanical stresses and strains due to heating at this 
+similar to that of clay. However, in the absence of the bentonite limitation, a 
+thermal limit within the granite itself is greater than $200^{circ}C$, limited 
+by the increased risk of micro-cracking.
+least. This is due to the high thermal conductivity of granite, which is 
+typically 
+\footnote{
+Sweden (ref. \cite{ab_long-term_2006}) used 3.4 - 4 $[W/m\cdot^{\circ}K]$ and 2.45 - 2.9 $[W/m\cdot^{\circ}K]$.\\
+France (ref. \cite{andra_argile:_2005}) used 2.4 - 3.8 $[W/m\cdot^{\circ}K]$.\\
+Finland (ref. \cite{posiva_interim_2010}) used 2.3 - 3.2 $[W/m\cdot^{\circ}K]$. 
+}
+found to be between 2.4 and 4 $[W/m\cdot^{\circ}K]$. 
+
+The effective thermal limit for granite disposal concepts, however, is usally 
+related to the bentonite limit, which is conservatively assumed by the \gls{ANDRA} assessment to occur under 
+90$^{\circ}C$ at the waste package interface with the buffer material.  
+Mechanical stresses and strains in the matrix due to heating at this 
 level were analyzed by \gls{ANDRA} and shown to have a negligible effect of 
-flow behavior. Similarly, thermo-hydraulic effects due to thermally induced 
-fluid density changes are expected to be slight. \cite{andra_argile:_2005}
+flow behavior in granite. Similarly, thermo-hydraulic effects due to thermally
+induced fluid density changes are expected to be slight 
+\cite{andra_granit:_2005}.
 Similarly, for reasons of buffer isolation integrity, the Czech and Spanish
 granite disposal concepts both maintained a thermal limit at the waste package
 interface with the buffer of $100^{\circ}C$.  \cite{von_lensa_red-impact_2008}
 
-\subsection{Borehole Disposal Environments}
+\subsection{Deep Borehole Disposal Environments}
 
 Deep Borehole disposal system concepts are being evaluated in Sweden and the 
 United States. Attributes of this concept that are favorable for waste 
