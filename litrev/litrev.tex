@@ -341,17 +341,26 @@ and other open spaces is suffused with water. A closed concept is one that
 neither relies on ventilation shafts nor an extended open period after waste 
 emplacement.
 
-Such closed, saturated environments are typically chemically 
-reducing. Chemically reducing environments are reducing insofar as redox 
-reactions taking place within it proceed in the reduction direction. This 
+Enclosed modes are appropriate for low permeability rock formations (clay/shale, 
+granite, salt).  Low permeability does not permit oxygen entry, so these are
+chemically reducing environments.  Chemically reducing environments are reducing 
+insofar as they induce  redox reactions to proceed in the reduction direction. This 
 attribute has the primary effect of slowing corrosion, dissolution, and  
 alteration rates in materials that are subject to degradation. A reducing 
-disposal environment also lowers solubility limits and sorption coefficients. 
+disposal environment also lowers solubility limits and increases sorption of the 
+actinides. The dominant dose contributors in a reducing environment are 
+therefore the soluble, long lived fission and activation products such as $^{129}I$ 
+and $^{79}Se$ \cite{NEA , von_lensa_red-impact_2008}
 Furthermore, rather than being kinetically limited, as in an oxidizing 
 environment, sorption behavior is thermodynamically limited 
 \cite{nutt_personal_2011 , schwartz_fundamentals_2004}. The models created here 
 will be designed such that these distinctions between reducing and oxidizing 
 environments may be parsed. 
+
+Since heat is carried away less effectively once closure 
+has occured, heat limits are lower in  closed repository concepts than in open 
+ones such as \gls{YMR} where drift tunnels are ventilated for a number of years
+after emplacement before closure.
 
 A number of waste form options will be modeled as a part of this effort. To 
 sufficiently model the fuel cycles of interest, it will be necessary to model 
@@ -373,6 +382,131 @@ Distinctions between the four repository concepts that will be considered here
 include varying coefficients of hydraulic conductivity, thermal conductivity, 
 sorption, solubility, etc.
 
+\subsection{Clay Disposal Environments}
+
+Clays, including a range of claystones, shales, and argillites, have been 
+investigated in France, Belgium, and Switzerland as well as the  \gls{US} 
+\cite{von_lensa_red-impact_2008, clayton_generic_2011}. Attractive qualities 
+of clay for repository investigations include its ease of excavation as well as
+the tendency, particularly for some very plastic clays under consideration, to 
+coalesce over time around waste packages within the zone disturbed by 
+excavation.  A less attractive quality of clay is a 
+low thermal limit around $100^{\circ}C$ temperature limit to prevent alteration 
+\cite{hardin_generic_2011}.
+
+\input{./litrev/clay_tab.tex}
+
+\subsubsection{Disposal System Components}
+
+The French \gls{ANDRA} analysis modeled borosillicate glass as well as ceramic 
+oxide wasteforms within carbon steel waste packages in combination with a bentonite 
+buffer material and a crushed clay or shale backfill \cite{andra_argile:_2005}.
+The Belgian reference concept focused on a highly plastic Boom Clay, which 
+eventually completely seals around stainless steel, nickel, or titanium waste 
+packages. These analyses primarily consider horizontal emplacment in multiple 
+package drifts. 
+
+
+Alternatively, in the <+study+> study, <+WF+> wasteform, a q waste package, a 
+buffer material, and a <+backfill+> backfill material.
+
+This analysis will model <+WF+> waste forms. It is distinct due to its 
+<+qualities+>.
+
+This analysis will model <+WP+> waste packages. These are distinct due to its 
+<+qualities+>.
+
+This analysis will model <+buffer+> buffer material. It is distinct due to its 
+<+qualities+>.
+
+This analysis will model <+backfill+> backfill. It is distinct due to its 
+<+qualities+>.
+
+
+\subsubsection{Hydrology}
+
+In the <+material+> disposal environment, a <+low/high+> porosity combined with 
+<+velocity+> water velocity and <+fracturation+> fracturation, the overall 
+<+medium+> <+hydraulicconducitivity+> is low. Within this environment, the  
+general <+waterbehavior+>.
+
+
+\subsubsection{Geochemistry}
+
+This environment is <+redox+> reducing in the near field and <+also?+> in the 
+far field. The <+salinity+> of this environment <+characteristics+>. It is 
+expected that the pH will be near neutral in this environment, but with the 
+introduction of concretes, the pH becomes significantly alkaline, resulting in 
+increased breakdown of some materials. 
+
+<+redox+>
+
+<+sorption+>
+
+<+solubility+>
+
+<+pH+>
+
+<+salinity+>
+
+<+radiolysis+>
+
+\subsubsection{Thermal Behavior}
+
+The thermal conductivity of clay is typically lower than 
+$2[W/m^{\circ}K]$\footnote{
+Belgium used values between 1.25 and 1.7 $[W/m\cdot^{\circ}K]$.\\
+France used values between 1.9 and 2.7 $[W/m\cdot^{\circ}K]$.\\
+Switzerland used 1.8 $[W/m\cdot^{\circ}K]$.
+}.
+
+Heat limits in clay are based on the domain of known behavior in clay and the 
+tendency for bentonite fill material to lose its isolating properties with high 
+temperatures \cite{andra_argile:_2005, pusch_alteration_1987}. 
+The alteration of high smectite bentonite to non-expandable clays is a primary 
+limitation for heat tolerance in the clay concept. The isolation characteristics 
+of bentonite buffer materials is reduced after this alteration. The time 
+integral of this phenomenon determines total bentonite alteration. While short 
+bursts of heat might be allowable, because the bentonite will not alter 
+immediately, the kinetic alteration into smectite clays is hastened by 
+temperatures above approximately 100$^{\circ}C$\cite{pusch_alteration_1987}. 
+The Belgian program has considered increasing the themal limit of the clay in
+the buffer region by adding graphite.
+Conversely, well understood behavior for argillaceous clay and bentonite buffer backfill
+is conservatively assumed by the \gls{ANDRA} assessment to occur only under  
+90$^{\circ}C$, which is effectively a limit at the waste package interface with 
+the bentonite buffer material.\cite{andra_argile:_2005} 
+The \gls{NAGRA} Opalinus Clay assessment less conservatively 
+uses a maximum heat limit in the bentonite buffer of $125^{\circ}C$.
+\cite{johnson_project_2002} 
+
+%as with the waste packages in this geology.  
+
+% 
+% ``This low permeability of the Callovo-Oxfordian, linked to low hydraulic head 
+% gradients on either side of the formation, controls slow vertical water flow 
+% (Inset 3.5). The velocities of this water flow are fairly different in detail 
+% because of the medium's pore structure. Moreover, some pores are not connected 
+% and cannot take part in the water flow. A so-called kinematic porosity is 
+% therefore defined, which is a fraction of total porosity, used macroscopically 
+% to calculate mean water flow velocity in the direction of the hydraulic head 
+% gradient. For the Callovo-Oxfordian, this kinematic porosity has been taken as 
+% being the same as the fraction of free water in the rock, i.e. about 9 
+%, corresponding to half the total porosity.  The very low permeability 
+%determines average flow speeds within the layer (Darcy velocity, inset 3.5) at 
+%around 3 cm per 100,000 years, which corresponds to a water transfer velocity 
+%of about 30 cm per 100,000 years, considering the kinematic porosity.  
+%\cite{argile_geo_evo} 
+
+% Water flow in a porous medium is dominated by darcy flow.  This would be a 
+% great place to describe darcy's law! 
+
+<+thermalconductivity+>
+
+<+density+>
+
+<+limits+>
+
 \subsection{Granite Disposal Environments}
 
 Granite disposal concepts have been considered in Finland, Japan, Sweden, China,  
@@ -388,16 +522,16 @@ isolation properties of the rock.
 
 \subsubsection{Disposal System Components}
 
-
 The Swedish KBS-3 and similar Czech Republic repository concept consist of 
 borosillicate glass waste forms within a stainless steel Universal Canister waste 
-package, vertically emplaced in horizontal drifts and backfilled with a 
-bentonite buffer \cite{ab_long-term_2006, von_lensa_red-impact_2008}. The Spanish 
-concept is almost exactly similar to these, except emplacement is horizontal 
-within the horizontal repository drifts.  
+package, vertically emplaced in horizontal drifts and with a bentonite buffer  
+and backfilled with a clay and sand mixture \cite{ab_long-term_2006, 
+von_lensa_red-impact_2008}. The Spanish concept is almost exactly similar to 
+these, except emplacement is horizontal within the horizontal repository drifts.
 
-Finland china south korea switzerland. ??
-UFD
+
+Japanese studies investigated numerous layouts. . .  Finland china south korea switzerland. 
+UFD <++>
 
 This analysis will model borosilicate glass and ceramic oxide waste forms, 
 carbon steel and copper waste packages, and bentonite and concrete buffer 
@@ -406,13 +540,21 @@ options.
 A flexible repository layout model will support approximated modeling of
 each of these designs.
 
+
 \subsubsection{Hydrology}
 
 In the granite disposal environment, a low porosity combined with 
 higher expected water velocity (relative to other repository concepts in this 
 work) and significant fracturation, the overall 
-granite hydraulic conductivity is low, typically found between <+lowK+> and 
-<+highK+> \cite{schwartz_fundamentals_2004, x }. Within this environment, the  
+granite hydraulic conductivity is low, typically
+\footnote{
+Sweden (ref. \cite{ab_long-term_2006}) used 3.4 - 4 $[W/m\cdot^{\circ}K]$ and 2.45 - 2.9 $[W/m\cdot^{\circ}K]$.\\
+France (ref. \cite{andra_argile:_2005}) used 2.4 - 3.8 $[W/m\cdot^{\circ}K]$.\\
+Finland (ref. \cite{posiva_interim_2010}) used 2.3 - 3.2 $[W/m\cdot^{\circ}K]$. 
+}
+found between 2.4 and 4 $[W/m\cdot^{\circ}K]$ 
+\cite{schwartz_fundamentals_2004, 
+hardin_generic_2011}. Within this environment, the  
 water behavior in the far field must be modeled as both diffusive and advective.
 
 \subsubsection{Geochemistry}
@@ -423,23 +565,29 @@ exposes the medium to the atmosphere, resulting in a slightly oxidizing
 condition in the far field, most importantly resulting in higher actinide 
 solubilities in that region. Salinity in the granite environment increases 
 monotonically with depth. The repository therefore, is in a location of high 
-salinity, resulting in decreased solubilities, <+(and higher sorption???)+> \cite{x}
+salinity, an indicator of low fluid flow and resulting in increased corrosion 
+rates and for some radionuclides, changed solubilities \cite{argile_granite:_2005}.
 It is expected that the pH will be near neutral in this environment except with  
 the introduction of concretes, due to which, the pH becomes significantly 
-alkaline, resulting in increased breakdown of <+some materials+>.
-
+alkaline, resulting in more rapid alteration of bentonite buffers. 
 
 \subsubsection{Thermal Behavior}
 
 The thermal conductivity of <+medium+> is <+low/high+>. The thermal  <+limits+> 
 of <+medium+> due to <+phenomenon+> are <+limits+> at the <+location+>.
 
-
-<+thermalconductivity+>
-
-<+density+>
-
-<+limits+>
+Granite repository concepts are limited by the bentonite buffer in a manner 
+similar to that of clay. 
+Well understood behavior for generic granite and bentonite buffer backfill
+is conservatively assumed by the \gls{ANDRA} assessment to occur under 
+90$^{\circ}C$, a limit that must be imposed at the waste package interface with 
+the buffer material.  Mechanical stresses and strains due to heating at this 
+level were analyzed by \gls{ANDRA} and shown to have a negligible effect of 
+flow behavior. Similarly, thermo-hydraulic effects due to thermally induced 
+fluid density changes are expected to be slight. \cite{andra_argile:_2005}
+Similarly, for reasons of buffer isolation integrity, the Czech and Spanish
+granite disposal concepts both maintained a thermal limit at the waste package
+interface with the buffer of $100^{\circ}C$.  \cite{von_lensa_red-impact_2008}
 
 \subsection{Borehole Disposal Environments}
 
@@ -518,7 +666,7 @@ The salt disposal concept has been investigated in Germany and demonstrated for
 non-heat-generating waste at the \gls{WIPP} facility in the US. Salt 
 demonstrates many attractive properties including ease of mining, creep behavior 
 over time, which is expedited by heat, low permeability, and a high thermal 
-conductivity, which affords a high temperature limit near $200^\circ C$ 
+conductivity, which affords a high temperature limit near $200^{\circ}C$ 
 \cite{hardin_generic_2011} .
 
 \input{./litrev/salt_tab.tex}
@@ -576,79 +724,6 @@ increased breakdown of some materials.
 The thermal conductivity of <+medium+> is <+low/high+>. The thermal  <+limits+> 
 of <+medium+> due to <+phenomenon+> are <+limits+> at the <+location+>.
 
-\subsection{Clay Disposal Environments}
-
-Clays include a ragne of claystones, shales, and argillites.
-
-Clays have been investigated in France, Belgium, and Switzerland. Attractive 
-qualities of clay include its ease of excavation as well as the tendency,
-particularly for some very plastic clays under consideration, to coalesce over 
-time around waste packages within the zone disturbed by excavation. A less 
-attractive quality of clay is a low thermal limit around $100^\circ C$ 
-temperature limit to prevent alteration \cite{hardin_generic_2011}.
-
-\input{./litrev/clay_tab.tex}
-
-\subsubsection{Disposal System Components}
-In the <+study+> study, <+WF+> wasteform, a <+WP+> waste package, a <+buffer+> 
-buffer material, and a <+backfill+> backfill material.
-
-
-Alternatively, in the <+study+> study, <+WF+> wasteform, a <+WP+> waste package, a <+buffer+> 
-buffer material, and a <+backfill+> backfill material.
-
-This analysis will model <+WF+> waste forms. It is distinct due to its 
-<+qualities+>.
-
-This analysis will model <+WP+> waste packages. These are distinct due to its 
-<+qualities+>.
-
-This analysis will model <+buffer+> buffer material. It is distinct due to its 
-<+qualities+>.
-
-This analysis will model <+backfill+> backfill. It is distinct due to its 
-<+qualities+>.
-
-
-\subsubsection{Hydrology}
-
-In the <+material+> disposal environment, a <+low/high+> porosity combined with 
-<+velocity+> water velocity and <+fracturation+> fracturation, the overall 
-<+medium+> <+hydraulicconducitivity+> is low. Within this environment, the  
-general <+waterbehavior+>.
-
-
-\subsubsection{Geochemistry}
-
-This environment is <+redox+> reducing in the near field and <+also?+> in the 
-far field. The <+salinity+> of this environment <+characteristics+>. It is 
-expected that the pH will be near neutral in this environment, but with the 
-introduction of concretes, the pH becomes significantly alkaline, resulting in 
-increased breakdown of some materials. 
-
-<+redox+>
-
-<+sorption+>
-
-<+solubility+>
-
-<+pH+>
-
-<+salinity+>
-
-<+radiolysis+>
-
-\subsubsection{Thermal Behavior}
-
-The thermal conductivity of <+medium+> is <+low/high+>. The thermal  <+limits+> 
-of <+medium+> due to <+phenomenon+> are <+limits+> at the <+location+>.
-
-
-<+thermalconductivity+>
-
-<+density+>
-
-<+limits+>
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -848,7 +923,7 @@ the solubility limited release model.  Solubility values are assumed from TSPA
 for this model, and a solubility of $~5\times 1^{-2} [mol/m^3]$ are taken to be
 `low.' Elements in this `low' category include the toxic actinides such as Zr,
 Nb, Sn, Th, and Ra for an oxidizing, unsaturated environment similar to \gls{YMR}.
-In should be noted that in a reducing environment, the actinides are not as mobile, 
+It should be noted that in a reducing environment, the actinides are not as mobile, 
 and the high and low solubility nuclides will differ from this model.
 This model suggests that a dominant mode of dissolution of
 the nuclide into the flowthrough water is dominated instead by the diffusion
@@ -915,7 +990,7 @@ However, this can be complicated to model even if the data exists. In
 particular, the corrosion rate will depend dramatically on the chosen material 
 as well as hydrologic and
 thermal conditions. Specificially, corrosion rates for the same material are
-very different under dry oxidising conditions and wet reducing conditions. 
+very different under dry oxidizing conditions and wet reducing conditions. 
 
 %almost no corrosion aqueous oxidising conditions, which means a steel corrosion 
 %rate (concentrated at the cell head) of several tens of microns per year. This 
@@ -1359,7 +1434,7 @@ equation can be expressed
 
 An areal heat flux, $q'' [W\cdot m^{-2}]$ can be derived from an integration of  
 Poisson's equation \eqref{poisson}  and expressed in terms of the thermal 
-conductivity of the material, $k [W \cdot m^{-1} \cdot ^\circ K^{-1}]$, and the
+conductivity of the material, $k [W \cdot m^{-1} \cdot ^{\circ}K^{-1}]$, and the
 temperature gradient $\nabla T [K\cdot m^{-1}]$ by the expression
 
 \begin{align}
@@ -1409,7 +1484,7 @@ Stefan-Boltzmann constant as
   q'' &= \sigma A_1 F_{1\rightarrow 2}(T_1^4 - T_2^4)
   \label{planck}
   \intertext{where}
-  \sigma &=5.670373\times 10^{−8} [W\cdot m^{−2}\cdot ^\circ K^{−4}].\nonumber\\
+  \sigma &=5.670373\times 10^{−8} [W\cdot m^{−2}\cdot ^{\circ}K^{−4}].\nonumber\\
 \end{align}
 
 
@@ -1447,7 +1522,7 @@ error\cite{incropera_fundamentals_2006}. This assists in choosing the size of
 distinct lumps within a conceptual model. 
 
 The lumped capacitance model can address multiple media and multiple heat
-transfer modes. The rate of heat transfer $[W \cdot m^{-2} \cdot ^\circ K \cdot 
+transfer modes. The rate of heat transfer $[W \cdot m^{-2}\cdot^{\circ}K\cdot 
 s]$ through a circuit is simply given as the quotient of the temperature 
 difference and the thermal resistance of the multiple lumps,
 
@@ -1509,112 +1584,19 @@ in general less restrictive than heat limits resulting from geological medium
 constraints, however in some cases they are more restrictive. 
 
 For example, the current constraining heat limit in borosillicated glass 
-reported by the \gls{UFD} campaign is $500^\circ C$, corresponding to the 
+reported by the \gls{UFD} campaign is $500^{\circ}C$, corresponding to the 
 temperature at which the glass can be expected to begin devitrifying 
 \cite{carter_2010, hardin_generic_2011, soelberg_heat_2009}.
 
 \subsection{Heat Limits in Various Geologies}
 
 
-The repository concepts under consideration are so called `closed' concepts. 
-That is, closure of the repository happens very shortly after emplacement.
-Enclosed modes are appropriate for low permeability rock formations (clay/shale, 
-granite, salt). Low permeability does not permit oxygen entry, so these are
-reducing environments. Since heat is carried away less effectively once closure 
-has occured, heat limits are lower in  closed repository concepts than in open 
-ones such as \gls{YMR} where drift tunnels are ventilated for a number of years
-after emplacement before closure.
 
 \subsubsection{Clay/Shale} 
 
-Heat limits in clay are based on the domain of known behavior in clay and the 
-tendency for bentonite fill material to lose its isolating properties with high 
-temperatures \cite{andra_argile:_2005, pusch_alteration_1987}. 
-The alteration of high smectite bentonite to non-expandable clays is a primary 
-limitation for heat tolerance in the clay concept. The isolation characteristics 
-of bentonite buffer materials is reduced after this alteration. The time 
-integral of this phenomenon determines total bentonite alteration. While short 
-bursts of heat might be allowable, because the bentonite will not alter 
-immediately, the kinetic alteration into smectite clays is hastened by 
-temperatures above approximately 100$^\circ C$\cite{pusch_alteration_1987}. 
-Well understood behavior for argillaceous clay and bentonite buffer backfill
-is conservatively assumed by the \gls{ANDRA} assessment to occur under 
-90$^\circ C$, which is effectively a limit at the waste package interface with 
-the bentonite buffer material.\cite{andra_argile:_2005} 
-The \gls{NAGRA} Opalinus Clay assessment less conservatively 
-uses a maximum heat limit in the bentonite buffer of $125^\circ C$.
-\cite{johnson_project_2002} 
-
-%as with the waste packages in this geology.  
-
-% 
-% ``This low permeability of the Callovo-Oxfordian, linked to low hydraulic head 
-% gradients on either side of the formation, controls slow vertical water flow 
-% (Inset 3.5). The velocities of this water flow are fairly different in detail 
-% because of the medium's pore structure. Moreover, some pores are not connected 
-% and cannot take part in the water flow. A so-called kinematic porosity is 
-% therefore defined, which is a fraction of total porosity, used macroscopically 
-% to calculate mean water flow velocity in the direction of the hydraulic head 
-% gradient. For the Callovo-Oxfordian, this kinematic porosity has been taken as 
-% being the same as the fraction of free water in the rock, i.e. about 9 
-%, corresponding to half the total porosity.  The very low permeability 
-%determines average flow speeds within the layer (Darcy velocity, inset 3.5) at 
-%around 3 cm per 100,000 years, which corresponds to a water transfer velocity 
-%of about 30 cm per 100,000 years, considering the kinematic porosity.  
-%\cite{argile_geo_evo} 
-
-% Water flow in a porous medium is dominated by darcy flow.  This would be a 
-% great place to describe darcy's law! 
-
 \subsubsection{Granite}
 
-Granite repository concepts are limited by the bentonite buffer in a manner 
-similar to that of clay. 
-Well understood behavior for generic granite and bentonite buffer backfill
-is conservatively assumed by the \gls{ANDRA} assessment to occur under 
-90$^\circ C$, a limit that must be imposed at the waste package interface with 
-the buffer material.  Mechanical stresses and strains due to heating at this 
-level were analyzed by \gls{ANDRA} and shown to have a negligible effect of 
-flow behavior. Similarly, thermo-hydraulic effects due to thermally induced 
-fluid density changes are expected to be slight. \cite{andra_argile:_2005}
-Similarly, for reasons of buffer isolation integrity, the Czech and Spanish
-granite disposal concepts both maintained a thermal limit at the waste package
-interface with the buffer of $100^\circ C$.  \cite{von_lensa_red-impact_2008}
-
 \subsubsection{Salt} 
-
-Response of a salt repository to heat has a significant
-mechanical component. Bulk heating of a salt repository matrix causes
-coalescing  of the salt surrounding the heat source. In the case of a nuclear
-waste repository, this phenomenon increases isolation capability of the salt. A
-heat limit, then, is difficult to characterize, but evolution of the heat in a
-salt environment is of great importance to nuclide transport modeling. 
-
-A model of temperature dependent salt coalescent behavior is in order. While 
-coalescent phenomena has been observed within the \gls{WIPP} facility, the 
-emplaced material in \gls{WIPP} is not high heat generating. Thus, high heat 
-salt coalescent behavior warrants further study \cite{carter_disposal_2011}.
-
-The \gls{UFD} salt repository concept was based on some experience with 
-construction and maintenence of the horizontal borings at WIPP. The 
-current geometry involves emplacement of waste packages arranged at the corner 
-of an alcove. This alcove is then backfilled with crushed salt. Notably, crushed salt 
-has low conductivity, which increases the sensitivity of rock salt temperature 
-on emplaced package temperature. However, as the crushed salt coalesces with 
-heat over time, its thermal conductivity approaches that of intact salt. Further 
-investigation toward a comprehensive model of the thermal behavior of dry salt 
-has been recommended both domestically and internationally 
-\cite{carter_disposal_2011}. 
-
-The behavior of moisture in a salt repository under high heat is also not well 
-characterized . Though it is clear that the salt will creep and coalesce with 
-increased temperature, the potential generation of brines within the salt at 
-high heat is a pertinent issue for salt disposal characterization. 
-
-The German salt repository concept maintains a $180^\circ C$ temperature limit 
-salt. At temperatures above $220^\circ C$ the salt formation may release 
-brines capable of facilitating nuclide transport 
-\cite{von_lensa_red-impact_2008}\cite{brewitz_long_2002}.
 
 
 %\subsubsection{Unsaturated Tuff}
@@ -1647,26 +1629,26 @@ brines capable of facilitating nuclide transport
 %footprint\cite{li_examining_2007}.
 %
 %Similarly, age based fuel mixing also allows for decreases in drift spacing. In
-aged based fuel mixing, aged (long cool time) SNF is loaded in a mixture with
-young SNF. This age based fuel mixing has been shown to achieve a $48\%$
-increase in the repository capacity as constrained by heat
-load\cite{nicholson_thermal_2007}. This factor uses a fiducial default
-footprint of $4.6 km^2$ used in the NRC TSPA.  The reported $48\%$ increase in
-capacity results in total repository capacity of 103,600
-tonnes\cite{williams_contract_2001}.
-
-In addition to variable drift spacing, other modifications to repository layout
-have had promising results in terms of heat-limited repository capacity. The
-Electric Power Research Institute (EPRI) in their Room at the Mountain study
-found that with redesign of the repository an increased capacity of at least
-$400\%$ (295 tonnes once-through SNF) and up to $900\%$ (663 tonnes) could be
-expected to be achieved. Proposed design changes include decreased spacing
-between drifts, a larger areal footprint, vertical expansion into second and
-third levels of repository space, and hybrid solutions involving combinations
-of these ideas. In particular, EPRI suggests either an expansion of the
-footprint with redesign of the current Upper Block line load design plan or a
-multi-level plan that repeats the footprint and line load design of the current
-plan\cite{kessler_room_2006}.
+%aged based fuel mixing, aged (long cool time) SNF is loaded in a mixture with
+%young SNF. This age based fuel mixing has been shown to achieve a $48\%$
+%increase in the repository capacity as constrained by heat
+%load\cite{nicholson_thermal_2007}. This factor uses a fiducial default
+%footprint of $4.6 km^2$ used in the NRC TSPA.  The reported $48\%$ increase in
+%capacity results in total repository capacity of 103,600
+%tonnes\cite{williams_contract_2001}.
+%
+%In addition to variable drift spacing, other modifications to repository layout
+%have had promising results in terms of heat-limited repository capacity. The
+%Electric Power Research Institute (EPRI) in their Room at the Mountain study
+%found that with redesign of the repository an increased capacity of at least
+%$400\%$ (295 tonnes once-through SNF) and up to $900\%$ (663 tonnes) could be
+%expected to be achieved. Proposed design changes include decreased spacing
+%between drifts, a larger areal footprint, vertical expansion into second and
+%third levels of repository space, and hybrid solutions involving combinations
+%of these ideas. In particular, EPRI suggests either an expansion of the
+%footprint with redesign of the current Upper Block line load design plan or a
+%multi-level plan that repeats the footprint and line load design of the current
+%plan\cite{kessler_room_2006}.
 
 \input{litrev/footprint_tab} 
 
@@ -1950,8 +1932,8 @@ transfer links. Briefly, these are represented by
   c_p&=~~\mbox{specific heat capacity} []  \\\
   h&= ~~\mbox{heat transfer coefficient}[] \\
   \dot{m}&= ~~\mbox{mass transfer rate}[kg\cdot s^{-1}] \\
-  T_i&= ~~\mbox{lump temperature} [^\circ C] \\
-  T_A&= ~~\mbox{absolute temperature} [^\circ C] \\
+  T_i&= ~~\mbox{lump temperature} [^{\circ}C] \\
+  T_A&= ~~\mbox{absolute temperature} [^{\circ}C] \\
   F_{ij}&= ~~\mbox{radiation interchange factor} [-] .
 \end{align*}
 
