@@ -138,11 +138,12 @@ scenario, conventional power reactors comprise the majority of nuclear energy
 production and fuel takes a single pass through a reactor before it is 
 classified as waste and disposed of. In the open cycle, no reprocessing is 
 pursued, but research and development of advanced fuels seek to reduce waste 
-volumes. Calculations from the Electric Power Research Institute indicate that 
-without an increase in the stautory footprint limit of the repository, such a 
-cycle will generate a volume of spent fuel that will necessitate the siting of 
-two or more federal  geological repositories to accomodate spent fuel 
-\cite{kessler_room_2006}.  %% KDHFLAG WHEN? HOW LONG?
+volumes. Calculations from the Electric Power Research Institute corroborated by 
+the \gls{US} \gls{DOE} in 2008 indicate that without an increase in the stautory 
+footprint limit of the \gls{YMR}, continuation of the current Once Through fuel 
+cycle will generate a volume of spent fuel that will necessitate
+the siting of an additional federal geological repository to accomodate spent 
+fuel \cite{kessler_room_2006, doe_report_2008}. 
 
 % Full Recycle presents the issue of variable waste streams. . .
 
@@ -165,7 +166,7 @@ streams.
 Finally, the Modified Open Cycle category of options includes a variety of fuel 
 cycle options that fall between once through and fully closed. Advanced fuel 
 cycles such as deep burn and small modular reactors will be considered within 
-the Modified Open set of fuel cycle options as will partial recycle options. 
+the Modified Open set of fuel cycle options as will partial recycle options.  
 Partitioning and reprocessing strategies, however, will be limited to simplified 
 chemical separations and volitilization under this scheme. This scheme presents
 a dual challenge in which spent fuel volumes and composition will both vary 
@@ -197,7 +198,7 @@ clay/shale, salt, and deep borehole concepts \cite{nutt_used_2010}.
 % Various waste forms, packages, etc. are being considered.
 
 In accordance with various fuel cycle options, corresponding waste form, waste 
-package, and other engineered barrier systems are being considered. 
+package, and other engineered barrier systems are being considered.  
 Specifically, current considerations include ceramic (e.g.  Uranium Oxide), 
 glass (e.g.  borosilicate glasses), and metallic (e.g.  hydride fuels) waste 
 forms. Waste packages may be copper, steel, or other alloys. Similarly, buffer 
@@ -356,7 +357,7 @@ scenarios.
 %source term on repository capacity can be difficult to arrive at.  
 
 A generalized metric of probablistic risk is fairly difficult to arrive at. For 
-example, the \gls{PEI} metric from Berkeley (ref. 
+example, the \gls{PEI} metric from Berkeley (ref.  
 \cite{bouvier_comparison_2007}) is a multifaceted function of spent fuel 
 composition, waste conditioning, vitrification method, and radionuclide 
 transport through the repository walls and rock.  Also, it makes the assumption 
@@ -388,7 +389,7 @@ Specifically, this work will leverage upon conceptual framework development and
 primary data collection underway within the Used Fuel Disposition Campaign as
 well as work by Radel, Wilson, Bauer et. al. to model repository behavior as a
 function of the contents of the waste.  It will then incorporate dominant
-physics process models into the \Cyclus computational fuel cycle analysis
+physics process models into the \Cyclus computational fuel cycle analysis tool.
 
 
 
@@ -407,12 +408,12 @@ and geological media.
 % Selection of base set of subcomponents to model
 
 Current candidate repository concepts have been investigated and reviewd in 
-order to arrive at a fundamental set of components to model. A preliminary 
-set of combinations of fuel cycles, repository concepts, and geologies has 
-been chosen that fundamentally captures the fundamental domestic option 
-space. Specifically, three candidate geologies and four corresponding 
-repository concepts under consideration by the \gls{DOE} \gls{UFD} campaign 
-have been chosen for modeling in this work. These will be expected to interface
+order to arrive at a fundamental set of components to model. A preliminary set 
+of combinations of fuel cycles, repository concepts, and geologies has been 
+chosen that fundamentally captures the fundamental domestic option space. 
+Specifically, three candidate geologies and four corresponding repository 
+concepts under consideration by the \gls{DOE} \gls{UFD} campaign have been 
+chosen for modeling in this work. These will be expected to interface
 with \Cyclus simulations of a canonical set of potential fuel cycles within 
 three broad candidate scenarios put forth by the \gls{US} \gls{DOE}.
 
@@ -430,20 +431,20 @@ A review and characterization of current detailed computational tools for
 repository focused analysis was next conducted. Both international and domestic
 repository modeling efforts were summarized within the literature review. Of 
 these, candidate computational tools with which to perform abstraction and 
-regression analyses were identified. Specifically, a suite of \gls{GDSM} 
-tools under development by the \gls{DOE} \gls{UFD} campaign will inform  
-radionuclide transport models and a pair of corresponding thermal analysis 
-codes will inform the thermal models.
+regression analyses were identified. Specifically, a suite of \gls{GDSM} tools 
+under development by the \gls{DOE} \gls{UFD} campaign will inform  radionuclide 
+transport models and a pair of corresponding thermal analysis codes will inform 
+the thermal models.
  
 % For each component, abstraction of current tools and analytical models
 
 Continuation of this work will consist of the development of a suite of 
-subcomponent modules appropriate for use within the \Cyclus fuel cycle simulator. 
-This process will include the development of a robust architecture within the 
-repository module that will allow for interchangeable loading of system components. 
-Within the system components, dominant physics will be modeled based on 
-domain appropriate approximation of analytical models and supported by abstraction 
-with the chosen \gls{GDSM} tools and thermal tools. 
+subcomponent modules appropriate for use within the \Cyclus fuel cycle 
+simulator.  This process will include the development of a robust architecture 
+within the repository module that will allow for interchangeable loading of 
+system components.  Within the system components, dominant physics will be 
+modeled based on domain appropriate approximation of analytical models and 
+supported by abstraction with the chosen \gls{GDSM} tools and thermal tools. 
 
 % Abstraction = Analytic Solutions + Regression Approximation
 
@@ -481,7 +482,7 @@ efforts such as the RED-IMPACT asessment and \gls{ANDRA} Dossier efforts
 
 % Example, heat from WPs along repo drifts.
 
-For example, analytic models and semi-empirical models are available (i.e. 
+For example, analytic models and semi-empirical models are available (i.e.  
 specific temperature integrals (ref. \cite{li_methodology_2006}) and specific 
 temperature change index (ref. \cite{radel_effect_2007})) that approximate 
 thermal response from heat generation in waste packages as linear along 
@@ -502,7 +503,7 @@ parametric dependence of thermal loading in a specific geology.
 % Incorporation of empirical data
 
 Finally, the thermal behavior of a repository model so developed will depend on 
-empirical data (e.g.  heat transfer coefficients, hydraulic conductivity). 
+empirical data (e.g.  heat transfer coefficients, hydraulic conductivity).  
 Determination of representative values to make available within the dominant 
 physics model will rely on existing empirical data concerning the specific 
 geologic environment being modeled (i.e. salt, clay/shale, and granite). 
@@ -543,15 +544,17 @@ magnitude of coupling effects in the system.
 
 % Iterate
 
-The full abstraction process will be iterated to achieve a balance between calculation 
-speed and simulation detail. Model improvements during this stage will seek a
-level of detail appropriate for informative comparison of subcomponents, but with 
-sufficient speed to enable systems analysis. 
+The full abstraction process will be iterated to achieve a balance between 
+calculation speed and simulation detail. Model improvements during this stage 
+will seek a
+level of detail appropriate for informative comparison of subcomponents, but 
+with sufficient speed to enable systems analysis. 
 
 % Test using canonical data for those subcomponents
 
-By varying input parameters and comparing with corresponding results from detailed 
-tools, each model's behavior on its full parameter domain will be validated.
+By varying input parameters and comparing with corresponding results from 
+detailed tools, each model's behavior on its full parameter domain will be 
+validated.
 
 
 \section{Outline}
