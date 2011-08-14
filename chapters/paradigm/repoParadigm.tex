@@ -11,7 +11,12 @@ The interface of the repository model with the \Cyclus fuel cycle
 simulation interface is intended to be minimally restrictive, 
 requiring only that the simulation supply waste stream information and 
 provide a bookkeeping framework with which to record repository 
-performance metrics. 
+performance metrics. The repository model, in order to participate in the 
+simulation as a facility model, must make requests for spent material up 
+to its capacity. Therefore, determination of the repository capacity for various 
+types of spent fuel commodities will be the primary interfacing functionality of 
+the repository model. Calculation of metrics including expected dose rates and 
+component failures will be a secondary internal functionality. 
 
 \subsubsection{Waste Stream Input}
 
@@ -20,26 +25,25 @@ streams.  Material objects resulting from the simulated fuel cycle arrive at
 the  repository and are emplaced if all repository capacity limits allow 
 it.
 
-As the set of disposable material in the simulation is of heterogeneous 
+Since disposable material in most simulations of interest will be of variable 
 composition and therefore heterogeneous heat production capability, the 
-repository model will sometime need to recalculate its own capacity in terms of  
-new materials.
+repository model will repeatedly need to recalculate its own capacity as 
+new materials are offered. These capacity calculations will be discussed in 
+section \ref{sec:capacitycalcs}<++> . 
 
 \subsubsection{Repository Performance Metrics Calculated}
 
 Repository performance metrics that may be calculated from the source 
-term and heat data calculated by the model will cover a broad space of 
-metrics of interest to sustainability goals. 
-
-Some metrics support analyses that seek to maximize safe repository 
-capacity under heat and source term limitations. Those include spatial 
-dimensions, spatial dimensions per kWh or equivalent, repository 
-footprint, and number of waste packages generated.
+term and heat data calculated by the model will cover many metrics of
+interest to sustainability goals. Some metrics support analyses that
+seek to maximize safe repository capacity under heat and source term limitations. 
+Those include spatial dimensions, spatial dimensions per kWh or equivalent,
+repository footprint, and number of waste packages generated.
 
 Still other metrics that may be calculated include those being considered by 
 the \gls{UFD} campaign in a Fuel Cycle Data Package task underway 
 \cite{nutt_personal_2011}. Additional metrics that will be considered in this
-context will likely include environmental metrics such as peak radiotoxic dose 
+context will likely include environmental metrics such as peak dose 
 to the public, radiotoxic fluxes released to the biosphere integrated over time, 
 and the minimum managed lifetime.  These metrics are recorded in a database 
 flexibly defined by the repository model. 
@@ -61,8 +65,19 @@ nuclide release at each stage of containment, and the repository model
 in this work mimics reality treating them as nested elements in a 
 release chain.
 
+\subsubsection{Control Volumes}
 
-\subsubsection{Structure and Linkages}
+Each component of the repository system (i.e. waste form, waste package, buffer, 
+and geologic medium) is modeled as a discrete control volume. Each control 
+volume performs its own mass balance at each time step and assesses its own 
+internal  heat transfer and degradation phenomena separately from the other 
+nested components.
+
+Each control volume will initially be modeled as a mixed cell. That is, for 
+permeable porous media, all contaminants released into the pore and fracture 
+water are assumed to be uniformly distributed.  
+
+\subsubsection{Information Passing Between Volumes}
 
 Each component passes some information radially outward to the nested 
 component immediately containing it and some information radially 
@@ -136,13 +151,22 @@ through the buffer component of the repository system.
 
 Clay concepts and borehole concepts may not have a backfill material. 
 
-\subsubsection{Tunnel Lining}
-Much like the waste package model, nuclide release is typically 
-modeled as either instantaneous and total or constant and partial. 
 
 \subsubsection{Geological Environment}
-Various hydrogeological models exist to represent travel through 
-porous media, fractured porous media, crystalline media, and clays.
+
+The literature review introduced various hydrogeological models that represent
+fluid and contaminant travel through permeable porous media and fractured porous 
+media. These assume saturated flow and incorporate diffusive flow, advective 
+flow, hydrodynamic dispoersion, and equillibrium sorption. The geological 
+envrionment control volume component will implement these models appropriately 
+for each geology to provide a mass balance and to communicate concentrations to  
+adjacent components. 
+
+Dirichlet boundary conditions at the surfaces of the control volume will allow 
+the simulation to step through transport in the rock.
+
+Heat transfer through the geological environment i
+
 
 Sudicky and Frind give a model for fractured porous media that 
 analytically captures nuclide mobility due to advection through 
