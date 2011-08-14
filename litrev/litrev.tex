@@ -290,7 +290,7 @@ for most fuel cycles include $^{129}I$, $^{79}Se$, and $^{36}Cl$
 \cite{swift_applying_2010}.
 
 \subsubsection{Thermal Behavior}
-\label{sec:claythermal}
+\label{subsec:claythermal}
 
 The thermal conductivity of clay is typically lower than 
 $2[W/m^{\circ}K]$\footnote{
@@ -413,7 +413,7 @@ significant quantity to traverse the diffusive pathway. In granite, however,
 $^{226}Ra$ is a dominant dose contributor \cite{swift_applying_2010}. 
 
 \subsubsection{Thermal Behavior}
-\label{sec:granitethermal}
+\label{subsec:granitethermal}
 
 Granite repository concepts are limited by the bentonite buffer in a manner 
 similar to that of clay. However, in the absence of the bentonite limitation, a 
@@ -488,6 +488,7 @@ dominates isolation integrity.  It is expected that the pH will be near
 neutral in this environment \cite{von_lensa_red-impact_2008, clayton_generic_2011}.
 
 \subsubsection{Thermal Behavior}
+\label{subsec:saltthermal}
 
 Response of a salt repository to heat has a significant
 mechanical component. Bulk heating of a salt repository matrix causes
@@ -569,7 +570,7 @@ barriers, the isolation worth of this concept does not depend signficantly on
 the engineered barrier components, relying instead on the diffusion path length.
 
 \subsubsection{Thermal Behavior}
-\label{sec:boreholethermal}
+\label{subsec:boreholethermal}
 
 The thermal behavior of the deep borehole environment is exactly similar to the 
 granite case, except the bentonite buffer limitation is no longer applicable. 
@@ -1272,7 +1273,9 @@ waste stream decay heat, and heat transfer properties of the engineered barrier
 system and lithology. This model must sufficiently solve for peak temperatures 
 at heat limited locations, which are in most cases at the waste package 
 interface with the buffer material and the buffer material interface with the 
-lithology. These heat limits were discussed in section \ref{sec:}.
+lithology. These heat limits were discussed in sections \ref{subsec:claythermal}, 
+\ref{subsec:granitethermal} , \ref{subsec:saltthermal},   
+\ref{subsec:boreholethermal}.
 
 Heat transfer in these concepts will be dominated by diffusive and convective 
 heat transfer. In a closed system, very few air gaps will exist. For this 
@@ -1450,7 +1453,57 @@ representing modes of heat transfer. Thus, one can say, in general
 
 \subsection{Impact of Repository Designs}
 
-\subsection{Heat Limits in Various Waste Packages} 
+The repository layout has a significant influence on its heat limited capacity. 
+Waste package spacing in drifts, boreholes, or alcoves, tunnel spacing, and
+multiple gallery level designs can increase or decrease available heat loading. 
+For example, in the \gls{YMR}, a variety of parameters have been shown to 
+potentially increase the repository waste density. 
+
+The \gls{YMR} statutory limit of once-through, thermal PWR waste is 70,000 tonnes 
+SNF.  That is to say, the statutory line load limit is approximately 1.04 tonnes/m
+for 67km of planned emplacement tunnels (with 81 meters between drifts). The
+Office of Civilian Radioactive Waste Management Science and Engineering Report
+gives this basic ``statutory limit'', but suggests an inherent design
+flexibility that could allow for expansion. 
+
+This inherent flexibility can come from an increase in the areal extent of the 
+repository footprint, the density of drifts, or vertical expansion. The  ``full inventory'' Yucca
+Mountain design alternative gives a maximum repository capacity of 97,000
+tonnes. In addition, the current design for the repository has flexibility for
+``additional repository capacity'' which would give a 119,000 tonne capacity at
+1.04 tonnes/m.\cite{doe_yucca_2002}
+
+In addition to variable drift spacing, other modifications to repository layout
+have had promising results in terms of heat-limited repository capacity. The
+Electric Power Research Institute (EPRI) in their Room at the Mountain study
+found that with redesign of the repository an increased capacity of at least
+$400\%$ (295 tonnes once-through SNF) and up to $900\%$ (663 tonnes) could be
+expected to be achieved. Proposed design changes include decreased spacing
+between drifts, a larger areal footprint, vertical expansion into second and
+third levels of repository space, and hybrid solutions involving combinations
+of these ideas. In particular, EPRI suggests either an expansion of the
+footprint with redesign of the current Upper Block line load design plan or a
+multi-level plan that repeats the footprint and line load design of the current
+plan\cite{kessler_room_2006}.
+
+Specific Temperature Change analysis by Radel, Wilson, et al. find a maximum
+thermal capcity of 1.09 tonnes/m for commercial SNF (at an ELF of $49
+GWd_{th}/m$)\cite{radel_effect_2007}. 
+
+Layout options such as age based fuel mixing also allows for decreases in drift 
+spacing. In aged based fuel mixing, aged (long cool time) SNF is loaded in a 
+mixture with young SNF. This age based fuel mixing has been shown to achieve a 
+$48\%$ increase in the repository capacity as constrained by heat
+load\cite{nicholson_thermal_2007}. This factor uses a fiducial default
+footprint of $4.6 km^2$ used in the NRC TSPA.  The reported $48\%$ increase in
+capacity results in total repository capacity of 103,600
+tonnes\cite{williams_contract_2001}.
+
+
+\input{litrev/footprint_tab} 
+
+
+\subsection{Heat Limits in Engineered Components} 
 
 Various waste package constraints exist that limit fuel loading. These are 
 in general less restrictive than heat limits resulting from geological medium 
@@ -1461,58 +1514,6 @@ reported by the \gls{UFD} campaign is $500^{\circ}C$, corresponding to the
 temperature at which the glass can be expected to begin devitrifying 
 \cite{carter_2010, hardin_generic_2011, soelberg_heat_2009}.
 
-%\subsubsection{Unsaturated Tuff}
-%
-%The statutory limit of once-through, thermal PWR waste is 70,000 tonnes SNF.
-%That is to say, the statutory line load limit is approximately 1.04 tonnes/m
-%for 67km of planned emplacement tunnels (with 81 meters between drifts). The
-%Office of Civilian Radioactive Waste Management Science and Engineering Report
-%gives this basic ``statutory limit", but suggests an inherent design
-%flexibility that could allow for expansion. The ``full inventory" Yucca
-%Mountain design alternative gives a maximum repository capacity of 97,000
-%tonnes. In addition, the current design for the repository has flexibility for
-%``additional repository capacity" which would give a 119,000 tonne capacity at
-%1.04 tonnes/m.\cite{ doe_yucca_2002}
-%
-%Specific Temperature Change analysis by Radel, Wilson, et al. find a maximum
-%thermal capcity of 1.09 tonnes/m for commercial SNF (at an ELF of $49
-%GWd_{th}/m$)\cite{radel_effect_2007}. 
-%
-%Elongation of cooling times has the potential to expand the capacity of the
-%repository. `Cooling time' refers to delaying complete loading of the
-%repository. Longer cooling times allow high heat, short lived isotopes to decay
-%to lower activity before they begin to heat the repository. Much of the benefit
-%to repository capacity comes from the advantage that the cooling time allows a
-%decrease in the space between emplacement drifts. Aged SNF has lower heat flux
-%and so, the drift spacing can be decreased from 81 to 70 meters. A study by
-%Man-Sung Yim and colleagues at North Carolina state found that for a
-%representative commercial SNF composition a cooling time of 75 years allows for
-%over 100 MTU SNF disposal without expanding the Yucca Mountain
-%footprint\cite{li_examining_2007}.
-%
-%Similarly, age based fuel mixing also allows for decreases in drift spacing. In
-%aged based fuel mixing, aged (long cool time) SNF is loaded in a mixture with
-%young SNF. This age based fuel mixing has been shown to achieve a $48\%$
-%increase in the repository capacity as constrained by heat
-%load\cite{nicholson_thermal_2007}. This factor uses a fiducial default
-%footprint of $4.6 km^2$ used in the NRC TSPA.  The reported $48\%$ increase in
-%capacity results in total repository capacity of 103,600
-%tonnes\cite{williams_contract_2001}.
-%
-%In addition to variable drift spacing, other modifications to repository layout
-%have had promising results in terms of heat-limited repository capacity. The
-%Electric Power Research Institute (EPRI) in their Room at the Mountain study
-%found that with redesign of the repository an increased capacity of at least
-%$400\%$ (295 tonnes once-through SNF) and up to $900\%$ (663 tonnes) could be
-%expected to be achieved. Proposed design changes include decreased spacing
-%between drifts, a larger areal footprint, vertical expansion into second and
-%third levels of repository space, and hybrid solutions involving combinations
-%of these ideas. In particular, EPRI suggests either an expansion of the
-%footprint with redesign of the current Upper Block line load design plan or a
-%multi-level plan that repeats the footprint and line load design of the current
-%plan\cite{kessler_room_2006}.
-
-\input{litrev/footprint_tab} 
 
 
 \subsection{Specific Temperature Integral}
@@ -1555,7 +1556,7 @@ generating waste forms. Such models are detailed with respect to their fine
 spatial and temporal resolution or with respect to the incorporation and 
 coupling of numerous physical phenomena. Current detailed computational models 
 addressing various repository geologies and geometries will be reviewed here 
-that utilize finite differencing and finite element methos in many dimensions, 
+that utilize finite differencing and finite element methods in many dimensions, 
 sophisticated numerical solvers, and other high fidelity approaches.
 
 Focused fuel cycle sensitivity analyses emphasizing used fuel disposition and
@@ -1736,7 +1737,7 @@ model defines $w_{ci}$ as:
   w_{ci}(t)=C_i(t)q_{out}(t). 
 \end{equation}
 
-where $q_out$ is the volumetric flow rate of the water $[m^3/yr]$, and 
+where $q_{out}$ is the volumetric flow rate of the water $[m^3/yr]$, and 
 $C_i$ is the concentration on isotope $i$ in the waste package volume 
 $m_i/V_{wp}$ in $[mol/m^3]$. These assumptions fail to take into account any
 differences in the varying solubilities of the isotopes, but are quite
