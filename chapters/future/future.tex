@@ -4,22 +4,96 @@
 
 \subsection{Motivation}
 
-Most fuel cycle simulators are lacking in repository analysis. 
-
-The \gls{UFD} campaign needs an interface with the \gls{SA} campaign.
+The need for this work has been shown by a summary of the current state of the 
+art of fuel cycle simulator repository capabilities. The literature review 
+concluded that most fuel cycle simulators lack repository analysis beyond basic 
+mass tracking. The integrated radionuclide transport and thermal analysis to be 
+pursued in this work will provide a currently unavailable tool for disposal 
+system analysis. An immediate need for such a tool has been expressed in the 
+\gls{UFD} campaign roadmap for this year in which an interface with the \gls{SA} 
+campaign was noted as a primary goal. 
 
 \subsection{Current Work}
 
-Abstraction of current detailed repository models in combination with the 
-current \Cyclus framework has generated a fundamental modeling concept and 
-demonstrated capability for modeling the nuclide transport and heat evolution of 
-a generic geological repository.
+Development of the \Cyclus fuel cycle simulator has generated a tool with which 
+the systems analysis aspects of this work will be conducted. Development of the  
+fundamental repository module concept appropriate for modular integration with 
+\Cyclus has laid the foundation for a software effort which will deliver a 
+library of disposal system component models capable of analyzing current 
+disposal concepts of interest both domestically and internationally.
 
 \section{Future Work}
 
+\subsection{Base Case Development}
+
+% Base Case Milestone
+
+\subsubsection{Base Case Concept}
+
+  % Concept
+
+    % uniform unfractured permeable porous medium
+
+      % reducing geochemistry
+      The base case concept will model a generic, isotropic, permeable porous 
+      geological medium with reducing geochemistry. 
+  
+    % WF : glass 
+
+      % alteration
+
+      % temperature limit
+
+    % WF : uox 
+
+      % cladding limit
+
+      % corrosion
+
+      Two canonical waste form components will be developed. One will be modeled with 
+      a nuclide release model dominated by alteration-based dissolution.  Such
+      a waste form component module will be appropriate for a borosilicate glass waste form.  The 
+      other waste form  component module will  be modeled with a corrosion based  
+      dissolution model. This will be appropriate for a 
+
+    % WP : fractional
+
+    % Buffer : PurelyDiffusive Transport 
+
+    % Heat limits at buffer and rock boundary 
+
+\subsubsection{Base Case Abstraction Analysis}
+
+  % Regression Analysis
+
+\subsubsection{Base Case Code Development}
+
+  % Code Development
+
+\subsubsection{Base Case Testing, Verification, and Validation}<++>
+
+  % Testing
+
+% Geology Extension Milestone
+
+  % Concepts
+
+    % Fracturation (granite)
+
+    % Fast Pathways (borehole and salt)
+
+    % Coalescent behavior (salt)
+
+  % Regression Analysis
+
+  % Code Development
+
+  % Testing
+
+
 \subsection{Sensitivity Analysis}
 
-The sensitivity analysis underway to arrive at simplified dominant physics 
+A sensitivity analysis underway to arrive at simplified dominant physics 
 relationships between the various input parameters of the simulation. 
 
 \subsubsection{Nuclide Transport}
@@ -42,9 +116,9 @@ A TABLE, perhaps. Including parametric domaie.
 
 This is how I'll vary them.
 
-Show that these provide a largely complete set of input variables to define 
-heat evolution. Discuss variables that are being neglected for simplicity, 
-perhaps to be added later. 
+Show that these provide a largely complete set of input variables to define heat 
+evolution. Discuss variables that are being neglected for simplicity, perhaps to 
+be added later. 
 
 \subsection{Mathematical Model Abstraction}
 
@@ -55,8 +129,8 @@ variables for each model.
 \subsection{Computational Model Development}
 
 The development of the computational model will begin with simplistic models of  
-the fundamental components of the detailing the phyical phenomena at work vs. the conceptual and 
-mathematical models available, listed in order of complexity.
+the fundamental components of the detailing the phyical phenomena at work vs.  
+the conceptual and mathematical models available, listed in order of complexity.
 
 
 \subsubsection{Base Case}
@@ -96,8 +170,8 @@ head-end processing of used fuels
 
 
 \paragraph{Separated Streams} Other:  Examples include radionuclides removed 
-from other waste forms (e.g., Cs/Sr, I, C), as well as new waste forms such as 
-a salt waste form
+from other waste forms (e.g., Cs/Sr, I, C), as well as new waste forms such as a 
+salt waste form
 
 \paragraph{Classes A, B, and C waste} Lower Than High Level Waste (LTHLW): 
 Includes Classes A, B, and C
@@ -121,7 +195,7 @@ packages, buffers, and clay types.
 
 \subsubsection{Fuel Cycle Analysis}
 
-Show some various fuel cycles have different repository needs and metrics. 
+Show some various fuel cycles have different repository needs and metrics.  
 Specifically, compare a closed fuel cycle, an open one, and at least one 
 modified fuel cycle. 
 
