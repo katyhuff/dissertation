@@ -35,8 +35,14 @@ disposal concepts of interest both domestically and internationally.
     % uniform unfractured permeable porous medium
 
       % reducing geochemistry
+
       The base case concept will model a generic, isotropic, permeable porous 
-      geological medium with reducing geochemistry. 
+      geological medium with reducing geochemistry. This model will be 
+      appropriate for clay and salt geologies. The fracturation in the geologies  
+      of the granite and deep borehole concepts will not be appropriately 
+      modeled in the base case unless an equivalent porous medium calculation is 
+      conducted external to the code. The incorporation of fracture models will 
+      follow in subsequent extensions to the base case.
   
     % WF : glass 
 
@@ -50,25 +56,59 @@ disposal concepts of interest both domestically and internationally.
 
       % corrosion
 
-      Two canonical waste form components will be developed. One will be modeled with 
-      a nuclide release model dominated by alteration-based dissolution.  Such
-      a waste form component module will be appropriate for a borosilicate glass waste form.  The 
-      other waste form  component module will  be modeled with a corrosion based  
-      dissolution model. This will be appropriate for a 
+      A waste form component module capable of modeling two canonical waste
+      form concepts will be developed. It will be modeled with a rate based 
+      dissolution model and will be equipped with a heat limit which may 
+      constrict the waste form loading. Such a waste form component module will 
+      be appropriate for borosilicate glass, the dissolution of which is 
+      dominated by a surface alteration rate. It will be appropriate also for a 
+      ceramic oxide waste form, the dissolution of which is dominated by a 
+      corrosive degradation rate.
 
-    % WP : fractional
+    % WP : steel
 
-    % Buffer : PurelyDiffusive Transport 
+      % fractional
+      
+      A general, probabilistic waste package failure model will be employed.  
+      From a user-defined time dependent probability distribution (of which the 
+      Weibull distribution is one), a waste package failure vector will be 
+      populated, which assigns a failure time to each waste package object. As 
+      the simulation progresses, these waste packages will fail discretely, 
+      trigerring the initial degradation attack for the waste forms within them.
+
+    % Buffer : Purely Diffusive Transport 
+      
+      % permeable porous medium
+
+      The buffer component will be modeled as an isotropic permeable porous 
+      medium which is chemically reducing and in which transport is diffusion 
+      dominated  and solubility limited.  For the base case, this model will 
+      involve only diffusive transport. Extensions to this model will include a 
+      model for sorption as well as fracturation and advective transport.  
 
     % Heat limits at buffer and rock boundary 
 
-\subsubsection{Base Case Abstraction Analysis}
+      Heat limits in the base case will be calculated at the boundary between 
+      the waste package and buffer as well as the boundary between the buffer or  
+      backfill and the rock matrix.
+
+\subsubsection{Base Case Abstraction }
 
   % Regression Analysis
+
+  Abstraction will be conducted for each of the models listed above to identify  
+  potential simplifying assumptions. For example, diffusive contaminant 
+  transport in  permeable porous media will likely utilize the sensitivity 
+  analysis results in section \ref{sec:current} to assume that the mean annual 
+  dose is not sensitive to the horizontal spacing between drifts. Appropriate 
+  conceptual models will employ these simplifications to streamline 
+  calculations. 
 
 \subsubsection{Base Case Code Development}
 
   % Code Development
+
+
 
 \subsubsection{Base Case Testing, Verification, and Validation}<++>
 
