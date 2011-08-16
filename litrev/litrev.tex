@@ -955,6 +955,13 @@ Advection is transport congruent with the water velocity, diffusion is the
 result of brownian motion accross concentration gradients, and hydraulic 
 dispersion is transport resulting from anisotropies in the water velocity field. 
 
+Fundamentally, the effect of these flows on mass transport is captured by the 
+conceptual expression 
+
+\begin{align}
+  \mbox{In} - \mbox{Out} &= \mbox{Change in Storage}
+  \label{inout}
+\end{align} 
 
 % Solute Transport in permeable porous media 
 
@@ -969,22 +976,22 @@ dispersion is transport resulting from anisotropies in the water velocity field.
 % diffusion - is from random brownian motion, tends to homogenize 
 % concentration field.  %
 
-The equation representing solute transport in a permeable medium of homogenous
-porosity can be written (as in Schwartz and Zhang 
-\cite{schwartz_fundamentals_2004})
+Rearranging \ref{inout} and defining incoming and outflowing fluxes in a control  
+volume,  solute transport in a permeable medium of homogenous porosity can be
+written (as in Schwartz and Zhang \cite{schwartz_fundamentals_2004})
 
 \begin{align} 
-  \frac{\partial \omega C}{\partial t} & = - \nabla \cdot  (F_c + F_{dc} + F_d) + m 
+  \frac{\partial n C}{\partial t} & = - \nabla \cdot  (F_c + F_{dc} + F_d) + m 
   \label{solperm}
   \intertext{where} 
   \displaybreak[0]
   \omega &= \mbox{solute accessible porosity } [\%]\nonumber\\
   C &= \mbox{ concentration } [kg \cdot m^{-3}]\nonumber\\ 
-  F_c &= \mbox{ convetive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
-  &= qC \nonumber \\
+  F_c &= \mbox{ advective flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
+  &= nvC \nonumber \\
   \displaybreak[0]
   F_{dc} &= \mbox{ dispersive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\ 
-  &= \alpha q \nabla C  \nonumber\\ 
+  &= \alpha nv \nabla C  \nonumber\\ 
   \displaybreak[0]
   F_d &= \mbox{ diffusive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
   &= D_e \nabla C\nonumber\\
@@ -992,7 +999,9 @@ porosity can be written (as in Schwartz and Zhang
   m &= \mbox{ solute source } [kg \cdot m^{-2}\cdot s^{-1}].\nonumber
   \displaybreak[0]
   \intertext{In the expressions above,} 
-  q &= \mbox{ Darcy velocity } [m\cdot s^{-1}] \nonumber\\
+  n &= \mbox{ Porosity } [\%] \nonumber\\
+  v &= \mbox{ Pore velocity } [m\cdot s^{-1}] \nonumber\\
+  nv &= \mbox{ Darcy velocity } [m\cdot s^{-1}] \nonumber\\
   \alpha &= \mbox{ dispersivity } [m]\nonumber
   \displaybreak[0]
   \intertext{and} 
@@ -1004,28 +1013,31 @@ is determined for a particular porous medium is by use of the dimensionless
 Peclet number, 
 
 \begin{align} 
-  Pe &= \frac{qL}{\alpha q + D_e},\\
+  Pe &= \frac{nvL}{\alpha nv + D_e},\\
   &= \frac{\mbox{advective rate}}{\mbox{diffusive rate}}\nonumber
   \intertext{where} 
   L &= \mbox{ transport distance } [m].\nonumber
 \end{align}
 
 For a high $Pe$ number, advection is the dominant transport mode, while 
-diffusive transport dominates for a low $Pe$ number.  
+diffusive transport dominates for a low $Pe$ number. If one of these terms can 
+be neglected, the solution is simplified. 
 
-The analytical expression in equation \eqref{solperm} will be the foundation of 
-simplification by regression analyses for the radionuclide transport interface 
-between components of the repository system model representing permeable porous 
-media.  
+Otherwise, the analytical expression in equation \eqref{solperm} will be the 
+foundation of simplification by regression analyses for the radionuclide transport 
+interface between components of the repository system model representing permeable 
+porous media.  
 
-ection{Diffusion Coefficients}
+It is customary to define the combination of molecular diffusion and mechanical
+mixing as dispersion, 
 
-
-Fundamentally, flow through a control volume is bounded by the mass conservation 
-equation:
 \begin{align}
-  \mbox{In} - \mbox{Out} &= \mbox{Change in Storage}\nonumber
-  \intertext{which can be stated more precisely as}
+  D = \alpha v + D_e 
+  \label{dispersion}
+\end{align}
+
+such that the mass conservation equation becomes:
+\begin{align}
   \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) &= \frac{\partial(nC)}{\partial t}
   \label{massbal} 
   \intertext{Adding sorption, by accounting for a change in mass storage}
@@ -1116,6 +1128,7 @@ boundary,
 \end{align*}
 
 
+\section{Diffusion Coefficients}
 \subsection{ Temperature Dependent : Arrhenius Relationship }
 
 The Arrhenius relationship,
