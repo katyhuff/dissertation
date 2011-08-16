@@ -1127,9 +1127,32 @@ boundary,
   \frac{\partial C(\vec{r},t)}{\partial x} = nD\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
 \end{align*}
 
+\subsubsection{One Dimensional Solution with Constant Concentration}
 
-\section{Diffusion Coefficients}
-\subsection{ Temperature Dependent : Arrhenius Relationship }
+An analytical solution for the one dimensional case with a continuous source 
+of constant concentration is known. For the boundary conditions
+\begin{align}
+  C(0,t) =& C_0
+  \intertext{and}
+  \frac{\partial C}{\partial x}|_{x=\infty} =& 0
+  \label{BCs}
+  \intertext{as well as the initial condition }
+  C(x,0) =& 0 \mbox{\hspace{2mm}for\hspace{1mm}} x \in (0,\infty),
+\end{align}
+the so called Ogata and Banks solution gives
+\begin{align}
+  C(x,t) =& \frac{C_0}{2}\left[
+  \erfc{\left( \frac{x- \frac{v_x t}{R_f} }{2\sqrt{ 
+  \frac{D_xt}{R_f} }} \right)} +
+  e^{\frac{v_xx}{D_x}}
+  \erfc{\left( \frac{x+ \frac{v_x t}{R_f} }{2\sqrt{ 
+  \frac{D_xt}{R_f} }} \right)}
+  \right].
+\end{align}
+
+
+\subsection{Diffusion Coefficients}
+\subsubsection{ Temperature Dependent : Arrhenius Relationship }
 
 The Arrhenius relationship,
 
@@ -1151,7 +1174,7 @@ gives the diffusion coefficient of solids as a function of temperature.
 Gives D as a function of temperature and apparent activation energy of the 
 medium.
 
-\subsection{ Temperature Dependent : Stokes Einstein Relationship }
+\subsubsection{ Temperature Dependent : Stokes Einstein Relationship }
 
 The Stokes-Einstein relationship,
 
