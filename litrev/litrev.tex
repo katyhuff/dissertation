@@ -1079,11 +1079,8 @@ equation:
   \intertext{which can be stated more precisely as}
   \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) &= \frac{\partial(nC)}{\partial t}
   \label{massbal} 
-  \intertext{ Adding a chemical reaction rate, r,}
-  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) + r  &= \frac{\partial(nC)}{\partial t}
-  \label{withchem} 
   \intertext{Adding sorption, by accounting for a change in mass storage}
-  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) + r  &= 
+  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right)  &= 
   \frac{\partial(nC)}{\partial t}  + \frac{\partial(s\rho_b)}{\partial t} 
   \label{withsorption} 
 \end{align}
@@ -1095,7 +1092,7 @@ reversible reaction,
   \frac{\partial(s\rho_b)}{\partial t} &= \left( R_f - 1 
   \right)\frac{\partial(nC)}{\partial t}\nonumber
   \intertext{equation \eqref{withsorption} becomes}
-  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) + r  &= 
+  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) &= 
   R_f\frac{\partial(nC)}{\partial t}    
   \label{withlinsorption}
   \intertext{where}
@@ -1104,15 +1101,6 @@ reversible reaction,
   \rho_b &=\mbox{bulk density of the rock matrix}
   \intertext{and}
   K_d &= \mbox{species distribution coefficient.}
-\end{align}
-
-Chemical reactions such as kinetic decay can be represented by the reaction rate, 
-r, without which n \eqref{withlinsorption} simplifies to
-
-\begin{align}
-  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right)  = 
-  R_f\frac{\partial(nC)}{\partial t}. 
-  \label{withdecay}
 \end{align}
 
 For uniform flow, the dispersion tensor, $D$, becomes
@@ -1179,7 +1167,7 @@ boundary,
 \end{align*}
 
 
-\subsubsection{sudicky and frind}
+\subsubsection{sudicky and Frind}
 Sudicky and Frind give a model for fractured porous media that 
 analytically captures nuclide mobility due to advection through 
 fractures as well as competing retardation factors including sorption on the 
