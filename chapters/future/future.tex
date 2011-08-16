@@ -111,24 +111,44 @@ disposal concepts of interest both domestically and internationally.
   Initial code development on the base case model has begun with creation of the 
   FacilityModel subclass, GenericRepository. 
 
-  A first phase in the base case milestone. 
-  to successfully load its subcomponent models from user input (i.e.
-  the lithology, waste form, waste package, buffer, etc.) with their 
-  corresponding defining parameters. 
+  A first phase in the base case milestone will be for the repository model to 
+  successfully load its subcomponent models from user input (i.e.  the 
+  lithology, waste form, waste package, buffer, etc.) with their corresponding 
+  defining parameters.  
+
+  A second phase will involve implementing an information exchange paradigm 
+  between the subcomponents which communicates sufficient temperature and 
+  contaminant concentrations at the boundaries of the control volumes for 
+  solution of their internal transport calculations.
   
-    % Test driven
-
-    % Information passing
-
-    %  
-
-
-
-\subsubsection{Base Case Testing, Verification, and Validation}<++>
+  Finally, populating those models with appropriate mass balances, rate
+  equations, and data will provide sufficient information to determine the heat  
+  based capacity of the repository for each request of material. 
+  
+\subsubsection{Base Case Testing, Verification, and Validation}
 
   % Testing
+   
+  This work will be developed with a test driven development strategy. That is, 
+  before any new functionality is implemented, a suite of tests is written which 
+  as closely define its necessary behavior as possible. The software is then 
+  written with the goal of passing the test suite. In this way, the software 
+  developed in this work is expected to be comprehensively tested in parallel 
+  with its development. 
+
+  % verification / validation 
+
+  For verification and validation uring development, some comparisons to current 
+  detailed models such as the \gls{UFD} \gls{GPAM} and GDSEs will be 
+  incorporated into the testing framework. Additional verification and 
+  validation can be expected to be conducted with respect to known benchmarks 
+  such as \gls{ANDRA} and RED-IMPACT results once the model is fully functional.
+
+
+\subsection{Extensions}
 
 % Geology Extension Milestone
+
 
   % Concepts
 
