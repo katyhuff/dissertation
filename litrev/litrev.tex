@@ -1106,12 +1106,11 @@ reversible reaction,
   K_d &= \mbox{species distribution coefficient.}
 \end{align}
 
-To incorporate radioactive decay it is necessary to represent the reaction rate, 
-r, as a function of $\lambda$ and $R_f$ such that equation 
-\eqref{withlinsorption} becomes
+Chemical reactions such as kinetic decay can be represented by the reaction rate, 
+r, without which n \eqref{withlinsorption} simplifies to
 
 \begin{align}
-  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) + nR_f\lambda C = 
+  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right)  = 
   R_f\frac{\partial(nC)}{\partial t}. 
   \label{withdecay}
 \end{align}
@@ -1140,7 +1139,7 @@ The unidirectional dispersion tensor gives
   D_x \frac{\partial^2 C}{\partial x^2} +
   D_y \frac{\partial^2 C}{\partial y^2} +
   D_z \frac{\partial^2 C}{\partial z^2} +
-  v_x \frac{\partial C}{\partial x} - \lambda R_f C = R_f 
+  v_x \frac{\partial C}{\partial x}  = R_f 
   \frac{\partial(nC)}{\partial t} 
   \label{unidirflow}
 \end{align}
@@ -1150,7 +1149,7 @@ A special case of uniform flow, no flow, simplifies to the diffusion equation,
   D_x \frac{\partial^2 C}{\partial x^2} +
   D_y \frac{\partial^2 C}{\partial y^2} +
   D_z \frac{\partial^2 C}{\partial z^2} +
-  - \lambda R_f C = R_f 
+  C = R_f 
   \frac{\partial(nC)}{\partial t} 
   \label{diffusion}
 \end{align}
