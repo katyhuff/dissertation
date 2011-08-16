@@ -1020,57 +1020,6 @@ media.
 
 ection{Diffusion Coefficients}
 
-\subsection{ Constant }
-
-Tabulated.
-
-\subsection{ Temperature Dependent : Arrhenius Relationship }
-
-The Arrhenius relationship,
-
-\begin{align}
-  D &=D_0e^{-\frac{E_A}{RT}}
-  \intertext{where}
-  &D = \mbox{the diffusion coefficient}\\
-  &D_0 = \mbox{the maximum diffusion coefficient}\\
-  &E_A = \mbox{the ctivation energy of diffusion} [J \cdot kg^{-1}]\\
-  &T = \mbox{is the temperature} [^\circ K]\\
-  &R = \mbox{the ideal gas constant}[J \cdot \mbox{mol}^{-1} \cdot ^\circ 
-  K^{-1}],\\
-  \label{arrhenius}
-\end{align}
-
-gives the diffusion coefficient of solids as a function of temperature.
-
-
-Gives D as a function of temperature and apparent activation energy of the 
-medium.
-
-\subsection{ Temperature Dependent : Stokes Einstein Relationship }
-
-The Stokes-Einstein relationship,
-
-\begin{align*}
-  D(T) = \frac{k_B T}{6\pi \eta r}
-\end{align*}
-
-gives an equation for the diffusion coefficient in a fluid, as a function of T,  
-the temperature of the surrounding medium, $k_B$, the Boltzmann constant, and 
-$\eta$, the viscosity of the medium. This relationship is appropriate for 
-media that have a low Reynolds number, 
-
-\begin{align*}
-  Re &= \frac{\rho v L}{\mu}\\
-     \intertext{where}
-     &\rho = \mbox{fluid density} [kg\cdot m{-3}]\\
-     &v = \mbox{mean relative velocity of fluid} [m \cdot s^{-1}]<++>\\
-     &L = \mbox{characteristic length of system} [m]\\
-     &\mu = \mbox{dynamic fluid viscosity} [kg\cdot m^{-1} \cdot s{-1}]
-\end{align*}
-
-where viscous forces dominate. 
-
-\subsubsection{From Schwartz and Zhang Ch. 23}
 
 Fundamentally, flow through a control volume is bounded by the mass conservation 
 equation:
@@ -1165,6 +1114,54 @@ boundary,
   C(\vec{r},t) = C_0(\vec{r},t)\hspace{1mm}\mbox{ for } \vec{r} \in \Gamma\\
   \frac{\partial C(\vec{r},t)}{\partial x} = nD\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
 \end{align*}
+
+
+\subsection{ Temperature Dependent : Arrhenius Relationship }
+
+The Arrhenius relationship,
+
+\begin{align}
+  D &=D_0e^{-\frac{E_A}{RT}}
+  \intertext{where}
+  &D = \mbox{the diffusion coefficient}\\
+  &D_0 = \mbox{the maximum diffusion coefficient}\\
+  &E_A = \mbox{the ctivation energy of diffusion} [J \cdot kg^{-1}]\\
+  &T = \mbox{is the temperature} [^\circ K]\\
+  &R = \mbox{the ideal gas constant}[J \cdot \mbox{mol}^{-1} \cdot ^\circ 
+  K^{-1}],\\
+  \label{arrhenius}
+\end{align}
+
+gives the diffusion coefficient of solids as a function of temperature.
+
+
+Gives D as a function of temperature and apparent activation energy of the 
+medium.
+
+\subsection{ Temperature Dependent : Stokes Einstein Relationship }
+
+The Stokes-Einstein relationship,
+
+\begin{align*}
+  D(T) = \frac{k_B T}{6\pi \eta r}
+\end{align*}
+
+gives an equation for the diffusion coefficient in a fluid, as a function of T,  
+the temperature of the surrounding medium, $k_B$, the Boltzmann constant, and 
+$\eta$, the viscosity of the medium. This relationship is appropriate for 
+media that have a low Reynolds number, 
+
+\begin{align*}
+  Re &= \frac{\rho v L}{\mu}\\
+     \intertext{where}
+     &\rho = \mbox{fluid density} [kg\cdot m{-3}]\\
+     &v = \mbox{mean relative velocity of fluid} [m \cdot s^{-1}]<++>\\
+     &L = \mbox{characteristic length of system} [m]\\
+     &\mu = \mbox{dynamic fluid viscosity} [kg\cdot m^{-1} \cdot s{-1}]
+\end{align*}
+
+where viscous forces dominate. 
+
 
 
 \subsubsection{sudicky and Frind}
