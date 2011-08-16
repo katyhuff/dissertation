@@ -628,37 +628,9 @@ waste packages at a constant volumetric rate (`flowthrough model'), others
 adopt less conservative assumptions incorporating weather based predictions of
 hydrogeologic activity.
 
-Radionuclide transfer rate through the lithology is  dependent upon diffusion as
-well as advection.  The diffusion coefficient varies per radionuclide and is heavily
-dependent upon the concentration of that radionuclide in the flowthrough water.
-The way in which diffusion affects radionuclide concentration is described by Fick's 
-Second Law, 
-
-\begin{equation} 
-  \frac{\partial C_i}{\partial t}  = D_i\nabla^2 C_i.  
-\end{equation}
-
-Source term dependence on concentration has a significant effect on potential
-repository capacity. Sensitivity to concentration complicates the viability of
-alternate loading schemes as well as waste separation scenarios. Specifically, 
-Fick's Second Law becomes 
-
-\begin{equation} 
-  \frac{\partial C_i}{\partial t}  = \nabla \cdot ( D_i \nabla C_i ). 
-\end{equation}
-
-Radionuclide concentration has been shown to be proportional to the waste package
-loading configuration for the Yucca Mountain case
-\cite{ahn_relationship_2002,kawasaki_congruent_2004}.
-
-
-\subsection{Geochemical Radionuclide Transport Phenomena}
-
-The most important geochemical processes to source term that occur within the
-waste, waste matrix, and near field as well as the host rock are dissolution,
-precipitation, and sorption \cite{bracke_safety_2008}. 
-
-\subsubsection{Dissolution}
+Radionuclide transport through the lithology is dependent upon diffusion as
+well as advection. Radionuclide transport is retarded by sorption, limited by 
+solubility, and enhanced by colloidal mobility \cite{bracke_safety_2008}. 
 
 Dissolution is prerequisite to contribution of a radionuclide to source term 
 \cite{bracke_safety_2008}. That is, the initial 
@@ -667,15 +639,10 @@ barrier. Dissolution rates depend strongly on pH, Eh,
 speciation of radionuclides (chemical oxidative state), and radiolysis of the
 dissolving fluid, and primarily on material properties of the waste form.
 
-
-\subsubsection{Precipitation}
-
 Precipitation is the reverse of dissolution and occurs when a soubility limit
 is reached. Interestingly the chemical equillibrium of dissolution and
 precipitation is rate dependent and is highly dependent on thermodynamics.
 Predictions are not reliable in many cases.
-
-\subsubsection{Sorption}
 
 Sorption, which includes both absorption and adsorption,  is the interaction of a
 dissolved species with surfaces that removes that species from the dissolving
@@ -709,10 +676,6 @@ geochemically dependent.
 
 % Also, there is sorption through the pores in the matrix. Again, we can model 
 % this with a ``linear sorption isotherm. . . '' whatever that is.  
-
-
-
-\subsubsection{Colloidal Mobility}
 
 Colloids present in the near field dissolving solution have an effect on the
 mobility of radionuclides. Studies addressing the subtle differences between 
