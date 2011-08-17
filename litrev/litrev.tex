@@ -796,6 +796,7 @@ or at some distinct time during the simulation. The mathematical representation 
 probability density function is clearly just the delta function, with $n_F$ 
 being the number of failed waste packages, $N$ being the total number of waste 
 packages, and $t_F$ being the time to failure,
+
 \begin{align}
   n_F(t) = N\delta(t-t_F).
   \label{instantaneous}
@@ -1070,25 +1071,25 @@ Solutions to these equations can be categorized by their boundary conditions.
 The first, or Dirichlet type boundary conditions define a specified species 
 concentration on some section of the boundary of the representative volume, 
 
-\begin{align*}
+\begin{align}
   C(\vec{r},t) = C_0(\vec{r},t)\hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
-\end{align*}
+\end{align}
 
 The second type or Neumann type boundary conditions describe a full set of 
 fluxes at  the boundary of the domain
 
-\begin{align*}
+\begin{align}
   \frac{\partial C(\vec{r},t)}{\partial x} = nD\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
-\end{align*}
+\end{align}
 
 The third, Cauchy, type describes a combination of the Dirichlet and Neumann 
 type conditions, defining both a concentration at a boundary and a flux at that 
 boundary, 
 
-\begin{align*}
+\begin{align}
   C(\vec{r},t) = C_0(\vec{r},t)\hspace{1mm}\mbox{ for } \vec{r} \in \Gamma\\
   \frac{\partial C(\vec{r},t)}{\partial x} = nD\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
-\end{align*}
+\end{align}
 
 \subsubsection{One Dimensional Solution with Constant Concentration}
 
@@ -1141,23 +1142,23 @@ medium.
 
 The Stokes-Einstein relationship,
 
-\begin{align*}
+\begin{align}
   D(T) = \frac{k_B T}{6\pi \eta r}
-\end{align*}
+\end{align}
 
 gives an equation for the diffusion coefficient in a fluid, as a function of T,  
 the temperature of the surrounding medium, $k_B$, the Boltzmann constant, and 
 $\eta$, the viscosity of the medium. This relationship is appropriate for 
 media that have a low Reynolds number, 
 
-\begin{align*}
+\begin{align}
   Re &= \frac{\rho v L}{\mu}\\
      \intertext{where}
      &\rho = \mbox{fluid density} [kg\cdot m{-3}]\\
      &v = \mbox{mean relative velocity of fluid} [m \cdot s^{-1}]<++>\\
      &L = \mbox{characteristic length of system} [m]\\
      &\mu = \mbox{dynamic fluid viscosity} [kg\cdot m^{-1} \cdot s{-1}]
-\end{align*}
+\end{align}
 
 where viscous forces dominate. 
 
@@ -1370,17 +1371,17 @@ For the one dimensional case, equation \ref{fourier} can be reduced using a
 finite difference approximation. For a body at $x_1$ with temperature $T_1$
 and a body with temperature $T_2$ at position $x_2$,
 
-\begin{align*}
+\begin{align}
   q_x'' &= -k_x\frac{dT}{dx}\\
   &=-k_x\frac{(T_1-T_2)}{x_1-x_2}.
-\end{align*}
+\end{align}
 
 A one dimensional heat flux rate can be found by integration over the surface 
 area of the representative volume, 
 
-\begin{align*}
+\begin{align}
   \dot{q} = -kA\frac{\Delta T}{\Delta x}.
-\end{align*}
+\end{align}
 
 \subsection{Convection}
 
@@ -1419,9 +1420,9 @@ temperature in adjacent volumes as a result of matter movement. If the specific
 heat capacity of the transferred mass can be expressed as $c_p$, then the heat 
 conductance is simply, 
 
-\begin{align*}
+\begin{align}
   \dot{q} = \dot{m}c_p\left( T_j - T_i \right).\\
-\end{align*}
+\end{align}
 
 \subsection{Lumped Parameter Model}
 
@@ -1450,35 +1451,35 @@ transfer modes. The rate of heat transfer $[W \cdot m^{-2}\cdot^{\circ}K\cdot
 s]$ through a circuit is simply given as the quotient of the temperature 
 difference and the thermal resistance of the multiple lumps,
 
-\begin{align*}
+\begin{align}
   \dot{q} = \frac{\Delta T}{\sum _{i=0}^{N}R_i}.
-\end{align*}
+\end{align}
 
 By representing the various modes of heat transport (i.e. conduction, 
 convection, radiation, and mass transfer) with various expressions for 
 resistance, the lumped capacitance model provides a solution to the transient 
 problem described by the energy balance,
 
-\begin{align*}
+\begin{align}
   \left( \mbox{Energy added to body j in dt} \right) &= \left( \mbox{Heat 
-  out of adjacent bodies into body j} \right)\\
+  out of adjacent bodies into body j} \right)\nonumber\\
   c_j\rho_j V_j dT_j(t) &= \sum_{i=0}^{i=N}\left[\dot{q_{i,j}}\right]dt,
-\end{align*}
+\end{align}
 
 where $c_j\rho_jV_j$ is the total lumped thermal capacitance of the body.
 
 For example, in the case of a simple conductive circuit between two bodies, $i$ 
 and $j$, the resistance of $j$ can be described as 
-\begin{align*}
+\begin{align}
   R_{cond} &= 1/hA
   \intertext{such that}
   c_j\rho_j V_j dT_j(t) &= \sum_{i=0}^{i=N}\left[ hA_j [T_i - T_j(t) \right]dt.\\
-\end{align*}
+\end{align}
 
 A time constant appears under integration that describes the speed with which 
 the body $i$ changes temperature with respect to the maximum temperature change,
 
-\begin{align*}
+\begin{align}
   \int_{T_j=T_0}^{T_j(t)} 
   \frac{dT_j(t)}{T_i-T_j}&=\frac{hA_j}{c_j\rho_jV_j}\int_0^t dt\\
   -ln\frac{T_i-T_j(t)}{T_i-T_0}&=\frac{hA_j}{c_j\rho_jV_j}t\\
@@ -1486,8 +1487,8 @@ the body $i$ changes temperature with respect to the maximum temperature change,
   \intertext{such that}
   \frac{T_j(t)-T_i}{T_i-T_0}&= 1- e^{-t/\tau}\\
   \intertext{where}
-  \tau &= \left( c_j\rho_jV_j/hA_j \right).
-\end{align*}
+  \tau &= \left( c_j\rho_jV_j/hA_j \right).\nonumber
+\end{align}
 
 The time constant, $\tau$ is the time it takes for the body to change 
 $(1-(1/e))\%\Delta T$ and is equal to the product of the thermal capacitance and 
@@ -1495,9 +1496,9 @@ thermal resistance of the body, $CR$, analgous to an electrical circuit.
 \cite{el-wakil_nuclear_1981} This is the case for all resistances, $R_i$ 
 representing modes of heat transfer. Thus, one can say, in general
 
-\begin{align*}
+\begin{align}
   \tau_j = c_j \rho_j V_j R_j.
-\end{align*}
+\end{align}
 
 \subsection{Impact of Repository Designs}
 
@@ -1972,22 +1973,22 @@ model solves the Fourier equation,
 Lumps are connected by conduction, convection, radiation, and mass flow heat 
 transfer links. Briefly, these are represented by
 
-\begin{align*}
+\begin{align}
   R_{cond} &= \frac{L}{kA}\\
   R_{conv} &= \frac{1}{ h\cdot A}\\
   R_{mf}  &= \frac{1}{\dot{m}c_p}\\
   R_{rad}  &= \frac{1}{\sigma F_{ij}A\left[ T_i + T_A + T_j + T_A 
   \right]\left[(T_i+T_A)^2+(T_j+T_A)^2\right]}
   \intertext{where}
-  k&= ~~\mbox{conductivity}[] \\
-  A&= ~~\mbox{area} [m^2]\\
-  c_p&=~~\mbox{specific heat capacity} []  \\\
-  h&= ~~\mbox{heat transfer coefficient}[] \\
-  \dot{m}&= ~~\mbox{mass transfer rate}[kg\cdot s^{-1}] \\
-  T_i&= ~~\mbox{lump temperature} [^{\circ}C] \\
-  T_A&= ~~\mbox{absolute temperature} [^{\circ}C] \\
-  F_{ij}&= ~~\mbox{radiation interchange factor} [-] .
-\end{align*}
+  k&= ~~\mbox{conductivity}[]\nonumber\\
+  A&= ~~\mbox{area} [m^2]\nonumber\\
+  c_p&=~~\mbox{specific heat capacity} []\nonumber  \\
+  h&= ~~\mbox{heat transfer coefficient}[\nonumber] \\
+  \dot{m}&= ~~\mbox{mass transfer rate}[kg\cdot s^{-1}]\nonumber \\
+  T_i&= ~~\mbox{lump temperature} [^{\circ}C] \nonumber\\
+  T_A&= ~~\mbox{absolute temperature} [^{\circ}C] \nonumber\\
+  F_{ij}&= ~~\mbox{radiation interchange factor} [-] .\nonumber
+\end{align}
 
 With these representations of thermal resistance, a lumped parameter model will 
 require an analysis that determines the appropriate length scale for the lumped 
