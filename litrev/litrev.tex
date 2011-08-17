@@ -1087,9 +1087,9 @@ fluxes at  the boundary of the domain
 \begin{align}
   \frac{\partial C(\vec{r},t)}{\partial r} = nD\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
   \intertext{where}
-  \vec{r} = \mbox{ position vector }
-  \Gamma = \mbox{ domain boundary }
-  \Gamma = \mbox{ domain boundary }
+  \vec{r} = \mbox{ position vector }\nonumber\\
+  \Gamma = \mbox{ domain boundary }\nonumber\\
+  \vec{J}= \mbox{ solute flux } [<+UNITS+>]\nonumber
 \end{align}
 
 The third, Cauchy, type describes a combination of the Dirichlet and Neumann 
@@ -1428,10 +1428,24 @@ waves. Planck black body radiation is analytically described, using $\sigma$, th
 Stefan-Boltzmann constant as
 
 \begin{align}
-  q'' &= \sigma A_1 F_{1\rightarrow 2}(T_1^4 - T_2^4)
+  q'' = \sigma A_1 F_{1\rightarrow 2}(T_1^4 - T_2^4)
   \label{planck}
   \intertext{where}
-  \sigma &=5.670373\times 10^{−8} [W/ m^{2}\cdot^{\circ}K^{4}].\nonumber\\
+  \sigma =5.670373\times 10^{−8} [W/ m^{2}\cdot^{\circ}K^{4}].\nonumber
+  \intertext{and}
+  F_{1\rightarrow 2} =
+  \begin{cases}
+    \epsilon_1 &
+    \mbox{point source},\\
+    \frac{1}{\frac{1}{\epsilon_1} + \frac{1}{\epsilon_2} - 1 } &
+    \mbox{parallel plates},\\
+    \frac{2\pi r_1 L}{\frac{1}{\epsilon_1} + \frac{1}{\epsilon_2} - 1 } \frac{r_1}{r_2} &
+    \mbox{concentric cylinder.}
+  \end{cases}
+  \intertext{where}
+  \epsilon_i &= \mbox{emmisivity of surface i}\nonumber\\
+  r_i = \mbox{radius of cylinder i} \nonumber\\
+  L = \mbox{cylinder length}\nonumber
 \end{align}
 
 
@@ -1681,7 +1695,7 @@ mass transfer links.
 
 Thermal modeling for the \glspl{GDSM} are conducted independently with 
 associated codes capable of modeling thermal evolution for all geologies. For 
-example, one thermal model is being created using the SINDA\textbackslash G heat
+example, one thermal model is being created using the \gls{SINDAG} heat
 transport solver and another is under development that utilizes a combination 
 of MathCAD and Excel. 
 
@@ -1962,7 +1976,7 @@ loading densities, and for many fuel cycle options.
 \subsection{Bauer SINDA{\textbackslash}G Model}
 
 This model, created at Argonne National Lab by Ted Bauer uses a lumped 
-capacitance solver, called SINDA{\textbackslash}G.
+capacitance solver, the \acrlong{SINDAG}.
 
 The Bauer model is geometrically adjustable. 
 
