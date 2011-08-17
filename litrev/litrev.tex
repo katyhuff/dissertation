@@ -740,8 +740,8 @@ through the waste packages.
 In the Ahn models, radionuclides with lower solubility coefficients are modeled with
 the solubility limited release model.  Solubility values are assumed from TSPA
 for this model, and a solubility of $~5\times 10^{-2} [mol/m^3]$ are taken to be
-`low.' Elements in this `low' category include the toxic actinides such as Zr,
-Nb, Sn, Th, and Ra for an oxidizing, unsaturated environment similar to \gls{YMR}.
+`low.' Elements in this `low' category include Zr, Nb, Sn and some toxic actinides 
+such as Th and Ra , for an oxidizing, unsaturated environment similar to \gls{YMR}.
 It should be noted that in a reducing environment, the actinides are not as mobile, 
 and the high and low solubility radionuclides will differ from this model.
 This model suggests that a dominant mode of dissolution of
@@ -765,9 +765,9 @@ of their solubility. That is,
   m_{1i}(t)\le v_{1i}(t)C_{sol}
 \end{align}
 
-where the mass $m_{1i}$ $[g]$ of a radionuclide, $i$ relased into the waste package
+where the mass $m_{1i}$ in $[kg]$ of a radionuclide $i$ relased into the waste package
 void volume $v_1$ in $[m^3]$, at a time t, is limited by the solubility limit, 
-the maximum concentration, $C_{sol}$ in $[g/m^3]$ at which that radionuclide is 
+the maximum concentration, $C_{sol}$ in $[kg/m^3]$ at which that radionuclide is 
 soluble \cite{hedin_integrated_2002}.
 
 %%%%
@@ -782,7 +782,7 @@ soluble \cite{hedin_integrated_2002}.
 
 
 \subsubsection{Instantaneous}
- 
+
 The Hedin model of waste package failure is effectively instantaneous, but
 limited by a release resistance coefficient. The release is assumed  to occur
 through a hole in the waste canister that exists throughout the simulation, and
@@ -823,7 +823,7 @@ very different under dry oxidizing conditions and wet reducing conditions.
 
 An expression of the number of failed waste packages, $n_F$ per time step is a simple 
 product between the inital number of waste packages, $N$ and the rate $f$ of
-package  failure as a function of time ($t$), temperature ($T$), and other 
+package  failure as a function of time $t$, temperature $T$), and other 
 parameters.
 
 \begin{align}
@@ -869,7 +869,7 @@ engineered barriers is the Weibull distribution,
 \end{align}
 
 
-In this expression, k is a shape parameter and $\lambda$ is a scale
+In this expression, $k$ is a shape parameter and $\lambda$ is a scale
 parameter. The time to failure, $t$ in the Weibull distribution gives a 
 distribution for which the failure rate is proportional to a power of time 
 \cite{papoulis_probability_2002}. Its complementary cumulative distribution
@@ -907,7 +907,7 @@ modeled explicitly or as a continuum model.
 
 %%%%
 
-\subsection{Hydrogeologic Transport Models}
+\subsubsection{Hydrogeologic Transport Models}
 
 Clay, shale, granite, and salt can largely be characterized as permeable porous 
 media. While clay shale and salt do not exhibit significant fracturation and can 
@@ -949,8 +949,9 @@ written (as in Schwartz and Zhang \cite{schwartz_fundamentals_2004})
   \label{solperm}
   \intertext{where} 
   \displaybreak[0]
-  \omega &= \mbox{solute accessible porosity } [\%]\nonumber\\
+  n &= \mbox{solute accessible porosity } [\%]\nonumber\\
   C &= \mbox{ concentration } [kg \cdot m^{-3}]\nonumber\\ 
+  t &= \mbox{ time } [s]\nonumber\\ 
   F_c &= \mbox{ advective flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
   &= nvC \nonumber \\
   \displaybreak[0]
@@ -963,8 +964,7 @@ written (as in Schwartz and Zhang \cite{schwartz_fundamentals_2004})
   m &= \mbox{ solute source } [kg \cdot m^{-2}\cdot s^{-1}].\nonumber
   \displaybreak[0]
   \intertext{In the expressions above,} 
-  n &= \mbox{ Porosity } [\%] \nonumber\\
-  v &= \mbox{ Pore velocity } [m\cdot s^{-1}] \nonumber\\
+  v &= \mbox{ pore velocity } [m\cdot s^{-1}] \nonumber\\
   nv &= \mbox{ Darcy velocity } [m\cdot s^{-1}] \nonumber\\
   \alpha &= \mbox{ dispersivity } [m]\nonumber
   \displaybreak[0]
@@ -1001,6 +1001,7 @@ mixing as dispersion,
 \end{align}
 
 such that the mass conservation equation becomes:
+
 \begin{align}
   \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) &= \frac{\partial(nC)}{\partial t}
   \label{massbal} 
@@ -1098,7 +1099,7 @@ of constant concentration is known. For the boundary conditions
 \begin{align}
   C(0,t) =& C_0
   \intertext{and}
-  \frac{\partial C}{\partial x}|_{x=\infty} =& 0
+  \frac{\partial C}{\partial x}\Big|_{x=\infty} =& 0
   \label{BCs}
   \intertext{as well as the initial condition }
   C(x,0) =& 0 \mbox{\hspace{2mm}for\hspace{1mm}} x \in (0,\infty),
@@ -1112,11 +1113,23 @@ the so called Ogata and Banks solution gives
   \erfc{\left( \frac{x+ \frac{v_x t}{R_f} }{2\sqrt{ 
   \frac{D_xt}{R_f} }} \right)}
   \right].
+  \label{ogatabanks}
+  \intertext{where}
+  \erf(x) =& \frac{2}{\sqrt{\pi}}\int_0^xe^{-t^2}dt\nonumber\\ 
+  \erfc(x) =& 1-\erf(x)
+           =& \frac{2}{\sqrt{\pi}}\int_x^\infty e^{-t^2}dt\nonumber\\ 
 \end{align}
 
 
-\subsection{Diffusion Coefficients}
-\subsubsection{ Temperature Dependent : Arrhenius Relationship }
+
+Equation \eqref{ogatabanks} is an appropriate one dimensional solution to the 
+situation in this work where a constant concentration at the internal boundary 
+of each control volume is available at each time step. Abstraction-based 
+abstractions based on this solution will be used to advance the concentration 
+values at each time step within each control volume. 
+
+
+\subsubsection{ Temperature Dependent Diffusion : Arrhenius }
 
 The Arrhenius relationship,
 
@@ -1138,7 +1151,7 @@ gives the diffusion coefficient of solids as a function of temperature.
 Gives D as a function of temperature and apparent activation energy of the 
 medium.
 
-\subsubsection{ Temperature Dependent : Stokes Einstein Relationship }
+\subsubsection{ Temperature Dependent Diffusion : Stokes Einstein }
 
 The Stokes-Einstein relationship,
 
