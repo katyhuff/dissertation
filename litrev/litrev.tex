@@ -739,19 +739,22 @@ through the waste packages.
 
 In the Ahn models, radionuclides with lower solubility coefficients are modeled with
 the solubility limited release model.  Solubility values are assumed from TSPA
-for this model, and a solubility of $~5\times 10^{-2} [mol/m^3]$ are taken to be
+for this model, and elements with a solubility of less than $~5\times 10^{-2}
+[mol/m^3]$ are taken to be
 `low.' Elements in this `low' category include Zr, Nb, Sn and some toxic actinides 
 such as Th and Ra for an oxidizing, unsaturated environment similar to \gls{YMR}.
 It should be noted that in a reducing environment, the actinides are not as mobile, 
 and the high and low solubility radionuclides will differ from this model.
-This model suggests that a dominant mode of dissolution of
-the radionuclide into the flowthrough water is dominated instead by the diffusion
-coefficient, which is largely dependent upon the concentration gradient between
-the waste matrix and the water. The mass balance driving radionuclide release takes
-the form:
+This model suggests that dissolution of radionuclides into the flowthrough water 
+is dominated by diffusion, which is largely dependent upon the concentration 
+gradient between the waste matrix and the water. The mass balance driving 
+radionuclide release takes the form:
 
-\begin{equation} \dot{m_i}=8\epsilon D_eS_iL\sqrt{\frac{Ur_0}{\pi D_e}}
-\end{equation} where $\epsilon$, U, $r_0$, and L are the geometric and
+\begin{equation}
+ \dot{m_i}=8\epsilon D_eS_iL\sqrt{\frac{Ur_0}{\pi D_e}}
+\end{equation} 
+
+where $\epsilon$, U, $r_0$, and L are the geometric and
 hydrogeologic factors porosity, water velocity, waste package radius, and waste
 package length, repsectively. $D_e$ is the diffusion coefficient ($m^2/yr$) of
 the element \emph{e} and $S_i$ is the element's solubility ($kg/m^3$).
@@ -887,7 +890,7 @@ function is
 
 When the waste package is breached, radionuclides are transported through secondary 
 engineered barrier, which includes the buffer, backfill, and tunnel wall. After 
-transport through the secondary EBS radionuclides reach the geosphere. 
+transport through the secondary EBS, radionuclides reach the geosphere. 
 
 \subsubsection{Barrier Dissolution and Failure}
 
@@ -1189,7 +1192,7 @@ medium model. Some examples are given in Figure \ref{fig:fractureModels}.
     \includegraphics{./litrev/fractureModels.eps}
   \end{center}
   \caption{Various conceptual models may be used for the same natural system 
-  \cite{anderson_applied_1992}}
+  \cite{anderson_applied_1992}.}
   \label{fig:fractureModels}
 \end{figure}
 
