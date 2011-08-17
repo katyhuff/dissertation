@@ -1042,9 +1042,10 @@ For uniform flow, the dispersion tensor, $D$, becomes
   D_z &= D_{TV} \nonumber\\
       &= \alpha_{TV} v_x + \tau D_m\\
   \intertext{where}
-  \alpha_L &= \mbox{longitudinal dispersivity [m]}\nonumber\\
-  \alpha_{TH} &= \mbox{horizontal dispersivity [m]}\nonumber\\
-  \alpha_{TV} &= \mbox{vertical dispersivity [m]}\nonumber
+  D_e &= \mbox{effectivediffusion coefficient} [m^2/s]\nonumber\\
+  \alpha_L &= \mbox{longitudinal dispersivity} [m]\nonumber\\
+  \alpha_{TH} &= \mbox{horizontal dispersivity} [m]\nonumber\\
+  \alpha_{TV} &= \mbox{vertical dispersivity} [m]\nonumber
   \intertext{and}
   \tau &= \mbox{tortuosity}.
   \label{disptensor}
@@ -1141,10 +1142,9 @@ The Arrhenius relationship,
   \intertext{where}
   &D = \mbox{the diffusion coefficient}\\
   &D_0 = \mbox{the maximum diffusion coefficient}\\
-  &E_A = \mbox{the ctivation energy of diffusion} [J \cdot kg^{-1}]\\
+  &E_A = \mbox{the ctivation energy of diffusion} [J/kg]\\
   &T = \mbox{is the temperature} [^\circ K]\\
-  &R = \mbox{the ideal gas constant}[J \cdot \mbox{mol}^{-1} \cdot ^\circ 
-  K^{-1}],\\
+  &R = \mbox{the ideal gas constant}[J /\mbox{mol}\cdot^{\circ}K],\\
   \label{arrhenius}
 \end{align}
 
@@ -1170,10 +1170,10 @@ media that have a low Reynolds number,
 \begin{align}
   Re &= \frac{\rho v L}{\mu}\\
      \intertext{where}
-     &\rho = \mbox{fluid density} [kg\cdot m{-3}]\\
-     &v = \mbox{mean relative velocity of fluid} [m \cdot s^{-1}]<++>\\
+     &\rho = \mbox{fluid density} [kg/m^{3}]\\
+     &v = \mbox{mean relative velocity of fluid} [m/s]\\
      &L = \mbox{characteristic length of system} [m]\\
-     &\mu = \mbox{dynamic fluid viscosity} [kg\cdot m^{-1} \cdot s{-1}]
+     &\mu = \mbox{dynamic fluid viscosity} [kg/m\cdot s]
 \end{align}
 
 where viscous forces dominate. 
@@ -1375,10 +1375,10 @@ equation can be expressed
   \label{poisson}
 \end{align}
 
-An areal heat flux, $q'' [W\cdot m^{-2}]$ can be derived from an integration of  
+An areal heat flux, $q'' [W/m^{2}]$ can be derived from an integration of  
 Poisson's equation \eqref{poisson}  and expressed in terms of the thermal 
-conductivity of the material, $k [W \cdot m^{-1} \cdot ^{\circ}K^{-1}]$, and the
-temperature gradient $\nabla T [K\cdot m^{-1}]$ by the expression
+conductivity of the material, $k [W/m\cdot^{\circ}K]$, and the
+temperature gradient $\nabla T [K/m]$ by the expression
 
 \begin{align}
   q''= -k\nabla T.
@@ -1427,7 +1427,7 @@ Stefan-Boltzmann constant as
   q'' &= \sigma A_1 F_{1\rightarrow 2}(T_1^4 - T_2^4)
   \label{planck}
   \intertext{where}
-  \sigma &=5.670373\times 10^{−8} [W\cdot m^{−2}\cdot ^{\circ}K^{−4}].\nonumber\\
+  \sigma &=5.670373\times 10^{−8} [W/ m^{2}\cdot^{\circ}K^{4}].\nonumber\\
 \end{align}
 
 
