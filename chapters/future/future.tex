@@ -24,6 +24,95 @@ disposal concepts of interest both domestically and internationally.
 
 \section{Future Work}
 
+\subsection{Demonstration Case Development}
+
+% Demonstration case milestone
+
+A first milestone in the development of this software will be a  proof of 
+principle demonstration of the data structure and information passing schemes.  
+That is, no physics will be implemented in the demonstration milestone. Rather, 
+the component models will be developed in such a way that they are capable of 
+passing their information passing schemes and placeholder functions will be 
+generated in place of physics.
+
+\subsubsection{Demonstration Case Concept}
+
+  % Concept
+
+    % Facility Interface, complete
+
+    % Control Volumes
+
+    % Dynamic loading
+
+  The demonstration will produce a complete but `empty' repository model. That 
+  is, on the repository scale the appropriate facility interface will be 
+  implemented, which allows the repository modeled to be loaded into a \Cyclus 
+  simulation. A structure of subcomponent control volumes will also be 
+  implemented which can be dynamically loaded at runtime.
+
+    % Heat Information Passing
+
+    % Nuclide Information Passing
+
+    % Database writing, structure
+
+  At the subcomponent level, information passing, bookkeeping, and mass and 
+  energy balances within and between the subcomponent control volumes.  
+  Information passing between subcomponents concerning heat and radionuclide 
+  concentration boundary conditions will be implemented. A complementary output 
+  database structure will be defined and bookeeping for writing relevant 
+  radionuclide and heat transport information.  
+
+    % basic mass conservation checking
+
+    % basic energy conservation checking
+
+\subsubsection{Demonstration Code Development}
+
+  % Code Development
+    
+  Initial code development on the base case model has begun with creation of the 
+  FacilityModel subclass, GenericRepository. 
+
+  A first phase in the demonstration milestone will be for the repository model 
+  to successfully load its subcomponent models from user input (i.e.  the 
+  lithology, waste form, waste package, buffer, etc.) with their corresponding 
+  defining parameters.  
+
+  A second phase will involve implementing an information exchange paradigm 
+  between the subcomponents which communicates sufficient temperature and 
+  contaminant concentrations at the boundaries of the control volumes for 
+  solution of their internal transport calculations.
+
+  When these aspects are implemented, a structure for the output database will 
+  be defined and appropriate bookkeeping  will be implemented sufficient to 
+  communicate the heat and solute evolution within the repository. 
+
+\subsubsection{Demonstration Testing}
+
+  % Testing
+
+  This work will be developed with a test driven development strategy. That is, 
+  before any new functionality is implemented, a suite of tests is written which 
+  as closely define its necessary behavior as possible. The software is then 
+  written with the goal of passing the test suite. In this way, the software 
+  developed in this work is expected to be comprehensively tested in parallel 
+  with its development. 
+
+
+    % Send through 1 radionuclide with no filters in the volumes
+
+    % Have each control volume release 1/3 of what it accepts. see 1/81st.
+
+    Test problems which will help comprehensively define and confirm each unit 
+    of the  demonstration functionality will include very basic information 
+    passing tests as well as more complex multiple subcomponent integration 
+    tests. A null test, for example,  will release a single contaminant 
+    radionuclide through each subcomponent sequentially. This test will pass if  
+    the bookkeeper properly writes to the database its (aphysically unhindered) 
+    path through each control volume.
+
 \subsection{Base Case Development}
 
 % Base Case Milestone
@@ -69,7 +158,10 @@ disposal concepts of interest both domestically and internationally.
 
       % fractional
       
-      A general, probabilistic waste package failure model will be employed.  
+      An explicit time dependent probability distribution waste package failure 
+      model will be employed that can accommodate instantaneous, constant, and 
+      more complex time dependent failure probability density functions, such as  
+      Weibull distribution.
       From a user-defined time dependent probability distribution (of which the 
       Weibull distribution is one), a waste package failure vector will be 
       populated, which assigns a failure time to each waste package object. As 
@@ -108,34 +200,17 @@ disposal concepts of interest both domestically and internationally.
 
   % Code Development
   
-  Initial code development on the base case model has begun with creation of the 
-  FacilityModel subclass, GenericRepository. 
-
-  A first phase in the base case milestone will be for the repository model to 
-  successfully load its subcomponent models from user input (i.e.  the 
-  lithology, waste form, waste package, buffer, etc.) with their corresponding 
-  defining parameters.  
-
-  A second phase will involve implementing an information exchange paradigm 
-  between the subcomponents which communicates sufficient temperature and 
-  contaminant concentrations at the boundaries of the control volumes for 
-  solution of their internal transport calculations.
-  
-  Finally, populating those models with appropriate mass balances, rate
-  equations, and data will provide sufficient information to determine the heat  
-  based capacity of the repository for each request of material. 
+  Building upon the empty demonstration code stucture, the development of the 
+  base case model will primarily consist of populating the subcomponent control 
+  volume models with appropriate physics, mass balances, rate equations, and 
+  data. This step will implement the calculations in each subcomponent which 
+  will provide sufficient information to determine the heat based capacity of 
+  the repository for each request of material. 
   
 \subsubsection{Base Case Testing, Verification, and Validation}
 
   % Testing
    
-  This work will be developed with a test driven development strategy. That is, 
-  before any new functionality is implemented, a suite of tests is written which 
-  as closely define its necessary behavior as possible. The software is then 
-  written with the goal of passing the test suite. In this way, the software 
-  developed in this work is expected to be comprehensively tested in parallel 
-  with its development. 
-
   % verification / validation 
 
   For verification and validation uring development, some comparisons to current 
@@ -153,21 +228,52 @@ disposal concepts of interest both domestically and internationally.
 When the base case is established, a series of extensions to these models will 
 be pursued. 
 
-First, additional geologies (i.e. granite and deep borehole) will be added 
+\subsubsection{Extension Concepts}
 
   % Concepts
 
+    % Sorption
+    
+    First, additional phenomena in radionuclide transport will be added to the 
+    modeling capability. Sorption, for example, will be added by incorporating 
+    sorption effects to the basic diffusive solute transport model, approaching  
+    a full solute transport solution such as equation \eqref{ogatabanks}. 
+    Additionally, solubility limited transport will be added with a simple 
+    restriction on the mixing calculations during mass balancing in the control 
+    volumes.
+
     % Fracturation (granite)
+    
+    Next, additional geologies (i.e. granite and deep borehole) will be added 
+    to the modeling capability by adding a dual continuum fracture model. 
+
+    % Coalescent behavior (salt and clay)
+
+    Another anticipated extension will adapt the radionuclide transport model 
+    to incorporate the effects of heat and time driven coalescent behavior in 
+    clay and salt behavior. This extension will focus on the porosity decrease 
+    in those media as time and heat drive collapse around the waste packages.  
+    Time dependent coalescence will be addressed first, followed by temperature  
+    dependent coalescence.
 
     % Fast Pathways (borehole and salt)
 
-    % Coalescent behavior (salt)
+    Another potential extension will address the issue of modeling a disruption 
+    scenario with a fast advective pathway that intersects the repository.
+
+\subsubsection{Extension Abstraction}
 
   % Regression Analysis
 
+
+  \subsubsection{Extension Code Development}
+
   % Code Development
 
+  \subsubsection{Extension Testing, Verification, and Validataion}
+
   % Testing
+
 
 
 \subsection{Sensitivity Analysis}
