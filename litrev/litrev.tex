@@ -1085,6 +1085,10 @@ fluxes at  the boundary of the domain
 
 \begin{align}
   \frac{\partial C(\vec{r},t)}{\partial r} = nD\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
+  \intertext{where}
+  \vec{r} = \mbox{ position vector }
+  \Gamma = \mbox{ domain boundary }
+  \Gamma = \mbox{ domain boundary }
 \end{align}
 
 The third, Cauchy, type describes a combination of the Dirichlet and Neumann 
@@ -1420,7 +1424,7 @@ the conductivity coefficient. Convection is typically expressed as
 \subsection{Radiation}
 
 Heat transfer by radiation is the result of the emmission of electromagnetic 
-waves. Plack black body radiation is analytically described, using $\sigma$, the   
+waves. Planck black body radiation is analytically described, using $\sigma$, the   
 Stefan-Boltzmann constant as
 
 \begin{align}
@@ -1436,7 +1440,7 @@ Stefan-Boltzmann constant as
 Heat transfer by mass transfer is straightforward, resulting in the change in 
 temperature in adjacent volumes as a result of matter movement. If the specific 
 heat capacity of the transferred mass can be expressed as $c_p$, then the heat 
-conductance is simply, 
+transfer is simply, 
 
 \begin{align}
   \dot{q} = \dot{m}c_p\left( T_j - T_i \right).\\
@@ -1447,7 +1451,7 @@ conductance is simply,
 The lumped heat capacitance model makes an analogy to electrical circuit by 
 reducing a thermal system into discrete lumps. Such an approximation is 
 appropriate when it can be assumed that the temperature gradient within each 
-lump is approximately uniform. the appropriateness of this approximation can 
+lump is approximately uniform. The appropriateness of this approximation can be
 quantitatively expressed by comparison of the internal thermal resistance to the 
 external thermal resistance. The Biot number, 
 
@@ -1486,10 +1490,10 @@ problem described by the energy balance,
 
 where $c_j\rho_jV_j$ is the total lumped thermal capacitance of the body.
 
-For example, in the case of a simple conductive circuit between two bodies, $i$ 
+For example, in the case of a simple convective circuit between two bodies, $i$ 
 and $j$, the resistance of $j$ can be described as 
 \begin{align}
-  R_{cond} &= 1/hA
+  R_{conv} &= 1/hA
   \intertext{such that}
   c_j\rho_j V_j dT_j(t) &= \sum_{i=0}^{i=N}\left[ hA_j [T_i - T_j(t) \right]dt.\\
 \end{align}
