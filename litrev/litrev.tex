@@ -1092,7 +1092,7 @@ fluxes at  the boundary of the domain
   \intertext{where}
   \vec{r} = \mbox{ position vector }\nonumber\\
   \Gamma = \mbox{ domain boundary }\nonumber\\
-  \vec{J}= \mbox{ solute flux } [<+UNITS+>]\nonumber
+  \vec{J}= \mbox{ solute mass flux } [kg/m^2\cdot s]\nonumber
 \end{align}
 
 The third, Cauchy, type describes a combination of the Dirichlet and Neumann 
@@ -1151,8 +1151,8 @@ The Arrhenius relationship,
   &D = \mbox{the diffusion coefficient}\\
   &D_0 = \mbox{the maximum diffusion coefficient}\\
   &E_A = \mbox{the ctivation energy of diffusion} [J/kg]\\
-  &T = \mbox{is the temperature} [^\circ K]\\
   &R = \mbox{the ideal gas constant}[J /\mbox{mol}\cdot^{\circ}K],\\
+  &T = \mbox{is the temperature} [^\circ K]\\
   \label{arrhenius}
 \end{align}
 
@@ -1170,7 +1170,7 @@ The Stokes-Einstein relationship,
   D(T) = \frac{k_B T}{6\pi \eta r}
 \end{align}
 
-gives an equation for the diffusion coefficient in a fluid, as a function of T,  
+gives an equation for the diffusion coefficient in a fluid, as a function of $T$,  
 the temperature of the surrounding medium, $k_B$, the Boltzmann constant, and 
 $\eta$, the viscosity of the medium. This relationship is appropriate for 
 media that have a low Reynolds number, 
@@ -1244,8 +1244,10 @@ according to the cubic law as
 \begin{align} 
   K&= \frac{\rho_w g b^2}{12 \mu} \label{Kplates} 
   \intertext{where}
-  \rho_w &= \mbox{water density,}\nonumber\\ 
-  \mu &= \mbox{viscosity}.\nonumber
+  \rho_w &= \mbox{ water density } [kg/m^3]\nonumber\\ 
+  g &= \mbox{ gravitational acceleration } [m/s^2]\nonumber\\
+  b &= \mbox{ plate aperture } [m]\nonumber\\
+  \mu &= \mbox{ dynamic fluid viscosity } [kg/m\cdot s].\nonumber
 \end{align}
 
 Accordingly, the volumetric flow rate in the single fracture of width, $w$, can
@@ -1263,11 +1265,11 @@ numerical computation. However, for uniformly fractured media, a fracture
 network can be approximated by a set of parallel plates fractures. 
 
 If flow is expect in the $\theta_f$ direction, and the fractures of the set are
-spaced a distance, $s$, apart,
+spaced a distance, $d$, apart,
 
 \begin{align} 
   N &= \mbox{fracture frequency}\nonumber\\ 
-  &= \frac{cos(\theta_f)}{s}.  
+  &= \frac{cos(\theta_f)}{d}.  
   \label{fracfreq} 
 \end{align}
 
@@ -1368,6 +1370,8 @@ flows diffusively from the hotter material to the cooler material over time and
 steadily approaches thermal equillibrium. The general form of the conduction 
 equation can be expressed
 
+<+CONSTANTALPHANOTGENERAL+>
+
 \begin{align}
   \nabla^2T + \frac{q'''}{k} = \frac{1}{\alpha}\frac{\partial T}{\partial t},
   \label{general}
@@ -1402,10 +1406,11 @@ and a body with temperature $T_2$ at position $x_2$,
 \end{align}
 
 A one dimensional heat flux rate can be found by integration over the surface 
-area of the representative volume, 
+area $A$ of the representative volume, 
 
 \begin{align}
   \dot{q} = -kA\frac{\Delta T}{\Delta x}.
+  \intertext
 \end{align}
 
 \subsection{Convection}
@@ -1439,16 +1444,16 @@ Stefan-Boltzmann constant as
   F_{1\rightarrow 2} =
   \begin{cases}
     \epsilon_1 &
-    \mbox{point source},\\
+    \mbox{ for a point source},\\
     \frac{1}{\frac{1}{\epsilon_1} + \frac{1}{\epsilon_2} - 1 } &
-    \mbox{parallel plates},\\
+    \mbox{ for parallel plates},\\
     \frac{2\pi r_1 L}{\frac{1}{\epsilon_1} + \frac{1}{\epsilon_2} - 1 } \frac{r_1}{r_2} &
-    \mbox{concentric cylinder.}
+    \mbox{ for concentric cylinders}
   \end{cases}
   \intertext{where}
   \epsilon_i &= \mbox{emmisivity of surface i}\nonumber\\
   r_i = \mbox{radius of cylinder i} \nonumber\\
-  L = \mbox{cylinder length}\nonumber
+  L = \mbox{cylinder length.}\nonumber
 \end{align}
 
 
@@ -1460,7 +1465,9 @@ heat capacity of the transferred mass can be expressed as $c_p$, then the heat
 transfer is simply, 
 
 \begin{align}
-  \dot{q} = \dot{m}c_p\left( T_j - T_i \right).\\
+  \dot{q} = \dot{m}c_p\left( T_j - T_i \right)\\
+  \intertext{where}
+  c_p = \mbox{ specific heat capacity } [J/kg^{\circ}K].\nonumber
 \end{align}
 
 \subsection{Lumped Parameter Model}
