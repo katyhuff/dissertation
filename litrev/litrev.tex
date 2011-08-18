@@ -1438,7 +1438,7 @@ Stefan-Boltzmann constant as
   q'' = \sigma A_1 F_{1\rightarrow 2}(T_1^4 - T_2^4)
   \label{planck}
   \intertext{where}
-  \sigma =5.670373\times 10^{−8} [W/ m^{2}\cdot^{\circ}K^{4}].\nonumber
+  \sigma =5.670373\times 10^{−8} [W/ m^{2} K^{4}].\nonumber
   \intertext{and}
   F_{1\rightarrow 2} =
   \begin{cases}
@@ -1450,7 +1450,7 @@ Stefan-Boltzmann constant as
     \mbox{ for concentric cylinders}
   \end{cases}
   \intertext{where}
-  \epsilon_i &= \mbox{emmisivity of surface i}\nonumber\\
+  \epsilon_i = \mbox{emmisivity of surface i}\nonumber\\
   r_i = \mbox{radius of cylinder i} \nonumber\\
   L = \mbox{cylinder length.}\nonumber
 \end{align}
@@ -1492,9 +1492,10 @@ error\cite{incropera_fundamentals_2006}. This assists in choosing the size of
 distinct lumps within a conceptual model. 
 
 The lumped capacitance model can address multiple media and multiple heat
-transfer modes. The rate of heat transfer $[W \cdot m^{-2}\cdot^{\circ}K\cdot 
-s]$ through a circuit is simply given as the quotient of the temperature 
-difference and the thermal resistance of the multiple lumps,
+transfer modes. The rate of heat transfer $\dot{q}\hspace{1mm}[Wm^{-2}K^{-1}s^{-1}]$ 
+through a circuit is simply given as the quotient of the temperature 
+difference and the sum of thermal resistances of the multiple lumps, $R_i 
+[W\cdot K^{-1}]$
 
 \begin{align}
   \dot{q} = \frac{\Delta T}{\sum _{i=0}^{N}R_i}.
@@ -1518,7 +1519,7 @@ and $j$, the resistance of $j$ can be described as
 \begin{align}
   R_{conv} &= 1/hA
   \intertext{such that}
-  c_j\rho_j V_j dT_j(t) &= \sum_{i=0}^{i=N}\left[ hA_j [T_i - T_j(t) \right]dt.\\
+  c_j\rho_j V_j dT_j(t) &= \sum_{i=0}^{i=N}\left[ hA_j (T_i - T_j(t)) \right]dt.\\
 \end{align}
 
 A time constant appears under integration that describes the speed with which 
@@ -1532,7 +1533,7 @@ the body $i$ changes temperature with respect to the maximum temperature change,
   \intertext{such that}
   \frac{T_j(t)-T_i}{T_i-T_0}&= 1- e^{-t/\tau}\\
   \intertext{where}
-  \tau &= \left( c_j\rho_jV_j/hA_j \right).\nonumber
+  \tau &= \left( c_j\rho_jV_j/hA_j \right).
 \end{align}
 
 The time constant, $\tau$ is the time it takes for the body to change 
@@ -1820,7 +1821,7 @@ takes the form:
 In this expression, $w_{li}(t)$ is the rate $[mol/yr]$ of isotope \emph{i}
 leached into the water.  It is a function of water flow rate, chemistry, and
 isotope solubility. $m_i$ describes the mass of isotope \emph{i}, and
-$\lambda_i$ $[s{-1}]$ describes its decay constant. Finally, $w_{ci}(t)$
+$\lambda_i$ $[s^{-1}]$ describes its decay constant. Finally, $w_{ci}(t)$
 describes the advective transfer rate $[mol/yr]$ of the isotope \emph{i}. This 
 model defines $w_{ci}$ as:
 
@@ -1834,8 +1835,6 @@ $m_i/V_{wp}$ in $[mol/m^3]$. These assumptions fail to take into account any
 differences in the varying solubilities of the isotopes, but are quite
 sensitive to the concentration of an isotope \emph{i} in the waste package
 volume.  
-characteristics and is independent of or weakly dependent on concentration 
-\cite{li_methodology_2006}.
 
 \subsection{ANDRA Dossier 2005} The ANDRA Dossier 2005 studies provided
 detailed radionuclide transport calculations for both argillaceous clay and granite
