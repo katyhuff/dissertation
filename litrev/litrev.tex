@@ -997,10 +997,10 @@ interface between components of the repository system model representing permeab
 porous media.  
 
 It is customary to define the combination of molecular diffusion and mechanical
-mixing as dispersion, 
+mixing as the dispersion tensor, $D$,  
 
 \begin{align}
-  D = \alpha v + D_e 
+  D = \alpha v + D_e
   \label{dispersion}
 \end{align}
 
@@ -1013,6 +1013,9 @@ such that the mass conservation equation becomes:
   \nabla \left( nD\nabla C \right) - \nabla \left( nv \right)  &= 
   \frac{\partial(nC)}{\partial t}  + \frac{\partial(s\rho_b)}{\partial t} 
   \label{withsorption} 
+  \intertext{where}
+  s &= \mbox{sorption coefficient}\nonumber\\
+  \rho_b &= \mbox{ bulk (dry) density }[kg/m^3]\nonumber
 \end{align}
 
 If it is assumed that sorption can be approximated as a linear equilibrium, 
@@ -1052,7 +1055,7 @@ For uniform flow, the dispersion tensor, $D$, becomes
   \label{disptensor}
 \end{align}
 
-The unidirectional dispersion tensor gives 
+For uniderectional flow, the unidirectional dispersion tensor gives 
 
 \begin{align}
   D_x \frac{\partial^2 C}{\partial x^2} +
