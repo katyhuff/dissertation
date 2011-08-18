@@ -599,11 +599,11 @@ the surface will still dominate the isolation behavior of the repository.
 A comprehensive model of radiotoxic source term must address radionuclide transport
 through the full release pathway including waste packages, engineered barrier
 systems, and geologic media. A model of transport through the waste package
-must incorporate waste package failure rate, radionuclide release rate via waste
-form dissolution, and advective and diffusive transport through the 
-engineered barrier system.  
+must incorporate a waste package failure model, a radionuclide release model via 
+waste form dissolution, and advective and diffusive transport through the 
+engineered barrier system and lithology. 
 
-Waste package failure rate depends on near field environmental factors such as
+Waste package failure depends on near field environmental factors such as
 pH as well as decay heat and radiative damage anticipated from the
 contained waste.  In turn, the radionuclide release rate from the waste package
 depends on the character of the waste form matrix, water flow,
@@ -612,15 +612,15 @@ transfer through the engineered barrier system and into the geological medium
 also depends on water flow, radionuclide solubility, and radionuclide diffusion, but must
 be employed in the context of the hydrogeology of the rock.   
 
-Waste package failure rate varies between models. While some employ detailed 
+Waste package failure modes varies between models. While some employ detailed 
 computational tools such as GoldSim or EBSFAIL (a part of the EBSPAC module 
 used in the TSPA code), which will be discussed in section 
-\ref{sec:detailed_nuclide}, 
+\ref{sec:detailed_nuclide}, some 
 analytic models incorporate their own hydrogeologic approximations of
 canister degredation or make simpler assumptions of immediate waste canister 
 failure in order to focus on dissolution and transfer. 
 
-Waste package release rate is the rate of mass transfer of a radionuclide from its
+Waste form release rate is the rate of mass transfer of a radionuclide from its
 waste form into the saturation water. The mode of water flowthrough heavily
 affects radionuclide dissolution rate and is treated differently in various models.
 While some, inspired by the TSP assessment, assume water moves through the
@@ -628,9 +628,10 @@ waste packages at a constant volumetric rate (`flowthrough model'), others
 adopt less conservative assumptions incorporating weather based predictions of
 hydrogeologic activity.
 
-Radionuclide transport through the lithology is dependent upon diffusion as
-well as advection. Radionuclide transport is retarded by sorption, limited by 
-solubility, and enhanced by colloidal mobility \cite{bracke_safety_2008}. 
+Radionuclide transport through the \gls{EBS} and lithology is dependent upon 
+diffusion as well as advection. Radionuclide transport is retarded by sorption,
+limited by solubility, and enhanced by colloidal mobility 
+\cite{bracke_safety_2008}. 
 
 Dissolution is prerequisite to contribution of a radionuclide to source term 
 \cite{bracke_safety_2008}. That is, the initial 
@@ -889,18 +890,20 @@ function is
 
 \subsection{Radionuclide Transport Through Secondary Engineered Barriers}
 
-When the waste package is breached, radionuclides are transported through secondary 
-engineered barrier, which includes the buffer, backfill, and tunnel wall. After 
-transport through the secondary EBS, radionuclides reach the geosphere. 
+When the waste package is breached and nuclides are released from the waste 
+form, radionuclides are transported through the secondary engineered barrier, 
+which includes the buffer, backfill, and tunnel wall. After transport through 
+the secondary \gls{EBS}, radionuclides reach the geosphere. 
 
 \subsubsection{Barrier Dissolution and Failure}
 
 The same models of waste package failure (instantaneous, rate based, and 
 probabilistic) can be applied to buffers. While concretes are expected to 
-degrade, bentonite buffers are quite stable in a reducing environment and help 
-to keep the environment reducing. Furthermore, if preserved by  a low heat 
-environment, the plastic deformation characteristics of bentonite clays,
-they tend to swell over time and exhibit increased isolating behavior.
+degrade over time, bentonite buffers are quite stable in a reducing 
+environment and help to keep the environment reducing. Furthermore, if 
+preserved by a low heat environment, the plastic deformation characteristics
+of bentonite clays, they tend to swell over time and exhibit increased 
+isolating behavior.
 
 \subsubsection{Transport Through Degraded Barrier Matrix}
 
