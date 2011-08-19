@@ -68,6 +68,22 @@ generated in place of physics.
 
     % basic energy conservation checking
 
+
+Volumes are defined by their dimensions, surfaces, temperature, contained
+matter, and contained contaminants.  Interfaces are defined by a shared 
+surface area, a flux type, and a flux direction. Any single volume may only 
+interface with one inner and one outer volume. Contained matter must sum 
+to the full volume of the volume.
+
+This model treats matter in solid and liquid phases. Gaseous matter is not 
+supported.  Liquids are defined by their dynamic viscosities ($\mu$, [Pascal seconds]) and
+by characteristic diffusivity ($d_i$, $[m^2/s]$) and solubility ($K$,$[kg/m^3]$) 
+coefficients for each nuclide.  
+
+Solids are assumed to be porous media and are defined by their porosity 
+($n$, $\%$), tortuosity ($\tau$, $[-]$), and dry (bulk) density ($\rho$). 
+Fracturation is dealt with separateea, a flux type, and a flux 
+
 \subsubsection{Demonstration Code Development}
 
   % Code Development
@@ -86,9 +102,12 @@ generated in place of physics.
   \input{./chapters/future/params_tab.tex}
 
   A second phase will involve implementing an information exchange paradigm 
-  between the subcomponents which communicates sufficient temperature and 
-  contaminant concentrations at the boundaries of the control volumes for 
-  solution of their internal transport calculations.
+  between the subcomponents. The purpose of this information passing scheme will  
+  be to communicate sufficient temperature and contaminant concentrations at 
+  the boundaries of the control volumes for neighboring subcomponents to  solve 
+  their internal transport calculations. In addition to such Dirichlet type 
+  boundary conditions, additional types of boundary conditions may need to be 
+  anticipated.
 
   When these aspects are implemented, a structure for the output database will 
   be defined and appropriate bookkeeping  will be implemented sufficient to 
@@ -113,10 +132,15 @@ generated in place of physics.
     Test problems which will help comprehensively define and confirm each unit 
     of the  demonstration functionality will include very basic information 
     passing tests as well as more complex multiple subcomponent integration 
-    tests. A null test, for example,  will release a single contaminant 
-    radionuclide through each subcomponent sequentially. This test will pass if  
-    the bookkeeper properly writes to the database its (aphysically unhindered) 
-    path through each control volume.
+    tests. Every unit of functionality within the model should be tested as an 
+    integral part of development.
+
+    A null test of the demonstration case, for example, will release a single 
+    contaminant radionuclide through each subcomponent sequentially. This test 
+    will pass if  the bookkeeper properly writes to the database its 
+    (aphysically unhindered) path through each control volume. Other tests might 
+    include a set of database writing tests, subcomponent loading tests, and tests 
+    of the facility interface.
 
 \subsection{Base Case Development}
 
@@ -131,12 +155,14 @@ generated in place of physics.
       % reducing geochemistry
 
       The base case concept will model a generic, isotropic, permeable porous 
-      geological medium with reducing geochemistry. This model will be 
+      geological medium with reducing geochemistry, as well as waste form, 
+      waste package, and buffer models in the near field. This model will be 
       appropriate for clay and salt geologies. The fracturation in the geologies  
       of the granite and deep borehole concepts will not be appropriately 
       modeled in the base case unless an equivalent porous medium calculation is 
       conducted external to the code. The incorporation of fracture models will 
       follow in subsequent extensions to the base case.
+
   
     % WF : glass 
 
@@ -159,26 +185,49 @@ generated in place of physics.
       ceramic oxide waste form, the dissolution of which is dominated by a 
       corrosive degradation rate.
 
+\begin{figure}[h!]
+\begin{minipage}[b]{0.5\linewidth}
+  \begin{center}
+    \includegraphics[height=7cm]{./chapters/future/contaminated1.eps}
+  \end{center}
+  \caption{The well mixed control volume contains an intact waste form matrix 
+  and contaminants. The contaminants are not available to neighboring 
+  subcomponents until dissolution has begun.}
+  \label{fig:intact}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.5\linewidth}
+  \begin{center}
+    \includegraphics[height=7cm]{./chapters/future/contaminated.eps}
+  \end{center}
+  \caption{Once dissolution begins, the control volume contains a partially 
+  dissolved waste form matrix, contaminated pore water, and precipitated 
+  solids.  }
+  \label{fig:dissolved}
+\end{minipage}
+\end{figure}
+
     % WP : steel
 
       % fractional
       
       An explicit time dependent probability distribution waste package failure 
       model will be employed that can accommodate instantaneous, constant, and 
-      more complex time dependent failure probability density functions, such as  
-      Weibull distribution.
+      more complex time dependent failure probability density functions.
       From a user-defined time dependent probability distribution (of which the 
-      Weibull distribution is one), a waste package failure vector will be 
+      Weibull distribution might be one), a waste package failure vector will be 
       populated, which assigns a failure time to each waste package object. As 
       the simulation progresses, these waste packages will fail discretely, 
-      trigerring the initial degradation attack for the waste forms within them.
+      trigerring the initial degradation attack for the waste forms within them. 
+      The primary purpose of the waste package model, from a modeling 
+      perspective, is to initiate the beginning of waste form dissolution.
 
     % Buffer : Purely Diffusive Transport 
       
       % permeable porous medium
 
       The buffer component will be modeled as an isotropic permeable porous 
-      medium which is chemically reducing and in which transport is diffusion 
+      medium that is chemically reducing and in which transport is diffusion 
       dominated  and solubility limited.  For the base case, this model will 
       involve only diffusive transport. Extensions to this model will include a 
       model for sorption as well as fracturation and advective transport.  
@@ -200,6 +249,136 @@ generated in place of physics.
   dose is not sensitive to the horizontal spacing between drifts. Appropriate 
   conceptual models will employ these simplifications to streamline 
   calculations. 
+
+
+Much of my future work is based on the parametric and regression analysis that
+has begun with the base case Clay \gls{GDSM} at \gls{ANL}.
+
+
+The Used Fuel Cycle Division has reported sensitivity results for various 
+parameters as they affect Peak Annual Dose. Current work has involved a cursory  
+exploration of other parameters within the Clay \gls{GDSM} as well. Current 
+efforts to repeat those calculations for source term rather than 
+dose will provide some insight for the sensitivity of subcomponent models to the 
+parameters discussed below. This preliminary analysis has focused on general 
+trends and coefficients defining the relationships between these 
+parameters and source term over time for each isotope. 
+
+Extending the cooling time between discharge and emplacement results
+in an altered waste stream. The resulting source term releases
+of this waste stream were expected to differ from base case results. 
+Nonetheless it was found that for the clay \gls{GDSM} there was approximately 
+no Peak Annual Dose sensitivity to the cooling period length 
+\cite{clayton_generic_2011}.
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[height=7cm]{./chapters/current/coolingTime.eps}
+  \end{center}
+  \caption{An analysis by the UFD campaign with the clay GDSM shows that
+  the peak annual dose is not sensitive at all to the cooling time of a 60GWd 
+  burnup PWR fuel \cite{clayton_generic_2011}.}
+  \label{fig:coolingTime}
+\end{figure}
+
+Since the cooling period will be modeled outside of the repository model within  
+the \Cyclus analysis, this sensitivity will not be incorporated into the 
+repository modeling effort at the heart of this work, but gives an intuition for 
+appropriate sensitivity to altered waste streams.  It is expected that the cooling 
+time significantly alters heat based capacity. 
+
+<+coolingVScapacityGRAPH+>
+
+The burnup of a used fuel assembly results in an altered waste stream at the 
+time of emplacement. It was found that for the clay \gls{GDSM}, the mean 
+annual dose sensitivity to waste form dissolution rate became more important 
+linearly with increased burnup \cite{clayton_generic_2011}.
+
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[height=7cm]{./chapters/current/BUandWPdeg.eps}
+  \end{center}
+  \caption{An analysis by the UFD campaign with the clay GDSM shows that
+  the peak annual dose is more sensitive to waste package degradation rate with 
+  increased burnup\cite{clayton_generic_2011}.}
+  \label{fig:BUandWPdeg}
+\end{figure}
+\clearpage
+
+It is expected that the burnup will significantly alter heat based capacity. 
+Plutonium and minor actinides are dominant contributors to heat. Focusing on
+the sensitivity of the heat based capacity to the waste stream content of 
+these nuclides could significantly simplify the heat analysis. 
+ 
+For each of these, a sensitivity analysis of capacity to the nuclide will be 
+developed by analyzing the thermal repository capacity for a waste stream of 
+that nuclide alone.  
+
+
+The mean annual dose has been found to not be very sensitive to the horizontal 
+spacing between drifts. However, it is expected that the heat based capacity 
+will be highly sensitive to the 
+spacing between drifts. A higher drift density produces larger amounts of heat 
+generation per repository footprint area. Constrained by heat limits typically 
+at the drift tunnel boundaries, the repository capacity is reduced by increased 
+areal loading density. 
+It is also expected that the heat based capacity will be highly sensitive to the 
+spacing between packages linearly within the drifts. A higher line loading 
+density produces larger amounts of heat generation per repository footprint 
+area.  Again, the repository capacity is reduced by increased areal loading 
+density.  It is also expected that the heat based capacity will be highly 
+sensitive to the mass loading per waste package. A higher package loading density 
+produces larger amounts of heat 
+generation per repository footprint area. Constrained by heat limits typically 
+at the drift tunnel boundaries, the repository capacity is reduced by increased 
+areal loading density. 
+
+The vertical distance to the aquifer above the disposal configuration defines 
+the distance separating source term nuclide contaminants from the biospere. The 
+clay model indicates that the mean annual dose is very sensitive to this 
+distance \cite{clayton_generic_2011}.
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[height=7cm]{./chapters/current/overlyingDist.eps}
+  \end{center}
+  \caption{An analysis by the UFD campaign with the clay GDSM shows that 
+  the peak annual dose is very sensitive to the distance to the overlying 
+  aquifer\cite{clayton_generic_2001}.}
+  \label{fig:overlyingDist}
+\end{figure}
+\clearpage
+
+
+Sensitivity to vertical Darcy velocity is similar to the sensitivity to vertical 
+distance to aquifer in the sense that it directly determines the nuclide travel 
+time to the biosphere. The clay model indicates that the mean annual dose is 
+very sensitive to this parameter \cite{clayton_generic_2011}.
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[height=7cm]{./chapters/current/vertDarcyVel.eps}
+  \end{center}
+  \caption{An analysis by the UFD campaign with the clay GDSM shows that 
+  the peak annual dose is very sensitive to the vertical Darcy velocity  
+  \cite{clayton_generic_2001}.}
+  \label{fig:vertDarcyVel}
+\end{figure}
+
+\clearpage
+
+A fast pathway model intended to demonstrate a disrupted scenario is modeled as 
+a single intersecting fracture in the clay matrix. The importance of the various 
+ways in which this fast pathway intersects the model is very nuclide specific 
+\cite{clayton_generic_2011}. In the clay model the fast pathway intersects the 
+engineered barrier system either directly in the emplaced waste or just outside 
+the secondary engineered barrier system.
+
+Other parameters such as the dimensions of the intersecting fast pathway, the 
+permeable porous medium porosity, the waste form and waste package degradation 
+rates, will be investigated with the \gls{GDSM} models, the \gls{SINDAG} model, 
+and the \gls{LLNL} model. 
 
 \subsubsection{Base Case Code Development}
 
