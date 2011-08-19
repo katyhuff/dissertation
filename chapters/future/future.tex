@@ -73,12 +73,17 @@ generated in place of physics.
   % Code Development
     
   Initial code development on the base case model has begun with creation of the 
-  FacilityModel subclass, GenericRepository. 
+  FacilityModel subclass, GenericRepository. This subclass meets the 
+  requirements defined by the \Cyclus FacilityModel interface and can be 
+  dynamically loaded by the simulator. 
 
   A first phase in the demonstration milestone will be for the repository model 
-  to successfully load its subcomponent models from user input (i.e.  the 
-  lithology, waste form, waste package, buffer, etc.) with their corresponding 
-  defining parameters.  
+  to successfully load its subcomponent models from user input (i.e. the 
+  waste form, waste package, buffer, and lithology) with their corresponding 
+  defining parameters. A set of parameters that may be sufficient to model the 
+  base case is listed in Table \ref{tab:params_tab}.
+
+  \input{./chapters/future/params_tab.tex}
 
   A second phase will involve implementing an information exchange paradigm 
   between the subcomponents which communicates sufficient temperature and 
