@@ -1472,6 +1472,7 @@ transfer is simply,
 \end{align}
 
 \subsection{Lumped Parameter Model}
+\label{sec:lumpedparam}
 
 The lumped heat capacitance model makes an analogy to electrical circuit by 
 reducing a thermal system into discrete lumps. Such an approximation is 
@@ -1708,8 +1709,8 @@ mass transfer links.
 Thermal modeling for the \glspl{GDSM} are conducted independently with 
 associated codes capable of modeling thermal evolution for all geologies. For 
 example, one thermal model is being created using the \gls{SINDAG} heat
-transport solver and another is under development that utilizes a combination 
-of MathCAD and Excel. 
+transport solver and another is under development at \gls{LLNL} that utilizes 
+a combination of MathCAD and Excel. 
 
 \subsubsection{Clay/Shale GDSM}
 
@@ -1924,9 +1925,6 @@ Tools used in the ALLIANCES software platform include Castem, PorFlow and Trace
 for hydraulic calculations and radionuclide transport and Prediver and Colonbo for
 waste package failure.
 
-\subsubsection{ANDRA Granite Model} 
-
-<++>
 
 
 %\subsection{SKB Model} 
@@ -1953,6 +1951,62 @@ detailed with respect to their detailed spatial and temporal resolution or
 with respect to the incorporation and coupling of numerous physical phenomena. 
 Such codes typically utilize finite differencing or finite element methods in 
 many dimensions or sophisticated numerical solvers, respectively. 
+
+
+
+\subsection{Bauer SINDA{\textbackslash}G Model}
+
+This model, created at Argonne National Lab by Ted Bauer uses the \gls{SINDAG} 
+lumped capacitance solver. Originally created for optimal waste loadin analysis 
+of the \gls{YMR}, the Bauer model is geometrically adjustable in two dimesions,   
+as is demonstrated in Figure \ref{fig:sindageom}. The tunnel size is a fixed 
+parameter in the model, but the optimal drift spacing for a particular waste 
+stream and package loading is solved for with an optimization loop within this 
+model.
+
+\begin{figure}[htbp!]
+  \begin{center}
+    \includegraphics[height=10cm]{./chapters/current/sindageom.eps}
+  \end{center}
+  \caption{The geometry of the thermal model can be adjusted in two dimensions, 
+  altering the tunnel spacing and the vertical distance from the aquifer.}
+  \label{fig:sindageom}
+\end{figure}
+
+The \gls{SINDAG} lumped capacitance solver solves a thermal circuit, for which 
+conducting nodes may be of four types corresponding to the four modes of heat 
+transfer. Nodes are connected by conduction, convection, radiation, and mass 
+flow heat transfer links. As discussed in section \ref{sec:lumpedparam}, these 
+are represented by
+
+\begin{align}
+  R_{cond} &= \frac{L}{kA}\\
+  R_{conv} &= \frac{1}{ h\cdot A}\\
+  R_{mf}  &= \frac{1}{\dot{m}c_p}\\
+  R_{rad}  &= \frac{1}{\sigma F_{ij}A\left[ T_i + T_A + T_j + T_A 
+  \right]\left[(T_i+T_A)^2+(T_j+T_A)^2\right]}
+  \intertext{where}
+  k&= ~~\mbox{conductivity}[]\nonumber\\
+  A&= ~~\mbox{area} [m^2]\nonumber\\
+  c_p&=~~\mbox{specific heat capacity} []\nonumber  \\
+  h&= ~~\mbox{heat transfer coefficient}[\nonumber] \\
+  \dot{m}&= ~~\mbox{mass transfer rate}[kg\cdot s^{-1}]\nonumber \\
+  T_i&= ~~\mbox{lump temperature} [^{\circ}C] \nonumber\\
+  T_A&= ~~\mbox{absolute temperature} [^{\circ}C] \nonumber\\
+  F_{ij}&= ~~\mbox{radiation interchange factor} [-] .\nonumber
+\end{align}
+
+With these representations of thermal resistance, a lumped parameter model will 
+require an analysis that determines the appropriate length scale for the lumped 
+parameter approximation.
+
+Given one or more heat constraints, the Bauer model  optimizes 
+spatial waste loading in order to meet them with maximal waste loading. For 
+example, given a constraint at the edge of the waste package, the model 
+utilizes the \gls{SINDAG} lumped capacitance solver to 
+determine the two dimensional heat evolution of the repository 
+as a result of a given waste package composition for various drift spacings and 
+arrives at an ideal drift spacing by iteration.
 
 \subsection{LLNL MathCAD Model}
 
@@ -1981,69 +2035,6 @@ process is then iterated with a one year resolution in order to arrive at a heat
 evolution over  the lifetime of the repository. This model seeks to inform heat
 limited waste capacity calculations for each geology, for many waste package 
 loading densities, and for many fuel cycle options.  
-
-
-\subsection{Bauer SINDA{\textbackslash}G Model}
-
-This model, created at Argonne National Lab by Ted Bauer uses a lumped 
-capacitance solver, the \acrlong{SINDAG}.
-
-The Bauer model is geometrically adjustable. 
-
-\begin{figure}[htbp!]
-  \begin{center}
-    \includegraphics[height=10cm]{./chapters/current/sindageom.eps}
-  \end{center}
-  \caption{The geometry of the thermal model can be adjusted in two dimensions, 
-  altering the tunnel spacing and the vertical distance from the aquifer.}
-  \label{fig:sindageom}
-\end{figure}
-
-The SINDA lumped capacitance solver solves a thermal circuit, for which 
-conducting nodes may be of four types corresponding to the four modes of heat 
-transfer. 
-
-For heat flux rate through each conducting node, the SINDA lumped parameter 
-model solves the Fourier equation,
-
-\begin{align}
-  \dot{q} &= \frac{1}{R}( T_i - T_j )\\
-  \label{sindafourier}
-  \intertext{where}
-  R &= ~~\mbox{resistance}\nonumber\\
-  T &= ~~\mbox{temperature}\nonumber\\
-  \intertext{and}
-  \dot{q} &= ~~\mbox{heat rate}.\nonumber
-\end{align}
-
-Lumps are connected by conduction, convection, radiation, and mass flow heat 
-transfer links. Briefly, these are represented by
-
-\begin{align}
-  R_{cond} &= \frac{L}{kA}\\
-  R_{conv} &= \frac{1}{ h\cdot A}\\
-  R_{mf}  &= \frac{1}{\dot{m}c_p}\\
-  R_{rad}  &= \frac{1}{\sigma F_{ij}A\left[ T_i + T_A + T_j + T_A 
-  \right]\left[(T_i+T_A)^2+(T_j+T_A)^2\right]}
-  \intertext{where}
-  k&= ~~\mbox{conductivity}[]\nonumber\\
-  A&= ~~\mbox{area} [m^2]\nonumber\\
-  c_p&=~~\mbox{specific heat capacity} []\nonumber  \\
-  h&= ~~\mbox{heat transfer coefficient}[\nonumber] \\
-  \dot{m}&= ~~\mbox{mass transfer rate}[kg\cdot s^{-1}]\nonumber \\
-  T_i&= ~~\mbox{lump temperature} [^{\circ}C] \nonumber\\
-  T_A&= ~~\mbox{absolute temperature} [^{\circ}C] \nonumber\\
-  F_{ij}&= ~~\mbox{radiation interchange factor} [-] .\nonumber
-\end{align}
-
-With these representations of thermal resistance, a lumped parameter model will 
-require an analysis that determines the appropriate length scale for the lumped 
-parameter approximation.
-
-The Bauer model utilizes the SINDA\textbackslash G lumped capacitance solver to 
-determine the two dimensional heat evolution of the repositroy and to optimize 
-spatial waste loading in order to meet a constraint at the edge of the waste 
-package. 
 
 \subsection{Other Numerical Methods}
 
