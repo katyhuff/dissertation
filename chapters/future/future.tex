@@ -1,4 +1,4 @@
-\chapter{Summary and Future Work}\label{ch:future}
+\chapter{Summary and Proposed Work}\label{ch:future}
 
 \section{Summary}
 
@@ -13,7 +13,23 @@ system analysis. An immediate need for such a tool has been expressed in the
 \gls{UFD} campaign roadmap for this year in which an interface with the \gls{SA} 
 campaign was noted as a primary goal. 
 
-\subsection{Current Work}
+\section{Proposed Work}
+
+A repsitory model, integrated in the \Cyclus fuel cycle simulation platform, 
+will be developed in three phases in parallel will supportive \Cyclus 
+development. A demonstration phase will implement an `empty' repository 
+structure which captures the fundamental software behavior of the subcomponents 
+and integrated repository model. A base case phase will build upon the 
+demonstration model by implement the fundamental physics to represent key heat 
+and radionuclide transport phenomena for simple unfractured media and canonical  
+subcomponent concepts. The final extension phase will build upon the base case 
+by implementing extending physics to capture the salient features of various 
+competing repository concepts such as fracturation, sorption, and coalescent 
+behavior. These phases will be completed within a test-driven software 
+development paradigm and will rely on abstractions of the \gls{UFD} \gls{GDSM} 
+and \gls{SINDAG} and \gls{LLNL} thermal models.  
+
+\subsection{\Cyclus Framework}
 
 Development of the \Cyclus fuel cycle simulator has generated a tool with which 
 the systems analysis aspects of this work will be conducted. Development of the  
@@ -21,8 +37,6 @@ fundamental repository module concept appropriate for modular integration with
 \Cyclus has laid the foundation for a software effort which will deliver a 
 library of disposal system component models capable of analyzing current 
 disposal concepts of interest both domestically and internationally.
-
-\section{Future Work}
 
 \subsection{Demonstration Case Development}
 
@@ -76,13 +90,15 @@ interface with one inner and one outer volume. Contained matter must sum
 to the full volume of the volume.
 
 This model treats matter in solid and liquid phases. Gaseous matter is not 
-supported.  Liquids are defined by their dynamic viscosities ($\mu$, [Pascal seconds]) and
-by characteristic diffusivity ($d_i$, $[m^2/s]$) and solubility ($K$,$[kg/m^3]$) 
-coefficients for each nuclide.  
-
+supported. 
 Solids are assumed to be porous media and are defined by their porosity 
 ($n$, $\%$), tortuosity ($\tau$, $[-]$), and dry (bulk) density ($\rho$). 
-Fracturation is dealt with separateea, a flux type, and a flux 
+Early phases of this work will assume just one liquid, water. Later 
+extensions will incorporate varying water salinities and chemistries. 
+In order to do so, liquids will be ddefined by their dynamic viscosities ($\mu$, 
+[Pascal seconds]),
+by characteristic diffusivities ($d_i$, $[m^2/s]$) and solubility ($K$,$[kg/m^3]$) 
+coefficients for each nuclide.
 
 \subsubsection{Demonstration Code Development}
 
@@ -141,10 +157,25 @@ Fracturation is dealt with separateea, a flux type, and a flux
     (aphysically unhindered) path through each control volume. Other tests might 
     include a set of database writing tests, subcomponent loading tests, and tests 
     of the facility interface.
+    
+    When these unit tests pass, validation efforts will take place which show 
+    that the complete model behaves in agreement with the more detailed model 
+    on which it was based. Else, iterate through sensitivity analyses, model 
+    abstraction, and computational development until the model is validated. 
+
 
 \subsection{Base Case Development}
 
 % Base Case Milestone
+
+The next phase in this work will be the development of the base case. This will 
+build upon the demonstration repository module by implementing fundamental 
+physics for each of the subcomponents. This will include physically relevant 
+mass and thermal balances in each control volume, mixing models that include 
+dissolution and solubility limitations as well as fundamental heat  models within 
+each subcomponent.  This milestone will result in a repository module capable of
+modeling the clay and salt \gls{GDSM} concept modeled by the \gls{UFD} campaign 
+and the \gls{ANDRA} and RED-IMPACT ssessments.
 
 \subsubsection{Base Case Concept}
 
@@ -190,9 +221,9 @@ Fracturation is dealt with separateea, a flux type, and a flux
   \begin{center}
     \includegraphics[height=7cm]{./chapters/future/contaminated1.eps}
   \end{center}
-  \caption{The well mixed control volume contains an intact waste form matrix 
-  and contaminants. The contaminants are not available to neighboring 
-  subcomponents until dissolution has begun.}
+  \caption{The control volume contains an intact waste form matrix 
+  and contaminants that are unavailable to neighboring subcomponents until 
+  dissolution has begun.}
   \label{fig:intact}
 \end{minipage}
 \hspace{0.5cm}
@@ -243,18 +274,10 @@ Fracturation is dealt with separateea, a flux type, and a flux
   % Regression Analysis
 
   Abstraction will be conducted for each of the models listed above to identify  
-  potential simplifying assumptions. For example, diffusive contaminant 
-  transport in  permeable porous media will likely utilize the sensitivity 
-  analysis results in section \ref{sec:current} to assume that the mean annual 
-  dose is not sensitive to the horizontal spacing between drifts. Appropriate 
-  conceptual models will employ these simplifications to streamline 
-  calculations. 
-
-
-Much of my future work is based on the parametric and regression analysis that
-has begun with the base case Clay \gls{GDSM} at \gls{ANL}.
-
-
+  potential simplifying assumptions.  
+  
+  Much of this phase of the work will emulate the parametric and regression analysis that
+has begun with the base case Clay \gls{GDSM} at \gls{ANL}.  
 The Used Fuel Cycle Division has reported sensitivity results for various 
 parameters as they affect Peak Annual Dose. Current work has involved a cursory  
 exploration of other parameters within the Clay \gls{GDSM} as well. Current 
@@ -368,12 +391,6 @@ very sensitive to this parameter \cite{clayton_generic_2011}.
 
 \clearpage
 
-A fast pathway model intended to demonstrate a disrupted scenario is modeled as 
-a single intersecting fracture in the clay matrix. The importance of the various 
-ways in which this fast pathway intersects the model is very nuclide specific 
-\cite{clayton_generic_2011}. In the clay model the fast pathway intersects the 
-engineered barrier system either directly in the emplaced waste or just outside 
-the secondary engineered barrier system.
 
 Other parameters such as the dimensions of the intersecting fast pathway, the 
 permeable porous medium porosity, the waste form and waste package degradation 
@@ -406,11 +423,16 @@ and the \gls{LLNL} model.
 
 \subsection{Extensions}
 
-
-% Geology Extension Milestone
+%  Extension Milestone
 
 When the base case is established, a series of extensions to these models will 
-be pursued. 
+be pursued.  This will build upon the base case repository module by 
+incorporating sorption, fracturation, coalescence, and disruption 
+models within each subcomponent.  This milestone will result in a repository 
+module capable of modeling the granite and borehole \gls{GDSM} concepts modeled 
+by the \gls{UFD} campaign and the \gls{ANDRA} assessments. Additional extension 
+will also incorporate potentially important physical models of salt and clay
+coalescent behaviors. 
 
 \subsubsection{Extension Concepts}
 
@@ -428,8 +450,9 @@ be pursued.
 
     % Fracturation (granite)
     
-    Next, additional geologies (i.e. granite and deep borehole) will be added 
-    to the modeling capability by adding a dual continuum fracture model. 
+    Next, the capability to model fracturation features of granite and borehole 
+    geologies will be added  to the modeling capability by adding a dual 
+    continuum fracture model.  
 
     % Coalescent behavior (salt and clay)
 
@@ -442,64 +465,41 @@ be pursued.
 
     % Fast Pathways (borehole and salt)
 
-    Another potential extension will address the issue of modeling a disruption 
-    scenario with a fast advective pathway that intersects the repository.
+    A final potential extension may be implemented that will address the issue of 
+    modeling a disruption scenario with a fast advective pathway that intersects 
+    the repository.  A fast pathway model intended to demonstrate a disrupted 
+    scenario is modeled as a single intersecting fracture in the clay matrix. 
 
 \subsubsection{Extension Abstraction}
 
   % Regression Analysis
 
+  Similar abstraction analysis will be undertaken for the phenomena involed in 
+  the extension models. 
+  
+  For example, the importance of the various 
+  ways in which this fast pathway model intersect  the repository is very nuclide
+  specific \cite{clayton_generic_2011}. In the clay model the fast pathway intersects the 
+  engineered barrier system either directly in the emplaced waste or just outside 
+  the secondary engineered barrier system. These details will be analyzed for 
+  their importance by regression analysis with the \gls{GDSM} models and 
+  iteratively compared to analytical models 
 
   \subsubsection{Extension Code Development}
 
   % Code Development
 
+  The code development in the extension phase will follow the same pattern as 
+  previous phases, but will focus on one extending feature at a time. 
+
   \subsubsection{Extension Testing, Verification, and Validataion}
 
   % Testing
 
-
-
-\subsection{Sensitivity Analysis}
-
-A sensitivity analysis underway to arrive at simplified dominant physics 
-relationships between the various input parameters of the simulation. 
-
-\subsubsection{Nuclide Transport}
-
-These are the independent parameters I'm interested in.
-
-A TABLE, perhaps. Including parametric domain.
-
-This is how I'll vary them.
-
-Show that these provide a largely complete set of input variables to define 
-nuclide transport. Discuss variables that are being neglected for simplicity, 
-perhaps to be added later. 
-
-\subsubsection{Heat Evolution}
-
-These are the independent parameters I'm interested in.
-
-A TABLE, perhaps. Including parametric domaie.
-
-This is how I'll vary them.
-
-Show that these provide a largely complete set of input variables to define heat 
-evolution. Discuss variables that are being neglected for simplicity, perhaps to 
-be added later. 
-
-\subsection{Mathematical Model Abstraction}
-
-Using the results of these sensitivity analyses, regression analysis will be 
-performed to develop simplified parametric dependencies for all independent 
-variables for each model. 
-
-\subsection{Computational Model Development}
-
-The development of the computational model will begin with simplistic models of  
-the fundamental components of the detailing the phyical phenomena at work vs.  
-the conceptual and mathematical models available, listed in order of complexity.
+  Unit testing, verification and validation will occur in a manner very similar 
+  to the previous milestones. Unit tests will assess the performance of each 
+  extension functionality as well as their integrated behavior. Validation 
+  against \gls{GDSM} results will also be performed for confidence building. 
 
 
 \subsubsection{Base Case}
@@ -547,12 +547,6 @@ Includes Classes A, B, and C
 
 \paragraph{GTCC LTHLW}  Greater Than Class C (GTCC)
 
-
-\subsubsection{Demonstration}
-
-Show that the complete model behaves in agreement with the more detailed model 
-on which it was based. Else, iterate through sensitivity analyses, model 
-abstraction, and computational development until the model is validated. 
 
 
 
