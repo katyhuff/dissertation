@@ -87,7 +87,7 @@ Most component models require external information concerning the
 water volume that has breached containment, so information concerning 
 incoming water volumes is passed radially inward. 
 
-Each component model similarly requires information about the nuclides 
+Each component model similarly requires information about the radionuclides 
 released from the component it immediately contains.  Thus, nuclide 
 release information is passed radially outward from the waste stream 
 sequentially through each containment layer to the geosphere.
@@ -103,7 +103,7 @@ while maintaining a simple interface with the simulation.
 \subsubsection{Waste Stream}
 
 The waste stream data object contains spent fuel isotopics over the 
-course of the simulation. As nuclides are gained, lost, and transmuted within 
+course of the simulation. As radionuclides are gained, lost, and transmuted within 
 the spent fuel object, a history of its isotopic composition is recorded.
 
 For waste streams that vary from each other in composition, the thermal capacity 
@@ -122,12 +122,12 @@ Dissolution can be instantaneous, rate based, water dependent, heat
 dependent, or coupled.
 
 Dissolution related release can be modeled as congruent, solubility 
-limited, or both. Some nuclides are immediately accessible, and some 
+limited, or both. Some radionuclides are immediately accessible, and some 
 tend to remain in the fuel matrix. 
 
 \subsubsection{Waste Package}
 The waste package model calculates nuclide release due to waste 
-pacakge failure. Waste package failure is typically modeled as 
+package failure. Waste package failure is typically modeled as 
 instantaneous and complete or partial and constant. That is, a delay 
 before full release, or a constantly present hole in the package.
 
@@ -142,7 +142,7 @@ waste package.
 Diffusion is the primary mechanism for nuclide transport through the 
 buffer component of the repository system.  
 
-Salt, clay, and borehole repository conceptys may not have a buffer 
+Salt, clay, and borehole repository concepts may not have a buffer 
 material.
 
 \subsubsection{Backfill}
@@ -154,23 +154,15 @@ Clay concepts and borehole concepts may not have a backfill material.
 
 \subsubsection{Geological Environment}
 
-The literature review introduced various hydrogeological models that represent
+The literature review introduced various hydrological models that represent
 fluid and contaminant travel through permeable porous media and fractured porous 
 media. These assume saturated flow and incorporate diffusive flow, advective 
-flow, hydrodynamic dispoersion, and equillibrium sorption. The geological 
-envrionment control volume component will implement these models appropriately 
+flow, hydrodynamic dispersion, and equilibrium sorption. The geological 
+environment control volume component will implement these models appropriately 
 for each geology to provide a mass balance and to communicate concentrations to  
-adjacent components. 
+adjacent components.  Dirichlet boundary conditions at the surfaces of the 
+control volume will allow the simulation to step through transport in the rock. 
+Additional boundary condition types maybe implemented as extensions to the base 
+case model.
 
-Dirichlet boundary conditions at the surfaces of the control volume will allow 
-the simulation to step through transport in the rock.
-
-Heat transfer through the geological environment i
-
-
-Sudicky and Frind give a model for fractured porous media that 
-analytically captures nuclide mobility due to advection through 
-fractures as well as competing retardation factors including sorption on the 
-fracture walls, diffusion into stagnant fluid in the rock matrix, and 
-sorption into rock matrix walls. 
 
