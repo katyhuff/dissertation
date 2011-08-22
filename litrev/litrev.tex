@@ -1,10 +1,12 @@
 \chapter{Literature Review}
 \label{ch:litrev}
 
-The following literature review addresses five areas of current research
+The following literature review addresses areas of current research
 integral to the work at hand. The contribution of computational nuclear fuel
 cycle simulation tools to sensitivity analyses of repository performance
-metrics is first summarized. A review of analytical models of radionuclide transport
+metrics is first summarized. A discussion of the disposal system concepts and 
+geologies under consideration domestically and internationally are then also 
+summarized.  A review of analytical models of radionuclide transport
 follows, after which follows a review of analytical models of heat transport.
 An overview of current detailed computational models, available data and
 algorithms characterizing radionuclide transport follows, including both standalone
@@ -32,18 +34,18 @@ transport on long time scales and in various geologies.
 
 Current top-level simulators largely disregard the waste disposal phase of fuel
 cycle analysis. Choosing instead to report metrics such as mass or volumes of
-accumulated spent nuclear fuel, these analyses fail to address the impact of
+accumulated spent nuclear fuel, current tools fail to address the impact of
 those waste streams on the performance of the geologic disposal system
 \cite{wilson_comparing_2011}.  To fully inform the decision making process, 
 metrics that depend on the performance of the geologic disposal system will be
-necessary. 
+necessary within the tool proposed here. 
 
 A model for repository capacity was developed for the \gls{VISION} fuel cycle
 simulator and recent efforts on the \gls{NUWASTE} simulator have made
 some progress in addressing this deficiency, but despite a proliferation of
 sophisticated fuel cycle simulators, similar efforts are lacking in this
-regard \cite{yacout_visionverifiable_2006} \cite{radel_repository_2007} 
-\cite{abkowitz_nuclear_2010}. 
+regard \cite{yacout_vision_2006, radel_repository_2007, 
+abkowitz_nuclear_2010}. 
 
 \subsection{NUWASTE} 
 
@@ -70,17 +72,17 @@ laboratory export control requiring explicit developer approval
 \cite{yacout_daness_2011,van_den_durpel_daness:_2006}. \gls{VISION} is 
 capable of modeling an array of fuel cycle options. It tracks and conducts 
 decay calculations for upwards of 80 isotopes of interest 
-\cite{yacout_visionverifiable_2006, wilson_comparing_2011}.
+\cite{yacout_vision_2006, wilson_comparing_2011}.
 
 While its repository model calculates \gls{YMR} specific information 
 about waste package heat production and heat based repository capacity, 
 continuous masses are modeled rather than discrete  waste packages, and no 
 radionuclide transport calculations are conducted  
-\cite{radel_repository_2007} \cite{boucher_international_2010}.
+\cite{radel_repository_2007, boucher_international_2010}.
 
 \subsection{DANESS} 
 
-\gls{DANESS} is developed at Argonne National Laboratory and
+The \gls{DANESS} tool is developed at Argonne National Laboratory and
 discretely models reactors within regional reactor parks for a flexible array 
 of fuel cycles. Material movement is based on a fuel ordering paradigm and is 
 written in a combination of FortranIV and C, but is limited to a 10 reactor 
@@ -143,20 +145,16 @@ developed at \gls{OCRWM} is a very detailed model of the Yucca Mountain disposal
 system. It includes transportation issues and detailed emplacement timing and 
 strategy models, but considers only the fuel cycle associated with the current  
 U.S.  reactor fleet. Casks are modeled discretely and radionuclide and heat transport 
-are modeled in great detail .  This level of detail 
-results in a dramatically extended run time. The \gls{TSM} model can only be 
-run by its development team and runs a typical simulation, processing 70,000 
-MTHM in 12-15 hours \cite{turner_discrete_2010}. 
+are modeled in great detail.  This level of detail results in a dramatically extended
+run time making this model inappropriate for top level fuel cycle systems analysis. 
+The \gls{TSM} model can only be run by its development team and runs a typical 
+simulation, processing 70,000 MTHM, in 12-15 hours \cite{turner_discrete_2010}. 
 
 The TSM framework is based on the commercial SimCAD platform. The simulation 
 steps through times in 8 hour time steps during the waste cask transportation, 
 processing and emplacement. This event based simulator is primarily focused on 
 the operation stage of the Yucca Mountain repository, but is equipped with a 
 thermal management model that informs waste package emplacement.
-
-
-
-
 
 
 \section{Conceptual Discussion of Disposal Environments}
@@ -206,7 +204,7 @@ alteration rates in materials that are subject to degradation. A reducing
 disposal environment also lowers solubility limits and increases sorption of the 
 actinides. The dominant dose contributors in reducing environments are 
 therefore the soluble, long lived fission and activation products such as $^{129}I$ 
-and $^{79}Se$ \cite{oecd_advanced_2006, von_lensa_red-impact_2008}.  
+and $^{79}Se$ \cite{oecd-nea_advanced_2006, von_lensa_red-impact_2008}.  
 Furthermore, rather than being kinetically limited, as in an oxidizing 
 environment, sorption behavior is thermodynamically limited 
 \cite{nutt_personal_2011, schwartz_fundamentals_2004}. The models created here 
@@ -223,7 +221,7 @@ sufficiently model the fuel cycles of interest, it will be necessary to model
 a borosilicate glass high level waste form as well as an oxide ceramic waste 
 form. These together will be provide a sufficient but not comprehensive option 
 space for modeling candidate domestic disposal systems. Additional waste forms 
-of interest are listed in Table \ref{tab:wf_tab_tab}. Waste forms will be 
+of interest are listed in Table \ref{tab:wf_tab}. Waste forms will be 
 distinguished by their alteration, corrosion, and other degradation behaviors.
 
 Various engineered barrier system components will also be modeled as a part of 
@@ -271,8 +269,8 @@ horizontal emplacement in multiple-package emplacement drifts.
 \subsubsection{Hydrology}
 
 In the clay disposal environment, an exceptionally low porosity combined with 
-low, diffusion dominated water movement and no fracturation, the overall 
-hydraulic conducitivity of clay is very low. Hydrology in the far field is 
+low, diffusion dominated water movement and no fracturation result in a very low 
+overall hydraulic conducitivity of clay. Hydrology in the far field is 
 typically assumed to be entirely diffusive.
 
 \subsubsection{Geochemistry}
@@ -292,16 +290,17 @@ for most fuel cycles include $^{129}I$, $^{79}Se$, and $^{36}Cl$
 \subsubsection{Thermal Behavior}
 \label{subsec:claythermal}
 
-The thermal conductivity of clay is typically lower than 
+
+Heat limits in clay are based on the domain of known behavior in clay and the 
+tendency for bentonite fill material to lose its isolating properties with high 
+temperatures \cite{andra_argile:_2005, pusch_alteration_1987}. Limits in clay 
+are fairly low as the thermal conductivity of clay is typically lower than 
 $2[W/m^{\circ}K]$\footnote{
 Belgium (ref. \cite{ondraf-niras_technical_2001}) used values between 1.25 and 1.7 $[W/m\cdot^{\circ}K]$.\\
 France (ref. \cite{andra_argile:_2005}) used values between 1.9 and 2.7 $[W/m\cdot^{\circ}K]$.\\
 Switzerland (ref. \cite{johnson_calculations_2003}) used 1.8 $[W/m\cdot^{\circ}K]$.
 }.
 
-Heat limits in clay are based on the domain of known behavior in clay and the 
-tendency for bentonite fill material to lose its isolating properties with high 
-temperatures \cite{andra_argile:_2005, pusch_alteration_1987}. 
 The alteration of high smectite bentonite to non-expandable clays is a primary 
 limitation for heat tolerance in the clay concept. The isolation characteristics 
 of bentonite buffer materials is reduced after this alteration. The time 
@@ -364,9 +363,10 @@ with clay and sand and emplaced vertically in horizontal drifts
 A similar Czech Republic repository concept consists of 
 borosilicate glass waste forms within a stainless steel Universal Canister waste 
 package, vertically emplaced in horizontal drifts and with a bentonite buffer  
-and backfilled with a clay and sand mixture \cite{ von_lensa_red-impact_2008}.
+and backfilled with a clay and sand mixture.
 The Spanish concept is almost exactly similar to 
-these, except emplacement is horizontal within the horizontal repository drifts.
+these, except emplacement is horizontal within the horizontal repository drifts
+\cite{ von_lensa_red-impact_2008}.
 
 
 %Japanese studies investigated numerous layouts. . .  Finland china south korea switzerland. 
