@@ -1421,15 +1421,12 @@ area $A$ of the representative volume,
 \subsection{Convection}
 
 Convective heat transfer occurs advectively in accordance with fluid movement. 
-The form of Fourier's Law that describes convection is very similar to equation  
-\ref{fourier} for conduction, though the convective heat transfer coefficient 
-$h [W m^{-2} K^{-1}]$ and the surface area of heat transfer $A [m^2]$ replace 
-the conductivity coefficient. Convection is typically expressed as
+Convection can be expressed as
 
 \begin{align}
-  q'' &= -hA\nabla T
+  \dot{q} &= -hA\Delta T
   \intertext{such that}
-  q_x'' &= hA\frac{dT}{dx}\\
+  \dot{q_x} &= hA\frac{dT}{dx}\\
   &=-h_xA\frac{(T_1-T_2)}{x_1-x_2}.
 \end{align}
 
@@ -1441,7 +1438,7 @@ waves. Planck black body radiation is analytically described, using $\sigma$, th
 Stefan-Boltzmann constant as
 
 \begin{align}
-  q'' = \sigma A_1 F_{1\rightarrow 2}(T_1^4 - T_2^4)
+  \dot{q} = \sigma A_1 F_{1\rightarrow 2}(T_1^4 - T_2^4)
   \label{planck}
   \intertext{where}
   \sigma =5.670373\times 10^{−8} [W/ m^{2} K^{4}]\nonumber
@@ -1456,9 +1453,9 @@ Stefan-Boltzmann constant as
     \mbox{ for concentric cylinders}
   \end{cases}
   \intertext{where}
-  \epsilon_i = \mbox{emmisivity of surface i}\nonumber\\
-  r_i = \mbox{radius of cylinder i} \nonumber\\
-  L = \mbox{cylinder length.}\nonumber
+  \epsilon_i = \mbox{emissivity of surface i } [-]\nonumber\\
+  r_i = \mbox{radius of cylinder i } [m] \nonumber\\
+  L = \mbox{cylinder length }[m].\nonumber
 \end{align}
 
 
