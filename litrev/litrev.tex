@@ -793,27 +793,6 @@ soluble \cite{hedin_integrated_2002}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsubsection{Instantaneous}
-
-The Hedin model of waste package failure is effectively instantaneous, but
-limited by a release resistance coefficient. The release is assumed  to occur
-through a hole in the waste canister that exists throughout the simulation, and
-the resistance coefficient limiting flow through the hole represents the
-magnitude of the canister flaw in combination with the buffer-geosphere
-interface\cite{hedin_integrated_2002}.
-
-Other models also use an instantaneous waste package failure mode for all waste  
-packages simultaneously, in which failure occurs either at the onset of the simulation
-or at some distinct time during the simulation. The mathematical representation of this 
-probability density function is clearly just the Dirac delta function, with $n_F$ 
-being the number of failed waste packages per unit time, $N$ being the total number of waste 
-packages, and $t_F$ being the time to failure,
-
-\begin{align}
-  n_F(t) = N\delta(t-t_F).
-  \label{instantaneous}
-\end{align}
-
 \subsubsection{Rate Based} 
 
 When enough data exists, waste package failure can
@@ -894,6 +873,28 @@ function is
 
 
 %%%%
+
+\subsubsection{Instantaneous}
+
+The Hedin model of waste package failure is effectively instantaneous, but
+limited by a release resistance coefficient. The release is assumed  to occur
+through a hole in the waste canister that exists throughout the simulation, and
+the resistance coefficient limiting flow through the hole represents the
+magnitude of the canister flaw in combination with the buffer-geosphere
+interface\cite{hedin_integrated_2002}.
+
+Other models also use an instantaneous waste package failure mode for all waste  
+packages simultaneously, in which failure occurs either at the onset of the simulation
+or at some distinct time during the simulation. The mathematical representation of this 
+probability density function is clearly just the Dirac delta function, with $n_F$ 
+being the number of failed waste packages per unit time, $N$ being the total number of waste 
+packages, and $t_F$ being the time to failure,
+
+\begin{align}
+  n_F(t) = N\delta(t-t_F).
+  \label{instantaneous}
+\end{align}
+
 
 \subsection{Radionuclide Transport Through Secondary Engineered Barriers}
 
@@ -1363,7 +1364,7 @@ Heat transfer in these concepts will be dominated by conductive and convective
 heat transfer. In a closed system, very few air gaps will exist. For this 
 reason,  heat transfer by radiation is likely to be negligible. Similarly, since  
 water velocities are comparatively low, heat transfer by mass transfer will be 
-small relative to diffusion and convection. 
+small relative to conduction.  
 
 A discussion of analytical models of heat transport follows that quantifies these 
 modes of heat transfer and addresses their applicability to the model at hand. 
@@ -1989,15 +1990,15 @@ flow heat transfer links. As discussed in section \ref{sec:lumpedparam}, these
 are represented by
 
 \begin{align}
-  R_{cond} &= \frac{L}{kA}\\
-  R_{conv} &= \frac{1}{ h\cdot A}\\
+  R_{cond} &= \frac{L}{k A}\\
+  R_{conv} &= \frac{1}{h A}\\
   R_{mf}  &= \frac{1}{\dot{m}c_p}\\
   R_{rad}  &= \frac{1}{\sigma F_{ij}A\left[ T_i + T_A + T_j + T_A 
   \right]\left[(T_i+T_A)^2+(T_j+T_A)^2\right]}
   \intertext{where}
-  k&= ~~\mbox{conductivity}[]\nonumber\\
+  k&= ~~\mbox{conductivity}[W\cdot m^{-1}\cdot K^{-1}]\nonumber\\
   A&= ~~\mbox{area} [m^2]\nonumber\\
-  c_p&=~~\mbox{specific heat capacity} []\nonumber  \\
+  c_p&=~~\mbox{specific heat capacity} [J\cdot K^{-1}]\nonumber  \\
   h&= ~~\mbox{heat transfer coefficient}[\nonumber] \\
   \dot{m}&= ~~\mbox{mass transfer rate}[kg\cdot s^{-1}]\nonumber \\
   T_i&= ~~\mbox{lump temperature} [^{\circ}C] \nonumber\\
@@ -2021,8 +2022,13 @@ iteration.
 \subsection{LLNL MathCAD Model}
 
 This model, created at \gls{LLNL} for the \gls{UFD} campaign, is written in a 
-combination of MathCAD and Excel. The model consists of two parts. The first is 
-a MathCAD solution of the transient homogeneous conduction equation
+combination of MathCAD and Excel. The model consists of two physical parts, the  
+first is the host rock, and the second models the waste form, package, and buffer 
+as a single \gls{EBS} unit. Since the thermal mass of the EBS is small in
+comparison to the thermal mass of the host rock, the transient state of the
+ transient temperature between the host 
+rock and the EBS is found with a MathCAD solution of the transient homogeneous 
+conduction equation
 
 \begin{align}
   \nabla^2T  = \frac{1}{\alpha}\frac{\partial T}{\partial t}.
@@ -2038,13 +2044,15 @@ equation,
   \label{condGeneral}
 \end{align}
 
-% this needs to be re-checked <++>  
+which calculates a resulting temperature gradient through the geometry at each 
+point in time. 
+The process is then iterated with a one year resolution in order 
+to arrive at a heat evolution over  the lifetime of the repository. This model 
+seeks to inform heat limited waste capacity calculations for each geology, for 
+many waste package loading densities, and for many fuel cycle options.  
 
-which in turn calculates a resulting gradient through the geometry. The 
-process is then iterated with a one year resolution in order to arrive at a heat 
-evolution over  the lifetime of the repository. This model seeks to inform heat
-limited waste capacity calculations for each geology, for many waste package 
-loading densities, and for many fuel cycle options.  
+<+EXPLANATION-FOUND-MORE-SOON+>
+\cite{hardin_generic_2011}
 
 \subsection{Other Numerical Methods}
 
