@@ -683,7 +683,8 @@ emulsion, are expected in the solution saturating the geological environment.
 Colloids present in the near field dissolving solution have an effect on the
 mobility of radionuclides. Studies addressing the subtle differences between 
 resultant behavior of various isotopes indicate that colloidal mobility can be 
-modeled as a correction factor to the sorption coefficient.
+modeled as a correction factor to the sorption coefficient 
+\cite{bracke_safety_2008}.
 
 \subsection{Waste Form Release Models}
 
@@ -760,8 +761,8 @@ radionuclide release takes the form:
 
 where $\epsilon$, U, $r_0$, and L are the geometric and
 hydrologic factors porosity, water velocity, waste package radius, and waste
-package length, respectively. $D_e$ is the diffusion coefficient ($m^2/yr$) of
-the element \emph{e} and $S_i$ is the element's solubility ($kg/m^3$).
+package length, respectively. $D_e$ is the effective diffusion coefficient
+($m^2/yr$)  and $S_i$ is the solubility ($kg/m^3$) of isotope $i$.
 
 In the Hedin model of the waste matrix, the amount of solute available within
 the waste package is solved for, and for radionuclides with low solubility, the mass
@@ -800,7 +801,7 @@ interface\cite{hedin_integrated_2002}.
 Other models also use an instantaneous waste package failure mode for all waste  
 packages simultaneously, in which failure occurs either at the onset of the simulation
 or at some distinct time during the simulation. The mathematical representation of this 
-probability density function is clearly just the delta function, with $n_F$ 
+probability density function is clearly just the Dirac delta function, with $n_F$ 
 being the number of failed waste packages, $N$ being the total number of waste 
 packages, and $t_F$ being the time to failure,
 
@@ -843,8 +844,8 @@ parameters.
 When a probability distribution of waste package failure is available, the 
 discrete waste packages can be modeled to fail according to that distribution. 
 For example, if the expected lifetime of a waste package is some known $t_F$, a 
-Gaussian distribution around $t_F$ would provide probability density function 
-for waste package failures per time step, $f(t)$
+Gaussian distribution around $t_F$ would provide a probability density function 
+for waste package failures per time step, $f(t)$,
 
 \begin{align}
   n_F=Nf(t).
@@ -1014,13 +1015,13 @@ such that the mass conservation equation becomes:
 \begin{align}
   \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) &= \frac{\partial(nC)}{\partial t}
   \label{massbal} 
-  \intertext{Adding sorption, by accounting for a change in mass storage}
+  \intertext{Adding sorption, by accounting for a change in mass storage,}
   \nabla \left( nD\nabla C \right) - \nabla \left( nv \right)  &= 
   \frac{\partial(nC)}{\partial t}  + \frac{\partial(s\rho_b)}{\partial t} 
   \label{withsorption} 
   \intertext{where}
   s &= \mbox{sorption coefficient}\nonumber\\
-  \rho_b &= \mbox{ bulk (dry) density }[kg/m^3]\nonumber
+  \rho_b &= \mbox{ bulk (dry) density }[kg/m^3].\nonumber
 \end{align}
 
 If it is assumed that sorption can be approximated as a linear equilibrium, 
@@ -1028,7 +1029,7 @@ reversible reaction,
 
 \begin{align}
   \frac{\partial(s\rho_b)}{\partial t} &= \left( R_f - 1 
-  \right)\frac{\partial(nC)}{\partial t}\nonumber
+  \right)\frac{\partial(nC)}{\partial t}
   \intertext{equation \eqref{withsorption} becomes}
   \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) &= 
   R_f\frac{\partial(nC)}{\partial t}    
@@ -1067,7 +1068,7 @@ For unidirectional flow, the unidirectional dispersion tensor gives
   D_y \frac{\partial^2 C}{\partial y^2} +
   D_z \frac{\partial^2 C}{\partial z^2} +
   v_x \frac{\partial C}{\partial x}  = R_f 
-  \frac{\partial(nC)}{\partial t} 
+  \frac{\partial(nC)}{\partial t}. 
   \label{unidirflow}
 \end{align}
 
@@ -1077,7 +1078,7 @@ A special case of uniform flow, no flow, simplifies to the diffusion equation,
   D_y \frac{\partial^2 C}{\partial y^2} +
   D_z \frac{\partial^2 C}{\partial z^2} +
   C = R_f 
-  \frac{\partial(nC)}{\partial t} 
+  \frac{\partial(nC)}{\partial t} .
   \label{diffusion}
 \end{align}
 
@@ -1097,7 +1098,7 @@ fluxes at  the boundary of the domain
   \intertext{where}
   \vec{r} = \mbox{ position vector }\nonumber\\
   \Gamma = \mbox{ domain boundary }\nonumber\\
-  \vec{J}= \mbox{ solute mass flux } [kg/m^2\cdot s]\nonumber
+  \vec{J}= \mbox{ solute mass flux } [kg/m^2\cdot s].\nonumber
 \end{align}
 
 The third, Cauchy, type describes a combination of the Dirichlet and Neumann 
@@ -1142,7 +1143,7 @@ the so called Ogata and Banks solution gives
 Equation \eqref{ogatabanks} is an appropriate one dimensional solution to the 
 situation in this work where a constant concentration at the internal boundary 
 of each control volume is available at each time step. Abstraction-based 
-abstractions based on this solution will be used to advance the concentration 
+approximations based on this solution will be used to advance the concentration 
 values at each time step within each control volume. 
 
 
@@ -1161,10 +1162,8 @@ The Arrhenius relationship,
   \label{arrhenius}
 \end{align}
 
-gives the diffusion coefficient of solids as a function of temperature.
-
-
-Gives D as a function of temperature and apparent activation energy of the 
+gives the diffusion coefficient of solids as a function of temperature and
+apparent activation energy of the 
 medium.
 
 \subsubsection{ Temperature Dependent Diffusion : Stokes Einstein }
@@ -1217,20 +1216,19 @@ suitable for situations in which the fracture width or frequency varies greatly.
 Equivalent Porous Medium (EPM) models assert that a uniformly  fractured medium
 can be approximated as a fractureless matrix with an effective porosity high
 enough to account for real fracturation 
-\cite{berkowitz_continuum_1988}\cite{anderson_applied_1992}.
+\cite{berkowitz_continuum_1988, anderson_applied_1992}.
 
 Dual continuum models are the most widely employed models of fracture flow 
 \cite{diodato_compendium_1994}. Dual Porosity Models make up one type of dual 
 continuum model. This model incorporates advective
 transport in simplistic, uniform fractures and diffusive sorption and
 desorption into the stagnant (no advective transfer) water contained in the
-pores of the rock matrix \cite{uleberg_dual_1996} \cite{ho_dual_2000}.
+pores of the rock matrix \cite{uleberg_dual_1996, ho_dual_2000}.
 
 
 Dual Permeability Models are another type. These are similar to dual porosity
 models, but incorporate advective transfer within the rock matrix and between
-the rock matrix and the fracture volume\cite{uleberg_dual_1996}
-\cite{ho_dual_2000}.
+the rock matrix and the fracture volume\cite{uleberg_dual_1996, ho_dual_2000}.
 
 \subsubsection{Discrete Fracture Network Models} 
 
@@ -1358,7 +1356,7 @@ interface with the buffer material and the buffer material interface with the
 lithology. These heat limits were discussed in section 
 \ref{subsec:claythermal}. 
 
-Heat transfer in these concepts will be dominated by diffusive and convective 
+Heat transfer in these concepts will be dominated by conductive and convective 
 heat transfer. In a closed system, very few air gaps will exist. For this 
 reason,  heat transfer by radiation is likely to be negligible. Similarly, since  
 water velocities are comparatively low, heat transfer by mass transfer will be 
@@ -1442,7 +1440,7 @@ Stefan-Boltzmann constant as
   q'' = \sigma A_1 F_{1\rightarrow 2}(T_1^4 - T_2^4)
   \label{planck}
   \intertext{where}
-  \sigma =5.670373\times 10^{−8} [W/ m^{2} K^{4}].\nonumber
+  \sigma =5.670373\times 10^{−8} [W/ m^{2} K^{4}]\nonumber
   \intertext{and}
   F_{1\rightarrow 2} =
   \begin{cases}
@@ -1499,8 +1497,8 @@ distinct lumps within a conceptual model.
 The lumped capacitance model can address multiple media and multiple heat
 transfer modes. The rate of heat transfer $\dot{q}\hspace{1mm}[Wm^{-2}K^{-1}s^{-1}]$ 
 through a circuit is simply given as the quotient of the temperature 
-difference and the sum of thermal resistances of the multiple lumps, $R_i 
-[W\cdot K^{-1}]$
+difference and the sum of thermal resistances, $R_i [W\cdot K^{-1}]$,
+of the multiple lumps 
 
 \begin{align}
   \dot{q} = \frac{\Delta T}{\sum _{i=0}^{N}R_i}.
@@ -1583,7 +1581,7 @@ expected to be achieved. Proposed design changes include decreased spacing
 between drifts, a larger areal footprint, vertical expansion into second and
 third levels of repository space, and hybrid solutions involving combinations
 of these ideas. In particular, EPRI suggests either an expansion of the
-footprint with redesign of the current Upper Block line load design plan or a
+footprint with redesign of the current line load design plan or a
 multi-level plan that repeats the footprint and line load design of the current
 plan\cite{kessler_room_2006}.
 
@@ -1598,7 +1596,7 @@ $48\%$ increase in the repository capacity as constrained by heat
 load\cite{nicholson_thermal_2007}. This factor uses a fiducial default
 footprint of $4.6 km^2$ used in the NRC TSPA.  The reported $48\%$ increase in
 capacity results in total repository capacity of 103,600
-tonnes\cite{williams_contract_2001}.
+tonnes\cite{williams_total_2001}.
 
 
 \input{litrev/footprint_tab} 
@@ -1613,13 +1611,14 @@ constraints, however in some cases they are more restrictive.
 For example, the current constraining heat limit in borosilicated glass 
 reported by the \gls{UFD} campaign is $500^{\circ}C$, corresponding to the 
 temperature at which the glass can be expected to begin devitrifying 
-\cite{carter_2010, hardin_generic_2011, soelberg_heat_2009}. For ceramic oxide 
+\cite{carter_disposal_2010, hardin_generic_2011, soelberg_heat_2009}. For ceramic oxide 
 fuel pellet waste forms, zirconium cladding has a heat limit of $350^{\circ}C$ 
 to prevent rupture. 
 
 \subsection{Specific Temperature Integral}
 
-Line loading ($t/m$) and areal power density ($W/km^2$) are two common metrics
+Linear mass loading ($tonnes/m$), linear thermal loading ($W/m$) and areal power 
+density ($W/m^2$) are common metrics
 for describing the loading of the repository. While these metrics are
 informative for mass capacity and power capacity respectively, they fail to
 reflect differences in thermal behavior due to varying SNF compositions.  A
@@ -1638,7 +1637,7 @@ though other researchers have other names for this method. Tracy Radel calls
 her temperature metric at a point in the rock the Specific Temperature
 Change\cite{radel_repository_2007}.
 
-In a repository with linear drifts, the Heat flux from the drifts can be
+In a repository with linear drifts, the heat flux from the drifts can be
 expressed as the superposition of the linear heat flux contributions of all the
 radionuclides in the waste. Each radionuclide contributes in proportion to its
 decay heat generation and its weight fraction of the SNF. With information
@@ -1666,7 +1665,9 @@ Li, Piet, Wilson, and Ahn. With a focus on YMR capacity benefit, repository
 performance metrics of interest for these analyses were heat, source term, and
 more global environmental impact metrics.  Sensitivity analyses for other
 geologies were conducted concerning repository concepts relevant to other
-nations as well. See Table \ref{tab:red}.
+nations as well. See Table \ref{tab:red} for examples of detailed heat transport 
+calculation methods used in domestic and international repository modeling 
+efforts.
 
 \subsection{European RED-IMPACT} 
 
@@ -1694,16 +1695,18 @@ Teams from \acrlong{ANL}, \acrlong{LBNL}, \acrlong{LANL}, and \acrlong{SNL} are 
 models of generic clay, granite, and salt disposal environments. Sandia is
 simultaneously constructing a deep borehole disposal system model in crystalline 
 rock. Each generic disposal system model will perform detailed calculations of 
-radionuclide transport within its respective lithology. A 2012 goal of the 
+radionuclide transport within its respective lithology 
+\cite{clayton_generic_2011}. A 2012 goal of the 
 project includes an overarching generic model that incorporates the various 
 geologically distinct submodels in order to provide a fully generic repository 
 model. This overarching \gls{GPAM} work will be incorporated into this effort.
 
 The radionuclide transport calculations for the geologically distinct models 
-are performed within the GoldSim simulation platform. GoldSim is a commercial
+are performed within the GoldSim simulation platform. GoldSim is a commercial 
+simulation environment.
 Probabilistic elements of the GoldSim modelling framework enable the models to 
 incorporate \gls{FEPs} expected to take place probabilistically during the 
-evolution of the repository.  
+evolution of the repository \cite{clayton_generic_2011}.  
 
 Cells within GoldSim represent components of the waste disposal system and
 are linked by diffusive, advective, precipitated, direct, or  otherwise filtered
@@ -1804,6 +1807,7 @@ Flow in the vicinity of the borehole was modeled using tabulated groundwater
 flow velocities obtained from simulations run using the \gls{FEHM} code 
 meshed in three full dimensions with the \gls{CUBIT} meshing tool 
 \cite{clayton_generic_2011}.
+
 \subsection{Li Model\cite{li_methodology_2006}} As a function of time, water
 enters the Engineered Barrier System and corrodes the waste packages.  These
 fail and from the failed waste packages radionuclides are released according to
@@ -1811,7 +1815,7 @@ advective transfer.  Further transport through the near and far field rock
 medium is modeled in two modes, one representing the Unsaturated Zone, and one
 representing the Saturated Zone.
 
-\paragraph{Waste package failure and radionuclide release} are modeled with two TSPA
+Waste package failure and radionuclide release are modeled with two TSPA
 code modules called EBSFAIL and EBSREL. The waste package failure rate is
 determined from EBSFAIL, which incorporates waste form chemistry, humidity,
 oxidation, etc and upon contact from water begins the degradation process. The
@@ -1855,8 +1859,8 @@ assumption is one in which the evacuation disturbed zone does not heal. Rather,
 it is modeled in its damaged state immediately after excavation. 
 
 This model only tracks 15 radionuclides of importance.  These are chosen to be those
-with halflives over 1000 years and most toxicity or mobility.
-\cite{andra_argile:_2005} The behavior of radionuclides in 
+with halflives over 1000 years and most toxicity or mobility
+\cite{andra_argile:_2005}. The behavior of radionuclides in 
 glassvitrification forms can be summarized by categorizing them into mobile,
 intermediate, and well retained elements. 
 
