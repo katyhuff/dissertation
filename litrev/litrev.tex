@@ -806,7 +806,7 @@ Other models also use an instantaneous waste package failure mode for all waste
 packages simultaneously, in which failure occurs either at the onset of the simulation
 or at some distinct time during the simulation. The mathematical representation of this 
 probability density function is clearly just the Dirac delta function, with $n_F$ 
-being the number of failed waste packages, $N$ being the total number of waste 
+being the number of failed waste packages per unit time, $N$ being the total number of waste 
 packages, and $t_F$ being the time to failure,
 
 \begin{align}
@@ -833,7 +833,7 @@ very different under dry oxidizing conditions and wet reducing conditions.
 %corrosion rate is reduced to a few microns (or even less than a micron) per 
 %year.  see pg 283/525 of phenomenological evolution doc for details
 
-An expression of the number of failed waste packages, $n_F$ per time step is a simple 
+An expression of the number of failed waste packages, $n_F$ per unit time is a simple 
 product between the initial number of waste packages, $N$ and the rate $f$ of
 package  failure as a function of time $t$, temperature $T$), and other 
 parameters.
