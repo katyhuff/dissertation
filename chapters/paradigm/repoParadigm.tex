@@ -7,10 +7,13 @@ component models.
 
 \subsection{Nested Component Concept}
 
-The fundamental unit of information in the repository model is the 
-nuclide release at each stage of containment, and the repository model 
-in this work mimics reality treating them as nested elements in a 
-release chain.
+The fundamental unit of information in the repository model is the final nuclide  
+release at the boundary of the far field resulting from nuclide release at 
+each stage of containment.  The repository model, in this way, is fundamentally 
+a tool to determine the source term at the envrionmental surface as a result 
+of an arbitrary waste stream. The repository model in this work conducts this 
+calculation by  treating each containment component as nested volumes in a 
+release chain. 
 
 \begin{figure}[h!]
   \begin{center}
@@ -32,7 +35,14 @@ nested components.
 
 Each control volume will initially be modeled as a mixed cell. That is, for 
 permeable porous media, all contaminants released into the pore and fracture 
-water are assumed to be uniformly distributed.  
+water are assumed to be uniformly distributed.
+
+Thermal energy as well as mass will be conserved within each control volume by 
+demanding continuity of thermal and mass fluxes accross the boundaries. Since 
+radionuclide and thermal transport calculations internal to the control volumes  
+may be represented by many models at varying levels of detail, abstraction on 
+the component level against detailed models will be conducted to acheive 
+appropriate detail in each component. 
 
 \subsubsection{Information Passing Between Volumes}
 
