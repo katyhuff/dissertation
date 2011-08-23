@@ -1377,16 +1377,17 @@ interface with the buffer material and the buffer material interface with the
 lithology. These heat limits were discussed in section 
 \ref{subsec:claythermal}. 
 
-Heat transfer in these concepts will be dominated by conductive and convective 
+Heat transfer in these concepts will be dominated by conductive  
 heat transfer. In a closed system, very few air gaps will exist. For this 
 reason,  heat transfer by radiation is likely to be negligible. Similarly, since  
-water velocities are comparatively low, heat transfer by mass transfer will be 
-small relative to conduction.  
+water velocities are comparatively low, heat transfer by mass transfer or by 
+convection will be small relative to conduction.  
 
 A discussion of analytical models of heat transport follows that quantifies these 
 modes of heat transfer and addresses their applicability to the model at hand. 
 
 %%%%%%%%%%%%%%%% Analytical Heat Transport %%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Conduction}
 
 Conductive heat transfer occurs as a result of a temperature gradient. Heat 
@@ -1428,6 +1429,8 @@ and a body with temperature $T_2$ at position $x_2$,
   &=-k_x\frac{(T_1-T_2)}{x_1-x_2}.
 \end{align}
 
+\subsection{Convection}
+
 Convective heat transfer occurs advectively in accordance with fluid movement. 
 Convection can be expressed as
 
@@ -1438,6 +1441,7 @@ Convection can be expressed as
   &=-h_xA\frac{(T_1-T_2)}{x_1-x_2}.
 \end{align}
 
+\subsection{Radiation}
 
 Heat transfer by radiation is the result of the emission of electromagnetic 
 waves. Planck black body radiation is analytically described, using $\sigma$, the   
@@ -1464,6 +1468,7 @@ Stefan-Boltzmann constant as
   L = \mbox{cylinder length }[m].\nonumber
 \end{align}
 
+\subsection{Mass Transfer}
 
 Heat transfer by mass transfer is straightforward, resulting in the change in 
 temperature in adjacent volumes as a result of matter movement. If the specific 
