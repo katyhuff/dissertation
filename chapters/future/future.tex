@@ -20,7 +20,7 @@ will be developed in three phases in parallel will supportive \Cyclus
 development. A demonstration phase will implement an `empty' repository 
 structure which captures the fundamental software behavior of the subcomponents 
 and integrated repository model. A base case phase will build upon the 
-demonstration model by implement the fundamental physics to represent key heat 
+demonstration model by implementing the fundamental physics to represent key heat 
 and radionuclide transport phenomena for simple unfractured media and canonical  
 subcomponent concepts. The final extension phase will build upon the base case 
 by implementing extending physics to capture the salient features of various 
@@ -71,12 +71,12 @@ generated in place of physics.
 
     % Database writing, structure
 
-  At the subcomponent level, information passing, bookkeeping, and mass and 
-  energy balances within and between the subcomponent control volumes.  
-  Information passing between subcomponents concerning heat and radionuclide 
-  concentration boundary conditions will be implemented. A complementary output 
-  database structure will be defined and bookeeping for writing relevant 
-  radionuclide and heat transport information.  
+  At the subcomponent level, the demonstration will include information passing,
+  bookkeeping, and mass and energy balances within and between the subcomponent 
+  control volumes.  Information passing between subcomponents concerning heat 
+  and radionuclide concentration boundary conditions will be implemented. A 
+  complementary output database structure will be defined and bookeeping for 
+  writing relevant radionuclide and heat transport information.  
 
     % basic mass conservation checking
 
@@ -119,9 +119,9 @@ coefficients for each nuclide.
 
   A second phase will involve implementing an information exchange paradigm 
   between the subcomponents. The purpose of this information passing scheme will  
-  be to communicate sufficient temperature and contaminant concentrations at 
-  the boundaries of the control volumes for neighboring subcomponents to  solve 
-  their internal transport calculations. In addition to such Dirichlet type 
+  be to communicate sufficient temperature fluxes and contaminant concentrations 
+  at the boundaries of the control volumes for neighboring subcomponents to  solve 
+  their internal transport calculations.  In addition to these Neumann type 
   boundary conditions, additional types of boundary conditions may need to be 
   anticipated.
 
