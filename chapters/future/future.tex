@@ -85,7 +85,7 @@ Volumes are defined by their dimensions, surfaces, temperature, contained
 matter, and contained contaminants.  Interfaces are defined by a shared 
 surface area, a flux type, and a flux direction. Any single volume may only 
 interface with one inner and one outer volume. Contained matter must sum 
-to the full volume of the volume.
+to the full volume of the control cell, in keeping with mass conservation.
 
 This model treats matter in solid and liquid phases. Gaseous matter is not 
 supported. 
@@ -94,9 +94,8 @@ Solids are assumed to be porous media and are defined by their porosity
 Early phases of this work will assume just one liquid, water. Later 
 extensions will incorporate varying water salinities and chemistries. 
 In order to do so, liquids will be defined by their dynamic viscosities ($\mu$, 
-[Pascal seconds]),
-by characteristic diffusivities ($d_i$, $[m^2/s]$) and solubility ($K$,$[kg/m^3]$) 
-coefficients for each nuclide.
+[Pascal seconds]), characteristic diffusivities ($d_i$, $[m^2/s]$) and 
+solubility ($K$,$[kg/m^3]$) coefficients for each nuclide.
 
 \subsubsection{Demonstration Code Development}
 
