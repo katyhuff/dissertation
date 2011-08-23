@@ -126,52 +126,6 @@ market is defined for a single commodity and acts independently of
 other markets. Once the requests and offers have been matched by each
 market in a simulation, the facilities exchange material objects.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Region-Institution-Facility Hierarchy}
-
-Many times in a fuel-cycle simulation, parameters describing
-relationships between facilities are required. For instance, one may
-wish to account for the presence of a contract between two facilities,
-or one may wish to model two facilities operated by the same
-entity. Accordingly, \Cyclus implements this ability via a
-Region-Institution-Facility hierarchy. Every discrete facility in
-\Cyclus is considered to be owned by an institution that operates in a
-geographic region.  An institution can be used to represent any entity
-that may own and operate a facility such as a private corporation, a
-government agency, or a non-governmental organization, among others.
-A region can be used to represent any geographic area, typically a
-politically relevant area such a sub-national region (e.g. a
-U.S. State), a nation-state, or a supranational
-region (e.g. the E.U.).  While some performance parameters of the
-facility may depend on its institutional ownership or geographical
-location, this capability is more useful in modeling the way in which
-a facility engages in a market for trade of nuclear material based on
-its ownership entity and/or region.
-
-For each of the global regions, the user defines available facility 
-configurations that can operate in those markets.  Multiple facility 
-configurations will typically be created in each region, including one 
-or more reactor configurations (AP1000 vs ESBWR vs EPR or PWR vs.  
-HTGR vs CANDU) and one or more configurations for other facility 
-types.  The user is free to choose the level of detail used in 
-distinguishing one facility configuration from another.  Each facility 
-configuration will either be a supplier in one or more global markets, 
-a consumer in one or more global markets, or both a supplier and 
-consumer in non-intersecting sets of global markets.  The set of 
-facility configurations defines which facilities are available for 
-deployment in a given scenario, but multiple instances of each 
-facility configuration may exist.
-
-A facility configuration is created by selecting a FacilityModel and 
-defining the parameters for that facility configuration.
-Each FacilityModel will define its own set of parameters that 
-govern its performance.  The same FacilityModel may be used for 
-multiple facility configurations in the same region, each with 
-parameters values appropriate for that facility configuration.
-
-The repository model that is the subject of this work is a facility 
-model within the \Cyclus simulation paradigm. 
-
 Facilities are deployed to issue offers and requests in these markets.  
 Like markets, the user may select which type of algorithm is used for 
 each facility by selecting a FacilityModel and configure it with a 
@@ -181,8 +135,6 @@ different FacilityModel completely changes its behavior.  Unlike
 markets, multiple independent instances of each facility configuration 
 can be deployed to represent individual facilities.
 
-Each instance of a facility is associated with a defined Institution 
-and each institution operates in a geographically defined Region.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Discrete Materials and Facilities}
@@ -198,6 +150,17 @@ example, a reactor will receive fresh fuel assemblies from a fuel
 fabrication facility, transform them to used used fuel assemblies
 using some approximation of the reactor physics, and supply those used
 fuel assemblies to a storage facility.
+
+
+A facility configuration is created by selecting a FacilityModel and 
+defining the parameters for that facility configuration.
+Each FacilityModel will define its own set of parameters that 
+
+The repository model that is the subject of this work is a facility 
+model within the \Cyclus simulation paradigm. 
+govern its performance.  The same FacilityModel may be used for 
+multiple facility configurations in the same region, each with 
+parameters values appropriate for that facility configuration.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Materials}
