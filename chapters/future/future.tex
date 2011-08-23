@@ -171,41 +171,73 @@ build upon the demonstration repository module by implementing fundamental
 physics for each of the subcomponents. This will include physically relevant 
 mass and thermal balances in each control volume, mixing models that include 
 dissolution and solubility limitations as well as fundamental heat  models within 
-each subcomponent.  This milestone will result in a repository module capable of
-modeling the clay and salt \gls{GDSM} concept modeled by the \gls{UFD} campaign 
-and the \gls{ANDRA} and RED-IMPACT  assessments.
+each subcomponent. These component models will be created using a dominant 
+physics based approach that emphasizes  This milestone will result in a repository 
+module capable of modeling the clay and salt \gls{GDSM} concept modeled by the 
+\gls{UFD} campaign and the \gls{ANDRA} and RED-IMPACT  assessments.
 
 \subsubsection{Base Case Component Abstraction}
 
 % The physics of each component will first be filled in by simplistic models
 
+To fill in thermal and solute transport physics models for each component, it 
+will be necessary to begin with a few fundamental models for each component. 
+That is, it is possible to model each component (i.e. waste form, waste package, 
+buffer, and lithology) in a simplistic way as well as a complex way. Table 
+\ref{tab:cat} categorizes some potential models for each component. The detail 
+with which these models calculate thermal and radionuclide transport will be 
+determined by component level abstraction against the \gls{GDSM} models, the 
+Bauer \gls{SINDAG} model, and the \gls{LLNL} heat model.
+
 % Details will be added and subtracted by comparison with the detailed code
 
+  \input{./chapters/future/cat_table.tex}
+
 % On the component level, give examples.
-  
-   % what component?
 
-   % what physics ?
-    
-   % what parameters ?
-
-   % what output ?
-
+On the component level, the importance of input parameters on outgoing fluxes 
+will be analyzed using abstraction. For example, the relationship of the 
+dimensions  of the waste package with the outgoing thermal flux 
+will be analyzed by varying the waste package dimensions in the \gls{LLNL} 
+model and observing its calculation of the thermal evolution of the boundary 
+between the waste package and buffer \gls{EBS} components.
 
 \subsubsection{Base Case System Level Abstraction}
 
 % The physics of the system will be analyzed with relation to the models chosen
 
-% The appropriateness of model combinations will be analyzed via abstraction
+In addition to abstraction on the component level, the collective behavior of 
+the system will be analyzed via abstraction as well. That is, the
+appropriateness of model choices for each component and the behavior of 
+combinations of collections of choices will be compared to results obtained from 
+the detailed models. 
 
 % Give an example on the system level of how this would work. 
 
-   % what physics ?
-    
-   % what parameters ?
+For example, when enough buffer component models have been developed to give a 
+suite of buffer options, the choice between a model that incorporates
+fracturation in the degraded buffer material and one that does not incorporate 
+fracturation may be available.  The choice between models will be informed by an 
+analysis comparing results of each simulation and a similar full simulation with  
+the detailed model.
 
-   % what output ?
+% The importance of detail at the system level will be related to 
 
+This type of system level abstraction analysis will be performed with each 
+component for which a range of models exist. This analysis will seek out models 
+which capture differences in ultimate repository releases and other repository 
+performance metrics, but neglect detailed calculations which have negligible effects
+on repository performance.
+
+% In addition to abstraction, system level benchmarking must occur.
+
+In conjunction with abstraction, system level benchmarking against the \gls{GDSM}, 
+\gls{LLNL}, and Bauer \gls{SINDAG} models will be undertaken at this point for 
+assurance that the representation of a canonical repository concept within this  
+model has expected results. Benchmarking will confirm behavior at many levels, 
+ensuring detailed release and heat evolution for known incoming waste streams
+and repository configurations as well as ensuring trends in behavior for 
+varied model parameters.
 
 \subsubsection{Base Case Concept}
 
@@ -436,7 +468,6 @@ and the \gls{LLNL} model.
   will provide sufficient information to determine the heat based capacity of 
   the repository for each request of material. 
  
-  \input{./chapters/future/cat_table.tex}
   
 \subsubsection{Base Case Testing, Verification, and Validation}
 
@@ -576,11 +607,16 @@ coalescent behaviors.
 
 \subsection{Fuel Cycle Analysis}
 
-As the model becomes capable of modeling various repository concepts, these will  
+As the model becomes capable of representing various repository concepts, these will  
 be analyzed with relation to canonical closed, open, and modified fuel cycles as  
 \Cyclus is capable of them. As discussed before, these fuel cycles will present 
 different repository challenges, and analysis with an integrated repository 
-model is expected to demonstrate the dynamics of these challenges.   
+model is expected to demonstrate the dynamics of these challenges. While it is 
+out of the scope of this work to perform full fuel cycle analysis calculations, 
+this work seeks to provide a tool with which to perform such analyses. Thus, 
+development will pursue a repository system response to fuel cycle options 
+upstream in the simulation that appropriately illuminates differences in fuel 
+cycle performance due to fuel cycle options  upstream in the simulation.
 
 
 % UFD developing metrics for the fct program option screening these and perhaps 
