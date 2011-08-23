@@ -1193,8 +1193,10 @@ The Stokes-Einstein relationship,
 
 gives an equation for the diffusion coefficient in a fluid, as a function of $T$,  
 the temperature of the surrounding medium, $k_B$, the Boltzmann constant, and 
-$\eta$, the viscosity of the medium. This relationship is appropriate for 
-media that have a low Reynolds number, 
+$\eta$, the viscosity of the medium.  The Stokes-Einstein relationship relies on 
+the linearization of the Navier-Stokes equation that preserves only the viscous 
+components \cite{happel_low_1991}. This is most valid for media where diffusion 
+dominates and therefore inherently have a low Reynolds number, 
 
 \begin{align}
   Re &= \frac{\rho v L}{\mu}\\
@@ -1202,10 +1204,9 @@ media that have a low Reynolds number,
      &\rho = \mbox{fluid density} [kg/m^{3}]\\
      &v = \mbox{mean relative velocity of fluid} [m/s]\\
      &L = \mbox{characteristic length of system} [m]\\
-     &\mu = \mbox{dynamic fluid viscosity} [kg/m\cdot s]
+     &\mu = \mbox{dynamic fluid viscosity} [kg/m\cdot s].
 \end{align}
 
-where viscous forces dominate. 
 
 
 
