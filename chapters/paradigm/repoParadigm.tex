@@ -101,6 +101,14 @@ while maintaining a simple interface with the simulation.
 
 \subsection{Components of the Nested System}
 
+The repository model is a collection of subcomponents which behave collectively 
+to calculate repository metrics of interest. These subcomponents will be models 
+of their own, and within the object oriented paradigm of the software will be 
+a collection of module classes. Each component (i.e. waste form, waste 
+package, buffer, lithology, etc.) will name a component superclass. Each superclass 
+will be inherited by subclass models capable of representing that component in 
+some level of detail specified by the model.
+
 \subsubsection{Waste Stream}
 
 The waste stream data object contains spent fuel isotopics over the 
