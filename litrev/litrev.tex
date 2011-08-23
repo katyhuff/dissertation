@@ -806,32 +806,34 @@ soluble \cite{hedin_integrated_2002}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsubsection{Rate Based} 
 
-When enough data exists, waste package failure can
-be represented more  realistically by fractional destruction according to
+Waste package failure can, in general, be represented with an expression of the 
+number of failed waste packages, $n_F$ failing per unit time. This is a simple 
+product between the initial number of waste packages, $N$, and the rate, $f$, of 
+failure
+
+\begin{align}
+  n_F = N\cdot f().
+  \label{rate}
+\end{align}
+
+\subsubsection{Physical Model}
+
+When enough data exists, the waste package failure rate $f$ can
+be represented more realistically by fractional destruction according to
 experimentally observed corrosion and dissolution rate functions.
 
 However, this can be complicated to model even if the data exists. In
 particular, the corrosion rate will depend dramatically on the chosen material 
-as well as hydrologic and
-thermal conditions. Specifically, corrosion rates for the same material are
-very different under dry oxidizing conditions and wet reducing conditions. 
+as well as hydrologic and thermal conditions. Specifically, corrosion rates for 
+the same material are very different under dry oxidizing conditions and wet 
+reducing conditions. 
 
-%almost no corrosion aqueous oxidizing conditions, which means a steel corrosion 
-%rate (concentrated at the cell head) of several tens of microns per year. This 
-%phase is very limited in
-%duration; or under anoxic and reducing conditions.  during which the steel 
-%corrosion rate is reduced to a few microns (or even less than a micron) per 
-%year.  see pg 283/525 of phenomenological evolution doc for details
-
-An expression of the number of failed waste packages, $n_F$ per time step is a simple 
-product between the initial number of waste packages, $N$ and the rate $f$ of
-package  failure as a function of time $t$, temperature $T$), and other 
-parameters.
+The rate $f$ of package  failure in this case will be a function of time $t$, 
+temperature $T$, and other physical parameters.
 
 \begin{align}
-  n_F = Nf(t,T,\cdots).
+  f() = N\cdot f(t,T,\cdots).
   \label{rate}
 \end{align}
 
@@ -844,22 +846,19 @@ Gaussian distribution around $t_F$ would provide a probability density function
 for waste package failures per time step, $f(t)$,
 
 \begin{align}
-  n_F=Nf(t).
+  f()=f(t).
   \label{probabilistic}
 \end{align}
 
 Expressed with a cumulative distribution function $F(t)$ rather than the
-probability distribution function, 
+probability distribution function, equation \eqref{rate} becomes 
 
 
 \begin{align}
-  \sum_{t=0}^{t=t}n_F=NF(t).
+  \sum_{t=0}^{t=t}n_F=N\cdot F(t).
   \label{cdf}
 \end{align}
 
-The instantaneous case is a special case of the probabilistic situation. 
-Specifically, it is the Dirac delta function mentioned in equation 
-\eqref{instantaneous}.
 
 A particularly attractive probability distribution for use in the case of failed 
 engineered barriers is the Weibull distribution, 
@@ -885,28 +884,32 @@ function is
 \end{align}
 
 
-%%%%
-
 \subsubsection{Instantaneous}
+
+The instantaneous case is a special case of the probabilistic situation.
+Specifically, the probability density function is clearly just the Dirac 
+delta function, with $n_F$ being the number of failed waste packages per 
+unit time, $N$ being the total number of waste packages, and $t_F$ being 
+the time to failure,
+
+\begin{align}
+  f()= \delta(t-t_F).
+  \label{instantaneous}
+\end{align}
+
 
 The Hedin model of waste package failure is effectively instantaneous, but
 limited by a release resistance coefficient. The release is assumed  to occur
 through a hole in the waste canister that exists throughout the simulation, and
 the resistance coefficient limiting flow through the hole represents the
 magnitude of the canister flaw in combination with the buffer-geosphere
-interface\cite{hedin_integrated_2002}.
+interface\cite{hedin_integrated_2002}.  Other models also use an instantaneous 
+waste package failure mode for all waste  packages simultaneously, in which 
+failure occurs either at the onset of the simulation or at some distinct time 
+during the simulation. 
 
-Other models also use an instantaneous waste package failure mode for all waste  
-packages simultaneously, in which failure occurs either at the onset of the simulation
-or at some distinct time during the simulation. The mathematical representation of this 
-probability density function is clearly just the Dirac delta function, with $n_F$ 
-being the number of failed waste packages per unit time, $N$ being the total number of waste 
-packages, and $t_F$ being the time to failure,
 
-\begin{align}
-  n_F(t) = N\delta(t-t_F).
-  \label{instantaneous}
-\end{align}
+%%%%
 
 
 \subsection{Radionuclide Transport Through Secondary Engineered Barriers}
@@ -1425,15 +1428,6 @@ and a body with temperature $T_2$ at position $x_2$,
   &=-k_x\frac{(T_1-T_2)}{x_1-x_2}.
 \end{align}
 
-A one dimensional heat transfer rate can be found by integration over the surface 
-area $A$ of the representative volume, 
-
-\begin{align}
-  \dot{q} = -kA\frac{\Delta T}{\Delta x}.
-\end{align}
-
-\subsection{Convection}
-
 Convective heat transfer occurs advectively in accordance with fluid movement. 
 Convection can be expressed as
 
@@ -1444,8 +1438,6 @@ Convection can be expressed as
   &=-h_xA\frac{(T_1-T_2)}{x_1-x_2}.
 \end{align}
 
-
-\subsection{Radiation}
 
 Heat transfer by radiation is the result of the emission of electromagnetic 
 waves. Planck black body radiation is analytically described, using $\sigma$, the   
@@ -1472,8 +1464,6 @@ Stefan-Boltzmann constant as
   L = \mbox{cylinder length }[m].\nonumber
 \end{align}
 
-
-\subsection{Mass Transfer}
 
 Heat transfer by mass transfer is straightforward, resulting in the change in 
 temperature in adjacent volumes as a result of matter movement. If the specific 
@@ -2043,12 +2033,12 @@ boundary of the EBS and the waste package is then treated as a boundary conditio
 for the heterogeneous steady state equation, 
 
 \begin{align}
-  \dot{q} = U A_{out} \left( T_{in} - T_{out} \right)
+  \dot{q} &= U A_{out} \left( T_{in} - T_{out} \right)
   \label{condGeneral}
   \intertext{where}
-  U=\frac{1}{\sum_{i}R_i}
+  U&=\frac{1}{\sum_{i}R_i}
   \intertext{which, for the detailed EBS becomes}
-  U=\frac{1}{R_{WF}+R_{WP}+R_{buffer}+\cdots}
+  U&=\frac{1}{R_{WF}+R_{WP}+R_{buffer}+\cdots}
 \end{align}
 
 which calculates a resulting temperature gradient through the geometry at each 
