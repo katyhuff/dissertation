@@ -15,15 +15,9 @@ of an arbitrary waste stream. The repository model in this work conducts this
 calculation by  treating each containment component as nested volumes in a 
 release chain. 
 
-\begin{figure}[h!]
-  \begin{center}
-    \includegraphics[width=\textwidth]{./chapters/paradigm/flow.eps}
-  \end{center}
-  \caption{The nested components supply thermal flux and concentration 
-  information to each other at the boundaries.}
-  \label{fig:flow}
-\end{figure}
-
+The capability to allow each component to define the components within it 
+gives this repository the ability to model many types of repository concept 
+while maintaining a simple interface with the simulation. 
 
 \subsubsection{Control Volumes}
 
@@ -52,6 +46,15 @@ inward to the nested component it contains. A diagram of the fundamental
 information being passed between components is described in Figure 
 \ref{fig:flow}.
 
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[width=\textwidth]{./chapters/paradigm/flow.eps}
+  \end{center}
+  \caption{The nested components supply thermal flux and concentration 
+  information to each other at the boundaries.}
+  \label{fig:flow}
+\end{figure}
+
 Most component models require external information concerning the 
 water volume that has breached containment, so information concerning 
 incoming water volumes is passed radially inward. 
@@ -61,11 +64,6 @@ released from the component it immediately contains.  Thus, nuclide
 release information is passed radially outward from the waste stream 
 sequentially through each containment layer to the geosphere.
 
-\subsubsection{Concept Generality}
-
-The capability to allow each component to define the components within it gives this 
-repository the ability to model many types of repository concept 
-while maintaining a simple interface with the simulation. <+EXPOUND+> 
 
 \subsection{Components of the Nested System}
 
