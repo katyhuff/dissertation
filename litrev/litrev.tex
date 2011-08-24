@@ -1074,11 +1074,11 @@ For uniform flow, the dispersion tensor, $D$, becomes
 
 \begin{align}
   D_x &= D_L \nonumber\\
-      &= \alpha_L v_x + \tau D_m\\
+      &= \alpha_L v_x + \tau D_e\\
   D_y &= D_{TH} \nonumber\\
-      &= \alpha_{TH} v_x + \tau D_m\\
+      &= \alpha_{TH} v_x + \tau D_e\\
   D_z &= D_{TV} \nonumber\\
-      &= \alpha_{TV} v_x + \tau D_m\\
+      &= \alpha_{TV} v_x + \tau D_e\\
   \intertext{where}
   D_e &= \mbox{effective diffusion coefficient} [m^2/s]\nonumber\\
   \alpha_L &= \mbox{longitudinal dispersivity} [m]\nonumber\\
@@ -1239,10 +1239,10 @@ medium model. Some examples are given in Figure \ref{fig:fractureModels}.
 
 
 The models arrived at via a continuum approximation are appropriate
-for very fractured or very unfractured situations. This approximation is not 
+for very fractured or purely porous media. This approximation is not 
 suitable for situations in which the fracture width or frequency varies greatly.
 
-Equivalent Porous Medium (EPM) models assert that a uniformly  fractured medium
+Equivalent Porous Medium (EPM) models assume that a uniformly  fractured medium
 can be approximated as a fractureless matrix with an effective porosity high
 enough to account for real fracturation 
 \cite{berkowitz_continuum_1988, anderson_applied_1992}.
@@ -1376,20 +1376,20 @@ expressions that utilize it to determine the Darcy velocity, such as Equation
 \section{Analytical Models of Heat Transport} \label{sec:analytical_heat}
  
 A comprehensive model of a repository must arrive at an appropriate notion of 
-heat-based repository capacity.  This requires a model which addresses heat 
+heat-based waste loading and repository capacity.  This requires a model which addresses heat 
 transport through the repository as a function of spatial repository layout, 
 waste stream decay heat, and heat transfer properties of the engineered barrier  
-system and lithology. This model must sufficiently solve for peak temperatures 
+system and host rock lithology. This model must sufficiently solve for peak temperatures 
 at heat limited locations, which are in most cases at the waste package 
 interface with the buffer material and the buffer material interface with the 
 lithology. These heat limits were discussed in section 
 \ref{subsec:claythermal}. 
 
 Heat transfer in these concepts will be dominated by conductive  
-heat transfer. In a closed system, very few air gaps will exist. For this 
-reason,  heat transfer by radiation is likely to be negligible. Similarly, since  
-water velocities are comparatively low, heat transfer by mass transfer or by 
-convection will be small relative to conduction.  
+heat transfer. In a saturated closed system, very few air gaps will exist. For 
+this reason,  heat transfer by radiation is likely to be negligible. Similarly, 
+since  water velocities are comparatively low, heat transfer by mass transfer 
+or by convection will be small relative to conduction.  
 
 A discussion of analytical models of heat transport follows that quantifies these 
 modes of heat transfer and addresses their applicability to the model at hand. 
@@ -1490,7 +1490,8 @@ transfer is simply,
 \label{sec:lumpedparam}
 
 The lumped heat capacitance model makes an analogy to electrical circuit by 
-reducing a thermal system into discrete lumps. Such an approximation is 
+reducing a thermal system into discrete lumps for an approximate solution of 
+transient heat transfer. Such an approximation is 
 appropriate when it can be assumed that the temperature gradient within each 
 lump is approximately uniform. The appropriateness of this approximation can be
 quantitatively expressed by comparison of the internal thermal resistance to the 
@@ -1500,7 +1501,6 @@ external thermal resistance. The Biot number,
   Bi = \frac{hA}{k}
   \label{biot}
 \end{align}
-
 indicates the relative speeds with which heat conducts within an object and 
 across the boundary of that object. If the Biot number is low $(<0.1)$, and 
 therefore conduction is faster within the object than at the boundary, the 
