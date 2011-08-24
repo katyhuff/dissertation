@@ -240,6 +240,40 @@ ensuring detailed release and heat evolution for known incoming waste streams
 and repository configurations as well as ensuring trends in behavior for 
 varied model parameters.
 
+% Here is an example of system level sensitivity\ldots
+
+Much of this phase of the work will emulate the parametric and regression analysis that
+has begun with the base case Clay \gls{GDSM} at \gls{ANL}.  
+The \gls{UFD} campaign has reported sensitivity results for various 
+parameters as they affect Peak Annual Dose. These preliminary analyses have focused on 
+general trends and coefficients defining the relationships between these 
+parameters and source term over time for each isotope. 
+
+For example, the vertical distance to the aquifer above the disposal configuration
+defines the distance separating source term nuclide contaminants from the biosphere. 
+The clay model indicates that the mean annual dose is very sensitive to this 
+distance \cite{clayton_generic_2011}.
+
+\begin{figure}[h!]
+  \begin{center}
+    \includegraphics[height=7cm]{./chapters/future/overlyingDist.eps}
+  \end{center}
+  \caption[Distance to Aquifer Peak Dose Sensitivity]{An analysis by the UFD campaign with the clay GDSM shows that 
+  the peak annual dose is very sensitive to the distance to the overlying 
+  aquifer\cite{clayton_generic_2011}.}
+  \label{fig:overlyingDist}
+\end{figure}
+\clearpage
+
+Sensitivity to vertical Darcy velocity is similar to the sensitivity to vertical 
+distance to aquifer in the sense that it directly determines the nuclide travel 
+time to the biosphere. The clay model indicates that the mean annual dose is 
+very sensitive to this parameter as well \cite{clayton_generic_2011}. Other 
+parameters such as the dimensions of the intersecting fast pathway, the 
+permeable porous medium porosity, the waste form and waste package degradation 
+rates, will be investigated with the \gls{GDSM} models, the \gls{SINDAG} model, 
+and the \gls{LLNL} model. 
+
 \subsubsection{Base Case Concept}
 
   % Concept
@@ -334,131 +368,8 @@ varied model parameters.
       the waste package and buffer as well as the boundary between the buffer or  
       backfill and the rock matrix.
 
-\subsubsection{Base Case Abstraction }
-
-  % Regression Analysis
-
-  Abstraction will be conducted for each of the models listed above to identify  
-  potential simplifying assumptions.  
-  
-  Much of this phase of the work will emulate the parametric and regression analysis that
-has begun with the base case Clay \gls{GDSM} at \gls{ANL}.  
-The \gls{UFD} campaign has reported sensitivity results for various 
-parameters as they affect Peak Annual Dose. Current work has involved a cursory  
-exploration of other parameters within the Clay \gls{GDSM} as well. Current 
-efforts to repeat those calculations for source term rather than 
-dose will provide some insight for the sensitivity of subcomponent models to the 
-parameters discussed below. This preliminary analysis has focused on general 
-trends and coefficients defining the relationships between these 
-parameters and source term over time for each isotope. 
-
-Extending the cooling time between discharge and emplacement results
-in an altered waste stream. The resulting source term releases
-of this waste stream were expected to differ from base case results. 
-Nonetheless it was found that for the clay \gls{GDSM} there was approximately 
-no Peak Annual Dose sensitivity to the cooling period length 
-\cite{clayton_generic_2011}.
-
-\begin{figure}[h!]
-  \begin{center}
-    \includegraphics[height=7cm]{./chapters/future/coolingTime.eps}
-  \end{center}
-  \caption[Cooling Time Peak Dose Sensitivity]{An analysis by the UFD campaign with the clay GDSM shows that
-  the peak annual dose is not sensitive at all to the cooling time of a 60GWd 
-  burnup PWR fuel \cite{clayton_generic_2011}.}
-  \label{fig:coolingTime}
-\end{figure}
-
-Since the cooling period will be modeled outside of the repository model within  
-the \Cyclus analysis, this sensitivity will not be incorporated into the 
-repository modeling effort at the heart of this work, but gives an intuition for 
-appropriate sensitivity to altered waste streams.  It is expected that the cooling 
-time significantly alters heat based capacity. 
 
 
-The burnup of a used fuel assembly results in an altered waste stream at the 
-time of emplacement. It was found that for the clay \gls{GDSM}, the mean 
-annual dose sensitivity to waste form dissolution rate became more important 
-linearly with increased burnup \cite{clayton_generic_2011}.
-
-
-\begin{figure}[h!]
-  \begin{center}
-    \includegraphics[height=7cm]{./chapters/future/BUandWPdeg.eps}
-  \end{center}
-  \caption[Burnup and WP Degradation Rate Peak Dose Sensitivity]{An analysis by the UFD campaign with the clay GDSM shows that
-  the peak annual dose is more sensitive to waste package degradation rate with 
-  increased burnup\cite{clayton_generic_2011}.}
-  \label{fig:BUandWPdeg}
-\end{figure}
-\clearpage
-
-It is expected that the burnup will significantly alter heat based capacity. 
-Plutonium and minor actinides are dominant contributors to heat. Focusing on
-the sensitivity of the heat based capacity to the waste stream content of 
-these radionuclides could significantly simplify the heat analysis. 
- 
-For each of these, a sensitivity analysis of capacity to the nuclide will be 
-developed by analyzing the thermal repository capacity for a waste stream of 
-that nuclide alone.  
-
-
-The mean annual dose has been found to not be very sensitive to the horizontal 
-spacing between drifts. However, it is expected that the heat based capacity 
-will be highly sensitive to the 
-spacing between drifts. A higher drift density produces larger amounts of heat 
-generation per repository footprint area. Constrained by heat limits typically 
-at the drift tunnel boundaries, the repository capacity is reduced by increased 
-areal loading density. 
-It is also expected that the heat based capacity will be highly sensitive to the 
-spacing between packages linearly within the drifts. A higher line loading 
-density produces larger amounts of heat generation per repository footprint 
-area.  Again, the repository capacity is reduced by increased areal loading 
-density.  It is also expected that the heat based capacity will be highly 
-sensitive to the mass loading per waste package. A higher package loading density 
-produces larger amounts of heat 
-generation per repository footprint area. Constrained by heat limits typically 
-at the drift tunnel boundaries, the repository capacity is reduced by increased 
-areal loading density. 
-
-The vertical distance to the aquifer above the disposal configuration defines 
-the distance separating source term nuclide contaminants from the biosphere. The 
-clay model indicates that the mean annual dose is very sensitive to this 
-distance \cite{clayton_generic_2011}.
-
-\begin{figure}[h!]
-  \begin{center}
-    \includegraphics[height=7cm]{./chapters/future/overlyingDist.eps}
-  \end{center}
-  \caption[Distance to Aquifer Peak Dose Sensitivity]{An analysis by the UFD campaign with the clay GDSM shows that 
-  the peak annual dose is very sensitive to the distance to the overlying 
-  aquifer\cite{clayton_generic_2001}.}
-  \label{fig:overlyingDist}
-\end{figure}
-\clearpage
-
-
-Sensitivity to vertical Darcy velocity is similar to the sensitivity to vertical 
-distance to aquifer in the sense that it directly determines the nuclide travel 
-time to the biosphere. The clay model indicates that the mean annual dose is 
-very sensitive to this parameter \cite{clayton_generic_2011}.
-
-\begin{figure}[h!]
-  \begin{center}
-    \includegraphics[height=7cm]{./chapters/future/vertDarcyVel.eps}
-  \end{center}
-  \caption[Vertical Darcy Velocity Peak Dose Sensitivity]{An analysis by the UFD campaign with the clay GDSM shows that 
-  the peak annual dose is very sensitive to the vertical Darcy velocity \cite{clayton_generic_2001} .}
-  \label{fig:vertDarcyVel}
-\end{figure}
-
-\clearpage
-
-
-Other parameters such as the dimensions of the intersecting fast pathway, the 
-permeable porous medium porosity, the waste form and waste package degradation 
-rates, will be investigated with the \gls{GDSM} models, the \gls{SINDAG} model, 
-and the \gls{LLNL} model. 
 
 \subsubsection{Base Case Code Development}
 
