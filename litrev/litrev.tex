@@ -729,20 +729,21 @@ Swedish repository concept, copper canister waste packages contain a spent fuel
 waste matrix, and a bentonite buffer surrounds the canisters within repository 
 drift tunnels. Waste form dissolution within the Hedin model is a rate based
 model that takes place within the waste package void. Radionuclides are 
-released congruently until the waste form is completely degraded.
+released congruently with the flowthrough water at a fractional degradation 
+rate until the waste form is completely degraded.
 \cite{hedin_integrated_2002} 
 
 \subsubsection{Ahn Models (\cite{ahn_environmental_2004,
 ahn_environmental_2007})}
 
 In an oxidizing, unsaturated environment, waste canisters are modelled as 
-compartments of waste form surrounded by a
-buffer layer that is in turn surrounded by layers of near field rock and far
-field rock. Water is introduced to the system at a constant rate, and
-encounters an array of failed waste packages (at $t=0$ in the 2004 model, and
-at $T_f=75,000$ years in the 2007 model). The water immediately begins
-dissolving the waste matrix.  Radionuclides with higher solubilities are
-preferentially dissolved and treated with a `congruent release' model discussed
+compartments of waste form surrounded by a buffer layer that is in turn 
+surrounded by layers of near field rock and far field rock. Water is introduced 
+to the system at a constant rate, and encounters an array of failed waste 
+packages (at $t=0$ in the 2004 model, and at $T_f=75,000$ years in the 2007 model). 
+The water immediately begins dissolving the waste matrix.  Radionuclides with higher 
+solubilities are preferentially dissolved and treated with a `congruent release' 
+advective transport model discussed
 below. Radionuclides with lower solubilities are transported through the buffer with
 the alternative `solubility limited' release model. The water flow begins at
 one waste package and travels through the matrix and buffer space to the next
@@ -782,6 +783,9 @@ where $\epsilon$, U, $r_0$, and L are the geometric and
 hydrologic factors porosity, water velocity, waste package radius, and waste
 package length, respectively. $D_e$ is the effective diffusion coefficient
 ($m^2/yr$)  and $S_i$ is the solubility ($kg/m^3$) of isotope $i$.
+
+
+\subsubsection{Hedin Solubility Limited Release Model}
 
 In the Hedin model of the waste matrix, the amount of solute available within
 the waste package is solved for, and for radionuclides with low solubility, the mass
