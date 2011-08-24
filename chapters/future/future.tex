@@ -402,11 +402,19 @@ by the \gls{UFD} campaign and the \gls{ANDRA} assessments. Additional extension
 will also incorporate potentially important physical models of salt and clay
 coalescent behaviors. 
 
+Similar abstraction analysis will be undertaken for the phenomena involved in 
+the extension models.  Detailed physics in the extension concepts will be
+analyzed for their importance by regression analysis with the \gls{GDSM} 
+tools and iteratively compared to analytical models.
+
+The code development in the extension phase will follow the same pattern as 
+previous phases, but will focus on extending one feature at a time. 
+
 \subsubsection{Extension Concepts}
 
   % Concepts
 
-    % Sorption
+    % Sorption and fracturation
     
     First, additional phenomena in radionuclide transport will be added to the 
     modeling capability. Sorption, for example, will be added by incorporating 
@@ -414,12 +422,8 @@ coalescent behaviors.
     a full solute transport solution such as equation \eqref{ogatabanks}. 
     Additionally, solubility limited transport will be added with a simple 
     restriction on the mixing calculations during mass balancing in the control 
-    volumes.
-
-    % Fracturation (granite)
-    
-    Next, the capability to model fracturation features of granite and borehole 
-    geologies will be added  to the modeling capability by adding a dual 
+    volumes. Next, the capability to model fracturation features of granite and
+    borehole geologies will be added  to the modeling capability by adding a dual 
     continuum fracture model.  
 
     % Coalescent behavior (salt and clay)
@@ -438,27 +442,7 @@ coalescent behaviors.
     the repository.  A fast pathway model intended to demonstrate a disrupted 
     scenario is modeled as a single intersecting fracture in the clay matrix. 
 
-\subsubsection{Extension Abstraction}
 
-  % Regression Analysis
-
-  Similar abstraction analysis will be undertaken for the phenomena involved in 
-  the extension models. 
-  
-  For example, the importance of the various 
-  ways in which this fast pathway model intersect  the repository is very nuclide
-  specific \cite{clayton_generic_2011}. In the clay model the fast pathway intersects the 
-  engineered barrier system either directly in the emplaced waste or just outside 
-  the secondary engineered barrier system. These details will be analyzed for 
-  their importance by regression analysis with the \gls{GDSM} models and 
-  iteratively compared to analytical models 
-
-  \subsubsection{Extension Code Development}
-
-  % Code Development
-
-  The code development in the extension phase will follow the same pattern as 
-  previous phases, but will focus on extending one feature at a time. 
 
   \subsubsection{Extension Testing, Verification, and Validation}
 
@@ -520,11 +504,10 @@ be analyzed with relation to canonical closed, open, and modified fuel cycles as
 different repository challenges, and analysis with an integrated repository 
 model is expected to demonstrate the dynamics of these challenges. While it is 
 out of the scope of this work to perform full fuel cycle analysis calculations, 
-this work seeks to provide a tool with which to perform such analyses. Thus, 
-some limited iteration between fuel cycle performance analysis and further 
-development will pursue a repository system response to fuel cycle options 
-upstream in the simulation that appropriately illuminates differences in fuel 
-cycle performance due to upstream fuel cycle options.
+this work seeks to provide a tool with which to perform such analyses. 
+Thus, some limited analysis of fuel cycle options will be performed to demonstrate 
+that the tools developed in this work can illustrate the sensitivity of repository 
+performance to upstream fuel cycle options.
 
 
 % UFD developing metrics for the fct program option screening these and perhaps 
