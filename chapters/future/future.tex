@@ -166,9 +166,9 @@ solubility ($K$,$[kg/m^3]$) coefficients for each nuclide.
 
 % Base Case Milestone
 
-The next phase in this work will be the development of the base case. This will 
-build upon the demonstration repository module by implementing fundamental 
-physics for each of the subcomponents. This will include mass and thermal 
+The next phase in this work will be the development of the base case.  This 
+will build upon the demonstration repository module by implementing fundamental
+physics for each of the subcomponents.  This will include mass and thermal 
 conservation balances in each control volume, mixing models that include 
 dissolution and solubility limitations as well as fundamental heat transport
 models within each subcomponent. These component models will be created using a 
@@ -176,6 +176,9 @@ dominant physics based approach that emphasizes the most important physics
 affecting radionuclide transport in each component. This milestone will result 
 in a repository module capable of modeling the clay and salt \gls{GDSM} concept 
 modeled by the \gls{UFD} campaign and the \gls{ANDRA} and RED-IMPACT  assessments.
+This step will implement the calculations in each subcomponent which 
+will provide sufficient information to determine the heat based capacity of 
+the repository for each request of material. 
 
 \subsubsection{Base Case Component Abstraction}
 
@@ -371,16 +374,6 @@ and the \gls{LLNL} model.
 
 
 
-\subsubsection{Base Case Code Development}
-
-  % Code Development
-  
-  Building upon the empty demonstration code stucture, the development of the 
-  base case model will primarily consist of populating the subcomponent control 
-  volume models with appropriate physics, mass balances, rate equations, and 
-  data. This step will implement the calculations in each subcomponent which 
-  will provide sufficient information to determine the heat based capacity of 
-  the repository for each request of material. 
  
   
 \subsubsection{Base Case Testing, Verification, and Validation}
