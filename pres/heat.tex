@@ -1,28 +1,136 @@
 
 \begin{frame}[ctb!]
-  \frametitle{Impact of Repository Designs}
-  % lines, points, infinite lines, footprints.
+  \frametitle{Analytical Models}
+  \begin{itemize}
+    \item Specific Temperature Integral 
+    \item Specific Temperature Change 
+    \item Lumped Parameter Model and ANL model
+    \item Fully Analytic LLNL Model
+  \end{itemize}
 \end{frame}
+
 
 \begin{frame}[ctb!]
   \frametitle{Heat Limits In Geology}
   % table?
+  Important heat limits in materials of the repository restrict loading designs 
+  and capacity.
+\end{frame}
+
+% heat based capacity 
+
+\begin{frame}[ctb!]
+  \frametitle{Impact of Repository Designs}
+  % lines, points, infinite lines, footprints.
+   \input{../report/litrev/footprint_tab.tex}
 \end{frame}
 
 \begin{frame}[ctb!]
-  \frametitle{Analytical Models}
-  % conductionn
-  % convection
+  \frametitle{Dimensionality}
+  \begin{figure}[h!]
+    \begin{center}
+      \includegraphics[width=0.9\textwidth]{3dto1d.eps}
+    \end{center}
+    \caption{Employing the symmetries of the disposal layout can enable lower 
+    dimensional models.}
+    \label{fig:3dto1d}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[ctb!]
+  \frametitle{Lumped Parameter Technique}
+  % resistor diagram
+  \begin{figure}[h!]
+    \begin{center}
+      \includegraphics[width=0.9\textwidth]{lumpedParam.eps}
+    \end{center}
+    \caption{The lumped parameter analogy used for heat transfer can be applied 
+    to the one dimensional approximation to the disposal system concept. }
+    \label{fig:lumpedParam}
+  \end{figure}
+  
+\end{frame}
+
+
+% SINDA 
+
+\begin{frame}
+  \frametitle{ANL model}
+  A model created by the UFD team at Argonne national lab using the 
+  SINDA{\textbackslash}G heat transport framework employs a lumped parameter 
+  model and an optimization loop to arrive at a minimal drift spacing for a 
+  given waste stream in agreement with user input thermal limits. 
+  \begin{figure}[h!]
+    \begin{center}
+      \includegraphics[height=.5\textheight]{../report/litrev/sindageom.eps}
+    \end{center}
+    \caption{Two adjustable geometric dimensions of the ANL model 
+    \cite{bauer_something_2010}.}
+    \label{fig:sindageom}
+  \end{figure}
+\end{frame}
+
+% LLNL
+
+\begin{frame}
+  \frametitle{LLNL Model : Geometry}
+  \begin{figure}[h!]
+    \begin{center}
+      \includegraphics[width=0.7\textwidth]{llnlConcept.eps}
+    \end{center}
+    \caption{Vertical, horizontal, alcove, and borehole emplacement layouts can 
+    be represented by a line of point sources and adjacent line sources 
+    \cite{greenberg_thermal_2011}.}
+    \label{fig:llnl}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{LLNL Model : Solution Strategy}
+    A MathCAD solution of the transient homogeneous 
+    conduction equation,
+    
+    \begin{align}
+      \nabla^2T  = \frac{1}{\alpha}\frac{\partial T}{\partial t}.
+      \label{condGl}
+    \end{align}
+    
+    Superimposed point and line source solutions allow for a notion of the repository 
+    layout to be modeled in the host rock. The solution of this equation at the 
+    boundary of the EBS and the waste package is then treated as a boundary condition 
+    for the heterogeneous steady state equation, 
+    
+    \begin{align}
+      \dot{q} &= U A_{out} \left( T_{in} - T_{out} \right)
+      \label{condGeneral}
+      \intertext{where}
+      U&=\frac{1}{\sum_{i}R_i}
+      \intertext{which, for the detailed EBS becomes}
+      U&=\frac{1}{R_{WF}+R_{WP}+R_{buffer}+\cdots}
+    \end{align}
+    
+    which calculates a resulting temperature gradient through the geometry at each 
+    point in time for each layer surface, assuming an infinite line source 
+    \cite{hardin_generic_2011}. 
+  
+\end{frame}
+
+
+
+% Loading
+
+
+\begin{frame}
+  \frametitle{Heat Based Drift Loading}
+
+  
 \end{frame}
 
 \begin{frame}[ctb!]
   \frametitle{Detailed Techniques}
   % 2d,3d,finite diffs, etc.
+  \input{../report/litrev/heat_tab.tex}
+  Similar heat transport models can be used for all geologies, but are 
+  differentiated by material parameters $(c_p, K, \rho)$ and different 
+  thermal constraints.
 \end{frame}
-
-
-\begin{frame}[ctb!]
-  \frametitle{Lumped Parameter Technique}
-  % resister diagram
-\end{frame}
-

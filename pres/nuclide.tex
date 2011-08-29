@@ -1,25 +1,179 @@
 
+
+\begin{frame}[ctb!]
+  \frametitle{Radionuclide Transport}
+  % Map the path out of the repository.
+  % WP failure, WF dissolution, 
+  \begin{figure}[h!]
+    \begin{center}
+      \includegraphics[height=0.7\textheight]{ebsLayersLLNL.eps}
+    \end{center}
+    \caption{After waste package failure, radionuclides pass through successive 
+    layers of the engineered barrier system \cite{greenberg_thermal_2011}.}
+    \label{fig:ebsLayersLLNL}
+  \end{figure}
+\end{frame}
+
+
 \begin{frame}[ctb!]
   \frametitle{Waste Form Release Models}
   % Waste forms
+  \footnotesize{\input{wf_tab}}
 \end{frame}
 
 \begin{frame}[ctb!]
   \frametitle{Waste Package Failure Models}
   % Waste Package
+  \footnotesize{
+  \input{wpfail_tab}
+  }
 \end{frame}
 
-\begin{frame}[ctb!]
-  \frametitle{Transport Through Buffer Material}
-  % dissolution, failure, transport
-\end{frame}
 
 \begin{frame}[ctb!]
-  \frametitle{Transport Through Geology}
-  % Diffusion
+  \frametitle{Solute Transport in Permeable Porous Media}
+\begin{align} 
+  \frac{\partial n C}{\partial t} & = - \nabla \cdot  (F_c + F_{dc} + F_d) + m 
+  \label{solperm}
+\end{align}
+  \begin{minipage}{.49\textwidth}
+    \footnotesize{
+    \begin{align}
+      \intertext{where} 
+      \displaybreak[0]
+      n &= \mbox{solute accessible porosity } [\%]\nonumber\\
+      C &= \mbox{ concentration } [kg \cdot m^{-3}]\nonumber\\ 
+      t &= \mbox{ time } [s]\nonumber\\ 
+      F_c &= \mbox{ advective flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
+      &= nvC \nonumber \\
+      \displaybreak[0]
+      F_{dc} &= \mbox{ dispersive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\ 
+      &= \alpha nv \nabla C  \nonumber\\ 
+      F_d &= \mbox{ diffusive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
+      &= D_e \nabla C\nonumber
+    \end{align}}
+  \end{minipage}
+  \hspace{0.01cm}
+  \begin{minipage}{.49\textwidth}
+    \footnotesize{
+    \begin{align}
+      m &= \mbox{ solute source } [kg \cdot m^{-3}\cdot s^{-1}].\nonumber\\
+      v &= \mbox{ pore velocity } [m\cdot s^{-1}] \nonumber\\
+      \alpha &= \mbox{ dispersivity } [m]\nonumber\\
+      D_e &= \mbox{ effective diffusion coefficient } [m^2\cdot s^{-1}]\nonumber
+      \intertext{and} 
+      n\cdot v &= \mbox{ Darcy velocity } [m\cdot s^{-1}].
+    \end{align} }
+  \end{minipage}
+\end{frame}
+
+
+\begin{frame}[ctb!]
   % Dispersion
-  % Advection
-  % Precipitation
-  % Sorption
-  % Colloidal Mobility
+\frametitle{Dispersion}
+It is customary to define the combination of molecular diffusion, $D_e$ and mechanical dispersion, $\alpha v$, as $D$ 
+\begin{align}
+  D = \alpha v + D_e
+\end{align}
+such that the mass conservation equation becomes:
+\begin{align}
+  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) &= \frac{\partial(nC)}{\partial t}
+  \label{massbal} 
+  \intertext{Adding sorption, by accounting for a change in mass storage,}
+  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right)  &= 
+  \frac{\partial(nC)}{\partial t}  + \frac{\partial(s\rho_b)}{\partial t} 
+  \label{withsorption} 
+  \intertext{where}
+  s &= \mbox{sorption coefficient}\nonumber\\
+  \rho_b &= \mbox{ bulk (dry) density }[kg/m^3].\nonumber
+\end{align}
 \end{frame}
+
+
+
+\begin{frame}[ctb!]
+  \frametitle{Dispersion}
+For unidirectional flow, the unidirectional dispersion tensor gives 
+\begin{align}
+  D_x \frac{\partial^2 C}{\partial x^2} +
+  D_y \frac{\partial^2 C}{\partial y^2} +
+  D_z \frac{\partial^2 C}{\partial z^2} +
+  v_x \frac{\partial C}{\partial x}  = R_f 
+  \frac{\partial(nC)}{\partial t}. 
+  \label{unidirflow}
+\end{align}
+\end{frame}
+
+\begin{frame}[ctb!]
+  \frametitle{Diffusion}
+A special case of uniform flow, no flow, simplifies to the diffusion equation,
+\begin{align}
+  D_x \frac{\partial^2 C}{\partial x^2} +
+  D_y \frac{\partial^2 C}{\partial y^2} +
+  D_z \frac{\partial^2 C}{\partial z^2} +
+  = R_f 
+  \frac{\partial(nC)}{\partial t} .
+  \label{diffusion}
+\end{align}
+\end{frame}
+
+\begin{frame}[ctb!]
+  % Precipitation
+  \frametitle{Precipitation}
+\end{frame}
+
+
+
+\begin{frame}[ctb!]
+  \frametitle{Sorption}
+  % Sorption
+If it is assumed that sorption can be approximated as a linear equilibrium, 
+reversible reaction,
+\begin{align}
+  \frac{\partial(s\rho_b)}{\partial t} &= \left( R_f - 1 
+  \right)\frac{\partial(nC)}{\partial t}
+  \intertext{equation \eqref{withsorption} becomes}
+  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) &= 
+  R_f\frac{\partial(nC)}{\partial t}   
+  \label{withlinsorption}
+  \intertext{where}
+  R_f &= \mbox{retardation factor}\nonumber\\
+  &= 1+\frac{\rho_bK_d}{n}\\
+  \rho_b &=\mbox{bulk density of the rock matrix}\nonumber
+  \intertext{and}
+  K_d &= \mbox{species distribution coefficient.}\nonumber
+\end{align}
+\end{frame}
+
+
+
+
+  % Ogata and Banks
+\begin{frame}[ctb!]
+  \frametitle{One Dimensional Solution with a Constant Concentration Source}
+An analytical solution for the one dimensional case with a continuous source 
+of constant concentration is known. For the boundary conditions
+\begin{align}
+  C(0,t) =& C_0
+  \intertext{and}
+  \frac{\partial C}{\partial x}\Big|_{x=\infty} =& 0
+  \label{BCs}
+  \intertext{as well as the initial condition }
+  C(x,0) =& 0 \mbox{\hspace{2mm}for\hspace{1mm}} x \in (0,\infty),
+\end{align}
+the so called Ogata and Banks solution gives
+\begin{align}
+  C(x,t) =& \frac{C_0}{2}\left[
+  \erfc{\left( \frac{x- \frac{v_x t}{R_f} }{2\sqrt{ 
+  \frac{D_xt}{R_f} }} \right)} +
+  e^{\frac{v_xx}{D_x}}
+  \erfc{\left( \frac{x+ \frac{v_x t}{R_f} }{2\sqrt{ 
+  \frac{D_xt}{R_f} }} \right)}
+  \right].
+  \label{ogatabanks}
+  \intertext{where}
+  \erfc(x) =& \frac{2}{\sqrt{\pi}}\int_x^\infty e^{-t^2}dt 
+\end{align}
+\end{frame}
+
+

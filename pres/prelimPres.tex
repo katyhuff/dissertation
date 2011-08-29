@@ -19,6 +19,11 @@
 \setbeamertemplate{footline}[page number]
 % Those icons  in the references are terrible looking.
 \setbeamertemplate{bibliography item}[text]
+% need some error functions? Me too.
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\erfc}{erfc}
+
+
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% From uw-beamer Here's a handy bit of code to place at 
@@ -85,7 +90,7 @@
 \begin{frame}[allowframebreaks]
   \frametitle{References}
   \bibliographystyle{plain}
-  {\footnotesize \bibliography{../report/prelim} }
+  {\footnotesize \bibliography{prelim}}
 \end{frame}
 %---------------||||
 
