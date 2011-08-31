@@ -4,14 +4,34 @@
   \frametitle{Radionuclide Transport}
   % Map the path out of the repository.
   % WP failure, WF dissolution, 
+  \begin{minipage}{0.49\textwidth}
   \begin{figure}[h!]
-    \begin{center}
-      \includegraphics[height=0.7\textheight]{ebsLayersLLNL.eps}
-    \end{center}
+      \includegraphics[width=\textwidth]{ebsLayersLLNL.eps}
     \caption{After waste package failure, radionuclides pass through successive 
     layers of the engineered barrier system \cite{greenberg_thermal_2011}.}
     \label{fig:ebsLayersLLNL}
   \end{figure}
+  \end{minipage}
+  \hspace{0.01cm}
+  \begin{minipage}{0.49\textwidth}
+    \begin{itemize}
+      \item Source Term - Radionuclide mass flux to the environment
+        \begin{itemize}
+          \item Safety and Risk Metric
+          \item EPA Regulation
+        \end{itemize}
+      \item Radionuclide transport is a function of
+        \begin{itemize}
+          \item Geochemistry - chemically induced material degradation, 
+            radionuclide solubility limits, sorption, colloid mobility, etc.
+          \item Hydrology - water induced material degradation, 
+            water movement through pores and fractures, 
+            dissolved contaminant dispersion. 
+          \item Thermal Effects - thermally induced material degradation, 
+            thermal hydrological effects.
+        \end{itemize}
+    \end{itemize}
+  \end{minipage}
 \end{frame}
 
 
@@ -19,6 +39,33 @@
   \frametitle{Waste Form Release Models}
   % Waste forms
   \footnotesize{\input{wf_tab}}
+\end{frame}
+
+
+\begin{frame}[ctb!]
+  \frametitle{Waste Package Failure Models}
+  % Waste Package
+   
+    \footnotesize{
+    Waste package failure can, in general, be represented with an expression of the 
+    number of failed waste packages, $n_F$ failing per unit time. This is a simple 
+    product between the initial number of waste packages, $N$, and the rate, $f$, of 
+    failure,
+    \begin{align}
+      n_F = N\cdot f().
+      \intertext{This rate may be a physical function,}
+      f() = N\cdot f(t,T,\cdots).
+      \intertext{or any time dependent function,}
+      f()=f(t).
+      \intertext{of which instantaneous failure is a special case,}
+      f()= \delta(t-t_F).
+      \intertext{as is the Weibull distribution,}
+      f(t,\lambda,k) =  \begin{cases}
+        \frac{k}{\lambda}\left(\frac{t}{\lambda}\right)^{k-1}e^{-(t/\lambda)^{k}} & 
+        t\geq0 ,\\
+        0 & t<0 .\end{cases}
+    \end{align}
+    }
 \end{frame}
 
 \begin{frame}[ctb!]
@@ -44,12 +91,12 @@
       n &= \mbox{solute accessible porosity } [\%]\nonumber\\
       C &= \mbox{ concentration } [kg \cdot m^{-3}]\nonumber\\ 
       t &= \mbox{ time } [s]\nonumber\\ 
-      F_c &= \mbox{ advective flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
+      F_c &= \mbox{ advective transport} [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
       &= nvC \nonumber \\
       \displaybreak[0]
-      F_{dc} &= \mbox{ dispersive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\ 
+      F_{dc} &= \mbox{ dispersive transport} [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\ 
       &= \alpha nv \nabla C  \nonumber\\ 
-      F_d &= \mbox{ diffusive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
+      F_d &= \mbox{ diffusive transport} [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
       &= D_e \nabla C\nonumber
     \end{align}}
   \end{minipage}
@@ -77,11 +124,11 @@ It is customary to define the combination of molecular diffusion, $D_e$ and mech
 \end{align}
 such that the mass conservation equation becomes:
 \begin{align}
-  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) &= \frac{\partial(nC)}{\partial t}
+  \frac{\partial(nC)}{\partial t} &= \nabla \left( nD\nabla C \right) - \nabla \left( nvC \right) 
   \label{massbal} 
   \intertext{Adding sorption, by accounting for a change in mass storage,}
-  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right)  &= 
-  \frac{\partial(nC)}{\partial t}  + \frac{\partial(s\rho_b)}{\partial t} 
+  \frac{\partial(nC)}{\partial t}  + \frac{\partial(s\rho_b)}{\partial t} &= 
+  \nabla \left( nD\nabla C \right) - \nabla \left( nvC \right)  
   \label{withsorption} 
   \intertext{where}
   s &= \mbox{sorption coefficient}\nonumber\\
@@ -90,6 +137,18 @@ such that the mass conservation equation becomes:
 \end{frame}
 
 
+
+\begin{frame}[ctb!]
+  \frametitle{Dimensionality}
+  \begin{figure}[h!]
+    \begin{center}
+      \includegraphics[width=0.9\textwidth]{3dto1d.eps}
+    \end{center}
+    \caption{Employing the symmetries of the disposal layout can enable lower 
+    dimensional models.}
+    \label{fig:3dto1d}
+  \end{figure}
+\end{frame}
 
 \begin{frame}[ctb!]
   \frametitle{Dispersion}
@@ -120,13 +179,21 @@ A special case of uniform flow, no flow, simplifies to the diffusion equation,
 \begin{frame}[ctb!]
   % Precipitation
   \frametitle{Precipitation}
+  Elemental solubility limits are based on the maximum concentration of an 
+  element which can exist in solution. 
+   
+  This limitation can be implemented at the release surfaces by placing a hard 
+  cap on released mass $\dot{m}$ concentration,
 
-  
-
-
+    \begin{align} 
+      m_{1i}(t)\le v_{1i}(t)C_{sol}
+      \intertext{where}
+      m_{li} = \mbox{dissolved kg of radionuclide i}\nonumber\\
+      v_{li} = \mbox{void volume}\nonumber\\
+      C_{sol} = \mbox{solubility limit}\nonumber
+    \end{align}
+    
 \end{frame}
-
-
 
 \begin{frame}[ctb!]
   \frametitle{Sorption}
@@ -149,18 +216,6 @@ reversible reaction,
 \end{align}
 \end{frame}
 
-
-\begin{frame}[ctb!]
-  \frametitle{Dimensionality}
-  \begin{figure}[h!]
-    \begin{center}
-      \includegraphics[width=0.9\textwidth]{3dto1d.eps}
-    \end{center}
-    \caption{Employing the symmetries of the disposal layout can enable lower 
-    dimensional models.}
-    \label{fig:3dto1d}
-  \end{figure}
-\end{frame}
 
 
 
@@ -188,7 +243,7 @@ the so called Ogata and Banks solution gives
   \right].
   \label{ogatabanks}
   \intertext{where}
-  \erfc(x) =& \frac{2}{\sqrt{\pi}}\int_x^\infty e^{-t^2}dt 
+  \erfc(x) =& \frac{2}{\sqrt{\pi}}\int_x^\infty e^{-t^2}dt. 
 \end{align}
 \end{frame}
 
