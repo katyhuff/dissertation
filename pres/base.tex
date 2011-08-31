@@ -1,13 +1,119 @@
 
 
-\begin{frame}[ctb!]
-  \frametitle{Base Case : Component Abstraction}
-  each component?
+\begin{frame}
+  \frametitle{Base Case : Nested Components}
+  \begin{itemize}
+    \item Waste Form
+      \begin{itemize}
+        \item Mixed Cell with  Rate Based Degradation Model
+        \item Glass and UOx Data
+      \end{itemize}
+    \item Waste Package
+      \begin{itemize}
+        \item Rate Based Failure Model
+        \item Steel and Copper Data
+      \end{itemize}
+    \item Buffer
+      \begin{itemize}
+        \item Mixed Cell with  Rate Based Degradation Model
+        \item Bentonite (Fo-Ca), Salt, and Cement Data
+      \end{itemize}
+    \item Geology
+      \begin{itemize}
+        \item Ogata and Banks 1D Permeable Porous Medium Solute Transport
+        \item Data for Clay, Granite, Salt, and Crystalline Basement
+      \end{itemize}
+  \end{itemize}
 \end{frame}
 
+\begin{frame}[ctb!]
+  \frametitle{Base Case : Components}
+  \begin{figure}[h!]
+      \includegraphics[height=0.8\textheight]{components.eps}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[ctb!]
+  \frametitle{Base Case : Waste Form Abstraction}
+  \begin{minipage}{0.45\textwidth}
+    \begin{figure}[h!]
+      \begin{center}
+        \includegraphics[width=\textwidth]{wf.eps}
+      \end{center}
+    \end{figure}
+  \end{minipage}
+  \hspace{0.01cm}\large{$\rightarrow$}\hspace{0.01cm}
+  \begin{minipage}{0.45\textwidth}
+    \begin{figure}[h!]
+      \begin{center}
+        \includegraphics[width=\textwidth]{abstractionWF.eps}
+      \end{center}
+    \end{figure}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}[ctb!]
+  \frametitle{Base Case : Waste Package Abstraction}
+  \begin{minipage}{0.45\textwidth}
+    \begin{figure}[h!]
+      \begin{center}
+        \includegraphics[width=\textwidth]{wp.eps}
+      \end{center}
+    \end{figure}
+  \end{minipage}
+  \hspace{0.01cm}\large{$\rightarrow$}\hspace{0.01cm}
+  \begin{minipage}{0.45\textwidth}
+    \begin{figure}[h!]
+      \begin{center}
+        \includegraphics[width=\textwidth]{abstractionWP.eps}
+      \end{center}
+    \end{figure}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}[ctb!]
+  \frametitle{Base Case : Buffer Abstraction}
+  \begin{minipage}{0.45\textwidth}
+    \begin{figure}[h!]
+      \begin{center}
+        \includegraphics[width=\textwidth]{buffer.eps}
+      \end{center}
+    \end{figure}
+  \end{minipage}
+  \hspace{0.01cm}\large{$\rightarrow$}\hspace{0.01cm}
+  \begin{minipage}{0.45\textwidth}
+    \begin{figure}[h!]
+      \begin{center}
+        \includegraphics[width=\textwidth]{abstractionBuffer.eps}
+      \end{center}
+    \end{figure}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}[ctb!]
+  \frametitle{Base Case : Geology Abstraction}
+  \begin{minipage}{0.45\textwidth}
+    \begin{figure}[h!]
+      \begin{center}
+        \includegraphics[width=\textwidth]{rock.eps}
+      \end{center}
+    \end{figure}
+  \end{minipage}
+  \hspace{0.01cm}\large{$\rightarrow$}\hspace{0.01cm}
+  \begin{minipage}{0.45\textwidth}
+    \begin{figure}[h!]
+      \begin{center}
+        \includegraphics[width=\textwidth]{abstractionRock.eps}
+      \end{center}
+    \end{figure}
+  \end{minipage}
+\end{frame}
 
 \begin{frame}[ctb!]
   \frametitle{Base Case : System Level Abstraction}
-  tell the difference between component models.
-  
+  \begin{figure}[h!]
+      \includegraphics[width=\textwidth]{abstractionSystem.eps}
+    \caption{System level abstraction seeks to determine the systems level 
+    response to the change in models of subcomponents.}
+  \end{figure}
 \end{frame}
