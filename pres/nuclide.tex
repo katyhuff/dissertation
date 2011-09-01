@@ -54,11 +54,11 @@
     \begin{align}
       n_F = N\cdot f().
       \intertext{This rate may be a physical function,}
-      f() = N\cdot f(t,T,\cdots).
+      f() = N\cdot f(t,T,\cdots)
       \intertext{or any time dependent function,}
-      f()=f(t).
+      f()=f(t)
       \intertext{of which instantaneous failure is a special case,}
-      f()= \delta(t-t_F).
+      f()= \delta(t-t_F)
       \intertext{as is the Weibull distribution,}
       f(t,\lambda,k) =  \begin{cases}
         \frac{k}{\lambda}\left(\frac{t}{\lambda}\right)^{k-1}e^{-(t/\lambda)^{k}} & 
@@ -157,7 +157,7 @@ For unidirectional flow, the unidirectional dispersion tensor gives
   D_x \frac{\partial^2 C}{\partial x^2} +
   D_y \frac{\partial^2 C}{\partial y^2} +
   D_z \frac{\partial^2 C}{\partial z^2} +
-  v_x \frac{\partial C}{\partial x}  = R_f 
+  v_z \frac{\partial C}{\partial z}  = R_f 
   \frac{\partial(nC)}{\partial t}. 
   \label{unidirflow}
 \end{align}
@@ -224,23 +224,23 @@ of constant concentration is known \cite{schwartz_fundamentals_2004}. For the bo
 \begin{align}
   C(0,t) =& C_0
   \intertext{and}
-  \frac{\partial C}{\partial x}\Big|_{x=\infty} =& 0
+  \frac{\partial C}{\partial z}\Big|_{z=\infty} =& 0
   \label{BCs}
   \intertext{as well as the initial condition }
-  C(x,0) =& 0 \mbox{\hspace{2mm}for\hspace{1mm}} x \in (0,\infty),
+  C(z,0) =& 0 \mbox{\hspace{2mm}for\hspace{1mm}} z \in (0,\infty),
 \end{align}
 the Ogata and Banks solution gives
 \begin{align}
-  C(x,t) =& \frac{C_0}{2}\left[
-  \erfc{\left( \frac{x- \frac{v_x t}{R_f} }{2\sqrt{ 
-  \frac{D_xt}{R_f} }} \right)} +
-  e^{\frac{v_xx}{D_x}}
-  \erfc{\left( \frac{x+ \frac{v_x t}{R_f} }{2\sqrt{ 
-  \frac{D_xt}{R_f} }} \right)}
+  C(z,t) =& \frac{C_0}{2}\left[
+  \erfc{\left( \frac{z - \frac{v_zt}{R_f} }{2\sqrt{ 
+  \frac{D_zt}{R_f} }} \right)} +
+  e^{\frac{v_z}{D_z}}
+  \erfc{\left( \frac{z+ \frac{v_zt}{R_f} }{2\sqrt{ 
+  \frac{D_zt}{R_f} }} \right)}
   \right].
   \label{ogatabanks}
   \intertext{where}
-  \erfc(x) =& \frac{2}{\sqrt{\pi}}\int_x^\infty e^{-t^2}dt. 
+  \erfc(z) =& \frac{2}{\sqrt{\pi}}\int_Z^\infty e^{-t^2}dt. 
 \end{align}
 \end{frame}
 
