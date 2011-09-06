@@ -54,11 +54,11 @@
     \begin{align}
       n_F = N\cdot f().
       \intertext{This rate may be a physical function,}
-      f() = N\cdot f(t,T,\cdots)
+      f() = N\cdot f(t,T,\cdots),
       \intertext{or any time dependent function,}
-      f()=f(t)
+      f()=f(t),
       \intertext{of which instantaneous failure is a special case,}
-      f()= \delta(t-t_F)
+      f()= \delta(t-t_F),
       \intertext{as is the Weibull distribution,}
       f(t,\lambda,k) =  \begin{cases}
         \frac{k}{\lambda}\left(\frac{t}{\lambda}\right)^{k-1}e^{-(t/\lambda)^{k}} & 
@@ -136,6 +136,27 @@ such that the mass conservation equation becomes:
 \end{align}
 \end{frame}
 
+\begin{frame}[ctb!]
+  \frametitle{Sorption}
+  % Sorption
+If it is assumed that sorption can be approximated as a linear equilibrium, 
+reversible reaction,
+\begin{align}
+  \frac{\partial(s\rho_b)}{\partial t} &= \left( R_f - 1 
+  \right)\frac{\partial(nC)}{\partial t}
+  \intertext{equation \eqref{withsorption} becomes}
+  R_f\frac{\partial(nC)}{\partial t} &= 
+  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) 
+  \label{withlinsorption}
+  \intertext{where}
+  R_f &= \mbox{retardation factor}\nonumber\\
+  &= 1+\frac{\rho_bK_d}{n}\\
+  \rho_b &=\mbox{bulk density of the rock matrix}\nonumber
+  \intertext{and}
+  K_d &= \mbox{species distribution coefficient.}\nonumber
+\end{align}
+\end{frame}
+
 
 
 \begin{frame}[ctb!]
@@ -180,7 +201,8 @@ A special case of uniform flow, no flow, simplifies to the diffusion equation,
   % Precipitation
   \frametitle{Precipitation}
   Elemental solubility limits are based on the maximum concentration of an 
-  element which can exist in solution.
+  element which can exist in solution. A limit on concentration in the void 
+  volume may be expressed as
 
     \begin{align} 
       m_{1i}(t)\le v_{1i}(t)C_{sol}
@@ -190,27 +212,6 @@ A special case of uniform flow, no flow, simplifies to the diffusion equation,
       C_{sol} = \mbox{solubility limit}\nonumber
     \end{align}
     
-\end{frame}
-
-\begin{frame}[ctb!]
-  \frametitle{Sorption}
-  % Sorption
-If it is assumed that sorption can be approximated as a linear equilibrium, 
-reversible reaction,
-\begin{align}
-  \frac{\partial(s\rho_b)}{\partial t} &= \left( R_f - 1 
-  \right)\frac{\partial(nC)}{\partial t}
-  \intertext{equation \eqref{withsorption} becomes}
-  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) &= 
-  R_f\frac{\partial(nC)}{\partial t}   
-  \label{withlinsorption}
-  \intertext{where}
-  R_f &= \mbox{retardation factor}\nonumber\\
-  &= 1+\frac{\rho_bK_d}{n}\\
-  \rho_b &=\mbox{bulk density of the rock matrix}\nonumber
-  \intertext{and}
-  K_d &= \mbox{species distribution coefficient.}\nonumber
-\end{align}
 \end{frame}
 
 

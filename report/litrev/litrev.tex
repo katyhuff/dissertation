@@ -161,16 +161,14 @@ thermal management model that informs waste package emplacement.
 \subsection{Repository Focused Fuel Cycle Analyses}
 
 While top level fuel cycle system analyses fail to incorporate repository 
-models, some repository focused fuel cycle sensitivity analyses been conducted. 
+models, some repository focused fuel cycle sensitivity analyses have been conducted. 
 Some repository focused analyses emphasizing used fuel disposition and
 waste management in the Yucca Mountain Repository (YMR) have been conducted by
 Ahn, Li, Piet, Wigeland, Wilson, and others . With a focus on YMR capacity benefit, 
 repository performance metrics of interest for these analyses were heat, source 
 term, and more global environmental impact metrics.  Sensitivity analyses for 
 other geologies were conducted concerning repository concepts relevant to other
-nations as well. See Table \ref{tab:red} for examples of detailed heat transport 
-calculation methods used in domestic and international repository modeling 
-efforts.
+nations as well. 
 
 \section{Conceptual Discussion of Disposal Environments}
 
@@ -213,18 +211,18 @@ emplacement.
 Enclosed modes are appropriate for low permeability rock formations (clay/shale, 
 granite, salt).  Low permeability does not permit oxygen entry, so these are
 chemically reducing environments.  Chemically reducing environments are reducing 
-insofar as they induce  redox reactions to proceed in the reduction direction. This 
+insofar as they induce redox reactions to proceed in the reduction direction. This 
 attribute has the primary effect of slowing corrosion, dissolution, and  
 alteration rates in materials that are subject to degradation. A reducing 
-disposal environment also lowers solubility limits and increases sorption of the 
-actinides. The dominant dose contributors in reducing environments are 
+disposal environment also lowers solubility limits and increases sorption of 
+many actinide species. The dominant dose contributors in reducing environments are 
 therefore the soluble, long lived fission and activation products such as $^{129}I$ 
 and $^{79}Se$ \cite{oecd-nea_advanced_2006, von_lensa_red-impact_2008}.  
 Furthermore, rather than being primarily kinetically limited, as in an oxidizing 
 environment, sorption behavior is primarily thermodynamically limited 
 \cite{nutt_personal_2011, schwartz_fundamentals_2004}. The models created here 
 will be designed such that these distinctions between reducing and oxidizing 
-environments may be parsed in the event that an extension model models an 
+environments may be parsed in the event that an extension model simulates an 
 oxidizing environment. 
 
 Since heat is carried away less effectively once closure 
@@ -301,9 +299,12 @@ of steel, the pH can become significantly alkaline, resulting in
 expedited alteration of glass wasteforms, bentonite buffers, and the clay 
 matrix \cite{andra_argile:_2005}.
 
+%Clays tend to have higher sorption capacity for cations (what interesting 
+%elements are cations?) \cite{bahr_private_2011}.
+
 Highly mobile radionuclides which dominate dose from clay repository concepts 
 for most fuel cycles include $^{129}I$, $^{79}Se$, and $^{36}Cl$ 
-\cite{swift_applying_2010}.
+\cite{swift_applying_2010}. 
 
 \subsubsection{Thermal Behavior}
 \label{subsec:claythermal}
@@ -515,9 +516,10 @@ waste repository, this phenomenon increases isolation capability of the salt. A
 heat limit, then, is difficult to characterize, but evolution of the heat in a
 salt environment is of great importance to radionuclide transport modeling. 
 
-The German salt repository concept maintains a $180^\circ C$ temperature limit 
-salt. At temperatures above $220^\circ C$ the salt formation may release 
-brines capable of facilitating radionuclide transport 
+The German salt repository concept maintains a $180^\circ C$ temperature limit. 
+The technical basis for this limit has to do with the concern that at
+temperatures above $220^\circ C$ the salt formation may release brines capable 
+of facilitating radionuclide transport 
 \cite{von_lensa_red-impact_2008, brewitz_long-term_2002}.
 
 A model of temperature dependent salt coalescent behavior is in order. While 
@@ -594,7 +596,7 @@ instead on the diffusion path length.
 \label{subsec:boreholethermal}
 
 Since the crystalline basement rock in which deep borehole concepts are 
-envisioned is typically granite, The thermal behavior of the deep borehole 
+envisioned is typically granite, the thermal behavior of the deep borehole 
 environment is exactly similar to the granite case, except the bentonite buffer 
 limitation is no longer applicable.  Also, the $200^{\circ}C$ limitation in 
 order to avoid microfissures could  be shown to be irrelevant in light of the 
@@ -633,7 +635,7 @@ also depends on water flow, radionuclide solubility, and radionuclide diffusion,
 be employed in the context of the hydrology of the rock which sets the boundary    
 condition.
 
-Waste package failure modes varies between models. While some employ detailed 
+Waste package failure modes vary between models. While some employ detailed 
 computational tools such as GoldSim or EBSFAIL (a part of the EBSPAC module 
 used in the TSPA code), which will be discussed in section 
 \ref{sec:detailed_radionuclide}, some 
@@ -649,7 +651,7 @@ waste packages at a constant volumetric rate (`flowthrough model'), others
 adopt less conservative assumptions incorporating weather based predictions of
 hydrologic activity.
 
-Radionuclide transport through the \gls{EBS} and lithology is dependent upon 
+Radionuclide transport through the \gls{EBS} and host rock is dependent upon 
 diffusion as well as advection. Radionuclide transport is retarded by sorption,
 limited by solubility, and enhanced by colloidal mobility 
 \cite{bracke_safety_2008}. 
@@ -662,17 +664,19 @@ speciation of radionuclides (chemical oxidative state), and radiolysis of the
 dissolving fluid, but primarily on material properties of the waste form.
 
 Precipitation is the reverse of dissolution and occurs when a solubility limit
-is reached. In a reducing environment, the chemical equilibrium of dissolution and
-precipitation is rate dependent and is highly dependent on thermodynamics.
+is reached. In a reducing environment, the approach to chemical equilibrium of 
+dissolution and precipitation is rate dependent and is highly dependent on 
+thermodynamics.
 
-Sorption, which includes both absorption and adsorption,  is the interaction of a
-dissolved species with surfaces that removes that species from the dissolving
-medium models. During sorption, contaminants are removed from the flowthrough 
-water and taken up by the walls of pores or fractures in the rock matrix. 
-Importantly, sorption is a reversible process, the  counter process of which is 
-desorption in which the contaminant is returned to the pore or fracture fluid from 
-the matrix \cite{ahn_mass_1988} . Reversible sorption is typically expressed in 
-terms of the distribution coefficient, $K_d$, the ratio at equilibrium between 
+Sorption includes both absorption and adsorption. Absorption is the 
+incorporation of a substance of one state into another of a different state.
+Adsorption is the interaction of a dissolved species with a surface that
+removes that species from the dissolving medium models. During sorption, 
+contaminants are removed from the flowthrough water and taken up by the 
+walls of pores or fractures in the rock matrix.  Importantly, sorption is a 
+reversible process, the  counter process of which is desorption in which the 
+contaminant is returned to the pore or fracture fluid from the matrix
+\cite{ahn_mass_1988} . Reversible sorption is typically expressed in terms 
 the mass of a radionuclide sorbed into the rock and the mass left in solution. 
 $K_d$ values are heavily radionuclide and geochemically dependent.  
 
@@ -709,7 +713,7 @@ Radionuclide release from various possible waste form types will be dominated by
 array of degradation, alteration, and dissolution phenomena. These phenomena 
 begin when surrounding waste packages are breached, exposing the waste form to 
 water. Some phenomena dominating the release from canonical waste forms such as  
-\gls{CSNF}, \gls{DSNF}, and \gls{HTGR} are discussed in Table \ref{tab:wf}.
+\gls{CSNF}, \gls{DSNF}, and \gls{HTGR} are listed in Table \ref{tab:wf}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -740,10 +744,10 @@ surrounded by layers of near field rock and far field rock. Water is introduced
 to the system at a constant rate, and encounters an array of failed waste 
 packages (at $t=0$ in the 2004 model, and at $T_f=75,000$ years in the 2007 model). 
 The water immediately begins dissolving the waste matrix.  Radionuclides with higher 
-solubilities are preferentially dissolved and treated with a `congruent release' 
-advective transport model discussed
+solubilities are preferentially dissolved and treated with a ``congruent 
+release'' advective transport model discussed
 below. Radionuclides with lower solubilities are transported through the buffer with
-the alternative `solubility limited' release model. The water flow begins at
+the alternative ``solubility limited'' release model. The water flow begins at
 one waste package and travels through the matrix and buffer space to the next
 waste package, contacting each waste package consecutively and then flowing on
 into the near field. In this way, the water is increasingly contaminated as its
@@ -866,7 +870,7 @@ probability distribution function, equation \eqref{rate} becomes
 \end{align}
 
 
-A particularly attractive probability distribution for use in the case of failed 
+A particularly appripriate probability distribution for use in the case of failed 
 engineered barriers is the Weibull distribution, 
 
 \begin{align}
@@ -888,6 +892,10 @@ function is
   f(t,\lambda,k) = 1-e^{-(t/\lambda)^k}.
   \label{weibullcdf}
 \end{align}
+
+For $k<1$, the rate of failure will decrease over time, while for a value of 
+$k>1$, the rate increases over time, appropriate for the aging process of 
+materials  \cite{papoulis_probability_2002}.
 
 
 \subsubsection{Instantaneous}
@@ -945,16 +953,17 @@ modeled explicitly or as a continuum model.
 
 \subsubsection{Hydrologic Transport Models}
 
-Transport out of the \gls{EBS} and through the geosphere in Clay, shale, granite,
+Transport out of the \gls{EBS} and through the geosphere in clay, shale, granite,
 and salt can largely be characterized as solute transport in permeable porous 
-media. While clay, shale and salt do not exhibit significant fracturation and can 
+medi. While clay, shale and salt do not exhibit significant fracturation and can 
 often be modeled as homogeneous, granite is  characterized as a fractured 
 permeable porous media.  Solute transport in both fractured and homogeneous 
-permeable porous media involves advection, hydraulic dispersion, and diffusion. 
+permeable porous media has both porous and fracture flow paths and involves
+advection, hydraulic dispersion, and diffusion phenomena. 
 
 Advection is transport driven by bulk water velocity, diffusion is the 
 result of Brownian motion across concentration gradients, and hydraulic 
-dispersion is transport resulting from anisotropies in the water velocity field. 
+dispersion is transport resulting from heterogeneities in the water velocity field. 
 
 Fundamentally, the effect of these flows on mass transport is captured by the 
 conceptual expression 
@@ -996,17 +1005,17 @@ written (as in Schwartz and Zhang \cite{schwartz_fundamentals_2004})
   &= \alpha nv \nabla C  \nonumber\\ 
   \displaybreak[0]
   F_d &= \mbox{ diffusive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
-  &= D_e \nabla C\nonumber\\
+  &= nD_e \nabla C\nonumber\\
   \displaybreak[0]
   m &= \mbox{ solute source } [kg \cdot m^{-3}\cdot s^{-1}].\nonumber
   \displaybreak[0]
   \intertext{In the expressions above,} 
-  v &= \mbox{ pore velocity } [m\cdot s^{-1}] \nonumber\\
+  v &= \mbox{ advective velocity } [m\cdot s^{-1}] \nonumber\\
   \alpha &= \mbox{ dispersivity } [m]\nonumber\\
   D_e &= \mbox{ effective diffusion coefficient } [m^2\cdot s^{-1}]\nonumber
   \displaybreak[0]
   \intertext{and} 
-  n\cdot v &= \mbox{ Darcy velocity } [m\cdot s^{-1}].
+  n\cdot v &= \mbox{ Darcy flux } [m\cdot s^{-1}].
 \end{align} 
 
 The method by which the dominant solute transport mode (diffusive or advective)
@@ -1021,8 +1030,8 @@ Peclet number,
 \end{align}
 
 For a high $Pe$ number, advection is the dominant transport mode, while 
-diffusive transport dominates for a low $Pe$ number. If one of these terms can 
-be neglected, the solution is simplified. 
+diffusive or dispersive transport dominates for a low $Pe$ number. If 
+one of these terms can be neglected, the solution is simplified. 
 
 Otherwise, the analytical expression in equation \eqref{solperm} will be the 
 foundation of simplification by regression analyses for the radionuclide transport 
@@ -1255,7 +1264,11 @@ pores of the rock matrix \cite{uleberg_dual_1996, ho_dual_2000}.
 
 Dual Permeability Models are another type. These are similar to dual porosity
 models, but incorporate advective transfer within the rock matrix and between
-the rock matrix and the fracture volume\cite{uleberg_dual_1996, ho_dual_2000}.
+the rock matrix and the fracture volume \cite{uleberg_dual_1996, ho_dual_2000}.
+The incorporation of advective transfer in the dual permeability model is more
+appropriate for modeling granite since it incorporates advective solute 
+transport through the rock matrix as well as diffusion. 
+
 
 \subsubsection{Discrete Fracture Network Models} 
 
@@ -1625,7 +1638,7 @@ Various waste form constraints exist that limit fuel loading. These are
 in general less restrictive than heat limits resulting from geological medium 
 constraints, however in some cases they are more restrictive. 
 
-For example, the current constraining heat limit in borosilicated glass 
+For example, the current constraining heat limit in borosilicate glass 
 reported by the \gls{UFD} campaign is $500^{\circ}C$, corresponding to the 
 temperature at which the glass can be expected to begin devitrifying 
 \cite{carter_disposal_2010, hardin_generic_2011, soelberg_heat_2009}. For ceramic oxide 
@@ -1675,7 +1688,7 @@ generating waste forms. Such models are detailed with respect to their fine
 spatial and temporal resolution or with respect to the incorporation and 
 coupling of numerous physical phenomena. Current detailed computational models 
 addressing various repository geologies and geometries will be reviewed here 
-that utilize finite differencing and finite element methods in many dimensions, 
+that utilize finite difference and finite element methods in many dimensions, 
 sophisticated numerical solvers, and other high fidelity approaches.
 
 
@@ -1702,7 +1715,7 @@ codes as listed in table \ref{tab:red}.
 The \gls{UFD} campaign is currently conducting an effort to produce
 a \acrlong{GPAM} for analysis of {\glspl{GDSM} for various geological environments. 
 Teams from \acrlong{ANL}, \acrlong{LBNL}, \acrlong{LANL}, and \acrlong{SNL} are developing
-models of generic clay, granite, and salt disposal environments. Sandia is
+models of generic clay, granite, and salt disposal environments respectively. Sandia is
 simultaneously constructing a deep borehole disposal system model in crystalline 
 rock. Each generic disposal system model will perform detailed calculations of 
 radionuclide transport within its respective lithology 
@@ -1822,8 +1835,8 @@ meshed in three full dimensions with the \gls{CUBIT} meshing tool
 enters the Engineered Barrier System and corrodes the waste packages.  These
 fail and from the failed waste packages radionuclides are released according to
 advective transfer.  Further transport through the near and far field rock
-medium is modeled in two modes, one representing the Unsaturated Zone, and one
-representing the Saturated Zone.
+medium is modeled in two modes, one representing the unsaturated zone, and one
+representing the saturated zone.
 
 Waste package failure and radionuclide release are modeled with two TSPA
 code modules called EBSFAIL and EBSREL. The waste package failure rate is
@@ -1869,9 +1882,9 @@ assumption is one in which the evacuation disturbed zone does not heal. Rather,
 it is modeled in its damaged state immediately after excavation. 
 
 This model only tracks 15 radionuclides of importance.  These are chosen to be those
-with halflives over 1000 years and most toxicity or mobility
+with half lives over 1000 years and most toxicity or mobility
 \cite{andra_argile:_2005}. The behavior of radionuclides in 
-glassvitrification forms can be summarized by categorizing them into mobile,
+glass vitrification forms can be summarized by categorizing them into mobile,
 intermediate, and well retained elements. 
 
 Some specific codes and the method with which they were used in the \gls{ANDRA} 
@@ -1907,13 +1920,13 @@ clay assessment are listed in Table  \ref{tab:andra}.
 
 
 Waste form dissolution and package release was assumed to be immediate for some
-waste forms and corrosion rate based for those where appropriate data was
+waste forms and corrosion rate based for those where appropriate data were
 available. Vitrified waste package releases were either modeled with a simple
 model or a two phase phenomenological model. 
 
 %(pg198 for references to themath)
 
-Transpor through the backfill is modeled as diffusive, with high permeability 
+Transport through the backfill is modeled as diffusive, with high permeability 
 after degradation.  The evacuation disturbed zone has both a fracture zone and a 
 microfissure zone.  In the host formation, movement is dominated by diffusion, 
 and advection is modeled, but is negligible.
@@ -2000,7 +2013,7 @@ are represented by
   R_{rad}  &= \frac{1}{\sigma F_{ij}A\left[ T_i + T_A + T_j + T_A 
   \right]\left[(T_i+T_A)^2+(T_j+T_A)^2\right]}
   \intertext{where}
-  k&= ~~\mbox{conductivity}[W\cdot m^{-1}\cdot K^{-1}]\nonumber\\
+  k&= ~~\mbox{thermal conductivity}[W\cdot m^{-1}\cdot K^{-1}]\nonumber\\
   A&= ~~\mbox{area} [m^2]\nonumber\\
   c_p&=~~\mbox{specific heat capacity} [J\cdot K^{-1}]\nonumber  \\
   h&= ~~\mbox{heat transfer coefficient}[W\cdot m^{-1} \cdot K^{-1}\nonumber \\

@@ -76,8 +76,7 @@
     \begin{center}
       \includegraphics[height=.5\textheight]{../report/litrev/sindageom.eps}
     \end{center}
-    \caption{Two adjustable geometric dimensions of the ANL model 
-    \cite{bauer_something_2010}.}
+    \caption{Two adjustable geometric dimensions of the ANL model.} 
     \label{fig:sindageom}
   \end{figure}
 \end{frame}
@@ -91,7 +90,7 @@
       \includegraphics[width=0.9\textwidth]{lumpedParam.eps}
     \end{center}
     \caption{The lumped parameter analogy used for heat transfer can be applied 
-    to the one dimensional approximation to the disposal system concept. }
+    as a one dimensional approximation to the disposal system concept. }
     \label{fig:lumpedParam}
   \end{figure}
 \end{frame}
@@ -101,20 +100,6 @@
 
 \begin{frame}
   \frametitle{LLNL Model : Geometry}
-  \begin{figure}[h!]
-    \begin{center}
-      \includegraphics[width=0.7\textwidth]{llnlConcept.eps}
-    \end{center}
-    \caption{Vertical, horizontal, alcove, and borehole emplacement layouts can 
-    be represented by a line of point sources and adjacent line sources 
-    \cite{greenberg_thermal_2011}.}
-    \label{fig:llnl}
-  \end{figure}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Repository Layouts}
   \begin{minipage}{0.3\textwidth}
     \begin{figure}[h!]
       \includegraphics[width=\textwidth]{boreholes.eps}
@@ -140,19 +125,31 @@
   \end{minipage}
 \end{frame}
 
+\begin{frame}
+  \frametitle{LLNL Model : Geometry}
+  \begin{figure}[h!]
+    \begin{center}
+      \includegraphics[width=0.7\textwidth]{llnlConcept.eps}
+    \end{center}
+    \caption{Vertical, horizontal, alcove, and borehole emplacement layouts can 
+    be represented by a line of point sources and adjacent line sources 
+    \cite{sutton_investigations_2011}.}
+    \label{fig:llnl}
+  \end{figure}
+\end{frame}
 
 \begin{frame}
   \frametitle{LLNL Model : Solution Strategy}
   \footnotesize{
-    A MathCAD solution of the transient homogeneous 
+    LLNL's model is a MathCAD solution of the transient homogeneous 
     conduction equation,
     
     \begin{align}
-      \nabla^2T  = \frac{1}{\alpha}\frac{\partial T}{\partial t}.
+      \nabla^2T  = \frac{1}{\alpha}\frac{\partial T}{\partial t},
       \label{condGl}
     \end{align}
     
-    Superimposed point and line source solutions approximate the repository 
+    in which superimposed point and line source solutions approximate the repository 
     layout.
     The solution of this equation at the 
     boundary of the EBS and the waste package is then treated as a boundary condition 
@@ -169,7 +166,7 @@
     
     which calculates a resulting temperature gradient through the geometry at each 
     point in time for each layer surface, assuming an infinite line source 
-    \cite{hardin_generic_2011}. 
+    \cite{hardin_generic_2011}\cite{sutton_investigations_2011}. 
     }
 \end{frame}
 
