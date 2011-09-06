@@ -22,7 +22,7 @@ demonstration model by implementing the fundamental physics to represent key hea
 and radionuclide transport phenomena for simple unfractured media and canonical  
 subcomponent concepts. The final extension phase will build upon the base case 
 by implementing extending physics to capture the salient features of various 
-competing repository concepts such as fracturation, sorption, and coalescent 
+competing repository concepts such as fracturing, sorption, and coalescent 
 behavior. These phases will be completed within a test-driven software 
 development paradigm and will rely on abstractions of the \gls{UFD} \gls{GDSM} 
 and \gls{SINDAG} and \gls{LLNL} thermal models.  
@@ -220,8 +220,8 @@ the detailed models.
 
 For example, when enough buffer component models have been developed to give a 
 suite of buffer options, the choice between a model that incorporates
-fracturation in the degraded buffer material and one that does not incorporate 
-fracturation may be available.  The choice between models will be informed by an 
+fracturing in the degraded buffer material and one that does not incorporate 
+fracturing may be available.  The choice between models will be informed by an 
 analysis comparing results of each simulation and a similar full simulation with  
 the detailed model.
 
@@ -288,7 +288,7 @@ and the \gls{LLNL} model.
       The base case concept will model a generic, isotropic, permeable porous 
       geological medium with reducing geochemistry, as well as waste form, 
       waste package, and buffer models in the near field. This model will be 
-      appropriate for clay and salt lithologies. The fracturation in the lithologies  
+      appropriate for clay and salt lithologies. The fracturing in the lithologies  
       of the granite and deep borehole concepts will not be appropriately 
       modeled in the base case unless an equivalent porous medium calculation is 
       conducted external to the code. The incorporation of fracture models will 
@@ -363,7 +363,7 @@ and the \gls{LLNL} model.
       medium that is chemically reducing and in which transport is diffusion 
       dominated  and solubility limited.  For the base case, this model will 
       involve only diffusive transport. Extensions to this model will include a 
-      model for sorption as well as fracturation and advective transport.  
+      model for sorption as well as fracturing and advective transport.  
 
     % Heat limits at buffer and rock boundary 
 
@@ -395,7 +395,7 @@ and the \gls{LLNL} model.
 
 When the base case is established, a series of extensions to these models will 
 be pursued.  This will build upon the base case repository module by 
-incorporating sorption, fracturation, coalescence, and disruption 
+incorporating sorption, fracturing, coalescence, and disruption 
 models within each subcomponent.  This milestone will result in a repository 
 module capable of modeling the granite and borehole \gls{GDSM} concepts modeled 
 by the \gls{UFD} campaign and the \gls{ANDRA} assessments. Additional extension 
@@ -424,7 +424,7 @@ impacts.
     a full solute transport solution such as equation \eqref{ogatabanks}. 
     Additionally, solubility limited transport will be added with a simple 
     restriction on the mixing calculations during mass balancing in the control 
-    volumes. Next, the capability to model fracturation features of granite and
+    volumes. Next, the capability to model fracture features of granite and
     borehole environments will be added  to the modeling capability by adding a dual 
     continuum fracture model.  
 
