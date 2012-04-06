@@ -3,7 +3,7 @@
 ---------
 Katy Huff's dissertation
 ---------
-The report directory holds a documnt  intended to be the dissertation 
+The report directory holds a document intended to be the dissertation 
 report in partial fulfillment of the PhD at the University of 
 Wisconsin Madison. This repository previously held the report presented as
 my preliminary report on September 1, 2011. The version of that report 
