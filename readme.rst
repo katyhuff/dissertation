@@ -1,20 +1,22 @@
 
 
 ---------
-Katy Huff's prelim
+Katy Huff's dissertation
 ---------
-The report directory holds a documnt  intended to be the preliminary 
+The report directory holds a documnt  intended to be the dissertation 
 report in partial fulfillment of the PhD at the University of 
-Wisconsin Madison. The full suite of tex documents and images 
-comprising this report are available here only to github collaborators. 
-However, a current pdf can be found at all times during the course of 
-document development at homepages.cae.wisc.edu/~khuff/papers/prelim.pdf .
+Wisconsin Madison. This repository previously held the report presented as
+my preliminary report on September 1, 2011. The version of that report 
+submitted to my committee can be found with ``git checkout vcommittee``. 
+The full suite of tex documents and images 
+comprising this report are available here to anyone. 
+A current pdf can be found at all times during the course of 
+document development at homepages.cae.wisc.edu/~khuff/papers/dissertation.pdf .
 
-The pres directory holds the associated presentation, to be given
-at the University of Wisconsin Madison on September 1, 2011. The 
-current pdf of this presentation can also be found at all times during 
+The pres directory holds the associated presentation. The current pdf 
+of this presentation can also be found at all times during 
 the course of the development at 
-homepages.cae.wisc.edu/~khuff/papers/prelimPres.pdf .
+homepages.cae.wisc.edu/~khuff/papers/dissertationPres.pdf .
 
 
 ------------------
