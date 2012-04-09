@@ -1,0 +1,58 @@
+\section{Solubility Coefficient Sensitivities}
+
+The dissolution behavior of a solute in an aqueous solutions is called its 
+solubility. This behavior is limited by the solute's solubility limit, described  
+by an equilibrium constant that depends upon temperature, water chemistry, and 
+the properties of the element. The solubility constant for ordinary solutes, 
+$K_s$ gives units of concentration, $[kg/m^3]$, and can be determined 
+algebraically by the law of mass action which gives the partitioning at 
+equilibrium between reactants and products.  For a reaction
+\begin{align}
+  cC + dD &= yY + zZ,
+  \intertext{where}
+  c,d,y,z  &= \mbox{ amount of respective constituent }[mol]\nonumber\\
+  C,D  &= \mbox{ reactants }[-]\nonumber\\
+  Y,Z  &= \mbox{ products }[-]\nonumber,
+  \intertext{the law of mass action gives}
+  K &= \frac{(Y)^y(Z)^z}{(C)^c(D)^d}
+  \intertext{where}
+  (X)  &= \mbox{ the equilibrium molal concentration of X }[mol/m^3]\nonumber\\
+  K  &= \mbox{ the equilibrium constant }[-].\nonumber
+  \label{massaction}
+\end{align}
+The equillibrium constant for many reactions are known, and can be found in 
+chemical tables. Thereafter, the solubility constraints of a solution at 
+equilibrium can be found algebraically.  In cases of salts that  dissociate in 
+aqueous solutions, this equilibrium constant is called the salt's solubility 
+product $K_{sp}$.
+
+This equillibrium model, however, is only appropriate for dilute situations, and 
+nondilute solutions at  partial equilibrium must be treated with an activity 
+model by substituting the activities of the constituents  for their molal 
+concentrations,
+\begin{align}
+  [X] &= \gamma_x(X)
+  \intertext{where}
+  [X]  &= \mbox{ activity of X }[-]\nonumber\\
+  \gamma_x  &= \mbox{ activity coefficient of X}[-]\nonumber\\
+  (X)  &= \mbox{ molal concentration of X}[mol/m^3]\nonumber
+  \intertext{such that}
+  IAP &= \mbox{ Ion Activity Product }[-].\nonumber\\
+      &= \frac{[Y]^y[Z]^z}{[C]^c[D]^d}\\
+  \label{IAP}
+\end{align}
+The ratio between the IAP and the equillibrium constant $(IAP/K)$ quantifiesn
+the departure from equilibrium of a solution.  This information is useful during 
+the transient stage in which a solute is first introduced to a solution. When 
+$IAP/K<1$, the solution is undersaturated with respect to the products. When, 
+conversely, $IAP/K>1$, the solution is oversaturated and precipitation of solids 
+in the volume will occur. 
+
+Two models of mass balance applicable to a control volume incorporating 
+solubility limitation include the Ahn and Hedin models.
+
+Forty values of solubility coefficient multiplier were used. 
+These values were $1E^{-9}$ through $5E^{-10}$. This multiplier
+adjusted the fiducial values of solubility for each element, so 
+the relative solubility between elements was preserved.
+
