@@ -1,0 +1,196 @@
+\subsection{Vertical Advective Velocity}
+
+Transport out of the \gls{EBS} and through the permeable, porous geosphere 
+involves advection, diffusion, and hydraulic dispersion phenomena. Advection is 
+transport driven by bulk water velocity, while diffusion is the result of 
+Brownian motion across concentration gradients.  The method by which the 
+dominant solute transport mode (diffusive or advective) is determined for a 
+particular porous medium is by use of the dimensionless Peclet number, 
+
+\begin{align} 
+  Pe &= \frac{nvL}{\alpha nv + D_{eff}},\\
+  &= \frac{\mbox{advective rate}}{\mbox{diffusive rate}}\nonumber
+  \intertext{where} 
+  n &= \mbox{ solute accessible porosity } [\%]\nonumber\\
+  v &= \mbox{ advective velocity } [m\cdot s^{-1}] \nonumber\\
+  L &= \mbox{ transport distance } [m]\nonumber\\
+  \alpha &= \mbox{ dispersivity } [m]\nonumber\\
+  D_{eff} &= \mbox{ effective diffusion coefficient } [m^2\cdot s^{-1}].\nonumber
+\end{align}
+
+For a high $Pe$ number, advection is the dominant transport mode, while 
+diffusive or dispersive transport dominates for a low $Pe$ number
+\cite{schwartz_fundamentals_2004}.
+
+In this analysis, the threshold between primarily diffusive and primarily 
+advective transport was investigated by varying the vertical advective velocity 
+in conjunciton with the diffusion coefficient.  It was expected that for the low 
+diffusion coefficients and low advective velocities usually found in clay media, 
+the model should behave entirely in the diffusive regime, but as the 
+vertical advective velocity grows, system behavior should 
+increasingly approach the advective regime. 
+
+
+\subsubsection{Parametric Range}
+
+The diffusion coefficient was altered as in section \ref{sec:diffusivity} and 
+the vertical advective velocity of the far field was altered as well.
+
+From Table 5.5-1 of the Argile Safety Evaluation by \gls{ANDRA}, the vertical 
+hydraulic gradient is $0.4$, while the hydraulic conductivity is $5.0\times10^{14} 
+[m/s]$. The resulting vertical advective velocity is then $2.0\times10^{-14}[m/s]$, which is 
+$6.31\times10^{-7}[m/yr]$  \cite{andra_argile:_2005}. %9
+
+
+As in section \ref{sec:diffusivity}, in order to isolate the effect of the far 
+field behavior, the waste form degradation rate was set to be very high as were 
+the solubility and advective flow rate through the  \gls{EBS}. This guarunteed 
+that in the first few time steps, the far field was the primary barrier to 
+release. 
+
+The forty runs are a combination of the five values of the vertical advective 
+velocity and eight magnitudes of relative diffusivity (see Table 
+\ref{tab:AdvVelAndDiffCoeffGroups}). 
+
+\begin{table}[hbp!]
+\centering
+\includegraphics[width=0.7\textwidth]{./chapters/nuclide_sensitivity/clay/AdvVelAndDiffCoeffEBSFail/AdvVelAndDiffCoeffGroups.eps}
+\caption{Vertical advective velocity and diffusion coefficient simulation groupings.}
+\label{tab:AdvVelAndDiffCoeffGroups}
+\end{table}
+
+
+To capture the importance of the vertical advective velocity, a range was chosen 
+to span a number of orders of magnitude between $ 6.31\times 10^{-8}$ 
+and $ 6.31\times10^{-4} [m/yr]$. The relative diffusivity was simultaneously varied 
+over the eight magnitudes between $ 10^{-8}$ and $ 10^{-15} [m^2/s]$. It is 
+worth noting that both the relative diffusivity and the vertical advective 
+velocity are functions of porosity in the host rock and are therefore expected 
+to vary together. 
+
+%Importantly, the thermal fluxes near the waste have an impact on the dynamic 
+%viscosity of the hydraulic medium and can be expected to triple the vertical 
+%advective velocity within a clay repository during the heating period 
+%\cite{andra_argile:_2005}. %pg 429
+
+
+\subsubsection{Results}
+
+For isotopes of interest, higher advective velocity and higher diffusivity lead to higher 
+means of the peak annual dose. However, the relationship between diffusivity and 
+advective velocity adds depth to the notion of a boundary between diffusive and 
+advective regimes.
+
+The highly soluble and non-sorbing elements, $I$ and $Cl$ 
+were expected to exhibit behavior that is highly sensitive 
+to advection in the system in the advective regime but less sensitive to 
+advection in the diffusive regime.  
+
+In Figures \ref{fig:VAdvVelI129}, \ref{fig:VAdvVelI129VAdvVel}, 
+\ref{fig:VAdvVelCl36}, and \ref{fig:VAdvVelCl36VAdvVel} , $^{129}I$ and 
+$^{36}Cl$ are more sensitive to vertical advective velocity for lower vertical 
+advective velocities. This demonstrates that for vertical advective velocities 
+$6.31\times10^{-6}[m/yr]$ and above, lower reference diffusivities are 
+ineffective at attenuating the mean of the peak doses for soluble, non-sorbing 
+elements. 
+
+\begin{figure}[htp!]
+\centering
+\includegraphics[width=\linewidth]{./chapters/nuclide_sensitivity/clay/AdvVelAndDiffCoeffEBSFail/I-129.eps}
+\caption{$^{129}I$ reference diffusivity sensitivity.}
+\label{fig:VAdvVelI129}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\linewidth]{./chapters/nuclide_sensitivity/clay/AdvVelAndDiffCoeffEBSFail/I-129-VAdvVel.eps}
+\caption{$^{129}I$ vertical advective velocity sensitivity.}
+\label{fig:VAdvVelI129VAdvVel}
+\end{figure}
+
+
+\begin{figure}[htp!]
+\centering
+\includegraphics[width=\textwidth]{./chapters/nuclide_sensitivity/clay/AdvVelAndDiffCoeffEBSFail/Cl-36.eps}
+\caption{$^{36}Cl$ reference diffusivity sensitivity.}
+\label{fig:VAdvVelCl36}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\textwidth]{./chapters/nuclide_sensitivity/clay/AdvVelAndDiffCoeffEBSFail/Cl-36-VAdvVel.eps}
+\caption{$^{36}Cl$ vertical advective velocity sensitivity.}
+\label{fig:VAdvVelCl36VAdvVel}
+\end{figure}
+
+The solubility limited and sorbing elements, $Tc$ and $Np$, in Figures 
+\ref{fig:VAdvVelTc99}, \ref{fig:VAdvVelTc99VAdvVel}, \ref{fig:VAdvVelNp237}, and 
+\ref{fig:VAdvVelNp237VAdvVel} show a very weak influence on peak annual dose 
+rate for low reference diffusivities, but show a direct proportionality between 
+dose and reference diffusivity above a threshold. For $^{99}Tc$, for example, 
+that threshold occurs at $1\times10^{-11}[m^2/s]$. 
+
+
+Dose contribution from $^{99}Tc$ has a proportional 
+relationship with vertical advective velocity above a regime threshold at 
+$6.31\times10^{-5}[m/yr]$, above which the system exhibits sensitivity to 
+advection. 
+
+%There is an interesting feature in which $^{99}Tc$ 
+%exhibits a decrease in peak annual dose for an increase in reference diffusivity 
+%for the very high ($6.31\times10^{-4}$) vertcial advective velocity case. %WHY? 
+
+\begin{figure}[htp!]
+\centering
+\includegraphics[width=\linewidth]{./chapters/nuclide_sensitivity/clay/AdvVelAndDiffCoeffEBSFail/Tc-99.eps}
+\caption{$^{99}Tc$ reference diffusivity sensitivity.}
+\label{fig:VAdvVelTc99}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\linewidth]{./chapters/nuclide_sensitivity/clay/AdvVelAndDiffCoeffEBSFail/Tc-99-VAdvVel.eps}
+\caption{$^{99}Tc$ vertical advective velocity sensitivity.}
+\label{fig:VAdvVelTc99VAdvVel}
+\end{figure}
+
+
+\begin{figure}[htp!]
+\centering
+\includegraphics[width=\linewidth]{./chapters/nuclide_sensitivity/clay/AdvVelAndDiffCoeffEBSFail/Np-237.eps}
+\caption{$^{237}Np$ reference diffusivity sensitivity.}
+\label{fig:VAdvVelNp237}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\linewidth]{./chapters/nuclide_sensitivity/clay/AdvVelAndDiffCoeffEBSFail/Np-237-VAdvVel.eps}
+\caption{$^{237}Np$ vertical advective velocity sensitivity.}
+\label{fig:VAdvVelNp237VAdvVel}
+\end{figure}
+  
+
+The convergence of the effect of the reference diffusivity and vertical 
+advective velocity for the cases above shows the effect of dissolved 
+concentration (solubility) limits and sorption. $Se$ is non sorbing, but 
+solubility limited.  The results from $^{79}Se$ in Figure \ref{fig:VAdvVelSe79} 
+and \ref{fig:VAdvVelSe79VAdvVel} show that for low vertical advective velocity, 
+the system is diffusion dominated.  However, for high vertical advective 
+velocity, the diffusivity remains important even in the advective regime as 
+spreading facilitates transport in the presence of solubility limited transport. 
+
+\begin{figure}[htp!]
+\centering
+\includegraphics[width=\linewidth]{./chapters/nuclide_sensitivity/clay/AdvVelAndDiffCoeffEBSFail/Se-79.eps}
+\caption{$^{79}Se$ reference diffusivity sensitivity.}
+\label{fig:VAdvVelSe79}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\linewidth]{./chapters/nuclide_sensitivity/clay/AdvVelAndDiffCoeffEBSFail/Se-79-VAdvVel.eps}
+\caption{$^{79}Se$ vertical advective velocity sensitivity.}
+\label{fig:VAdvVelSe79VAdvVel}
+\end{figure}
+
+\clearpage
