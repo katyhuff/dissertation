@@ -1,2 +1,36 @@
 \section{Degradation Rate Radionuclide Transport Model}\label{sec:deg_rate}
 
+The materials that constitute the engineered and natural barriers in a saturated 
+repository environment degrade over time. One abstract model of the nuclide 
+release behavior of each of the engineered barrier components in the repository 
+is to represent the available source term at the outer boundary as solely a 
+function of the degradation rate of that component.
+
+For the case in which all engineered barrier components are represented by 
+degradation rate models, the source term at the outermost edge will be a 
+function of the original central source and the degradation rates of the 
+components. This results in a description of the outer edge source terms, 
+from cell $i$ to cell $j$ 
+
+\begin{align}
+\dot{m}_{i,j}(t) &= f_iM_i(t)
+\label{deg_rate}
+\end{align}
+
+For a situation as in \Cyclus, with discrete timesteps, this becomes :
+\begin{align}
+m_{i,j}(t_n) = f_i(t_n,\cdots)
+m_0(t_n) = m_0(t_0) - \sum_{i=0}^n m_{0,1}(t_n)\\
+\label{source}
+\end{align}
+
+
+\begin{align}
+\dot{m}_{i,j}(t) &= f_i(t)M_i(t)
+\label{deg_rate}
+\end{align}
+
+\begin{align}
+\dot{m}_{i,j}(t) &= f_i(\cdots)M_i(t)
+\label{deg_rate}
+\end{align}
