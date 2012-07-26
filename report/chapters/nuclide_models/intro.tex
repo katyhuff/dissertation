@@ -31,18 +31,18 @@ The first, or Dirichlet type boundary conditions define a specified species
 concentration on some section of the boundary of the representative volume, 
 
 \begin{align}
-  C(\vec{r},t) = C_0(\vec{r},t)\hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
+  C(\vec{r},t) &= C_0(\vec{r},t)\hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
 \end{align}
 
 The second type or Neumann type boundary conditions describe a full set of 
 fluxes at  the boundary of the domain
 
 \begin{align}
-  \frac{\partial C(\vec{r},t)}{\partial r} = nD\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
+  \frac{\partial C(\vec{r},t)}{\partial r} &= nD\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
   \intertext{where}
-  \vec{r} = \mbox{ position vector }\nonumber\\
-  \Gamma = \mbox{ domain boundary }\nonumber\\
-  \vec{J}= \mbox{ solute mass flux } [kg/m^2\cdot s].\nonumber
+  \vec{r} &= \mbox{ position vector }\nonumber\\
+  \Gamma &= \mbox{ domain boundary }\nonumber\\
+  \vec{J} &= \mbox{ solute mass flux } [kg/m^2\cdot s].\nonumber
 \end{align}
 
 The third, Cauchy, type describes a combination of the Dirichlet and Neumann 
@@ -50,12 +50,12 @@ type conditions, defining both a concentration at a boundary and a flux at that
 boundary, 
 
 \begin{align}
-  vC(X,y,z,t) - D_x \frac{\partial C(x,y,z,t)}{\partial x} = 
+  vC(X,y,z,t) - D_x \frac{\partial C(x,y,z,t)}{\partial x} &= 
   vg(x,y,z,t)\hspace{1mm}\mbox{ for } \left( x,y,z \right) \in \Gamma
   \intertext{where}
-  g(x,y,z,t) = \mbox{ arbirary flux profile}
+  g(x,y,z,t) &= \mbox{ arbirary flux profile}
   \intertext{this can also be written}
-  -nD_{ij}\frac{\partial C}{\partial x_j}\hat{i} + q_iC\hat{i} = q_iC_0\hat{i}.
+  -nD_{ij}\frac{\partial C}{\partial x_j}\hat{i} + q_iC\hat{i} &= q_iC_0\hat{i}.
   \intertext{where}
   D_{i,j} &= \hat{i}\mbox{ component of the } [m^2/s]\nonumber\\
   q_i\hat{i} &= \mbox{outward fluid flux} [m/s]\nonumber\\
