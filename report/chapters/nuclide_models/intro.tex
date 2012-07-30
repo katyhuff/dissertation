@@ -34,20 +34,21 @@ For a Dirichlet boundary condition, each nulcide transport model must represent
 a species concentration along the boundary of the representative volume, 
 
 \begin{align}
-  C(x,y,z,t) &= C_0(x,y,z,t)\hspace{1mm}\mbox{ for } (x,y,z) \in \Gamma.
+  C(x,y,z,t) &= C_0(x,y,z,t)\hspace{1mm}\mbox{ for } (x,y,z) \in \Gamma
+  \intertext{where}
   C(x,y,z,t) &= \mbox{ concentration at the boundary } [kg/m^3] \nonumber\\
-  \Gamma &= \mbox{ domain boundary }\nonumber
+  \Gamma &= \mbox{ domain boundary. }\nonumber
 \end{align}
 
-The second type or Neumann type boundary conditions describe a full set of 
-fluxes at  the boundary of the domain
+The second type or Neumann type boundary condition describes an impermeable 
+boundary
 
 \begin{align}
-  nD_{i,j}\frac{\partial C(x,y,z,t)}{\partial x_j}\hat{i} &= 0 \hspace{1mm}\mbox{ for } (x,y,z) \in \Gamma.
+  nD_{ij}\frac{\partial C(x,y,z,t)}{\partial x_j}\hat{i} &= 0 \hspace{1mm}\mbox{ for } (x,y,z) \in \Gamma
   \intertext{where}
   n &= \mbox{ porosity } [-]\nonumber\\
-  D_{i,j} &= \mbox{ i component of the diffusion coefficient in the j direction }
-  \vec{r} &= \mbox{ position vector }\nonumber\\
+  D_{ij} &= \mbox{ diffusion coefficient tensor component } [m^2/s]\nonumber\\
+  \vec{r} &= \mbox{ position vector. }\nonumber
 \end{align}
 
 The third, Cauchy, type describes a combination of the Dirichlet and Neumann 
@@ -55,19 +56,17 @@ type conditions, defining both a concentration at a boundary and a flux at that
 boundary, 
 
 \begin{align}
-  vC(X,y,z,t) - D_x \frac{\partial C(x,y,z,t)}{\partial x} &= 
+  vC(x,y,z,t) - D_x \frac{\partial C(x,y,z,t)}{\partial x} &= 
   vg(x,y,z,t)\hspace{1mm}\mbox{ for } \left( x,y,z \right) \in \Gamma
   \intertext{where}
-  g(x,y,z,t) &= \mbox{ arbirary flux profile}
-  \intertext{this can also be written}
+  g(x,y,z,t) &= \mbox{ arbirary flux profile.}
+  \intertext{This can also be written}
   -nD_{ij}\frac{\partial C}{\partial x_j}\hat{i} + q_iC\hat{i} &= q_iC_0\hat{i}.
   \intertext{where}
-  D_{i,j} &= \hat{i}\mbox{ component of the } [m^2/s]\nonumber\\
-  q_i\hat{i} &= \mbox{outward fluid flux} [m/s]\nonumber\\
-  \hat{i} &= \mbox{unit vector normal to the surface} [-]\nonumber\\
-  C_0 &= \mbox{concentration of the fluid at the boundary} [kg/m^3]\nonumber\\
+  q_i\hat{i} &= \mbox{ outward fluid flux } [m/s]\nonumber\\
+  \hat{i} &= \mbox{unit vector normal to the surface } [-]\nonumber\\
+  C_0 &= \mbox{concentration of the fluid at the boundary } [kg/m^3].\nonumber
 \end{align}
-
 
 For a Cauchy boundary condition, each nuclide transport model must represent the 
 solute concentration flux at the outer boundary in units of $[kg/m^{2}/s]$. In 
