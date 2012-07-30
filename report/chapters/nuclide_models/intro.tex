@@ -12,11 +12,17 @@ the boundary, Neumann, concentration gradients along the boundary,
 and Cauchy, a combination of the two that provides a concentration flux along the 
 boundary.
 
-The remaining mass in cell i at the end of timestep $t_n$ is the mass of the 
-cell at the beginning of timestep $t_{n+1}$. In general, the mass balance 
-equation for component $k$ is simply the sum over time of incoming and outgoing 
-mass. No component has more than one external component ($l$), but some have 
-many internal components ($j$, children)
+For all nuclide models, mass must be conserved. Thus, all nuclide models share a 
+mass balance paradigm. 
+
+First, since time is discrete within \Cyclus, the remaining mass in a cell at the 
+end of timestep $t_n$ is the mass of the cell at the beginning of timestep 
+$t_{n+1}$.
+
+For all components ($k$) the mass balance is simply the sum over time of 
+incoming and outgoing mass. No component has more than one external component 
+($l$), but some have many internal components ($j$, children). The mass balance 
+equation for cell $k$ is then
 
 \begin{align}
 m_k^{n+1} &= m_k^0 + \sum_{i=0}^n\left[ \sum_{j=0}^{children}\left( 
@@ -25,24 +31,23 @@ m_{j,k}^i - m_{k,l}^i\right)(t_n-t_{n-1})\right]
 \end{align}
 
 For a Dirichlet boundary condition, each nulcide transport model must represent 
-a species concentration along the boundary,
-
-The first, or Dirichlet type boundary conditions define a specified species 
-concentration on some section of the boundary of the representative volume, 
+a species concentration along the boundary of the representative volume, 
 
 \begin{align}
-  C(\vec{r},t) &= C_0(\vec{r},t)\hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
+  C(x,y,z,t) &= C_0(x,y,z,t)\hspace{1mm}\mbox{ for } (x,y,z) \in \Gamma.
+  C(x,y,z,t) &= \mbox{ concentration at the boundary } [kg/m^3] \nonumber\\
+  \Gamma &= \mbox{ domain boundary }\nonumber
 \end{align}
 
 The second type or Neumann type boundary conditions describe a full set of 
 fluxes at  the boundary of the domain
 
 \begin{align}
-  \frac{\partial C(\vec{r},t)}{\partial r} &= nD\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
+  nD_{i,j}\frac{\partial C(x,y,z,t)}{\partial x_j}\hat{i} &= 0 \hspace{1mm}\mbox{ for } (x,y,z) \in \Gamma.
   \intertext{where}
+  n &= \mbox{ porosity } [-]\nonumber\\
+  D_{i,j} &= \mbox{ i component of the diffusion coefficient in the j direction }
   \vec{r} &= \mbox{ position vector }\nonumber\\
-  \Gamma &= \mbox{ domain boundary }\nonumber\\
-  \vec{J} &= \mbox{ solute mass flux } [kg/m^2\cdot s].\nonumber
 \end{align}
 
 The third, Cauchy, type describes a combination of the Dirichlet and Neumann 
