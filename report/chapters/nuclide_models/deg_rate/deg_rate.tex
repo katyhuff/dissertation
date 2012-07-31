@@ -2,49 +2,55 @@
 
 The materials that constitute the engineered and natural barriers in a saturated 
 repository environment degrade over time. One abstract model of the nuclide 
-release behavior of each of the engineered barrier components in the repository 
-represents the available source term at the outer boundary as solely a 
-function of the degradation rate of that component.
+release behavior can be based solely on a fractional degradation rate. This 
+model incorporates and source term made available on the inner boundary into its 
+available mass and defines the resulting boundary conditions at the outer boundary 
+as solely a function of the degradation rate of that component.
 
 For the case in which all engineered barrier components are represented by 
 degradation rate models, the source term at the outermost edge will be solely
 a function of the original central source and the degradation rates of the 
 components. This results in the following expression for the mass transfer, 
-$m_{i,j}(t)$, from cell $i$ to cell $j$ at time $t$ :
+$m_{ij}(t)$, from cell $i$ to cell $j$ at time $t$ :
 
 \begin{align}
-m_{i,j}(t) &= f_i(\cdots)m_i(t)
+\dot{m}_{ij}(t) &= f_i(\cdots)m_i(t)
+\intertext{where}
+\dot{m}_{ij} &= \mbox{ the rate of mass transfer from i to j }[kg/s]\nonumber\\
+f_i &= \mbox{ fractional degradation rate }[1/s] \nonumber\\
+m_i &= \mbox{ mass in cell i }[kg] \nonumber\\
+t &= \mbox{ time  }[s] \nonumber
 \label{deg_rate}
 \end{align}
 
-For a situation as in \Cyclus, with discrete timesteps, $t_n$, this becomes :
+For a situation as in \Cyclus, with discrete timesteps, we can assume the 
+timesteps are small enough to assume a constant rate $m_{ij}$ over the course of 
+the timestep. Equation \eqref{deg_rate} is integrated over the timestep to give 
+the mass transferred per timestep
 
 \begin{align}
-m_{i,j}^n = f_i(\cdots)m_i^n.
+m_{ij}^n &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' 
+\intertext{assuming a constant transfer rate}
+         &= \int_{t_{n-1}}^{t_n} f_i(\cdots)m_i^{n-1}dt'.\\
+         &= f_i(\cdots)m_i^{n-1}\left(t_n - t_{n-1}\right).
 \label{discrete}
 \end{align}
 
-The remaining mass in cell i at the end of timestep $t_n$ is the mass of the 
-cell at the beginning of timestep $t_{n+1}$. In general, the mass balance 
-equation for component $k$ is simply the sum over time of incoming and outgoing 
-mass. No component has more than one external component ($l$), but some have 
-many internal components ($j$, children)
-
+The concentration boundary condition must also be defined at the outer boundary 
+to support parent components that utilize the Dirichlet boundary condition. For 
+the degradation model, which incorporates no diffusion or advection, the 
+concentration at the boundary is the average concentration in the saturated pore 
+volume,
 \begin{align}
-m_k^{n+1} &= m_k^0 + \sum_{i=0}^n\left[ \sum_{j=0}^{children}\left( m_{j,k}^i\right) - m_{k,l}^i\right]
-\label{deg_rate}
-\end{align}
-
-For the central source cell, which has no children
-
-\begin{align}
-m_0^{n+1} = m_0^0 - \sum_{i=0}^n m_{0,1}^n.
-\label{source}
+C_{ij}^n &= \\frac{m_i^n}{V_{vi}}\\
+ &= \mbox{ <++> }[<++>] \nonumber\\
+<++> &= \mbox{ <++> }[<++>] \nonumber\\
+<++> &= \mbox{ <++> }[<++>] \nonumber\\
+<++> &= \mbox{ <++> }[<++>] \nonumber\\
+\label{<++>}
 \end{align}
 
 
 
-\begin{align}
-m_{i,j}^n &= f_i(\cdots)m_i^n
-\label{deg_rate}
-\end{align}
+
+<++> &= \mbox{ <++> }[<++>] \nonumber\\

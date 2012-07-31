@@ -100,3 +100,26 @@ For a situation as in \Cyclus, with discrete timesteps, $t_n$, this becomes
 the available source term at the boundary 
 between cell $i$ and cell $j$ at time $t_n$ is $m_{i,j}^n$.
 
+%In cylindrical coordinates, these boundary conditions are applied to the 
+%advection dispersion equation in cylindrical coordinates 
+%\cite{leij_analytical_1982}: 
+%
+%\begin{align}
+%R \frac{\partial C}{\partial t} &= D_i \frac{\partial^2 C}{\partial x_i^2} - v 
+%\frac{\partial C }{\partial x_i} \frac{D_r }{r} \frac{\partial }{\partial 
+%r}\left[r\frac{\partial C}{\partial r}\right]
+%\intertext{where}
+%R &= \mbox{ retardation factor }[-]\nonumber\\
+%C &= \mbox{ solute concentration } [kg/m^3]\nonumber\\
+%t &= \mbox{ time } [s]\nonumber\\
+%\hat{x}_i &= \mbox{ direction of flow } [-]\nonumber\\
+%v &= \mbox{ pore water velocity } [m/s].\nonumber
+%\label{ade_cyl}
+%\end{align}
+%
+%Unfortunately, in the above, the direction of flow must be perpendicular to the 
+%radial direction, which is not the situation we'd like to imagine.
+
+%\frac{\partial }{\partial }
+%<++> &= \mbox{ <++> } [<++>]\nonumber\\
+
