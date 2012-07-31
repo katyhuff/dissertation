@@ -15,25 +15,25 @@ $m_{ij}(t)$, from cell $i$ to cell $j$ at time $t$ :
 
 \begin{align}
 \dot{m}_{ij}(t) &= f_i(\cdots)m_i(t)
+\label{deg_rate_source_cont}
 \intertext{where}
 \dot{m}_{ij} &= \mbox{ the rate of mass transfer from i to j }[kg/s]\nonumber\\
 f_i &= \mbox{ fractional degradation rate }[1/s] \nonumber\\
 m_i &= \mbox{ mass in cell i }[kg] \nonumber\\
 t &= \mbox{ time  }[s] \nonumber
-\label{deg_rate}
 \end{align}
 
 For a situation as in \Cyclus, with discrete timesteps, we can assume the 
 timesteps are small enough to assume a constant rate $m_{ij}$ over the course of 
-the timestep. Equation \eqref{deg_rate} is integrated over the timestep to give 
+the timestep. Equation \eqref{deg_rate_source_cont} is integrated over the timestep to give 
 the mass transferred per timestep
 
 \begin{align}
-m_{ij}^n &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' 
+m_{ij}^n &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber
 \intertext{assuming a constant transfer rate}
-         &= \int_{t_{n-1}}^{t_n} f_i(\cdots)m_i^{n-1}dt'.\\
+         &= \int_{t_{n-1}}^{t_n} f_i(\cdots)m_i^{n-1}dt'\nonumber\\
          &= f_i(\cdots)m_i^{n-1}\left(t_n - t_{n-1}\right).
-\label{discrete}
+\label{deg_rate_source_discrete}
 \end{align}
 
 The concentration boundary condition must also be defined at the outer boundary 
@@ -41,16 +41,31 @@ to support parent components that utilize the Dirichlet boundary condition. For
 the degradation model, which incorporates no diffusion or advection, the 
 concentration at the boundary is the average concentration in the saturated pore 
 volume,
+
 \begin{align}
-C_{ij}^n &= \\frac{m_i^n}{V_{vi}}\\
- &= \mbox{ <++> }[<++>] \nonumber\\
-<++> &= \mbox{ <++> }[<++>] \nonumber\\
-<++> &= \mbox{ <++> }[<++>] \nonumber\\
-<++> &= \mbox{ <++> }[<++>] \nonumber\\
-\label{<++>}
+C_{ij}^n &= \frac{m_i^n}{V_{vi}}
+\label{deg_rate_dirichlet}\\
+&= \frac{\mbox{ solute mass in cell i }}{\mbox{ void volume in cell i}}.\nonumber 
 \end{align}
 
 
+To support parent components that utilize the Cauchy boundary condition, the 
+degradation model assumes that the fluid velocity is constant accross the cell 
+as is the concentration. Thus, 
+
+\begin{align}
+-\phi D_{ij}\frac{\partial C}{\partial x_j}\hat{i} - \phi_i\vec{v_i}C &= \phi_i^n \vec{v_0} C_0\nonumber\\
+\phi &= \mbox{ porosity in cell i }[-] \nonumber\\
+D_{ij} &= \mbox{ diffusion tensor component }[m^2/s] \nonumber\\
+C &= \mbox{ concentration }[kg/m^3] \nonumber\\
+v_i &= \mbox{ velocity in i direction }[m/s] \nonumber
+\end{align}
+reduces to
+\begin{align}
+\phi_i\vec{v_i}C &= \phi_i^n \vec{v_i^n} C_i^n.
+\label{deg_rate_cauchy}
+\end{align}
 
 
-<++> &= \mbox{ <++> }[<++>] \nonumber\\
+%<++> &= \mbox{ <++> }[<++>] \nonumber\\
+
