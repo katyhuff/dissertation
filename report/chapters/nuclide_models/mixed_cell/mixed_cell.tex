@@ -49,28 +49,39 @@ V_{ff} &= \phi V_T \int_{t_0}^{t_n} f(\cdots) dt.
 \end{align}
 The volume of the intact matrix can be expressed
 \begin{align}
-V_m &= V_T(1-\int_{t_0}^{t_n} f(\cdots) dt.
-\label{vm}
+V_{im} &= V_T - V_T\int_{t_0}^{t_n} f(\cdots) dt.
+\label{vim}
 \end{align}
 Finally, the volume of the precipitated solids can be expressed
 \begin{align}
-V_{ps} &= V_T(1-\int_{t_0}^{t_n} f(\cdots) dt.
+V_{ps} &= V_T - V_T\int_{t_0}^{t_n} f(\cdots) dt.
 \label{vps}
+\end{align}
+
+This model assumes that all net influx to the cell enters the free fluid rather 
+than the intact matrix. The contaminant mass in the intact matrix can be 
+expressed  
+
+\begin{align}
+m_{im} &= C_0 V_{im}\nonumber\\
+       &= C_0(1-\phi) V_T\int_{t_0}^{t_n}f(\cdots)dt 
+\label{mim}
 \end{align}
 
 The contaminant mass in the free fluid is just the pore water concentration 
 times the free fluid volume plus the time integral of net influx to the cell. 
-This model assumes that all net influx to the cell enters the free fluid rather 
-than the intact matrix. The resulting expression for the contaminant mass in the 
+The resulting expression for the contaminant mass in the 
 free fluid is 
 
 \begin{align}
-m_{ff} &= C\phi V_T\int_{t_0}^{t_n}f(\cdots)dt\nonumber\\ 
-       &= \left[C_0 + \frac{\int_{t_0}^{t_n} \dot{m}_{hi} dt}{\phi V_T\int_{t_0}^{t_n}f(\cdots)}\right] \phi V_T\int_{t_0}^{t_n}f(\cdots)dt 
+m_{ff} &= C\phi V_{ff}\nonumber\\
+       &= \left[C_0 + \frac{\int_{t_0}^{t_n} \dot{m}_{hi} dt}{\phi V_T\int_{t_0}^{t_n}f(\cdots)}\right] V_{ff} 
 \intertext{which, for discrete times becomes }
-m_{ff} &= \left[C_0 + \frac{\sum_{p=1}^{n} \dot{m}_{hi} (t_p - t{p-1}) }{\phi V_T\sum_{p=1}^{n}f(\cdots)}\right] \phi V_T\sum_{p=1}^{n}f(\cdots)(t_p - t_{p-1})
+m_{ff} &= \left[C_0 + \frac{\sum_{p=1}^{n} \dot{m}_{hi} (t_p - t{p-1}) }{V_{ff}^p}\right] V_{ff}^p .
+m_{ff} &= \left[C_0 + \frac{\sum_{p=1}^{n} \dot{m}_{hi} (t_p - t{p-1}) }{\phi V_T\sum_{p=1}^{n}f(\cdots)}\right] \phi V_T\sum_{p=1}^{n}f(\cdots)(t_p - t_{p-1}).
 \label{mff}
 \end{align}
+
 
 
 
