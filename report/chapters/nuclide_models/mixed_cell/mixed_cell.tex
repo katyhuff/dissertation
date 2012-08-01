@@ -66,6 +66,11 @@ free fluid is
 
 \begin{align}
 m_{ff} &= C\phi V_T\int_{t_0}^{t_n}f(\cdots)dt\nonumber\\ 
-       &= C_0 + \frac{\int_{t_0}^{t_n} \dot{m}_{hi} dt}{\phi V_T\int_{t_0}^{t_n} f(\cdots)dt}
+       &= \left[C_0 + \frac{\int_{t_0}^{t_n} \dot{m}_{hi} dt}{\phi V_T\int_{t_0}^{t_n}f(\cdots)}\right] \phi V_T\int_{t_0}^{t_n}f(\cdots)dt 
+\intertext{which, for discrete times becomes }
+m_{ff} &= \left[C_0 + \frac{\sum_{p=1}^{n} \dot{m}_{hi} (t_p - t{p-1}) }{\phi V_T\sum_{p=1}^{n}f(\cdots)}\right] \phi V_T\sum_{p=1}^{n}f(\cdots)(t_p - t_{p-1})
 \label{mff}
 \end{align}
+
+
+
