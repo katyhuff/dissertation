@@ -44,17 +44,17 @@ A graphical representation of the mixed cell model is given in Figures
 
 After some time degrading, the volume of free fluid can be expressed 
 \begin{align}
-V_{ff} &= \phi V_T \int_{t_0}^{t_n} f(\cdots) dt.
+V_{ff}(t_n) &= \phi V_T \int_{t_0}^{t_n} f(\cdots) dt.
 \label{vff}
 \end{align}
 The volume of the intact matrix can be expressed
 \begin{align}
-V_{im} &= V_T - V_T\int_{t_0}^{t_n} f(\cdots) dt.
+V_{im}(t_n) &= V_T - V_T\int_{t_0}^{t_n} f(\cdots) dt.
 \label{vim}
 \end{align}
 Finally, the volume of the precipitated solids can be expressed
 \begin{align}
-V_{ps} &= V_T - V_T\int_{t_0}^{t_n} f(\cdots) dt.
+V_{ps}(t_n) &= (1 - \phi)V_T\int_{t_0}^{t_n} f(\cdots) dt.
 \label{vps}
 \end{align}
 
@@ -64,7 +64,7 @@ expressed
 
 \begin{align}
 m_{im} &= C_0 V_{im}\nonumber\\
-       &= C_0(1-\phi) V_T\int_{t_0}^{t_n}f(\cdots)dt 
+       &= C_0(1-\phi) V_T\int_{t_0}^{t_n}f(\cdots)dt. 
 \label{mim}
 \end{align}
 
@@ -74,11 +74,12 @@ The resulting expression for the contaminant mass in the
 free fluid is 
 
 \begin{align}
-m_{ff} &= C\phi V_{ff}\nonumber\\
-       &= \left[C_0 + \frac{\int_{t_0}^{t_n} \dot{m}_{hi} dt}{\phi V_T\int_{t_0}^{t_n}f(\cdots)}\right] V_{ff} 
+m_{ff}(t_n) &= C_{ff}(t_n)\phi V_{ff}(t_n)\nonumber\\
+       &= \left[C_0 + \frac{\int_{t_0}^{t_n} \dot{m}_{hi} dt}{V_{ff}(t_n)}\right] V_{ff}(t_n) \nonumber\\
+       &= C_0V_{ff}(t_n) + \int_{t_0}^{t_n} \dot{m}_{hi} dt
 \intertext{which, for discrete times becomes }
-m_{ff} &= \left[C_0 + \frac{\sum_{p=1}^{n} \dot{m}_{hi} (t_p - t{p-1}) }{V_{ff}^p}\right] V_{ff}^p .
-m_{ff} &= \left[C_0 + \frac{\sum_{p=1}^{n} \dot{m}_{hi} (t_p - t{p-1}) }{\phi V_T\sum_{p=1}^{n}f(\cdots)}\right] \phi V_T\sum_{p=1}^{n}f(\cdots)(t_p - t_{p-1}).
+m_{ff}^n &= C_0V_{ff}^p + \sum_{p=1}^{n} \dot{m}_{hi} (t_p - t_{p-1})\nonumber\\ 
+       &= C_0 \phi V_T\sum_{p=1}^{n}f(\cdots)(t_p - t_{p-1}) + \sum_{p=1}^{n} \dot{m}_{hi} (t_p - t_{p-1}) .
 \label{mff}
 \end{align}
 
