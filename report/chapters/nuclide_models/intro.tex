@@ -44,9 +44,9 @@ The second type or Neumann type boundary condition describes an impermeable
 boundary
 
 \begin{align}
-  nD_{ij}\frac{\partial C(x,y,z,t)}{\partial x_j}\hat{i} &= 0 \hspace{1mm}\mbox{ for } (x,y,z) \in \Gamma
+  \thetaD_{ij}\frac{\partial C(x,y,z,t)}{\partial x_j}\hat{i} &= 0 \hspace{1mm}\mbox{ for } (x,y,z) \in \Gamma
   \intertext{where}
-  n &= \mbox{ porosity } [-]\nonumber\\
+  \theta&= \mbox{ porosity } [-]\nonumber\\
   D_{ij} &= \mbox{ diffusion coefficient tensor component } [m^2/s]\nonumber.
 \end{align}
 
@@ -55,12 +55,7 @@ type conditions, defining both a concentration at a boundary and a flux at that
 boundary, 
 
 \begin{align}
-  vC(x,y,z,t) - D_x \frac{\partial C(x,y,z,t)}{\partial x} &= 
-  vg(x,y,z,t)\hspace{1mm}\mbox{ for } \left( x,y,z \right) \in \Gamma
-  \intertext{where}
-  g(x,y,z,t) &= \mbox{ arbitrary flux profile.}
-  \intertext{This can also be written}
-  -nD_{ij}\frac{\partial C}{\partial x_j}\hat{i} + q_iC\hat{i} &= q_iC_0\hat{i}.
+  -\theta D_{ij}\frac{\partial C}{\partial x_j}\hat{i} + q_iC\hat{i} &= q_iC_0\hat{i}.
   \intertext{where}
   q_i\hat{i} &= \mbox{ outward fluid flux } [m/s]\nonumber\\
   \hat{i} &= \mbox{unit vector normal to the surface } [-]\nonumber\\
