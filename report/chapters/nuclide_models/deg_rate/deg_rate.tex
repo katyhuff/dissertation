@@ -54,15 +54,15 @@ degradation model assumes that the fluid velocity is constant accross the cell
 as is the concentration. Thus, 
 
 \begin{align}
--\phi D_{ij}\frac{\partial C}{\partial x_j}\hat{i} - \phi_i\vec{v_i}C &= \phi_i^n \vec{v_0} C_0\nonumber\\
-\phi &= \mbox{ porosity in cell i }[-] \nonumber\\
+-\theta D_{ij}\frac{\partial C}{\partial x_j}\hat{i} - \theta_i\vec{v_i}C &= \theta_i^n \vec{v_0} C_0\nonumber\\
+\theta &= \mbox{ porosity in cell i }[-] \nonumber\\
 D_{ij} &= \mbox{ diffusion tensor component }[m^2/s] \nonumber\\
 C &= \mbox{ concentration }[kg/m^3] \nonumber\\
 v_i &= \mbox{ velocity in i direction }[m/s] \nonumber
 \end{align}
 reduces to
 \begin{align}
-\phi_i\vec{v_i}C &= \phi_i^n \vec{v_i^n} C_i^n.
+\theta_i\vec{v_i}C &= \theta_i^n \vec{v_i^n} C_i^n.
 \label{deg_rate_cauchy}
 \end{align}
 
