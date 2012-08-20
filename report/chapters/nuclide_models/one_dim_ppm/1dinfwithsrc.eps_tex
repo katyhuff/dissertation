@@ -1,0 +1,54 @@
+%% Creator: Inkscape inkscape 0.48.1, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file '1dinfwithsrc.eps' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+
+\begingroup
+  \makeatletter
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}
+    \renewcommand\color[2][]{}%
+  }
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}
+    \renewcommand\transparent[1]{}%
+  }
+  \providecommand\rotatebox[2]{#2}
+  \ifx\svgwidth\undefined
+    \setlength{\unitlength}{925.02421021pt}
+  \else
+    \setlength{\unitlength}{\svgwidth}
+  \fi
+  \global\let\svgwidth\undefined
+  \makeatother
+  \begin{picture}(1,0.29175707)%
+    \put(0,0){\includegraphics[width=\unitlength]{./chapters/nuclide_models/one_dim_ppm/1dinfwithsrc.eps}}%
+    \put(0.55349906,0.27996059){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{3cm}$\frac{\partial C}{\partial x}\big|_\infty=0$}}}%
+    \put(0.39560442,0.10349328){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$C(x,0) =\begin{cases} C_1 & 0<x<x_1\\ C_2 & x_1 \le x\end{cases}$}}}%
+    \put(0.09553726,0.27992067){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{-3cm}$-D\frac{\partial C}{\partial x}\big|_{x=0} + vC = \begin{cases}vC_0 & t<t_0\\ 0 & t>t_0 \end{cases}$ }}}%
+    \put(0.55349906,0.00321105){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{4.2cm}$\infty$}}}%
+    \put(0,0.00321105){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{-1cm}$x=0$}}}%
+    \put(0.17401181,0.00414265){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\large{$\Big|_{x_1}$}}}}%
+  \end{picture}%
+\endgroup
