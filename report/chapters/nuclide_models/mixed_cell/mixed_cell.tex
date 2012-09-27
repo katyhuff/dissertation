@@ -116,6 +116,9 @@ the pore fluid by sorption.  So too, contaminant mass released from the intact
 matrix by degradation is distributed between dissolved mass in the free fluid 
 and sorbed mass in the precipitated solids.
 
+
+\subsection{Boundary Conditions}
+
 To solve for the boundary condiitons in this model, the amount of dissolved mass 
 in the free fluid must be found. This value, $m_{ffl}$, can be expressed in terms of the 
 total degraded contaminant mass and the contaminant mass in the precipitated 
@@ -193,14 +196,20 @@ C(x,y,z,t) = \frac{m_{ffl}(t)}{V_{ff}(t)}\forall (x,y,x) \in \Gamma.
 \label{dirichlet_mixed}
 \end{align}
 
-Again, no concentration gradient can be specified across the boundary, so the 
-Neumann condition is 
+Again, the concentration gradient can be specified across the boundary only with 
+reference to the concentration at a point external to the component. 
+If the concentration $C_{ext}$ is specified at a location $r_{ext}$, the Neumann 
+condition is a function of those concentrations, $C(x,y,z,t)$, and a 
+corresponding location inside the component. If we choose radius furthest from 
+either wall of the inner component, $r_c$, 
+
 \begin{align}
-\frac{\partial C}{\partial r} &= 0
+\frac{\partial C}{\partial r} &= \frac{C_{ext} - C(x,y,z,t)}{r_{ext} - r_{c})
 \label{neumann_mixed}
 \intertext{such that}
-\theta_i\vec{v_i}(t) C(x,y,z,t) &= \theta_i\vec{v_i}(t) C(x,y,,z,t)
+\theta_i\vec{v_i}(t) C(x,y,z,t) \frac{C_{ext} - C(x,y,z,t)}{r_{ext} - r_{c}) &= \theta_i\vec{v_i}(t) C(x,y,z,t)
 \end{align}
+
 
 
 
