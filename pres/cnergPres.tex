@@ -1,0 +1,103 @@
+%        File: prelimPres.tex
+%     Created: Thu Aug 25 11:00 AM 2011 C
+% Last Change: Thu Aug 25 11:00 AM 2011 C
+%
+%\documentclass[11pt,handout]{beamer}
+\documentclass[9pt]{beamer}
+\usetheme[white]{Wisconsin}
+%\title[short title]{long title}
+\title[Integrated Repository Model]{An Integrated Used Fuel Disposition and Generic Repository Model}
+%\subtitle[short subtitle]{long subtitle}
+\subtitle[CNERG Update]{Update to CNERG Orientation 2012}
+%\author[short name]{long name}
+\author[K. Huff]{Kathryn D. Huff}
+%\date[short date]{long date}
+\date[8.30.2012]{August 30, 2012}
+%\institution[short name]{long name}
+\institute[UW-Madison]{University of Wisconsin-Madison}
+% Page numbers.
+\setbeamertemplate{footline}[page number]
+% Those icons  in the references are terrible looking.
+\setbeamertemplate{bibliography item}[text]
+% need some error functions? Me too.
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\erfc}{erfc}
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% From uw-beamer Here's a handy bit of code to place at 
+%% the beginning of your presentation (after \begin{document}):
+\newcommand*{\alphabet}{ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz}
+\newlength{\highlightheight}
+\newlength{\highlightdepth}
+\newlength{\highlightmargin}
+\setlength{\highlightmargin}{2pt}
+\settoheight{\highlightheight}{\alphabet}
+\settodepth{\highlightdepth}{\alphabet}
+\addtolength{\highlightheight}{\highlightmargin}
+\addtolength{\highlightdepth}{\highlightmargin}
+\addtolength{\highlightheight}{\highlightdepth}
+\newcommand*{\Highlight}{\rlap{\textcolor{HighlightBackground}{\rule[-\highlightdepth]{\linewidth}{\highlightheight}}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%||||||||||||||||||||||||||
+\AtBeginSection[]
+{
+   \begin{frame}
+       \frametitle{Outline}
+       \tableofcontents[currentsection]
+   \end{frame}
+}
+
+%||||---------------
+\frame{
+\titlepage
+}
+%---------------||||
+
+
+%||||---------------
+\frame{
+\frametitle{Outline}
+\tableofcontents[]
+}
+%---------------||||
+\section{Introduction}
+\subsection{Motivation}
+\include{motivation}
+\subsection{Repository Capabilities within Systems Analysis Tools}
+\include{systemstools}
+\subsection{Conceptual Discussion of Disposal Environments}
+\include{conceptual}
+\section{Current Work}
+\subsection{Demonstration Case}
+\include{demonstration}
+\subsection{Base Case}
+\include{base}
+\subsection{Sensitivity Studies}
+\include{sensitivity}
+\subsection{Summary}
+\include{summary}
+
+
+%||||---------------
+\begin{frame}[allowframebreaks]
+  \frametitle{References}
+  \bibliographystyle{plain}
+  {\footnotesize \bibliography{prelim}}
+\end{frame}
+%---------------||||
+
+
+
+
+\end{document}
+
+%\begin{frame}[ctb!]
+%  \frametitle{Openness}
+%  Openness ensures transparency and lowers institutional technical 
+%  obstacles to collaboration.
+%\end{frame}
+
+
