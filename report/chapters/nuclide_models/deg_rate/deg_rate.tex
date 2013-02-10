@@ -1,16 +1,16 @@
-\section{Degradation Rate Radionuclide Transport Model}\label{sec:deg_rate}
+\subsection*{Degradation Rate Radionuclide Transport Model}\label{sec:deg_rate}
+The degradation rate model, simulating the fractional degradation of the 
+material containment properties, is the simplest of implemented models and is most 
+appropriate for simplistic waste package failure modeling. 
 
-The materials that constitute the engineered and natural barriers in a saturated 
-repository environment degrade over time. One abstract model of the nuclide 
-release behavior can be based solely on a fractional degradation rate. This 
-model incorporates and source term made available on the inner boundary into its 
+The materials that constitute the engineered barriers in a saturated 
+repository environment degrade over time. The implemented model of this nuclide 
+release behavior is based solely on a fractional degradation rate. This 
+model incorporates the source term made available on the inner boundary into its 
 available mass and defines the resulting boundary conditions at the outer boundary 
 as solely a function of the degradation rate of that component.
 
-For the case in which all engineered barrier components are represented by 
-degradation rate models, the source term at the outermost edge will be solely
-a function of the original central source and the degradation rates of the 
-components. This results in the following expression for the mass transfer, 
+This results in the following expression for the mass transfer, 
 $m_{ij}(t)$, from cell $i$ to cell $j$ at time $t$ :
 
 \begin{align}
@@ -18,20 +18,18 @@ $m_{ij}(t)$, from cell $i$ to cell $j$ at time $t$ :
 \label{deg_rate_source_cont}
 \intertext{where}
 \dot{m}_{ij} &= \mbox{ the rate of mass transfer from i to j }[kg/s]\nonumber\\
-f_i &= \mbox{ fractional degradation rate }[1/s] \nonumber\\
+f_i &= \mbox{ fractional degradation rate in cell i }[1/s] \nonumber\\
 m_i &= \mbox{ mass in cell i }[kg] \nonumber\\
-t &= \mbox{ time  }[s] \nonumber
+t &= \mbox{ time  }[s].\nonumber
 \end{align}
 
-For a situation as in \Cyclus, with discrete timesteps, we can assume the 
-timesteps are small enough to assume a constant rate $m_{ij}$ over the course of 
-the timestep. Equation \eqref{deg_rate_source_cont} is integrated over the timestep to give 
-the mass transferred per timestep
+For a situation as in Cyder and Cyclus, with discrete timesteps, the timesteps are 
+assumed to be small enough to assume a constant rate $m_{ij}$ over the course of 
+the timestep. The mass transferred between discrete times $t_{n-1}$ and $t_n$ is 
+thus a simple linear function of the transfer rate in \eqref{deg_rate_source_cont}, 
 
 \begin{align}
-m_{ij}^n &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber
-\intertext{assuming a constant transfer rate}
-         &= \int_{t_{n-1}}^{t_n} f_i(\cdots)m_i^{n-1}dt'\nonumber\\
+m_{ij}^n &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber\\
          &= f_i(\cdots)m_i^{n-1}\left(t_n - t_{n-1}\right).
 \label{deg_rate_source_discrete}
 \end{align}
@@ -39,8 +37,8 @@ m_{ij}^n &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber
 The concentration boundary condition must also be defined at the outer boundary 
 to support parent components that utilize the Dirichlet boundary condition. For 
 the degradation model, which incorporates no diffusion or advection, the 
-concentration at the boundary is the average concentration in the saturated pore 
-volume,
+concentration, $C_{ij}$ at the boundary between cells $i$ and $j$ is the average 
+concentration in the saturated pore volume,
 
 \begin{align}
 C_{ij}^n &= \frac{m_i^n}{V_{vi}}
@@ -48,21 +46,25 @@ C_{ij}^n &= \frac{m_i^n}{V_{vi}}
 &= \frac{\mbox{ solute mass in cell i }}{\mbox{ void volume in cell i}}.\nonumber 
 \end{align}
 
+For the case in which all engineered barrier components are represented by 
+degradation rate models, the source term at the outermost edge will be solely
+a function of the original central source and the degradation rates of the 
+components. 
 
 To support parent components that utilize the Cauchy boundary condition, the 
 degradation model assumes that the fluid velocity is constant across the cell 
 as is the concentration. Thus, 
 
 \begin{align}
--\theta D_{ij}\frac{\partial C}{\partial x_j}\hat{i} - \theta_i\vec{v_i}C &= \theta_i^n \vec{v_0} C_0\nonumber\\
-\theta &= \mbox{ porosity in cell i }[-] \nonumber\\
-D_{ij} &= \mbox{ diffusion tensor component }[m^2/s] \nonumber\\
-C &= \mbox{ concentration }[kg/m^3] \nonumber\\
-v_i &= \mbox{ velocity in i direction }[m/s] \nonumber
+-\theta_i D_{zz}\frac{\partial C}{\partial z}\hat{k} + \theta_iv_zC\hat{k} &= \theta_{i0} v_0 C_0\hat{k}\nonumber\\
+\theta_i &= \mbox{ porosity in cell i }[-] \nonumber\\
+D_{zz} &= \mbox{ $\hat{k}$ component diffusion tensor component in $\hat{k}$ direction }[m^2/s] \nonumber\\
+C_i &= \mbox{ concentration in cell i }[kg/m^3] \nonumber\\
+v_z &= \mbox{ velocity in $\hat{k}$ direction }[m/s] \nonumber
 \end{align}
 reduces to
 \begin{align}
-\theta_i\vec{v_i}C &= \theta_i^n \vec{v_i^n} C_i^n.
+\theta_i^n v_z^n C_i^n &= \theta_i^{n-1} v_z^{n-1} C_i^{n-1}.
 \label{deg_rate_cauchy}
 \end{align}
 
