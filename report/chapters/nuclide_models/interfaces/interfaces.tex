@@ -1,0 +1,89 @@
+The interfaces between the models are essential to the understanding of the 
+models themselves. The interfaces define boundary conditions in a number of 
+forms based on information available internally to the component implementation. 
+
+In a saturated, reducing environment, contaminants are transported by 
+dispersion and advection. It is customary to define the combination 
+of molecular diffusion and mechanical
+mixing as the dispersion tensor, $D$, such that the mass conservation equation 
+becomes \cite{schwartz_fundamentals_2003, wang_introduction_1982, van_genuchten_analytical_1982}:
+
+    \begin{align}
+      J &= J_{dis} + J_{adv}\nonumber\\
+      &= -\theta(D_{mdis} + \tau D_m)\nabla C + \theta vC\nonumber\\ 
+      &= -\theta D\nabla C + \theta vC \nonumber\\ 
+      \intertext{which, for uniform flow in $\hat{k}$, is}
+      &=\left(-\theta D_{xx} \frac{\partial C}{\partial x}
+             \right)\hat{\imath}
+             + \left( -\theta D_{yy} \frac{\partial C}{\partial y}
+            \right)\hat{\jmath}
+            + \left( -\theta D_{zz} \frac{\partial C}{\partial z}
+             + \theta v_zC 
+            \right)\hat{k},
+      \label{unidirflow}
+      \intertext{where}
+      J_{dis} &= \mbox{ Total Dispersive Mass Flux }[kg/m^2/s]\nonumber\\
+      J_{adv} &= \mbox{ Advective Mass Flux }[kg/m^2/s]\nonumber\\
+      \tau &= \mbox{ Toruosity }[-] \nonumber\\
+      \theta &= \mbox{ Porosity }[\%] \nonumber\\
+      D_m &= \mbox{ Molecular diffusion coefficient }[m^2/s]\nonumber\\
+      D_{mdis} &= \mbox{ Coefficient of mechanical dispersivity}[m^2/s]\nonumber\\
+      D &= \mbox{ Effective Dispersion Coefficient }[m^2/s]\nonumber\\
+      C &= \mbox{ Concentration }[kg/m^3]\nonumber\\
+      v &= \mbox{ Fluid Velocity in the medium }[m/s].\nonumber
+    \end{align}
+
+Solutions to this equation can be categorized by their boundary conditions and 
+those boundary conditions serve as the interfaces between components in the 
+Cyder library of nuclide transport models.
+
+  \begin{figure}[htp!]
+    \begin{center}
+      \def\svgwidth{\textwidth}
+      \input{./interfaces/flow.eps_tex}
+    \end{center}
+    \caption{The boundaries between components (in this case, waste form (wf) and 
+      waste package (wp) components) are robust interfaces defined by 
+    Source Term, Dirichlet, Neumann, and Cauchy boundary conditions.}
+    \label{fig:flow}
+  \end{figure}
+
+In addition to a specified source term (the zeroth type boundary condition, 
+perhaps), the first, specified-head or Dirichlet type boundary conditions define a specified species 
+concentration on some section of the boundary of the representative volume, 
+
+    \begin{align}
+      C(\vec{r},t) = C_0(\vec{r},t)\hspace{1mm}\mbox{ for } \vec{r} \in 
+      \Gamma.
+    \end{align}
+
+The second type, specified-flow or Neumann type boundary conditions describe a full set of 
+concentration gradients at the boundary of the domain,
+
+    \begin{align}
+      \frac{\partial C(\vec{r},t)}{\partial r} &= \theta D\vec{J}(t) \hspace{1mm}\mbox{ for } 
+      \vec{r} \in \Gamma
+      \intertext{where}
+      \vec{r} &= \mbox{ position vector }\nonumber\\
+      \Gamma &= \mbox{ domain boundary }\nonumber\\
+      \vec{J}(t) &= \mbox{ solute mass flux } [kg/m^2\cdot s].\nonumber
+    \end{align}
+    
+
+The third, head-dependent mixed boundary condition or Cauchy type, defines a solute 
+flux along a boundary,
+
+    \begin{align}
+      -D\frac{\partial C}{\partial z} + v_zC &= v_zC(\vec{r},t) 
+      \hspace{1mm}\mbox{ for }\vec{r} \in \Gamma.
+    \end{align}  
+
+The spatial concentration throughout the volume is sufficient to fully describe 
+implementation of the following nuclide transport models within Cyder. This is 
+supported by the implementation in which vertical advective velocity is uniform 
+throughout the system and in which parameters such as the dispersion coefficient 
+are known for each component. Since this is the case in Cyder, description of 
+the Dirichlet condition is sufficient to fully define calculation of the Neumann 
+and Cauchy type conditions.
+
+
