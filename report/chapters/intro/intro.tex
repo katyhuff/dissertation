@@ -13,6 +13,13 @@ various geologic media and as a function of arbitrary spent fuel composition.
 
 \section{Motivation} 
 
+Thermal and radionuclide containment behavior of a geologic repository is a 
+function of spent fuel and high level waste composition, which varies among 
+alternative fuel cycles. For this reason, a generic disposal model capable of 
+integration with a systems analysis framework is necessary to illuminate 
+performance distinctions of candidate repository geologies, designs, and 
+engineering components in the context of fuel cycle options. 
+
 % There needs to be a system level approach to repository analysis that is both 
 % modular and efficient.
 
@@ -56,18 +63,8 @@ which used fuel disposal system models were developed in this work.
 % back end.
 
 Independent fuel cycle parameters of particular interest in fuel cycle systems 
-analysis have historically been those related to the front end of the fuel cycle. Deployment 
-decisions concerning reactor types, fast to thermal reactor ratios, and burnup 
-rates can all be independently varied in fuel cycle simulation codes in such a 
-way as to inform domestic policy decisions going forward. Some of these 
-parameters are coupled, however, to aspects of the back end of the fuel cycle.  
-For example, the appropriate fast reactor ratio is significantly altered by the 
-chosen method and magnitude of domestic spent fuel reprocessing or lack 
-thereof.
-
-% Back end parameters are interesting.
-
-Furthermore, independent variables representing decisions concerning the back end
+analysis have historically been those related to the front end of the fuel cycle.
+However, independent variables representing decisions concerning the back end
 of the fuel cycle are of increasing interest as the United States further
 investigates repository alternatives to Yucca Mountain.  Parameters such as the
 repository geology, engineered barriers, appropriate loading strategies and
@@ -77,11 +74,10 @@ parameters are coupled with decisions about the fuel cycle.
 
 % So we need a full systems analysis package, incorporating a repository. 
 
-Thus, while independent parameters can be chosen and varied
-within a fuel cycle simulation, some parameters are coupled in such a way as to
-require full synthesis with a systems analysis code that appropriately
-determines the isotopic mass flows into the repository, their appropriate
-conditioning, densities, and other physical properties.  
+Thus, while independent parameters can be chosen and varied within a fuel cycle 
+simulation, coupled parameters require full synthesis with a systems analysis 
+code that appropriately determines the isotopic mass flows into the repository, 
+their appropriate conditioning, densities, and other physical properties.  
 
 \subsection{Future Fuel Cycle Options}
 
@@ -403,7 +399,6 @@ concepts under consideration by the \gls{DOE} \gls{UFD} campaign have been
 chosen for modeling in this work. These have been implemented to interface
 with \Cyclus simulations of a canonical set of potential fuel cycles within 
 three broad candidate scenarios put forth by the \gls{US} \gls{DOE}.
-
 
 % Review of available analytical models
 
