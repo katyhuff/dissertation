@@ -1,1 +1,75 @@
-\section{Lumped Parameter Radionuclide Model}\label{sec:lumped}
+\subsection{Lumped Parameter Radionuclide Transport Model}\label{sec:lumped}
+
+The response function model implemented interchangeable piston flow, 
+exponential, and dispersion response functions \cite{maloszewski_lumped_1996}.
+For systems in which the flow is sufficiently slow to be assumed constant over a 
+timestep, it is possible to model a 
+system of volumes as a connected lumped parameter models (Figure 
+\ref{fig:lumpedseries}).
+
+
+\begin{figure}[htbp!]
+  \begin{center}
+    \def\svgwidth{.8\textwidth}
+    \input{lumped/lumpedseries.eps_tex}
+  \end{center}
+  \caption{A system of volumes can be modeled as lumped parameter models in 
+  series.}
+  \label{fig:lumpedseries}
+\end{figure}
+
+The method by which each lumped parameter component is modeled is according to a 
+relationship between the incoming concentration, $C_{in}(t)$, and the outgoing 
+concentration, $C_{out}(t)$, \begin{align}
+  C_{out}(t) &= \int_{-\infty}^t C_{in}(t')g(t-t')e^{-\lambda(t-t')}dt'
+  \label{lumped1}
+  \intertext{equivalently}
+  C_{out}(t) &= \int_0^\infty C_{in}(t-t')g(t')e^{-\lambda t'}dt'
+  \label{lumped2}
+  \intertext{where}
+  t'  &= \mbox{ time of entry }[s]\nonumber\\
+  t-t'  &= \mbox{ transit time }[s]\nonumber\\
+  g(t-t')  &= \mbox{ response function, a.k.a. transit time 
+  distribution}[-]\nonumber]\\
+  \lambda &= \mbox{ radioactive decay constant, 1 to neglect}[s^{-1}].\nonumber
+\end{align}
+
+Selection of the response function is usually based on experimental tracer 
+results in the medium at hand. However, some functions used commonly in chemical 
+engineering applications \cite{maloszewski_lumped_1996} include the Piston Flow Model (PFM), 
+\begin{align}
+  g(t') &= \delta{(t'-t_t))}
+  \intertext{ the Exponential Model (EM) }
+  g(t') &= \frac{1}{t_t}e^{-\frac{t'}{t_t}}
+  \intertext{ and the Dispersion Model (DM), }
+  g(t') &= \left( \frac{\emph{Pe }t_t}{4\pi t'} \right)^{\frac{1}{2}}
+  \frac{1}{t'}e^{- \frac{\emph{Pe }t_t\left( 1- \frac{t'}{t_t}  \right)^2} 
+  {4t'}}, \intertext{where}
+  \emph{Pe}  &= \mbox{ Peclet number for mass diffusion }[-]\nonumber\\
+  t_t  &= \mbox{ mean tracer age }[s]\nonumber\\
+    &= t_w \mbox{ if there are no stagnant areas }\nonumber\\
+  t_w  &= \mbox{ mean residence time of water }[s]\nonumber\\
+       &= \frac{V_m}{Q}\nonumber\\
+       &= \frac{z}{v_z}\nonumber\\
+       &= \frac{z\theta_e}{q}\nonumber
+  \intertext{in which}
+  V_m  &= \mbox{ mobile water volume }[m^3]\nonumber\\
+  Q    &= \mbox{ volumetric flow rate }[m^3/s]\nonumber\\
+  z    &= \mbox{ average travel distance in flow direction }[m]\nonumber\\
+  v_z  &= \mbox{ mean water velocity}[m/s]\nonumber\\
+  q    &= \mbox{ Darcy Flux }[m/s]\nonumber\\
+  \theta_e &= \mbox{ effective (connected) porosity }[\%].\nonumber
+\end{align}
+The latter of these, the Dispersion Model satisfies the one dimensional 
+advection-dispersion equation, and is therefore the most physically relevant for 
+this application. The solutions to these for constant concentration at the 
+source boundary are given in \cite{maloszewski_lumped_1996}, 
+\begin{align}
+  C(t) &=\begin{cases}
+    PFM & C_0e^{-\lambda t_t}\\
+    EM  & \frac{C_0}{1+\lambda t_t}\\
+    DM & C_0e^{\frac{\emph{Pe}}{2}\left(1-\sqrt{1+\frac{4\lambda 
+    t_t}{\emph{Pe}}}\right)}.
+  \end{cases}
+  \label{lumpedsolns}
+\end{align}
