@@ -4,10 +4,10 @@
 
 The scope of this work includes implementation of a software library of medium 
 fidelity models to comprehensively represent various long-term disposal system 
-concepts for nuclear material. This software library will be integrated with a 
+concepts for nuclear material. This software library is integrated with a 
 computational fuel cycle systems analysis platform in order to inform repository 
 performance metrics with respect to candidate fuel cycle options. By abstraction 
-of more detailed models, this work will capture the dominant physics of 
+of more detailed models, this work captures the dominant physics of 
 radionuclide and heat transport phenomena affecting repository performance in 
 various geologic media and as a function of arbitrary spent fuel composition. 
 
@@ -24,7 +24,7 @@ Since disposal options are influenced by upstream fuel cycle decisions, a
 relevant analysis of potential geological disposal and engineered barrier 
 solutions requires a system level approach that is both modular and efficient. 
 
-% The approach must also be modular to support combinatiorically complex 
+% The approach must also be modular to support combinatorially complex 
 % decision space 
 
 As the merits of numerous combinatoric fuel cycle possibilities are 
@@ -49,7 +49,7 @@ successfully captures significant aspects of the underlying physics while
 achieving a calculation speed in accordance with use cases requiring repeated 
 simulations. Often termed abstraction, the process of simplifying while 
 maintaining the salient features of the underlying physics is the method by 
-which used fuel disposal system models will be developed in this work. 
+which used fuel disposal system models were developed in this work. 
 
 % The fuel cycle parameters that may be varied are numerous and coupled to the 
 % back end.
@@ -61,7 +61,8 @@ rates can all be independently varied in fuel cycle simulation codes in such a
 way as to inform domestic policy decisions going forward. Some of these 
 parameters are coupled, however, to aspects of the back end of the fuel cycle.  
 For example, the appropriate fast reactor ratio is significantly altered by the 
-chosen method and magnitude of domestic spent fuel reprocessing (or not).
+chosen method and magnitude of domestic spent fuel reprocessing or lack 
+thereof.
 
 % Back end parameters are interesting.
 
@@ -69,7 +70,8 @@ However, independent variables representing decisions concerning the back end
 of the fuel cycle are of increasing interest as the United States further
 investigates repository alternatives to Yucca Mountain.  Parameters such as the
 repository geology, engineered barriers, appropriate loading strategies and
-schedules are all independent variables up for debate. All of these
+schedules are all independent variables up for debate. Due to the feedback 
+implication of repository capacity and performance, these
 parameters are coupled with decisions about the fuel cycle. 
 
 % So we need a full systems analysis package, incorporating a repository. 
@@ -157,7 +159,7 @@ reprocessed. It may be reprocessed using  an accelerator driven system or by
 cycling through an advanced fast reactor. Such fuel may undergo partitioning, 
 the losses from which will require waste treatment and ultimate disposal in a 
 repository. Thus, a repository under the Full Recycle scenario must support
-a waste stram composition that is highly variable during transition periods as 
+a waste stream composition that is highly variable during transition periods as 
 well as myriad waste forms and packaging associated with isolation of differing 
 waste streams.
 
@@ -182,9 +184,9 @@ physics models must therefore be developed for each of these subcomponents.  Dif
 spent fuel composition, partitioning, transmutation, and chemical processing 
 decisions upstream in the fuel cycle demand differing performance and loading 
 requirements of waste forms and packaging. The capability to model thermal and 
-radionuclide transport phenomena through, for example, vitrified glass as well 
-as ceramic waste forms with with various loadings for arbitrary isotopic 
-compositions is therefore required. This work will produce a repository model 
+radionuclide transport phenomena through vitrified glass as well 
+as ceramic waste forms with with various loadings of arbitrary isotopic 
+compositions is therefore required. This work has produced a repository model 
 that meets this need. 
 
 \subsection{Future Waste Disposal System Options}
@@ -205,7 +207,7 @@ glass (e.g.  borosilicate glasses), and metallic (e.g.  hydride fuels) waste
 forms. Waste packages may be copper, steel, or other alloys. Similarly, buffer 
 and backfill materials vary from the crushed salt recommended for a salt 
 repository to bentonite or concrete in other geologies. Therefore, a repository  
-model capable of modular substitution of waste form models and data will be 
+model capable of modular substitution of waste form models and data is
 necessary to analyze the full option space.
 
 % Various geologies, WFs, WPs, EBSs have various physics
@@ -216,7 +218,7 @@ containment systems in the domestic disposal system option space.  Therefore,
 in support of the system level simulation effort, models must be developed that 
 capture the salient physics of these geological options and quantify associated 
 disposal metrics and benefits.  Furthermore, in the same way that system level 
-modularity facilitates analysis, so too will modular linkage between subcomponent 
+modularity facilitates analysis, so too does modular linkage between subcomponent 
 process modules. These subcomponent models and the repository environmental model 
 must achieve a cohesively integrated disposal system model such as is proposed by 
 this work. 
@@ -254,7 +256,7 @@ barrier system and host geology.
 Thermal limits of various waste forms have their technical basis in the 
 temperature dependence of isolation integrity of the waste form. Waste form 
 alteration, degradation, and dissolution behavior is a function of heat in 
-addtition to redox conditions and constrains loading
+addition to redox conditions and constrains loading
 density within the waste form. 
  
 Thermal limits of various engineered barrier systems similarly have a technical 
@@ -274,8 +276,7 @@ against radionuclide  release for the first 10,000 years of the repository.
 The two heat load constraints that primarily determined the heat-based \gls{SNF} 
 capacity limit in the Yucca Mountain Repository design, for example, are 
 specific to unsaturated tuff. These are given here as an example of the type of 
-regulatory constraints that this model will seek to capture for various 
-geologies. 
+regulatory constraints that this model captures for various geologies. 
 
 The first Yucca Mountain heat load constraint is intended to promote constant 
 drainage, thereby preventing episodic flow into waste package tunnels and
@@ -292,9 +293,9 @@ of the rock reach a temperature above $200^{\circ}C$, and was effectively a
 limit on the temperature at the drift wall, where the rock temperature is a 
 maximum.  
 
-Analogous constraints for a broader set of possible geological environments will 
+Analogous constraints for a broader set of possible geological environments 
 depend on heat transport properties and geochemical behaviors of the rock matrix 
-as well as its hydrologic state.  Such constraints will affect the  
+as well as its hydrologic state.  Such constraints affect the  
 repository drift spacing, waste package spacing, and repository footprint among 
 other parameters. 
 
@@ -318,7 +319,7 @@ waste form corrosion processes, waste form
 dissolution rates, diffusion coefficients, and the mechanical integrity of 
 engineered barriers and geologic environment are coupled with temperature 
 behavior. 
-Only a coarse time resolution will likely be necessary to capture that coupling 
+Only a coarse time resolution is necessary to capture that coupling 
 however, since time evolution of repository heat is
 such that thermal coupling can typically be treated as quasi static for long 
 time scales.
@@ -364,7 +365,6 @@ predictions concerning waste form degradation, water flow, and other parameters
 during the long repository evolution time scale.  However, source term remains a 
 pertinent metric for the comparison of alternative separations and fuel cycle
 scenarios as it is a fundamental factor in the calculation of risk.
-
 %The probabilistic nature of these assessments mean a direct dependence of 
 %source term on repository capacity can be difficult to arrive at.  
 
@@ -395,26 +395,24 @@ regarding the performance of waste forms and geologic disposal systems.  The
 \gls{FCO} campaign is developing the overall fuel cycle simulation tools and 
 interfaces with the other FCT campaigns, including \gls{UFD}.  
 
-This effort will interface with those campaigns to develop the higher level
+This effort has interfaced with those campaigns to develop the higher level
 dominant physics representations for use in fuel cycle system analysis tools.
-Specifically, this work will leverage conceptual framework development and
+Specifically, this work has leveraged conceptual framework development and
 primary data collection underway within the Used Fuel Disposition Campaign as
 well as work by Radel, Wilson, Bauer et. al. to model repository behavior as a
-function of the contents of the waste \cite{radel_effect_2007}.  It will then 
-incorporate dominant physics process models into the \Cyclus computational 
-fuel cycle analysis tool \cite{huff_cyclus:_2010}.
-
-
-
+function of the contents of the waste \cite{radel_effect_2007}.  It then 
+incorporated dominant physics process models into the \Cyclus computational 
+fuel cycle analysis tool \cite{huff_cyclus:_2010} based on sensitivity analysis 
+utilizing those detailed tools.
 
 \section{Methodology} 
 
 % Scope
 
 In this work, concise dominant physics models suitable for system level fuel 
-cycle codes will be developed by comparison of analytical models with more 
-detailed repository modeling efforts. The ultimate objective of this effort is 
-to develop a software library capable of assessing a wide range of combinations 
+cycle codes were developed by comparison of analytical models with more 
+detailed repository modeling efforts. The ultimate result of this work is a 
+software library capable of assessing a wide range of combinations 
 of fuel cycle alternatives, potential waste forms, repository design concepts, 
 and geological media. 
 
@@ -427,7 +425,7 @@ environments has
 been chosen that fundamentally captures the domestic option space. 
 Specifically, three candidate geologies and four corresponding repository 
 concepts under consideration by the \gls{DOE} \gls{UFD} campaign have been 
-chosen for modeling in this work. These will be expected to interface
+chosen for modeling in this work. These have been implemented to interface
 with \Cyclus simulations of a canonical set of potential fuel cycles within 
 three broad candidate scenarios put forth by the \gls{US} \gls{DOE}.
 
@@ -446,40 +444,39 @@ repository focused analysis was next conducted. Both international and domestic
 repository modeling efforts were summarized within the literature review. Of 
 these, candidate computational tools with which to perform abstraction and 
 regression analyses were identified. Specifically, a suite of \gls{GDSM} tools 
-under development by the \gls{DOE} \gls{UFD} campaign will inform  radionuclide 
-transport models and a pair of corresponding thermal analysis codes will inform 
-the thermal models.
+under development by the \gls{DOE} \gls{UFD} campaign has informed radionuclide 
+transport models and a pair of corresponding thermal analysis codes has 
+informed the thermal models.
  
 % For each component, abstraction of current tools and analytical models
 
-Continuation of this work will consist of the development of a suite of 
-subcomponent modules appropriate for use within the \Cyclus fuel cycle 
-simulator.  This process will include the development of a robust architecture 
-within the repository module that will allow for interchangeable loading of 
-system components.  Within the system components, dominant physics will be 
+This suite of subcomponent modules, appropriate for use within the \Cyclus fuel 
+cycle simulator, has included the development of a robust architecture 
+within the repository module that allows for interchangeable loading of 
+system components.  Within the system components, dominant physics is 
 modeled based on domain appropriate approximation of analytical models and 
 supported by abstraction with the chosen \gls{GDSM} tools and thermal tools. 
 
 % Abstraction = Analytic Solutions + Regression Approximation
 
 In general, such concise models are a combination of two components: 
-semi-analytic mathematical models that represent a simplified description of the 
-most important physical phenomena, and semi-empirical models that reproduce the 
-results of detailed models.  By combining the complexity of the analytic models 
-and regression against numerical experiments, variations can be limited between 
-two models for the same system.  Different approaches will be compared in this 
-work, with final modeling choices balancing the accuracy and efficiency of the 
-possible implementations.  
+semi-analytic mathematical models that represent a simplified description of 
+the most important physical phenomena, and semi-empirical models that reproduce 
+the results of detailed models.  By combining the complexity of the analytic 
+models and regression against numerical experiments, variations can be limited 
+between two models for the same system.  Different approaches have been been 
+compared in this work, with final modeling choices balancing the accuracy and 
+efficiency of the possible implementations.  
 
 % For example, Geology.
 
-Specifically, geological models will focus on the hydrology and thermal 
+Specifically, these models focus on the hydrology and thermal 
 physics that dominate radionuclide transport and heat response in candidate 
 geologies as a function of radionuclide release and heat generation over long 
 time scales. Dominant transport mechanism (advection or 
-diffusion) and disposal site water chemistry (redox state) will provide primary 
+diffusion) and disposal site water chemistry (redox state) provide primary 
 differentiation between the different geologic media under consideration. In 
-addition, the concise models will be capable of roughly adjusting release 
+addition, the concise models are capable of roughly adjusting release 
 pathways according to the characteristics of the natural system (both the host 
 geologic setting and the site in general) and the engineered system (such as package 
 loading arrangements, tunnel spacing, and engineered barriers).
@@ -487,7 +484,7 @@ loading arrangements, tunnel spacing, and engineered barriers).
 % Abstraction in repository environment
 
 The abstraction process in the development of a geological environment model 
-will employ the comparison of semi-analytic thermal and hydrologic models and 
+employs the comparison of semi-analytic thermal and hydrologic models and 
 analytic regression of rich code results from more detailed models as well as 
 existing empirical geologic data. Such results and data will be derived 
 primarily from the \gls{UFD} campaign \glspl{GDSM} and data, as well as European 
@@ -509,26 +506,25 @@ efforts such as the RED-IMPACT assessment and \gls{ANDRA} Dossier efforts
 %
 % Regression.
 
-Thereafter, a regression analysis concerning those parameters will be undertaken 
-with available detailed models (e.g. 2D and 3D finite difference, finite 
-element, and thermal performance assessment codes) to further characterize the 
+Thereafter, a regression analysis concerning those parameters has been undertaken 
+with available detailed models (e.g. 2D and 3D finite element thermal 
+performance assessment codes) to further characterize the 
 parametric dependence of thermal loading in a specific geologic environment.  
 
 % Incorporation of empirical data
 
-Finally, the thermal behavior of a repository model so developed will depend on 
+Finally, the thermal behavior of a repository model so developed depends on 
 empirical data (e.g.  heat transfer coefficients, hydraulic conductivity).  
-Determination of representative values to make available within the dominant 
-physics model will rely on existing empirical data concerning the specific 
+Representative values have been made available within the dominant 
+physics models and rely on existing empirical data concerning the specific 
 geologic environment being modeled (i.e. salt, clay/shale, and granite). 
 
 % Abstraction for WFs, WPs, EBS, etc. will be the same
 
-A similar process will be followed for radionuclide transport models.  The 
+A similar process was followed for radionuclide transport models.  The 
 abstraction process in the development of waste form, package, and engineered 
 barrier system models will be analogous to the abstraction process of repository 
-
-environment models. Concise models will result from employing the comparison of 
+environment models. Concise models have resulted from employing the comparison of 
 semi-analytic models of those systems with regression analysis of rich code in 
 combination with existing empirical material data.
 
@@ -550,25 +546,24 @@ combination with existing empirical material data.
 
 % Coupling is confusing
 
-Coupling effects between components will have to be considered carefully.  In 
+Coupling effects between components were considered carefully.  In 
 particular, given the important role of temperature in the system, thermal 
 coupling between the models for the engineered system and the geologic system 
-may be important. Thermal dependence of radionuclide release and transport as 
-well as package degradation will necessarily be analyzed to determine the 
+were considered. Thermal dependence of radionuclide release and transport as 
+well as package degradation were analyzed to determine the 
 magnitude of coupling effects in the system.
 
 % Iterate
 
-The full abstraction process will be iterated to achieve a balance between 
+The full abstraction process was be iterated to achieve a balance between 
 calculation speed and simulation detail. Model improvements during this stage 
-will seek a
-level of detail appropriate for informative comparison of subcomponents, but 
+sought a level of detail appropriate for informative comparison of subcomponents, but 
 with sufficient speed to enable systems analysis. 
 
 % Test using canonical data for those subcomponents
 
 By varying input parameters and comparing with corresponding results from 
-detailed tools, each model's behavior on its full parameter domain will be 
+detailed tools, each model's behavior on its full parameter domain was 
 validated.
 
 
@@ -576,47 +571,49 @@ validated.
 
 % Summarize document
 
-The following chapter will present a literature review that organizes and 
+A literature review, Chapter \ref{ch:litrev}, presents background material that organizes and 
 reports upon previous relevant work. First it summarizes the state of the art of 
 repository modeling integration within current systems analysis tools. It then 
 describes current domestic and international disposal system concepts and
 geologies.  Next, the literature review focuses upon current analytical and 
 computational modeling of radionuclide and heat transport through various waste 
-forms, engineered barrier systems, and geologies of interest.  It will also 
-address previous efforts in generic geologic environment repository modeling in order to 
+forms, engineered barrier systems, and geologies of interest.  It also 
+addresses previous efforts in generic geologic environment repository modeling in order to 
 categorize and characterize detailed computational models of radionuclide and 
 heat transport available for regression analysis.
 
 % modeling paradigm
 
-Chapter \ref{ch:paradigm} will detail the computational paradigm of the \Cyclus 
-systems analysis platform and repository model which constitute this work. Models
-representing waste form, waste package, buffer, backfill, and engineered barrier 
-systems will be defined by their interfaces and their relationships as 
-interconnected modules, distinctly defined, but coupled. This modular paradigm 
-allows exchange  of technological options (i.e. borosilicate glass and concrete 
-waste forms) for comparison but also exchange of models for the same 
-technological option with varying levels of detail.
+Chapter \ref{ch:paradigm} details the computational paradigm of the \Cyclus 
+systems analysis platform and Cyder repository model which constitute this work. 
+It describes the \Cyclus fuel cycle simulation context which drives fundamental 
+Cyder design descisions. 
 
-% Future work proposal
+% methodology
 
-Chapter \ref{ch:future} will summarize the conclusions reached concerning the 
-appropriate analytical and detailed models to utilize in the process of 
-abstraction for radionuclide and heat transport through various components of 
-the disposal system. It will then detail the analytical and regression analysis 
-necessary to achieve a generic repository model for the chosen 
-base repository type. A concise, dominant physics geological repository model of 
-the base case disposal environment will be developed. Informed by semi-analytic 
-mathematical models representing important physical phenomena, existing detailed 
-computational efforts characterizing these repository environments will be 
-appropriately simplified to create concise computational models. This 
-abstraction will capture fundamental physics of thermal, hydrologic, and 
-radionuclide transport phenomena while remaining sufficiently detailed to 
-illuminate behavioral differences between each of the geologic systems under 
-consideration.  Verification and validation of abstracted models will be 
-conducted through iterative benchmarking against more detailed repository 
-models. Finally, remaining future work and expected contributions to the 
-field will be summarized. 
+Chapter \ref{ch:methodology} describes the radionuclide and heat transport 
+models that were implemented. Models representing waste form, waste package, 
+buffer, backfill, and engineered barrier componeents are defined by their 
+interfaces and their relationships as interconnected modules, distinctly 
+defined, but coupled. This modular paradigm allows exchange  of technological 
+options (i.e. borosilicate glass and concrete waste forms) for comparison but 
+also exchange of models for the same technological option with varying levels 
+of detail.  
+
+% Test Cases and Benchmarks
+
+Chapter \ref{ch:demonstration} describes demonstration cases conducted to 
+demonstrate radionuclide transport and thermal capacity analysis in Cyder. It 
+also describes verification and validation procedures which benchmarked Cyder 
+behavior against more detailed models.
+
+
+Finally, in Chapter \ref{ch:conclusions}, contributions to the field and 
+suggested future work are summarized. 
+
+% Conclusions
+
+Chapter \ref{ch:conclusions} will 
 
 %%%%%%%% %%%%%%%% %%%%%%%% %%%%%%%% %%%%%%%% %%%%%%%% %%%%%%%% %%%%%%%%
 %%%%%%%% %%%%%%%% %%%% These chapters may be saved for the thesis . . .  
