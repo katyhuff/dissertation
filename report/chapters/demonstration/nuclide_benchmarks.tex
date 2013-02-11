@@ -1,4 +1,24 @@
 \section{Nuclide Model Benchmarks}\label{sec:nuclide_benchmarks}
+
+As described in Section \ref{sec:nuclide_models}, hydrologic contaminant 
+transport in Cyder is implemented with four interchangeable  methods in a 
+modular software design. These modeling options alternately optimize speed and 
+fidelity in representations of barrier components within the repository concept 
+(i.e. waste form, waste package, buffer, near field geology, and far field 
+geology)\cite{huff_hydrologic_2013}.  Simplistic models include a congruent 
+release component degradation model and a mixed cell control volume model. For 
+systems in which the flow can be assumed constant, a medium fidelity lumped 
+parameter dispersion model is implemented. Also implemented is a Leij et al. 
+solution to the advection dispersion equation for Cauchy boundary condition 
+\cite{leij_analytical_1991, van_genuchten_analytical_1982}.  
+
+Analyses in Table \ref{tab:nuclide_bench_tab} were conducted to compare the 
+performance of these radionuclide transport models with more detailed results from the 
+Clay \gls{GDSE}. 
+
+\input{./chapters/demonstration/nuclide_bench_tab}
+
+
 \subsection{Case I : Diffusion Coefficient and Inventory Sensitivity}
 \subsection{Case II : Vertical Advective Velocity and Diffusion Coefficient Sensitivity}
 \subsection{Case III : Solubility Sensitivity}
