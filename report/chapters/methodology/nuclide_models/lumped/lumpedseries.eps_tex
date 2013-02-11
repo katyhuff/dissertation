@@ -43,7 +43,7 @@
   \global\let\svgwidth\undefined
   \makeatother
   \begin{picture}(1,0.20936268)%
-    \put(0,0){\includegraphics[width=\unitlength]{./chapters/nuclide_models/lumped/lumpedseries.eps}}%
+    \put(0,0){\includegraphics[width=\unitlength]{./chapters/methodology/nuclide_models/lumped/lumpedseries.eps}}%
     \put(0.01498241,0.1893617){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$C_{in0}$}}}%
     \put(0.1592984,0.19133863){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$C_{out0}=C_{in1}$}}}%
     \put(0.38071469,0.19133863){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$C_{out1}=C_{in2}$}}}%

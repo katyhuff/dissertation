@@ -43,7 +43,7 @@
   \global\let\svgwidth\undefined
   \makeatother
   \begin{picture}(1,0.29175707)%
-    \put(0,0){\includegraphics[width=\unitlength]{./chapters/nuclide_models/one_dim_ppm/1dinfwithsrc.eps}}%
+    \put(0,0){\includegraphics[width=\unitlength]{./chapters/methodology/nuclide_models/one_dim_ppm/1dinfwithsrc.eps}}%
     \put(0.55349906,0.27996059){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{3cm}$\frac{\partial C}{\partial x}\big|_\infty=0$}}}%
     \put(0.39560442,0.10349328){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$C(x,0) =\begin{cases} C_1 & 0<x<x_1\\ C_2 & x_1 \le x\end{cases}$}}}%
     \put(0.09553726,0.27992067){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{-3cm}$-D\frac{\partial C}{\partial x}\big|_{x=0} + vC = \begin{cases}vC_0 & t<t_0\\ 0 & t>t_0 \end{cases}$ }}}%
