@@ -2,10 +2,10 @@
 
 % The scope of the work includes software and analysis.
 
-The scope of this work includes implementation of a software library of medium 
+The scope of this work includes implementation of Cyder, a software library of medium 
 fidelity models to comprehensively represent various long-term disposal system 
-concepts for nuclear material. This software library is integrated with a 
-computational fuel cycle systems analysis platform in order to inform repository 
+concepts for nuclear material. This software library is integrated with the 
+\Cyclus computational fuel cycle systems analysis platform in order to inform repository 
 performance metrics with respect to candidate fuel cycle options. By abstraction 
 of more detailed models, this work captures the dominant physics of 
 radionuclide and heat transport phenomena affecting repository performance in 
@@ -47,7 +47,8 @@ and uncertainty analyses as well as simulation of a wide range of fuel cycle
 alternatives.  Efficiency is achieved with models at a level of detail that 
 successfully captures significant aspects of the underlying physics while 
 achieving a calculation speed in accordance with use cases requiring repeated 
-simulations. Often termed abstraction, the process of simplifying while 
+simulations.
+Often termed abstraction, the process of simplifying while 
 maintaining the salient features of the underlying physics is the method by 
 which used fuel disposal system models were developed in this work. 
 
@@ -55,7 +56,7 @@ which used fuel disposal system models were developed in this work.
 % back end.
 
 Independent fuel cycle parameters of particular interest in fuel cycle systems 
-analysis have been those related to the front end of the fuel cycle. Deployment 
+analysis have historically been those related to the front end of the fuel cycle. Deployment 
 decisions concerning reactor types, fast to thermal reactor ratios, and burnup 
 rates can all be independently varied in fuel cycle simulation codes in such a 
 way as to inform domestic policy decisions going forward. Some of these 
@@ -66,7 +67,7 @@ thereof.
 
 % Back end parameters are interesting.
 
-However, independent variables representing decisions concerning the back end
+Furthermore, independent variables representing decisions concerning the back end
 of the fuel cycle are of increasing interest as the United States further
 investigates repository alternatives to Yucca Mountain.  Parameters such as the
 repository geology, engineered barriers, appropriate loading strategies and
@@ -81,32 +82,6 @@ within a fuel cycle simulation, some parameters are coupled in such a way as to
 require full synthesis with a systems analysis code that appropriately
 determines the isotopic mass flows into the repository, their appropriate
 conditioning, densities, and other physical properties.  
-
-% %   * repository * geology * reducing/oxidizing * salt * granite * clay * deep 
-% boreholes (srsly) * design * tunnel widths?  * tunnel lengths?  * distance 
-% between tunnels?  * depths * distance from water table * loading strategies * 
-% cooling pad timing * interim storage timing (i.e. between fuel cycle stages) * 
-% utilizing short lived ILW facilities * tunnel ventilation * packing 
-% optimization * partitioning/separations * separation efficiency * of MAs * of 
-% Pu * of Iodine * etc.  * separation strategy * isotope decisions * MAs?  * Pu?  
-% * etc.?  * chemistry decisions * aqueous?  * pyro?  * does it matter?  * 
-% transmutation * Advanced Reactors * deployment timing * Pu or MA content of 
-% fuels * types of reactors * high burnup * MOX * various Fast Reactors * 
-% various conversion/breeding ratios * Integral Fast Reactor *  * wave reactor * 
-% candle reactor * Thermal Reactors * initial UO_2 enrichment * maximum burnup * 
-% Pu / MA content of fuels
-
-%         * Thorium ?  * Reactor Type * PWR * BWR * VVER * Accelerator Driven 
-%         Systems * target MA content
-
-%         * burnup efficiency * power share of various installed reactor types * 
-%         conditioning * waste packaging * forms * liquids * glass vitrification 
-%         * cement * bitumen * solids * steel * combined material canisters * 
-%         dual purpose transport and storage canisters * overpack 
-%         characteristics * etc?  * densities * impacted by density-dependent 
-%         release rates * volumes * incineration/compaction (solid waste) * 
-%         evaporation/filtration/ion exchange (liquid waste) * engineered 
-%         barriers * likelihood of human intrusion ?  %
 
 \subsection{Future Fuel Cycle Options}
 
@@ -217,7 +192,7 @@ radionuclide and heat transport vary between the geological and engineered
 containment systems in the domestic disposal system option space.  Therefore, 
 in support of the system level simulation effort, models must be developed that 
 capture the salient physics of these geological options and quantify associated 
-disposal metrics and benefits.  Furthermore, in the same way that system level 
+disposal metrics.  Furthermore, in the same way that system level 
 modularity facilitates analysis, so too does modular linkage between subcomponent 
 process modules. These subcomponent models and the repository environmental model 
 must achieve a cohesively integrated disposal system model such as is proposed by 
@@ -332,7 +307,7 @@ exposure due to the repository. This regulation places important limitations on
 capacity, design, and loading techniques for repository concepts under 
 consideration. Repository concepts developed in this work must therefore 
 quantify radionuclide transport through the geological environment in order to 
-calculate repository capacity and other benefit metrics. 
+calculate repository capacity and other metrics. 
 
 The exposure limit set by the \gls{EPA} is based on a `reasonably maximally 
 exposed individual.' For the \gls{YMR}, the limiting case is a person who lives, 
@@ -459,11 +434,11 @@ supported by abstraction with the chosen \gls{GDSM} tools and thermal tools.
 
 % Abstraction = Analytic Solutions + Regression Approximation
 
-In general, such concise models are a combination of two components: 
+These concise models are a combination of two components: 
 semi-analytic mathematical models that represent a simplified description of 
 the most important physical phenomena, and semi-empirical models that reproduce 
 the results of detailed models.  By combining the complexity of the analytic 
-models and regression against numerical experiments, variations can be limited 
+models and regression against numerical experiments, variations were limited 
 between two models for the same system.  Different approaches have been been 
 compared in this work, with final modeling choices balancing the accuracy and 
 efficiency of the possible implementations.  
