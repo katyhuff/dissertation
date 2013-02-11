@@ -52,8 +52,8 @@ wrapping other simulation tools as loadable modules within the \Cyclus
 framework. This last benefit of dynamically-loadable modules addresses 
 another goal of \Cyclus: ubiquity amongst its potential user base. By
 engineering \Cyclus to easily handle varying levels of complexity, a single
-simulation engine can be used by both users keen on big-picture policy
-questions as well as users interested in more detailed, technical
+simulation engine can be used by both users interested in big-picture policy
+questions as well as users focused on more detailed, technical
 analyses.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -72,7 +72,7 @@ In this way, \Cyclus allows a level of abstraction to exist between
 the simulation and model instantiation as well as between model 
 instantiation and behavior.  An interface defines the set of shared 
 functions of a set of subclasses in an abstract superclass. In \Cyclus
-main superclasses are Regions, Institutions, Facilities, and Markets 
+main superclasses are Regions, Institutions, and Facilities 
 while their subclasses are the concrete available model types (e.g. a 
 RecipeReactorFacility). See Figure \ref{fig:modularity}.
 
