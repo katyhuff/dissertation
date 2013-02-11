@@ -1,123 +1,47 @@
-\section{One Dimensional Permeable Porous Medium Radionuclide Transport 
+\subsubsection*{One Dimensional Permeable Porous Medium Radionuclide Transport 
 Model}\label{sec:one_dim_ppm}
+Finally, abstraction results informed modifications to the implementation of an 
+analytic solution to the one dimensional advection-dispersion equation with 
+finite domain and Cauchy and Neumann boundary conditions at the inner and outer 
+boundaries, respectively. 
 
-Various solutions to the advection dispersion equation in Equation 
+Various solutions to the advection dispersion equation  
 \eqref{unidirflow} have been published for both the first and third types of 
 boundary conditions. The third, Cauchy type, is mass conservative, and will be 
 the primary kind of boundary condition used at the source for this model.
 
+The conceptual model in Figure \ref{fig:1dinf} represents solute transport in 
+one dimension with unidirectional flow upward (a conservative assumption) and a 
+semi-infinite boundary condition in the positive flow direction. The solution is 
+given (Leij et. al, \cite{leij_analytical_1991}) and described below.  
 
-\subsubsection{One Dimensional Semi-Infinite Solution}
-The conceptual model in Figure \ref{fig:1dinf} represents solute transport
-in one dimension with unidirectional flow and a semi-infinite boundary condition 
-in the positive flow direction. 
-
-\vspace{1cm}
-\begin{figure}[htbp!]
+\begin{figure}[h!]
   \begin{center}
     \def\svgwidth{.5\textwidth}
     \input{./chapters/nuclide_models/one_dim_ppm/1dinf.eps_tex}
   \end{center}
-  \caption{Case I, a one dimensional, semi-infinite model.}
+  \caption{A one dimensional, semi-infinite model, unidirectional flow,
+  solution with Cauchy and Neumann boundary conditions}
   \label{fig:1dinf}
 \end{figure}
 
-With the boundary conditions
+For the boundary conditions, 
 \begin{align}
-  -D \frac{\partial C}{\partial x}\big|_{x=0} + v_xc &= \begin{cases}
-    vC_0  &  \left( 0<t<t_0 \right)\\
+  -D \frac{\partial C}{\partial z}\big|_{z=0} + v_zc &= \begin{cases}
+    v_zC_0  &  \left( 0<t<t_0 \right)\\
     0  &  \left( t>t_0 \right)\\
-  \end{cases}\\
-  \frac{\partial C}{\partial x}\big|_{x=\infty} &= 0
-  \intertext{and the initial condition}
-  C(x,0) &= C_i,
+  \end{cases},\\
+  \frac{\partial C}{\partial z}\big|_{z=\infty} &= 0
+  \intertext{and the initial condition,}
+  C(z,0) &= C_i,
   \label{1dinfBC}
   \intertext{the solution is given as }
-  C(x,t) &=\begin{cases}
-    C_i+\left( C_0 - C_i \right)A(x,t) & 0<t<t_0\\
-    C_i+\left( C_0 - C_i \right)A(x,t) - C_0A(x,t-t_0) & t>t_0
-  \end{cases}
-  \intertext{where}
-  A(x,t) &= \frac{1}{2}\erfc{ \left[\frac{Rx-vt}{2\sqrt{DRt}}\right] } + \sqrt{ 
-  \frac{v^2t}{\pi DR} }e^{-\frac{\left( Rx-vt \right)^2}{4DRt}}.
+  C(z,t) = \frac{C_0}{2}\Bigg[&\mbox{erfc}\left[{\frac{L-v_zt}{2\sqrt{D_Lt}}}\right] 
+  + \frac{1}{2} \left(\frac{v_z^2t}{\pi D_L}\right)^{1/2}e^{\frac{-( L - 
+  v_zt)^2}{4D_Lt}}\nonumber\\
+  &- \frac{1}{2}\left( 
+  1+\frac{v_zL}{D_L}+\frac{v_z^2t}{D_L}\right)e^\frac{v_zL}{D_L}\mbox{erfc}\left[\frac{L-V_zt}{2\sqrt{D_Lt}}\right]
+  \Bigg].
 \end{align}
 
 
-\subsubsection{One Dimensional Semi-Infinite Solution with Discrete Source}
-The conceptual model in Figure \ref{fig:1dinf} represents solute transport
-in one dimension with unidirectional flow and a semi-infinite boundary condition 
-in the positive flow direction. 
-
-\vspace{1cm}
-\begin{figure}[htbp!]
-  \begin{center}
-    \def\svgwidth{.5\textwidth}
-    \input{./chapters/nuclide_models/one_dim_ppm/1dinfwithsrc.eps_tex}
-  \end{center}
-  \caption{Case II, a one dimensional, semi-infinite model.}
-  \label{fig:1dinf}
-\end{figure}
-
-With the boundary conditions
-\begin{align}
-  -D \frac{\partial C}{\partial x}\big|_{x=0} + v_xc &= \begin{cases}
-    vC_0  &  \left( 0<t<t_0 \right)\\
-    0  &  \left( t>t_0 \right)\\
-  \end{cases}\\
-  \frac{\partial C}{\partial x}\big|_{x=\infty} &= 0
-  \intertext{and the initial condition}
-  C(x,0) &= C_i,
-  \label{1dinfBC}
-  \intertext{the solution is given as }
-  C(x,t) &=\begin{cases}
-    C_i+\left( C_0 - C_i \right)A(x,t) & 0<t<t_0\\
-    C_i+\left( C_0 - C_i \right)A(x,t) - C_0A(x,t-t_0) & t>t_0
-  \end{cases}
-  \intertext{where}
-  A(x,t) &= \frac{1}{2}\erfc{ \left[\frac{Rx-vt}{2\sqrt{DRt}}\right] } + \sqrt{ 
-  \frac{v^2t}{\pi DR} }e^{-\frac{\left( Rx-vt \right)^2}{4DRt}}.
-\end{align}
-
-\subsubsection{One Dimensional Finite Solution}
-The conceptual model in Figure \ref{fig:1dfin} represents solute transport
-in one dimension with unidirectional flow and a finite boundary condition in the 
-positive flow direction. 
-
-\vspace{1cm}
-\begin{figure}[htbp!]
-  \begin{center}
-    \def\svgwidth{.5\textwidth}
-    \input{./chapters/nuclide_models/one_dim_ppm/1dfin.eps_tex}
-  \end{center}
-  \caption{Case III, a one dimensional, finite model.}
-  \label{fig:1dfin}
-\end{figure}
-
-With the boundary conditions
-\begin{align}
-  -D \frac{\partial C}{\partial x}\big|_{x=0} + v_xc &= \begin{cases}
-    vC_0  &  \left( 0<t<t_0 \right)\\
-    0  &  \left( t>t_0 \right)\\
-  \end{cases}\\
-  \frac{\partial C}{\partial x}\big|_{x=L} &= 0
-  \intertext{and the initial condition}
-  C(x,0) &= C_i,
-  \label{1dinfBC}
-  \intertext{the solution is given as }
-  C(x,t) &=\begin{cases}
-    C_2+\left( C_1 - C_2 \right)A(x,t) + \left( C_0-C_1 \right)B(x,t)& 0<t<t_0\\
-    C_2+\left( C_1 - C_2 \right)A(x,t) + \left( C_0-C_1 \right)B(x,t) - 
-    C_0B(x,t-t_0) & 0<t<t_0\\
-  \end{cases}
-  \intertext{where}
-  A(x,t) &= \frac{1}{2}\erfc{\left[ \frac{R(x-x_1)-vt}{2\sqrt{DRt}} \right] } + 
-  \sqrt{\frac{v^2t}{\pi DR}} e^{\left[\frac{vx}{D} - \frac{R}{4Dt}(x+x_1 + 
-  \frac{vt}{R})^2\right]}\nonumber\\
-  & - \frac{1}{2}\left[ 1+ \frac{v(x+x_1)}{D} + 
-  \frac{v^2t}{DR}\right]e^{\frac{vx}{D}} \erfc{\left[ 
-  \frac{R(x+x_1)+vt}{2\sqrt{DRt}} \right]}\\ B(x,t) &= \frac{1}{2}\erfc{\left[ 
-  \frac{Rx-vt}{2\sqrt{DRt}} \right]} + \sqrt{\frac{v^2t}{\pi DR}}e^{-\left[ 
-  \frac{(Rx-vt)^2}{4DRt} \right]}\nonumber\\
-  & - \frac{1}{2}\left[ 1+ \frac{vx}{D} + \frac{v^2t}{DR}\right]e^{\frac{vx}{D}} 
-  \erfc{\left[ \frac{Rx+vt}{2\sqrt{DRt}} \right]}. 
-\end{align}
