@@ -49,7 +49,7 @@
   \global\let\svgscale\undefined%
   \makeatother%
   \begin{picture}(1,0.44483616)%
-    \put(0,0){\includegraphics[width=\unitlength]{./chapers/nuclide_models/interfaces/flow.eps}}%
+    \put(0,0){\includegraphics[width=\unitlength]{./chapters/nuclide_models/interfaces/flow.eps}}%
     \put(-0.00195324,0.0055951){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$r=0$}}}%
     \put(0.83481612,0.19103285){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{
 }}}%
