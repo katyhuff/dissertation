@@ -2037,44 +2037,7 @@ iteration.
 
 \subsection{LLNL MathCAD Model}
 
-This model, created at \gls{LLNL} for the \gls{UFD} campaign, is written in a 
-combination of MathCAD and Excel. The model consists of two physical parts, the  
-first is the host rock, and the second models the waste form, package, and buffer 
-as a single \gls{EBS} unit. Since the thermal mass of the \gls{EBS} is small in
-comparison to the thermal mass of the host rock, it may be treated as quasi-steady
-state. Thus, the transient state of the transient temperature between the host
-rock and the EBS can be found with a MathCAD solution of the transient homogeneous 
-conduction equation,
-
-\begin{align}
-  \nabla^2T  = \frac{1}{\alpha}\frac{\partial T}{\partial t}.
-  \label{condGl}
-\end{align}
-
-Superimposed point and line source solutions allow for a notion of the repository 
-layout to be modeled in the host rock. The solution of this equation at the 
-boundary of the EBS and the waste package is then treated as a boundary condition 
-for the heterogeneous steady state equation, 
-
-\begin{align}
-  \dot{q} &= U A_{out} \left( T_{in} - T_{out} \right)
-  \label{condGeneral}
-  \intertext{where}
-  U&=\frac{1}{\sum_{i}R_i}
-  \intertext{which, for the detailed EBS becomes}
-  U&=\frac{1}{R_{WF}+R_{WP}+R_{buffer}+\cdots}
-\end{align}
-
-which calculates a resulting temperature gradient through the geometry at each 
-point in time for each layer surface, assuming an infinite line source 
-\cite{hardin_generic_2011}.
-
-The process is then iterated with a one year resolution in order 
-to arrive at a heat evolution over  the lifetime of the repository. This model 
-seeks to inform heat limited waste capacity calculations for each geology, for 
-many waste package loading densities, and for many fuel cycle options.  
-
-
+\input{./chapters/litrev/llnlbackground}
 
 \subsection{Other Numerical Methods}
 
