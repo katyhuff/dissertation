@@ -3,7 +3,28 @@
 The Cyder repository model architecture is intended to modularly permit 
 exchange of disposal system subcomponents, accept arbitrary spent fuel 
 streams, and enable extending modules representing new or different 
-Component models.
+Component models.  Finally, in order to participate in the 
+simulation as a facility model, must make requests for spent material up 
+to its capacity. Determination of the repository capacity for various 
+types of spent fuel commodities comprises the interfacing functionality of 
+the repository model.
+
+\subsection{Repository Layout}
+
+As a waste stream is accepted into the repository, it is packaged into a waste 
+forms according to their commodity (as input by the user). Then, that waste 
+form Component is loaded into a waste package (also pairs dictated by the 
+user). Finally, the waste package is emplaced in a buffer component, which 
+contains many other waste packages, spaced evenly in a grid.
+
+\begin{figure}[htbp!]
+\begin{center}
+\def\svgwidth{.8\textwidth}
+\input{./chapters/paradigm/repo_layout.eps_tex}
+\end{center}
+\caption{The repository layout has a depth and a uniform package spacing.}
+\label{fig:repo_layout}
+\end{figure}
 
 \subsection{Nested Components}
 
@@ -38,68 +59,83 @@ temperature inside the Component over time.
 Each contaminant posesses a radionuclide contaminant transport model that determines the 
 contaminant transport inside the Component over time. 
 
-\subsection{Information Passing Between Volumes}
+\subsection{Implicit Timestepping}
 
 Each Component passes some information radially outward to the nested 
 Component immediately containing it and some information radially 
-inward to the nested Component it contains. A diagram of the fundamental
-information being passed between Components is described in Figure 
-\ref{fig:flow}.
+inward to the nested Component it contains. 
 
-\begin{figure}[h!]
-  \begin{center}
-    \includegraphics[width=\textwidth]{./chapters/paradigm/flow.eps}
-  \end{center}
-  \caption{The nested Components supply thermal flux and concentration 
-  information to each other at the boundaries.}
-  \label{fig:flow}
-\end{figure}
 
-Most Component models require external information concerning the 
-water volume that has breached containment, so information concerning 
-incoming water volumes is passed radially inward. 
+In the case of radionuclide transport, for example, each Component model
+requires information about the radionuclides released from the Component it
+immediately contains.  Thus, nuclide release information is passed radially
+outward from the waste stream sequentially through each containment layer to
+the geosphere. However, the solutions within each Component often rely on the
+external boundary conditions of that Component.  Thus, the Cyder model uses an
+implicit timestepping method to arrive at the future state of each Component,
+radially outward, as a function of both the past state and the current state. 
 
-Each Component model similarly requires information about the radionuclides 
-released from the Component it immediately contains.  Thus, nuclide 
-release information is passed radially outward from the waste stream 
-sequentially through each containment layer to the geosphere.
+That is, in Component 0, the innermost Component in a nested series, the mass or concentration 
+distribution in the Component at time $t_n$ is found from the inner boundary 
+condition at time $t_n$ and the outer boundary condition at $t_{n-1}$. Then, from 
+the resulting mass or concentration distribution, I can solve, numerically, for 
+the outer boundary condition at $t_n$ which can, in turn, be used by the parent 
+component 1 as the $t_n$ inner boundary condition of its own solution. For each timestep :
+
+\begin{align}
+  BC(i, r_o, c_1, t_n) &= f( BC(i, r_i, c_0, t_n), BC(i, r_o, c_1, t_{n-1}) )
+  \intertext{where}
+  BC  &= \mbox{boundary condition }\nonumber\\
+  i &= \mbox{the isotope }\nonumber\\
+  r_i &= \mbox{the inner boundary radius } [m]\nonumber\\
+  r_o &= \mbox{the outer boundary radius } [m]\nonumber\\
+  c_0 &= \mbox{the innermost Component}\nonumber\\
+  c_1 &= \mbox{the Component that contains c}_0\nonumber\\
+  f &= \mbox{functional form of the contaminant transport algorithm}\nonumber\\
+  t_n &= \mbox{timestep n.}\nonumber
+\end{align}
+
 
 
 \subsection{Waste Stream}
 
-The waste stream data object contains spent fuel isotopics over the 
-course of the simulation. As radionuclides are gained, lost, and transmuted within 
-the spent fuel object, a history of its isotopic composition is recorded.
+The repository model must accept arbitrary spent fuel and high level waste 
+streams. A waste stream is a material data object resulting from the \Cyclus simulated 
+fuel cycle. It arrives at the repository and is emplaced if it obeys all repository capacity 
+limits. As radionuclides are gained, lost, and 
+transmuted within the spent fuel object, a history of its isotopic composition 
+is recorded.
 
-For waste streams that vary from each other in composition, the thermal capacity 
-of the repository must be recalculated. One way to model this will be to 
-recalculate the appropriate lengthwise spacing of waste packages when the heat 
-generation rate of a new package is significantly different than other waste 
-packages in the repository. 
+For waste streams that vary from each other in composition, the thermal 
+capacity of the repository to recieve that waste stream must therefore be recalculated. 
+One way to model this will be to recalculate the appropriate lengthwise spacing 
+of waste packages when the heat generation rate of a new package is 
+significantly different than other waste packages in the repository. 
+
+
+Since disposable material in most simulations of interest will be of variable 
+composition and therefore heterogeneous in heat production capability, the 
+repository model will repeatedly need to recalculate its own capacity as 
+new materials are offered.
 
 \subsection{Waste Form}
-The waste form model will calculate nuclide release due to dissolution 
-of the waste form. Various heuristics by which nuclide release is modeled in 
-accordance with waste form dissolution as well as the method by which 
-the dissolution is modeled.
-
-Dissolution can be instantaneous, rate based, water dependent, heat 
-dependent, or coupled.  Dissolution related release can be modeled as congruent, solubility 
-limited, or both. Some radionuclides are immediately accessible, and some 
-tend to remain in the fuel matrix. 
+Though the Waste Form Component can be modeled by any of the available 
+NuclideModels, the Degradation Rate based or Mixed Cell radionuclide transport 
+models are preferred for modeling of the Waste Form Component.  This is 
+because, in repository performance asessments, waste form dissolution is 
+typically modeled as instantaneous or rate based. Dissolution related release 
+is historically modeled as congruent, solubility limited, or both, with some 
+radionuclides becoming immediately accessible, and some tending to remain in 
+the fuel matrix. 
 
 \subsection{Waste Package}
-The waste package model calculates nuclide release due to waste 
-package failure. Waste package failure is typically modeled as 
-instantaneous and complete or partial and constant. That is, a delay 
-before full release, or a constantly present hole in the package.
-
+Though the Waste Package Component can be modeled by any of the available 
+NuclideModels, the simple Degradation Rate based model is strongly preferred.
 Waste package time to failure is dependent on water contact and heat, 
-but can be modeled as an average, probabilistic, or a rate.
-
-In the case of highly deforming geologic media, such as salt, 
-mechanical failure can be the primary mechanism for release from the 
-waste package.
+but is historically modeled probabilistically, or at a constant rate.
+Accordingly, waste package degradation in repository performance is either 
+neglected entirely, instantaneous and complete (a delay before full release), 
+or partial and constant (a constantly present hole in the package). 
 
 \subsection{Buffer}
 Diffusion is the primary mechanism for nuclide transport through the 
@@ -107,45 +143,4 @@ buffer Component of the repository system.
 
 Salt, clay, and borehole repository concepts may not have a buffer 
 material.
-
-\subsection{Geological Environment}
-
-The literature review introduced various hydrological models that represent
-fluid and contaminant travel through permeable porous media and fractured porous 
-media. These assume saturated flow and incorporate diffusive flow, advective 
-flow, hydrodynamic dispersion, and equilibrium sorption. The geological 
-environment control volume Component will implement these models appropriately 
-for each geologic environment to provide a mass balance and to communicate concentrations to  
-adjacent Components.  Dirichlet boundary conditions at the surfaces of the 
-control volume will allow the simulation to step through transport in the rock. 
-Additional boundary condition types maybe implemented as extensions to the base 
-case model.
-
-
-\subsection{Simulation Interface}
-
-The interface of the repository model with the \Cyclus fuel cycle 
-simulation interface is intended to be minimally restrictive, 
-requiring only that the simulation supply waste stream information and 
-provide a bookkeeping framework with which to record repository 
-performance metrics. The repository model, in order to participate in the 
-simulation as a facility model, must make requests for spent material up 
-to its capacity. Determination of the repository capacity for various 
-types of spent fuel commodities will comprise the interfacing functionality of 
-the repository model. With the intention of developing the repository model in 
-such a way as to be capable of interfacing with other simulation tools, however, 
-calculation of metrics including expected dose rates and 
-Component failures will be the model's primary functionality. 
-
-\subsection{Waste Stream Input}
-
-The repository model must accept arbitrary spent fuel and high level waste
-streams.  Material objects resulting from the simulated fuel cycle arrive at 
-the  repository and are emplaced if all repository capacity limits allow 
-it.
-
-Since disposable material in most simulations of interest will be of variable 
-composition and therefore heterogeneous in heat production capability, the 
-repository model will repeatedly need to recalculate its own capacity as 
-new materials are offered.
 
