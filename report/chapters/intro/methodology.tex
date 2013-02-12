@@ -1,0 +1,157 @@
+% Scope
+
+In this work, concise dominant physics models suitable for system level fuel 
+cycle codes were developed by comparison of analytical models with more 
+detailed repository modeling efforts. The ultimate result of this work is a 
+software library capable of assessing a wide range of combinations 
+of fuel cycle alternatives, potential waste forms, repository design concepts, 
+and geological media. 
+
+% Selection of base set of subcomponents to model
+
+Current candidate repository concepts have been investigated and reviewed here 
+in order to arrive at a fundamental set of components to model. A preliminary 
+set of combinations of fuel cycles, repository concepts, and geological 
+environments has 
+been chosen that fundamentally captures the domestic option space. 
+Specifically, three candidate geologies and four corresponding repository 
+concepts under consideration by the \gls{DOE} \gls{UFD} campaign have been 
+chosen for modeling in this work. These have been implemented to interface
+with \Cyclus simulations of a canonical set of potential fuel cycles within 
+three broad candidate scenarios put forth by the \gls{US} \gls{DOE}.
+
+% Review of available analytical models
+
+A review and characterization of the physical mechanisms by which radionuclide 
+and thermal transport take place within the materials and media under 
+consideration was first undertaken. Potential analytical models to represent  
+these phenomena were investigated and categorized within the literature review. 
+
+% Review of available current detailed tools
+
+A review and characterization of current detailed computational tools for
+repository focused analysis was next conducted. Both international and domestic
+repository modeling efforts were summarized within the literature review. Of 
+these, candidate computational tools with which to perform abstraction and 
+regression analyses were identified. Specifically, a suite of \gls{GDSM} tools 
+under development by the \gls{DOE} \gls{UFD} campaign has informed radionuclide 
+transport models and a pair of corresponding thermal analysis codes has 
+informed the thermal models.
+ 
+% For each component, abstraction of current tools and analytical models
+
+This suite of subcomponent modules, appropriate for use within the \Cyclus fuel 
+cycle simulator, has included the development of a robust architecture 
+within the repository module that allows for interchangeable loading of 
+system components.  Within the system components, dominant physics is 
+modeled based on domain appropriate approximation of analytical models and 
+supported by abstraction with the chosen \gls{GDSM} tools and thermal tools. 
+
+% Abstraction = Analytic Solutions + Regression Approximation
+
+These concise models are a combination of two components: 
+semi-analytic mathematical models that represent a simplified description of 
+the most important physical phenomena, and semi-empirical models that reproduce 
+the results of detailed models.  By combining the complexity of the analytic 
+models and regression against numerical experiments, variations were limited 
+between two models for the same system.  Different approaches have been been 
+compared in this work, with final modeling choices balancing the accuracy and 
+efficiency of the possible implementations.  
+
+% For example, Geology.
+
+Specifically, these models focus on the hydrology and thermal 
+physics that dominate radionuclide transport and heat response in candidate 
+geologies as a function of radionuclide release and heat generation over long 
+time scales. Dominant transport mechanism (advection or 
+diffusion) and disposal site water chemistry (redox state) provide primary 
+differentiation between the different geologic media under consideration. In 
+addition, the concise models are capable of roughly adjusting release 
+pathways according to the characteristics of the natural system (both the host 
+geologic setting and the site in general) and the engineered system (such as package 
+loading arrangements, tunnel spacing, and engineered barriers).
+
+% Abstraction in repository environment
+
+The abstraction process in the development of a geological environment model 
+employs the comparison of semi-analytic thermal and hydrologic models and 
+analytic regression of rich code results from more detailed models as well as 
+existing empirical geologic data. Such results and data will be derived 
+primarily from the \gls{UFD} campaign \glspl{GDSM} and data, as well as European 
+efforts such as the RED-IMPACT assessment and \gls{ANDRA} Dossier efforts 
+\cite{von_lensa_red-impact_2008, andra_argile:_2005, clayton_generic_2011} . 
+
+% Example, heat from WPs along repo drifts.
+
+%For example, analytic models and semi-empirical models are available (i.e.  
+%specific temperature integrals in ref. \cite{li_methodology_2006} and the 
+%specific temperature change index in ref. \cite{radel_effect_2007}) that 
+%approximate thermal response from heat generation in waste packages as linear
+%along repository drifts. These analyses arrive at a thermal evolution over time 
+%at any location in the rock by superpositioning and integration. Subsequently, 
+%their results can be converted easily into conventional line loading and areal 
+%power density metrics.  Such analytic models will first be assessed to determine
+%likely parameters upon which thermal response will rely (e.g. tunnel spacing, 
+%radionuclide inventories, etc.).
+%
+% Regression.
+
+Thereafter, a regression analysis concerning those parameters has been undertaken 
+with available detailed models (e.g. 2D and 3D finite element thermal 
+performance assessment codes) to further characterize the 
+parametric dependence of thermal loading in a specific geologic environment.  
+
+% Incorporation of empirical data
+
+Finally, the thermal behavior of a repository model so developed depends on 
+empirical data (e.g.  heat transfer coefficients, hydraulic conductivity).  
+Representative values have been made available within the dominant 
+physics models and rely on existing empirical data concerning the specific 
+geologic environment being modeled (i.e. salt, clay/shale, and granite). 
+
+% Abstraction for WFs, WPs, EBS, etc. will be the same
+
+A similar process was followed for radionuclide transport models.  The 
+abstraction process in the development of waste form, package, and engineered 
+barrier system models will be analogous to the abstraction process of repository 
+environment models. Concise models have resulted from employing the comparison of 
+semi-analytic models of those systems with regression analysis of rich code in 
+combination with existing empirical material data.
+
+% Example, radionuclide release
+
+%For instance, in the case of radionuclide release from waste packages, analytic 
+%models of radionuclide release (e.g.  congruent or solubility limited) will 
+%first be assessed to determine likely parameters upon which radionuclide release 
+%will rely (e.g.  radionuclide concentration, water flow rates, etc.) 
+%\cite{kawasaki_congruent_2004}.  Again, regression analysis concerning those 
+%parameters will be undertaken with available detailed models to further 
+%characterize the parametric dependence of radionuclide release from specific 
+%waste packages.  Finally, the radionuclide release model so developed will 
+%depend on empirical data (e.g. the waste form dissolution rate).  Determination 
+%of representative values to make available within the dominant physics model 
+%will rely on existing empirical data concerning the specific waste form  
+%materials being modeled (i.e. long time scale extrapolations of known glass 
+%degradation rates).  
+
+% Coupling is confusing
+
+Coupling effects between components were considered carefully.  In 
+particular, given the important role of temperature in the system, thermal 
+coupling between the models for the engineered system and the geologic system 
+were considered. Thermal dependence of radionuclide release and transport as 
+well as package degradation were analyzed to determine the 
+magnitude of coupling effects in the system.
+
+% Iterate
+
+The full abstraction process was be iterated to achieve a balance between 
+calculation speed and simulation detail. Model improvements during this stage 
+sought a level of detail appropriate for informative comparison of subcomponents, but 
+with sufficient speed to enable systems analysis. 
+
+% Test using canonical data for those subcomponents
+
+By varying input parameters and comparing with corresponding results from 
+detailed tools, each model's behavior on its full parameter domain was 
+validated.
