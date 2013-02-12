@@ -155,8 +155,9 @@ resources as in Figure \ref{fig:facility}
   \begin{center}
     \includegraphics[width=0.5\textwidth]{./chapters/paradigm/facility.eps}
   \end{center}
-  \caption{The \Cyclus code repository allows for varied accessibility.}
-  \label{fig:repo}
+  \caption{Facilities in \Cyclus can be thought of as black boxes which make 
+  offers and requests of resources.}
+  \label{fig:facility}
 \end{figure}
 
 
@@ -187,7 +188,17 @@ The above sections outline the fuel cycle simulation platform
 currently under development at \gls{UW} in which the Cyder repository model
 at hand is to be implemented.  Implemented as a facility within this 
 framework, the repository model interface is defined by the Facility
-Model interface defined within the \Cyclus paradigm. 
+Model interface defined within the \Cyclus paradigm. Though some Facility 
+models make both requests and offers to the system, the Cyder model is a type 
+of sink, making only requests as in Figure \ref{fig:sinkfacility}.
+
+\begin{figure}[htb!]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{./chapters/paradigm/sinkfacility.eps}
+  \end{center}
+  \caption{The Cyder model is a type of sink facility, making only resource requests.}
+  \label{fig:sinkfacility}
+\end{figure}
 
 That interface requires that a capacity be defined by the repository at every 
 \Cyclus timestep so that the repository may make appropriate requests of 
