@@ -3,79 +3,69 @@
 The Cyder repository model architecture is intended to modularly permit 
 exchange of disposal system subcomponents, accept arbitrary spent fuel 
 streams, and enable extending modules representing new or different 
-component models.
+Component models.
 
-\subsection{Nested Component Concept}
+\subsection{Nested Components}
 
-The fundamental unit of information in the repository model is the final nuclide  
-release at the boundary of the far field resulting from nuclide release at 
-each stage of containment.  The repository model, in this way, is fundamentally 
-a tool to determine the source term at the envrionmental surface as a result 
-of an arbitrary waste stream. The repository model in this work conducts this 
-calculation by  treating each containment component as nested volumes in a 
-release chain. 
+The fundamental unit of information in the repository model is radionuclide 
+contaminant presence at each stage of containment.  The repository model, in 
+this way, is fundamentally a tool to determine thermal and contaminant 
+transport evolution as a result of an arbitrary waste stream. The repository 
+model in this work conducts this calculation by  treating each containment 
+Component as nested volumes in a release chain. 
 
-The capability to allow each component to define the components within it 
-gives this repository the ability to model many types of repository concept 
-while maintaining a simple interface with the simulation. 
+\subsection{Geometry}
 
-\subsubsection{Control Volumes}
-
-Each component of the repository system (i.e. waste form, waste package, buffer, 
+Each Component of the repository system (i.e. waste form, waste package, buffer, 
 and geologic medium) is modeled as a discrete control volume. Each control 
 volume performs its own mass balance at each time step and assesses its own 
 internal  heat transfer and degradation phenomena separately from the other 
-nested components.
+nested Components.
 
-Each control volume will initially be modeled as a mixed cell. That is, for 
-permeable porous media, all contaminants released into the pore and fracture 
-water are assumed to be uniformly distributed.
+\subsection{Material Data}
 
-Thermal energy as well as mass will be conserved within each control volume by 
-demanding continuity of thermal and mass fluxes accross the boundaries. Since 
-radionuclide and thermal transport calculations internal to the control volumes  
-may be represented by many models at varying levels of detail, abstraction on 
-the component level against detailed models will be conducted to acheive 
-appropriate detail in each component. 
+Each Component of the repository system posesses a notion of the material that 
+it is made of. Supporting thermal and hydrologic data for canonical engineered 
+barrier and geologic media is provided with the code in an SQLite database. 
 
-\subsubsection{Information Passing Between Volumes}
+\subsection{Thermal Transport Model}
 
-Each component passes some information radially outward to the nested 
-component immediately containing it and some information radially 
-inward to the nested component it contains. A diagram of the fundamental
-information being passed between components is described in Figure 
+Each contaminant posesses a thermal transport model that determines the 
+temperature inside the Component over time. 
+
+\subsection{Nuclide Transport Model}
+
+Each contaminant posesses a radionuclide contaminant transport model that determines the 
+contaminant transport inside the Component over time. 
+
+\subsection{Information Passing Between Volumes}
+
+Each Component passes some information radially outward to the nested 
+Component immediately containing it and some information radially 
+inward to the nested Component it contains. A diagram of the fundamental
+information being passed between Components is described in Figure 
 \ref{fig:flow}.
 
 \begin{figure}[h!]
   \begin{center}
     \includegraphics[width=\textwidth]{./chapters/paradigm/flow.eps}
   \end{center}
-  \caption{The nested components supply thermal flux and concentration 
+  \caption{The nested Components supply thermal flux and concentration 
   information to each other at the boundaries.}
   \label{fig:flow}
 \end{figure}
 
-Most component models require external information concerning the 
+Most Component models require external information concerning the 
 water volume that has breached containment, so information concerning 
 incoming water volumes is passed radially inward. 
 
-Each component model similarly requires information about the radionuclides 
-released from the component it immediately contains.  Thus, nuclide 
+Each Component model similarly requires information about the radionuclides 
+released from the Component it immediately contains.  Thus, nuclide 
 release information is passed radially outward from the waste stream 
 sequentially through each containment layer to the geosphere.
 
 
-\subsection{Components of the Nested System}
-
-The repository model is a collection of subcomponents which behave collectively 
-to calculate repository metrics of interest. These subcomponents will be models 
-of their own, and within the object oriented paradigm of the software will be 
-a collection of module classes. Each component (i.e. waste form, waste 
-package, buffer, lithology, etc.) will name a component superclass. Each superclass 
-will be inherited by subclass models capable of representing that component in 
-some level of detail specified by the model.
-
-\subsubsection{Waste Stream}
+\subsection{Waste Stream}
 
 The waste stream data object contains spent fuel isotopics over the 
 course of the simulation. As radionuclides are gained, lost, and transmuted within 
@@ -87,7 +77,7 @@ recalculate the appropriate lengthwise spacing of waste packages when the heat
 generation rate of a new package is significantly different than other waste 
 packages in the repository. 
 
-\subsubsection{Waste Form}
+\subsection{Waste Form}
 The waste form model will calculate nuclide release due to dissolution 
 of the waste form. Various heuristics by which nuclide release is modeled in 
 accordance with waste form dissolution as well as the method by which 
@@ -98,7 +88,7 @@ dependent, or coupled.  Dissolution related release can be modeled as congruent,
 limited, or both. Some radionuclides are immediately accessible, and some 
 tend to remain in the fuel matrix. 
 
-\subsubsection{Waste Package}
+\subsection{Waste Package}
 The waste package model calculates nuclide release due to waste 
 package failure. Waste package failure is typically modeled as 
 instantaneous and complete or partial and constant. That is, a delay 
@@ -111,29 +101,22 @@ In the case of highly deforming geologic media, such as salt,
 mechanical failure can be the primary mechanism for release from the 
 waste package.
 
-\subsubsection{Buffer}
+\subsection{Buffer}
 Diffusion is the primary mechanism for nuclide transport through the 
-buffer component of the repository system.  
+buffer Component of the repository system.  
 
 Salt, clay, and borehole repository concepts may not have a buffer 
 material.
 
-\subsubsection{Backfill}
-Similarly, diffusion is the primary mechanism for nuclide transport 
-through the buffer component of the repository system.
-
-Clay concepts and borehole concepts may not have a backfill material. 
-
-
-\subsubsection{Geological Environment}
+\subsection{Geological Environment}
 
 The literature review introduced various hydrological models that represent
 fluid and contaminant travel through permeable porous media and fractured porous 
 media. These assume saturated flow and incorporate diffusive flow, advective 
 flow, hydrodynamic dispersion, and equilibrium sorption. The geological 
-environment control volume component will implement these models appropriately 
+environment control volume Component will implement these models appropriately 
 for each geologic environment to provide a mass balance and to communicate concentrations to  
-adjacent components.  Dirichlet boundary conditions at the surfaces of the 
+adjacent Components.  Dirichlet boundary conditions at the surfaces of the 
 control volume will allow the simulation to step through transport in the rock. 
 Additional boundary condition types maybe implemented as extensions to the base 
 case model.
@@ -152,9 +135,9 @@ types of spent fuel commodities will comprise the interfacing functionality of
 the repository model. With the intention of developing the repository model in 
 such a way as to be capable of interfacing with other simulation tools, however, 
 calculation of metrics including expected dose rates and 
-component failures will be the model's primary functionality. 
+Component failures will be the model's primary functionality. 
 
-\subsubsection{Waste Stream Input}
+\subsection{Waste Stream Input}
 
 The repository model must accept arbitrary spent fuel and high level waste
 streams.  Material objects resulting from the simulated fuel cycle arrive at 
@@ -165,31 +148,4 @@ Since disposable material in most simulations of interest will be of variable
 composition and therefore heterogeneous in heat production capability, the 
 repository model will repeatedly need to recalculate its own capacity as 
 new materials are offered.
-
-\subsubsection{Repository Performance Metrics Calculated}
-
-Repository performance metrics that may be calculated from the source 
-term and heat data calculated by the model will cover many metrics of
-interest to sustainability goals. Some metrics support analyses that
-seek to maximize safe repository capacity under heat and source term limitations. 
-Those include spatial dimensions, spatial dimensions per kWh or equivalent,
-repository footprint, and number of waste packages generated.
-
-Still other metrics that may be calculated include those being considered by 
-the \gls{UFD} campaign in a Fuel Cycle Data Package task underway 
-\cite{nutt_personal_2011}. Additional metrics that will be considered in this
-context will likely include environmental metrics such as peak dose 
-to the public, radiotoxic fluxes released to the biosphere integrated over time, 
-and the minimum managed lifetime.  These metrics are recorded in a database 
-flexibly defined by the repository model. 
-
-\subsubsection{Facility Functionality}
-
-The repository will behave as a facility within the \Cyclus simulation 
-paradigm. The fundamental facility behavior within \Cyclus involves 
-participating in commodity markets. The repository will participate as 
-a requester of waste commodities. During reactor operation, the 
-repository will make requests to markets dealing in spent fuel streams 
-according to its available capacity. Possible optional intermediate storage facility 
-model is available for cooling periods.
 
