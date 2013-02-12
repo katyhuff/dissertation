@@ -141,15 +141,24 @@ can be deployed to represent individual facilities.
 
 The \Cyclus modeling infrastructure is designed such that every
 facility in a global nuclear fuel cycle is treated and acts
-individually. While modeling options exist to allow collective
-action, this will be as a special case of the individual facility
-basis. Each facility has two fundamental tasks: the transaction of
+individually. Each facility has two fundamental tasks: the transaction of
 goods or products with other facilities and the transformation of
 those goods or products from an input form to an output form.  For
 example, a reactor will receive fresh fuel assemblies from a fuel
 fabrication facility, transform them to used fuel assemblies
 using some approximation of the reactor physics, and supply those used
-fuel assemblies to a storage facility.
+fuel assemblies to a storage facility. In this manner, facilities can be 
+thought of as black boxes in the simulation which request and produce 
+resources as in Figure \ref{fig:facility}
+
+\begin{figure}[htb!]
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{./chapters/paradigm/facility.eps}
+  \end{center}
+  \caption{The \Cyclus code repository allows for varied accessibility.}
+  \label{fig:repo}
+\end{figure}
+
 
 A facility configuration is created by selecting a FacilityModel and 
 defining the parameters for that facility configuration.
@@ -175,7 +184,7 @@ within the simulation.
 \subsection{Implications for Repository Model}
 
 The above sections outline the fuel cycle simulation platform
-currently under development at \gls{UW} in which the repository model
+currently under development at \gls{UW} in which the Cyder repository model
 at hand is to be implemented.  Implemented as a facility within this 
 framework, the repository model interface is defined by the Facility
 Model interface defined within the \Cyclus paradigm. 
