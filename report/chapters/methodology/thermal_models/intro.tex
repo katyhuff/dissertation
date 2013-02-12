@@ -1,1 +1,21 @@
-Introduction to the thermal models.
+% Provide a summary of the work conducted:
+%      Describe the technical problem clearly
+%      support it with a method
+
+An algorithm and supporting database for rapid thermal repository capacity 
+calculation was implemented in Cyder.  This algorithm employs a \gls{STC} 
+method \cite{radel_effect_2007, radel_repository_2007} and has resulted from 
+combining detailed spent nuclear fuel composition data \cite{carter_fuel_2011} 
+with a detailed thermal repository performance analysis tool from \gls{LLNL} 
+and the \gls{UFD} campaign \cite{greenberg_application_2012}. By abstraction of 
+and benchmarking against these detailed thermal models, Cyder captures the 
+dominant physics of thermal phenomena affecting repository capacity in various 
+geologic media and as a function of spent fuel composition.
+
+Abstraction based on detailed computational thermal repository performance 
+calculations with the \gls{LLNL} analytic model has resulted in implementation 
+of the \gls{STC} estimation algorithm and a supporting reference dataset.  This 
+method is capable of rapid estimation of temperature increase near emplacement 
+tunnels as a function of waste composition, limiting radius, $r_{lim}$, waste 
+package spacing, $S$, near field thermal conductivity, $K_{th}$, and near field 
+thermal diffusivity, $\alpha_{th}$.
