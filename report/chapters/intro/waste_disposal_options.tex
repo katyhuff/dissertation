@@ -1,0 +1,190 @@
+
+% DOE is thinking about various geologies
+
+In addition to reconsideration of the domestic fuel cycle policy, the uncertain 
+future of the \gls{YMR} has driven the expansion of the option space of 
+potential repository host geologies to include, at the very least, granite, 
+clay/shale, salt, and deep borehole concepts \cite{nutt_used_2010}. 
+
+% Various waste forms, packages, etc. are being considered.
+
+In accordance with various fuel cycle options, corresponding waste form, waste 
+package, and other engineered barrier systems are being considered.  
+Specifically, current considerations include ceramic (e.g.  Uranium Oxide), 
+glass (e.g.  borosilicate glasses), and metallic (e.g.  hydride fuels) waste 
+forms. Waste packages may be copper, steel, or other alloys. Similarly, buffer 
+and backfill materials vary from the crushed salt recommended for a salt 
+repository to bentonite or concrete in other geologies. Therefore, a repository  
+model capable of modular substitution of waste form models and data is
+necessary to analyze the full option space.
+
+% Various geologies, WFs, WPs, EBSs have various physics
+
+The physical, hydrologic, and geochemical mechanisms that dictate 
+radionuclide and heat transport vary between the geological and engineered 
+containment systems in the domestic disposal system option space.  Therefore, 
+in support of the system level simulation effort, models must be developed that 
+capture the salient physics of these geological options and quantify associated 
+disposal metrics.  Furthermore, in the same way that system level 
+modularity facilitates analysis, so too does modular linkage between subcomponent 
+process modules. These subcomponent models and the repository environmental model 
+must achieve a cohesively integrated disposal system model such as is proposed by 
+this work. 
+
+
+
+\subsubsection{Thermal Modeling Needs}
+% repository loading limits
+% optimization of layout
+% necessary decay cooling time before emplacement.
+The decay heat from nuclear material generates a significant heat source within a 
+repository. In order to arrive at loading strategies that comply with thermal 
+limits in the engineered barrier system and the geological medium, a thermal 
+modeling capability must be included in the repository model. Such a model is 
+also necessary to inform material and hydrologic phenomena that affect 
+radionuclide transport and are thermally coupled. 
+
+Partitioning and transmutation of heat generating radionuclides within  
+some fuel cycles will alter the heat evolution of the repository 
+\cite{swift_applying_2010}. Thus, to distinguish  between the repository heat 
+evolution associated with various fuel cycles involving partitioning and 
+transmutation, a repository analysis model, must at the very least, 
+capture the decay heat behavior of dominant heat contributors.  Plutonium, 
+Americium, and their decay daughters dominate decay heat contribution within 
+used nuclear fuels. Other contributing radionuclides include Cesium, Strontium, 
+and Curium \cite{piet_which_2007}. 
+
+Thermal limits within a used nuclear fuel disposal system are waste form, 
+package, and geology dependent. The heat evolution of the repository 
+constrains waste form loadings and package loadings as heat 
+generated in the waste form is transported through the package. It 
+also places requirements on the size, design, and loading strategy in a 
+potential geological repository as that heat is deposited in the engineered 
+barrier system and host geology.
+
+Thermal limits of various waste forms have their technical basis in the 
+temperature dependence of isolation integrity of the waste form. Waste form 
+alteration, degradation, and dissolution behavior is a function of heat in 
+addition to redox conditions and constrains loading
+density within the waste form. 
+ 
+Thermal limits of various engineered barrier systems similarly have a technical 
+basis in the temperature dependent alteration, corrosion, degradation, and 
+dissolution rates of the materials from whence they are constructed.  
+
+Thermal limits of the geologic environment can be based on the mechanical 
+integrity of the rock as well as mineralogical, hydrologic and geochemical 
+phenomena. The isolating characteristics of a geological environment are most 
+sensitive to hydrologic 
+and geochemical effects of thermal loading. Thus, heat load constraints are 
+typically chosen to control hydrologic and geochemical response to thermal 
+loading. In the United States, current regulations necessitate thermal limits in 
+order to passively steward the repository's hydrologic and geochemical integrity 
+against radionuclide  release for the first 10,000 years of the repository.
+
+The two heat load constraints that primarily determined the heat-based \gls{SNF} 
+capacity limit in the Yucca Mountain Repository design, for example, are 
+specific to unsaturated tuff. These are given here as an example of the type of 
+regulatory constraints that this model captures for various geologies. 
+
+The first Yucca Mountain heat load constraint is intended to promote constant 
+drainage, thereby preventing episodic flow into waste package tunnels and
+subsequent contaminated water flow through the repository. It requires that the 
+minimum temperature in the tuff between drifts be no  more than the boiling 
+temperature of water, which is $96^{\circ}C$ at the altitude in question. For a 
+repository with homogeneous waste composition in parallel drifts, this constraint 
+limits the temperature exactly halfway between adjacent drifts, where the 
+temperature is at a minimum.
+
+The second constraint is intended to prevent high rock temperatures that could 
+induce fractures and alteration of the rock. It stated that no part 
+of the rock reach a temperature above $200^{\circ}C$, and was effectively a 
+limit on the temperature at the drift wall, where the rock temperature is a 
+maximum.  
+
+Analogous constraints for a broader set of possible geological environments 
+depend on heat transport properties and geochemical behaviors of the rock matrix 
+as well as its hydrologic state.  Such constraints affect the  
+repository drift spacing, waste package spacing, and repository footprint among 
+other parameters. 
+
+%Clay repositories should have a ~70 degrees C limit, because temps higher than 
+%100 degrees can cause irreversible minerological damage.
+%From ANDRA:
+%``In order to remain in an operational range in which phenomena are known and, 
+%thus, reduce any damage to the argillite, the objective is to restrict 
+%argillite temperature to these values. Basically, it means that the thermal 
+%dimensioning of the cells and the architecture of the C waste repository zone 
+%aim to restrict the temperature to 90°C at the interface “disposal cell – 
+%argillite” and to ensure that the temperature will be below 70°C, in the 
+%geological medium on the cell boundary, before a thousand years, which provides 
+%a safety margin with respect to thermal effects.''
+
+In addition to development of a concept of heat transport within the repository 
+in order to meet heat load limitations, it is also necessary to model 
+temperature gradients in the repository in  order to support modeling of 
+thermally dependent hydrologic and material phenomena.  As mentioned above, 
+waste form corrosion processes, waste form
+dissolution rates, diffusion coefficients, and the mechanical integrity of 
+engineered barriers and geologic environment are coupled with temperature 
+behavior. 
+Only a coarse time resolution is necessary to capture that coupling 
+however, since time evolution of repository heat is
+such that thermal coupling can typically be treated as quasi static for long 
+time scales.
+\cite{andra_argile:_2005}. %andra, clay, evaluation, page 195)
+
+\subsubsection{Source Term Modeling Needs}
+
+Domestically, the \gls{EPA} has defined a limit on  human 
+exposure due to the repository. This regulation places important limitations on 
+capacity, design, and loading techniques for repository concepts under 
+consideration. Repository concepts developed in this work must therefore 
+quantify radionuclide transport through the geological environment in order to 
+calculate repository capacity and other metrics. 
+
+The exposure limit set by the \gls{EPA} is based on a `reasonably maximally 
+exposed individual.' For the \gls{YMR}, the limiting case is a person who lives, 
+grows food, drinks water and breathes air 18 km downstream from the repository. 
+The Yucca Mountain Repository \gls{EPA} regulations limit total dose from the 
+repository to 15 mrem/yr, and limit dose from drinking water to 4 mrem/yr for 
+the first 10,000 years. 
+Predictions of that dose rate depend on an enormous variety of factors, most 
+important of which is the primary pathway for release. In the \gls{YMR} primary 
+pathway of radionuclides from an accidental release will be from cracking aged 
+canisters. Subsequently, transport of the radionuclides to the water table 
+requires that the radionuclides come in contact with water and travel through 
+the rock to the water table. This results in contamination of drinking water 
+downstream.  
+
+Source term is a measure of the quantity of a radionuclide released into the 
+environment whereas radiotoxicity is a measure of the hazardous effect of that 
+particular radionuclide upon human ingestion or inhalation.  In particular, 
+radiotoxicity is measured in terms of the volume of water dilution required to 
+make it safe to ingest. Studies of source term and radiotoxicity therefore make 
+probabilistic assessments of radionuclide release, transport, and human 
+exposure.  
+
+Importantly, due to the long time scale and intrinsic uncertainties required in 
+such probabilistic assessments it is in general not advisable to base any 
+maximum repository capacity estimates on source term. This is due to the fact 
+that in order to give informative values for the risk associated with transport of 
+particular radionuclides, for example, it is necessary to make highly uncertain  
+predictions concerning waste form degradation, water flow, and other parameters 
+during the long repository evolution time scale.  However, source term remains a 
+pertinent metric for the comparison of alternative separations and fuel cycle
+scenarios as it is a fundamental factor in the calculation of risk.
+%The probabilistic nature of these assessments mean a direct dependence of 
+%source term on repository capacity can be difficult to arrive at.  
+
+Arriving at a generalized metric of probabilistic risk is fairly difficult. For 
+example, the \gls{PEI} metric from Berkeley (ref.  
+\cite{bouvier_comparison_2007}) is a multifaceted function of spent fuel 
+composition, waste conditioning, vitrification method, and radionuclide 
+transport through the repository walls and rock.  Also, it makes the assumption 
+that the waste canisters have been breached at $t=0$. Furthermore, reported in 
+$m^3$, PEI is a measure of radiotoxicity in the environment in the event of 
+total breach. While informative, this model on its own does not completely 
+determine a source-term limited maximum repository capacity.  Additional waste 
+package failure and a dose pathway model must be incorporated into it.
+

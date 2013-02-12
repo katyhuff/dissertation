@@ -1,0 +1,81 @@
+% Provide a brief description of the importance of the work (what problem it 
+%   addresses/solves):
+
+The development of sustainable nuclear fuel cycles is a key challenge as the 
+use of nuclear power expands domestically and internationally.  Accordingly, 
+the United States is simultaneously considering a number of domestic nuclear fuel 
+cycle and geologic disposal options \cite{doe_strategy_2013}.  These decisions 
+are technologically coupled by repository capacity. That is, thermal and 
+radionuclide containment behavior of a geologic repository is a function of 
+spent fuel and high level waste composition, which varies among alternative 
+fuel cycles. For this reason, a generic disposal model capable of integration 
+with a systems analysis framework is necessary to illuminate performance 
+distinctions of candidate repository geologies, designs, and engineering 
+components in the context of fuel cycle options.  In answer to this need, the 
+algorithm in this work has been implemented in the Cyder software library which 
+integrates with the Cyclus computational fuel cycle systems analysis platform 
+\cite{huff_cyder_2013,wilson_cyclus:_2012}. 
+
+
+% The approach must also be modular to support combinatorially complex 
+% decision space 
+
+To support analysis of numerous combinatoric fuel cycle possibilities, a 
+top-level simulation tool capable of modular substitution of various fuel cycle 
+facility, repository, and engineered barrier components is needed. The modular 
+waste package and repository models resulting from this work will assist in 
+informing current technology choices, identifying important parameters 
+contributing to key waste disposal metrics, and highlighting the most promising 
+waste disposal combinations with respect to metrics chosen by the user. 
+
+% Speed
+
+A generic repository model appropriate for systems analysis must emphasize 
+speed while providing modeling options at various levels of 
+detail. Therefore, parameterized simulations and abstraction efforts conducted to develop 
+the method described in this work sought to capture the dominant physics of 
+thermal repository capacity assessment so that the Cyder disposal environment 
+library could meet the simulation speed requirements of the Cyclus fuel cycle 
+simulator.
+
+% The modeling approach must be efficient in order for many scenarios to be 
+% compared quickly
+
+System level fuel cycle simulation tools must facilitate efficient sensitivity 
+and uncertainty analyses as well as simulation of a wide range of fuel cycle 
+alternatives.  Efficiency is achieved with models at a level of detail that 
+successfully captures significant aspects of the underlying physics while 
+achieving a calculation speed in accordance with use cases requiring repeated 
+simulations.
+Often termed abstraction, the process of simplifying while 
+maintaining the salient features of the underlying physics is the method by 
+which used fuel disposal system models were developed in this work. 
+
+% The fuel cycle parameters that may be varied are numerous and coupled to the 
+% back end.
+
+Independent fuel cycle parameters of particular interest in fuel cycle systems 
+analysis have historically been those related to the front end of the fuel 
+cycle.
+However, independent variables representing decisions concerning the back end
+of the fuel cycle are of increasing interest as the United States further
+investigates repository alternatives to Yucca Mountain.  Parameters such as
+repository geology, engineered barriers, appropriate loading strategies and
+schedules are all independent variables up for debate. Due to the feedback 
+implication of repository capacity and performance, these
+parameters are coupled with decisions about the fuel cycle. 
+
+% So we need a full systems analysis package, incorporating a repository. 
+
+Thus, while independent parameters can be chosen and varied within a fuel cycle 
+simulation, coupled parameters require full synthesis with a systems analysis 
+code that appropriately determines the isotopic mass flows into the repository, 
+their appropriate conditioning, densities, and other physical properties.  
+
+\subsection{Future Fuel Cycle Options}
+\input{./chapters/intro/fuel_cycle_options}
+\subsection{Future Waste Disposal System Options}
+\input{./chapters/intro/waste_disposal_options}
+\subsection{Domestic Research and Development Program}
+\input{./chapters/intro/r_and_d}
+
