@@ -1,0 +1,95 @@
+\subsubsection{Supporting Thermal Response Dataset}
+To support this calculation in Cyder, a reference data set of temperature change 
+curves was calculated. Repeated runs of a detailed analytic model over the range of values in Table 
+\ref{tab:thermal_cases} determined \gls{STC} values over a range of thermal 
+heat limit radii, $r_{lim}$, thermal diffusivity values, $\alpha_{th}$,
+thermal conductivity values, $K_{th}$ and waste package spacings, $S$. Linear 
+interpolation across the discrete parameter space provides a simple thermal 
+reference dataset for use in Cyder.
+
+\input{./chapters/methodology/thermal_models/thermal_cases}
+
+The analytic model used to populate the reference dataset was created at 
+\gls{LLNL} for the \gls{UFD} campaign. In this tool, heat limited thermal 
+response is calculated analytically for each geology, for many waste package 
+loading densities, and for many fuel cycle options \cite{hardin_generic_2011, 
+greenberg_investigations_2012, greenberg_application_2012}. It employs an 
+analytic model from Carslaw and Jaeger and is implemented in MathCAD 
+\cite{carslaw_conduction_1959, ptc_mathcad_2010}.  The integral solver in the 
+MathCAD toolset is the primary calculation engine for the analytic MathCAD 
+thermal model, which relies on superposition of point, finite-line, and line 
+source integral solutions.  
+
+%The transient state of the temperature at the calculation radius is found with a convolution of the transient far field solution with the steady state near field solution.  The process is then iterated with a one year resolution in order to arrive at a temperature evolution over the lifetime of the repository. 
+%
+%In a two dimensional grid of waste packages, the central package is represented by the finite line solution
+
+Figure \ref{fig:CmScaling} demonstrates the scaling of an STC curve according to 
+equation \eqref{STC} to represent the heat from $25.9g$ of initial $^{242}Cm$ using 
+the reference data set. 
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=\columnwidth]{./chapters/methodology/thermal_models/CmScaling.eps}
+\end{center}
+\caption{As a demonstration of the calculation procedure, the temperature change 
+  curve for one initial gram of $^{242}Cm$ and is scaled to represent $25.9g$, 
+  approximately the $^{242}Cm$ inventory per MTHM in 51GWd burnup UOX PWR fuel. }
+\label{fig:CmScaling}
+\end{figure}
+
+
+The supporting database was limited to some primary heat contributing isotopes 
+present in traditional spent nuclear fuel, $H$, 
+such that the superposition in equation \eqref{superposition} becomes 
+
+\begin{align}
+\Delta T (r_{lim},S,K_{th},\alpha_{th})&\sim \sum_{i\in H} m_i \Delta t_i(r_{lim},S,K_{th},\alpha_{th})
+\label{superposition_approx}
+\intertext{where}
+H &= \mbox{ set of high heat isotopes }[-]\nonumber\\
+S &= \mbox{ uniform waste package spacing } [m]\nonumber\\
+K_{th} &= \mbox{ thermal conductivity } [W\cdot m^{-1}\cdot K^{-1}]\nonumber\\
+\alpha_{th} &= \mbox{ thermal diffusivity } [m^2\cdot s^{-1}]\nonumber\\
+\end{align}
+
+The use of this superposition is demonstrated in Figure 
+\ref{fig:CmSuperposition}.
+
+\begin{figure}[ht!]
+\begin{center}
+\includegraphics[width=\columnwidth]{./chapters/methodology/thermal_models/CmSuperposition.eps}
+\end{center}
+\caption{As a demonstration of the calculation procedure, scaled temperature change 
+  curves for five curium isotopes are superimposed to achieve a total temperature 
+change (note log scale).}
+\label{fig:CmSuperposition}
+\end{figure}
+
+%\begin{align}
+%  T_{line}(t,x,y,z) &= \frac{1}{8\pi K_{th}} 
+%  \bigintsss_0^t\!\frac{q_L(t')}{t-t'}e^{ \frac{-\left(x^2 + z^2\right)}{4\alpha 
+%  (t-t')} }\nonumber\\ &\cdot\left[ \erf{\left[ \frac{1}{2} \frac{\left( y + 
+%  \frac{L}{2} \right)}{\sqrt{\alpha(t-t')}}  \right]} - \erf{\left[ \frac{1}{2} 
+%  \frac{\left( y - \frac{L}{2} \right)}{\sqrt{\alpha(t-t')}}  \right]} 
+%  \right]\,\mathrm{dt'},
+%  \label{line}
+%  \intertext{adjacent packages within the central tunnel are represented by the 
+%  point source solution }
+%  T_{point}(t,r) &= 
+%  \frac{1}{8K_{th}\sqrt{\alpha}\pi^{\frac{3}{2}}}\bigintsss_0^{-t}\!\frac{q(t')}{(t-t')^{\frac{3}{2}}}e^{\frac{-r^2}{4\alpha(t-t')}}\,\mathrm{dt'},
+%  \label{point}
+%  \intertext{and adjacent disposal tunnels are represented by infinite line 
+%  source solutions}
+%  T_{\infty line}(t,x,z) &= \frac{1}{4\pi K_{th}} 
+%  \bigintsss_0^t\!\frac{q_L(t')}{t-t'}e^{ \frac{-\left(x^2 + z^2\right)}{4\alpha 
+%  (t-t')} }
+%  \intertext{in infinite homogeneous media, where}
+%  \label{infline}
+%  \alpha &= ~~\mbox{thermal diffusivity } [m^2\cdot s^{-1}]\nonumber\\
+%  q(t) &= ~~\mbox{point heat source} [W]\nonumber\\
+%  \intertext{and}
+%  q_L(t) &= ~~\mbox{linear heat source} [W\cdot m^{-1}]\nonumber
+%\end{align}
+%Superimposed point and line source solutions allow for a notion of the 
+%repository layout to be modeled in the host rock.
