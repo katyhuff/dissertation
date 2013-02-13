@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{557.3107168bp}%
+    \setlength{\unitlength}{569.11080564bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,7 +48,7 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,1.38409588)%
+  \begin{picture}(1,1.52006012)%
     \put(0,0){\includegraphics[width=\unitlength]{./chapters/paradigm/repo_layout.eps}}%
   \end{picture}%
 \endgroup%
