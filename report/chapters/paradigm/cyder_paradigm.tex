@@ -19,7 +19,7 @@ arrives at the repository and is emplaced if it obeys all repository capacity
 limits. 
 
 For waste streams that vary from each other in composition, the thermal 
-capacity of the repository to recieve that waste stream must therefore be 
+capacity of the repository to receive that waste stream must therefore be 
 recalculated.  Since disposable material in most simulations of interest will 
 be of variable composition and therefore heterogeneous in heat production 
 capability, the repository model will repeatedly need to recalculate its own 
@@ -35,7 +35,7 @@ accepted into the repository, it is associated with a waste form according
 to its commodity name. This pairing is input by the user during simulation 
 setup when a number of waste form Component configurations are specified and 
 associated with allowed waste stream commodities. It is according to these 
-pairings that Cyder model loads discrete waste formss with discrete waste 
+pairings that Cyder model loads discrete waste forms with discrete waste 
 stream contaminant vectors as depicted in Figure \ref{fig:ws_conditioning}.
 
 \begin{figure}[htbp!]
@@ -106,7 +106,7 @@ nested Components.
 
 \subsubsection{Component Material Data}
 
-Each Component of the repository system posesses a notion of the material that 
+Each Component of the repository system possesses a notion of the material that 
 it is made of. Supporting thermal and hydrologic data for canonical engineered 
 barrier and geologic media is provided with the code in the 
 mat\_data.sqlite SQLite database.
@@ -119,14 +119,14 @@ coefficients for each element.
 
 \subsubsection{Component ThermalModel}
 
-Each Component posesses a thermal transport model that determines the 
+Each Component possesses a thermal transport model that determines the 
 temperature inside the Component over time. This Thermal transport model is 
 distinct from the model used to estimate capacity, though that model is one of 
 the optional thermal models available. 
 
-\subsubsection{Component NuclideModel}
+\subsubsection{Component Nuclide Model}
 
-Each Component posesses a radionuclide contaminant transport model that 
+Each Component possesses a radionuclide contaminant transport model that 
 determines the contaminant transport inside the Component over time. 
 
 \subsubsection{Implicit Timestepping}
