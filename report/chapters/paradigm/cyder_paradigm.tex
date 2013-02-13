@@ -126,14 +126,17 @@ coefficients for each element.
 \subsubsection{Component ThermalModel}
 
 Each Component possesses a thermal transport model that determines the 
-temperature inside the Component over time. This Thermal transport model is 
-distinct from the model used to estimate capacity, though that model is one of 
-the optional thermal models available. 
+temperature inside the Component over time. This calculation is distinct from 
+the model used to estimate capacity, though that model is  available for 
+modeling at the component level. The thermal modeling options are discussed 
+further in Section \ref{sec:thermal_models}.  
 
-\subsubsection{Component Nuclide Model}
+\subsubsection{Component NuclideModel}
 
 Each Component possesses a radionuclide contaminant transport model that 
-determines the contaminant transport inside the Component over time. 
+determines the contaminant transport inside the Component over time. The 
+choices available for this NuclideModel are discussed further in Section 
+\ref{sec:nuclide_models}. 
 
 \subsubsection{Implicit Timestepping}
 
