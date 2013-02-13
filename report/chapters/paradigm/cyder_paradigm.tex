@@ -94,7 +94,11 @@ model in this work conducts this calculation by  treating each containment
 Component as nested volumes in a release chain. 
 
 Each Component is defined by a Geometry, some Material Data, a ThermalModel, 
-and a NuclideModel.
+and a NuclideModel. It is also defined by the Parent Component which contains 
+it and the Daughter Components which it contains. An emplaced waste package 
+Component, for example, possesses a pointer to the buffer that surrounds it, 
+its Parent Component. It also possesses a list of pointers to the waste form or 
+waste forms within it, its Daughter Components. 
 
 \subsubsection{Component Geometry}
 
@@ -102,7 +106,9 @@ Each Component of the repository system (i.e. waste form, waste package, buffer,
 and geologic medium) is modeled as a discrete control volume. Each control 
 volume performs its own mass balance at each time step and assesses its own 
 internal  heat transfer and degradation phenomena separately from the other 
-nested Components.
+nested Components. This control volume is defined by the Component Geomtry, 
+a class which keeps track of the inner and outer radii, length, and centroid 
+coordinates of the (assumed cylindrical) volume.
 
 \subsubsection{Component Material Data}
 
@@ -165,8 +171,21 @@ component 1 as the $t_n$ inner boundary condition of its own solution. For each 
   t_n &= \mbox{timestep n.}\nonumber
 \end{align}
 
-\subsection{Other Modeling Behaviors}
-
 \subsection{Output Tables}
+Cyder output tables utilize the \Cyclus Table class and rely on the \Cyclus simulation logic to record table entries in the cyclus.sqlite output database. Current Cyder output tables include a number of tables. First, a repository parameters table, \textbf{gen\_repo\_params}, keeps data from the user input that parameterized the generic repository, for reproducibility. Similarly, a Componet parameters table, \textbf{gen\_repo\_components}, keeps data that parameterized each component, both from the user input and from the Cyder procedures that position and arrange these components. An example is shown in Figure \ref{fig:comp_table}. Finally, a contaminants table, \textbf{gen\_repo\_contaminants}, keeps track of the isotopic composition of the contaminants in each component as they move radially outward. An example of the contaminants table is show in Figure \ref{fig:cont_table}. 
 
+  \begin{figure}[htbp!]
+    \begin{center}
+      \includegraphics[width=\textwidth]{./chapters/paradigm/comp_table.eps}
+      \caption{An example of the Cyder component parameters table recorded for provenance in the cyclus.sqlite database.}
+      \label{fig:comp_table}
+    \end{center}
+  \end{figure}
 
+  \begin{figure}[htbp!]
+    \begin{center}
+      \includegraphics[width=\textwidth]{./chapters/paradigm/cont_table.eps}
+      \caption{An example of the Cyder contaminants table in the cyclus.sqlite database.}
+      \label{fig:cont_table}
+    \end{center}
+  \end{figure}
