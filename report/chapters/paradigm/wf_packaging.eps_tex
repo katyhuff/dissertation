@@ -1,6 +1,6 @@
 %% Creator: Inkscape inkscape 0.48.3.1, www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'repo_layout.eps' (pdf, eps, ps)
+%% Accompanies image file 'wf_packaging.eps' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{569.11080564bp}%
+    \setlength{\unitlength}{742.92121755bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,7 +48,7 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,1.3735205)%
-    \put(0,0){\includegraphics[width=\unitlength]{./chapters/paradigm/repo_layout.eps}}%
+  \begin{picture}(1,0.69865005)%
+    \put(0,0){\includegraphics[width=\unitlength]{./chapters/paradigm/wf_packaging.eps}}%
   \end{picture}%
 \endgroup%

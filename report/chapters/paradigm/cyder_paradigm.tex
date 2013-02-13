@@ -1,13 +1,54 @@
 \section{Cyder Repository Modeling Paradigm}
 
 The Cyder repository model architecture is intended to modularly permit 
-exchange of disposal system subcomponents, accept arbitrary spent fuel 
-streams, and enable extending modules representing new or different 
-Component models.  Finally, in order to participate in the 
-simulation as a facility model, must make requests for spent material up 
-to its capacity. Determination of the repository capacity for various 
-types of spent fuel commodities comprises the interfacing functionality of 
-the repository model.
+exchange of disposal system Component models (e.g., detailed nuclide transport 
+model vs. less detailed) and data (e.g., exchange clay for granite geologic 
+data) and accept arbitrary waste stream isotopic compositions.  
+Finally, in order to participate in the simulation as a facility model, must 
+make requests for spent material up to its capacity. Determination of the 
+repository capacity for various types of spent fuel commodities comprises the 
+interfacing functionality of the repository model.
+
+\subsection{Waste Stream Conditioning}
+
+Waste conditioning is the process of packing a waste stream into an appropriate 
+waste form. As \Cyclus lacks a conditioning facility, the Cyder repository 
+fulfills this need as a part of the repository behavior. As a waste stream is 
+accepted into the repository, it is associated with a waste form according 
+to its commodity name. This pairing is input by the user during simulation 
+setup when a number of waste form Component configurations are specified and 
+associated with allowed waste stream commodities. It is according to these 
+pairings that Cyder model loads discrete waste formss with discrete waste 
+stream contaminant vectors as depicted in Figure \ref{fig:ws_conditioning}.
+
+\begin{figure}[htbp!]
+\begin{center}
+\def\svgwidth{.5\textwidth}
+\input{./chapters/paradigm/ws_conditioning.eps_tex}
+\end{center}
+\caption{Waste streams are conditioned with the appropriate waste form 
+according to user-specified pairings.}
+\label{fig:ws_conditioning}
+\end{figure}
+
+\subsection{Waste Form Packaging}
+
+Waste packaging is the process of placing one or many waste forms into a 
+(typically metallic) containment package. Once the waste stream has been 
+conditioned into a waste form, that waste form Component is loaded into a waste 
+package Component, also according to allowed pairs dictated by the user, as 
+depicted in Figure \ref{fig:wf_packaging}.
+
+\begin{figure}[htbp!]
+\begin{center}
+\def\svgwidth{.5\textwidth}
+\input{./chapters/paradigm/wf_packaging.eps_tex}
+\end{center}
+\caption{Waste forms are loaded into the appropriate waste package 
+according to user-specified pairings.}
+\label{fig:wf_packaging}
+\end{figure}
+
 
 \subsection{Repository Layout}
 
@@ -15,11 +56,14 @@ As a waste stream is accepted into the repository, it is packaged into a waste
 forms according to their commodity (as input by the user). Then, that waste 
 form Component is loaded into a waste package (also pairs dictated by the 
 user). Finally, the waste package is emplaced in a buffer component, which 
-contains many other waste packages, spaced evenly in a grid.
+contains many other waste packages, spaced evenly in a grid. The grid is 
+defined by the user input and depends on repository depth, $\Delta z$, waste 
+package spacing, $\Delta x$, and tunnel spacing, $\Delta y$ as in Figure 
+\ref{fig:repo_layout}.
 
 \begin{figure}[htbp!]
 \begin{center}
-\def\svgwidth{.8\textwidth}
+\def\svgwidth{.5\textwidth}
 \input{./chapters/paradigm/repo_layout.eps_tex}
 \end{center}
 \caption{The repository layout has a depth and a uniform package spacing.}
