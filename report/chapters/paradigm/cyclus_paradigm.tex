@@ -185,10 +185,10 @@ within the simulation.
 
 The above sections outline the fuel cycle simulation platform
 currently under development at \gls{UW} in which the Cyder repository model
-at hand is to be implemented.  Implemented as a facility within this 
-framework, the repository model interface is defined by the Facility
-Model interface defined within the \Cyclus paradigm. Though some Facility 
-models make both requests and offers to the system, the Cyder model is a type 
+at hand is to be implemented. 
+The Cyder repository is a subclass of the FacilityModel class, inheriting the 
+FacilityModel interface defined in \Cyclus.
+Though some FacilityModel subclasses make both requests and offers to the system, the Cyder model is a type 
 of sink, making only requests as in Figure \ref{fig:sinkfacility}.
 
 \begin{figure}[htb!]
@@ -208,10 +208,6 @@ the \Cyclus paradigm allows the repository system subcomponents to be
 interchangeably loaded at runtime, enabling comparison of various 
 repository subcomponents, physical models of varying levels of detail. 
 
-The repository is both a subclass and a superclass. It is a subclass of the 
-FacilityModel class, and a superclass of its own subcomponents. That is, 
-dynamically loaded subcomponents of the repository inherit data, parameters and 
-behaviors from the repository itself. 
 
 
 %%%%%%% As Paul Dirac once said. . . In science one tries to tell
