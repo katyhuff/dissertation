@@ -29,7 +29,7 @@ flexible, design choices have been made.
 The ability to dynamically load independently constructed modules is a
 heavy focus of \Cyclus development. Dynamically-loadable modules are
 the primary mechanism for extending \Cyclus' capability. The primary
-benefit of this approach is encapsulation: the trunk of the code is
+benefit of this approach is encapsulation: the core of the code is
 completely independent of the individual models. Thus, any
 customization or extension is implemented only in the loadable
 module. A secondary benefit of this encapsulation is the ability for
@@ -103,7 +103,7 @@ the simulation performance with minimal modification to the code. An
 extensible code should be both robustly suited to the addition of 
 classes and subclasses as well as suited to communication with other codes.
 In \Cyclus, addition of new models by dynamic loading is possible without 
-any alteration of the software trunk. The modular design of \Cyclus stresses
+any alteration of the software core. The modular design of \Cyclus stresses
 avoidance of rigidity, in which changes to the code are potentially difficult, 
 and fragility, in which changes to the code are potentially damaging.
 
@@ -113,14 +113,14 @@ and fragility, in which changes to the code are potentially damaging.
 The foundation of a simulation is a commodity market that collects 
 offers and requests and matches them according to some algorithm.  The 
 user is able to select which type of algorithm is used for each market 
-by selecting a MarketModel and configure it with a particular set of 
+by selecting a MarketModel and configuring it with a particular set of 
 parameters defined by that MarketModel.  Changing the parameters of a 
 market changes its performance and selecting a different MarketModel 
 completely changes its behavior.
 
 The transaction of nuclear materials takes place in markets that act
 as brokers matching a set of requests for material with a set of
-offers for that material. A variety of market models will be available
+offers for that material. A variety of market models are available
 to perform this brokerage role. It is important to note that each
 market is defined for a single commodity and acts independently of
 other markets. Once the requests and offers have been matched by each
@@ -139,17 +139,17 @@ can be deployed to represent individual facilities.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Discrete Materials and Facilities}
 
-The \Cyclus modeling infrastructure is designed such that every
-facility in a global nuclear fuel cycle is treated and acts
-individually. Each facility has two fundamental tasks: the transaction of
-goods or products with other facilities and the transformation of
-those goods or products from an input form to an output form.  For
-example, a reactor will receive fresh fuel assemblies from a fuel
-fabrication facility, transform them to used fuel assemblies
-using some approximation of the reactor physics, and supply those used
-fuel assemblies to a storage facility. In this manner, facilities can be 
-thought of as black boxes in the simulation which request and produce 
-resources as in Figure \ref{fig:facility}
+The repository model that is the subject of this work is a facility model 
+within the \Cyclus simulation paradigm.  The \Cyclus modeling infrastructure is 
+designed such that every facility in a global nuclear fuel cycle is treated and 
+acts individually.  Each facility has two fundamental tasks: the transaction of 
+goods or products with other facilities and the transformation of those goods 
+or products from an input form to an output form.  For example, a reactor will 
+receive fresh fuel assemblies from a fuel fabrication facility, transform them 
+to used fuel assemblies using some approximation of the reactor physics, and 
+supply those used fuel assemblies to a storage facility. In this manner, 
+facilities can be thought of as black boxes in the simulation which request and 
+produce resources as in Figure \ref{fig:facility} 
 
 \begin{figure}[htb!]
   \begin{center}
@@ -168,8 +168,6 @@ govern its performance.  The same FacilityModel may be used for
 multiple facility configurations in the same region, each with 
 parameter values appropriate for that facility configuration.
 
-The repository model that is the subject of this work is a facility 
-model within the \Cyclus simulation paradigm. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
