@@ -34,9 +34,18 @@ transport on long time scales and in various geologies.
 
 
 Several computational fuel cycle simulation tools have been developed to inform 
-calculations of fuel cycle metrics. 
+calculations of fuel cycle metrics. This literature review focused on 
+\gls{NUWASTE} \cite{abkowitz_nuclear_2010},
+\gls{DANESS} \cite{yacout_daness_2011,van_den_durpel_daness:_2006}, 
+\gls{NFCSim} \cite{schneider_nfcsim_2004},
+ORION \cite{gregg_orion_2011},
+\gls{COSI} \cite{boucher_international_2010},
+\gls{VISION} \cite{yacout_vision_2006, wilson_comparing_2011, 
+radel_repository_2007, boucher_international_2010}, and
+\gls{CAFCA} \cite{guerin_impact_2009}.
 
-\paragraph{Metric Calculations}
+\subsubsection{Metric Calculations}
+
 Most current tools treat the waste disposal 
 phase of fuel cycle analysis statically in post processing by reporting 
 values such as mass, volumes, radiotoxicity, or heat production of accumulated 
@@ -56,8 +65,9 @@ and
 transport. However, those calculations are applicable only for specific 
 repository concepts and cannot inform sensitivity to geologic disposal system characteristics.  
 
-\paragraph{Detail}
-Among the more sophisticated fuel cycle tools, a few (e.g.,
+\subsubsection{Detail}
+
+A few sophisticated fuel cycle tools  (e.g.,
 \gls{NUWASTE} \cite{abkowitz_nuclear_2010},
 \gls{NFCSim} \cite{schneider_nfcsim_2004}, and 
 \gls{COSI} \cite{boucher_international_2010}) have emphasized discrete material 
@@ -80,7 +90,8 @@ ORION \cite{gregg_orion_2011}, and
 others neglect isotopic granularity (e.g., 
 \gls{CAFCA} \cite{guerin_impact_2009}).
 
-\paragraph{Accessibility}
+\subsubsection{Accessibility}
+
 While these tools have contributed to analysis of fuel cycle effects on 
 repository metrics, none address radionuclide contaminant transport in generic 
 geologies, and many (e.g.,
@@ -153,14 +164,17 @@ A suite of three geologic media and four disposal concepts of interest were
 chosen to capture the primary geologies and concepts found in the following review 
 of international and domestic efforts. Granite, clay, and salt geologic 
 environments will be modeled with flexible layouts and an array of available 
-canonical engineered subcomponent models.  The detailed \gls{GPAM} effort and 
-associated \gls{GDSM} tools were chosen to support the for this work will 
-support abstraction for these concepts and further comparison with \gls{ANDRA} 
-and RED-IMPACT results will provide further benchmarks for validation.  
+canonical engineered subcomponent models.  
 
-The concepts that have been investigated internationally and will be
-investigated in this work are dominated by saturated, closed concepts. Saturated 
-concepts are those located below the water table such that, in contrast to 
+%The detailed \gls{GPAM} effort and 
+%associated \gls{GDSM} tools were chosen to support the for this work will 
+%support abstraction for these concepts and further comparison with \gls{ANDRA} 
+%and RED-IMPACT results will provide further benchmarks for validation.  
+Geologic disposal concepts that have been investigated internationally, with the 
+exception of \gls{YMR} can be characterized as enclosed concepts in saturated, 
+reducing environments. 
+
+Saturated concepts are those located below the water table such that, in contrast to 
 \gls{YMR}, the porosity within the rock matrix as well as fractures 
 and other open spaces is suffused with water. A closed concept is one that 
 neither relies on ventilation shafts nor an extended open period after waste 
@@ -168,20 +182,23 @@ emplacement.
 
 Enclosed modes are appropriate for low permeability rock formations (clay/shale, 
 granite, salt).  Low permeability does not permit oxygen entry, so these are
-chemically reducing environments.  Chemically reducing environments are reducing 
-insofar as they induce redox reactions to proceed in the reduction direction. This 
-attribute has the primary effect of slowing corrosion, dissolution, and  
-alteration rates in materials that are subject to degradation. A reducing 
-disposal environment also lowers solubility limits and increases sorption of 
-many actinide species. The dominant dose contributors in reducing environments are 
-therefore the soluble, long lived fission and activation products such as $^{129}I$ 
-and $^{79}Se$ \cite{oecd-nea_advanced_2006, von_lensa_red-impact_2008}.  
-Furthermore, rather than being primarily kinetically limited, as in an oxidizing 
-environment, sorption behavior is primarily thermodynamically limited 
-\cite{nutt_personal_2011, schwartz_fundamentals_2004}. The models created here 
-will be designed such that these distinctions between reducing and oxidizing 
-environments may be parsed in the event that an extension model simulates an 
-oxidizing environment. 
+chemically reducing environments.  
+
+Chemically reducing environments are reducing insofar as they induce redox 
+reactions to proceed in the reduction direction. This attribute has the primary 
+effect of slowing corrosion, dissolution, and  alteration rates in materials 
+that are subject to degradation. A reducing disposal environment also lowers 
+solubility limits and increases sorption of many actinide species. The dominant 
+dose contributors in reducing environments are therefore the soluble, long 
+lived fission and activation products such as $^{129}I$ and $^{79}Se$ 
+\cite{oecd-nea_advanced_2006, von_lensa_red-impact_2008}.  Furthermore, rather 
+than being primarily kinetically limited, as in an oxidizing environment, 
+sorption behavior is primarily thermodynamically limited 
+\cite{nutt_personal_2011, schwartz_fundamentals_2004}. 
+
+The models created here will be designed such that these distinctions between 
+reducing and oxidizing environments may be parsed in the event that an 
+extension model simulates an oxidizing environment. 
 
 Since heat is carried away less effectively once closure 
 has occurred, heat limits are lower in  closed repository concepts than in open 
