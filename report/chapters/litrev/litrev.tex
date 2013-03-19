@@ -34,7 +34,10 @@ transport on long time scales and in various geologies.
 
 
 Several computational fuel cycle simulation tools have been developed to inform 
-calculations of fuel cycle metrics. Most current tools treat the waste disposal 
+calculations of fuel cycle metrics. 
+
+\paragraph{Metric Calculations}
+Most current tools treat the waste disposal 
 phase of fuel cycle analysis statically in post processing by reporting 
 values such as mass, volumes, radiotoxicity, or heat production of accumulated 
 spent nuclear fuel. Such tools 
@@ -53,6 +56,7 @@ and
 transport. However, those calculations are applicable only for specific 
 repository concepts and cannot inform sensitivity to geologic disposal system characteristics.  
 
+\paragraph{Detail}
 Among the more sophisticated fuel cycle tools, a few (e.g.,
 \gls{NUWASTE} \cite{abkowitz_nuclear_2010},
 \gls{NFCSim} \cite{schneider_nfcsim_2004}, and 
@@ -64,6 +68,19 @@ traditional flow sheet calculations. A few (e.g.,
 ) utilize discrete material tracking to 
 provide per-package metrics including heat generation and radiotoxicity. 
 
+
+The number of isotopes distinctly tracked also varies among fuel cycle 
+simulator tools. Some (e.g., 
+\gls{COSI} \cite{boucher_international_2010},
+\gls{DANESS} \cite{yacout_daness_2011,van_den_durpel_daness:_2006}, 
+ORION \cite{gregg_orion_2011}, and
+\gls{VISION} \cite{yacout_vision_2006, wilson_comparing_2011, radel_repository_2007, boucher_international_2010}
+) are capable of tracking thousands or arbitrary numbers of isotopes. Others (e.g., 
+\gls{NUWASTE} \cite{abkowitz_nuclear_2010}) track tens of isotopes, while still 
+others neglect isotopic granularity (e.g., 
+\gls{CAFCA} \cite{guerin_impact_2009}).
+
+\paragraph{Accessibility}
 While these tools have contributed to analysis of fuel cycle effects on 
 repository metrics, none address radionuclide contaminant transport in generic 
 geologies, and many (e.g.,
