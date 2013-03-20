@@ -179,21 +179,21 @@ holding the map of isotopes and their masses, a material object holds
 a comprehensive history of its own path as it moves through models 
 within the simulation. 
 
-\subsection{Implications for Cyder}
+\subsection{Implications for \Cyder}
 
 The above sections outline the fuel cycle simulation platform
-currently under development at \gls{UW} in which the Cyder repository model
+currently under development at \gls{UW} in which the \Cyder repository model
 at hand is implemented.  Implemented as a facility within this 
 framework, the repository model interface is defined by the Facility
 Model interface defined within the \Cyclus paradigm. Though some Facility 
-models make both requests and offers to the system, the Cyder model is a type 
+models make both requests and offers to the system, the \Cyder model is a type 
 of sink, making only requests as in Figure \ref{fig:sinkfacility}.
 
 \begin{figure}[htb!]
   \begin{center}
     \includegraphics[width=0.5\textwidth]{./chapters/paradigm/sinkfacility.eps}
   \end{center}
-  \caption{The Cyder model is a type of sink facility, making only resource requests.}
+  \caption{The \Cyder model is a type of sink facility, making only resource requests.}
   \label{fig:sinkfacility}
 \end{figure}
 
@@ -206,9 +206,9 @@ the \Cyclus paradigm allows the repository system subcomponents to be
 interchangeably loaded at runtime, enabling comparison of various 
 repository subcomponents, physical models of varying levels of detail. 
 
-The Cyder repository is a subclass of the FacilityModel class.  That is, the 
+The \Cyder repository is a subclass of the FacilityModel class.  That is, the 
 repository inherits data, parameters and behaviors from the \Cyclus simulation 
-FacilityModel class. Cyder is distinguished from other FacilityModels used in 
+FacilityModel class. \Cyder is distinguished from other FacilityModels used in 
 \Cyclus when it overrides and supplements these behaviors and data with its own 
 functionality and the functionality of its subcomponents.
 
