@@ -7,7 +7,7 @@ boundaries, respectively.
 
 Various solutions to the advection dispersion equation  
 \eqref{unidirflow} have been published for both the first and third types of 
-boundary conditions. The third, Cauchy type, is mass conservative, and is 
+boundary conditions. The third, Cauchy type, is mass conservative, and will be 
 the primary kind of boundary condition used at the source for this model.
 
 The conceptual model in Figure \ref{fig:1dinf} represents solute transport in 
@@ -36,12 +36,50 @@ For the boundary conditions,
   C(z,0) &= C_i,
   \label{1dinfBC}
   \intertext{the solution is given as }
-  C(z,t) = \frac{C_0}{2}\Bigg[&\mbox{erfc}\left[{\frac{z-v_zt}{2\sqrt{D_zt}}}\right] 
-  + \frac{1}{2} \left(\frac{v_z^2t}{\pi D_z}\right)^{1/2}e^{\frac{-( z - 
-  v_zt)^2}{4D_zt}}\nonumber\\
-  &- \frac{1}{2}\left( 
-  1+\frac{v_zz}{D_z}+\frac{v_z^2t}{D_z}\right)e^\frac{v_zz}{D_z}\mbox{erfc}\left[\frac{z-V_zt}{2\sqrt{D_zt}}\right]
-  \Bigg].
+  C(z,t) &= 
+  \frac{C_0}{4}\int_0^t\frac{v}{R}\Lambda_3(\tau)\Gamma_2(\tau)d\tau + 
+  \frac{\lambda}{2R}\int_0^t\Lambda_4(\tau)
+  \intertext{which, for no $\lambda$ first order production becomes}
+  &= \frac{C_0}{4}\int_0^t\frac{v}{R}\Lambda_3(\tau)\Gamma_2(\tau)d\tau
+  \intertext{where}
+  R &= \mbox{Retardation factor }[-].
+\end{align}
+
+For the vertical flow coordinate system, $\Lambda_3$ and $\Gamma_2$ are defined 
+as
+\begin{align}
+  \Lambda_3(\tau) &= e^{-\frac{\mu\tau}{R}}\Bigg[\sqrt{\frac{R}{\pi D_z\tau}}e^{-\frac{(Rz-v\tau)^2}{4RD_z\tau}} - 
+    \frac{v}{2D_z}e^\frac{vz}{D_z}\erfc{\frac{Rz+v\tau}{\sqrt{4RD_z\tau}}}\Bigg]
+    \label{Lambda_3}
+  \intertext{and}
+  \Gamma_2(\tau) &= 
+      \Bigg[ \erfc{\frac{x-a}{\sqrt{\frac{4D_x\tau}{R}}} } - 
+             \erfc{\frac{x+a}{\sqrt{\frac{4D_x\tau}{R}}} } \Bigg]
+      \Bigg[ \erfc{\frac{y-b}{\sqrt{\frac{4D_y\tau}{R}}} } -
+             \erfc{\frac{y+b}{\sqrt{\frac{4D_y\tau}{R}}} } \Bigg]. 
+      \label{Gamma_2}
+\end{align}
+
+We make a few simplifying one dimensional assumptions. First, that the diffusion 
+coefficient of the medium is the same in the $\hat{x}$ and $\hat{y}$ directions 
+such that $D_x=D_y$. Also, we take the concentration around the origin for a 
+unit surface area, so $x=y=0$ and $a=b=1$. Thus, $\Gamma_2$ from equation \eqref{Gamma_2} becomes
+\begin{align}
+  \Gamma_2(\tau) = 2\left(\erfc{\frac{1}{\sqrt{\frac{4D_{xy}\tau}{R}}} 
+}^2\right).
+\end{align}
+
+Another simplification is that, in Cyclus, radioactive decay is handled external 
+to the components, so $\mu$, the constant of decay in equation \eqref{Lambda_3}, 
+goes to zero. Thus, 
+
+\begin{align}
+  C(z,t)&= \frac{C_0}{2}\int_0^t\frac{v}{R}
+  \Bigg[\sqrt{\frac{R}{\pi D_z\tau}}e^{-\frac{(Rz-v\tau)^2}{4RD_z\tau}} -
+    \frac{v}{2D_z}e^\frac{vz}{D_z}\erfc{\frac{Rz+v\tau}{\sqrt{4RD_z\tau}}}\Bigg]
+    \erfc{\frac{1}{\sqrt{\frac{4D_{xy}\tau}{R}}} }^2
+  d\tau .
+  \label{simple_leij}
 \end{align}
 
 
