@@ -1099,41 +1099,6 @@ boundary,
   \frac{\partial C(\vec{r},t)}{\partial r} = nD\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
 \end{align}
 
-\subsubsection{One Dimensional Solution with Constant Concentration}
-
-An analytical solution for the one dimensional case with a continuous source 
-of constant concentration is known. For the boundary conditions
-\begin{align}
-  C(0,t) =& C_0
-  \intertext{and}
-  \frac{\partial C}{\partial x}\Big|_{x=\infty} =& 0
-  \label{BCs}
-  \intertext{as well as the initial condition }
-  C(x,0) =& 0 \mbox{\hspace{2mm}for\hspace{1mm}} x \in (0,\infty),
-\end{align}
-the so called Ogata and Banks solution gives
-\begin{align}
-  C(x,t) =& \frac{C_0}{2}\left[
-  \erfc{\left( \frac{x- \frac{v_x t}{R_f} }{2\sqrt{ 
-  \frac{D_xt}{R_f} }} \right)} +
-  e^{\frac{v_xx}{D_x}}
-  \erfc{\left( \frac{x+ \frac{v_x t}{R_f} }{2\sqrt{ 
-  \frac{D_xt}{R_f} }} \right)}
-  \right].
-  \label{ogatabanks}
-  \intertext{where}
-  \erf(x) =& \frac{2}{\sqrt{\pi}}\int_0^xe^{-t^2}dt\\ 
-  \erfc(x) =& 1-\erf(x)\nonumber\\
-           =& \frac{2}{\sqrt{\pi}}\int_x^\infty e^{-t^2}dt 
-\end{align}
-
-
-
-Equation \eqref{ogatabanks} is an appropriate one dimensional solution to the 
-situation in this work where a constant concentration at the internal boundary 
-of each control volume is available at each time step. Abstraction-based 
-approximations based on this solution will be used to advance the concentration 
-values at each time step within each control volume. 
 
 
 \subsubsection{ Temperature Dependent Diffusion : Arrhenius }
@@ -1183,160 +1148,6 @@ dominates and therefore inherently have a low Reynolds number,
 
 
 
-
-\subsubsection{Continuum Models of Fractured Media} 
-
-There exist various conceptual models for incorporating fractures into a porous  
-medium model. Some examples are given in Figure \ref{fig:fractureModels}.
-
-\begin{figure}[htbp!]
-  \begin{center}
-    \includegraphics{./chapters/litrev/fractureModels.eps}
-  \end{center}
-  \caption{Various conceptual models may be used for the same natural system 
-  \cite{anderson_applied_1992}.}
-  \label{fig:fractureModels}
-\end{figure}
-
-
-The models arrived at via a continuum approximation are appropriate
-for very fractured or purely porous media. This approximation is not 
-suitable for situations in which the fracture width or frequency varies greatly.
-
-Equivalent Porous Medium (EPM) models assume that a uniformly  fractured medium
-can be approximated as a fractureless matrix with an effective porosity high
-enough to account for real fracturing 
-\cite{berkowitz_continuum_1988, anderson_applied_1992}.
-
-Dual continuum models are the most widely employed models of fracture flow 
-\cite{diodato_compendium_1994}. Dual Porosity Models make up one type of dual 
-continuum model. This model incorporates advective
-transport in simplistic, uniform fractures and diffusive sorption and
-desorption into the stagnant (no advective transfer) water contained in the
-pores of the rock matrix \cite{uleberg_dual_1996, ho_dual_2000}.
-
-
-Dual Permeability Models are another type. These are similar to dual porosity
-models, but incorporate advective transfer within the rock matrix and between
-the rock matrix and the fracture volume \cite{uleberg_dual_1996, ho_dual_2000}.
-The incorporation of advective transfer in the dual permeability model is more
-appropriate for modeling granite since it incorporates advective solute 
-transport through the rock matrix as well as diffusion. 
-
-
-\subsubsection{Discrete Fracture Network Models} 
-
-Discrete fracture network models approximate that water and contaminants move 
-only through the fracture network \cite{anderson_applied_1992, 
-schwartz_fundamentals_2004}. Such an approximation is appropriate when flow 
-through fractures is fast relative to porous flow. This modeling formulation 
-is complex and requires detailed knowledge of the candidate geology.
-
-The flow in each fracture can be approximated, as in Schwartz and Zhang, with
-the flow between two parallel plates having an aperture $b$, the mean fracture
-height \cite{schwartz_fundamentals_2004}. For a fracture perpendicular to
-gravitational acceleration, $g$, the hydraulic conductivity, $K$, is described
-according to the cubic law as 
-
-\begin{align} 
-  K&= \frac{\rho_w g b^2}{12 \mu} \label{Kplates} 
-  \intertext{where}
-  \rho_w &= \mbox{ water density } [kg/m^3]\nonumber\\ 
-  g &= \mbox{ gravitational acceleration } [m/s^2]\nonumber\\
-  b &= \mbox{ plate aperture } [m]\nonumber\\
-  \mu &= \mbox{ dynamic fluid viscosity } [kg/m\cdot s].\nonumber
-\end{align}
-
-Accordingly, the volumetric flow rate in the single fracture of width, $w$, can
-be described in terms of the hydraulic head gradient, $\frac{\partial
-h}{\partial L}$, as
-
-\begin{align} 
-  Q & = -Kbw\frac{\partial h}{\partial L}.
-  \label{Qplates}
-\end{align}
-
-Calculation of the volumetric flow rate and corresponding solute transport in a
-discrete fracture network model for many non-parallel fractures is an intensive
-numerical computation. However, for uniformly fractured media, a fracture
-network can be approximated by a set of parallel plates fractures. 
-
-If flow is expect in the $\theta_f$ direction, and the fractures of the set are
-spaced a distance, $d$, apart,
-
-\begin{align} 
-  N &= \mbox{fracture frequency}\nonumber\\ 
-  &= \frac{cos(\theta_f)}{d}.  
-  \label{fracfreq} 
-\end{align}
-
-The fracture network permeability is then defined as, 
-
-\begin{align} 
-  k_f =
-\frac{b^3}{12N}.  
-\label{fracperm} 
-\end{align}
-
-The permeability, $k$, in an equivalent permeability model is thereby obtained
-by the permeabilities of the fracture network, $k_f$, and the permeability of
-the host matrix, $k_m$. Following the derivation in Schwartz and Zhang, in
-terms of the cross-sectional contact areas of the matrix and fractures $A_m$
-and $A_f$, the equivalent permeability, $k$, can be expressed
-
-\begin{align} 
-  k = \frac{k_m + \frac{A_f}{A_m}k_f}{1+\frac{A_f}{A_m}}.
-  \label{equivperm} 
-\end{align}
-
-This permeability is then used as the effective permeability of the rock in 
-expressions that utilize it to determine the Darcy velocity, such as Equation 
-\eqref{solperm}.
-
-%\paragraph{Saturated Environments}
-
-%\paragraph{Unsaturated Environments}
-
-
-% The distribution of fracture aperture sizes in a saturated fractured hard rock 
-% matrix determines the appropriate model with which to treat rock fractures
-% and subsequent radionuclide transport through fracturous pathways. 
-
-% Fracturation within a saturated medium can be treated either as an effective 
-% porosity, in which n_eff is suggested according to the quantity of connected 
-% fractures, much like connected pores, in a rock matrix. If these are of 
-% similar sizes, 
-
-% Fracturation in grantite, tuff, and basalt have a log normal distribution of 
-% of fracture apertures. Therefore, there are a few large fractures but the 
-% majority are microfractures.  Therefore, the equivalent porous medium approach 
-% is inappropriate. Instead we must take the approach in which fractures of 
-% larger aperture are given greater importance and are modeled as primary 
-% conduits to the biosphere while minor fractures can be considered a part of 
-% the porous medium of the saturated rock\cite{ahn_thesis}.
-
-
-% For details about fracture models in unsaturated rock, it's likely best to 
-% consult YMR TSPA models.
-
-
-%\paragraph{Diffusion Into Fracture}
-
-%\paragraph{Advection Through Fracture}
-
-%\paragraph{Effective Porosity}
-
-%\paragraph{Major and Minor Fracturation}
-
-
-
-%\subsubsection{Sudicky and Frind}
-%
-%%Sudicky and Frind give a model for fractured porous media that 
-%analytically captures radionuclide mobility due to advection through 
-%fractures as well as competing retardation factors including sorption on the 
-%fracture walls, diffusion into stagnant fluid in the rock matrix, and 
-%sorption into rock matrix walls. 
 
 \section{Analytical Models of Heat Transport} \label{sec:analytical_heat}
  
@@ -1938,7 +1749,7 @@ many dimensions or sophisticated numerical solvers, respectively.
 \subsection{ANL SINDA{\textbackslash}G Model}
 
 This model, created at Argonne National Lab  uses the \gls{SINDAG} 
-lumped capacitance solver. Originally created for optimal waste loading analysis 
+lumped capacitance solver \cite{gaski_sinda_1987}. Originally created for optimal waste loading analysis 
 of the \gls{YMR}, the model is geometrically adjustable in two dimensions,   
 as is demonstrated in Figure \ref{fig:sindageom}. The tunnel size is a fixed 
 parameter in the model, but the optimal drift spacing for a particular waste 
