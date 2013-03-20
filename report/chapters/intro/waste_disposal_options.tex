@@ -38,37 +38,29 @@ this work therefore provide a cohesively integrated disposal system simulator.
 The decay heat from nuclear material generates a significant heat source within a 
 repository. In order to arrive at loading strategies that comply with thermal 
 limits in the engineered barrier system and the geological medium, a thermal 
-modeling capability has been included in the repository model. Such a model is 
-also necessary to inform material and hydrologic phenomena that affect 
-radionuclide transport and are thermally coupled. 
+modeling capability has been included in the repository model. 
 
-Partitioning and transmutation of heat generating radionuclides within  
-some fuel cycles will alter the heat evolution of the repository 
+
+Partitioning and transmutation of heat generating radionuclides within  some 
+fuel cycles will alter the heat evolution of the repository 
 \cite{swift_applying_2010}. Thus, to distinguish  between the repository heat 
 evolution associated with various fuel cycles involving partitioning and 
-transmutation, the repository analysis model must, at the very least, 
-capture the decay heat behavior of dominant heat contributors.  Plutonium, 
-Americium, and their decay daughters dominate decay heat contribution within 
-used nuclear fuels. Other contributing radionuclides include Cesium, Strontium, 
-and Curium \cite{piet_which_2007}. 
+transmutation, the repository analysis model must, at the very least, capture 
+the decay heat behavior of dominant heat contributors.  Isotopes of plutonium, 
+americium, and their decay daughters dominate decay heat contribution within 
+used nuclear fuels. Other high heat contributing radionuclides include isotopes 
+of cesium, strontium, and curium \cite{piet_which_2007}. 
 
-Thermal limits within a used nuclear fuel disposal system are waste form, 
-package, and geology dependent. The heat evolution of the repository 
-constrains waste form loadings and package loadings as heat 
-generated in the waste form is transported through the package. It 
-also places requirements on the size, design, and loading strategy in a 
-potential geological repository as that heat is deposited in the engineered 
-barrier system and host geology.
+Thermal limits and heat evolution within a used nuclear fuel disposal system are engineered 
+barrier and geology dependent. 
+The size, design, and loading strategy of the waste form, package, and tunnel 
+loading strategies are constrained by both technical and legislative limits. 
 
-Thermal limits of various waste forms have their technical basis in the 
+Thermal limits of various \glspl{EBS} have their technical basis in the 
 temperature dependence of isolation integrity of the waste form. Waste form 
-alteration, degradation, and dissolution behavior is a function of heat in 
+alteration, corrosion, degradation, and dissolution behavior is a function of heat in 
 addition to redox conditions and constrains loading
 density within the waste form. 
- 
-Thermal limits of various engineered barrier systems similarly have a technical 
-basis in the temperature dependent alteration, corrosion, degradation, and 
-dissolution rates of the materials from whence they are constructed.  
 
 Thermal limits of the geologic environment can be based on the mechanical 
 integrity of the rock as well as mineralogical, hydrologic and geochemical 
@@ -85,6 +77,11 @@ depend on heat transport properties and geochemical behaviors of the rock matrix
 as well as its hydrologic state.  Such constraints affect the  
 repository waste package spacing and repository footprint among 
 other parameters. 
+
+Since some 
+material and hydrologic phenomena affecting radionuclide transport are 
+thermally coupled, future advanced implementation goals include informing those 
+parameters with the thermal modeling capability developed here. 
 
 %Clay repositories should have a ~70 degrees C limit, because temps higher than 
 %100 degrees can cause irreversible minerological damage.
