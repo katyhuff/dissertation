@@ -1038,14 +1038,14 @@ For uniform flow, the dispersion tensor, $D$, becomes
   D_x &= D_L \nonumber\\
       &= \alpha_L v_x + \tau D_e\\
   D_y &= D_{TH} \nonumber\\
-      &= \alpha_{TH} v_x + \tau D_e\\
-  D_z &= D_{TV} \nonumber\\
-      &= \alpha_{TV} v_x + \tau D_e\\
+      &= \alpha_{H} v_x + \tau D_e\\
+  D_z &= D_{V} \nonumber\\
+      &= \alpha_{V} v_x + \tau D_e\\
   \intertext{where}
   D_e &= \mbox{effective diffusion coefficient} [m^2/s]\nonumber\\
   \alpha_L &= \mbox{longitudinal dispersivity} [m]\nonumber\\
-  \alpha_{TH} &= \mbox{horizontal dispersivity} [m]\nonumber\\
-  \alpha_{TV} &= \mbox{vertical dispersivity} [m]\nonumber
+  \alpha_{H} &= \mbox{horizontal dispersivity} [m]\nonumber\\
+  \alpha_{V} &= \mbox{vertical dispersivity} [m]\nonumber
   \intertext{and}
   \tau &= \mbox{tortuosity}.
   \label{disptensor}
@@ -1772,13 +1772,13 @@ flow heat transfer links. As discussed in section \ref{sec:lumpedparam}, these
 are represented by
 
 \begin{align}
-  R_{cond} &= \frac{L}{k A}\\
+  R_{cond} &= \frac{L}{K_{th} A}\\
   R_{conv} &= \frac{1}{h A}\\
   R_{mf}  &= \frac{1}{\dot{m}c_p}\\
   R_{rad}  &= \frac{1}{\sigma F_{ij}A\left[ T_i + T_A + T_j + T_A 
   \right]\left[(T_i+T_A)^2+(T_j+T_A)^2\right]}
   \intertext{where}
-  k&= ~~\mbox{thermal conductivity}[W\cdot m^{-1}\cdot K^{-1}]\nonumber\\
+  K_{th}&= ~~\mbox{thermal conductivity}[W\cdot m^{-1}\cdot K^{-1}]\nonumber\\
   A&= ~~\mbox{area} [m^2]\nonumber\\
   c_p&=~~\mbox{specific heat capacity} [J\cdot K^{-1}]\nonumber  \\
   h&= ~~\mbox{heat transfer coefficient}[W\cdot m^{-1} \cdot K^{-1}\nonumber \\
