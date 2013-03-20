@@ -42,7 +42,7 @@ assuaged (See Figure \ref{fig:repo}).
   \begin{center}
     \includegraphics[width=0.5\textwidth]{./chapters/paradigm/openness.eps}
   \end{center}
-  \caption{The \Cyclus code repository allows for varied accessibility 
+  \caption[Schematic of the \Cyclus code repository.]{The \Cyclus code repository allows for varied accessibility 
   \cite{wilson_cyclus:_2012}.}
   \label{fig:repo}
 \end{figure}
@@ -88,7 +88,7 @@ superclass.
   \begin{center}
     \includegraphics[width=0.7\textwidth]{./chapters/paradigm/modularity.png}
   \end{center}
-  \caption[Module Interfaces and Encapsulation]{Modules are defined solely 
+  \caption[Module Interfaces and Encapsulation in \Cyclus.]{Modules are defined solely 
   by their interfaces in a modular paradigm and can be arbitrarily 
   interchanged with modules posessing equivalent interfaces.}
   \label{fig:modularity}
@@ -156,8 +156,7 @@ produce resources as in Figure \ref{fig:facility}
   \begin{center}
     \includegraphics[width=0.5\textwidth]{./chapters/paradigm/facility.eps}
   \end{center}
-  \caption{Facilities in \Cyclus can be thought of as black boxes which make 
-  offers and requests for resources.}
+  \caption[\Cyclus FacilityModel offer and request interface.]{\Cyclus FacilityModels make offers ($1\cdots M$) and requests ($1\cdots N$).}
   \label{fig:facility}
 \end{figure}
 
@@ -194,7 +193,8 @@ of sink, making only requests as in Figure \ref{fig:sinkfacility}.
   \begin{center}
     \includegraphics[width=0.5\textwidth]{./chapters/paradigm/sinkfacility.eps}
   \end{center}
-  \caption{The \Cyder model is a type of sink facility, making only resource requests.}
+  \caption[\Cyder request-only interface.]{\Cyder is a type of \Cyclus FacilityModel that makes only requests 
+  ($1\cdots N$).}
   \label{fig:sinkfacility}
 \end{figure}
 
