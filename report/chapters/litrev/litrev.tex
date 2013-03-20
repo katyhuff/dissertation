@@ -500,8 +500,6 @@ behavior of dry salt has been recommended both domestically and internationally
 %increased temperature, the potential generation of brines within the salt at 
 %high heat is a pertinent issue for salt disposal characterization. 
 
-
-
 \subsection{Deep Borehole Disposal Environments}
 
 Deep Borehole disposal system concepts are being evaluated in the UK, 
@@ -570,28 +568,27 @@ isolation behavior of the repository.
 
 %%%%%%%%%%%%%%%% Analytical Radionuclide Transport %%%%%%%%%%%%%%%%%%%%%%%%
 
-A comprehensive model of radiotoxic source term must address radionuclide transport
-through the full release pathway including waste packages, engineered barrier
-systems, and geologic media. A model of transport through the repository 
-must incorporate a waste package failure model, a radionuclide release model via 
-waste form dissolution, and advective and diffusive transport through the 
-engineered barrier system and geology. A number of efforts to model 
-radionuclide transport through a geologic repository concept have been made 
-internationally and domestically. These efforts, the geologies they address, and  
-some features of their methodologies will be discussed here and appear in Table 
-\ref{tab:geosource}.
+A number of efforts to model radionuclide transport through geologic repository 
+concepts have been made internationally and domestically. These efforts, the 
+geologies they address, and  some features of their methodologies will be 
+discussed here and appear in Table \ref{tab:geosource}.
 
 \input{./chapters/litrev/geosource_tab}
 
-Waste package failure depends on near field environmental factors such as
-pH as well as decay heat and water chemistry due to radiolysis anticipated from the
-contained waste.  In turn, the radionuclide release rate from the waste package
-depends on the character of the waste form matrix, water flow,
-radionuclide solubility and the elemental diffusion constant.  Similarly, advective
-transfer through the engineered barrier system and into the geological medium
-also depends on water flow, radionuclide solubility, and radionuclide diffusion, but must
-be employed in the context of the hydrology of the rock which sets the boundary    
-condition.
+Models of radionuclide contaminant transport address radionuclide transport 
+through some or all of the release pathway made up of waste packages, 
+engineered barrier systems, and geologic media. A model of transport through 
+the repository must incorporate a waste package failure model, a radionuclide 
+release model via waste form dissolution, and advective and diffusive transport 
+through the engineered barrier system and geology. 
+
+Waste package failure depends on near field environmental factors such as decay 
+heat and water chemistry.  In turn, the radionuclide release rate from a waste 
+package depends on the character of the waste form matrix and water flow as 
+well as elemental solubility, sorption, and diffusion.  Similarly, advective 
+transfer through the engineered barrier system and into the geological medium 
+also depends on these factors as well as the hydrology of the rock which sets 
+the boundary condition.
 
 Waste package failure modes vary between models. While some employ detailed 
 computational tools such as GoldSim or EBSFAIL (a part of the EBSPAC module 
@@ -615,11 +612,10 @@ limited by solubility, and enhanced by colloidal mobility
 \cite{bracke_safety_2008}. 
 
 Dissolution is prerequisite to contribution of a radionuclide to source term 
-\cite{bracke_safety_2008}. That is, the initial 
-dissolution of a radionuclide from its waste form is a breach of the primary
-barrier. Dissolution rates depend strongly on pH, Eh,
-speciation of radionuclides (chemical oxidative state), and radiolysis of the
-dissolving fluid, but primarily on material properties of the waste form.
+\cite{bracke_safety_2008}. That is, the initial dissolution of a radionuclide 
+from its waste form is a breach of the primary barrier. Dissolution rates 
+depend strongly water chemistry, but primarily on material properties of the 
+waste form.
 
 Precipitation is the reverse of dissolution and occurs when a solubility limit
 is reached. In a reducing environment, the approach to chemical equilibrium of 
@@ -736,10 +732,10 @@ gradient between the waste matrix and the water. The mass balance driving
 radionuclide release takes the form:
 
 \begin{equation}
- \dot{m_i}=8\epsilon D_eS_iL\sqrt{\frac{Ur_0}{\pi D_e}}
+ \dot{m_i}=8\theta D_eS_iL\sqrt{\frac{vr_0}{\pi D_e}}
 \end{equation} 
 
-where $\epsilon$, U, $r_0$, and L are the geometric and
+where $\theta$, v, $r_0$, and L are the geometric and
 hydrologic factors porosity, water velocity, waste package radius, and waste
 package length, respectively. $D_e$ is the effective diffusion coefficient
 ($m^2/yr$)  and $S_i$ is the solubility ($kg/m^3$) of isotope $i$.
@@ -753,11 +749,11 @@ fraction released from the waste matrix is limited by a simplified description
 of their solubility. That is, 
 
 \begin{align} 
-  m_{1i}(t)\le v_{1i}(t)C_{sol}
+  m_{1i}(t)\le V_{1i}(t)C_{sol}
 \end{align}
 
 where the mass $m_{1i}$ in $[kg]$ of a radionuclide $i$ dissolved into the waste package
-void volume $v_1$ in $[m^3]$, at a time t, is limited by the solubility limit, 
+void volume $V_1$ in $[m^3]$, at a time t, is limited by the solubility limit, 
 the maximum concentration, $C_{sol}$ in $[kg/m^3]$ at which that radionuclide is 
 soluble \cite{hedin_integrated_2002}.
 
