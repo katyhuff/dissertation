@@ -37,25 +37,25 @@ The geometric layout of the analytic \gls{LLNL} model in Figure \ref{fig:llnl}
 shows  that the central package is represented by the finite line solution
 \begin{align}
   T_{line}(t,x,y,z) &= \frac{1}{8\pi K_{th}} 
-  \bigintsss_0^t\!\frac{q_L(t')}{t-t'}e^{ \frac{-\left(x^2 + z^2\right)}{4\alpha 
+  \bigintsss_0^t\!\frac{q_L(t')}{t-t'}e^{ \frac{-\left(x^2 + z^2\right)}{4\alpha_{th} 
   (t-t')} }\nonumber\\ &\cdot\left[ \erf{\left[ \frac{1}{2} \frac{\left( y + 
-  \frac{L}{2} \right)}{\sqrt{\alpha(t-t')}}  \right]} - \erf{\left[ \frac{1}{2} 
-  \frac{\left( y - \frac{L}{2} \right)}{\sqrt{\alpha(t-t')}}  \right]} 
+  \frac{L}{2} \right)}{\sqrt{\alpha_{th}(t-t')}}  \right]} - \erf{\left[ \frac{1}{2} 
+  \frac{\left( y - \frac{L}{2} \right)}{\sqrt{\alpha_{th}(t-t')}}  \right]} 
   \right]\,\mathrm{dt'},
   \label{line}
   \intertext{adjacent packages within the central tunnel are represented by the 
   point source solution }
   T_{point}(t,r) &= 
-  \frac{1}{8K_{th}\sqrt{\alpha}\pi^{\frac{3}{2}}}\bigintsss_0^{-t}\!\frac{q(t')}{(t-t')^{\frac{3}{2}}}e^{\frac{-r^2}{4\alpha(t-t')}}\,\mathrm{dt'},
+  \frac{1}{8K_{th}\sqrt{\alpha_{th}}\pi^{\frac{3}{2}}}\bigintsss_0^{-t}\!\frac{q(t')}{(t-t')^{\frac{3}{2}}}e^{\frac{-r^2}{4\alpha_{th}(t-t')}}\,\mathrm{dt'},
   \label{point}
   \intertext{and adjacent disposal tunnels are represented by infinite line 
   source solutions}
   T_{\infty line}(t,x,z) &= \frac{1}{4\pi K_{th}} 
-  \bigintsss_0^t\!\frac{q_L(t')}{t-t'}e^{ \frac{-\left(x^2 + z^2\right)}{4\alpha 
+  \bigintsss_0^t\!\frac{q_L(t')}{t-t'}e^{ \frac{-\left(x^2 + z^2\right)}{4\alpha_{th} 
   (t-t')} }
   \label{infline}
   \intertext{in infinite homogeneous media, where}
-  \alpha &= ~~\mbox{thermal diffusivity } [m^2\cdot s^{-1}]\nonumber\\
+  \alpha_{th} &= ~~\mbox{thermal diffusivity } [m^2\cdot s^{-1}]\nonumber\\
   q(t) &= ~~\mbox{point heat source} [W]\nonumber\\
   \intertext{and}
   q_L(t) &= ~~\mbox{linear heat source} [W\cdot m^{-1}]\nonumber
