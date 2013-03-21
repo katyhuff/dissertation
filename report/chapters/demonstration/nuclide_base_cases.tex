@@ -1,7 +1,18 @@
-\section{Nuclide Model Base Cases}\label{sec:nuclide_base_cases}
-\subsection{No Release}
-The no release base cases tested basic containment behavior of all the 
-radionuclide transport models at each component interface. 
+\section{Radionuclide Transport Base Cases}\label{sec:nuclide_base_cases}
+\subsection{No Release Problem Specification}
+The no release base cases tested basic null containment transport behavior of 
+all the radionuclide transport models at each component interface. This test 
+neglected thermal transport and capacity estimation to simplify validation. 
+
+The problem design includes : 
+\begin{itemize}
+\item[A source facility providing one waste stream per timestep]
+\item[A legislated repository capacity of 5 1kg waste streams]
+\item[A waste form Component] 
+\item[A waste package Component]
+\item[A buffer Component]
+\item[A far field Component]
+\end{itemize}
 
 \subsubsection{Degradation Rate Model}
 The Degradation Rate model should not release contaminants if the degradation 
