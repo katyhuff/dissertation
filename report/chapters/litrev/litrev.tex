@@ -220,8 +220,9 @@ backfill options as well as copper, carbon steel, and stainless steel waste
 package concepts.  
 
 Distinctions between the four repository concepts that will be considered here 
-include varying coefficients of hydraulic conductivity, thermal conductivity, 
-sorption, solubility, etc.
+include varying coefficients such as thermal conductivity, thermal diffusivity, 
+waste package spacing,  hydraulic conductivity,  hydrologic diffusivity, 
+sorption, and solubility.
 
 \subsection{Clay Disposal Environments}
 
@@ -262,9 +263,8 @@ diffusion dominated water movement.
 
 \subsubsection{Geochemistry}
 
-This environment is very reducing in both the near and far field.
-The salinity of this environment increases with depth and it is 
-expected that the pH will be near neutral in this environment. However, for 
+This environment is very reducing in both the near and far field, its salinity 
+increases with depth, and its pH is expected to be near neutral. However, for 
 some concepts incorporating cementitious backfill materials for protection 
 of steel, the pH can become significantly alkaline, resulting in 
 expedited alteration of glass wasteforms, bentonite buffers, and the clay 
@@ -284,15 +284,6 @@ for most fuel cycles include $^{129}I$, $^{79}Se$, and $^{36}Cl$
 Heat limits in clay are based on the domain of known behavior in clay and the 
 tendency for bentonite fill material to lose its isolating properties with high 
 temperatures \cite{andra_argile:_2005, pusch_alteration_1987}. 
-The thermal conductivity of clay is typically lower than 
-$2[W/m^{\circ}K]$. In particular, Belgium (ref. 
-\cite{ondraf-niras_technical_2001}) 
-used values between 1.25 and 1.7 $[W/m\cdot^{\circ}K]$,
-France (ref. \cite{andra_argile:_2005}) used values between 1.9 and 2.7 
-$[W/m\cdot^{\circ}K]$, and Switzerland (ref. \cite{johnson_calculations_2002}) used 1.8 $[W/m\cdot^{\circ}K]$.
-Accordingly, thermal loading constraints are more restrictive than in more 
-conductive materials. 
-
 The alteration of high smectite bentonite to non-expandable clays is a primary 
 limitation for heat tolerance in the clay concept. The isolation characteristics 
 of bentonite buffer materials are reduced after this alteration. The time 
@@ -313,6 +304,17 @@ uses a maximum heat limit in the bentonite buffer of $125^{\circ}C$
 % 
 % ``This low permeability of the Callovo-Oxfordian, linked to low hydraulic head 
 % gradients on either side of the formation, controls slow vertical water flow 
+
+The thermal conductivity of clay is also typically lower than 
+$2[W/m^{\circ}K]$. 
+Accordingly, thermal loading constraints are more restrictive than in more 
+conductive materials. 
+In particular, Belgium (ref. 
+\cite{ondraf-niras_technical_2001}) 
+used values between 1.25 and 1.7 $[W/m\cdot^{\circ}K]$,
+France (ref. \cite{andra_argile:_2005}) used values between 1.9 and 2.7 
+$[W/m\cdot^{\circ}K]$, and Switzerland (ref. \cite{johnson_calculations_2002}) used 1.8 $[W/m\cdot^{\circ}K]$.
+
 % (Inset 3.5). The velocities of this water flow are fairly different in detail 
 % because of the medium's pore structure. Moreover, some pores are not connected 
 % and cannot take part in the water flow. A so-called kinematic porosity is 
@@ -400,18 +402,7 @@ $^{226}Ra$ is a dominant dose contributor \cite{swift_applying_2010}.
 \label{subsec:granitethermal}
 In the absence of a bentonite limitation (i.e., concepts with non-bentonite 
 buffers), a thermal limit within the granite itself is greater than 
-$200^{\circ}C$, limited by the increased risk of micro-cracking. This 
-relatively high resistance to heat  induced mechanical failure is due to the 
-high thermal conductivity of granite, which is typically found to be between 
-2.4 and 4 $[W/m\cdot^{\circ}K]$.  In particular Sweden (ref. 
-\cite{ab_long-term_2006}) used 3.4 - 4 $[W/m\cdot^{\circ}K]$ and 2.45 - 2.9 
-$[W/m\cdot^{\circ}K]$,  France (ref.  \cite{andra_argile:_2005}) used 2.4 - 3.8 
-$[W/m\cdot^{\circ}K]$, and  Finland (ref. \cite{posiva_interim_2010}) used 2.3 
-- 3.2 $[W/m\cdot^{\circ}K]$. 
-
-The effective thermal limit for granite disposal concepts, however, is usually 
-related to the bentonite limit, which is conservatively assumed by the \gls{ANDRA} assessment to occur under 
-90$^{\circ}C$ at the waste package interface with the buffer material.  
+$200^{\circ}C$, limited by the increased risk of micro-cracking.
 Mechanical stresses and strains in the matrix due to heating at this 
 level were analyzed by \gls{ANDRA} and shown to have a negligible effect of 
 flow behavior in granite. Similarly, thermo-hydraulic effects due to thermally
@@ -420,6 +411,18 @@ induced fluid density changes are expected to be slight
 Similarly, for reasons of buffer isolation integrity, the Czech and Spanish
 granite disposal concepts both maintained a thermal limit at the waste package
 interface with the buffer of $100^{\circ}C$.  \cite{von_lensa_red-impact_2008}
+
+This relatively high resistance to heat  induced mechanical failure is due to the 
+high thermal conductivity of granite, which is typically found to be between 
+2.4 and 4 $[W/m\cdot^{\circ}K]$.  In particular Sweden (ref. 
+\cite{ab_long-term_2006}) used 3.4 - 4 $[W/m\cdot^{\circ}K]$ and 2.45 - 2.9 
+$[W/m\cdot^{\circ}K]$,  France (ref.  \cite{andra_argile:_2005}) used 2.4 - 3.8 
+$[W/m\cdot^{\circ}K]$, and  Finland (ref. \cite{posiva_interim_2010}) used 2.3 
+- 3.2 $[W/m\cdot^{\circ}K]$. 
+
+The effective thermal limit for granite disposal concepts, however, is usually 
+related to the bentonite limit, which is similar to the bentonite limits of clay 
+concepts discussed in section \ref{sed:clay_thermal}
 
 \subsection{Salt Disposal Environments}
 
