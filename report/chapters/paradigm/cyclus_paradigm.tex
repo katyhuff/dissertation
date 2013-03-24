@@ -184,10 +184,10 @@ within the simulation.
 The above sections outline the fuel cycle simulation platform
 currently under development at \gls{UW} in which the \Cyder repository model
 at hand is implemented.  Implemented as a facility within this 
-framework, the repository model interface is defined by the Facility
-Model interface defined within the \Cyclus paradigm. Though some Facility 
-models make both requests and offers to the system, the \Cyder model is a type 
-of sink, making only requests as in Figure \ref{fig:sinkfacility}.
+framework, the \Cyder interface conforms to the FacilityModel 
+interface defined within the \Cyclus paradigm. Though some FacilityModels 
+make both requests and offers to the system, the \Cyder model is a type 
+of sink node, making only requests as in Figure \ref{fig:sinkfacility}.
 
 \begin{figure}[htb!]
   \begin{center}
@@ -203,7 +203,7 @@ That interface requires that a capacity be defined by the repository at every
 disposable material.
 
 Furthermore, the capability for dynamic module loading possible within 
-the \Cyclus paradigm allows the repository system subcomponents to be 
+the \Cyclus paradigm allows the disposal system subcomponents to be 
 interchangeably loaded at runtime, enabling comparison of various 
 repository subcomponents, physical models of varying levels of detail. 
 
