@@ -431,7 +431,7 @@ non-heat-generating waste at the \gls{WIPP} facility in the US. Salt
 demonstrates many attractive properties including ease of mining, creep behavior 
 over time, which is expedited by heat, low permeability, and a high thermal 
 conductivity, which affords a high temperature limit near $200^{\circ}C$ 
-\cite{hardin_generic_2011} .
+\cite{hardin_generic_2011}.
 Some characteristics of salt disposal 
 concepts are given in Table \ref{tab:salt_tab}.   
 
@@ -525,14 +525,14 @@ kilometers \cite{clayton_generic_2011}.
 
 \subsubsection{Hydrology}
 
-In the deep borehole crystalline rock disposal environment, a low porosity
-combined with only minor fracturing results in an overall crystalline basement
+In the deep borehole crystalline basement rock disposal environment, a low porosity
+combined with only minor fracturing results in an overall 
 hydraulic conductivity which is very low. Thermally driven, upward water 
-velocity is the primary driver for solute movement upward into the many 
+velocity is the primary driver for solute movement along the 2-5
 kilometer diffusive path to the surface where fresh water aquifers may exist
 \cite{clayton_generic_2011}.
-Without the introduction of a fast pathway such as an intersecting fracture or 
-human intrusion, the length of the diffusive pathway has the effect of making the 
+Without the introduction of a fast pathway (e.g., an intersecting fracture or 
+human intrusion) the length of the diffusive pathway has the effect of making the 
 engineered barrier component choices irrelevant since no known engineered 
 barrier choice can be expected to outlast the timescale of the diffusive pathway.
 
@@ -568,7 +568,7 @@ isolation behavior of the repository.
 
 A number of efforts to model radionuclide transport through geologic repository 
 concepts have been made internationally and domestically. These efforts, the 
-geologies they address, and  some features of their methodologies will be 
+geologies they address, and  some features of their methods will be 
 discussed here and appear in Table \ref{tab:geosource}.
 
 \input{./chapters/litrev/geosource_tab}
@@ -576,8 +576,8 @@ discussed here and appear in Table \ref{tab:geosource}.
 Models of radionuclide contaminant transport address radionuclide transport 
 through some or all of the release pathway made up of waste packages, 
 engineered barrier systems, and geologic media. A model of transport through 
-the repository must incorporate a waste package failure model, a radionuclide 
-release model via waste form dissolution, and advective and diffusive transport 
+the repository typically incorporate a waste package failure model, a radionuclide 
+release model via waste form degradation then advective and diffusive transport 
 through the engineered barrier system and geology. 
 
 Waste package failure depends on near field environmental factors such as decay 
@@ -594,26 +594,24 @@ used in the TSPA code), which will be discussed in section
 \ref{sec:detailed_radionuclide}, some 
 analytic models incorporate their own hydrologic approximations of
 canister degradation or make simpler assumptions of immediate waste canister 
-failure in order to focus on dissolution and transfer. 
+failure in order to focus on degradation and radionuclide release. 
 
-Waste form release rate is the rate of mass transfer of a radionuclide from its
-waste form into surrounding water. Water flowthrough heavily
-affects radionuclide dissolution rate and is treated differently in various models.
-While some, inspired by the TSP assessment, assume water moves through the
-waste packages at a constant volumetric rate (`flowthrough model'), others
-adopt less conservative assumptions incorporating weather based predictions of
-hydrologic activity.
+Waste form release rate is the rate of mass transfer of a radionuclide from its 
+waste form into surrounding water. Water flowthrough heavily affects the waste 
+form degradation rate and is treated differently in various models.  While some, 
+inspired by the TSP assessment, assume water moves through the waste packages at 
+a constant volumetric rate (`flowthrough model'), others adopt less conservative 
+assumptions incorporating weather based predictions of hydrologic activity.
 
-Radionuclide transport through the \gls{EBS} and host rock is dependent upon 
-diffusion as well as advection. Radionuclide transport is retarded by sorption,
+Radionuclide transport through the \gls{EBS} and host rock is driven by 
+diffusion as well as advection. Radionuclide transport is retarded by sorption, 
 limited by solubility, and enhanced by colloidal mobility 
 \cite{bracke_safety_2008}. 
 
-Dissolution is prerequisite to contribution of a radionuclide to source term 
-\cite{bracke_safety_2008}. That is, the initial dissolution of a radionuclide 
-from its waste form is a breach of the primary barrier. Dissolution rates 
-depend strongly water chemistry, but primarily on material properties of the 
-waste form.
+The initial degradation of a radionuclide from its waste form is a breach of the 
+primary barrier and is prerequisite to contribution of a radionuclide to source 
+term \cite{bracke_safety_2008}.  Degradation rates depend strongly water 
+chemistry, but primarily on material properties of the waste form.
 
 Precipitation is the reverse of dissolution and occurs when a solubility limit
 is reached. In a reducing environment, the approach to chemical equilibrium of 
@@ -665,7 +663,7 @@ Radionuclide release from various possible waste form types will be dominated by
 array of degradation, alteration, and dissolution phenomena. These phenomena 
 begin when surrounding waste packages are breached, exposing the waste form to 
 water. Some phenomena dominating the release from canonical waste forms such as  
-\gls{CSNF}, \gls{DSNF}, and \gls{HTGR} are listed in Table \ref{tab:wf}.
+\gls{CSNF}, \gls{DSNF}, and borosilicate glasses are listed in Table \ref{tab:wf}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1096,54 +1094,6 @@ boundary,
   C(\vec{r},t) = C_0(\vec{r},t)\hspace{1mm}\mbox{ for } \vec{r} \in \Gamma\\
   \frac{\partial C(\vec{r},t)}{\partial r} = nD\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
 \end{align}
-
-
-
-\subsubsection{ Temperature Dependent Diffusion : Arrhenius }
-
-The Arrhenius relationship,
-
-\begin{align}
-  D &=D_0e^{-\frac{E_A}{RT}}
-  \intertext{where}
-  &D = \mbox{the diffusion coefficient}\\
-  &D_0 = \mbox{the maximum diffusion coefficient}\\
-  &E_A = \mbox{molar activation energy of diffusion} [J/mol]\\
-  &R = \mbox{the ideal gas constant}[J /\mbox{mol}K],\\
-  &T = \mbox{is the temperature} [^\circ K]\\
-  \label{arrhenius}
-\end{align}
-
-gives the diffusion coefficient of solids as a function of temperature and
-apparent activation energy of the 
-medium.
-
-\subsubsection{ Temperature Dependent Diffusion : Stokes Einstein }
-
-The Stokes-Einstein relationship,
-
-\begin{align}
-  D(T) = \frac{k_B T}{6\pi \eta r}
-\end{align}
-
-gives an equation for the diffusion coefficient in a fluid, as a function of $T$,  
-the temperature of the surrounding medium, $k_B$, the Boltzmann constant, and 
-$\eta$, the viscosity of the medium.  The Stokes-Einstein relationship relies on 
-the linearization of the Navier-Stokes equation that preserves only the viscous 
-components \cite{happel_low_1991}. This is most valid for media where diffusion 
-dominates and therefore inherently have a low Reynolds number, 
-
-\begin{align}
-  Re &= \frac{\rho v L}{\mu}\\
-     \intertext{where}
-     &\rho = \mbox{fluid density} [kg/m^{3}]\\
-     &v = \mbox{mean relative velocity of fluid} [m/s]\\
-     &L = \mbox{characteristic length of system} [m]\\
-     &\mu = \mbox{dynamic fluid viscosity} [kg/m\cdot s].
-\end{align}
-
-
-
 
 
 
