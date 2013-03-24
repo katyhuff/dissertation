@@ -7,6 +7,7 @@ Radionuclide transport models may rely on a number of boundary condition forms.
 Each nuclide model interface therefore provides sufficient boundary condition 
 information to support the calculation methods of all other nuclide models. That 
 is, each must provide a superset of the boundary condition forms required by all 
-four models. These include Dirichlet, specified species concentration along the 
-boundary, Neumann, concentration gradients along the boundary, and Cauchy, a 
-combination of the two that provides a concentration flux along the boundary.
+four models. In addition to a simplistic mass transfer source term boundary 
+condition, these include Dirichlet, specified species concentration along the 
+boundary, Neumann, concentration gradients along the boundary, Cauchy, a 
+convolution of the two that provides a concentration flux along the boundary.
