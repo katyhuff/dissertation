@@ -1,11 +1,13 @@
 % Scope
 
-In this work, concise dominant physics models suitable for system level fuel 
-cycle codes were developed by comparison of analytical models with more 
+In this work, concise dominant physics thermal and radionuclide transport models 
+were developed by comparison of analytical models with more 
 detailed repository modeling efforts. The ultimate result of this work is a 
 software library capable of assessing a wide range of combinations 
 of fuel cycle alternatives, potential waste forms, repository design concepts, 
-and geological media. 
+and geological media. Within this software library a suite of basic 
+capabilities have been demonstrated and validated and a few advanced 
+features are operational. 
 
 % Selection of base set of subcomponents to model
 
@@ -24,12 +26,12 @@ three broad candidate scenarios put forth by the \gls{US} \gls{DOE}.
 
 A review and characterization of the physical mechanisms by which radionuclide 
 and thermal transport take place within the materials and media under 
-consideration was first undertaken. Potential analytical models to represent  
+consideration was also undertaken. Potential analytical models to represent  
 these phenomena were investigated and categorized within the literature review. 
 
 % Review of available current detailed tools
 
-A review and characterization of current detailed computational tools for
+An assessment of current detailed computational tools for
 repository focused analysis was next conducted. Both international and domestic
 repository modeling efforts were summarized within the literature review. Of 
 these, candidate computational tools with which to perform abstraction and 
@@ -73,13 +75,16 @@ loading arrangements, tunnel spacing, and engineered barriers).
 
 % Abstraction in repository environment
 
-The abstraction process in the development of a geological environment model 
-employs the comparison of semi-analytic thermal and hydrologic models and 
-analytic regression of rich code results from more detailed models as well as 
-existing empirical geologic data. Such results and data are derived 
-primarily from the \gls{UFD} campaign \glspl{GDSM} and data, as well as European 
-efforts such as the RED-IMPACT assessment and \gls{ANDRA} Dossier efforts 
-\cite{von_lensa_red-impact_2008, andra_argile:_2005, clayton_generic_2011} . 
+The abstraction process in the development of engineered barrier and  geological 
+environment models employs the comparison of semi-analytic thermal and 
+hydrologic models and analytic regression of rich code results from more 
+detailed models as well as existing empirical geologic and material data data. 
+Such results and data are derived primarily from the \gls{UFD} campaign 
+\glspl{GDSM} and data, as well as European efforts such as the RED-IMPACT 
+assessment and \gls{ANDRA} Dossier efforts \cite{von_lensa_red-impact_2008, 
+andra_argile:_2005, clayton_generic_2011} . 
+
+% Abstraction for WFs, WPs, EBS, etc. will be the same
 
 % Example, heat from WPs along repo drifts.
 
@@ -96,29 +101,21 @@ efforts such as the RED-IMPACT assessment and \gls{ANDRA} Dossier efforts
 %
 % Regression.
 
-Thereafter, a regression analysis concerning those parameters has been undertaken 
-with available detailed models (e.g. 2D and 3D finite element thermal 
-performance assessment codes) to further characterize the 
+Thereafter, a regression analysis concerning those parameters has been 
+undertaken with available detailed models ( 2D finite element thermal 
+performance assessment code \cite{huff_thermal_2012} and a computational 
+analytical model \cite{greenberg_application_2011}) to further characterize the 
 parametric dependence of thermal loading in a specific geologic environment.  
 
 % Incorporation of empirical data
 
-Finally, the thermal behavior of a repository model so developed depends on 
-empirical data (e.g.  heat transfer coefficients, hydraulic conductivity).  
-Representative values have been made available within the dominant 
-physics models and rely on existing empirical data concerning the specific 
-geologic environment being modeled (i.e. salt, clay/shale, and granite). 
+Finally, the thermal behavior of the \Cyder model depends on empirical data 
+(e.g. thermal conductivity, thermal diffusivity, material density, etc.). 
+Accordingly, thermal transport in \Cyder relies on existing empirical data 
+concerning the specific geologic environment being modeled (i.e. salt, 
+clay/shale, and granite) for which representative values have been made 
+available.
 
-% Abstraction for WFs, WPs, EBS, etc. will be the same
-
-A similar process was followed for radionuclide transport models.  The 
-abstraction process in the development of waste form, package, and engineered 
-barrier system models was analogous to the abstraction process of repository 
-environment models. Concise models have resulted from employing the comparison of 
-semi-analytic models of those systems with regression analysis of rich code in 
-combination with existing empirical material data.
-
-% Example, radionuclide release
 
 %For instance, in the case of radionuclide release from waste packages, analytic 
 %models of radionuclide release (e.g.  congruent or solubility limited) will 
