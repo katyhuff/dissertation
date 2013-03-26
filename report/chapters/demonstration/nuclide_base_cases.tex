@@ -23,27 +23,62 @@ accross the interfaces.
 
 To observe these behaviors, four simulations were run to demonstrate that total 
 containment resulted from a degradation rate of 0 and that conrguent release 
-resulted from nonzero degradation rates. The 0 degradation rate component was 
+resulted from nonzero degradation rates. A description of these verification 
+cases can be found in Table \ref{tab:dr_no_release}. The 0 degradation rate component was 
 different for each of the four cases. This resulted in total containment at the 
 Waste Form, Waste Package, Buffer, and Far Field interfaces respectively. 
+Results of these base cases can be found in Figures 
+\ref{fig:drIwf5} through \ref{fig:drIVff0}.
 
 \input{./chapters/demonstration/no_release/dr_no_release_tab}
 \input{./chapters/demonstration/no_release/dr_no_release_fig}
 \clearpage
 
 \subsubsection{Mixed Cell Model}
+The Mixed Cell model behaves exactly similarly to the Degradation Rate 
+model, when sorption and solubility limitation in that model are disabled. When they are 
+enabled, however, expected to demonstrate sorption limited and solubility 
+limited transport. The extent to which sorption and solubility limitation meet 
+expectations is addressed in this base case.
+
+Dual and single parameter verification cases were run to explore the effects of sorption and 
+solubility limitation both separately and together. A description of these verification 
+cases can be found in Table \ref{tab:mc_no_release}. 
+Results of these base cases can be found in Figures \ref{fig:mcI} through 
+\ref{fig:mcIV}.
 
 \input{./chapters/demonstration/no_release/mc_no_release_tab}
 \input{./chapters/demonstration/no_release/mc_no_release_fig}
 \clearpage
 
 \subsubsection{Lumped Parameter Model}
+The Lumped Parameter model, with its three formulations (Exponential Model, 
+Dispersion Model, and Piston flow Model) is not expected to receive 
+contaminants if the porosity or advective velocity are zero. Else, however, 
+contaminants are expected to  become available to the adjacent components 
+according to the functional forms of the formulations. 
+
+To observe the behaviors of each of the three formulations and to demonstrate 
+full containment in cases where it is expected, simulations were run
+according to the descriptions in Table \ref{tab:lp_no_release}.
+Results of these base cases can be found in Figures 
+\ref{fig:lpI} through \ref{fig:lpIV}.
 
 \input{./chapters/demonstration/no_release/lp_no_release_tab}
 \input{./chapters/demonstration/no_release/lp_no_release_fig}
 \clearpage
 
 \subsubsection{One Dimensional Advecitive Dispersive Model}
+The One Dimensional Advective Dispersive Model contaminants if the porosity is 
+zero or if both the reference diffusivity and advective velocity are zero. 
+Else, however, contaminants are expected to  become available to the adjacent 
+components according to the analytical form of the solution.
+
+To observe the behavior of the solution and to demonstrate full containment in 
+cases where it is expected, simulations were run according to the descriptions 
+in Table \ref{tab:1d_no_release}.  Results of these base cases can be found in 
+Figures \ref{fig:1dI} through \ref{fig:1dIV}.  
 
 \input{./chapters/demonstration/no_release/1d_no_release_tab}
 \input{./chapters/demonstration/no_release/1d_no_release_fig}
+\clearpage
