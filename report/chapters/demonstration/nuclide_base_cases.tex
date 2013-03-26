@@ -1,8 +1,9 @@
 \section{Radionuclide Transport Base Cases}\label{sec:nuclide_base_cases}
-\subsection{No Release Problem Specification}
-The no release base cases tested basic null containment transport behavior of 
-all the radionuclide transport models at each component interface. This test 
-neglected thermal transport and capacity estimation to simplify validation. 
+\subsection{Basic Transport and Containment Problem Specification}
+The basic transport and containment base cases verify basic transport and 
+contaminant behavior of all the radionuclide transport models at each component 
+interface. These tests neglected thermal transport and capacity estimation to 
+simplify the verification procedure. 
 
 The problem design includes : 
 \begin{itemize}
@@ -16,9 +17,15 @@ The problem design includes :
 
 \subsubsection{Degradation Rate Model}
 The Degradation Rate model should not release contaminants if the degradation 
-rate is 0. Thus, four simulations were run to demonstrate total containment 
-behavior at the Waste Form, Waste Package, Buffer, and Far Field interfaces 
-respectively. 
+rate is 0. If the degradation rate is nonzero, however, contaminants should 
+become available immediately to the adjacent components, traveling quickly 
+accross the interfaces. 
+
+To observe these behaviors, four simulations were run to demonstrate that total 
+containment resulted from a degradation rate of 0 and that conrguent release 
+resulted from nonzero degradation rates. The 0 degradation rate component was 
+different for each of the four cases. This resulted in total containment at the 
+Waste Form, Waste Package, Buffer, and Far Field interfaces respectively. 
 
 \input{./chapters/demonstration/no_release/dr_no_release_tab}
 \input{./chapters/demonstration/no_release/dr_no_release_fig}
@@ -40,30 +47,3 @@ respectively.
 
 \input{./chapters/demonstration/no_release/1d_no_release_tab}
 \input{./chapters/demonstration/no_release/1d_no_release_fig}
-\clearpage
-
-\subsection{Basic Transport}
-
-\subsubsection{Degradation Rate Model}
-
-\input{./chapters/demonstration/basic/dr_basic_tab}
-\input{./chapters/demonstration/basic/dr_basic_fig}
-\clearpage
-
-\subsubsection{Mixed Cell Model}
-
-\input{./chapters/demonstration/basic/mc_basic_tab}
-\input{./chapters/demonstration/basic/mc_basic_fig}
-\clearpage
-
-\subsubsection{Lumped Parameter Model}
-
-\input{./chapters/demonstration/basic/lp_basic_tab}
-\input{./chapters/demonstration/basic/lp_basic_fig}
-\clearpage
-
-\subsubsection{One Dimensional Advecitive Dispersive Model}
-
-\input{./chapters/demonstration/basic/1d_basic_tab}
-\input{./chapters/demonstration/basic/1d_basic_fig}
-\clearpage
