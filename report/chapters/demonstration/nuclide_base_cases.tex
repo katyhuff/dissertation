@@ -1,8 +1,9 @@
 \section{Radionuclide Transport Base Cases}\label{sec:nuclide_base_cases}
-\subsection{No Release Problem Specification}
-The no release base cases tested basic null containment transport behavior of 
-all the radionuclide transport models at each component interface. This test 
-neglected thermal transport and capacity estimation to simplify validation. 
+\subsection{Basic Transport and Containment Problem Specification}
+The basic transport and containment base cases verify basic transport and 
+contaminant behavior of all the radionuclide transport models at each component 
+interface. These tests neglected thermal transport and capacity estimation to 
+simplify the verification procedure. 
 
 The problem design includes : 
 \begin{itemize}
@@ -16,54 +17,68 @@ The problem design includes :
 
 \subsubsection{Degradation Rate Model}
 The Degradation Rate model should not release contaminants if the degradation 
-rate is 0. Thus, four simulations were run to demonstrate total containment 
-behavior at the Waste Form, Waste Package, Buffer, and Far Field interfaces 
-respectively. 
+rate is 0. If the degradation rate is nonzero, however, contaminants should 
+become available immediately to the adjacent components, traveling quickly 
+accross the interfaces. 
 
-\input{./chapters/demonstration/no_release/dr_no_release_tab}
-\input{./chapters/demonstration/no_release/dr_no_release_fig}
+To observe these behaviors, four simulations were run to demonstrate that total 
+containment resulted from a degradation rate of 0 and that conrguent release 
+resulted from nonzero degradation rates. A description of these verification 
+cases can be found in Table \ref{tab:dr_base}. The 0 degradation rate component was 
+different for each of the four cases. This resulted in total containment at the 
+Waste Form, Waste Package, Buffer, and Far Field interfaces respectively. 
+Results of these base cases can be found in Figures 
+\ref{fig:drIwf5} through \ref{fig:drIVff0}.
+
+\input{./chapters/demonstration/base/dr_base_tab}
+\input{./chapters/demonstration/base/dr_base_fig}
 \clearpage
 
 \subsubsection{Mixed Cell Model}
+The Mixed Cell model behaves exactly similarly to the Degradation Rate 
+model, when sorption and solubility limitation in that model are disabled. When they are 
+enabled, however, expected to demonstrate sorption limited and solubility 
+limited transport. The extent to which sorption and solubility limitation meet 
+expectations is addressed in this base case.
 
-\input{./chapters/demonstration/no_release/mc_no_release_tab}
-\input{./chapters/demonstration/no_release/mc_no_release_fig}
+Dual and single parameter verification cases were run to explore the effects of sorption and 
+solubility limitation both separately and together. A description of these verification 
+cases can be found in Table \ref{tab:mc_base}. 
+Results of these base cases can be found in Figures \ref{fig:mcI} through 
+\ref{fig:mcIV}.
+
+\input{./chapters/demonstration/base/mc_base_tab}
+\input{./chapters/demonstration/base/mc_base_fig}
 \clearpage
 
 \subsubsection{Lumped Parameter Model}
+The Lumped Parameter model, with its three formulations (Exponential Model, 
+Dispersion Model, and Piston flow Model) is not expected to receive 
+contaminants if the porosity or advective velocity are zero. Else, however, 
+contaminants are expected to  become available to the adjacent components 
+according to the functional forms of the formulations. 
 
-\input{./chapters/demonstration/no_release/lp_no_release_tab}
-\input{./chapters/demonstration/no_release/lp_no_release_fig}
+To observe the behaviors of each of the three formulations and to demonstrate 
+full containment in cases where it is expected, simulations were run
+according to the descriptions in Table \ref{tab:lp_base}.
+Results of these base cases can be found in Figures 
+\ref{fig:lpEMI} through \ref{fig:lpPFMIV}.
+
+\input{./chapters/demonstration/base/lp_base_tab}
+\input{./chapters/demonstration/base/lp_base_fig}
 \clearpage
 
 \subsubsection{One Dimensional Advecitive Dispersive Model}
+The One Dimensional Advective Dispersive Model contaminants if the porosity is 
+zero or if both the reference diffusivity and advective velocity are zero. 
+Else, however, contaminants are expected to  become available to the adjacent 
+components according to the analytical form of the solution.
 
-\input{./chapters/demonstration/no_release/1d_no_release_tab}
-\input{./chapters/demonstration/no_release/1d_no_release_fig}
-\clearpage
+To observe the behavior of the solution and to demonstrate full containment in 
+cases where it is expected, simulations were run according to the descriptions 
+in Table \ref{tab:1d_base}.  Results of these base cases can be found in 
+Figures \ref{fig:1dI} through \ref{fig:1dIV}.  
 
-\subsection{Basic Transport}
-
-\subsubsection{Degradation Rate Model}
-
-\input{./chapters/demonstration/basic/dr_basic_tab}
-\input{./chapters/demonstration/basic/dr_basic_fig}
-\clearpage
-
-\subsubsection{Mixed Cell Model}
-
-\input{./chapters/demonstration/basic/mc_basic_tab}
-\input{./chapters/demonstration/basic/mc_basic_fig}
-\clearpage
-
-\subsubsection{Lumped Parameter Model}
-
-\input{./chapters/demonstration/basic/lp_basic_tab}
-\input{./chapters/demonstration/basic/lp_basic_fig}
-\clearpage
-
-\subsubsection{One Dimensional Advecitive Dispersive Model}
-
-\input{./chapters/demonstration/basic/1d_basic_tab}
-\input{./chapters/demonstration/basic/1d_basic_fig}
+\input{./chapters/demonstration/base/1d_base_tab}
+\input{./chapters/demonstration/base/1d_base_fig}
 \clearpage
