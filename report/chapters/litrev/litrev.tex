@@ -188,8 +188,10 @@ Enclosed concepts are appropriate for low permeability rock formations (clay/sha
 granite, salt).  Low permeability does not permit oxygen entry, so these are
 chemically reducing environments.  
 
-Chemically reducing environments are reducing insofar as they induce redox 
-reactions to proceed in the reduction direction. This attribute has the primary 
+Chemically reducing geologic environments are reducing insofar as they induce 
+reduction of water flowing through them. That is, reduction and oxidation 
+reactions in these environments proceed in such a way that electrons are 
+donated to the water from the geologic medium. This attribute has the primary 
 effect of slowing corrosion, dissolution, and  alteration rates in materials 
 that are subject to degradation. A reducing disposal environment also lowers 
 solubility limits and increases sorption of many actinide species. The dominant 
@@ -368,10 +370,10 @@ these, except emplacement is horizontal within the horizontal repository drifts
 
 \subsubsection{Hydrology}
 
-In the granite disposal environment, with a low porosity combined with 
+In the granite disposal environment, a low porosity is combined with 
 higher expected water velocity (relative to other repository concepts in this 
-work) and significant fracturing, the overall 
-granite hydraulic conductivity is low, typically
+work) and significant fracturing. The overall 
+granite hydraulic conductivity is still typically low
 \cite{schwartz_fundamentals_2004, 
 hardin_generic_2011}. Within this environment, the  
 water behavior in the far field must be modeled as both diffusive and advective.
@@ -426,7 +428,7 @@ concepts discussed in section \ref{sec:clay_thermal}.
 
 \subsection{Salt Disposal Environments}
 
-The salt disposal concept has been investigated in Germany and demonstrated for 
+Salt disposal concepts have been investigated in Germany and demonstrated for 
 non-heat-generating waste at the \gls{WIPP} facility in the US. Salt 
 demonstrates many attractive properties including ease of mining, creep behavior 
 over time, which is expedited by heat, low permeability, and a high thermal 
@@ -576,14 +578,15 @@ discussed here and appear in Table \ref{tab:geosource}.
 Models of radionuclide contaminant transport address radionuclide transport 
 through some or all of the release pathway made up of waste packages, 
 engineered barrier systems, and geologic media. A model of transport through 
-the repository typically incorporate a waste package failure model, a radionuclide 
-release model via waste form degradation then advective and diffusive transport 
-through the engineered barrier system and geology. 
+the repository typically incorporates a waste package failure model, a radionuclide 
+release model via waste form degradation, then advective and diffusive transport 
+through the engineered barrier system and geology. Some models also incorporate 
+advective fast pathways introduced by tectonic events or human intrusions.
 
 Waste package failure depends on near field environmental factors such as decay 
 heat and water chemistry.  In turn, the radionuclide release rate from a waste 
 package depends on the character of the waste form matrix and water flow as 
-well as elemental solubility, sorption, and diffusion.  Similarly, advective 
+well as elemental solubility, sorption, and diffusion. Similarly, advective 
 transfer through the engineered barrier system and into the geological medium 
 also depends on these factors as well as the hydrology of the rock which sets 
 the boundary condition.
@@ -821,7 +824,10 @@ probability distribution function, equation \eqref{rate} becomes
 
 
 A particularly appropriate probability distribution for use in the case of failed 
-engineered barriers is the Weibull distribution, 
+engineered barriers is the Weibull distribution, which has a flexible shape 
+capable of modeling a range of failure rates and can provide reasonably 
+accurate predictions of failure based on small empirical data sets 
+\cite{murthy_weibull_2004}. The Weibull distribution is expressed as
 
 \begin{align}
   f(t,\lambda,k) =  \begin{cases}
@@ -881,7 +887,7 @@ during the simulation.
 When the waste package is breached and radionuclides are released from the waste 
 form, radionuclides are transported through the secondary engineered barrier, 
 which includes the buffer, backfill, and tunnel wall. After transport through 
-the secondary \gls{EBS}, radionuclides reach the geosphere. 
+the secondary \gls{EBS}, radionuclides reach the geologic medium. 
 
 \subsubsection{Barrier Dissolution and Failure}
 
