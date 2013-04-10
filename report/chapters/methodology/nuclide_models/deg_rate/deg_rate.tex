@@ -36,7 +36,7 @@ m_{ij}^n &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber\\
 
 The concentration boundary condition must also be defined at the outer boundary 
 to support parent components that utilize the Dirichlet boundary condition. For 
-the degradation model, which incorporates no diffusion or advection, the 
+the degradation rate model, which incorporates no diffusion or advection, the 
 concentration, $C_{ij}$ at the boundary between cells $i$ and $j$ is the average 
 concentration in the saturated pore volume,
 
@@ -52,7 +52,7 @@ a function of the original central source and the degradation rates of the
 components. 
 
 To support parent components that utilize the Cauchy boundary condition, the 
-degradation model assumes that the fluid velocity is constant across the cell 
+degradation rate model assumes that the fluid velocity is constant across the cell 
 as is the concentration. Thus, 
 
 \begin{align}
