@@ -35,34 +35,41 @@ this work therefore provide a cohesively integrated disposal system simulator.
 % repository loading limits
 % optimization of layout
 % necessary decay cooling time before emplacement.
-The decay heat from nuclear material generates a significant heat source within a 
-repository. In order to arrive at loading strategies that comply with thermal 
-limits in the engineered barrier system and the geological medium, a thermal 
-modeling capability has been included in the repository model. 
+The decay heat from nuclear material generates a significant heat source within 
+a repository. This decay heat varies among fuel cycles, constrains repository 
+loading capacity differently in respective geologic media, and affects the 
+resilience of certain engineered barrier choices. In order, therefore, to 
+distinguish among the performance of fuel cycle, geologic media, and \gls{EBS} 
+choices, a thermal modeling capability has been included in the repository 
+model. 
 
+% The capability to model decay heat variations among fuel cycles is necessary
+First, to distinguish among the repository decay heat burdens associated with 
+various fuel cycles, the repository analysis model must, at the very least, 
+capture the decay heat behavior of dominant heat contributors. In particular, 
+partitioning and transmutation of heat generating radionuclides within  some 
+fuel cycles will alter the isotopic composition of materials sent to the 
+repository \cite{swift_applying_2010}, and the dominant heat contributing 
+isotopes will therefore vary.  Isotopes of plutonium, americium, curium, and their 
+decay daughters dominate long term decay heat contribution within directly 
+deposited nuclear fuels.  Other high heat contributing radionuclides that may 
+dominate shorter term decay heat include fission products such as isotopes of 
+cesium and strontium \cite{piet_which_2007}. 
 
-Partitioning and transmutation of heat generating radionuclides within  some 
-fuel cycles will alter the heat evolution of the repository 
-\cite{swift_applying_2010}. Thus, to distinguish among the repository heat 
-evolutions associated with such fuel cycles, the repository analysis model must, 
-at the very least, capture the decay heat behavior of dominant heat 
-contributors.  Isotopes of plutonium, americium, and their decay daughters 
-dominate decay heat contribution within used nuclear fuels. Other high heat 
-contributing radionuclides include isotopes of cesium, strontium, and curium 
-\cite{piet_which_2007}. 
+% The capability to model heat in each component is necessary
+Second, the capability to model thermal evolution in each component is also 
+necessary as the repository capacity may be constrained by thermal limits in 
+\glspl{EBS} components. Such thermal limits have their technical basis in the 
+temperature dependence of isolation integrity of the waste forms, waste 
+packages, and buffer materials. Alteration, corrosion, degradation, and 
+dissolution behaviors are often function of heat, in addition to redox 
+conditions, and constrain loading density within the engineered barriers. 
 
-Thermal limits and heat evolution within a used nuclear fuel disposal system 
-depend on the engineered barrier and geology of the system. 
-The size, design, and loading strategy of the waste form, package, and tunnel 
-loading strategies are constrained by both technical and legislative limits. 
-
-Thermal limits of various \glspl{EBS} have their technical basis in the 
-temperature dependence of isolation integrity of the waste form. Waste form 
-alteration, corrosion, degradation, and dissolution behavior is a function of 
-heat, in addition to redox conditions, and constrains loading
-density within the waste form. 
-
-Thermal limits of the geologic environment can be based on the mechanical 
+% Finally, the capability to model whole repository thermal capacity is 
+% necessary 
+In addition, the capability to model far field thermal evolution is necessary in 
+order to capture differences in thermal loading sensitivity among host rock 
+choices. Thermal limits in the geologic environment can be based on the mechanical 
 integrity of the rock as well as mineralogical, hydrologic and geochemical 
 phenomena. The isolating characteristics of a geological environment are most 
 sensitive to hydrologic 
@@ -70,22 +77,22 @@ and geochemical effects of thermal loading. Thus, heat load constraints are
 typically chosen to control hydrologic and geochemical response to thermal 
 loading. In the United States, current regulations necessitate thermal limits in 
 order to passively steward the repository's hydrologic and geochemical integrity 
-against radionuclide  release for the first 10,000 years of the repository.
-
-Constraints for a broad set of possible geological environments 
-depend on heat transport properties and geochemical behaviors of the rock matrix 
-as well as its hydrologic state.  Such constraints affect the  
-repository waste package spacing and repository footprint among 
+against radionuclide  release for the first million years of the repository. 
+Such constraints affect the repository waste package spacing and repository footprint among 
 other parameters. 
 
-Since some 
-material and hydrologic phenomena affecting radionuclide transport are 
-thermally coupled, future advanced implementation goals include informing those 
-parameters with the thermal modeling capability developed here. 
+Finally, since some material and hydrologic phenomena affecting radionuclide 
+transport are thermally coupled, future advanced implementation goals include 
+dynamically informing those parameters with the thermal modeling capability 
+developed here.  Those temperature coupled phenomena include corrosion 
+processes, dissolution rates, diffusion, solubility, and partition 
+coefficients.  Only a coarse time resolution will be necessary to capture that 
+coupling however, since time evolution of repository heat is such that thermal 
+coupling can typically be treated as quasi static for long time scales 
+\cite{andra_argile:_2005}. 
 
-%Clay repositories should have a ~70 degrees C limit, because temps higher than 
-%100 degrees can cause irreversible mineralogical damage.
-%From ANDRA:
+%andra, clay, evaluation, page 195)
+
 %``In order to remain in an operational range in which phenomena are known and, 
 %thus, reduce any damage to the argillite, the objective is to restrict 
 %argillite temperature to these values. Basically, it means that the thermal 
@@ -95,19 +102,6 @@ parameters with the thermal modeling capability developed here.
 %geological medium on the cell boundary, before a thousand years, which provides 
 %a safety margin with respect to thermal effects.''
 
-In addition to development of a concept of heat transport within the repository 
-in order to meet heat load limitations, it is also necessary to model 
-temperature gradients in the repository in  order to support modeling of 
-thermally dependent hydrologic and material phenomena.  As mentioned above, 
-waste form corrosion processes, waste form
-dissolution rates, diffusion coefficients, and the mechanical integrity of 
-engineered barriers and geologic environment are coupled with temperature 
-behavior. 
-Only a coarse time resolution is necessary to capture that coupling 
-however, since time evolution of repository heat is
-such that thermal coupling can typically be treated as quasi static for long 
-time scales.
-\cite{andra_argile:_2005}. %andra, clay, evaluation, page 195)
 
 \subsubsection{Radionuclide Transport Modeling Needs}
 
