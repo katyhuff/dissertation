@@ -1,53 +1,82 @@
 % Scope
 
 In this work, concise dominant physics thermal and radionuclide transport models 
-were developed by comparison of analytical models with more 
-detailed repository modeling efforts. The ultimate result of this work is a 
-software library capable of assessing a wide range of combinations 
-of fuel cycle alternatives, potential waste forms, repository design concepts, 
-and geological media. Within this software library, a suite of basic 
-capabilities have been demonstrated and validated and a few advanced 
-features are operational. 
+were developed by comparison of analytical models with more detailed repository 
+modeling tools. The result of this work is a software library capable 
+of assessing a broad combinationatoric domain of fuel cycle alternatives, potential 
+engineered barriers, repository design concepts, and geologic settings. Within 
+this software library, a suite of basic capabilities have been demonstrated and 
+validated and a few advanced features are operational. 
 
+\subsection{Identification of the Modeling Domain}
 % Selection of base set of subcomponents to model
 
-Current candidate repository concepts have been investigated and reviewed here 
-in order to arrive at a fundamental set of components to model. A preliminary 
-set of combinations of fuel cycles, repository concepts, and geological 
-environments has 
-been chosen that fundamentally captures the domestic option space. 
-Specifically, three candidate geologies and four corresponding repository 
-concepts under consideration by the \gls{DOE} \gls{UFD} campaign have been 
-chosen for modeling in this work. These have been implemented to interface
-with \Cyclus simulations of a canonical set of potential fuel cycles within 
-three broad candidate scenarios put forth by the \gls{US} \gls{DOE}.
+An appropriate modeling domain was identified according to a review of current 
+domestic and international candidate repository concepts, analytic models, and 
+computational performance assessment techniques.  
+
+Specifically, in order to capture the current domestic option space, three 
+candidate geologies and four corresponding repository concepts under 
+consideration by the \gls{DOE} \gls{UFD} campaign were selected for modeling in 
+this work. The three geologic environments selected were clay, granite and salt.  
+The four concepts included three enclosed, saturated, $500m$ deep horizontal 
+plane concepts in each of the three geologic settings and a fourth $5km$ deep 
+borehole concept conceived in granite basement rock.
 
 % Review of available analytical models
-
-A review and characterization of the physical mechanisms by which radionuclide 
-and thermal transport take place within the materials and media under 
-consideration was also undertaken. Potential analytical models to represent  
-these phenomena were investigated and categorized within the literature review. 
-
 % Review of available current detailed tools
 
-An assessment of current detailed computational tools for
-repository focused analysis was next conducted. Both international and domestic
-repository modeling efforts were summarized within the literature review. Of 
-these, candidate computational tools with which to perform abstraction and 
-regression analyses were identified. Specifically, a suite of \gls{GDSM} tools 
-under development by the \gls{DOE} \gls{UFD} campaign has informed radionuclide 
-transport models and a pair of corresponding thermal analysis codes has 
-informed the thermal models.
- 
-% For each component, abstraction of current tools and analytical models
+Analytic models and detailed computational tools for repository analysis were 
+investigated and categorized within the literature review.  Of these, candidate 
+computational tools appropriate for performing abstraction and regression 
+analyses were identified. Specifically, a suite of \glslong{GDSM} tools by the 
+\gls{DOE} \gls{UFD} campaign was selected to inform radionuclide transport model 
+abstraction\cite{GDSM} and two thermal analysis codes, also from the \gls{UFD} 
+campaign, were selected to inform the thermal abstraction process 
+\cite{huff_thermal_2012, greenberg_application_2011}.
 
-This suite of subcomponent modules, appropriate for use within the \Cyclus fuel 
-cycle simulator, has included the development of a robust architecture 
-within the repository module that allows for interchangeable loading of 
-system components.  Within the system components, dominant physics is 
-modeled based on domain appropriate approximation of analytical models and 
-supported by abstraction with the chosen \gls{GDSM} tools and thermal tools. 
+
+\subsection{Identification of Dominant Physics}
+
+% Sensitivity analyses sought to determine key parameters and expectations
+Sensitivity analyses characterized the importance of physical mechanisms of 
+repository performance  within the materials and media under consideration with 
+respect to thermal and radionuclide transport.
+
+Sensitivity analysis concerning thermal parameters was undertaken with available 
+detailed models ( a 2D finite element thermal performance assessment code 
+\cite{huff_thermal_2012} and a computational analytical model 
+\cite{greenberg_application_2011}) to characterize the parametric dependence of 
+thermal loading in a specific geologic environment.  In the conducive thermal 
+transport regime found in enclosed saturated repository concepts, thermal 
+conductivity, thermal diffusivity, waste package spacing, and near field thermal 
+limits were the primary parameters distinguishing clay, salt, and granite 
+geologic settings. The results of these analyses provided the database powering 
+\Cyder's thermal capability and informed the level of detail with which 
+repository capacity and thermal evolution are modeled in this work.  
+
+Sensitivity analysis utilizing a \gls{UFD} \gls{GDSM} tool built on the 
+GoldSim simulation framework informed performance sensitivity to engineered 
+barrier system failure parameters as well as hydrogeologic and geochemical 
+radionuclide transport phenomena. In saturated geologic settings, key parameters 
+included dominant transport mechanism (diffusive or 
+advective), isotopic spent fuel inventory and composition, engineered barrier 
+failure, and redox state (insofar as it effected sorption behavior and 
+solubility limitation).
+
+\subsection{Abstraction and Implementation}
+% Analytic Models were implemented with respect to these sensitivity results
+
+% Empirical data was incorporated
+
+% For each component, abstraction of current tools and analytical models
+Iterative abstraction between analytic models and sensitivity analysis results 
+produced concise models that capture performance among candidate geologic media 
+as a function of radionuclide inventory and heat generation over long time 
+scales. Supporting data are derived primarily from the \gls{UFD} campaign 
+\glspl{GDSM} and data, as well as European efforts such as the RED-IMPACT 
+assessment and \gls{ANDRA} Dossier efforts \cite{von_lensa_red-impact_2008, 
+andra_argile:_2005, clayton_generic_2011} . 
 
 % Abstraction = Analytic Solutions + Regression Approximation
 
@@ -60,29 +89,27 @@ between two models for the same system.  Different approaches have been been
 compared in this work, with final modeling choices balancing the accuracy and 
 efficiency of the possible implementations.  
 
-% For example, Geology.
-
-Specifically, these models focus on the hydrology and thermal 
-physics that dominate radionuclide transport and heat response in candidate 
-geologies as a function of radionuclide release and heat generation over long 
-time scales. Dominant transport mechanism (advection or 
-diffusion) and disposal site water chemistry (redox state) provide primary 
-differentiation between the different geologic media under consideration. In 
-addition, the concise models are capable of roughly adjusting release 
+In addition, the concise models are capable of roughly adjusting release 
 pathways according to the characteristics of the natural system (both the host 
 geologic setting and the site in general) and the engineered system (such as package 
 loading arrangements, tunnel spacing, and engineered barriers).
 
-% Abstraction in repository environment
+The full abstraction process was iterated to achieve a balance between 
+calculation speed and simulation detail. Model improvements during this stage 
+sought a level of detail appropriate for informative comparison of subcomponents, but 
+with sufficient speed to enable systems analysis. 
+By varying input parameters and comparing with corresponding results from 
+detailed tools, the behavior of each model on its parametric domain was 
+explored.
 
-The abstraction process in the development of engineered barrier and  geological 
-environment models employs the comparison of semi-analytic thermal and 
-hydrologic models and analytic regression of rich code results from more 
-detailed models as well as existing empirical geologic and material data. 
-Such results and data are derived primarily from the \gls{UFD} campaign 
-\glspl{GDSM} and data, as well as European efforts such as the RED-IMPACT 
-assessment and \gls{ANDRA} Dossier efforts \cite{von_lensa_red-impact_2008, 
-andra_argile:_2005, clayton_generic_2011} . 
+In the \Cyder library, the resulting concise models support performance estimation 
+within components of a robust repository module. This repository module was 
+designed to be appropriate for use as a Facility within the \Cyclus fuel cycle 
+simulator. Furthermore, the robust architechture implemented within the 
+repository module allows for interchangeable loading of components and model in 
+support of simulations at various levels of fidelity.
+
+% Abstraction in repository environment
 
 % Abstraction for WFs, WPs, EBS, etc. will be the same
 
@@ -101,21 +128,8 @@ andra_argile:_2005, clayton_generic_2011} .
 %
 % Regression.
 
-Thereafter, a regression analysis concerning those parameters has been 
-undertaken with available detailed models ( 2D finite element thermal 
-performance assessment code \cite{huff_thermal_2012} and a computational 
-analytical model \cite{greenberg_application_2011}) to further characterize the 
-parametric dependence of thermal loading in a specific geologic environment.  
 
 % Incorporation of empirical data
-
-Finally, the thermal behavior of the \Cyder model depends on empirical data 
-(e.g. thermal conductivity, thermal diffusivity, material density, etc.). 
-Accordingly, thermal transport in \Cyder relies on existing empirical data 
-concerning the specific geologic environment being modeled (i.e. salt, 
-clay/shale, and granite) for which representative values have been made 
-available.
-
 
 %For instance, in the case of radionuclide release from waste packages, analytic 
 %models of radionuclide release (e.g.  congruent or solubility limited) will 
@@ -134,10 +148,4 @@ available.
 % Iterate
 % Test using canonical data for those subcomponents 
 
-The full abstraction process was iterated to achieve a balance between 
-calculation speed and simulation detail. Model improvements during this stage 
-sought a level of detail appropriate for informative comparison of subcomponents, but 
-with sufficient speed to enable systems analysis. 
-By varying input parameters and comparing with corresponding results from 
-detailed tools, the behavior of each model on its parametric domain was 
-explored.
+
