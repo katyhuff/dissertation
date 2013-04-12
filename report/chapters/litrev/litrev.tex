@@ -948,21 +948,21 @@ volume,  solute transport in a permeable medium of homogeneous porosity can be
 written (as in Schwartz and Zhang \cite{schwartz_fundamentals_2004})
 
 \begin{align} 
-  \frac{\partial n C}{\partial t} & = - \nabla \cdot  (F_c + F_{dc} + F_d) + m 
+  \frac{\partial \theta C}{\partial t} & = - \nabla \cdot  (F_c + F_{dc} + F_d) + m 
   \label{solperm}
   \intertext{where} 
   \displaybreak[0]
-  n &= \mbox{solute accessible porosity } [\%]\nonumber\\
+  \theta &= \mbox{solute accessible porosity } [\%]\nonumber\\
   C &= \mbox{ concentration } [kg \cdot m^{-3}]\nonumber\\ 
   t &= \mbox{ time } [s]\nonumber\\ 
   F_c &= \mbox{ advective flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
-  &= nvC \nonumber \\
+  &= \theta vC \nonumber \\
   \displaybreak[0]
   F_{dc} &= \mbox{ dispersive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\ 
-  &= \alpha nv \nabla C  \nonumber\\ 
+  &= \alpha \theta v \nabla C  \nonumber\\ 
   \displaybreak[0]
   F_d &= \mbox{ diffusive flow } [kg \cdot m^{-2}\cdot s^{-1}]\nonumber\\
-  &= nD_e \nabla C\nonumber\\
+  &= \theta D_e \nabla C\nonumber\\
   \displaybreak[0]
   m &= \mbox{ solute source } [kg \cdot m^{-3}\cdot s^{-1}].\nonumber
   \displaybreak[0]
@@ -972,7 +972,7 @@ written (as in Schwartz and Zhang \cite{schwartz_fundamentals_2004})
   D_e &= \mbox{ effective diffusion coefficient } [m^2\cdot s^{-1}]\nonumber
   \displaybreak[0]
   \intertext{and} 
-  n\cdot v &= \mbox{ Darcy flux } [m\cdot s^{-1}].
+  \theta\cdot v &= \mbox{ Darcy flux } [m\cdot s^{-1}].
 \end{align} 
 
 The method by which the dominant solute transport regime (diffusive or advective)
@@ -980,7 +980,7 @@ is determined for a particular porous medium is by use of the dimensionless
 Peclet number, 
 
 \begin{align} 
-  Pe &= \frac{nvL}{\alpha nv + D_e},\\
+  Pe &= \frac{\theta vL}{\alpha \theta v + D_e},\\
   &= \frac{\mbox{advective rate}}{\mbox{diffusive rate}}\nonumber
   \intertext{where} 
   L &= \mbox{ transport distance } [m].\nonumber
