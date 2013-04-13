@@ -576,89 +576,13 @@ discussed here and appear in Table \ref{tab:geosource}.
 \input{./chapters/litrev/geosource_tab}
 
 Models of radionuclide contaminant transport address radionuclide transport 
-through some or all of the release pathway made up of waste packages, 
+through some or all of the release pathway made up of waste forms, waste packages, 
 engineered barrier systems, and geologic media. A model of transport through 
-the repository typically incorporates a waste package failure model, a radionuclide 
-release model via waste form degradation, then advective and diffusive transport 
-through the engineered barrier system and geology. Some models also incorporate 
-advective fast pathways introduced by tectonic events or human intrusions.
-
-Waste package failure depends on near field environmental factors such as decay 
-heat and water chemistry.  In turn, the radionuclide release rate from a waste 
-package depends on the character of the waste form matrix and water flow as 
-well as elemental solubility, sorption, and diffusion. Similarly, advective 
-transfer through the engineered barrier system and into the geological medium 
-also depends on these factors as well as the hydrology of the rock which sets 
-the boundary condition.
-
-Waste package failure modes vary between models. While some employ detailed 
-computational tools such as GoldSim or EBSFAIL (a part of the EBSPAC module 
-used in the TSPA code), which will be discussed in section 
-\ref{sec:detailed_radionuclide}, some 
-analytic models incorporate their own hydrologic approximations of
-canister degradation or make simpler assumptions of immediate waste canister 
-failure in order to focus on degradation and radionuclide release. 
-
-Waste form release rate is the rate of mass transfer of a radionuclide from its 
-waste form into surrounding water. Water flowthrough heavily affects the waste 
-form degradation rate and is treated differently in various models.  While some, 
-inspired by the TSP assessment, assume water moves through the waste packages at 
-a constant volumetric rate (`flowthrough model'), others adopt less conservative 
-assumptions incorporating weather based predictions of hydrologic activity.
-
-Radionuclide transport through the \gls{EBS} and host rock is driven by 
-diffusion as well as advection. Radionuclide transport is retarded by sorption, 
-limited by solubility, and enhanced by colloidal mobility 
-\cite{bracke_safety_2008}. 
-
-The initial degradation of a radionuclide from its waste form is a breach of the 
-primary barrier and is prerequisite to contribution of a radionuclide to source 
-term \cite{bracke_safety_2008}.  Degradation rates depend strongly water 
-chemistry, but primarily on material properties of the waste form.
-
-Precipitation is the reverse of dissolution and occurs when a solubility limit
-is reached. In a reducing environment, the approach to chemical equilibrium of 
-dissolution and precipitation is rate dependent and is highly dependent on 
-thermodynamics.
-
-Sorption includes both absorption and adsorption. Absorption is the 
-incorporation of a substance of one state into another of a different state.
-Adsorption is the interaction of a dissolved species with a surface that
-removes that species from the dissolving medium models. During sorption, 
-contaminants are removed from the flowthrough water and taken up by the 
-walls of pores or fractures in the rock matrix.  Importantly, sorption is a 
-reversible process, the  counter process of which is desorption in which the 
-contaminant is returned to the pore or fracture fluid from the matrix
-\cite{ahn_mass_1988} . Reversible sorption is typically expressed in terms 
-the mass of a radionuclide sorbed into the rock and the mass left in solution. 
-$K_d$ values are heavily radionuclide and geochemically dependent.  
-
-% One way to model sorption is by assuming a linear isotherm. <+What does that 
-% mean? +> \cite{ahn_thesis_pg20}
-
-% The concentration of sorbed contaminant onto the fracture surface can be 
-% demonstrated in terms of a rate equation (if surface diffusion is neglected.) 
-% (What is surface diffusion?) \cite{ahn_thesis_pg20)
-
-
-% Ahn finds that including sorption, the concentration of contaminant in the 
-% fracture satisfies the differential rate equation: % \begin{align*} 
-% R_f\frac{\partial N}{\partial t} + \nu \frac{\partial N}{\partial z} 
-% - D \frac{\partial^2 D}{\partial z^2} + R_f \lambda N + \frac{q}{b} = 0, z>0 
-%   and t>0 
-% \end{align*} 
-
-% Also, there is sorption through the pores in the matrix. Again, we can model 
-% this with a ``linear sorption isotherm. . . '' whatever that is.  
-
-Finally, a phenomenon called colloidal mobility can enhance radionuclide 
-transport. Mineral colloids, which are suspended molecular solids within a liquid 
-emulsion, are expected in the solution saturating the geological environment.
-Colloids present in the near field dissolving solution have an effect on the
-mobility of radionuclides. Studies addressing the subtle differences between 
-resultant behavior of various isotopes indicate that colloidal mobility can be 
-modeled as a correction factor to the sorption coefficient 
-\cite{bracke_safety_2008}.
+the repository typically incorporates a radionuclide release model via waste 
+form degradation, a waste package failure model, then advective and diffusive 
+transport through the engineered barrier system and geology. Some models also 
+incorporate advective fast pathways introduced by tectonic events or human 
+intrusions.
 
 \subsection{Waste Form Release Models}
 
@@ -667,6 +591,20 @@ array of degradation, alteration, and dissolution phenomena. These phenomena
 begin when surrounding waste packages are breached, exposing the waste form to 
 water. Some phenomena dominating the release from canonical waste forms such as  
 \gls{CSNF}, \gls{DSNF}, and borosilicate glasses are listed in Table \ref{tab:wf}.
+
+Waste form release rate is the rate of mass transfer of a radionuclide from its 
+waste form into surrounding water. Water flowthrough heavily affects the waste 
+form degradation rate and is treated differently in various models.  While some, 
+inspired by the TSP assessment, assume water moves through the waste packages at 
+a constant volumetric rate (`flowthrough model'), others adopt less conservative 
+assumptions incorporating weather based predictions of hydrologic activity.
+
+
+The initial release of a radionuclide from its degraded waste form is a breach of the 
+primary barrier and is prerequisite to contribution of a radionuclide to source 
+term \cite{bracke_safety_2008}.  Degradation rates depend strongly water 
+chemistry, but primarily on material properties of the waste form.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -759,6 +697,22 @@ soluble \cite{hedin_integrated_2002}.
 %%%%
 
 \subsection{Waste Package Failure Models}
+
+Waste package failure modes vary between models. While some employ detailed 
+computational tools such as GoldSim or EBSFAIL (a part of the EBSPAC module 
+used in the TSPA code), which will be discussed in section 
+\ref{sec:detailed_radionuclide}, some 
+analytic models incorporate their own hydrologic approximations of
+canister degradation or make simpler assumptions of immediate waste canister 
+failure in order to focus on degradation and radionuclide release. 
+
+
+Waste package failure depends on near field environmental factors such as decay 
+heat and water chemistry.  
+The radionuclide release rate from a waste 
+package depends on the character of the waste form matrix and water flow as 
+well as elemental solubility, sorption, and diffusion. 
+
 
 Waste package failure can, in general, be represented with an expression of the 
 number of failed waste packages, $n_F$ failing per unit time. This is a simple 
@@ -890,6 +844,11 @@ form, radionuclides are transported through the secondary engineered barrier,
 which includes the buffer, backfill, and tunnel wall. After transport through 
 the secondary \gls{EBS}, radionuclides reach the geologic medium. 
 
+Radionuclide transport through the \gls{EBS} and host rock is driven by 
+diffusion as well as advection. Radionuclide transport is retarded by sorption, 
+limited by solubility, and enhanced by colloidal mobility 
+\cite{bracke_safety_2008}. 
+
 \subsubsection{Barrier Dissolution and Failure}
 
 The same models of waste package failure (instantaneous, rate based, and 
@@ -906,9 +865,10 @@ after degradation. Before degradation, transport is primarily diffusive.
 Thereafter, transport can become advective due to cracking. Cracking can be 
 modeled explicitly or as a continuum model.  
 
+
 %%%%
 
-\subsubsection{Hydrologic Transport Models}
+\subsection{Hydrologic Transport Models}
 
 Transport out of the \gls{EBS} and through the geosphere in clay, shale, granite,
 and salt can largely be characterized as solute transport in permeable porous 
@@ -921,6 +881,11 @@ advection, hydraulic dispersion, and diffusion phenomena.
 Advection is transport driven by bulk water velocity, diffusion is the 
 result of Brownian motion across concentration gradients, and hydraulic 
 dispersion is transport resulting from heterogeneities in the water velocity field. 
+
+Advective transfer through the engineered barrier system and into the geological medium 
+also depends on these factors as well as the hydrology of the rock which sets 
+the boundary condition.
+
 
 Fundamentally, the effect of these flows on mass transport is captured by the 
 conceptual expression 
@@ -1017,6 +982,31 @@ such that the mass conservation equation becomes:
   \rho_b &= \mbox{ bulk (dry) density }[kg/m^3].\nonumber
 \end{align}
 
+Precipitation is the reverse of dissolution and occurs when a solubility limit
+is reached. In a reducing environment, the approach to chemical equilibrium of 
+dissolution and precipitation is rate dependent and is highly dependent on 
+thermodynamics.
+
+Sorption includes both absorption and adsorption. Absorption is the 
+incorporation of a substance of one state into another of a different state.
+Adsorption is the interaction of a dissolved species with a surface that
+removes that species from the dissolving medium models. During sorption, 
+contaminants are removed from the flowthrough water and taken up by the 
+walls of pores or fractures in the rock matrix.  Importantly, sorption is a 
+reversible process, the  counter process of which is desorption in which the 
+contaminant is returned to the pore or fracture fluid from the matrix
+\cite{ahn_mass_1988} . Reversible sorption is typically expressed in terms 
+the mass of a radionuclide sorbed into the rock and the mass left in solution. 
+$K_d$ values are heavily radionuclide and geochemically dependent.  
+
+Finally, a phenomenon called colloidal mobility can enhance radionuclide 
+transport. Mineral colloids, which are suspended molecular solids within a liquid 
+emulsion, are expected in the solution saturating the geological environment.
+Colloids present in the near field dissolving solution have an effect on the
+mobility of radionuclides. Studies addressing the subtle differences between 
+resultant behavior of various isotopes indicate that colloidal mobility can be 
+modeled as a correction factor to the sorption coefficient 
+\cite{bracke_safety_2008}.
 If it is assumed that sorption can be approximated as a linear equilibrium, 
 reversible reaction,
 
