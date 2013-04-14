@@ -586,77 +586,84 @@ intrusions.
 
 \subsection{Waste Form Release Models}
 
-Radionuclide release from various possible waste form types will be dominated by an 
-array of degradation, alteration, and dissolution phenomena. These phenomena 
-begin when surrounding waste packages are breached, exposing the waste form to 
-water. Some phenomena dominating the release from canonical waste forms such as  
-\gls{CSNF}, \gls{DSNF}, and borosilicate glasses are listed in Table \ref{tab:wf}.
-
 Waste form release rate is the rate of mass transfer of a radionuclide from its 
-waste form into surrounding water. Water flowthrough heavily affects the waste 
-form degradation rate and is treated differently in various models.  While some, 
-inspired by the TSP assessment, assume water moves through the waste packages at 
-a constant volumetric rate (`flowthrough model'), others adopt less conservative 
-assumptions incorporating weather based predictions of hydrologic activity.
-
-
-The initial release of a radionuclide from its degraded waste form is a breach of the 
-primary barrier and is prerequisite to contribution of a radionuclide to source 
-term \cite{bracke_safety_2008}.  Degradation rates depend strongly water 
-chemistry, but primarily on material properties of the waste form.
-
-
+waste form into surrounding water. 
+Radionuclide release from various possible waste form types will be dominated by 
+an array of degradation, alteration, and dissolution phenomena. 
+Some phenomena dominating the release from canonical waste forms such as  \gls{CSNF}, 
+\gls{DSNF}, and borosilicate glasses are listed in Table \ref{tab:wf}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{./chapters/litrev/wf_tab.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsubsection{Degradation Rates}
+An initial breach of the primary barrier, which exposes the waste form to water, 
+typically triggers degradation of the waste form \cite{bracke_safety_2008}.  
+Degradation behaviors depend strongly water chemistry, but primarily on material 
+properties of the waste form.  In the absence of detailed knowledge about long 
+term waste form material behavior, however, waste form degradation is often 
+modeled as a purely rate based model,
+
+\begin{align}
+  V_{WF}(t) = V_{WF}(0) - \int_0^t f(\cdots)dt.
+  \label{wfdegrate}
+\end{align}
+
+In the case of saturated repository concepts, degradation is often modeled to 
+begin immediately at emplacement \cite{hedin_integrated_2002}. However, in 
+models of unsaturated media \cite{ahn_environmental_2004, 
+ahn_environmental_2007} , the waste form may not come into contact with water 
+immediately, and therefore degradation will not begin until the onset of water 
+contact,
+
+\begin{align}
+  V_{WF}(t) &= V_{WF}(0) - \int_0^t f(\cdots)H(t-t_{wpf})dt.
+  \intertext{where}
+  t_{wpf} &=\mbox{time of waste package failure}\\
+  H(t-t_{wpf}) & = \mbox{Heaviside step function}\\
+      & = \begin{cases}
+        0  & t<t_{wpf}\\
+        1 & t\ge t_{wpf}
+      \end{cases}
+  \label{wfdegrate}
+\end{align}
 
 
+Importantly, the rate is often assumed to be slower in reducing environments than 
+oxidizing ones\cite{swift_applying_2011}.
 
+In either case, radionuclide release is often modeled as congruent with the 
+flowthrough water at a fractional degradation rate until the waste form is 
+completely degraded \cite{ahn_environmental_2004, ahn_environmental_2007}.
 
-\subsubsection{Hedin Model (\cite{hedin_integrated_2002})}
+If congruent release neglects transport retarding factors such as solubility 
+limitation, it is most appropriate when applied to highly soluble radionuclides. 
+In \cite{ahn_environmental_2004, ahn_environmental_2007} the transport of highly 
+soluble radionuclides (those with high solubility limits) are modeled as 
+infinitely soluble in this way. In an oxidizing environment, radionuclides of 
+this type include most of the fission products, but not the actinides. 
 
-In a saturated fractured rock matrix representative of the KBS-3 granitic
-Swedish repository concept, copper canister waste packages contain a spent fuel
-waste matrix, and a bentonite buffer surrounds the canisters within repository 
-drift tunnels. Waste form dissolution within the Hedin model is a rate based
-model that takes place within the waste package void. Radionuclides are 
-released congruently with the flowthrough water at a fractional degradation 
-rate until the waste form is completely degraded.
-\cite{hedin_integrated_2002} 
+\subsubsection{Solubility Limitation}
 
-\subsubsection{Ahn Models (\cite{ahn_environmental_2004,
-ahn_environmental_2007})}
+In order to account for solubility limitation, a threshold of elemental 
+dissolved concentration, the reduced mobility of radionuclides with lower 
+solubilities can be modeled \cite{hedin_integrated_2002} as a reduction in the 
+amount of solute available for transport. For radionuclides with low 
+solubility, the mass fraction released from the waste matrix is constrained to 
+less than the solubility limit, 
 
-In an oxidizing, unsaturated environment, waste canisters are modelled as 
-compartments of waste form surrounded by a buffer layer that is in turn 
-surrounded by layers of near field rock and far field rock. Water is introduced 
-to the system at a constant rate, and encounters an array of failed waste 
-packages (at $t=0$ in the 2004 model, and at $T_f=75,000$ years in the 2007 model). 
-The water immediately begins dissolving the waste matrix.  Radionuclides with higher 
-solubilities are preferentially dissolved and treated with a ``congruent 
-release'' advective transport model discussed
-below. Radionuclides with lower solubilities are transported through the buffer with
-the alternative ``solubility limited'' release model. The water flow begins at
-one waste package and travels through the matrix and buffer space to the next
-waste package, contacting each waste package consecutively and then flowing on
-into the near field. In this way, the water is increasingly contaminated as its
-path through the waste packages proceeds.  
+\begin{align} 
+  m_{1i}(t)\le V_{1i}(t)C_{sol}
+\end{align}
 
-\subsubsection{Ahn Congruent Release Model} 
+where the mass $m_{1i}$ in $[kg]$ of a radionuclide $i$ dissolved into the waste package
+void volume $V_1$ in $[m^3]$, at a time t, is limited by the solubility limit, 
+the maximum concentration, $C_{sol}$ in $[kg/m^3]$ at which that radionuclide is 
+soluble \cite{hedin_integrated_2002}.
 
-In the Ahn models, radionuclides with a high solubility coefficient are modeled with
-the congruent release model.  Radionuclides of this type include most of the fission
-products, but not the actinides. This model states that the release from the
-waste packages is congruent with the dissolution of the waste matrix and is
-transported through the rock by advective transfer with the water that flows
-through the waste packages.  
-
-\subsubsection{Ahn Solubility Limited Release Model}
-
-In the Ahn models, radionuclides with lower solubility coefficients are modeled with
-the solubility limited release model.  Solubility values are assumed from TSPA
+In the Ahn models, radionuclides with lower solubility limits are modeled with
+a solubility limited release model.  Solubility values are assumed from TSPA
 for this model, and elements with a solubility of less than $~5\times 10^{-2}
 [mol/m^3]$ are taken to be
 `low.' Elements in this `low' category include Zr, Nb, Sn and some toxic actinides 
@@ -677,22 +684,21 @@ hydrologic factors porosity, water velocity, waste package radius, and waste
 package length, respectively. $D_e$ is the effective diffusion coefficient
 ($m^2/yr$)  and $S_i$ is the solubility ($kg/m^3$) of isotope $i$.
 
+\subsubsection{Flow Assumptions}
 
-\subsubsection{Hedin Solubility Limited Release Model}
+Water flowthrough heavily affects the waste 
+form degradation rate and is treated differently in various models. While some 
+(`flowthrough models') assume water moves through the waste packages at 
+a constant volumetric rate, others adopt less conservative 
+assumptions incorporating weather based predictions of hydrologic activity 
+\cite{something}.
 
-In the Hedin model of the waste matrix, the amount of solute available within
-the waste package is solved for, and for radionuclides with low solubility, the mass
-fraction released from the waste matrix is limited by a simplified description
-of their solubility. That is, 
+In common flowthrough models, the water flow begins at 
+one waste package and travels through the matrix and buffer space to the next 
+waste package, contacting each waste package consecutively and then flowing on 
+into the near field. In this way, the water is increasingly contaminated as its 
+path through the waste packages proceeds.  
 
-\begin{align} 
-  m_{1i}(t)\le V_{1i}(t)C_{sol}
-\end{align}
-
-where the mass $m_{1i}$ in $[kg]$ of a radionuclide $i$ dissolved into the waste package
-void volume $V_1$ in $[m^3]$, at a time t, is limited by the solubility limit, 
-the maximum concentration, $C_{sol}$ in $[kg/m^3]$ at which that radionuclide is 
-soluble \cite{hedin_integrated_2002}.
 
 %%%%
 
@@ -705,7 +711,6 @@ used in the TSPA code), which will be discussed in section
 analytic models incorporate their own hydrologic approximations of
 canister degradation or make simpler assumptions of immediate waste canister 
 failure in order to focus on degradation and radionuclide release. 
-
 
 Waste package failure depends on near field environmental factors such as decay 
 heat and water chemistry.  
@@ -753,6 +758,18 @@ temperature $T$, and other physical parameters.
   f() = N\cdot f(t,T,\cdots).
   \label{rate}
 \end{align}
+
+\subsubsection{Degradation Rate Based}
+If it can be estimated, a fractional degradation rate can be used for waste 
+package degradation as it was in the waste form case,
+
+\begin{align}
+  V_{wp}(t) &= V_{wp}(0)(1 - \int_0^t f(\cdots)dt)
+  \intertext{which, for a constant rate, becomes}
+  V_{wp}(t) &= V_{wp}(0)(1 - f(\cdots)t).
+  \label{wfdegrate}
+\end{align}
+
 
 \subsubsection{Probabilistic}
 
@@ -807,6 +824,7 @@ function is
 For $k<1$, the rate of failure will decrease over time, while for a value of 
 $k>1$, the rate increases over time, appropriate for the aging process of 
 materials  \cite{papoulis_probability_2002}.
+
 
 
 \subsubsection{Instantaneous}
@@ -1112,8 +1130,7 @@ that heat transfer by radiation is likely to be negligible. Similarly,
 since  water velocities are comparatively low, heat transfer by mass transfer 
 or by convection will be small relative to conduction.  
 
-A discussion of analytical models of heat transport follows that quantifies these 
-modes of heat transfer and addresses their applicability to the model at hand. 
+A discussion of conductive heat transport follows.
 
 %%%%%%%%%%%%%%%% Analytical Heat Transport %%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1156,55 +1173,6 @@ and a body with temperature $T_2$ at position $x_2$,
 \begin{align}
   q_x'' &= -k_x\frac{dT}{dx}\\
   &=-k_x\frac{(T_1-T_2)}{x_1-x_2}.
-\end{align}
-
-\subsection{Convection}
-
-Convective heat transfer occurs advectively in accordance with fluid movement. 
-Convection can be expressed as
-
-\begin{align}
-  \dot{q} &= -hA\Delta T.
-\end{align}
-
-\subsection{Radiation}
-
-Heat transfer by radiation is the result of the emission of electromagnetic 
-waves. Planck black body radiation is analytically described, using $\sigma$, the   
-Stefan-Boltzmann constant as
-
-\begin{align}
-  \dot{q} = \sigma A_1 F_{1\rightarrow 2}(T_1^4 - T_2^4)
-  \label{planck}
-  \intertext{where}
-  \sigma =5.670373\times 10^{−8} [W/ m^{2} K^{4}]\nonumber
-  \intertext{and}
-  F_{1\rightarrow 2} =
-  \begin{cases}
-    \epsilon_1 &
-    \mbox{ for a point source},\\
-    \frac{1}{\frac{1}{\epsilon_1} + \frac{1}{\epsilon_2} - 1 } &
-    \mbox{ for parallel plates},\\
-    \frac{2\pi r_1 L}{\frac{1}{\epsilon_1} + \frac{1}{\epsilon_2} - 1 } \frac{r_1}{r_2} &
-    \mbox{ for concentric cylinders}
-  \end{cases}
-  \intertext{where}
-  \epsilon_i = \mbox{emissivity of surface i } [-]\nonumber\\
-  r_i = \mbox{radius of cylinder i } [m] \nonumber\\
-  L = \mbox{cylinder length }[m].\nonumber
-\end{align}
-
-\subsection{Mass Transfer}
-
-Heat transfer by mass transfer is straightforward, resulting in the change in 
-temperature in adjacent volumes as a result of matter movement. If the specific 
-heat capacity of the transferred mass can be expressed as $c_p$, then the heat 
-transfer is simply, 
-
-\begin{align}
-  \dot{q} = \dot{m}c_p\left( T_j - T_i \right)\\
-  \intertext{where}
-  c_p = \mbox{ specific heat capacity } [J/kg^{\circ}K].\nonumber
 \end{align}
 
 \subsection{Lumped Parameter Model}
