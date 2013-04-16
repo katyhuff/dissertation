@@ -17,7 +17,56 @@ composition.
 
 \section{Methodology} 
 \input{./chapters/intro/methodology}
-\section{Outline}
+
+\section{Research Goals}
+
+The purpose of this work was to design a fast, flexible code for medium
+fidelity analysis of generic repository performance in the context of fuel
+cycle analysis. In addition to implementing fundamental modeling capabilities,
+\Cyder has been designed to provide an accommodating foundation for the
+development of advanced capabilities in the future.
+
+Cyder has implemented the following modeling capabilities :
+
+\begin{itemize}
+  \item Repository Concept Generality
+    \begin{itemize}
+      \item generic spatial loading
+      \item modular component arrangement
+      \item encapsulation of models and data
+    \end{itemize}
+  \item Radionuclide Transport Modeling 
+    \begin{itemize}
+      \item varying levels of detail
+      \item component level detail
+      \item solubility limitation and sorption modeling
+      \item waste form degradation
+      \item waste package failure
+    \end{itemize}
+  \item Thermal Modeling
+    \begin{itemize}
+      \item capturing the effect of spacing
+      \item capturing the effect of differing media
+    \end{itemize}
+  \item Dynamic Fuel Cycle Simulation Feedback
+\end{itemize}
+
+Cyder was also designed to be used and developed by a community of people. \Cyder possesses the following user and developer features
+\begin{itemize}
+  \item User Features
+    \begin{itemize}
+      \item modular to accommodate the inherently modular combinatoric repository design options
+      \item fast to accommodate parameretrized runs
+      \item integrated to inform the dynamic effects of repository capacity features
+    \end{itemize}
+  \item Developer Features
+    \begin{itemize}
+      \item Open Source Framework
+      \item Testing Framework
+      \item Component Modularity to allow future development and customization
+    \end{itemize}
+\end{itemize}
+
 % Summarize document
 
 A literature review, Chapter \ref{ch:litrev}, presents background material that organizes and 
