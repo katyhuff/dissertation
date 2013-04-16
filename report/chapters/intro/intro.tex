@@ -20,11 +20,11 @@ composition.
 
 \section{Research Goals}
 
-The purpose of this work was to design a fast, flexible code for medium
-fidelity analysis of generic repository performance in the context of fuel
-cycle analysis. In addition to implementing fundamental modeling capabilities,
-\Cyder has been designed to provide an accommodating foundation for the
-development of advanced capabilities in the future.
+The purpose of this work was to design a fast, flexible code for medium fidelity 
+calculation of generic repository performance in the context of fuel cycle 
+analysis. In addition to implementing fundamental modeling capabilities, \Cyder 
+has been designed to accommodate the development of advanced capabilities in the 
+future.
 
 Cyder has implemented the following modeling capabilities :
 
@@ -37,33 +37,36 @@ Cyder has implemented the following modeling capabilities :
     \end{itemize}
   \item Radionuclide Transport Modeling 
     \begin{itemize}
-      \item varying levels of detail
-      \item component level detail
+      \item material degradation and failure
+      \item advective and diffusive transport
       \item solubility limitation and sorption modeling
-      \item waste form degradation
-      \item waste package failure
     \end{itemize}
   \item Thermal Modeling
     \begin{itemize}
-      \item capturing the effect of spacing
-      \item capturing the effect of differing media
+      \item sensitivity to spatial emplacement
+      \item sensitivity to differing media
+      \item senstivity to isotopic waste composition
     \end{itemize}
   \item Dynamic Fuel Cycle Simulation Feedback
+    \begin{itemize}
+      \item dynamic capacity calculation
+    \end{itemize}
 \end{itemize}
 
 Cyder was also designed to be used and developed by a community of people. \Cyder possesses the following user and developer features
 \begin{itemize}
   \item User Features
     \begin{itemize}
-      \item modular to accommodate the inherently modular combinatoric repository design options
+      \item component level modularity to accommodate many repository design options
       \item fast to accommodate parameretrized runs
       \item integrated to inform the dynamic effects of repository capacity features
+      \item with varying levels of detail
     \end{itemize}
   \item Developer Features
     \begin{itemize}
-      \item Open Source Framework
-      \item Testing Framework
-      \item Component Modularity to allow future development and customization
+      \item open source framework
+      \item testing framework
+      \item component modularity to allow future development and customization
     \end{itemize}
 \end{itemize}
 
