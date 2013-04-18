@@ -5,7 +5,7 @@ The following literature review addresses areas of current research
 integral to the work at hand. The contribution of computational nuclear fuel
 cycle simulation tools to sensitivity analyses of repository performance
 metrics is first summarized. A discussion of the disposal system concepts and 
-geologies under consideration domestically and internationally are then also 
+geologic host media under consideration domestically and internationally are then also 
 summarized. A review of analytical models of radionuclide transport
 and a review of analytical models of heat transport follow. An overview of 
 current detailed computational models, available data and algorithms 
@@ -14,7 +14,7 @@ and those incorporated into nuclear fuel cycle simulation tools. Finally, a
 review of current computational models of heat transport in the waste disposal
 system context is given. Special focus is paid to the availability of
 supporting data and algorithms informing geochemical and hydrological
-transport on long time scales and in various geologies. 
+transport on long time scales and in various geologic media. 
 
 \section{Repository Capabilities within Systems Analysis Tools}
 \label{sec:SA_repos}
@@ -24,7 +24,7 @@ transport on long time scales and in various geologies.
 %%%%%%%%%%%%%%%%%%%%%%%% 
 % The total system performance assessment is one type.Repository modules 
 % incorporated into VISION and whatnot are another type.  Things to ask about 
-% each of them include: % Which geologies do they model?  How long do they take 
+% each of them include: % Which geologic media do they model?  How long do they take 
 % to run?  Are they proprietary?  How well validated are they?  Do they include 
 % any notion of repository capacity, dose, heat?  Are they capable of dealing 
 % with waste of varying compositions?  Are therewasteform models?  Is there 
@@ -94,7 +94,7 @@ others neglect isotopic granularity (e.g.,
 
 While these tools have contributed to analysis of fuel cycle effects on 
 repository metrics, none address radionuclide contaminant transport in generic 
-geologies, and many (e.g.,
+geologic media, and many (e.g.,
 \gls{COSI} \cite{boucher_international_2010},
 \gls{DANESS} \cite{yacout_daness_2011,van_den_durpel_daness:_2006}, 
 ORION \cite{gregg_orion_2011},
@@ -108,7 +108,7 @@ performance metrics to fuel cycle decisions can be calculated using a variety of
 methods that have yet to be explored. Based on the flexibility of discrete material 
 tracking, power of dynamic modeling, and flexibility of open access the \Cyder 
 tool has emphasized those strategies. Also, recognizing the need for a tool 
-that analyzes repository performance for generic geologies, the \Cyder tool 
+that analyzes repository performance for generic geologic settings, the \Cyder tool 
 employs both thermal and contaminant transport capabilities.
 
 \subsection{Repository Focused Fuel Cycle Analyses}
@@ -145,7 +145,7 @@ thermal management model that informs waste package emplacement.
 
 \section{Disposal Environment Concepts}
 
-% To capture the broad distinctions, we'll model three geologies
+% To capture the broad distinctions, we'll model three geologic media
 % and four concepts
 % with flexible layouts
 % and an array of available canonical subcomponents. 
@@ -165,7 +165,7 @@ thermal management model that informs waste package emplacement.
 % this option space.
 
 A suite of three geologic media and four disposal concepts of interest were 
-chosen to capture the geologies and concepts found in the following review of 
+chosen to capture the geologic media and concepts found in the following review of 
 international and domestic efforts. \Cyder has been developed to model granite, 
 clay, and salt geologic environments with various layouts and an array of 
 canonical engineered barrier component models.  
@@ -570,7 +570,7 @@ isolation behavior of the repository.
 
 A number of efforts to model radionuclide transport through geologic repository 
 concepts have been made internationally and domestically. These efforts, the 
-geologies they address, and  some features of their methods will be 
+geologic media they address, and  some features of their methods will be 
 discussed here and appear in Table \ref{tab:geosource}.
 
 \input{./chapters/litrev/geosource_tab}
@@ -1350,7 +1350,7 @@ movement of radionuclides within a repository environment due to heat
 generating waste forms. Such models are detailed with respect to their fine 
 spatial and temporal resolution or with respect to the incorporation and 
 coupling of numerous physical phenomena. Current detailed computational models 
-addressing various repository geologies and geometries will be reviewed here 
+addressing various geologic media and emplacement geometries will be reviewed here 
 that utilize finite difference and finite element methods in many dimensions, 
 sophisticated numerical solvers, and other high fidelity approaches.
 
