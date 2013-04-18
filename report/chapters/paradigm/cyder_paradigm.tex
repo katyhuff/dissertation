@@ -123,9 +123,11 @@ mat\_data.sqlite SQLite database.
 
 Each table in the database holds data related to one of a canonical set of 
 engineered barrier and geological medium materials (e.g. clay, glass, etc.).  
-The columns of that table hold data such as thermal diffusivity, thermal 
-conductivity, porosity, effective porosity, and solubility and sorption 
-coefficients for each element.  
+The columns of that table hold data required to support all \Cyder models. 
+Thermal diffusivity and thermal conductivity comprise the thermal data in the 
+table for each material. The hydrologic and chemical data in the database has 
+one table for each material. Each table contains relative diffusivity 
+coefficients, solubility limits, and sorption parameters for each element.  
 
 \subsubsection{Component ThermalModel}
 
