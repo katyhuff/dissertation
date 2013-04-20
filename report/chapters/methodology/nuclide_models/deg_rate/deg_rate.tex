@@ -9,15 +9,19 @@ concept is depicted in Figure \ref{fig:deg_volumes}.
 The materials that constitute the engineered barriers in a saturated 
 repository environment degrade over time. The implemented model of this nuclide 
 release behavior is based solely on a fractional degradation rate. 
-The degraded volume is a simple fraction, $d$, of the total volume, $V_T$,
+The degraded volume is a simple fraction, $d$, of the total volume, $V_T$, such 
+that 
 \begin{align}
-V_d &= dV_T
-\intertext{where}
 V_T &= V_i + V_d
-V_T &= \mbox{ total volume }[m^3]\\
-V_i &= \mbox{ intact volume }[m^3]\\
+\label{deg_volumes}
+\intertext{where}
+V_d &= dV_T\nonumber\\
+V_i &= (1-d)V_T\nonumber\\
+V_T &= \mbox{ total volume }[m^3]\nonumber\\
+V_i &= \mbox{ intact volume }[m^3]\nonumber\\
+V_d &= \mbox{ degraded volume }[m^3].\nonumber
 \intertext{and}
-V_d &= \mbox{ degraded volume }[m^3].
+d &= \mbox{ the current fraction that has been degraded }[\%]\nonumber
 \end{align}
 
 In this model, the contaminants in the degraded fraction of the control volume 

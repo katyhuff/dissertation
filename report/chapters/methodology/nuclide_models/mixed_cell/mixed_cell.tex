@@ -15,42 +15,43 @@ A graphical representation of the mixed cell model is given in Figure
 \ref{fig:deg_sorb_volumes}.  
 \input{./chapters/methodology/nuclide_models/mixed_cell/deg_sorb_volumes}
 
-After some time degrading, the volume of free fluid can be expressed as
-\begin{align}
-V_{ff}(t_n) &= \theta V_T \int_{t_0}^{t_n} f(\cdots) dt.
-\label{vff}
-\end{align}
-
-The solid volume of the intact matrix can be expressed as
-\begin{align}
-V_{im}(t_n) &= V_T - V_T\int_{t_0}^{t_n} f(\cdots) dt.
-\label{vim}
-\end{align}
-
-Finally, the volume of the degraded and precipitated solids can be expressed as
-\begin{align}
-V_{ps}(t_n) &= (1 - \theta)V_T\int_{t_0}^{t_n} f(\cdots) dt.
-\label{vps}
-\end{align}
-
-This model assumes that all net influx to the cell enters the free fluid rather 
-than the intact matrix. The total volumetric contaminant concentration in the intact matrix, 
-can be expressed as
+After some time degrading, the total volume in the degraded region can be 
+expressed as in equation \eqref{deg_volumes}. Additionally, the intact and 
+degraded volumes can also be describe by their constituent solid matrix and 
+pore fluid volumes, 
 
 \begin{align}
-C_{im}(t_n) &= C_0\\
-            &= \frac{m_0}{V_{im}(t_0)}
+V_d &= \mbox{ degraded volume } [m^3]\nonumber\\
+    &= V_{df} + V_{ds}
 \intertext{where}
-%here we assume nothing escapes an intact matrix
-m_0 &= \mbox{ total initial mass. } \nonumber
+V_{df} &= \mbox{ degraded solid volume } [m^3]\nonumber\\
+       &= \theta V_d\\
+       &= \theta dV_T\\
+V_{ds} &= \mbox{ degraded fluid volume } [m^3]\nonumber\\
+       &= (1-\theta) V_d\\
+       &= (1-\theta) dV_T
+V_i &= \mbox{ intact volume } [m^3]\nonumber\\ 
+       &= V_{if} + V_{is}
+\intertext{where}
+V_{if} &= \mbox{ intact fluid volume } [m^3]\nonumber\\
+       &= \theta V_i\\
+       &= \theta (1-d)V_T\\
+V_{is} &= \mbox{ intact solid volume } [m^3]\nonumber\\
+       &= (1-\theta) V_i\\
+       &= (1-\theta) (1-d)V_T
 \end{align}
 
-The resulting contaminant mass in the intact matrix at time $t_n$ is 
+This model distributes contaminant masses throughout the volume. Contaminant 
+masses and concentrations can therefore be expressed with notation indicating 
+in which volume they reside, such that
 
 \begin{align}
-m_{im}(t_n) &= C_0 V_{im}(t_n)\nonumber\\
-            &= C_0V_T\left(1-\int_{t_0}^{t_n}f(\cdots)dt\right). 
-\label{mim}
+C_{df} &= \frac{m_{df}}{V_{df}}\nonumber\\
+C_{ds} &= \frac{m_{ds}}{V_{ds}}\nonumber\\
+C_{if} &= \frac{m_{if}}{V_{if}}\nonumber
+\intertext{and}
+C_{is} &= \frac{m_{is}}{V_{is}}.\nonumber
+\label{c_m_notation}
 \end{align}
 
 The contaminant mass in the free fluid is just the initial pore water concentration 
@@ -58,11 +59,11 @@ times the free fluid volume plus the time integral of net influx to the cell
 such that
 
 \begin{align}
-C_{ffT}(t_n) &= \left[C_0 + \frac{\int_{t_0}^{t_n} \dot{m}_{i}(t') dt'}{V_{ff}(t_n)}\right] 
+C_{ffT}(t_n) &= \left[C_0 + \frac{\int_{t_0}^{t_n} \dot{m}_{i}(t') dt'}{V_{df}(t_n)}\right] 
 \intertext{and}
-m_{ffT}(t_n) &= C_{ff}(t_n) V_{ff}(t_n)\nonumber\\
-       &= \left[C_0 + \frac{\int_{t_0}^{t_n} \dot{m}_{i}(t') dt'}{V_{ff}(t_n)}\right] V_{ff}(t_n) \nonumber\\
-       &= C_0V_{ff}(t_n) + \int_{t_0}^{t_n} \dot{m}_{i} dt'.
+m_{ffT}(t_n) &= C_{ff}(t_n) V_{df}(t_n)\nonumber\\
+       &= \left[C_0 + \frac{\int_{t_0}^{t_n} \dot{m}_{i}(t') dt'}{V_{df}(t_n)}\right] V_{df}(t_n) \nonumber\\
+       &= C_0V_{df}(t_n) + \int_{t_0}^{t_n} \dot{m}_{i} dt'.
 \end{align}
 
 It is limited, however, by both solubility limitation and sorption. 
@@ -119,7 +120,7 @@ s_{i,ps} &= \frac{\mbox{contaminant mass in degraded and precipitated solids} }{
          &= \frac{m_{psc}}{m_{psm} + m_{psc}}\nonumber
 \intertext{where}
 m_{psm}  &= \mbox{ noncontaminant mass in degraded and precipitated solids }[kg]\nonumber\\
-         &= \rho_bV_{ps}\nonumber\\
+         &= \rho_bV_{ds}\nonumber\\
 m_{psc}  &= \mbox{ contaminant mass in degraded and precipitated solids }[kg]\nonumber\\
 \rho_b   &= \mbox{ bulk (dry) density of the medium }[kg/m^3].\nonumber\\
 \end{align}
@@ -129,24 +130,24 @@ solids in terms of the sorption coefficient,
 \begin{align}
 m_{psc} &= s_{ps}m_{psT}\nonumber\\
           &= K_dC_{ffl}m_{psT}\nonumber\\
-          &= \frac{K_dm_{ffl}m_{psT}}{V_{ff}}\nonumber\\
-          &= \frac{K_d}{V_{ff}}(m_{ffT}-m_{psc})m_{psT}\nonumber\\
-          &= \frac{K_d}{V_{ff}}(m_{ffT}-m_{psc})(m_{psm}+m_{psc})\nonumber\\
-          &= \frac{K_d}{V_{ff}}(m_{ffT}m_{psm}-m_{psc}m_{psm} + m_{ff}m_{psc} -m_{psc}^2)\nonumber\\
-          &= \frac{K_d}{V_{ff}} (m_{ffT}m_{psm} + (m_{ffT} - m_{psm})m_{psc} - m_{psc}^2)\nonumber
+          &= \frac{K_dm_{ffl}m_{psT}}{V_{df}}\nonumber\\
+          &= \frac{K_d}{V_{df}}(m_{ffT}-m_{psc})m_{psT}\nonumber\\
+          &= \frac{K_d}{V_{df}}(m_{ffT}-m_{psc})(m_{psm}+m_{psc})\nonumber\\
+          &= \frac{K_d}{V_{df}}(m_{ffT}m_{psm}-m_{psc}m_{psm} + m_{ff}m_{psc} -m_{psc}^2)\nonumber\\
+          &= \frac{K_d}{V_{df}} (m_{ffT}m_{psm} + (m_{ffT} - m_{psm})m_{psc} - m_{psc}^2)\nonumber
 \intertext{which, rearranged, becomes }
-0         &= m_{psc}^2 + \left( -m_{ffT} + m_{psm} + \frac{V_{ff}}{K_d} \right)m_{psc} - m_{ffT}m_{psm}\nonumber
+0         &= m_{psc}^2 + \left( -m_{ffT} + m_{psm} + \frac{V_{df}}{K_d} \right)m_{psc} - m_{ffT}m_{psm}\nonumber
 \intertext{and is solved using the quadratic formula, such that}
-m_{psc}   &= \frac{m_{ffT} - m_{psm} - \frac{V_{ff}}{K_d}}{2}
-             \pm\frac{\sqrt{\left(-m_{ffT} + m_{psm} + \frac{V_{ff}}{K_d}\right)^2 -4m_{ffT}m_{psm}}}{2}\nonumber\\  
-          %&= \frac{m_{ffT} - m_{psm} - \frac{V_{ff}}{K_d}}{2} \nonumber\\
-          %& \pm\frac{\sqrt{m_{ffT}^2 + m_{psm}^2 + \frac{V_{ff}^2}{K_d^2} + 2m_{ffT}m_{psm} - 
-          %   \frac{2V_{ff}m_{ffT}}{K_d} + \frac{2V_{ff}m_{psm}}{K_d} } }{2} \nonumber
+m_{psc}   &= \frac{m_{ffT} - m_{psm} - \frac{V_{df}}{K_d}}{2}
+             \pm\frac{\sqrt{\left(-m_{ffT} + m_{psm} + \frac{V_{df}}{K_d}\right)^2 -4m_{ffT}m_{psm}}}{2}\nonumber\\  
+          %&= \frac{m_{ffT} - m_{psm} - \frac{V_{df}}{K_d}}{2} \nonumber\\
+          %& \pm\frac{\sqrt{m_{ffT}^2 + m_{psm}^2 + \frac{V_{df}^2}{K_d^2} + 2m_{ffT}m_{psm} - 
+          %   \frac{2V_{df}m_{ffT}}{K_d} + \frac{2V_{df}m_{psm}}{K_d} } }{2} \nonumber
 \intertext{which, again rearranged, becomes}
-          &= \frac{1}{2} \left(m_{ffT} - m_{psm} - \frac{V_{ff}}{K_d}\right) \nonumber\\
+          &= \frac{1}{2} \left(m_{ffT} - m_{psm} - \frac{V_{df}}{K_d}\right) \nonumber\\
           & \pm \frac{1}{2} \sqrt{m_{ffT}^2 + 2m_{ffT}\left(m_{psm} - 
-          \frac{V_{ff}}{K_d}\right) + \left(m_{psm} + 
-          \frac{V_{ff}}{K_d}\right)^2}.
+          \frac{V_{df}}{K_d}\right) + \left(m_{psm} + 
+          \frac{V_{df}}{K_d}\right)^2}.
 \label{m_psc}
 \end{align}
 
@@ -154,10 +155,10 @@ Plugging \eqref{m_psc} into \eqref{m_ffl} results in the
 following expression for $m_{ffl}$ in terms of known quantities
 
 \begin{align}
-m_{ffl}   &= m_{ffT} - \frac{1}{2} \left(m_{ffT} - m_{psm} - \frac{V_{ff}}{K_d}\right) \nonumber\\
+m_{ffl}   &= m_{ffT} - \frac{1}{2} \left(m_{ffT} - m_{psm} - \frac{V_{df}}{K_d}\right) \nonumber\\
           & \mp \frac{1}{2} \sqrt{m_{ffT}^2 + 2m_{ffT}\left(m_{psm} - 
-          \frac{V_{ff}}{K_d}\right) + \left(m_{psm} + 
-          \frac{V_{ff}}{K_d}\right)^2}.
+          \frac{V_{df}}{K_d}\right) + \left(m_{psm} + 
+          \frac{V_{df}}{K_d}\right)^2}.
 \label{m_ffl_full}
 \end{align}
 
@@ -177,7 +178,7 @@ m_{ffl}   &= m_{ffT} - \frac{1}{2} \left(m_{ffT} - m_{psm} - \frac{V_{ff}}{K_d}\
 The desired boundary conditions can be expressed in terms of $m_{ffl}$. First, the 
 Dirichlet boundary condition is 
 \begin{align}
-C(x,y,z,t) = \frac{m_{ffl}(t)}{V_{ff}(t)}\forall (x,y,z) \in \Gamma.
+C(x,y,z,t) = \frac{m_{ffl}(t)}{V_{df}(t)}\forall (x,y,z) \in \Gamma.
 \label{dirichlet_mixed}
 \end{align}
 
