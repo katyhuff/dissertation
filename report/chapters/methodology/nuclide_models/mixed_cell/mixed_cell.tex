@@ -31,14 +31,14 @@ V_{ds} &= \mbox{ degraded fluid volume } [m^3]\nonumber\\
        &= (1-\theta) V_d\\
        &= (1-\theta) dV_T\\
 V_i &= \mbox{ intact volume } [m^3]\nonumber\\ 
-       &= V_{if} + V_{is}
-\intertext{where}
+       &= V_{if} + V_{is}\\
 V_{if} &= \mbox{ intact fluid volume } [m^3]\nonumber\\
        &= \theta V_i\\
-       &= \theta (1-d)V_T\\
+       &= \theta (1-d)V_T
+\intertext{and}
 V_{is} &= \mbox{ intact solid volume } [m^3]\nonumber\\
        &= (1-\theta) V_i\\
-       &= (1-\theta) (1-d)V_T
+       &= (1-\theta) (1-d)V_T.
 \end{align}
 
 This model distributes contaminant masses throughout the volume. Contaminant 
@@ -46,15 +46,10 @@ masses and concentrations can therefore be expressed with notation indicating
 in which volume they reside, such that
 
 \begin{align}
-C_{df} &= \frac{m_{df}}{V_{df}}\\
-\label{c_df}
-C_{ds} &= \frac{m_{ds}}{V_{ds}}\\
-\label{c_ds}
-C_{if} &= \frac{m_{if}}{V_{if}}\\
-\label{c_if}
-\intertext{and}
-C_{is} &= \frac{m_{is}}{V_{is}}.
-\label{c_is}
+C_{df} &= \frac{m_{df}}{V_{df}} \label{c_df}\\
+C_{ds} &= \frac{m_{ds}}{V_{ds}} \label{c_ds}\\
+C_{if} &= \frac{m_{if}}{V_{if}} \label{c_if}\\
+C_{is} &= \frac{m_{is}}{V_{is}}.  \label{c_is}
 \end{align}
 
 The contaminant mass in the degraded fluid is the contaminant mass that is 
@@ -132,11 +127,11 @@ m_{df} &= \frac{d^2 m_T\theta V_T}{dK_d(1-\theta)V_T}\left( \frac{1}{1+\frac{\th
 
 \subsubsection{Solubility}
   In addition to engineered barriers, contaminant transport is constrained by 
-  the solubility limit \cite{hedin_integrated_2002}, 
+  the elemental solubility limit \cite{hedin_integrated_2002}, 
     \begin{align}
-      m_{s,i} &\leq V_w C_{sol,i},
+      m_i &\leq V_w C_{sol,i},
     \intertext{where}
-      m_{s,i} &= \mbox{ solubility limited mass of isotope i in volume }V_w [kg]\nonumber\\ 
+      m_i &= \mbox{ solubility limited mass of isotope i in volume }V_w [kg]\nonumber\\ 
       V_w &= \mbox{ volume of the solution }[m^3]\nonumber\\
       C_{sol,i} &= \mbox{ solubility limit, the maximum concentration of i }[kg/m^3].\nonumber
     \end{align}
