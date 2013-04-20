@@ -29,7 +29,7 @@ V_{df} &= \mbox{ degraded solid volume } [m^3]\nonumber\\
        &= \theta dV_T\\
 V_{ds} &= \mbox{ degraded fluid volume } [m^3]\nonumber\\
        &= (1-\theta) V_d\\
-       &= (1-\theta) dV_T
+       &= (1-\theta) dV_T\\
 V_i &= \mbox{ intact volume } [m^3]\nonumber\\ 
        &= V_{if} + V_{is}
 \intertext{where}
@@ -46,27 +46,22 @@ masses and concentrations can therefore be expressed with notation indicating
 in which volume they reside, such that
 
 \begin{align}
-C_{df} &= \frac{m_{df}}{V_{df}}\nonumber\\
-C_{ds} &= \frac{m_{ds}}{V_{ds}}\nonumber\\
-C_{if} &= \frac{m_{if}}{V_{if}}\nonumber
+C_{df} &= \frac{m_{df}}{V_{df}}\\
+\label{c_df}
+C_{ds} &= \frac{m_{ds}}{V_{ds}}\\
+\label{c_ds}
+C_{if} &= \frac{m_{if}}{V_{if}}\\
+\label{c_if}
 \intertext{and}
-C_{is} &= \frac{m_{is}}{V_{is}}.\nonumber
-\label{c_m_notation}
+C_{is} &= \frac{m_{is}}{V_{is}}.
+\label{c_is}
 \end{align}
 
-The contaminant mass in the free fluid is just the initial pore water concentration 
-times the free fluid volume plus the time integral of net influx to the cell
-such that
-
-\begin{align}
-C_{ffT}(t_n) &= \left[C_0 + \frac{\int_{t_0}^{t_n} \dot{m}_{i}(t') dt'}{V_{df}(t_n)}\right] 
-\intertext{and}
-m_{ffT}(t_n) &= C_{ff}(t_n) V_{df}(t_n)\nonumber\\
-       &= \left[C_0 + \frac{\int_{t_0}^{t_n} \dot{m}_{i}(t') dt'}{V_{df}(t_n)}\right] V_{df}(t_n) \nonumber\\
-       &= C_0V_{df}(t_n) + \int_{t_0}^{t_n} \dot{m}_{i} dt'.
-\end{align}
-
-It is limited, however, by both solubility limitation and sorption. 
+The contaminant mass in the degraded fluid is the contaminant mass that is 
+treated as 'released' or available to adjacent components. Mass contributions 
+from adjacent cells are calculated at each time step and redistributed across 
+the cell. This distribution of contaminant mass is restricted, however, by both 
+solubility limitation and sorption.  
 
 \subsubsection{Sorption}
 
@@ -83,26 +78,14 @@ and the dissolved liquid concentration,
 c &=\frac{\mbox{ mass of dissolved contaminant} }{ \mbox{volume of total liquid phase }}
 \label{liquid_conc}
 \end{align}
-can be expressed by a number of isotherm models.
+can be characterized by a sorption `isotherm' model. A sorption isotherm 
+describes the equillibrium relationship between the amount of material bound to 
+surfaces and the amount of material in the solution. The MixedCell NuclideModel 
+uses a linear isotherm model.
 
-In this model, sorption is taken into account throughout the volume. In the 
-intact matrix, the contaminant mass is distributed between the pore walls and 
-the pore fluid by sorption.  So too, contaminant mass released from the intact 
-matrix by degradation is distributed between dissolved mass in the free fluid 
-and sorbed mass in the degraded and precipitated solids.
-
-To solve for the boundary conditons in this model, the amount of non-sorbed 
-contaminant mass in the free fluid must be found. This value, $m_{ffl}$, can be 
-expressed in terms of the total degraded contaminant mass and the contaminant 
-mass in the degraded and precipitated solid,
-
-\begin{align}
-m_{ffl} &= m_{ffT} - m_{psc}.
-\label{m_ffl}
-\end{align}
-
-The mass of contaminant sorbed into the degraded and precipitated solids can be found using a 
-linear isotherm model \cite{schwartz_fundamentals_2004}, characterized by the relationship 
+With the lineadsisotherm model, the mass of contaminant sorbed into the 
+degraded and precipitated solids can be found 
+\cite{schwartz_fundamentals_2004}, according to the relationship 
 \begin{align}
 s_{i} &= K_{di} c_{i}
 \label{linear_iso}
@@ -115,52 +98,36 @@ c_i &= \mbox{ the liquid concentration of isotope i }[kg/m^3].\nonumber
 Thus, from \eqref{solid_conc},
 
 \begin{align}
-s_{i,ps} &= \frac{\mbox{contaminant mass in degraded and precipitated solids} }{ \mbox{total mass of degraded and precipitated solids}}\nonumber\\
-         &= \frac{m_{psc}}{m_{psT}}\nonumber\\
-         &= \frac{m_{psc}}{m_{psm} + m_{psc}}\nonumber
+s_{i,ds} &= K_{di} C_{i,df}\nonumber\\
+         &= \frac{K_{di}m_{i,df}}{V_{df}}\nonumber
 \intertext{where}
-m_{psm}  &= \mbox{ noncontaminant mass in degraded and precipitated solids }[kg]\nonumber\\
-         &= \rho_bV_{ds}\nonumber\\
-m_{psc}  &= \mbox{ contaminant mass in degraded and precipitated solids }[kg]\nonumber\\
-\rho_b   &= \mbox{ bulk (dry) density of the medium }[kg/m^3].\nonumber\\
 \end{align}
 
-The following expression results, giving contaminant mass in the degraded and precipitated 
-solids in terms of the sorption coefficient,
-\begin{align}
-m_{psc} &= s_{ps}m_{psT}\nonumber\\
-          &= K_dC_{ffl}m_{psT}\nonumber\\
-          &= \frac{K_dm_{ffl}m_{psT}}{V_{df}}\nonumber\\
-          &= \frac{K_d}{V_{df}}(m_{ffT}-m_{psc})m_{psT}\nonumber\\
-          &= \frac{K_d}{V_{df}}(m_{ffT}-m_{psc})(m_{psm}+m_{psc})\nonumber\\
-          &= \frac{K_d}{V_{df}}(m_{ffT}m_{psm}-m_{psc}m_{psm} + m_{ff}m_{psc} -m_{psc}^2)\nonumber\\
-          &= \frac{K_d}{V_{df}} (m_{ffT}m_{psm} + (m_{ffT} - m_{psm})m_{psc} - m_{psc}^2)\nonumber
-\intertext{which, rearranged, becomes }
-0         &= m_{psc}^2 + \left( -m_{ffT} + m_{psm} + \frac{V_{df}}{K_d} \right)m_{psc} - m_{ffT}m_{psm}\nonumber
-\intertext{and is solved using the quadratic formula, such that}
-m_{psc}   &= \frac{m_{ffT} - m_{psm} - \frac{V_{df}}{K_d}}{2}
-             \pm\frac{\sqrt{\left(-m_{ffT} + m_{psm} + \frac{V_{df}}{K_d}\right)^2 -4m_{ffT}m_{psm}}}{2}\nonumber\\  
-          %&= \frac{m_{ffT} - m_{psm} - \frac{V_{df}}{K_d}}{2} \nonumber\\
-          %& \pm\frac{\sqrt{m_{ffT}^2 + m_{psm}^2 + \frac{V_{df}^2}{K_d^2} + 2m_{ffT}m_{psm} - 
-          %   \frac{2V_{df}m_{ffT}}{K_d} + \frac{2V_{df}m_{psm}}{K_d} } }{2} \nonumber
-\intertext{which, again rearranged, becomes}
-          &= \frac{1}{2} \left(m_{ffT} - m_{psm} - \frac{V_{df}}{K_d}\right) \nonumber\\
-          & \pm \frac{1}{2} \sqrt{m_{ffT}^2 + 2m_{ffT}\left(m_{psm} - 
-          \frac{V_{df}}{K_d}\right) + \left(m_{psm} + 
-          \frac{V_{df}}{K_d}\right)^2}.
-\label{m_psc}
-\end{align}
+In this model, sorption is taken into account throughout the volume. In the 
+intact matrix, the contaminant mass is distributed between the pore walls and 
+the pore fluid by sorption.  So too, contaminant mass released from the intact 
+matrix by degradation is distributed between dissolved mass in the free fluid 
+and sorbed mass in the degraded and precipitated solids.
 
-Plugging \eqref{m_psc} into \eqref{m_ffl} results in the 
-following expression for $m_{ffl}$ in terms of known quantities
+To solve for the boundary conditons in this model, the amount of non-sorbed 
+contaminant mass in the degraded fluid volume must be found. Dropping the 
+isotope subscritps and beginning with equation \eqref{c_df} 
+and combining this with equation \eqref{linear_iso},
 
 \begin{align}
-m_{ffl}   &= m_{ffT} - \frac{1}{2} \left(m_{ffT} - m_{psm} - \frac{V_{df}}{K_d}\right) \nonumber\\
-          & \mp \frac{1}{2} \sqrt{m_{ffT}^2 + 2m_{ffT}\left(m_{psm} - 
-          \frac{V_{df}}{K_d}\right) + \left(m_{psm} + 
-          \frac{V_{df}}{K_d}\right)^2}.
-\label{m_ffl_full}
+m_{df} &= \frac{C_{df}}{V_{df}}\nonumber\\
+m_{df} &= \frac{m_{ds}V_{df}}{K_dV_{ds}}\nonumber
+\intertext{and assuming the sorbate is in the degraded solids}
+       &= \frac{V_{df}}{K_dV_{ds}}\left(dm_T - m_{df}\right)\nonumber
+\intertext{this can be rearranged to give}
+m_{df} &= \frac{dm_TV_{df}}{K_dV_{ds}}\frac{1}{\left( 1+ \frac{V_{df}}{K_dV_{ds}}\right)}.
+\intertext{Finally, in terms of total volume,}
+m_{df} &= \frac{d^2 m_T\theta V_T}{dK_d(1-\theta)V_T}\left( \frac{1}{1+\frac{\theta d V_T}{K_d(1-\theta)dV_T} }\right)\\  
+       &= \frac{d m_T\theta }{K_d(1-\theta) + \theta}
 \end{align}
+
+
+
 
 
 \subsubsection{Solubility}
