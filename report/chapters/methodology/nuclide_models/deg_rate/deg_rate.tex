@@ -1,17 +1,28 @@
 \subsection{Degradation Rate Radionuclide Transport Model}\label{sec:deg_rate}
 The degradation rate model, simulating the fractional degradation of the 
 material containment properties, is the simplest of implemented models and is most 
-appropriate for simplistic waste package failure modeling. 
+appropriate for simplistic waste package failure modeling. The fundamental 
+concept is depicted in Figure \ref{fig:deg_volumes}.
+
+\input{./chapters/methodology/nuclide_models/deg_rate/deg_volumes}
 
 The materials that constitute the engineered barriers in a saturated 
 repository environment degrade over time. The implemented model of this nuclide 
-release behavior is based solely on a fractional degradation rate. This 
-model incorporates the source term made available on the inner boundary into its 
-available mass and defines the resulting boundary conditions at the outer boundary 
-as solely a function of the degradation rate of that component.
+release behavior is based solely on a fractional degradation rate. 
+The degraded volume is a simple fraction, $d$, of the total volume, $V_T$,
+\begin{align}
+V_d &= dV_T
+\intertext{where}
+V_T &= V_i + V_d
+V_T &= \mbox{ total volume }[m^3]\\
+V_i &= \mbox{ intact volume }[m^3]\\
+\intertext{and}
+V_d &= \mbox{ degraded volume }[m^3].
+\end{align}
 
-This results in the following expression for the mass transfer, 
-$m_{ij}(t)$, from cell $i$ to cell $j$ at time $t$ :
+In this model, the contaminants in the degraded fraction of the control volume 
+are available to adjacent components. The available contaminants
+$m_{ij}(t)$, at the boundary between cell $i$ to cell $j$ at time $t$ are thus
 
 \begin{align}
 \dot{m}_{ij}(t) &= f_i(\cdots)m_i(t)
@@ -24,9 +35,13 @@ t &= \mbox{ time  }[s].\nonumber
 \end{align}
 
 For a situation as in \Cyder and \Cyclus, with discrete timesteps, the timesteps are 
-assumed to be small enough to assume a constant rate $m_{ij}$ over the course of 
-the timestep. The mass transferred between discrete times $t_{n-1}$ and $t_n$ is 
-thus a simple linear function of the transfer rate in \eqref{deg_rate_source_cont}, 
+assumed to be small enough to assume a constant rate $m_{ij}$ over the course 
+of the timestep. This model incorporates the source term made available on the 
+inner boundary into its available mass and defines the resulting boundary 
+conditions at the outer boundary as solely a function of the degradation rate 
+of that component.  The mass transferred between discrete times $t_{n-1}$ and 
+$t_n$ is thus a simple linear function of the transfer rate in 
+\eqref{deg_rate_source_cont}, 
 
 \begin{align}
 m_{ij}^n &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber\\
