@@ -11,31 +11,9 @@ A main nuclide transport component model used in this work is a mixed cell
 component module incorporating solubility and sorption effects as well as  
 engineered material dissolution.
 
-A graphical representation of the mixed cell model is given in Figures 
-\ref{fig:intact} and \ref{fig:dissolved}.  
-
-\begin{figure}[h!]
-\begin{minipage}[b]{0.5\linewidth}
-  \begin{center}
-    \includegraphics[width=0.9\linewidth]{./chapters/methodology/nuclide_models/mixed_cell/mixed_cell_whole.eps}
-  \end{center}
-  \caption[Intact Mixed Cell Control Volume]{The control volume contains an 
-  intact material matrix. Contaminants are unavailable to neighboring 
-  subcomponents until dissolution has begun.}
-  \label{fig:intact}
-\end{minipage}
-\hspace{0.5cm}
-\begin{minipage}[b]{0.5\linewidth}
-  \begin{center}
-    \includegraphics[width=0.9\linewidth]{./chapters/methodology/nuclide_models/mixed_cell/mixed_cell_degraded.eps}
-  \end{center}
-  \caption[Degrading Mixed Cell Control Volume]{Once dissolution begins, the 
-  control volume contains a partially dissolved material matrix, contaminated 
-  pore water, and degraded and precipitated solids.}
-  \label{fig:dissolved}
-\end{minipage}
-\end{figure}
-
+A graphical representation of the mixed cell model is given in Figure 
+\ref{fig:deg_sorb_volumes}.  
+\input{./chapters/methodology/nuclide_models/mixed_cell/deg_sorb_volumes}
 
 After some time degrading, the volume of free fluid can be expressed as
 \begin{align}
