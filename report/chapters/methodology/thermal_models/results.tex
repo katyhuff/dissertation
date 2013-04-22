@@ -5,13 +5,13 @@ The primary outcome of this work is a mulitdimensional database of repository te
 change per mass of high heat contributing isotopes supporting the implementation 
 of the \gls{STC} method in \Cyder. 
 
-A validation effort concerning this tool was performed to assess the validity of 
-the \gls{STC} method for the purpose of repository thermal response estimation.  
-Comparison of the results of this method with the \gls{LLNL} model 
-\cite{greenberg_application_2012} gave 
-appropriately accurate results and demonstrated the way in which inaccuracies 
-from neglected low heat contributing nuclides are bounded. Figure 
-\ref{fig:CmValidation} shows the results of one example validation exercise 
+A validation effort concerning this tool was performed to assess the validity 
+of the \gls{STC} method for the purpose of repository thermal response 
+estimation.  Comparison of the results of this method with the \gls{LLNL} model 
+\cite{greenberg_application_2012} gave appropriately accurate results and 
+demonstrated the way in which inaccuracies from neglected low heat contributing 
+nuclides are bounded. Figures \ref{fig:CmValidation} and 
+\ref{fig:CmPercentError} show the results of one example validation exercise 
 comparing the combined scaling and  superposition calculations demonstrated in 
 Figures \ref{fig:CmScaling} and \ref{fig:CmSuperposition} respectively. This 
 particular validation example, containing no neglected nuclides, demonstrates 
@@ -27,6 +27,15 @@ from the analytical model from LLNL.}
 \label{fig:CmValidation}
 \end{figure}
 
+\begin{figure}[htp!]
+\begin{center}
+\includegraphics[width=\columnwidth]{./chapters/methodology/thermal_models/CmPercentError.eps}
+\end{center}
+\caption{Comparison between the analytical model from LLNL and the \gls{STC} 
+calculated thermal response from $Cm$ inventory per MTHM in 51GWd burnup UOX 
+PWR fuel demonstrates a maximum percent error of 4.4\%.}
+\label{fig:CmPercentError}
+\end{figure}
 % Unit Test Results
 In addition to this validation effort, continual verification of code behavior 
 is enabled by a suite of unit tests packaged with the tool. These tests are 
