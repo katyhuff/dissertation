@@ -8,14 +8,20 @@ of the \gls{STC} method in \Cyder.
 A validation effort concerning this tool was performed to assess the validity 
 of the \gls{STC} method for the purpose of repository thermal response 
 estimation.  Comparison of the results of this method with the \gls{LLNL} model 
-\cite{greenberg_application_2012} gave appropriately accurate results and 
+\cite{greenberg_application_2012} gave results within the accuracy range of the 
+model itself performs against the SINDA code \cite{huff_numerical_2012} and 
 demonstrated the way in which inaccuracies from neglected low heat contributing 
-nuclides are bounded. Figures \ref{fig:CmValidation} and 
-\ref{fig:CmPercentError} show the results of one example validation exercise 
-comparing the combined scaling and  superposition calculations demonstrated in 
-Figures \ref{fig:CmScaling} and \ref{fig:CmSuperposition} respectively. This 
-particular validation example, containing no neglected nuclides, demonstrates 
-an average error of 1.1\% and a maximum error of 4.4\%.
+nuclides are bounded. 
+
+Figures \ref{fig:CmValidation} and \ref{fig:CmPercentError} show the results of 
+one example validation exercise comparing the combined scaling and  
+superposition calculations demonstrated in Figures \ref{fig:CmScaling} and 
+\ref{fig:CmSuperposition} respectively. This particular validation example, 
+containing no neglected nuclides, demonstrates an average error of 1.1\% and a 
+maximum error of 4.4\%, where percent error is found in the usual way,
+\begin{align}
+\mbox{ percent error } &= 100\times\frac{\Delta T_{LLNL} - \Delta T_{STC}}{ \Delta T_{LLNL}}.
+\end{align}
 
 \begin{figure}[htp!]
 \begin{center}
