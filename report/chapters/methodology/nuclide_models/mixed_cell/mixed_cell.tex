@@ -118,31 +118,51 @@ m_{df} &= \frac{C_{df}}{V_{df}} = \frac{m_{ds}V_{df}}{K_dV_{ds}}\nonumber
 m_{df} &= \frac{dm_TV_{df}}{K_dV_{ds}}\frac{1}{\left( 1+ \frac{V_{df}}{K_dV_{ds}}\right)}.
 \intertext{Finally, in terms of total volume,}
 m_{df} &= \frac{d^2 m_T\theta V_T}{dK_d(1-\theta)V_T}\left( \frac{1}{1+\frac{\theta d V_T}{K_d(1-\theta)dV_T} }\right)\\  
-       &= \frac{d m_T\theta }{K_d(1-\theta) + \theta}
+       &= \frac{d m_T\theta }{K_d(1-\theta) + \theta}.
 \end{align}
 
-
-
-
-
 \subsubsection{Solubility}
-  In addition to engineered barriers, contaminant transport is constrained by 
-  the elemental solubility limit \cite{hedin_integrated_2002}, 
+In addition to engineered barriers, contaminant transport is constrained by the 
+elemental solubility limit \cite{hedin_integrated_2002}, 
     \begin{align}
-      m_i &\leq V_w C_{sol,i},
+      m_i &\leq V_w C_{sol,i}
     \intertext{where}
       m_i &= \mbox{ solubility limited mass of isotope i in volume }V_w [kg]\nonumber\\ 
       V_w &= \mbox{ volume of the solution }[m^3]\nonumber\\
       C_{sol,i} &= \mbox{ solubility limit, the maximum concentration of i }[kg/m^3].\nonumber
     \end{align}
 
-
-The desired boundary conditions can be expressed in terms of $m_{ffl}$. First, the 
+\subsubsection{Boundary Conditions}
+The desired boundary conditions can be expressed in terms of $m_{df}$. First, the 
 Dirichlet boundary condition is 
 \begin{align}
-C(x,y,z,t) = \frac{m_{ffl}(t)}{V_{df}(t)}\forall (x,y,z) \in \Gamma.
+C^{n+1}(r) = \frac{m_{df}^{n+1}}{V_{df}^{n+1}}\forall (r) \in \Gamma.
 \label{dirichlet_mixed}
 \end{align}
 
 From this boundary condition in combination with global advective velocity 
-data, all other boundary conditions can be found. 
+data, porosity data,  and elemental diffusion coefficient data, all other 
+boundary conditions can be found. The Neumann boundary condition generated at 
+the external boundary of cell $i$ relies on data from cell $j$ from the 
+previous timestep, the cell external to it such that 
+
+\begin{align}
+-D\frac{dC}{dr}\big|^{n+1}_{r=r_{i}} &= \frac{C_j(r_{i+1/2}) - C_i(r_{i-1/2})}{r_{i+1/2} - 
+r_{i-1/2}}
+\label{neumann_mixed}
+\intertext{where}
+D &= \mbox{ diffusion coefficient }[]\nonumber\\
+r_{i+1/2} &= r_{i} + \frac{r_{j} - r_{i}}{2}\nonumber\\
+r_{i-1/2} &= r_{i} - \frac{r_{i} - r_{0}}{2}.\nonumber
+\end{align}
+
+This expression for the concentration gradient can also be used in the Cauchy 
+boundary condition, which relies on the advective velocity and concentration 
+profile as well as the concentration gradient,
+
+\begin{align}
+\theta_j C_j^n &= \theta_i\frac{dC}{dr}\big|_{r=r_{i}} + \theta_i v_{z}C_i.
+\label{cauchy_mixed}
+\end{align}
+
+
