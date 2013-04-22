@@ -93,9 +93,11 @@ c_i &= \mbox{ the liquid concentration of isotope i }[kg/m^3].\nonumber
 Thus, from \eqref{solid_conc},
 
 \begin{align}
-s_{i,ds} &= K_{di} C_{i,df}\nonumber\\
-         &= \frac{K_{di}m_{i,df}}{V_{df}}\nonumber
+s_{dsi} &= K_{di} C_{dfi}\nonumber\\
+         &= \frac{K_{di}m_{dfi}}{V_{df}}\nonumber
 \intertext{where}
+s_{dsi} &= \mbox{ isotope i concentration in degraded solids } [kg/kg] \nonumber\\
+C_{dfi} &= \mbox{ isotope i concentration in degraded fluids } [kg/m^3]. \nonumber
 \end{align}
 
 In this model, sorption is taken into account throughout the volume. In the 
@@ -106,12 +108,10 @@ and sorbed mass in the degraded and precipitated solids.
 
 To solve for the boundary conditons in this model, the amount of non-sorbed 
 contaminant mass in the degraded fluid volume must be found. Dropping the 
-isotope subscritps and beginning with equation \eqref{c_df} 
-and combining this with equation \eqref{linear_iso},
+isotope subscritps and beginning with equations \eqref{c_df} and \eqref{linear_iso},
 
 \begin{align}
-m_{df} &= \frac{C_{df}}{V_{df}}\nonumber\\
-m_{df} &= \frac{m_{ds}V_{df}}{K_dV_{ds}}\nonumber
+m_{df} &= \frac{C_{df}}{V_{df}} = \frac{m_{ds}V_{df}}{K_dV_{ds}}\nonumber
 \intertext{and assuming the sorbate is in the degraded solids}
        &= \frac{V_{df}}{K_dV_{ds}}\left(dm_T - m_{df}\right)\nonumber
 \intertext{this can be rearranged to give}
