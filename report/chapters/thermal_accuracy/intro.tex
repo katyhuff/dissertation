@@ -1,0 +1,145 @@
+
+A benchmarking effort was conducted to determine the accuracy of the 
+semi-analytic generic geology thermal repository model developed at 
+\gls{LLNL}\cite{hardin_generic_2011,sutton_investigations_2011,greenberg_application_2012} 
+relative to the more traditional, numerical, lumped parameter technique in the 
+\gls{SINDAG} model from \gls{ANL}.
+
+The fast-running analytical thermal transport model assumes uniform thermal 
+properties throughout a homogenous storage medium. Arrays of time-dependent heat 
+sources are included geometrically as arrays of line segments and points.  The 
+solver uses a source-based linear superposition of closed form analytical 
+functions from each contributing point or line to arrive at an estimate of the 
+thermal evolution of a generic geologic repository.  Temperature rise throughout 
+the storage medium is computed as a linear superposition of temperature rises.  
+It is modeled using the MathCAD mathematical engine and is parameterized to 
+allow myriad gridded repository geometries and geologic characteristics 
+\cite{ptc_mathcad_2010}.
+
+It was anticipated that the accuracy and utility of the temperature field
+calculated with the \gls{LLNL} analytical model would provide an accurate 
+``birds-eye''
+view in regions that are many tunnel radii away from actual storage units;
+i.e., at distances where tunnels and individual storage units could
+realistically be approximated as physical lines or points. 
+However, geometrically explicit storage units, waste packages, tunnel
+walls and close-in rock are not included in the MathCad model. 
+The present benchmarking effort therefore focuses on the ability of the 
+analytical model to accurately represent the close-in
+temperature field.
+
+Specifically, close-in temperatures computed with the \gls{LLNL} MathCAD model 
+were benchmarked against temperatures computed using geometrically-explicit 
+lumped-parameter, repository thermal modeling technique developed over several 
+years at \gls{ANL} using the \gls{SINDAG} thermal modeling code 
+\cite{gaski_sinda_1987}. Application of this numerical modeling technique to 
+underground storage of heat generating nuclear waste streams within the proposed 
+\gls{YMR} Site has been widely reported \cite{wigeland_separations_2006}.  New 
+\gls{SINDAG} thermal models presented here share this same basic modeling 
+approach. 
+
+\section{Description of the Comparisons}
+
+The two models were compared for a single tunnel case with UOX spent fuel and a 
+0.35 meter tunnel radius. Shared assumptions of the model benchmarks include a 
+single UOX assembly fuel loading per $5m$ of tunnel, calculation radii, numbers 
+of adjacent tunnels, and geological thermal parameters. The benchmarking cases 
+run in this validation effort for the simplified single 
+tunnel case are listed in Table \ref{tab:benchSingle}. 
+
+
+\section{Results}
+The benchmarking effort between the analytical MathCAD model and the 
+\gls{SINDAG} numerical  model showed that the analytical model was sufficiently 
+in agreement with the numerical model for its purpose, rapid evaluation of 
+generic geology repository configurations.  The analytic model gave peak 
+temperatures for all cases run which agreed with the numerical numerical model 
+within $4^{\circ}C$ and, for calculation radii less than 5 meters, consistently 
+reported peak temperature timing within 11 years of the \gls{SINDAG} numerical 
+model. In light of the magnitude of uncertainties involved in generically 
+modeling a non-site-specific geologic repository, this sufficiently validated 
+the analytical model with respect to its goals.
+
+Peak times agreed well for close radii, though peak values were consistently 
+underestimated by the analytical model. However, the time of peak heat arrived 
+consistently sooner and the peak temperature value was consistently lower in the 
+homogeneous medium analytical model than in the \gls{SINDAG} model. 
+
+The results from the single and multiple drift scenarios are summarized in 
+Tables \ref{tab:benchSingle} and \ref{tab:benchMulti}, respectively. 
+
+\begin{table}
+  \centering
+  \begin{tabular}{|l|l|l|l|l|l|l|}
+    \multicolumn{7}{c}{\textbf{Benchmarking Results for Single Drift 
+    Scenario}}\\
+    \hline
+    Material & \multicolumn{3}{|c|}{Clay} & \multicolumn{3}{|c|}{Salt}\\ & 
+    \multicolumn{3}{|c|}{$K_{th}=2.5$} & \multicolumn{3}{|c|}{$K_{th}=4.2$}\\ & 
+    \multicolumn{3}{|c|}{$\alpha=1.13\times10^{-6}$} & 
+    \multicolumn{3}{|c|}{$\alpha=2.07\times10^{-6}$}\\ 
+    \hline
+    & \multicolumn{6}{|c|}{Peak Temperature Discrepancy}\\ 
+    & \multicolumn{6}{|c|}{$T_{peak,numeric}-T_{peak,analytic}$ $[^{\circ}C]$} \\
+    \hline
+    Years Cooling  & 10     & 25      & 50      & 10     & 25     & 50\\
+    \hline
+     R=0.35m  & 3.0   & 2.3     & 1.6    & 2.0   & 1.7   & 1.2\\
+     R=0.69m  & 3.1   & 2.4    & 1.6    & 2.2    & 1.8   & 1.3\\
+     R=3.46m  & 2.1   & 1.9    & 1.5    & 2.2   & 1.7    & 1.3\\
+     R=7.04m  & 3.1   & 2.4     & 1.8    & 2.5   & 2.1   & 2.2\\
+     R=14.32m & 3.6   & 2.9    & 2.1    & 2.8   & 2.6   & 3.7\\
+    \hline
+    & \multicolumn{6}{|c|}{Peak Heat Timing Discrepancy}\\ 
+    & \multicolumn{6}{|c|}{ $t_{peak,numeric}-t_{peak,analytic}$ [yr]} \\
+    \hline
+    Material & \multicolumn{3}{|c|}{Clay} & \multicolumn{3}{|c|}{Salt}\\ & 
+    \multicolumn{3}{|c|}{$K_{th}=2.5$} & \multicolumn{3}{|c|}{$K_{th}=4.2$}\\ & 
+    \multicolumn{3}{|c|}{$\alpha=1.13\times10^{-6}$} & 
+    \multicolumn{3}{|c|}{$\alpha=2.07\times10^{-6}$}\\ \hline
+    Years Cooling  & 10     & 25      & 50      & 10     & 25     & 50\\
+    \hline
+     R=0.35m  & 1    & 1       & 1   & 1      & 1      & 3\\
+     R=0.69m  & 2    & 2       & 1    & 2      & 3      & 4\\
+     R=3.46m  & 9    & 7       & 6    & 4      & 2      & 11\\
+     R=7.04m  & 4    & 13      & 10    & 11     & 10     & 288\\
+     R=14.32m & 16   & 14      & 21   & 17     & 285    & 282\\
+    \hline
+  \end{tabular}
+  \caption{Benchmarking in the single tunnel case showed that the peak heat was 
+  calculated to be lower and arrived consistently sooner in the analytic model. 
+  }
+  \label{tab:benchSingle}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{|l|l|l|l|}
+    \multicolumn{4}{c}{\textbf{Benchmarking Results for 101 Drift Scenario}}\\
+    \hline
+    Material & \multicolumn{3}{|c|}{Clay} \\
+    & \multicolumn{3}{|c|}{$K_{th}=2.5$}\\ 
+    & \multicolumn{3}{|c|}{$\alpha=1.13\times10^{-6}$}  \\
+    \hline
+    & \multicolumn{3}{|c|}{Peak Temperature Discrepancy} \\
+    & \multicolumn{3}{|c|}{$T_{peak,numeric}-T_{peak,analytic}$ $[^{\circ}C]$} \\
+    \hline
+    Years Cooling  & 10  & 25 & 50 \\
+    \hline
+    R=0.35m   & 7 & 4.6 & 2.1 \\
+    \hline
+    &\multicolumn{3}{|c|}{Peak Heat Timing Discrepancy}\\
+    &\multicolumn{3}{|c|}{ $t_{peak,numeric}-t_{peak,analytic}$ [yr]} \\
+    \hline
+    R=0.35m       & -13.5   & 2   & -6  \\
+    \hline
+  \end{tabular}
+  \caption{Benchmarking in the multiple tunnel case showed that the peak heat was 
+  calculated to be consistently lower in the analytic model and deviated further
+  from the numerical model than did the single tunnel case.
+  }
+  \label{tab:benchMulti}
+\end{table}
+
+\clearpage
+
