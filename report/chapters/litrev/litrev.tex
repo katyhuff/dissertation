@@ -584,9 +584,9 @@ intrusions.
 
 \subsection{Waste Form Release Models}
 
-Waste form release rate is the rate of mass transfer of a radionuclide from its 
-waste form into surrounding water. 
-Radionuclide release from various possible waste form types will be dominated by 
+Radionuclide release, the mass transfer of a radionuclide from its 
+waste form into surrounding water, 
+from various possible waste form types will be dominated by 
 an array of degradation, alteration, and dissolution phenomena. 
 Some phenomena dominating the release from canonical waste forms such as  \gls{CSNF}, 
 \gls{DSNF}, and borosilicate glasses are listed in Table \ref{tab:wf}.
@@ -618,8 +618,8 @@ contact,
 \begin{align}
   V_{WF}(t) &= V_{WF}(0) - \int_0^t f(\cdots)H(t-t_{wpf})dt.
   \intertext{where}
-  t_{wpf} &=\mbox{time of waste package failure}\\
-  H(t-t_{wpf}) & = \mbox{Heaviside step function}\\
+  t_{wpf} &=\mbox{time of waste package failure}\nonumber\\
+  H(t-t_{wpf}) & = \mbox{Heaviside step function}\nonumber\\
       & = \begin{cases}
         0  & t<t_{wpf}\\
         1 & t\ge t_{wpf}
@@ -649,13 +649,17 @@ dissolved concentration, the reduced mobility of radionuclides with lower
 solubilities can be modeled \cite{hedin_integrated_2002} as a reduction in the 
 amount of solute available for transport. For radionuclides with low 
 solubility, the mass fraction released from the waste matrix is constrained to 
-less than the solubility limit, 
+less than the solubility limit such that 
 
 \begin{align} 
-  m_{1i}(t)\le V_{1i}(t)C_{sol}
+  m_{1i}(t)&\le V_{1i}(t)C_{sol,i}
+  \intertext{where}
+  m_{i1} &= \mbox{ mass of isotope i in volume }V_1 [kg]\nonumber\\
+  V_{1} &= \mbox{ a distinct volume of fluid } [m^3]\nonumber\\
+  C_{sol} &= \mbox{ the maximum concentration for the element of i } [kg\cdot m^{-3}].\nonumber
 \end{align}
 
-where the mass $m_{1i}$ in $[kg]$ of a radionuclide $i$ dissolved into the waste package
+That is, the mass $m_{1i}$ in $[kg]$ of a radionuclide $i$ dissolved into the waste package
 void volume $V_1$ in $[m^3]$, at a time t, is limited by the solubility limit, 
 the maximum concentration, $C_{sol}$ in $[kg/m^3]$ at which that radionuclide is 
 soluble \cite{hedin_integrated_2002}.
