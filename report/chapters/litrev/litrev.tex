@@ -8,7 +8,7 @@ metrics is first summarized. A discussion of the disposal system concepts and
 geologic host media under consideration domestically and internationally are then also 
 summarized. A review of analytical models of radionuclide transport
 and a review of analytical models of heat transport follow. An overview of 
-current detailed computational models, available data and algorithms 
+current detailed computational models, available data, and algorithms 
 characterizing radionuclide transport are addressed next, including both standalone
 and those incorporated into nuclear fuel cycle simulation tools. Finally, a
 review of current computational models of heat transport in the waste disposal
@@ -63,7 +63,8 @@ and
 \gls{VISION} \cite{yacout_vision_2006, wilson_comparing_2011, radel_repository_2007, boucher_international_2010}
 ) dynamically perform heat based capacity calculations which estimate thermal 
 transport. However, those calculations are applicable only for specific 
-repository concepts and cannot inform sensitivity to geologic disposal system characteristics.  
+repository concepts and cannot inform sensitivity to alternate geologic disposal 
+system characteristics.  
 
 \subsubsection{Detail}
 
@@ -165,7 +166,7 @@ thermal management model that informs waste package emplacement.
 % this option space.
 
 A suite of three geologic media and four disposal concepts of interest were 
-chosen to capture the geologic media and concepts found in the following review of 
+chosen to capture those found in the following review of 
 international and domestic efforts. \Cyder has been developed to model granite, 
 clay, and salt geologic environments with various layouts and an array of 
 canonical engineered barrier component models.  
@@ -184,9 +185,10 @@ and other open spaces is suffused with water. An enclosed concept is one that
 neither relies on ventilation shafts nor an extended open period after waste 
 emplacement.
 
-Enclosed concepts are appropriate for low permeability rock formations (clay/shale, 
-granite, salt).  Low permeability does not permit oxygen entry, so these are
-chemically reducing environments.  
+Enclosed concepts are appropriate for low permeability rock formations 
+(clay/shale, granite, salt).  Low permeability does not permit significant 
+oxygen entry in an enclosed concept, these are typically chemically reducing 
+environments. 
 
 Chemically reducing geologic environments are reducing insofar as they induce 
 reduction of water flowing through them. That is, reduction and oxidation 
@@ -204,22 +206,20 @@ lived fission and activation products such as $^{129}I$ and $^{79}Se$
 %\cite{nutt_personal_2011, schwartz_fundamentals_2004}. 
 
 Since heat is carried away less effectively once closure 
-has occurred, heat limits are lower in enclosed repository concepts than in open 
+has occurred, heat limits are often lower in enclosed repository concepts than in open 
 ones, such as \gls{YMR}, where drift tunnels are ventilated for a number of years
 after emplacement before closure.
-
-To sufficiently model the fuel cycles of interest, it will be necessary to model 
-a borosilicate glass high level waste form as well as an oxide ceramic waste 
-form. Additional waste forms 
-of interest are listed in Table \ref{tab:wf}. Waste forms will be 
-distinguished by their alteration, corrosion, and other degradation behaviors.
 
 Various engineered barrier system components will also be modeled as a part of 
 this effort.  Specifically, in order to cover the option space demonstrated by 
 both domestic and international repository concepts, models must be developed 
-which can interchageably represent concrete, salt, and bentonite buffer and 
+which can interchangeably represent concrete, salt, and bentonite buffer and 
 backfill options as well as copper, carbon steel, and stainless steel waste 
-package concepts.  
+package concepts. Similarly, it will be necessary to model a high level waste 
+form as well as unprocessed oxide ceramic waste forms. Specific waste forms of 
+interest are listed in Table \ref{tab:wf}. Such waste forms can be distinguished 
+by their alteration, corrosion, and other degradation behaviors.
+
 
 Distinctions between the four repository concepts that will be considered here 
 include varying coefficients such as thermal conductivity, thermal diffusivity, 
@@ -238,7 +238,7 @@ excavation as well as the tendency, particularly for some very plastic clays
 under consideration, to coalesce over time around waste packages within the 
 zone disturbed by excavation. Additionally, clays tend to have high sorption 
 capacity for cations, which reduces the mobility of contaminants present in 
-clays as cations auch as the lanthanides and americium \cite{higgo_clay_1987}. 
+clays as cations such as the lanthanides and americium \cite{higgo_clay_1987}. 
 
 A less attractive quality of clay is a low thermal limit around $100^{\circ}C$ 
 temperature limit to prevent alteration \cite{hardin_generic_2011}.  Some 
@@ -264,7 +264,7 @@ horizontal emplacement in multiple-package emplacement drifts.
 \subsubsection{Hydrology}
 
 In the clay disposal environment, exceptionally low interconnected porosity and 
-very little fracturing result in a very low overall hydraulic conducitivity and 
+very little fracturing result in a very low overall hydraulic conductivity and 
 diffusion dominated water movement. 
 
 \subsubsection{Geochemistry}
@@ -273,7 +273,7 @@ This environment is very reducing in both the near and far field, its salinity
 increases with depth, and its pH is expected to be near neutral. However, for 
 some concepts incorporating cementitious backfill materials for protection 
 of steel, the pH can become significantly alkaline, resulting in 
-expedited alteration of glass wasteforms, bentonite buffers, and the clay 
+expedited alteration of glass waste forms, bentonite buffers, and the clay 
 matrix \cite{andra_argile:_2005}.
 
 %Clays tend to have higher sorption capacity for cations (what interesting 
@@ -347,7 +347,7 @@ Sweden, China,  Spain, the Czech Republic, South Korea, and Switzerland
 
 Attributes of granite that make it an attractive candidate geology for nuclear 
 waste disposal include its very low porosity and permeability and high thermal 
-conductivity. Fracturation in granite, however, has a negative effect on the 
+conductivity. Fracturing in granite, however, has a negative effect on the 
 isolation properties of the rock.
 Some characteristics of granite disposal 
 concepts are given in Table \ref{tab:granite_tab}.   
@@ -895,7 +895,7 @@ modeled explicitly or as a continuum model.
 
 Transport out of the \gls{EBS} and through the geosphere in clay, shale, granite,
 and salt can largely be characterized as solute transport in permeable porous 
-medi. While clay, shale and salt do not exhibit significant fracturing and can 
+media. While clay, shale and salt do not exhibit significant fracturing and can 
 often be modeled as homogeneous, granite is  characterized as a fractured 
 permeable porous media.  Solute transport in both fractured and homogeneous 
 permeable porous media has both porous and fracture flow paths and involves
@@ -1541,7 +1541,7 @@ volume.
 detailed radionuclide transport calculations for both argillaceous clay and granite
 formations. 
 
-In particulatr, in the \gls{ANDRA} clay model, complicated saturation and 
+In particular, in the \gls{ANDRA} clay model, complicated saturation and 
 resaturation phenomena are neglected and it is assumed that the initial 
 repository condition is fully resaturated. Additionally, it conservatively 
 assumes that the evacuation disturbed zone does not heal. Rather, it is modeled 
