@@ -95,24 +95,25 @@ contaminant presence at each stage of containment.  The repository model, in
 this way, is fundamentally a tool to determine thermal and contaminant 
 transport evolution as a result of an arbitrary waste stream. The repository 
 model in this work conducts this calculation by  treating each containment 
-Component as nested volumes in a release chain. 
+Component as a nested volume in a release chain. 
 
 Each Component is defined by a Geometry, some Material Data, a ThermalModel, 
 and a NuclideModel. It is also defined by the Parent Component which contains 
-it and the Daughter Components which it contains. An emplaced waste package 
+it and the daughter components which it contains. An emplaced waste package 
 Component, for example, possesses a pointer to the buffer that surrounds it, 
 its Parent Component. It also possesses a list of pointers to the waste form or 
-waste forms within it, its Daughter Components. 
+waste forms within it, its daughter components. 
 
 \subsubsection{Component Geometry}
 
 Each Component of the repository system (i.e. waste form, waste package, buffer, 
 and geologic medium) is modeled as a discrete control volume. Each control 
 volume performs its own mass balance at each time step and assesses its own 
-internal  heat transfer and degradation phenomena separately from the other 
-nested Components. This control volume is defined by the Component Geomtry, 
-a class which keeps track of the inner and outer radii, length, and centroid 
-coordinates of the (assumed cylindrical) volume.
+internal  heat transfer and degradation phenomena utilizing boundary condition 
+information provided by adjacent nested Components. This control volume is 
+defined by the Component Geomtry, a class which keeps track of the inner and 
+outer radii, length, and centroid coordinates of the (assumed cylindrical) 
+volume.
 
 \subsubsection{Component Material Data}
 
