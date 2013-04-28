@@ -80,7 +80,7 @@ c &=\frac{\mbox{ mass of dissolved contaminant} }{ \mbox{volume of total liquid 
 \label{liquid_conc}
 \end{align}
 can be characterized by a sorption `isotherm' model. A sorption isotherm 
-describes the equillibrium relationship between the amount of material bound to 
+describes the equilibrium relationship between the amount of material bound to 
 surfaces and the amount of material in the solution. The MixedCell NuclideModel 
 uses a linear isotherm model.
 
@@ -112,9 +112,9 @@ the pore fluid by sorption.  So too, contaminant mass released from the intact
 matrix by degradation is distributed between dissolved mass in the free fluid 
 and sorbed mass in the degraded and precipitated solids.
 
-To solve for the boundary conditons in this model, the amount of non-sorbed 
+To solve for the boundary conditions in this model, the amount of non-sorbed 
 contaminant mass in the degraded fluid volume must be found. Dropping the 
-isotope subscritps and beginning with equations \eqref{c_df} and \eqref{linear_iso},
+isotope subscripts and beginning with equations \eqref{c_df} and \eqref{linear_iso},
 
 \begin{align}
 m_{df} &= \frac{C_{df}}{V_{df}} = \frac{m_{ds}V_{df}}{K_dV_{ds}}\nonumber
@@ -150,7 +150,7 @@ From this boundary condition in combination with global advective velocity
 data, porosity data,  and elemental diffusion coefficient data, all other 
 boundary conditions can be found. The Neumann boundary condition generated at 
 the external boundary of cell $i$ relies on data from cell $j$ from the 
-previous timestep, the cell external to it such that 
+previous time step, the cell external to it such that 
 
 \begin{align}
 -D\frac{dC}{dr}\big|^{n+1}_{r=r_{i}} &= \frac{C_j(r_{i+1/2}) - C_i(r_{i-1/2})}{r_{i+1/2} - 
