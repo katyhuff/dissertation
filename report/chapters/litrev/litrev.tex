@@ -1185,14 +1185,13 @@ The lumped heat capacitance model reduces a thermal system into discrete lumps
 for an approximate solution of transient heat transfer. Such an approximation is 
 appropriate when it can be assumed that the temperature gradient within each 
 lump is approximately uniform. The appropriateness of this approximation can be 
-quantitatively expressed by comparison of the internal thermal resistance to the 
-external thermal resistance. The Biot number, 
+quantitatively expressed by comparison of the Biot number, 
 
 \begin{align}
-  Bi = \frac{hA}{k}
+  Bi = \frac{hA}{k}.
   \label{biot}
 \end{align}
-indicates the relative speeds with which heat conducts within an object and 
+The Biot number indicates the relative speeds with which heat conducts within an object and 
 across the boundary of that object. If the Biot number is low $(<0.1)$, and 
 therefore conduction is faster within the object than at the boundary, the 
 assumption of a uniform internal temperature is appropriate and the lumped 
@@ -1257,60 +1256,6 @@ representing modes of heat transfer. Thus, one can say, in general
   \tau_j = c_j \rho_j V_j R_j.
 \end{align}
 
-\subsection{Impact of Repository Layout}
-
-The repository layout has a significant influence on its heat transfer 
-properties.  Waste package spacing in drifts, boreholes, or alcoves, tunnel
-spacing, and multiple gallery level designs all affect  available 
-heat loading.  For example, in the \gls{YMR}, a variety of parameters have been 
-shown to affect the potential repository waste loading density. 
-
-The \gls{YMR} statutory limit of once-through, thermal PWR waste was 70,000 tonnes 
-SNF.  That is to say, the statutory line load limit is approximately 1.04 tonnes/m
-for 67km of planned emplacement tunnels (with 81 meters between drifts). The
-Office of Civilian Radioactive Waste Management Science and Engineering Report
-gives this basic ``statutory limit'', but suggests an inherent design
-flexibility that could allow for expansion. Multiple efforts have adjusted 
-various repository layout parameters in order to develop expanded capacity 
-models of the \gls{YMR}. Some of these efforts are detailed in Table 
-\ref{tab:footprint}.
-
-\input{./chapters/litrev/footprint_tab} 
-
-This inherent flexibility can come from an increase in the areal extent of the 
-repository footprint, the density of drifts, or vertical expansion. The  ``full inventory'' Yucca
-Mountain design alternative gives a maximum repository capacity of 97,000
-tonnes. In addition, the current design for the repository has flexibility for
-``additional repository capacity'' which would give a 119,000 tonne capacity at
-1.04 tonnes/m.\cite{doe_yucca_2002} 
-
-In addition to variable drift spacing, other modifications to repository layout
-have had promising results in terms of heat-limited repository capacity. The
-Electric Power Research Institute (EPRI) in their Room at the Mountain study
-found that with redesign of the repository an increased capacity of at least
-$400\%$ (295 kilotonnes once-through SNF) and up to $900\%$ (663 kilotonnes) could be
-expected to be achieved. Proposed design changes include decreased spacing
-between drifts, a larger areal footprint, vertical expansion into second and
-third levels of repository space, and hybrid solutions involving combinations
-of these ideas. In particular, EPRI suggests either an expansion of the
-footprint with redesign of the current line load design plan or a
-multi-level plan that repeats the footprint and line load design of the current
-plan\cite{kessler_room_2006}.
-
-%Specific Temperature Change analysis by Radel, Wilson, et al. find a maximum
-%thermal capacity of 1.09 tonnes/m for commercial SNF (at an ELF of $49
-%GWd_{th}/m$)\cite{radel_effect_2007}. 
-
-Layout options such as age based fuel mixing also allows for decreases in drift 
-spacing. In aged based fuel mixing, aged (long cool time) SNF is loaded in a 
-mixture with young SNF. This age based fuel mixing has been shown to achieve a 
-$48\%$ increase in the repository capacity as constrained by heat
-load\cite{nicholson_thermal_2007}. This factor uses a fiducial default
-footprint of $4.6 km^2$ used in the NRC TSPA.  The reported $48\%$ increase in
-capacity results in total repository capacity of 103,600
-tonnes\cite{williams_total_2001}.
-
-
 \subsection{Specific Temperature Integral}
 
 Linear mass loading ($tonnes/m$), linear thermal loading ($W/m$) and areal power 
@@ -1348,14 +1293,14 @@ length of the repository.  In the case of Yucca Mountain, this was 67 km.
 \section{Detailed Computational Models of Radionuclide Transport}
 \label{sec:detailed_radionuclide}
 
-Detailed computational models of radionuclide transport seek to quantify the spatial 
-movement of radionuclides within a repository environment due to heat 
-generating waste forms. Such models are detailed with respect to their fine 
-spatial and temporal resolution or with respect to the incorporation and 
-coupling of numerous physical phenomena. Current detailed computational models 
-addressing various geologic media and emplacement geometries will be reviewed here 
-that utilize finite difference and finite element methods in many dimensions, 
-sophisticated numerical solvers, and other high fidelity approaches.
+Detailed computational models of radionuclide transport seek to quantify the 
+spatial movement of radionuclides within a repository. Such models are detailed 
+with respect to their fine spatial and temporal resolution or with respect to 
+the incorporation and coupling of numerous physical phenomena. Current detailed 
+computational models addressing various geologic media and emplacement 
+geometries will be reviewed here that utilize finite difference and finite 
+element methods in many dimensions, sophisticated numerical solvers, and other 
+high fidelity approaches.
 
 A number of efforts to model radionuclide transport through geologic repository 
 concepts have been made internationally and domestically. These efforts, the 
@@ -1367,9 +1312,9 @@ discussed here and appear in Table \ref{tab:geosource}.
 \subsection{European RED-IMPACT} 
 
 The RED-IMPACT assessment compared
-results from European fuel cycle codes for various specific waste package
+results from European fuel cycle codes for various specific waste packages, 
 forms, radioactive and radiotoxic inventories, reprocessing discharges,  waste
-package thermal power, corrosion of matrices, transport of radioisotopes and
+package thermal power, corrosion of matrices, transport mechanisms, and
 resulting doses.  Granite, clay and salt were analyzed by various countries. 
 The studied concepts are listed in table \ref{tab:red}.
 
@@ -1384,9 +1329,10 @@ The studied concepts are listed in table \ref{tab:red}.
 
 \subsection{UFD Generic Performance Assessment Model}
 
-The \gls{UFD} campaign is currently conducting an effort to produce
-a \acrlong{GPAM} for analysis of {\glspl{GDSM} for various geological environments. 
-Teams from \acrlong{ANL}, \acrlong{LBNL}, \acrlong{LANL}, and \acrlong{SNL} are developing
+The \gls{UFD} campaign has produced a \acrlong{GPAM} for analysis of various 
+geologic disposal environments. 
+Teams from \acrlong{ANL}, \acrlong{LBNL}, \acrlong{LANL}, and \acrlong{SNL} have 
+developed
 models of generic clay, granite, and salt disposal environments respectively. Sandia is
 simultaneously constructing a deep borehole disposal system model in crystalline 
 rock. Each generic disposal system model will perform detailed calculations of 
@@ -1706,6 +1652,60 @@ iteration.
 \subsection{LLNL MathCAD Model}
 
 \input{./chapters/litrev/llnlbackground}
+
+\subsection{Yucca Mountain Layout Analyses}
+
+The repository layout has a significant influence on its heat transfer 
+properties.  Waste package spacing in drifts, boreholes, or alcoves, tunnel
+spacing, and multiple gallery level designs all affect  available 
+heat loading.  For example, in the \gls{YMR}, a variety of parameters have been 
+shown to affect the potential repository waste loading density. 
+
+The \gls{YMR} statutory limit of once-through, thermal PWR waste was 70,000 tonnes 
+SNF.  That is to say, the statutory line load limit is approximately 1.04 tonnes/m
+for 67km of planned emplacement tunnels (with 81 meters between drifts). The
+Office of Civilian Radioactive Waste Management Science and Engineering Report
+gives this basic ``statutory limit'', but suggests an inherent design
+flexibility that could allow for expansion. Multiple efforts have adjusted 
+various repository layout parameters in order to develop expanded capacity 
+models of the \gls{YMR}. Some of these efforts are detailed in Table 
+\ref{tab:footprint}.
+
+\input{./chapters/litrev/footprint_tab} 
+
+This inherent flexibility can come from an increase in the areal extent of the 
+repository footprint, the density of drifts, or vertical expansion. The  ``full inventory'' Yucca
+Mountain design alternative gives a maximum repository capacity of 97,000
+tonnes. In addition, the current design for the repository has flexibility for
+``additional repository capacity'' which would give a 119,000 tonne capacity at
+1.04 tonnes/m.\cite{doe_yucca_2002} 
+
+In addition to variable drift spacing, other modifications to repository layout
+have had promising results in terms of heat-limited repository capacity. The
+Electric Power Research Institute (EPRI) in their Room at the Mountain study
+found that with redesign of the repository an increased capacity of at least
+$400\%$ (295 kilotonnes once-through SNF) and up to $900\%$ (663 kilotonnes) could be
+expected to be achieved. Proposed design changes include decreased spacing
+between drifts, a larger areal footprint, vertical expansion into second and
+third levels of repository space, and hybrid solutions involving combinations
+of these ideas. In particular, EPRI suggests either an expansion of the
+footprint with redesign of the current line load design plan or a
+multi-level plan that repeats the footprint and line load design of the current
+plan\cite{kessler_room_2006}.
+
+%Specific Temperature Change analysis by Radel, Wilson, et al. find a maximum
+%thermal capacity of 1.09 tonnes/m for commercial SNF (at an ELF of $49
+%GWd_{th}/m$)\cite{radel_effect_2007}. 
+
+Layout options such as age based fuel mixing also allows for decreases in drift 
+spacing. In aged based fuel mixing, aged (long cool time) SNF is loaded in a 
+mixture with young SNF. This age based fuel mixing has been shown to achieve a 
+$48\%$ increase in the repository capacity as constrained by heat
+load\cite{nicholson_thermal_2007}. This factor uses a fiducial default
+footprint of $4.6 km^2$ used in the NRC TSPA.  The reported $48\%$ increase in
+capacity results in total repository capacity of 103,600
+tonnes\cite{williams_total_2001}.
+
 
 \subsection{Other Numerical Methods}
 
