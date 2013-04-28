@@ -991,10 +991,10 @@ mixing as the dispersion tensor, $D$,
 such that the mass conservation equation becomes:
 
 \begin{align}
-  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) &= \frac{\partial(nC)}{\partial t}
+  \nabla \left( \theta D\nabla C \right) - \nabla \left( nv \right) &= \frac{\partial(nC)}{\partial t}
   \label{massbal} 
   \intertext{Adding sorption, by accounting for a change in mass storage,}
-  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right)  &= 
+  \nabla \left( \theta D\nabla C \right) - \nabla \left( nv \right)  &= 
   \frac{\partial(nC)}{\partial t}  + \frac{\partial(s\rho_b)}{\partial t} 
   \label{withsorption} 
   \intertext{where}
@@ -1019,14 +1019,6 @@ contaminant is returned to the pore or fracture fluid from the matrix
 the mass of a radionuclide sorbed into the rock and the mass left in solution. 
 Sorption is a sensitive function of the redox state of the environment.
 
-Finally, a phenomenon called colloidal mobility can enhance radionuclide 
-transport. Mineral colloids, which are suspended molecular solids within a liquid 
-emulsion, are expected in the solution saturating the geological environment.
-Colloids present in the near field dissolving solution have an effect on the
-mobility of radionuclides. Studies addressing the subtle differences between 
-resultant behavior of various isotopes indicate that colloidal mobility can be 
-modeled as a correction factor to the sorption coefficient 
-\cite{bracke_safety_2008}.
 If it is assumed that sorption can be approximated as a linear equilibrium, 
 reversible reaction,
 
@@ -1034,7 +1026,7 @@ reversible reaction,
   \frac{\partial(s\rho_b)}{\partial t} &= \left( R_f - 1 
   \right)\frac{\partial(nC)}{\partial t}
   \intertext{equation \eqref{withsorption} becomes}
-  \nabla \left( nD\nabla C \right) - \nabla \left( nv \right) &= 
+  \nabla \left( \theta D\nabla C \right) - \nabla \left( nv \right) &= 
   R_f\frac{\partial(nC)}{\partial t}    
   \label{withlinsorption}
   \intertext{where}
@@ -1044,6 +1036,15 @@ reversible reaction,
   \intertext{and}
   K_d &= \mbox{species distribution coefficient.}
 \end{align}
+
+Finally, a phenomenon called colloidal mobility can enhance radionuclide 
+transport. Mineral colloids, which are suspended molecular solids within a liquid 
+emulsion, are expected in the solution saturating the geological environment.
+Colloids present in the near field dissolving solution have an effect on the
+mobility of radionuclides. Studies addressing the subtle differences between 
+resultant behavior of various isotopes indicate that colloidal mobility can be 
+modeled as a correction factor to the sorption coefficient 
+\cite{bracke_safety_2008}.
 
 For uniform flow, the dispersion tensor, $D$, becomes
 
@@ -1109,7 +1110,7 @@ boundary,
 
 \begin{align}
   C(\vec{r},t) = C_0(\vec{r},t)\hspace{1mm}\mbox{ for } \vec{r} \in \Gamma\\
-  \frac{\partial C(\vec{r},t)}{\partial r} = nD\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
+  \frac{\partial C(\vec{r},t)}{\partial r} = \theta D\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
 \end{align}
 
 
