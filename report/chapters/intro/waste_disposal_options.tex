@@ -21,10 +21,10 @@ components and data in order to analyze the full option space.
 % Various geologic media, WFs, WPs, EBSs have various physics
 
 The physical, hydrologic, and geochemical mechanisms that dictate 
-radionuclide and heat transport vary among the geological and engineered 
-containment systems in the domestic disposal system option space.  Therefore, 
+radionuclide and heat transport vary among the geologic and engineered 
+containment barriers in the domestic disposal system option space.  Therefore, 
 to support the system level simulation effort, a disposal system model must
-capture the salient physics of these geological options and quantify associated 
+capture the salient physics of these geologic options and quantify associated 
 disposal metrics.  Furthermore, in the same way that system level 
 modularity facilitates analysis, so too does modular linkage between subcomponent 
 process modules. The subcomponent models and repository environmental model in 
@@ -38,7 +38,7 @@ this work therefore provide a cohesively integrated disposal system simulator.
 The decay heat from nuclear material generates a significant heat source within 
 a repository. This decay heat varies among fuel cycles, constrains repository 
 loading capacity differently in different geologic media 
-\cite{greenberg_applications_2012}, and affects the resilience of certain 
+\cite{greenberg_application_2012}, and affects the resilience of certain 
 engineered barrier choices \cite{andra_argile:_2005}. In order, therefore, to 
 distinguish among the performance of fuel cycle, geologic media, and \gls{EBS} 
 choices, an accordingly capable thermal model has been included in the 
@@ -72,7 +72,7 @@ In addition, the capability to model far field thermal evolution is necessary
 in order to capture differences in thermal loading sensitivity among host rock 
 choices. Thermal limits in the geologic environment can be based on the 
 mechanical integrity of the rock as well as mineralogical, hydrologic, and 
-geochemical phenomena. The isolating characteristics of a geological 
+geochemical phenomena. The isolating characteristics of a geologic 
 environment are most sensitive to hydrologic and geochemical effects of thermal 
 loading. Thus, heat load constraints are typically chosen to control hydrologic 
 and geochemical response to thermal loading. In the United States, current 
@@ -100,7 +100,7 @@ can typically be treated as quasi static for long time scales
 %dimensioning of the cells and the architecture of the C waste repository zone 
 %aim to restrict the temperature to 90°C at the interface “disposal cell – 
 %argillite” and to ensure that the temperature will be below 70°C, in the 
-%geological medium on the cell boundary, before a thousand years, which provides 
+%geologic medium on the cell boundary, before a thousand years, which provides 
 %a safety margin with respect to thermal effects.''
 
 
@@ -110,7 +110,7 @@ Domestically, the \gls{EPA} has defined a limit on  human
 exposure due to the repository. This regulation places important limitations on 
 capacity, design, and loading techniques for repository concepts under 
 consideration. Repository concepts developed in this work must therefore 
-quantify radionuclide transport through the geological environment in order to 
+quantify radionuclide transport through the geologic environment in order to 
 calculate repository capacity and other post-processed performance metrics. 
 
 In particular, the radionuclides in need of containment vary among fuel cycles 
@@ -123,21 +123,21 @@ mechanical modeling behaviors identified as especially important to repository
 performance by sensitivity analyses conducted with a detailed geologic 
 repository performance tool.  
 
-Particular hydrologic modeling needs identified in Appendix sections 
-\ref{sec:appendix_adv_vel, sec:appendix_diff_coeff} include the need to capture 
+Particular hydrologic modeling needs identified in Appendix section 
+\ref{sec:AdvVelDiffCoeff} include the need to capture 
 differing behavior in advectively dominated and diffusively dominated transport 
 regimes. As advection and diffusion parameters vary among geologic media, and 
 performance is sensitive to the dominant mode of transport, this distinction is 
 necessary when modeling the far field in particular.
 
 Particular geochemical modeling needs identified in Appendix sections 
-\ref{sec:appendix_sol, sec:appendix_kd} include the need for solubility and 
+\ref{sec:solubility} and \ref{sec:sorption} include the need for solubility and 
 sorption behaviors which were identified as varying greatly among host rock 
 options and in some cases significantly affecting contaminant transport 
 behaviors. 
 
 Particular mechanical modeling needs identified in Appendix sections 
-\ref{sec:appendix_deg, sec:appendix_fail} include the need for \gls{EBS} 
+\ref{sec:wfdeginv} and \ref{sec:wpfail} include the need for \gls{EBS} 
 degradation based failure modeling. Waste package and waste form degradation 
 and failure were shown to be important in geologic settings where transport is 
 dominated by a fast advective pathway. 
