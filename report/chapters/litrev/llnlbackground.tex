@@ -1,12 +1,12 @@
 % LLNL
-The analytic model, created at \gls{LLNL} for the \gls{UFD} campaign seeks to 
+The semi-analytic model, created at \gls{LLNL} for the \gls{UFD} campaign seeks to 
 inform heat limited waste capacity calculations for each lithology, for many 
 waste package loading densities, and for many fuel cycle options 
 \cite{hardin_generic_2011, greenberg_investigations_2012, 
 greenberg_application_2012}. It employs an analytic model from Carslaw and 
 Jaeger and is implemented in MathCAD \cite{carslaw_conduction_1959, 
 ptc_mathcad_2010}.  The integral solver in the MathCAD toolset is the primary 
-calculation engine for the analytic MathCAD thermal model, which relies on 
+calculation engine for the semi-analytic MathCAD thermal model, which relies on 
 superposition of integral solutions.  
 
 
@@ -25,14 +25,14 @@ the lifetime of the repository.
   \begin{center}
     \includegraphics[width=0.5\textwidth]{./chapters/litrev/llnlConcept.eps}
   \end{center}
-  \caption[LLNL analytic thermal model geometry]{The central package is represented by a finite line source, adjacent 
+  \caption[LLNL semi-analytic thermal model geometry]{The central package is represented by a finite line source, adjacent 
   packages in the central drift are represented as points, and adjacent disposal 
   tunnes are represented as infinite lines.
   \cite{greenberg_investigations_2012}.}
   \label{fig:llnl}
 \end{figure}
 
-The geometric layout of the analytic \gls{LLNL} model in Figure \ref{fig:llnl} 
+The geometric layout of the semi-analytic \gls{LLNL} model in Figure \ref{fig:llnl} 
 shows  that the central package is represented by the finite line solution
 \begin{align}
   T_{line}(t,x,y,z) &= \frac{1}{8\pi K_{th}} 

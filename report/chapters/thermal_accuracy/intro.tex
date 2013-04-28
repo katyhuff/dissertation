@@ -5,7 +5,7 @@ semi-analytic generic geology thermal repository model developed at
 relative to the more traditional, numerical, lumped parameter technique in the 
 \gls{SINDAG} model from \gls{ANL}.
 
-The fast-running analytical thermal transport model assumes uniform thermal 
+The fast-running semi-analytic thermal transport model assumes uniform thermal 
 properties throughout a homogenous storage medium. Arrays of time-dependent heat 
 sources are included geometrically as arrays of line segments and points.  The 
 solver uses a source-based linear superposition of closed form analytical 
@@ -17,7 +17,7 @@ allow myriad gridded repository geometries and geologic characteristics
 \cite{ptc_mathcad_2010}.
 
 It was anticipated that the accuracy and utility of the temperature field
-calculated with the \gls{LLNL} analytical model would provide an accurate 
+calculated with the \gls{LLNL} semi-analytic model would provide an accurate 
 ``birds-eye''
 view in regions that are many tunnel radii away from actual storage units;
 i.e., at distances where tunnels and individual storage units could
@@ -25,7 +25,7 @@ realistically be approximated as physical lines or points.
 However, geometrically explicit storage units, waste packages, tunnel
 walls and close-in rock are not included in the MathCad model. 
 The present benchmarking effort therefore focuses on the ability of the 
-analytical model to accurately represent the close-in
+semi-analytic model to accurately represent the close-in
 temperature field.
 
 Specifically, close-in temperatures computed with the \gls{LLNL} MathCAD model 
@@ -49,21 +49,21 @@ tunnel case are listed in Table \ref{tab:benchSingle}.
 
 
 \section{Results}
-The benchmarking effort between the analytical MathCAD model and the 
-\gls{SINDAG} numerical  model showed that the analytical model was sufficiently 
+The benchmarking effort between the semi-analytic MathCAD model and the 
+\gls{SINDAG} numerical  model showed that the semi-analytic model was sufficiently 
 in agreement with the numerical model for its purpose, rapid evaluation of 
-generic geology repository configurations.  The analytic model gave peak 
+generic geology repository configurations.  The semi-analytic model gave peak 
 temperatures for all cases run which agreed with the numerical numerical model 
 within $4^{\circ}C$ and, for calculation radii less than 5 meters, consistently 
 reported peak temperature timing within 11 years of the \gls{SINDAG} numerical 
 model. In light of the magnitude of uncertainties involved in generically 
 modeling a non-site-specific geologic repository, this sufficiently validated 
-the analytical model with respect to its goals.
+the semi-analytic model with respect to its goals.
 
 Peak times agreed well for close radii, though peak values were consistently 
-underestimated by the analytical model. However, the time of peak heat arrived 
+underestimated by the semi-analytic model. However, the time of peak heat arrived 
 consistently sooner and the peak temperature value was consistently lower in the 
-homogeneous medium analytical model than in the \gls{SINDAG} model. 
+homogeneous medium semi-analytic model than in the \gls{SINDAG} model. 
 
 The results from the single and multiple drift scenarios are summarized in 
 Tables \ref{tab:benchSingle} and \ref{tab:benchMulti}, respectively. 
@@ -107,7 +107,7 @@ Tables \ref{tab:benchSingle} and \ref{tab:benchMulti}, respectively.
     \hline
   \end{tabular}
   \caption{Benchmarking in the single tunnel case showed that the peak heat was 
-  calculated to be lower and arrived consistently sooner in the analytic model. 
+  calculated to be lower and arrived consistently sooner in the semi-analytic model. 
   }
   \label{tab:benchSingle}
 \end{table}
@@ -135,7 +135,7 @@ Tables \ref{tab:benchSingle} and \ref{tab:benchMulti}, respectively.
     \hline
   \end{tabular}
   \caption{Benchmarking in the multiple tunnel case showed that the peak heat was 
-  calculated to be consistently lower in the analytic model and deviated further
+  calculated to be consistently lower in the semi-analytic model and deviated further
   from the numerical model than did the single tunnel case.
   }
   \label{tab:benchMulti}
