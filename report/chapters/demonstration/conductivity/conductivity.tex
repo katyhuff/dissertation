@@ -1,8 +1,9 @@
-\section{Thermal Conductivity Sensitivity Study}\label{sec:conductivity}
+\section{Thermal Conductivity Sensitivity Validation}\label{sec:conductivity}
 The thermal conductivity, $K_{th}$ of geologic repository host media impacts 
 the speed of transport, and therefore the time evolution of thermal energy 
 deposition, in the medium. 
 
+\subsection{LLNL Model Results}
 In the creation of the \gls{STC} database, the thermal conductivity was varied 
 across a broad domain for each isotope, $i$, package spacing, $s$, limiting 
 radius $r_{calc}$, and thermal diffusivity $\alpha_{th}$, considered.  By 
@@ -15,7 +16,7 @@ well as low thermal conductivity clays.
 \begin{center}
 \includegraphics[width=0.7\textwidth]{./chapters/demonstration/conductivity/Cm242kth_alpha_low.eps}
 \end{center}
-\caption[$K_{th}$ Sensitivity for Low $\alpha_{th}$]{Increased thermal conductivity decreases thermal energy deposition 
+\caption[$K_{th}$ Sensitivity for Low $\alpha_{th}$ in LLNL Model]{Increased thermal conductivity decreases thermal energy deposition 
 (here represented by \gls{STC}) in the near field (here $r_{calc} = 0.5m$).}
 \label{fig:Cm242Kth_alpha_low}
 \end{figure}
@@ -24,16 +25,39 @@ well as low thermal conductivity clays.
 Figure \ref{fig:Cm242Kth_alpha_low} shows the trend, visible for all isotopes, 
 that increased thermal conductivity of a medium decreases thermal energy 
 deposition in the near field. This indicates, then that thermal conductivity is 
-an important parameter for repository geolgic medium selection. The effect is 
-accentuated by high thermal diffusivities, as seen in 
-Figure \ref{fig:Cm242Kth_alpha_high}
+an important parameter for repository geolgic medium selection. 
+
+\subsection{Cyder Results}
+
+In a similar analysis, the thermal conductivity was compared both with the 
+spacing between waste packages and the limiting radius. 
+
+Figures \ref{fig:kr} and \ref{fig:ks} validate the trend noted above that 
+increased thermal conductivity of a medium decreases thermal energy deposition 
+in the near field.  Additionally, analysis with the \Cyder STC database 
+demonstrates the way in which the importance of spacing and the importance of 
+the limiting radius decrease with increasing $K_{th}$.
 
 \begin{figure}[htbp!]
 \begin{center}
-%\includegraphics[width=0.7\textwidth]{./chapters/demonstration/conductivity/Cm242Kth_alpha_high.eps}
+\includegraphics[width=0.7\textwidth]{./chapters/demonstration/conductivity/kr.eps}
 \end{center}
-\caption[$K_{th}$ Sensitivity for High $\alpha_{th}$]{Increased thermal conductivity decreases thermal energy deposition 
-(here represented by \gls{STC}) in the near field (here $r_{calc} = 0.5m$).}
+\caption[$K_{th}$ vs. $r_{lim}$ Sensitivity in Cyder]
+{Cyder results agree with 
+those of the LLNL model. The importance of the limiting radius decreases with 
+increased $K_{th}$. The above example thermal profile results from 10kg of 
+$^{234}Cm$}
+\label{fig:Cm242Kth_alpha_high}
+\end{figure}
+
+\begin{figure}[htbp!]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{./chapters/demonstration/conductivity/ks.eps}
+\end{center}
+\caption[$K_{th}$ vs. Waste Package Spacing Sensitivity in Cyder]{Cyder results agree with 
+those of the LLNL model. The importance of the limiting radius decreases with 
+increased $K_{th}$. The above example thermal profile results from 10kg of 
+$^{234}Cm$}
 \label{fig:Cm242Kth_alpha_high}
 \end{figure}
 
