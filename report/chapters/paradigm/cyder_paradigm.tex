@@ -170,8 +170,8 @@ rest),
   m_j^n &= f( m_j^{n-1}, BC_i^n, BC_j^{n-1}. . . ) \nonumber
   \intertext{where}
   m_j^n &= \mbox{ the contaminant mass vector in cell j }[kg]
-  BC_i^n &= \mbox{ inner conditions at $r_i$, and time $t_n$ }\nonumber \\
-  BC_j^n &= \mbox{ outer conditions at $r_j$, and time $t_{n-1}$ }\nonumber\\
+  BC_i^n &= \mbox{ inner conditions at }r_i\mbox{, and time }t_n \nonumber \\
+  BC_j^n &= \mbox{ outer conditions at }r_j\mbox{, and time }t_{n-1} \nonumber\\
   f &= \mbox{ functional form of contaminant transport into j. }\nonumber
 \end{align}
 
@@ -180,8 +180,8 @@ the resulting mass or concentration distribution, one can solve, numerically, fo
 the outer boundary condition at $t_n$ 
 
 \begin{align}
-  BC_j^n &= g\left( m_j^n \right)\number\\
-  g &= \mbox{functional form of contaminant transport accross j}\nonumber
+  BC_j^n &= g\left( m_j^n \right)\nonumber\\
+  g &= \mbox{functional form of contaminant transport across j}\nonumber
 \end{align}
 
 which can, in turn, be used by the component external to it, $k$ as the $t_n$ 

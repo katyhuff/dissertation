@@ -53,29 +53,29 @@ In addition to a specified source term, the first, specified-head or Dirichlet t
 concentration on some section of the boundary of the representative volume, 
 
     \begin{align}
-      C(\vec{r},t) = C_0(\vec{r},t)\hspace{1mm}\mbox{ for } \vec{r} \in 
-      \Gamma.
+      C(\vec{r},t)\Big|_{\vec{r} \in \Gamma} = C_0(t)
+      \intertext{where}
+      \vec{r} &= \mbox{ position vector }\nonumber\\
+      \Gamma &= \mbox{ domain boundary }.\nonumber
     \end{align}
 
 The second type, specified-flow or Neumann type boundary conditions describe a full set of 
 concentration gradients at the boundary of the domain,
 
     \begin{align}
-      D\frac{\partial C(\vec{r},t)}{\partial r} &= \theta \vec{J}(t) \hspace{1mm}\mbox{ for } 
-      \vec{r} \in \Gamma
-      \intertext{where}
-      \vec{r} &= \mbox{ position vector }\nonumber\\
-      \Gamma &= \mbox{ domain boundary }\nonumber\\
-      \vec{J}(t) &= \mbox{ solute mass flux } [kg/m^2\cdot s].\nonumber
+      D\frac{\partial C(\vec{r},t)}{\partial r}\Big|_{\vec{r}\in\Gamma} &= f(t)
+      f(t) &= \mbox{ known function }.\nonumber
     \end{align}
     
 
 The third, head-dependent mixed boundary condition or Cauchy type, defines a solute 
-flux along a boundary,
+flux along a boundary. For a vertically oriented system with advective velocity 
+in the $\hat{z}$ direction,
 
     \begin{align}
-      -D\frac{\partial C}{\partial z} + v_zC &= v_zC(\vec{r},t) 
-      \hspace{1mm}\mbox{ for }\vec{r} \in \Gamma.
+      -D\frac{\partial C(z, t)}{\partial z}\Big|_{z \in \Gamma} + v_zC(z, t) &= v_zC(t) 
+      \intertext{where}
+      C(t) &= \mbox{ a known concentration function }.\nonumber
     \end{align}  
 
 The spatial concentration throughout the volume is sufficient to fully describe 
