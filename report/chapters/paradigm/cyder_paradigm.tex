@@ -159,33 +159,42 @@ external boundary conditions of that Component.  Thus, the \Cyder model uses an
 implicit timestepping method to arrive at the future state of each Component,
 radially outward, as a function of both the past state and the current state. 
 
-That is, in Component j, some Component in a nested series, the mass or concentration 
-distribution in the Component at time $t_n$ is found from the initial state of the cell 
+That is, in Component j, some Component in a nested series, the mass flux 
+entering the Component at time $t_n$ is found from the initial state of the cell 
 at time $t_n$, the inner boundary 
-condition at time $t_n$ and the outer boundary condition at $t_{n-1}$. For the 
-fundamental example of mass calculation (on which concentration calculations 
-rest),
+condition at time $t_n$ and the outer boundary condition at $t_{n-1}$.  
 
 \begin{align}
-  m_j^n &= f( m_j^{n-1}, BC_i^n, BC_j^{n-1}. . . ) \nonumber
+  \dot{m}_{ij}^n &= f( m_j^{n-1}, BC_i^n, BC_j^{n-1}. . . ) \nonumber\\
   \intertext{where}
-  m_j^n &= \mbox{ the contaminant mass vector in cell j }[kg]
+  m_{ij}^n &= \mbox{ contaminant mass flux from component i to j }[kg/timestep]
   BC_i^n &= \mbox{ inner conditions at }r_i\mbox{, and time }t_n \nonumber \\
   BC_j^n &= \mbox{ outer conditions at }r_j\mbox{, and time }t_{n-1} \nonumber\\
   f &= \mbox{ functional form of contaminant transport into j. }\nonumber
 \end{align}
 
-Then, from 
-the resulting mass or concentration distribution, one can solve, numerically, for 
-the outer boundary condition at $t_n$ 
+Once the mass flux into the component is found, the mass is removed from the 
+inner cell, updating its state in preparation for the next time step.
 
 \begin{align}
-  BC_j^n &= g\left( m_j^n \right)\nonumber\\
+  m_i^{n*} &= m_i^n - \dot{m}_{ij}^n
+  \intertext{where}
+  m_i^{n*} &= \mbox{ updated mass in component i }[kg]
+In this way, the contained mass in the component is described as
+\begin{align}
+  m_j^n &= m_j^{n-1} + \dot{m}_j^n. \nonumber
+\end{align}
+
+Resulting concentration profiles accross the component can then be calculated 
+and one can solve, numerically, for the outer boundary condition at $t_n$ 
+
+\begin{align}
+  BC_j^n &= g\left( m_j^n, C_j^n \right)\nonumber\\
   g &= \mbox{functional form of contaminant transport across j}\nonumber
 \end{align}
 
-which can, in turn, be used by the component external to it, $k$ as the $t_n$ 
-inner boundary condition of its own solution. And so on.
+This boundary condition can, in turn, be used by the component external to it, $k$ as the $t_n$ 
+inner boundary condition of its own solution and so on.
 
 \subsection{Output Tables}
 \Cyder output tables utilize the \Cyclus Table class and rely on the \Cyclus 
