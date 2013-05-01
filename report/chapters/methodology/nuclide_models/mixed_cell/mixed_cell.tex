@@ -21,30 +21,32 @@ degraded volumes can also be describe by their constituent solid matrix and
 pore fluid volumes, 
 
 \begin{align}
-V_d &= \mbox{ degraded volume } [m^3]\nonumber\\
-    &= V_{df} + V_{ds}
+V_d(t_n) &= \mbox{ degraded volume at time }t_n [m^3]\nonumber\\
+          &= V_{df}(t_n) + V_{ds}(t_n)
 \intertext{where}
-V_{df} &= \mbox{ degraded solid volume } [m^3]\nonumber\\
-       &= \theta V_d\\
-       &= \theta dV_T
-\end{align}
-\begin{align}
-V_{ds} &= \mbox{ degraded fluid volume } [m^3]\nonumber\\
-       &= (1-\theta) V_d\\
-       &= (1-\theta) dV_T
-\end{align}
-\begin{align}
-V_i &= \mbox{ intact volume } [m^3]\nonumber\\ 
-       &= V_{if} + V_{is}
-\end{align}
-\begin{align}
-V_{if} &= \mbox{ intact fluid volume } [m^3]\nonumber\\
-       &= \theta V_i\\
-       &= \theta (1-d)V_T
+V_{df}(t_n) &= \mbox{ degraded solid volume at time }t_n[m^3]\nonumber\\
+       &= \theta V_d(t_n)\\
+       &= \theta d(t_n) V_T
 \intertext{and}
-V_{is} &= \mbox{ intact solid volume } [m^3]\nonumber\\
-       &= (1-\theta) V_i\\
-       &= (1-\theta) (1-d)V_T.
+d(t_n) &= \int_{t_0}^{t_n} f(\cdots)dt
+\end{align}
+\begin{align}
+V_{ds}(t_n) &= \mbox{ degraded fluid volume at time }t_n [m^3]\nonumber\\
+       &= (1-\theta) V_d(t_n)\\
+       &= (1-\theta) d(t_n) V_T
+\end{align}
+\begin{align}
+V_i(t_n) &= \mbox{ intact volume at time }t_n [m^3]\nonumber\\ 
+       &= V_{if}(t_n) + V_{is}(t_n)
+\end{align}
+\begin{align}
+V_{if}(t_n) &= \mbox{ intact fluid volume at time }t_n [m^3]\nonumber\\
+       &= \theta V_i(t_n)\\
+       &= \theta (1-d(t_n))V_T
+\intertext{and}
+V_{is}(t_n) &= \mbox{ intact solid volume at time }t_n [m^3]\nonumber\\
+       &= (1-\theta) V_i(t_n)\\
+       &= (1-\theta) (1-d(t_n))V_T.
 \end{align}
 
 This model distributes contaminant masses throughout the volume. Contaminant 
@@ -138,28 +140,52 @@ elemental solubility limit \cite{hedin_integrated_2002},
       C_{sol,i} &= \mbox{ solubility limit, the maximum concentration of i }[kg/m^3].\nonumber
     \end{align}
 
+
+\subsubsection{Calculation of Mass Flux}
+The MixedCell model can operate in four modes, each dictating the method by 
+which mass transfer across the inner boundary is calculated.  Those modes 
+utilize the source term, Dirichlet, Neumann, and Cauchy interfaces, 
+respectively.  Once calculated, that material object is removed from the 
+internal component ($m_{ij} = -\dot{m}_i$) such that its internal state can be 
+queried accurately in future timesteps.  
+
+For the case in which source term is used on the inner boundary, the mass 
+transferred from component $i$ to component $j$ in timestep $t_{n}$ is simply
+
+\begin{align} 
+m_{ij} &= -\dot{m}_i \nonumber
+m_{ij} &=  ST_i(t_n) \nonumber
+\intertext{where}
+ST_i(t_n) &= \mbox{ source term provided by component i at }t_n [kg].
+\end{align}
+
+For the case in which Dirichlet is used, the mass transferred is determined by 
+advection,
+
+\begin{align}
+m_{ij} &= C
+
 \subsubsection{Boundary Conditions}
 The desired boundary conditions can be expressed in terms of $m_{df}$. First, the 
 Dirichlet boundary condition is 
 \begin{align}
-C^{n+1}(r) = \frac{m_{df}^{n+1}}{V_{df}^{n+1}}\forall (r) \in \Gamma.
+C(r, t_n) = \frac{m_{df}(t_n)}{V_{df}(t_n)}\forall (r) \in \Gamma.
 \label{dirichlet_mixed}
 \end{align}
 
 From this boundary condition in combination with global advective velocity 
 data, porosity data,  and elemental diffusion coefficient data, all other 
 boundary conditions can be found. The Neumann boundary condition generated at 
-the external boundary of cell $i$ relies on data from cell $j$ from the 
-previous time step, the cell external to it such that 
+the external boundary of cell $j$ relies on up to date data from cell $i$ and 
+on internal state data from the previous time step, such that 
 
 \begin{align}
--D\frac{dC}{dr}\big|^{n+1}_{r=r_{i}} &= \frac{C_j(r_{i+1/2}) - C_i(r_{i-1/2})}{r_{i+1/2} - 
-r_{i-1/2}}
+-D\frac{dC}{dr}\Big|^{t_{n+1}}_{r=r_{i}} &= -D\frac{C_j(r_{j-1/2},t_{n-1}) - C_i(r_{i-1/2}, t_n)}{r_{j-1/2} - r_{i-1/2}}
 \label{neumann_mixed}
 \intertext{where}
 D &= \mbox{ diffusion coefficient }[]\nonumber\\
-r_{i+1/2} &= r_{i} + \frac{r_{j} - r_{i}}{2}\nonumber\\
 r_{i-1/2} &= r_{i} - \frac{r_{i} - r_{0}}{2}.\nonumber
+r_{j-1/2} &= r_{j} - \frac{r_{j} - r_{i}}{2}.\nonumber
 \end{align}
 
 This expression for the concentration gradient can also be used in the Cauchy 
@@ -167,7 +193,7 @@ boundary condition, which relies on the advective velocity and concentration
 profile as well as the concentration gradient,
 
 \begin{align}
-\theta_j C_j^n &= \theta_i\frac{dC}{dr}\big|_{r=r_{i}} + \theta_i v_{z}C_i.
+\theta_j C_j(t_n) &= \theta_i\frac{dC}{dr}\Big|_{r=r_{i}} + \theta_i v_{z}C_i.
 \label{cauchy_mixed}
 \end{align}
 
