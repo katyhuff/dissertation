@@ -604,7 +604,7 @@ term waste form material behavior, however, waste form degradation is often
 modeled as a purely rate based model,
 
 \begin{align}
-  V_{WF}(t) = V_{WF}(0) - \int_0^t f(\cdots)dt.
+  V_{wf}(t) = V_{wf}(0)\left(1 - \int_0^t f(\cdots)dt\right).
   \label{wfdegrate}
 \end{align}
 
@@ -616,7 +616,7 @@ immediately, and therefore degradation will not begin until the onset of water
 contact,
 
 \begin{align}
-  V_{WF}(t) &= V_{WF}(0) - \int_0^t f(\cdots)H(t-t_{wpf})dt.
+  V_{wf}(t) &= V_{wf}(0)\left(1 - \int_0^t f(\cdots)H(t-t_{wpf})dt\right).
   \intertext{where}
   t_{wpf} &=\mbox{time of waste package failure}\nonumber\\
   H(t-t_{wpf}) & = \mbox{Heaviside step function}\nonumber\\
@@ -652,11 +652,11 @@ solubility, the mass fraction released from the waste matrix is constrained to
 less than the solubility limit such that 
 
 \begin{align} 
-  m_{1i}(t)&\le V_{1i}(t)C_{sol,i}
+  m_{i1}(t)&\le V(t)C_{sol, i}
   \intertext{where}
   m_{i1} &= \mbox{ mass of isotope i in volume }V_1 [kg]\nonumber\\
   V_{1} &= \mbox{ a distinct volume of fluid } [m^3]\nonumber\\
-  C_{sol} &= \mbox{ the maximum concentration for the element of i } [kg\cdot m^{-3}].\nonumber
+  C_{sol, i} &= \mbox{ the maximum concentration of i } [kg\cdot m^{-3}].\nonumber
 \end{align}
 
 That is, the mass $m_{1i}$ in $[kg]$ of a radionuclide $i$ dissolved into the waste package
@@ -991,11 +991,11 @@ mixing as the dispersion tensor, $D$,
 such that the mass conservation equation becomes:
 
 \begin{align}
-  \nabla \left( \theta D\nabla C \right) - \nabla \left( nv \right) &= \frac{\partial(nC)}{\partial t}
+  \nabla \left( \theta D\nabla C \right) - \nabla \left( \theta v \right) &= \frac{\partial(\theta C)}{\partial t}
   \label{massbal} 
   \intertext{Adding sorption, by accounting for a change in mass storage,}
-  \nabla \left( \theta D\nabla C \right) - \nabla \left( nv \right)  &= 
-  \frac{\partial(nC)}{\partial t}  + \frac{\partial(s\rho_b)}{\partial t} 
+  \nabla \left( \theta D\nabla C \right) - \nabla \left( \theta v \right)  &= 
+  \frac{\partial(\theta C)}{\partial t}  + \frac{\partial(s\rho_b)}{\partial t} 
   \label{withsorption} 
   \intertext{where}
   s &= \mbox{sorption coefficient}\nonumber\\
@@ -1024,10 +1024,10 @@ reversible reaction,
 
 \begin{align}
   \frac{\partial(s\rho_b)}{\partial t} &= \left( R_f - 1 
-  \right)\frac{\partial(nC)}{\partial t}
+  \right)\frac{\partial(\theta C)}{\partial t}
   \intertext{equation \eqref{withsorption} becomes}
   \nabla \left( \theta D\nabla C \right) - \nabla \left( nv \right) &= 
-  R_f\frac{\partial(nC)}{\partial t}    
+  R_f\frac{\partial(\theta C)}{\partial t}    
   \label{withlinsorption}
   \intertext{where}
   R_f &= \mbox{retardation factor}\\
@@ -1072,7 +1072,7 @@ For unidirectional flow, the unidirectional dispersion tensor gives
   D_y \frac{\partial^2 C}{\partial y^2} +
   D_z \frac{\partial^2 C}{\partial z^2} +
   v_x \frac{\partial C}{\partial x}  = R_f 
-  \frac{\partial(nC)}{\partial t}. 
+  \frac{\partial(\theta C)}{\partial t}. 
   \label{unidirflow}
 \end{align}
 
@@ -1081,7 +1081,7 @@ A special case of uniform flow, no flow, simplifies to the diffusion equation,
   D_x \frac{\partial^2 C}{\partial x^2} +
   D_y \frac{\partial^2 C}{\partial y^2} +
   D_z \frac{\partial^2 C}{\partial z^2}  = R_f 
-  \frac{\partial(nC)}{\partial t} .
+  \frac{\partial(\theta C)}{\partial t} .
   \label{diffusion}
 \end{align}
 
