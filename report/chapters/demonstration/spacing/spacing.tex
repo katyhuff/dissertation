@@ -1,7 +1,9 @@
-\section{Waste Package Spacing Sensitivity Study}\label{sec:spacing}
+\section{Waste Package Spacing Sensitivity Validation}\label{sec:spacing}
 The waste package spacing, $s$ of geologic repository concept effects the areal 
 decay heat burden in the repository and has a strong effect on the thermal 
 energy deposited per unit area in the medium. 
+
+\subsection{LLNL Model Results}
 
 In the creation of the \gls{STC} database, the waste package spacing was varied 
 across a number of values for each isotope, $i$, limiting 
@@ -40,4 +42,29 @@ radius decreases the thermal energy contributing to the thermal limit.
 decreases thermal energy deposition contributing to the thermal limit
 (here represented by \gls{STC}).}
 \label{fig:Cm242r_lim_sens}
+\end{figure}
+
+
+\subsection{Cyder Results}
+
+In a similar analysis, the thermal diffusivity was compared both with the 
+spacing between waste packages and the limiting radius. 
+
+Figure \ref{fig:rs} validates the trend noted above that 
+increased waste package spacing in a repository concept decreases areal thermal energy deposition 
+in the near field.  Additionally, analysis with the \Cyder STC database 
+demonstrates the way in which the importance of $r_{lim}$, the limiting radius, 
+impacts the maximum calculated temperature at that radius. 
+
+
+\begin{figure}[htbp!]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{./chapters/demonstration/spacing/rs.eps}
+\end{center}
+\caption[$\alpha_{th}$ vs. $r_{lim}$ Sensitivity in Cyder]
+{Cyder results agree with 
+those of the LLNL model. The importance of the limiting radius decreases with 
+increased $K_{th}$. The above example thermal profile results from 10kg of 
+$^{234}Cm$}
+\label{fig:rs}
 \end{figure}
