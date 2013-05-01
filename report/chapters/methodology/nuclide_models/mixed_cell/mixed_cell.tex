@@ -153,7 +153,6 @@ For the case in which source term is used on the inner boundary, the mass
 transferred from component $i$ to component $j$ in timestep $t_{n}$ is simply
 
 \begin{align} 
-m_{ij} &= -\dot{m}_i \nonumber
 m_{ij} &=  ST_i(t_n) \nonumber
 \intertext{where}
 ST_i(t_n) &= \mbox{ source term provided by component i at }t_n [kg].
@@ -163,7 +162,9 @@ For the case in which Dirichlet is used, the mass transferred is determined by
 advection,
 
 \begin{align}
-m_{ij} &= C
+m_{ij} &= DBC_i(t_n)
+       &=
+
 
 \subsubsection{Boundary Conditions}
 The desired boundary conditions can be expressed in terms of $m_{df}$. First, the 
