@@ -35,7 +35,7 @@ concentration, $C_{out}(t)$, \begin{align}
 \end{align}
 
 Selection of the response function is usually based on experimental tracer 
-results in the medium at hand. However, some functions used commonly in chemical 
+results in the medium at hand. If such data is available, functions used commonly in chemical 
 engineering applications \cite{maloszewski_lumped_1996} include the Piston Flow Model (PFM), 
 \begin{align}
   g(t') &= \delta{(t'-t_t))}
@@ -77,6 +77,32 @@ source boundary are given in Maloszewski and Zuber \cite{maloszewski_lumped_1996
 
 \subsection{Calculation of Mass Transfer}
 
+The LumpedNuclide model requires a specified internal concentration, so the 
+Dirichlet boundary condition is queried at the internal boundary of the lumped 
+parameter nuclide model. To calculate the resulting mass transfer over a 
+timestep, the response function is applied and a linear concentration profile 
+is made across the cell. The concentration profile combined with 
+information about the initial state and the water volume in the cell, can be 
+integrated over the volume to arrive at a mass change,
+
+\begin{align}
+m_j(t_n) &= \int_0^V \theta C(r) dV \nonumber\\
+m_j(t_n) &= \int_0^r \int_0^{2\pi} \int_0^h \theta C(r) r dr d\phi dh\nonumber \\
+m_j(t_n) &= 2\pi h \int_0^r C(r)rdr \nonumber\\
+m_j(t_n) &= 2\pi h \int_0^r\left( \frac{C_j(t_n) - C_i(t_n)}{r_j - r_i}r^2 + C_i(t_n)r \right) dr\nonumber
+\intertext{such that}
+m_j(t_n) &= 2\pi h \left( \frac{C_j(t_n) - C_i(t_n)}{r_j - r_i}\frac{r^3}{3} + C_i(t_n) \frac{r^2}{2}\right) 
+\end{align}
+
+Using this expression for $m_j$, the necessary mass transfer from $m_i$ is 
+simply
+
+\begin{align}
+m_{ij} &= m_j(t_n) - m_j(t_{n-1}.
+\end{align}
 
 \subsection{Boundary Conditions}
-
+The external boundary conditions are found exactly similarly to the method by 
+which the Degradation Rate model finds external boundary conditions based on 
+contained mass, as given in equations \eqref{degrate_st, degrate_dbc, 
+degrate_nbc, degrate cauchy}. 

@@ -162,8 +162,8 @@ ST_i(t_n) &= \mbox{ source term provided by component i at }t_n [kg].
 For the case in which Dirichlet is used, the mass transferred is determined by 
 advection. One dimensional mass flux due to advection is the speed of flowing 
 water, $v_z$, scaled by the concentration of contaminants fixed by the Dirichlet 
-boundary condition, $C$, all integrated over the porous area of flow, $\theta 
-dxdy$,
+boundary condition, $C$, all integrated over the porous area perpendicular to 
+the flow, $\theta dxdy$,
 
 \begin{align}
   m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x\theta v_z DBC_i(t_n) dxdydt \label{mixed_adv}
