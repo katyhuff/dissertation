@@ -37,17 +37,40 @@ For the boundary conditions,
   C(z,0) &= C_i,
   \label{1dinfBC}
   \intertext{the solution is given as }
-  C(z,t) &= 
-  \frac{C_0}{4}\int_0^t\frac{v}{R}\Lambda_3(\tau)\Gamma_2(\tau)d\tau + 
-  \frac{\lambda}{2R}\int_0^t\Lambda_4(\tau)
-  \intertext{which, for no $\lambda$ first order production becomes}
-  &= \frac{C_0}{4}\int_0^t\frac{v}{R}\Lambda_3(\tau)\Gamma_2(\tau)d\tau
-  \intertext{where}
-  R &= \mbox{Retardation factor }[-].
+  C(z,t) &= \begin{cases} 
+  \left(C_0 - \frac{\gamma}{\mu}\right)A(z,t) + B(z,t) & 0<t\le t_0\\
+  \left(C_0 - \frac{\gamma}{\mu}\right)A(z,t) + B(z,t) - C_0A(z,t-t_0)& t\ge t_0
+  \end{cases}
+\intertext{where}
+  \gamma &= \mbox{ zero order source term in the fluid }[kg/m^3]\nonumber\\
+  \mu &= \mbox{first order general decay constant }[s^{-1}].\nonumber
 \end{align}
 
-For the vertical flow coordinate system, $\Lambda_3$ and $\Gamma_2$ are defined 
-as
+
+For the vertical flow coordinate system, $A$ and $B$ are defined as
+\begin{align}
+A(z,t) &= 
+\frac{v}{v+u}e^{\frac{(v-u)z}{2D}}\erfc{\frac{Rz-ut}{2\sqrt{DRt}}} \nonumber\\
++ \frac{v}{v-u}e^{\frac{(v+u)z}{2D}}\erfc{\frac{Rz+ut}{2\sqrt{DRt}}} \nonumber\\ 
++ \frac{v^2}{2\mu D} e^{\left(\frac{vz}{D} - \frac{\mu t}{R}\right)}\erfc{\frac{Rz+vt}{2\sqrt{DRt}}}\\
+B(z,t) &= 
+\left(\frac{\gamma}{\mu} - C_i\right)\Bigg\{ \frac{1}{2}\erfc{\frac{Rz - vt}{2\sqrt{DRt}}}\nonumber\\
++ \left(\frac{v^2t}{\pi RD}\right)^{1/2}e^{-\frac{(Rz-vt)^2}{4DRt}}\nonumber\\ 
+- \frac{1}{2} \left(1+\frac{vz}{D} + \frac{v^2t}{DR}\right) e^{\frac{vz}{D}}\erfc{\frac{Rz+vt}{2\sqrt{DRt}}}\Bigg\}\nonumber\\
+\intertext{where}
+R &= \mbox{Retardation factor }[-].
+\end{align}
+
+We make the simplification that, in Cyclus, radioactive decay is handled external 
+to the components, so $\mu$, the constant of decay goes to zero. Similarly, we 
+take the zero order source term to be zero, as no source term should emerge 
+without decay or external injection. 
+
+\begin{align}
+  \intertext{which, for no $\lambda$ first order production becomes}
+  &= \frac{C_0}{4}\int_0^t\frac{v}{R}\Lambda_3(\tau)\Gamma_2(\tau)d\tau
+\end{align}
+
 \begin{align}
   \Lambda_3(\tau) &= e^{-\frac{\mu\tau}{R}}\Bigg[\sqrt{\frac{R}{\pi D_z\tau}}e^{-\frac{(Rz-v\tau)^2}{4RD_z\tau}} - 
     \frac{v}{2D_z}e^\frac{vz}{D_z}\erfc{\frac{Rz+v\tau}{\sqrt{4RD_z\tau}}}\Bigg]
@@ -61,19 +84,6 @@ as
       \label{Gamma_2}
 \end{align}
 
-We make a few simplifying one dimensional assumptions. First, that the diffusion 
-coefficient of the medium is the same in the $\hat{x}$ and $\hat{y}$ directions 
-such that $D_x=D_y$. Also, we take the concentration around the origin for a 
-unit surface area, so $x=y=0$ and $a=b=1$. Thus, $\Gamma_2$ from equation \eqref{Gamma_2} becomes
-\begin{align}
-  \Gamma_2(\tau) = 2\left(\erfc{\frac{1}{\sqrt{\frac{4D_{xy}\tau}{R}}} 
-}^2\right).
-\end{align}
-
-Another simplification is that, in Cyclus, radioactive decay is handled external 
-to the components, so $\mu$, the constant of decay in equation \eqref{Lambda_3}, 
-goes to zero. Thus, 
-
 \begin{align}
   C(z,t)&= \frac{C_0}{2}\int_0^t\frac{v}{R}
   \Bigg[\sqrt{\frac{R}{\pi D_z\tau}}e^{-\frac{(Rz-v\tau)^2}{4RD_z\tau}} -
@@ -82,5 +92,13 @@ goes to zero. Thus,
   d\tau .
   \label{simple_leij}
 \end{align}
+\subsubsection{Calculating Mass Transfer}
+The mass transfer rate relies on an algorithm similar to that of the 
+LumpedNuclide model. However, the integral, by virtue of not having a closed 
+form solution, must be evaluated numerically. 
 
-\subsubsection{}<++>
+\subsubsection{Boundary Conditions}
+Again, the boundary conditions for the external boundary are found based on the 
+mass contained in the cell by te same process as in the Degradation Rate model.
+See equations \ldots 
+
