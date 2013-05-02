@@ -165,11 +165,11 @@ at time $t_n$, the inner boundary
 condition at time $t_n$ and the outer boundary condition at $t_{n-1}$.  
 
 \begin{align}
-  \dot{m}_{ij}^n &= f( m_j^{n-1}, BC_i^n, BC_j^{n-1}. . . ) \nonumber\\
+  \dot{m}_{ij}^n &= f( m_j(t_{n-1}) , BC_i(t_n) , BC_j(t_{n-1}) . . . ) \nonumber\\
   \intertext{where}
-  m_{ij}^n &= \mbox{ contaminant mass flux from component i to j }[kg/timestep]
-  BC_i^n &= \mbox{ inner conditions at }r_i\mbox{, and time }t_n \nonumber \\
-  BC_j^n &= \mbox{ outer conditions at }r_j\mbox{, and time }t_{n-1} \nonumber\\
+  m_{ij}(t_n) &= \mbox{ contaminant mass flux from component i to j }[kg/timestep]\nonumber\\
+  BC_i(t_n)  &= \mbox{ inner conditions at }r_i\mbox{, and time }t_n \nonumber \\
+  BC_j(t_{n-1})  &= \mbox{ outer conditions at }r_j\mbox{, and time }t_{n-1} \nonumber\\
   f &= \mbox{ functional form of contaminant transport into j. }\nonumber
 \end{align}
 
@@ -177,20 +177,21 @@ Once the mass flux into the component is found, the mass is removed from the
 inner cell, updating its state in preparation for the next time step.
 
 \begin{align}
-  m_i^{n*} &= m_i^n - \dot{m}_{ij}^n
+  m_i^\cross(t_n)  &= m_i(t_n)  - m_{ij}(t_n) 
   \intertext{where}
-  m_i^{n*} &= \mbox{ updated mass in component i }[kg]
-\end{align}
-In this way, the contained mass in the component is described as
-\begin{align}
-  m_j^n &= m_j^{n-1} + \dot{m}_j^n. \nonumber
+  m_i^\cross(t_n)  &= \mbox{ updated mass in component i }[kg]
 \end{align}
 
-Resulting concentration profiles accross the component can then be calculated 
+In this way, the contained mass in the component is described as
+\begin{align}
+  m_j(t_n)  &= m_j(t_{n-1})  + \dot{m}_j(t_n) . \nonumber
+\end{align}
+
+Resulting concentration profiles across the component can then be calculated 
 and one can solve, numerically, for the outer boundary condition at $t_n$ 
 
 \begin{align}
-  BC_j^n &= g\left( m_j^n, C_j^n \right)\nonumber\\
+  BC_j(t_n) &= g\left( m_j(t_n) , C_j(t_n) \right)\nonumber\\
   g &= \mbox{functional form of contaminant transport across j}\nonumber
 \end{align}
 
