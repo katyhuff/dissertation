@@ -50,15 +50,15 @@ For the boundary conditions,
 For the vertical flow coordinate system, $A$ and $B$ are defined as
 \begin{align}
 A(z,t) &= 
-frac{v}{v+u}e^{\frac{(v-u)z}{2D}}\erfc{\left[\frac{Rz-ut}{2\sqrt{DRt}}\right]} \nonumber\\
+\frac{v}{v+u}e^{\frac{(v-u)z}{2D}}\erfc{\left[\frac{Rz-ut}{2\sqrt{DRt}}\right]} \nonumber\\
 &+ \frac{v}{v-u}e^{\frac{(v+u)z}{2D}}\erfc{\left[\frac{Rz+ut}{2\sqrt{DRt}}\right]} \nonumber\\ 
 &+ \frac{v^2}{2\mu D} e^{\left(\frac{vz}{D} - \frac{\mu t}{R}\right)}\erfc{\left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}\\
 B(z,t) &= 
 \left(\frac{\gamma}{\mu} - C_i\right)\Bigg\{ \frac{1}{2}\erfc{\left[\frac{Rz - vt}{2\sqrt{DRt}}\right]}\nonumber\\
 &+ \left(\frac{v^2t}{\pi RD}\right)^{1/2}e^{-\frac{(Rz-vt)^2}{4DRt}}\nonumber\\ 
-&- \frac{1}{2} \left(1+\frac{vz}{D} + \frac{v^2t}{DR}\right) e^{\frac{vz}{D}}\erfc{\left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}\Bigg\}\nonumber\\
+&- \frac{1}{2} \left(1+\frac{vz}{D} + \frac{v^2t}{DR}\right) e^{\frac{vz}{D}}\erfc{\left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}\Bigg\}\\
 \intertext{where}
-R &= \mbox{Retardation factor }[-].
+R &= \mbox{Retardation factor }[-].\nonumber
 \end{align}
 
 We make the simplification that, in Cyclus, radioactive decay is handled external 
