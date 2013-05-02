@@ -24,6 +24,8 @@ V_d &= \mbox{ degraded volume }[m^3].\nonumber
 d &= \mbox{ the current fraction that has been degraded }[\%]\nonumber
 \end{align}
 
+
+\subsection{Calculation of Mass Transfer}
 In this model, the contaminants in the degraded fraction of the control volume 
 are available to adjacent components. The available contaminants
 $m_{ij}(t)$, at the boundary between cell $i$ to cell $j$ at time $t$ are thus
@@ -53,6 +55,7 @@ m_{ij}^n &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber\\
 \label{deg_rate_source_discrete}
 \end{align}
 
+\subsection{Boundary Conditions}
 The concentration boundary condition must also be defined at the outer boundary 
 to support parent components that utilize the Dirichlet boundary condition. For 
 the degradation rate model, which incorporates no diffusion or advection, the 
@@ -86,6 +89,7 @@ reduces to
 \theta_i^n v_z^n C_i^n &= \theta_i^{n-1} v_z^{n-1} C_i^{n-1}.
 \label{deg_rate_cauchy}
 \end{align}
+
 
 
 %<++> &= \mbox{ <++> }[<++>] \nonumber\\
