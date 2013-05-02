@@ -141,11 +141,12 @@ elemental solubility limit \cite{hedin_integrated_2002},
     \end{align}
 
 
-\subsubsection{Calculation of Mass Flux}
+\subsubsection{Calculation of Mass Transfer}
 The MixedCell model can operate in four modes, each dictating the method by 
 which mass transfer across the inner boundary is calculated.  Those modes 
-utilize the source term, Dirichlet, Neumann, and Cauchy interfaces, 
-respectively.  Once calculated, that material object is removed from the 
+utilize the source term, Dirichlet, and Neumann interfaces to model prescribed, 
+flow, advective flow, diffusive flow, and advective diffusive flow. 
+Once calculated, that material object is removed from the 
 internal component ($m_{ij} = -\dot{m}_i$) such that its internal state can be 
 queried accurately in future timesteps.  
 
@@ -159,11 +160,34 @@ ST_i(t_n) &= \mbox{ source term provided by component i at }t_n [kg].
 \end{align}
 
 For the case in which Dirichlet is used, the mass transferred is determined by 
-advection,
+advection. One dimensional mass flux due to advection is the speed of flowing 
+water, $v_z$, scaled by the concentration of contaminants fixed by the Dirichlet 
+boundary condition, $C$, all integrated over the porous area of flow, $\theta 
+dxdy$,
 
 \begin{align}
-m_{ij} &= \theta v_z V DBC_i(t_n) 
+  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x\theta v_z DBC_i(t_n) dxdydt \label{mixed_adv}
+\intertext{which, for the Cyder components, becomes }
+m_{ij} &= \theta v_z C 2rl (t_n - t_{n-1})\nonumber\\
+\intertext{where}
+DBC_i(t_n) &= \mbox{ fixed C from component i at }t_n [kg/m^3]\nonumber\\
+r &= \mbox{ radius of the cylinder }[m]\nonumber\\
+l &= \mbox{ length of the cylinder }[m].\nonumber\\
 \end{align}
+
+For the case in which Neumann is chosen, the mass transfer is purely diffusive. 
+
+\begin{align}
+  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D NBC_i(t_n) dxdydt \label{mixed_adv}
+  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \frac{\partial C}{\partial z} dxdydt \label{mixed_adv}
+\intertext{which, for the Cyder components, becomes }
+m_{ij} &= -D \frac{\partial C}{\partial z} 2rl(t_n - t_{n-1}\nonumber
+\intertext{where}
+NBC_i(t_n) &= \mbox{ fixed concentration gradient from component i at }t_n [kg/m^3].\nonumber\\
+\end{align}
+
+In combination, this model can elect to calculate the advective diffusive 
+contaminant transfer as a comvination of both equation \eqref{}<++>
 
 \subsubsection{Boundary Conditions}
 The desired boundary conditions can be expressed in terms of $m_{df}$. First, the 
