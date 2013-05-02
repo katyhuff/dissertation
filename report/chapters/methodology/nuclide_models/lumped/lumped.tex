@@ -87,11 +87,11 @@ integrated over the volume to arrive at a mass change,
 
 \begin{align}
 m_j(t_n) &= \int_0^V \theta C(r) dV \nonumber\\
-m_j(t_n) &= \int_0^r \int_0^{2\pi} \int_0^h \theta C(r) r dr d\phi dh\nonumber \\
-m_j(t_n) &= 2\pi h \int_0^r C(r)rdr \nonumber\\
-m_j(t_n) &= 2\pi h \int_0^r\left( \frac{C_j(t_n) - C_i(t_n)}{r_j - r_i}r^2 + C_i(t_n)r \right) dr\nonumber
+         &= \int_0^r \int_0^{2\pi} \int_0^h \theta C(r) r dr d\phi dh\nonumber \\
+         &= 2\pi h\theta \int_0^r C(r)rdr \nonumber\\
+         &= 2\pi h\theta \int_0^r\left( \frac{C_j(t_n) - C_i(t_n)}{r_j - r_i}r^2 + C_i(t_n)r \right) dr\nonumber
 \intertext{such that}
-m_j(t_n) &= 2\pi h \left( \frac{C_j(t_n) - C_i(t_n)}{r_j - r_i}\frac{r^3}{3} + C_i(t_n) \frac{r^2}{2}\right) 
+m_j(t_n) &= 2\pi h \theta \left[ \frac{C_j(t_n) - C_i(t_n)}{3\left(r_j - r_i\right)}r^3 + C_i(t_n) \frac{r^2}{2}\right] 
 \end{align}
 
 Using this expression for $m_j$, the necessary mass transfer from $m_i$ is 
