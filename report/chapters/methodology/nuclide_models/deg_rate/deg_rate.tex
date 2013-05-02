@@ -50,7 +50,7 @@ $t_n$ is thus a simple linear function of the transfer rate in
 \eqref{deg_rate_source_cont}, 
 
 \begin{align}
-m_{ij}^n &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber\\
+m_{ij}(t_n) &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber\\
          &= f_i(\cdots)m_i^{n-1}\left(t_n - t_{n-1}\right).
 \label{deg_rate_source_discrete}
 \end{align}
@@ -103,7 +103,7 @@ v_z &= \mbox{ velocity in $\hat{k}$ direction }[m/s] \nonumber
 \end{align}
 reduces to
 \begin{align}
-\theta_i^n v_z^n C_i^n &= \theta_i^{n-1} v_z^{n-1} C_i^{n-1}.
+\theta_i(t_n) v_z C_i(t_n) &= \theta_i(t_{n-1}) v_z C_i(t_{n-1}).
 \label{deg_rate_cauchy}
 \end{align}
 
