@@ -172,18 +172,18 @@ m_{ij} &= \theta v_z C 2rl (t_n - t_{n-1})\nonumber\\
 \intertext{where}
 DBC_i(t_n) &= \mbox{ fixed C from component i at }t_n [kg/m^3]\nonumber\\
 r &= \mbox{ radius of the cylinder }[m]\nonumber\\
-l &= \mbox{ length of the cylinder }[m].\nonumber\\
+l &= \mbox{ length of the cylinder }[m].\nonumber
 \end{align}
 
 For the case in which Neumann is chosen, the mass transfer is purely diffusive. 
 
 \begin{align}
-  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D NBC_i(t_n) dxdydt \label{mixed_adv}
-  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \frac{\partial C}{\partial z} dxdydt \label{mixed_adv}
+  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D NBC_i(t_n) dxdydt \label{mixed_adv}\\
+  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \frac{\partial C}{\partial z} dxdydt \nonumber
 \intertext{which, for the Cyder components, becomes }
 m_{ij} &= -D \frac{\partial C}{\partial z} 2rl(t_n - t_{n-1}\nonumber
 \intertext{where}
-NBC_i(t_n) &= \mbox{ fixed concentration gradient from component i at }t_n [kg/m^3].\nonumber\\
+NBC_i(t_n) &= \mbox{ fixed concentration gradient from component i at }t_n [kg/m^3].\nonumber
 \end{align}
 
 \subsubsection{Boundary Conditions}
