@@ -49,49 +49,49 @@ For the boundary conditions,
 
 For the vertical flow coordinate system, $A$ and $B$ are defined as
 \begin{align}
-A(z,t) &= 
-\frac{v}{v+u}e^{\frac{(v-u)z}{2D}}\erfc{\left[\frac{Rz-ut}{2\sqrt{DRt}}\right]} \nonumber\\
-&+ \frac{v}{v-u}e^{\frac{(v+u)z}{2D}}\erfc{\left[\frac{Rz+ut}{2\sqrt{DRt}}\right]} \nonumber\\ 
-&+ \frac{v^2}{2\mu D} e^{\left(\frac{vz}{D} - \frac{\mu t}{R}\right)}\erfc{\left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}\\
-B(z,t) &= 
+A(z,t) =& 
+\left(\frac{v}{v+u}\right)\exp{\left[\frac{(v-u)z}{2D}\right]}\erfc{\left[\frac{Rz-ut}{2\sqrt{DRt}}\right]} \nonumber\\
+&+ \left(\frac{v}{v-u}\right)\exp{\left[\frac{(v+u)z}{2D}\right]}\erfc{\left[\frac{Rz+ut}{2\sqrt{DRt}}\right]} \nonumber\\ 
+&+ \left(\frac{v^2}{2\mu D}\right) \exp{\left[\frac{vz}{D} - \frac{\mu t}{R}\right]}\erfc{\left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}\\
+B(z,t) =& 
 \left(\frac{\gamma}{\mu} - C_i\right)\Bigg\{ \frac{1}{2}\erfc{\left[\frac{Rz - vt}{2\sqrt{DRt}}\right]}\nonumber\\
-&+ \left(\frac{v^2t}{\pi RD}\right)^{1/2}e^{-\frac{(Rz-vt)^2}{4DRt}}\nonumber\\ 
-&- \frac{1}{2} \left(1+\frac{vz}{D} + \frac{v^2t}{DR}\right) e^{\frac{vz}{D}}\erfc{\left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}\Bigg\}\\
+&+ \left(\frac{v^2t}{\pi RD}\right)^{1/2}\exp{\left[-\frac{(Rz-vt)^2}{4DRt}\right]}\nonumber\\ 
+&- \frac{1}{2} \left(1+\frac{vz}{D} + \frac{v^2t}{DR}\right) \exp{\left[\frac{vz}{D}\right]}\erfc{\left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}\Bigg\}\\
 \intertext{where}
-R &= \mbox{Retardation factor }[-].\nonumber
+u =& v\sqrt{\left(1+\frac{4\mu D}{v^2}\right)}\nonumber\\
+R =& \mbox{Retardation factor }[-].\nonumber
 \end{align}
 
 We make the simplification that, in Cyclus, radioactive decay is handled external 
 to the components, so $\mu$, the constant of decay goes to zero. Similarly, we 
-take the zero order source term to be zero, as no source term should emerge 
-without decay or external injection. 
+take the zero order source term, $\gamma$ to be zero, as no source term should emerge 
+without decay or external injection. Importantly, when $\mu\rightarrow 0$ then 
+$u\rightarrow v$. Simplifying $C(z,t)$ gives,
 
 \begin{align}
-  \intertext{which, for no $\lambda$ first order production becomes}
-  &= \frac{C_0}{4}\int_0^t\frac{v}{R}\Lambda_3(\tau)\Gamma_2(\tau)d\tau
+C(z,t) =& \begin{cases} 
+  C_0A(z,t) + B(z,t) & 0<t\le t_0\\
+  C_0A(z,t) + B(z,t) - C_0A(z,t-t_0)& t\ge t_0
+  \end{cases}
+  \end{align}
+Simplifying $A(z,t)$, 
+\begin{align}
+A(z,t) =& 
+\left(\frac{1}{2}\right)\erfc{\left[\frac{Rz-ut}{2\sqrt{DRt}}\right]} \nonumber\\
+&+ \left(v\infty\right)\exp{\left[\frac{2vz}{2D}\right]}
+\intertext{which remains valid only if }
+\left[\frac{Rz+ut}{2\sqrt{DRt}}\right] \ge 2,
+\end{align}
+Finally, simplifying $B(z,t)$ accordingly,
+\begin{align}
+B(z,t) =& 
+\left(- C_i\right)\Bigg\{ \frac{1}{2}\erfc{\left[\frac{Rz - vt}{2\sqrt{DRt}}\right]}\nonumber\\
+&+ \left(\frac{v^2t}{\pi RD}\right)^{1/2}\exp{\left[-\frac{(Rz-vt)^2}{4DRt}\right]}\nonumber\\ 
+&- \frac{1}{2} \left(1+\frac{vz}{D} + \frac{v^2t}{DR}\right) \exp{\left[\frac{vz}{D}\right]}\erfc{\left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}\Bigg\}.
+  \label{simple_genuchten}
 \end{align}
 
-\begin{align}
-  \Lambda_3(\tau) &= e^{-\frac{\mu\tau}{R}}\Bigg[\sqrt{\frac{R}{\pi D_z\tau}}e^{-\frac{(Rz-v\tau)^2}{4RD_z\tau}} - 
-    \frac{v}{2D_z}e^\frac{vz}{D_z}\erfc{\frac{Rz+v\tau}{\sqrt{4RD_z\tau}}}\Bigg]
-    \label{Lambda_3}
-  \intertext{and}
-  \Gamma_2(\tau) &= 
-      \Bigg[ \erfc{\frac{x-a}{\sqrt{\frac{4D_x\tau}{R}}} } - 
-             \erfc{\frac{x+a}{\sqrt{\frac{4D_x\tau}{R}}} } \Bigg]
-      \Bigg[ \erfc{\frac{y-b}{\sqrt{\frac{4D_y\tau}{R}}} } -
-             \erfc{\frac{y+b}{\sqrt{\frac{4D_y\tau}{R}}} } \Bigg]. 
-      \label{Gamma_2}
-\end{align}
 
-\begin{align}
-  C(z,t)&= \frac{C_0}{2}\int_0^t\frac{v}{R}
-  \Bigg[\sqrt{\frac{R}{\pi D_z\tau}}e^{-\frac{(Rz-v\tau)^2}{4RD_z\tau}} -
-    \frac{v}{2D_z}e^\frac{vz}{D_z}\erfc{\frac{Rz+v\tau}{\sqrt{4RD_z\tau}}}\Bigg]
-    \erfc{\frac{1}{\sqrt{\frac{4D_{xy}\tau}{R}}} }^2
-  d\tau .
-  \label{simple_leij}
-\end{align}
 \subsubsection{Calculating Mass Transfer}
 The mass transfer rate relies on an algorithm similar to that of the 
 LumpedNuclide model. However, the integral, by virtue of not having a closed 

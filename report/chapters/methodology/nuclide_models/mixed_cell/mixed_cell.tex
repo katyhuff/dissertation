@@ -197,15 +197,15 @@ C(r, t_n) = \frac{m_{df}(t_n)}{V_{df}(t_n)}\forall (r) \in \Gamma.
 From this boundary condition in combination with global advective velocity 
 data, porosity data,  and elemental diffusion coefficient data, all other 
 boundary conditions can be found. The Neumann boundary condition generated at 
-the external boundary of cell $j$ relies on up to date data from cell $i$ and 
+the external boundary of cell $j$ relies on up to date data from cell $k$ and 
 on internal state data from the previous time step, such that 
 
 \begin{align}
--D\frac{dC}{dr}\Big|^{t_{n+1}}_{r=r_{i}} &= -D\frac{C_j(r_{j-1/2},t_{n-1}) - C_i(r_{i-1/2}, t_n)}{r_{j-1/2} - r_{i-1/2}}
+-D\frac{dC}{dr}\Big|^{t_{n}}_{r=r_j} &= -D\frac{C_k(r_{k-1/2},t_{n-1}) - C_i(r_{j-1/2}, t_n)}{r_{k-1/2} - r_{j-1/2}}
 \label{neumann_mixed}
 \intertext{where}
-r_{i-1/2} &= r_{i} - \frac{r_{i} - r_{0}}{2}.\nonumber\\
-r_{j-1/2} &= r_{j} - \frac{r_{j} - r_{i}}{2}.\nonumber
+r_{j-1/2} &= r_{j} - \frac{r_{j} - r_{0}}{2}.\nonumber\\
+r_{k-1/2} &= r_{k} - \frac{r_{k} - r_{i}}{2}.\nonumber
 \end{align}
 
 This expression for the concentration gradient can also be used in the Cauchy 
@@ -213,7 +213,7 @@ boundary condition, which relies on the advective velocity and concentration
 profile as well as the concentration gradient,
 
 \begin{align}
-\theta_j C_j(t_n) &= \theta_i\frac{dC}{dr}\Big|_{r=r_{i}} + \theta_i v_{z}C_i.
+\theta_j C_j(t_n) &= \theta_j\frac{dC}{dr}\Big|_{r=r_{j}} + \theta_j v_{z}C_j.
 \label{cauchy_mixed}
 \end{align}
 
