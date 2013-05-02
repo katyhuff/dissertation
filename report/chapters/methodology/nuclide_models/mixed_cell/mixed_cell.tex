@@ -145,7 +145,7 @@ elemental solubility limit \cite{hedin_integrated_2002},
 The MixedCell model can operate in four modes, each dictating the method by 
 which mass transfer across the inner boundary is calculated.  Those modes 
 utilize the source term, Dirichlet, and Neumann interfaces to model prescribed, 
-flow, advective flow, diffusive flow, and advective diffusive flow. 
+flow, advective flow, or diffusive flow.
 Once calculated, that material object is removed from the 
 internal component ($m_{ij} = -\dot{m}_i$) such that its internal state can be 
 queried accurately in future timesteps.  
@@ -185,9 +185,6 @@ m_{ij} &= -D \frac{\partial C}{\partial z} 2rl(t_n - t_{n-1}\nonumber
 \intertext{where}
 NBC_i(t_n) &= \mbox{ fixed concentration gradient from component i at }t_n [kg/m^3].\nonumber\\
 \end{align}
-
-In combination, this model can elect to calculate the advective diffusive 
-contaminant transfer as a comvination of both equation \eqref{}<++>
 
 \subsubsection{Boundary Conditions}
 The desired boundary conditions can be expressed in terms of $m_{df}$. First, the 
