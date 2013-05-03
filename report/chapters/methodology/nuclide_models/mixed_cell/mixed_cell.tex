@@ -181,7 +181,7 @@ For the case in which Neumann is chosen, the mass transfer is purely diffusive.
   m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \mathcal{N}_i(t_n) dxdydt \label{mixed_adv}\\
   m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \frac{\partial C}{\partial z} dxdydt \nonumber
 \intertext{which, for the Cyder components, becomes }
-m_{ij} &= -D \frac{\partial C}{\partial z} 2rl(t_n - t_{n-1}\nonumber
+m_{ij} &= -D \frac{\partial C}{\partial z} 2rl(t_n - t_{n-1})\nonumber
 \intertext{where}
 \mathcal{N}_i(t_n) &= \mbox{ fixed concentration gradient from component i at }t_n [kg/m^3].\nonumber
 \end{align}
@@ -190,7 +190,8 @@ m_{ij} &= -D \frac{\partial C}{\partial z} 2rl(t_n - t_{n-1}\nonumber
 The desired boundary conditions can be expressed in terms of $m_{df}$. First, the 
 Dirichlet boundary condition is 
 \begin{align}
-C(r, t_n) = \frac{m_{df}(t_n)}{V_{df}(t_n)}\forall (r) \in \Gamma.
+\mathcal{D}_j(t_n) &= C_j(t_n)\nonumber\\ 
+ &= \frac{m_{df}(t_n)}{V_{df}(t_n)}\forall (r) \in \Gamma.
 \label{dirichlet_mixed}
 \end{align}
 
@@ -201,7 +202,8 @@ the external boundary of cell $j$ relies on up to date data from cell $k$ and
 on internal state data from the previous time step, such that 
 
 \begin{align}
--D\frac{dC}{dr}\Big|^{t_{n}}_{r=r_j} &= -D\frac{C_k(r_{k-1/2},t_{n-1}) - C_i(r_{j-1/2}, t_n)}{r_{k-1/2} - r_{j-1/2}}
+\mathcal{N}_j(t_n)& =-D\frac{dC(t_n)}{dr}\Bigg|_{r=r_j}\nonumber\\ 
+                  &= -D\frac{C_k(r_{k-1/2},t_{n-1}) - C_i(r_{j-1/2}, t_n)}{r_{k-1/2} - r_{j-1/2}}
 \label{neumann_mixed}
 \intertext{where}
 r_{j-1/2} &= r_{j} - \frac{r_{j} - r_{0}}{2}.\nonumber\\
@@ -213,7 +215,7 @@ boundary condition, which relies on the advective velocity and concentration
 profile as well as the concentration gradient,
 
 \begin{align}
-\theta_j C_j(t_n) &= \theta_j\frac{dC}{dr}\Big|_{r=r_{j}} + \theta_j v_{z}C_j.
+v_z C_0 &= \frac{dC(t_n)}{dr}\Big|_{r=r_{j}} + v_{z}C_j(t_n).
 \label{cauchy_mixed}
 \end{align}
 
