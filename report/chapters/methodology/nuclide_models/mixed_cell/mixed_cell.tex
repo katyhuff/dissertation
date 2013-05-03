@@ -182,11 +182,13 @@ For the case in which Neumann is chosen, the mass transfer is purely diffusive.
   m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \frac{\partial C}{\partial z} dxdydt \nonumber
 \intertext{which, for the Cyder components, becomes }
 m_{ij} &= -D \frac{\partial C}{\partial z} 2rl(t_n - t_{n-1})\nonumber
-\intertext{where}
-\mathcal{N}_i(t_n) &= \mbox{ fixed concentration gradient from component i at }t_n [kg/m^3].\nonumber
 \end{align}
 
 \subsubsection{Boundary Conditions}
+The source term boundary condition is all mass in the available degraded fluid,
+\begin{align}
+\mathcal{S}_j(t_n &= m_{df}(t_n). 
+\end{align}
 The desired boundary conditions can be expressed in terms of $m_{df}$. First, the 
 Dirichlet boundary condition is 
 \begin{align}
