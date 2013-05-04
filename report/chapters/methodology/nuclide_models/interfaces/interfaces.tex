@@ -3,11 +3,12 @@ The interfaces between the models are essential to the understanding of the
 models themselves. The interfaces define boundary conditions in a number of 
 forms based on information available internally to the component implementation. 
 
-In a saturated, reducing environment, contaminants are transported by 
-dispersion and advection. It is customary to define the combination 
-of molecular diffusion and mechanical
-mixing as the dispersion tensor, $D$, such that the mass conservation equation 
-becomes \cite{schwartz_fundamentals_2004, wang_introduction_1982, van_genuchten_analytical_1982}:
+In a saturated, reducing environment, contaminants are transported by dispersion 
+and advection. It is customary to define the combination of molecular diffusion 
+and mechanical mixing as the dispersion tensor, $D$, such that, for a 
+conservative solute, the mass conservation equation becomes 
+\cite{schwartz_fundamentals_2004, wang_introduction_1982, 
+van_genuchten_analytical_1982}:
 
     \begin{align}
       J &= J_{dis} + J_{adv}\nonumber\\
@@ -53,7 +54,7 @@ In addition to a specified source term, the first, specified-head or Dirichlet t
 concentration on some section of the boundary of the representative volume, 
 
     \begin{align}
-      C(\vec{r},t)\Big|_{\vec{r} \in \Gamma} = C_0(t)
+      C(\vec{r},t)\Big|_{\vec{r} \in \Gamma} &= C_0(t)
       \intertext{where}
       \vec{r} &= \mbox{ position vector }\nonumber\\
       \Gamma &= \mbox{ domain boundary }.\nonumber
@@ -63,7 +64,7 @@ The second type, specified-flow or Neumann type boundary conditions describe a f
 concentration gradients at the boundary of the domain,
 
     \begin{align}
-      D\frac{\partial C(\vec{r},t)}{\partial r}\Big|_{\vec{r}\in\Gamma} &= f(t)\\
+      \frac{\partial C(\vec{r},t)}{\partial r}\Big|_{\vec{r}\in\Gamma} &= f(t)\\
       f(t) &= \mbox{ known function }.\nonumber
     \end{align}
     
