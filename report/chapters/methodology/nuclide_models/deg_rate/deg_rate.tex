@@ -25,7 +25,7 @@ d &= \mbox{ the current fraction that has been degraded }[\%]\nonumber
 \end{align}
 
 
-\subsection{Calculation of Mass Transfer}
+\subsubsection{Calculation of Mass Transfer}
 In this model, the contaminants in the degraded fraction of the control volume 
 are available to adjacent components. The available contaminants
 $m_{ij}(t)$, at the boundary between cell $i$ to cell $j$ at time $t$ are thus
@@ -50,47 +50,65 @@ $t_n$ is thus a simple linear function of the transfer rate in
 \eqref{deg_rate_source_cont}, 
 
 \begin{align}
-m_{ij}^n &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber\\
+m_{ij}(t_n) &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber\\
          &= f_i(\cdots)m_i^{n-1}\left(t_n - t_{n-1}\right).
 \label{deg_rate_source_discrete}
 \end{align}
 
-\subsection{Boundary Conditions}
-The concentration boundary condition must also be defined at the outer boundary 
-to support parent components that utilize the Dirichlet boundary condition. For 
-the degradation rate model, which incorporates no diffusion or advection, the 
-concentration, $C_{ij}$ at the boundary between cells $i$ and $j$ is the average 
-concentration in the saturated pore volume,
-
+\subsubsection{Boundary Conditions}
+\label{sec:dr_bc}
+The mass $m_{df}(t_n)$ is the source term at the outer boundary, 
 \begin{align}
-C_{ij}^n &= \frac{m_i^n}{V_{vi}}
-\label{deg_rate_dirichlet}\\
-&= \frac{\mbox{ solute mass in cell i }}{\mbox{ void volume in cell i}}.\nonumber 
+\mathcal{S}_j(t_n) &= m_{df}(t_n).
 \end{align}
-
-For the case in which all engineered barrier components are represented by 
+Thus, for the case in which all engineered barrier components are represented by 
 degradation rate models, the source term at the outermost edge will be solely
 a function of the original central source and the degradation rates of the 
 components. 
+
+The concentration boundary condition must also be defined at the outer boundary 
+to support parent components that utilize the Dirichlet boundary condition. For 
+the degradation rate model, which incorporates no diffusion or advection, the 
+concentration, $C_j$ at $r_j$, the boundary between cells $j$ and $k$, is the average 
+concentration in the saturated pore volume,
+
+\begin{align}
+\mathcal{D}_j(t_n) &= \mbox{ fixed concentration gradient from component j at }t_n [kg/m^3].\nonumber\\ 
+                   &= C_{j}(t_n)\nonumber\\ 
+                   &= C_{df}\nonumber\\
+                   &= \frac{m_{d}(t_n)}{V_{d}(t_n)}\\
+\label{deg_rate_dirichlet}\\
+&= \frac{\mbox{ solute mass in degraded fluid in cell j }}{\mbox{ degraded fluid volume in cell j}}.\nonumber 
+\intertext{where}
+\end{align}
+
+To support parent components that utilize the Neumann boundary condition, the 
+concentration gradient can be found if the concentration and the 
+radial midpoint of the external component, $k$, are specified.
+
+\begin{align}
+\mathcal{N}_j(t_n) &= \mbox{ fixed concentration gradient from component j at }t_n [kg/m^3/s]\nonumber\\
+                   &= \frac{dC}{dr}\Bigg|^{t_{n}}_{r=r_j}\nonumber\\ 
+                   &= \frac{C_k(r_{k-1/2},t_{n-1}) - C_j(r_{j-1/2}, t_n)}{r_{k-1/2} - r_{j-1/2}}
+\label{neumann_dr}
+\intertext{where}
+r_{j-1/2} &= r_{j} - \frac{r_{j} - r_i}{2}\nonumber\\
+r_{k-1/2} &= r_{k} - \frac{r_{k} - r_j}{2}.\nonumber
+\end{align}
+
 
 To support parent components that utilize the Cauchy boundary condition, the 
 degradation rate model assumes that the fluid velocity is constant across the cell 
 as is the concentration. Thus, 
 
 \begin{align}
--\theta_i D_{zz}\frac{\partial C}{\partial z}\hat{k} + \theta_iv_zC\hat{k} &= \theta_{i0} v_0 C_0\hat{k}\nonumber\\
-\theta_i &= \mbox{ porosity in cell i }[-] \nonumber\\
-D_{zz} &= \mbox{ $\hat{k}$ component diffusion tensor component in $\hat{k}$ direction }[m^2/s] \nonumber\\
-C_i &= \mbox{ concentration in cell i }[kg/m^3] \nonumber\\
-v_z &= \mbox{ velocity in $\hat{k}$ direction }[m/s] \nonumber
-\end{align}
-reduces to
-\begin{align}
-\theta_i^n v_z^n C_i^n &= \theta_i^{n-1} v_z^{n-1} C_i^{n-1}.
+\mathcal{C}_j(t_n) &= \mbox{ fixed concentration flux from component j at }t_n [kg/m^2/s]\nonumber\\
+                   &= -D\frac{\partial C(t_n)}{\partial r}\Bigg|_{r=r_j} + v_zC(t_n)\Bigg|_{r=r_j} \\
 \label{deg_rate_cauchy}
+            &= v_zC_0\nonumber
+\intertext{where}
+            C_0 &= \mbox{ a fixed concentration }[kg/m^3].\nonumber
 \end{align}
-
-
 
 %<++> &= \mbox{ <++> }[<++>] \nonumber\\
 
