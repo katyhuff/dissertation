@@ -13,7 +13,7 @@ the primary kind of boundary condition used at the source for this model.
 The conceptual model in Figure \ref{fig:1dinf} represents solute transport in 
 one dimension with unidirectional flow upward (a conservative assumption) and a 
 semi-infinite boundary condition in the positive flow direction. The solution is 
-given in van Genuchten et. al, \cite{van_genuchten_analytical_1981}) and described below.  
+given in van Genuchten et. al, \cite{van_genuchten_analytical_1981} and described below.  
 
 \begin{figure}[h!]
   \begin{center}
@@ -31,7 +31,8 @@ For the boundary conditions,
   -D \frac{\partial C}{\partial z}\big|_{z=0} + v_zc &= \begin{cases}
     v_zC_0  &  \left( 0<t<t_0 \right)\\
     0  &  \left( t>t_0 \right)\\
-  \end{cases},\\
+  \end{cases}
+\intertext{and}
   \frac{\partial C}{\partial z}\big|_{z=\infty} &= 0
   \intertext{and the initial condition,}
   C(z,0) &= C_i,
@@ -66,21 +67,22 @@ We make the simplification that, in Cyclus, radioactive decay is handled externa
 to the components, so $\mu$, the constant of decay goes to zero. Similarly, we 
 take the zero order source term, $\gamma$ to be zero, as no source term should emerge 
 without decay or external injection. Importantly, when $\mu\rightarrow 0$ then 
-$u\rightarrow v$. Simplifying $C(z,t)$ gives,
+$u\rightarrow v$. Simplifying $C(z,t)$ gives
 
 \begin{align}
 C(z,t) =& \begin{cases} 
   C_0A(z,t) + B(z,t) & 0<t\le t_0\\
   C_0A(z,t) + B(z,t) - C_0A(z,t-t_0)& t\ge t_0
   \end{cases}
+  \label{simple_genuchten}
   \end{align}
-Simplifying $A(z,t)$, 
+and simplifying $A(z,t)$ gives 
 \begin{align}
 A(z,t) =& 
 \left(\frac{1}{2}\right)\erfc{\left[\frac{Rz-ut}{2\sqrt{DRt}}\right]} \nonumber\\
 &+ \left(v\infty\right)\exp{\left[\frac{2vz}{2D}\right]}
 \intertext{which remains valid only if }
-\left[\frac{Rz+ut}{2\sqrt{DRt}}\right] \ge 2,
+\left[\frac{Rz+ut}{2\sqrt{DRt}}\right] \ge 2.
 \end{align}
 Finally, simplifying $B(z,t)$ accordingly,
 \begin{align}
@@ -97,8 +99,11 @@ The mass transfer rate relies on an algorithm similar to that of the
 LumpedNuclide model. However, the integral, by virtue of not having a closed 
 form solution, must be evaluated numerically. 
 
+A numerical integration library within the Boost suite of C++ libraries is used 
+to evaluate the integral of $C(t_n, r)$ in equation \eqref{simple_genuchten} over the volume.
 
-\subsubsection{Boundary Conditions}
+
+\subsubsection{Boundary Interfaces}
 The external boundary conditions are found exactly similarly to the method by 
 which the Degradation Rate model finds external boundary conditions in Section 
 \ref{dr_bc}. This method is entirely based on contained mass and component 
