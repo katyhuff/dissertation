@@ -1,7 +1,7 @@
 \subsection{Mixed Cell Volume Radionuclide Transport Model}\label{sec:mixed_cell}
 Slightly more complex and suited to representing waste form and buffer 
 components, the mixed cell model incorporates solubility limited, congruent 
-release under the influence of elemental solubility limits, sorption, diffusive 
+release under the influence of elemental solubility limits, sorption, dispersive 
 behavior, and advective behavior. Abstraction results concerning the 
 transition between primarily diffusive and primarily advective transport regimes 
 were used for benchmarking and to iteratively improve accuracy in the development 
@@ -175,17 +175,18 @@ r &= \mbox{ radius of the cylinder }[m]\nonumber\\
 l &= \mbox{ length of the cylinder }[m].\nonumber
 \end{align}
 
-For the case in which Neumann is chosen, the mass transfer is purely diffusive. 
+For the case in which Neumann is chosen, the mass transfer is taken to be 
+dispersive, 
 
 \begin{align}
-  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \mathcal{N}_i(t_n) dxdydt \label{mixed_adv}\\
-  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \frac{\partial C}{\partial z} dxdydt \nonumber
+  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \theta \mathcal{N}_i(t_n) dxdydt \label{mixed_adv}\\
+         &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \theta \frac{\partial C}{\partial z}\Bigg|_{z=r_j} dxdydt \nonumber
 \intertext{which, for the Cyder components, becomes }
-m_{ij} &= -D \frac{\partial C}{\partial z} 2rl(t_n - t_{n-1})\nonumber
+m_{ij} &= -D \theta \frac{\partial C}{\partial z}\Bigg|_{z=r_j} 2rl(t_n - t_{n-1}).\nonumber
 \end{align}
 
-\subsubsection{Boundary Conditions}
-The source term boundary condition is all mass in the available degraded fluid,
+\subsubsection{Boundary Interfaces}
+The source term of available contaminants is all mass in the available degraded fluid,
 \begin{align}
 \mathcal{S}_j(t_n &= m_{df}(t_n). 
 \end{align}
@@ -198,14 +199,14 @@ Dirichlet boundary condition is
 \end{align}
 
 From this boundary condition in combination with global advective velocity 
-data, porosity data,  and elemental diffusion coefficient data, all other 
+data, porosity data,  and elemental dispersion coefficient data, all other 
 boundary conditions can be found. The Neumann boundary condition generated at 
 the external boundary of cell $j$ relies on up to date data from cell $k$ and 
 on internal state data from the previous time step, such that 
 
 \begin{align}
-\mathcal{N}_j(t_n)& =-D\frac{dC(t_n)}{dr}\Bigg|_{r=r_j}\nonumber\\ 
-                  &= -D\frac{C_k(r_{k-1/2},t_{n-1}) - C_i(r_{j-1/2}, t_n)}{r_{k-1/2} - r_{j-1/2}}
+\mathcal{N}_j(t_n)& \frac{dC(t_n)}{dr}\Bigg|_{r=r_j}\nonumber\\ 
+                  &= \frac{C_k(r_{k-1/2},t_{n-1}) - C_i(r_{j-1/2}, t_n)}{r_{k-1/2} - r_{j-1/2}}
 \label{neumann_mixed}
 \intertext{where}
 r_{j-1/2} &= r_{j} - \frac{r_{j} - r_{0}}{2}.\nonumber\\
