@@ -188,13 +188,13 @@ m_{ij} &= -D \theta \frac{\partial C}{\partial z}\Bigg|_{z=r_j} 2rl(t_n - t_{n-1
 \subsubsection{Boundary Interfaces}
 The source term of available contaminants is all mass in the available degraded fluid,
 \begin{align}
-\mathcal{S}_j(t_n &= m_{df}(t_n). 
+\mathcal{S}_j(t_n) &= m_{df}(t_n). 
 \end{align}
 The desired boundary conditions can be expressed in terms of $m_{df}$. First, the 
 Dirichlet boundary condition is 
 \begin{align}
 \mathcal{D}_j(t_n) &= C_j(t_n)\nonumber\\ 
- &= \frac{m_{df}(t_n)}{V_{df}(t_n)}\forall (r) \in \Gamma.
+ &= \frac{m_{df}(t_n)}{V_{df}(t_n)}.
 \label{dirichlet_mixed}
 \end{align}
 
@@ -205,12 +205,12 @@ the external boundary of cell $j$ relies on up to date data from cell $k$ and
 on internal state data from the previous time step, such that 
 
 \begin{align}
-\mathcal{N}_j(t_n)& \frac{dC(t_n)}{dr}\Bigg|_{r=r_j}\nonumber\\ 
+\mathcal{N}_j(t_n)&= \frac{dC(t_n)}{dr}\Bigg|_{r=r_j}\nonumber\\ 
                   &= \frac{C_k(r_{k-1/2},t_{n-1}) - C_i(r_{j-1/2}, t_n)}{r_{k-1/2} - r_{j-1/2}}
 \label{neumann_mixed}
 \intertext{where}
-r_{j-1/2} &= r_{j} - \frac{r_{j} - r_{0}}{2}.\nonumber\\
-r_{k-1/2} &= r_{k} - \frac{r_{k} - r_{i}}{2}.\nonumber
+r_{j-1/2} &= r_{j} - \frac{r_{j} - r_{i}}{2}.\nonumber\\
+r_{k-1/2} &= r_{k} - \frac{r_{k} - r_{j}}{2}.\nonumber
 \end{align}
 
 This expression for the concentration gradient can also be used in the Cauchy 
