@@ -88,13 +88,13 @@ integrated over the volume to arrive at a mass change,
 \begin{align}
 m_j(t_n) &= \int_0^V \theta C(t_n, r) dV \nonumber\\
          &= \int_{r_i}^{r_j} \int_0^{2\pi} \int_0^h \theta C(t_n, r) r dr d\phi dh\nonumber \\
-         &= 2\pi h\theta \int_{r_i}^{r_j} C(t_n, r)rdr \nonumber\\
-         &= 2\pi h\theta \int_{r_i}^{r_j}\left( \frac{C_j(t_n) - C_i(t_n)}{r_j - r_i}r^2 + C_j(t_n)r \right) dr\nonumber
+         &= 2\pi l\theta \int_{r_i}^{r_j} C(t_n, r)rdr \nonumber\\
+         &= 2\pi l\theta \int_{r_i}^{r_j}\left( \frac{C_j(t_n) - C_i(t_n)}{r_j - r_i}r^2 + C_j(t_n)r \right) dr\nonumber
 \intertext{such that}
-m_j(t_n) &= 2\pi h \theta \left[ \frac{C_j(t_n) - C_i(t_n)}{3\left(r_j - r_i\right)}r^3 + C_j(t_n-1) \frac{r^2}{2}\right]_{r_i}^{r_j} \nonumber\\
-         &= 2\pi h \theta \left[ \frac{C_j(t_n) - C_i(t_n)}{3\left(r_j - r_i\right)}(r_j-r_i)^3 + C_j(t_n) \frac{(r_j-r_i)^2}{2}\right]\nonumber\\ 
-         &= 2\pi h \theta (r_j-r_i)^2 \left[ \frac{C_j(t_n) - C_i(t_n)}{3} + \frac{C_j(t_n)}{2} \right]\nonumber\\ 
-         &= 2\pi h \theta (r_j-r_i)^2 \left[ \frac{5C_j(t_n)}{6} - \frac{C_i(t_n)}{3} \right]. 
+m_j(t_n) &= 2\pi l \theta \left[ \frac{C_j(t_n) - C_i(t_n)}{3\left(r_j - r_i\right)}r^3 + C_j(t_n-1) \frac{r^2}{2}\right]_{r_i}^{r_j} \nonumber\\
+         &= 2\pi l \theta \left[ \frac{C_j(t_n) - C_i(t_n)}{3\left(r_j - r_i\right)}(r_j-r_i)^3 + C_j(t_n) \frac{(r_j-r_i)^2}{2}\right]\nonumber\\ 
+         &= 2\pi l \theta (r_j-r_i)^2 \left[ \frac{C_j(t_n) - C_i(t_n)}{3} + \frac{C_j(t_n)}{2} \right]\nonumber\\ 
+         &= 2\pi l \theta (r_j-r_i)^2 \left[ \frac{5C_j(t_n)}{6} - \frac{C_i(t_n)}{3} \right]. 
 \end{align}
 
 Using this expression for $m_j$, the necessary mass transfer from $m_i$ is 
