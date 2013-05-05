@@ -162,13 +162,13 @@ m_{ij} &=  \mathcal{S}_i(t_n) \nonumber
 For the case in which Dirichlet is used, the mass transferred is determined by 
 advection. One dimensional mass flux due to advection is the speed of flowing 
 water, $v_z$, scaled by the concentration of contaminants fixed by the Dirichlet 
-boundary condition, $C$, all integrated over the porous area perpendicular to 
+boundary condition, $C$, all integrated over the porous, degraded area perpendicular to 
 the flow, $\theta dxdy$,
 
 \begin{align}
-  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x\theta v_z \mathcal{D}_i(t_n) dxdydt \label{mixed_adv}
+  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x\theta d v_z \mathcal{D}_i(t_n) dxdydt \label{mixed_adv}
 \intertext{which, for the Cyder components, becomes }
-m_{ij} &= \theta v_z C 2rl (t_n - t_{n-1})\nonumber\\
+m_{ij} &= \theta d v_z C 2rl (t_n - t_{n-1})\nonumber\\
 \intertext{where}
 \mathcal{D}_i(t_n) &= \mbox{ fixed C from component i at }t_n [kg/m^3]\nonumber\\
 r &= \mbox{ radius of the cylinder }[m]\nonumber\\
@@ -179,10 +179,10 @@ For the case in which Neumann is chosen, the mass transfer is taken to be
 dispersive, 
 
 \begin{align}
-  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \theta \mathcal{N}_i(t_n) dxdydt \label{mixed_adv}\\
-         &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \theta \frac{\partial C}{\partial z}\Bigg|_{z=r_j} dxdydt \nonumber
+  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \theta d \mathcal{N}_i(t_n) dxdydt \label{mixed_adv}\\
+         &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \theta d \frac{\partial C}{\partial z}\Bigg|_{z=r_j} dxdydt \nonumber
 \intertext{which, for the Cyder components, becomes }
-m_{ij} &= -D \theta \frac{\partial C}{\partial z}\Bigg|_{z=r_j} 2rl(t_n - t_{n-1}).\nonumber
+m_{ij} &= -D \theta d \frac{\partial C}{\partial z}\Bigg|_{z=r_j} 2rl(t_n - t_{n-1}).\nonumber
 \end{align}
 
 \subsubsection{Boundary Interfaces}

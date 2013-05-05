@@ -31,7 +31,7 @@ are available to adjacent components. The available contaminants
 $m_{ij}(t)$, at the boundary between cell $i$ to cell $j$ at time $t$ are thus
 
 \begin{align}
-\dot{m}_{ij}(t) &= f_i(\cdots)m_i(t)
+\dot{m}_{ij}(t) &= f_im_i(t)
 \label{deg_rate_source_cont}
 \intertext{where}
 \dot{m}_{ij} &= \mbox{ the rate of mass transfer from i to j }[kg/s]\nonumber\\
@@ -51,7 +51,7 @@ $t_n$ is thus a simple linear function of the transfer rate in
 
 \begin{align}
 m_{ij}(t_n) &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber\\
-         &= f_i(\cdots)m_i^{n-1}\left(t_n - t_{n-1}\right).
+         &= f_im_i(t_{n-1})\left[t_n - t_{n-1}\right].
 \label{deg_rate_source_discrete}
 \end{align}
 
