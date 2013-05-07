@@ -3,7 +3,7 @@
 In this work, concise dominant physics thermal and radionuclide transport models 
 were developed by comparison of analytical models with more detailed repository 
 modeling tools. The result of this work is a software library capable 
-of assessing a broad combinationatoric domain of fuel cycle alternatives, potential 
+of assessing a broad combinatoric domain of fuel cycle alternatives, potential 
 engineered barriers, repository design concepts, and geologic settings. Within 
 this software library, a suite of basic capabilities have been demonstrated and 
 validated and a few advanced features are operational. 
@@ -17,11 +17,11 @@ computational performance assessment techniques.
 
 Specifically, in order to capture the current domestic option space, three 
 candidate geologic settings and four corresponding repository concepts under 
-consideration by the \gls{DOE} \gls{UFD} campaign were selected for modeling in 
+consideration by the \gls{UFD} campaign were selected for modeling in 
 this work. The three geologic environments selected were clay, granite and salt.  
 The four concepts included three enclosed, saturated, $500m$ deep horizontal 
 plane concepts in each of the three geologic settings and a fourth $5km$ deep 
-borehole concept conceived in granite basement rock.
+borehole concept conceived in crystalline basement rock.
 
 % Review of available analytical models
 % Review of available current detailed tools
@@ -29,9 +29,10 @@ borehole concept conceived in granite basement rock.
 Analytic models and detailed computational tools for repository analysis were 
 investigated and categorized within the literature review.  Of these, candidate 
 computational tools appropriate for performing abstraction and regression 
-analyses were identified. Specifically, a suite of \gls{GDSM} tools by the 
+analyses were identified. Specifically, a suite of \gls{GDSM} tools developed by
 \gls{DOE} \gls{UFD} campaign was selected to inform radionuclide transport model 
-abstraction\cite{clayton_generic_2011} and two thermal analysis codes, also from the \gls{UFD} 
+abstraction\cite{clayton_generic_2011} and two thermal analysis codes, also 
+developed by the \gls{UFD} 
 campaign, were selected to inform the thermal abstraction process 
 \cite{huff_benchmarking_2012, huff_numerical_2012, greenberg_application_2012}.
 
@@ -104,12 +105,13 @@ By varying input parameters and comparing with corresponding results from
 detailed tools, the behavior of each model on its parametric domain was 
 explored.
 
-In the \Cyder library, the resulting concise models support performance estimation 
-within components of a robust repository module. This repository module was 
-designed to be appropriate for use as a Facility within the \Cyclus fuel cycle 
-simulator. Furthermore, the robust architecture implemented within the 
-repository module allows for interchangeable loading of components and model in 
-support of simulations at various levels of fidelity.
+In the \Cyder library, the resulting concise models support performance 
+estimation within components of a robust disposal system simulation module. It 
+was designed as a dynamically loadable module appropriate to represent a 
+facility within the \Cyclus fuel cycle simulator. Furthermore, the robust 
+architecture implemented within the repository module allows for 
+interchangeable loading of components and model in support of simulations at 
+various levels of fidelity.
 
 % Abstraction in repository environment
 
