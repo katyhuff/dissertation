@@ -32,7 +32,7 @@ Results of these base cases can be found in Figures
 
 \input{./chapters/demonstration/base/dr_base_tab}
 \input{./chapters/demonstration/base/dr_base_fig}
-\clearpage
+\FloatBarrier
 
 \subsubsection{Mixed Cell Model}
 The Mixed Cell model behaves exactly similarly to the Degradation Rate 
@@ -49,7 +49,7 @@ Results of these base cases can be found in Figures \ref{fig:mcI} through
 
 \input{./chapters/demonstration/base/mc_base_tab}
 \input{./chapters/demonstration/base/mc_base_fig}
-\clearpage
+\FloatBarrier
 
 \subsubsection{Lumped Parameter Model}
 The Lumped Parameter model, with its three formulations (Exponential Model, 
@@ -63,9 +63,16 @@ full containment in cases where it is expected, simulations were run to
 investigate the impact of using various models. Results of these base cases can be found in Figures 
 \ref{fig:lpBegin} through \ref{fig:lpEnd}.
 
-%\input{./chapters/demonstration/base/lp_base_tab}
 \input{./chapters/demonstration/base/lp_base_fig}
-\clearpage
+
+The transit time that parameterizes these models could be based on radioactive 
+tracer experiments in the field. Figures \ref{fig:lp_t_t_begin} 
+\ref{fig:lp_t_t_end} demonstrate the dependence of the resulting transport on 
+transit time parameteriztion. These profiles match closely with the expected 
+analytical results demonstrated in Maloszewski and Zuber 
+\cite{zuber_lumped_1985}.
+
+\input{./chapters/demonstration/base/lp_t_t_fig}
 
 \subsubsection{One Dimensional Advective Dispersive Model}
 The One Dimensional Advective Dispersive Model contaminants if the porosity is 
@@ -80,4 +87,4 @@ Figures \ref{fig:1dI} through \ref{fig:1dIV}.
 
 %\input{./chapters/demonstration/base/1d_base_tab}
 \input{./chapters/demonstration/base/1d_base_fig}
-\clearpage
+\FloatBarrier
