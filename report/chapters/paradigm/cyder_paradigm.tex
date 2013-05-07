@@ -1,6 +1,6 @@
 \section{\textsc{Cyder} Repository Modeling Paradigm}
 
-The \Cyder repository model architecture is intended to modularly permit 
+The \Cyder disposal system simulator architecture is intended to modularly permit 
 exchange of disposal system Component models (e.g., detailed nuclide transport 
 model vs. less detailed) and data (e.g., exchange clay for granite geologic 
 data) and accept arbitrary waste stream isotopic compositions.  
@@ -11,7 +11,7 @@ interfacing functionality of the repository model.
 
 \subsection{Waste Stream Acceptance}
 
-The repository model must accept arbitrary spent fuel and high level waste 
+The disposal system simulator must accept arbitrary spent fuel and high level waste 
 streams. A waste stream is a material data object resulting from the \Cyclus 
 simulated fuel cycle.  As radionuclides are gained, lost, and transmuted within 
 the spent fuel object, a history of its isotopic composition is recorded.  It 
@@ -22,7 +22,7 @@ For waste streams that vary from each other in composition, the thermal
 capacity of the repository to receive that waste stream must therefore be 
 recalculated.  Since disposable material in most simulations of interest will 
 be of variable composition and therefore heterogeneous in heat production 
-capability, the repository model will repeatedly need to recalculate its own 
+capability, the disposal system simulator will repeatedly need to recalculate its own 
 capacity as new materials are offered.  That capacity calculation will be 
 discussed in Section \ref{sec:thermal_models}. 
 
@@ -90,7 +90,7 @@ two dimensional gridded layouts.}
 
 \subsection{Nested Components}
 
-The fundamental unit of information in the repository model is radionuclide 
+The fundamental unit of information in the disposal system simulator is radionuclide 
 contaminant presence at each stage of containment.  The repository model, in 
 this way, is fundamentally a tool to determine thermal and contaminant 
 transport evolution as a result of an arbitrary waste stream. The repository 

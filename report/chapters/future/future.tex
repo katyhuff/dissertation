@@ -13,11 +13,11 @@ campaign was noted as a primary goal.
 
 \section{Proposed Work}
 
-A repository model, integrated in the \Cyclus fuel cycle simulation platform, 
+A disposal system simulator, integrated in the \Cyclus fuel cycle simulation platform, 
 will be developed in three phases in parallel will supportive \Cyclus 
 development. A demonstration phase will implement an `empty' repository 
 structure which captures the fundamental software behavior of the subcomponents 
-and integrated repository model. A base case phase will build upon the 
+and integrated disposal system simulator. A base case phase will build upon the 
 demonstration model by implementing the fundamental physics to represent key heat 
 and radionuclide transport phenomena for simple unfractured media and canonical  
 subcomponent concepts. The final extension phase will build upon the base case 
@@ -57,9 +57,9 @@ components and  placeholder functions will be implemented in place of physics.
 
     % Dynamic loading
 
-  The demonstration will produce a complete but `empty' repository model. That 
+  The demonstration will produce a complete but `empty' disposal system simulator. That 
   is, the appropriate facility interface will be implemented on the repository 
-  scale, which allows the repository modeled to be loaded into a \Cyclus 
+  scale, which allows the repository simulator to be loaded into a \Cyclus 
   simulation. A structure of subcomponent control volumes will also be 
   implemented which can be dynamically loaded at runtime.
 
@@ -106,7 +106,7 @@ solubility ($K$,$[kg/m^3]$) coefficients for each nuclide.
   requirements defined by the \Cyclus FacilityModel interface and can be 
   dynamically loaded by the simulator. 
 
-  A first phase in the demonstration milestone will be for the repository model 
+  A first phase in the demonstration milestone will be for the disposal system simulator 
   to successfully load its subcomponent models from user input (i.e. the 
   waste form, waste package, buffer, and geology) with their corresponding 
   defining parameters. A set of parameters that may be sufficient to model the 
