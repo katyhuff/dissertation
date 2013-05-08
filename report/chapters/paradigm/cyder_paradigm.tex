@@ -52,7 +52,7 @@ pairings between commodities and waste forms.}
 \subsection{Waste Form Packaging}
 
 Waste packaging is the process of placing one or many waste forms into a 
-(typically metallic) containment package. Once the waste stream has been 
+containment package (typcially metallic). Once the waste stream has been 
 conditioned into a waste form, that waste form Component is loaded into a waste 
 package Component, also according to allowed pairs dictated by the user, as 
 depicted in Figure \ref{fig:wf_packaging}.
@@ -91,10 +91,10 @@ two dimensional gridded layouts.}
 \subsection{Nested Components}
 
 The fundamental unit of information in the disposal system simulator is radionuclide 
-contaminant presence at each stage of containment.  The repository model, in 
+contaminant presence at each stage of containment.  The disposal system simulator, in 
 this way, is fundamentally a tool to determine thermal and contaminant 
-transport evolution as a result of an arbitrary waste stream. The repository 
-model in this work conducts this calculation by  treating each containment 
+transport evolution as a result of an arbitrary waste stream. The disposal 
+system simulator in this work conducts this calculation by  treating each containment 
 Component as a nested volume in a release chain. 
 
 Each Component is defined by a Geometry, some Material Data, a ThermalModel, 
@@ -201,9 +201,9 @@ inner boundary condition of its own solution and so on.
 \subsection{Output Tables}
 \Cyder output tables utilize the \Cyclus Table class and rely on the \Cyclus 
 simulation logic to record table entries in the cyclus.sqlite output database. 
-Current \Cyder output tables include a number of tables. First, a repository 
+The current \Cyder output database includes a number of tables. First, a repository 
 parameters table, \textbf{cyder\_params}, keeps data from the user input that 
-parameterized the generic repository, for reproducibility. Similarly, a 
+parameterized the generic repository for reproducibility. Similarly, a 
 Component parameters table, \textbf{cyder\_components}, keeps data that 
 parameterized each component, both from the user input and from the \Cyder 
 procedures that position and arrange these components. An example is shown in 
