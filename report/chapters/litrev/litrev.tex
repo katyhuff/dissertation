@@ -1286,13 +1286,13 @@ The length based accounting in $\frac{t}{m}$ is converted to
 $\frac{t}{Repository}$ by multiplication with the total emplacement tunnel
 length of the repository.  In the case of Yucca Mountain, this was 67 km.
 
-\section{Detailed Computational Models of Radionuclide Transport}
+\section{Computational Models of Radionuclide Transport}
 \label{sec:detailed_radionuclide}
 
-Detailed computational models of radionuclide transport seek to quantify the 
-spatial movement of radionuclides within a repository. Such models are detailed 
+Computational models of radionuclide transport seek to quantify the 
+spatial movement of radionuclides within a repository. Many such models are detailed 
 with respect to their fine spatial and temporal resolution or with respect to 
-the incorporation and coupling of numerous physical phenomena. Current detailed 
+the incorporation and coupling of numerous physical phenomena. Current 
 computational models addressing various geologic media and emplacement 
 geometries will be reviewed here that utilize finite difference and finite 
 element methods in many dimensions, sophisticated numerical solvers, and other 
@@ -1591,12 +1591,13 @@ many dimensions or sophisticated numerical solvers, respectively.
 
 \subsection{ANL SINDA{\textbackslash}G Model}
 
-This model, created at \gls{ANL} uses the \gls{SINDAG} 
-lumped capacitance solver \cite{gaski_sinda_1987}. Originally created for optimal waste loading analysis 
-of the \gls{YMR}, the model is geometrically adjustable in two dimensions,   
-as is demonstrated in Figure \ref{fig:sindageom}. The tunnel size is a fixed 
-parameter in the model, but the optimal drift spacing for a particular waste 
-stream and package loading is solved for with an optimization loop within this 
+This model, created at \gls{ANL} uses the \gls{SINDAG} lumped capacitance
+solver \cite{gaski_sinda_1987}. This model was originally  created to evaluate
+the effects of advanced separations efficiencies on the thermal performance of
+the \gls{YMR}. It is geometrically adjustable in two dimensions,   as is
+demonstrated in Figure \ref{fig:sindageom}. The tunnel size is a fixed
+parameter in the model, but the optimal drift spacing for a particular waste
+stream and package loading is solved for with an optimization loop within this
 model.
 
 \begin{figure}[htbp!]
@@ -1610,8 +1611,8 @@ model.
 \end{figure}
 
 The \gls{SINDAG} lumped capacitance solver solves a thermal circuit, for which 
-conducting nodes may be of four types corresponding to the four modes of heat 
-transfer. Nodes are connected by conduction, convection, radiation, and mass 
+connecting nodes may be of four types corresponding to the four modes of heat 
+transfer. Nodes, treated as resistors, are connected by conduction, convection, radiation, and mass 
 flow heat transfer links. As discussed in Section \ref{sec:lumpedparam}, these 
 are represented by
 
@@ -1638,8 +1639,8 @@ parameter approximation.
 
 Given one or more heat constraints, the \gls{ANL}  model  optimizes 
 spatial waste loading in order to meet those constraints with maximal waste 
-loading. For example, given a constraint at the edge of the waste package, the 
-model utilizes the \gls{SINDAG} lumped capacitance solver to determine the two 
+loading. For example, given a thermal limit at the edge of the waste package, the 
+model utilizes the \gls{SINDAG} solver to determine the two 
 dimensional heat evolution of the repository as a result of a given waste package 
 composition for various drift spacings and arrives at an ideal drift spacing by 
 iteration.

@@ -1,6 +1,7 @@
 % LLNL
 The semi-analytic model, created at \gls{LLNL} for the \gls{UFD} campaign seeks to 
-inform heat limited waste capacity calculations for each lithology, for many 
+inform heat limited waste capacity calculations for a range of potential host 
+media and for many 
 waste package loading densities, and for many fuel cycle options 
 \cite{hardin_generic_2011, greenberg_investigations_2012, 
 greenberg_application_2012}. It employs an analytic model from Carslaw and 
@@ -12,9 +13,9 @@ superposition of integral solutions.
 
 The model consists of two conceptual regions, an external region representing 
 the host rock and an internal region representing the waste form, package, and 
-\gls{EBS} within the disposal tunnel wall. The first region is taken to be  
+\gls{EBS} within the excavated disposal tunnel radius. The first region is taken to be  
 a transient calculation unit.  Since the thermal mass of the \gls{EBS} is small 
-in comparison to the thermal mass of the host rock, the internal region may be 
+in comparison to the thermal mass of the host rock, the internal region is   
 treated as quasi-steady state. The transient state of the temperature at the 
 calculation radius is found with a convolution of the transient external 
 solution with the steady state internal solution.  The process is then iterated 
@@ -32,8 +33,8 @@ the lifetime of the repository.
   \label{fig:llnl}
 \end{figure}
 
-The geometric layout of the semi-analytic \gls{LLNL} model in Figure \ref{fig:llnl} 
-shows  that the central package is represented by the finite line solution
+Figure \ref{fig:llnl} shows the geometric layout of the semi-analytic \gls{LLNL} model 
+in which the central package is represented by the finite line solution
 \begin{align}
   T_{line}(t,x,y,z) &= \frac{1}{8\pi K_{th}} 
   \bigintsss_0^t\!\frac{q_L(t')}{t-t'}e^{ \frac{-\left(x^2 + z^2\right)}{4\alpha_{th} 
@@ -59,6 +60,6 @@ shows  that the central package is represented by the finite line solution
   \intertext{and}
   q_L(t) &= ~~\mbox{linear heat source} [W\cdot m^{-1}]\nonumber
 \end{align}
-Superimposed point and line source solutions allow for a notion of the 
-repository layout to be modeled in the host rock.
+Superimposed point and line source solutions flexibly accommodate various
+repository layouts.
 
