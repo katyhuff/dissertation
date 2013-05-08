@@ -629,7 +629,7 @@ Importantly, the rate is often assumed to be slower in reducing environments tha
 oxidizing ones\cite{swift_applying_2010}.
 
 In either case, radionuclide release is often modeled as congruent with the 
-flowthrough water at a fractional degradation rate until the waste form is 
+water at a fractional degradation rate until the waste form is 
 completely degraded \cite{ahn_environmental_2004, ahn_environmental_2007}.
 
 If congruent release neglects transport retarding factors such as solubility 
@@ -669,7 +669,7 @@ for this model, and elements with a solubility of less than $~5\times 10^{-2}
 such as Th and Ra for an oxidizing, unsaturated environment similar to \gls{YMR}.
 It should be noted that in a reducing environment, the actinides are not as mobile, 
 and the high and low solubility radionuclides will differ from this model.
-This model suggests that dissolution of radionuclides into the flowthrough water 
+This model suggests that dissolution of radionuclides into the water 
 is dominated by diffusion, which is largely dependent upon the concentration 
 gradient between the waste matrix and the water. The mass balance driving 
 radionuclide release takes the form:
@@ -685,14 +685,14 @@ package length, respectively. $D_e$ is the effective diffusion coefficient
 
 \subsubsection{Flow Assumptions}
 
-Water flowthrough heavily affects the waste 
+Water heavily affects the waste 
 form degradation rate and is treated differently in various models. While some 
 (`flowthrough models') assume water moves through the waste packages at 
 a constant volumetric rate, others adopt less conservative 
 assumptions incorporating weather based predictions of hydrologic activity 
 \cite{ahn_environmental_2007}.
 
-In common flowthrough models, the water flow begins at 
+In \cite{ahn_environmental_2007}, the water flow begins at 
 one waste package and travels through the matrix and buffer space to the next 
 waste package, contacting each waste package consecutively and then flowing on 
 into the near field. In this way, the water is increasingly contaminated as its 
@@ -705,7 +705,7 @@ path through the waste packages proceeds.
 
 Waste package failure modes vary between models. While some employ detailed 
 computational tools such as GoldSim or EBSFAIL (a part of the EBSPAC module 
-used in the TSPA code), which will be discussed in Section 
+used in the \gls{TSPA} code), which will be discussed in Section 
 \ref{sec:detailed_radionuclide}, some 
 analytic models incorporate their own hydrologic approximations of
 canister degradation or make simpler assumptions of immediate waste canister 
@@ -745,7 +745,7 @@ be represented more realistically by fractional destruction according to
 experimentally observed corrosion and dissolution rate functions.
 
 However, this can be complicated to model even if the data exists. In
-particular, the corrosion rate will depend dramatically on the chosen material 
+particular, the corrosion rate will depend on the chosen material 
 as well as hydrologic and thermal conditions. Specifically, corrosion rates for 
 the same material are very different under dry oxidizing conditions and wet 
 reducing conditions. 
@@ -863,13 +863,14 @@ the secondary \gls{EBS}, radionuclides reach the geologic medium.
 
 Radionuclide transport through the \gls{EBS} and host rock is driven by 
 diffusion as well as advection. Radionuclide transport is retarded by sorption, 
-limited by solubility, and enhanced by colloidal mobility 
+limited by solubility, and possibly enhanced by colloidal mobility 
 \cite{bracke_safety_2008}. 
 
 \subsubsection{Barrier Dissolution and Failure}
 
 The same models of waste package failure (instantaneous, rate based, and 
-probabilistic) can be applied to buffers. While concretes are expected to 
+probabilistic) can be applied to secondary engineered barriers (i.e., buffer 
+materials). While concretes are expected to 
 degrade over time, bentonite buffers are quite stable in a reducing 
 environment and help to keep the environment reducing. Furthermore, if 
 preserved by a low heat environment, plastically deforming bentonite
@@ -904,7 +905,8 @@ also depends on these factors as well as the hydrology of the rock which sets
 the boundary condition.
 
 
-Fundamentally, the effect of these flows on mass transport is captured by the 
+Fundamentally, the effect of these flows on mass transport through a 
+representative control volume is captured by the 
 conceptual expression 
 
 \begin{align}
@@ -1008,9 +1010,9 @@ Sorption includes both absorption and adsorption. Absorption is the
 incorporation of a substance of one state into another of a different state.
 Adsorption is the interaction of a dissolved species with a surface that
 removes that species from the dissolving medium models. During sorption, 
-contaminants are removed from the flowthrough water and taken up by the 
-walls of pores or fractures in the rock matrix.  Importantly, sorption is a 
-reversible process, the  counter process of which is desorption in which the 
+contaminants are removed from the water and taken up by the 
+walls of pores or fractures in the rock matrix.  The process that is the reverse 
+of sorption is desorption in which the 
 contaminant is returned to the pore or fracture fluid from the matrix
 \cite{ahn_mass_1988} . Reversible sorption is typically expressed in terms 
 the mass of a radionuclide sorbed into the rock and the mass left in solution. 
@@ -1035,7 +1037,7 @@ reversible reaction,
 \end{align}
 
 Finally, a phenomenon called colloidal mobility can enhance radionuclide 
-transport. Mineral colloids, which are suspended molecular solids within a liquid 
+transport in some geologic media. Mineral colloids, which are suspended molecular solids within a liquid 
 emulsion, are expected in the solution saturating the geologic environment.
 Colloids present in the near field dissolving solution have an effect on the
 mobility of radionuclides. Studies addressing the subtle differences between 
@@ -1073,7 +1075,8 @@ For unidirectional flow, the unidirectional dispersion tensor gives
   \label{unidirflow}
 \end{align}
 
-A special case of uniform flow, no flow, simplifies to the diffusion equation,
+In the case of no flow, equation \eqref{unidirflow} simplifies to the diffusion 
+equation,
 \begin{align}
   D_x \frac{\partial^2 C}{\partial x^2} +
   D_y \frac{\partial^2 C}{\partial y^2} +
@@ -1118,7 +1121,7 @@ heat-based waste loading and repository capacity.  This requires a model which a
 transport through the repository as a function of spatial repository layout, 
 waste stream decay heat, and heat transfer properties of the engineered barrier  
 system and host rock geology. This model must sufficiently solve for peak temperatures 
-at heat limited locations, which are in most cases at the waste package 
+at locations where thermal constraints are considered, which are in most cases at the waste package 
 interface with the buffer material and the buffer material interface with the 
 geology. These heat limits were discussed in Section 
 \ref{sec:claythermal}. 
@@ -1147,10 +1150,10 @@ equation can be expressed
   \intertext{which with no heat source becomes the transient Fourier equation,}
   \nabla^2T  = \frac{1}{\alpha_{th}}\frac{\partial T}{\partial t},
   \label{transfourier}
-  \intertext{or to the Laplace equation in steady state,}
+  \intertext{or which becomes the Laplace equation in steady state,}
   \nabla^2T = 0.
   \label{laplace}
-  \intertext{Replacing the source gives the steady state Poisson equation,}
+  \intertext{At steady state, the conduction equation becomes the Poisson equation,}
   \nabla^2T + \frac{q'''}{k} = 0.
   \label{poisson}
 \end{align}
@@ -1284,13 +1287,13 @@ about isotopic composition of the SNF, the Specific Temperature Increase can
 determine the maximum thermal capacity of the repository in terms of tonnes/m.
 The length based accounting in $\frac{t}{m}$ is converted to
 $\frac{t}{Repository}$ by multiplication with the total emplacement tunnel
-length of the repository.  In the case of Yucca Mountain, this was 67 km.
+length of the repository. 
 
 \section{Computational Models of Radionuclide Transport}
 \label{sec:detailed_radionuclide}
 
 Computational models of radionuclide transport seek to quantify the 
-spatial movement of radionuclides within a repository. Many such models are detailed 
+spatial and temporal movement of radionuclides within a repository. Many such models are detailed 
 with respect to their fine spatial and temporal resolution or with respect to 
 the incorporation and coupling of numerous physical phenomena. Current 
 computational models addressing various geologic media and emplacement 
@@ -1323,20 +1326,17 @@ The studied concepts are listed in table \ref{tab:red}.
 
 %%%%%%%%%%%%%%%% Detailed Radionuclide Transport %%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{UFD Generic Performance Assessment Model}
+\subsection{UFD Generic Disposal System Models}
 
-The \gls{UFD} campaign has produced a \acrlong{GPAM} for analysis of various 
+The \gls{UFD} campaign has produced a suite of tools for analysis of various 
 geologic disposal environments. 
 Teams from \acrlong{ANL}, \acrlong{LBNL}, \acrlong{LANL}, and \acrlong{SNL} have 
 developed
 models of generic clay, granite, and salt disposal environments respectively. Sandia is
 simultaneously constructing a deep borehole disposal system model in crystalline 
-rock. Each generic disposal system model will perform detailed calculations of 
+rock. Each generic disposal system model performs detailed calculations of 
 radionuclide transport within its respective geology 
-\cite{clayton_generic_2011}. A 2012 goal of the 
-project includes an overarching generic model that incorporates the various 
-geologically distinct submodels in order to provide a fully generic repository 
-model. This overarching \gls{GPAM} work will be used in this effort.
+\cite{clayton_generic_2011}. 
 
 The radionuclide transport calculations for the geologically distinct models 
 are performed within the GoldSim simulation platform. GoldSim is a commercial 
@@ -1347,13 +1347,7 @@ evolution of the repository \cite{clayton_generic_2011}.
 
 Cells within GoldSim represent components of the waste disposal system and
 are linked by diffusive, advective, precipitated, direct, or  otherwise filtered
-mass transfer links. 
-
-Thermal modeling for the \glspl{GDSM} are conducted independently with 
-associated codes capable of modeling thermal evolution for all geologic 
-environments.  For example, one thermal model is being created using the \gls{SINDAG} heat
-transport solver and another is under development at \gls{LLNL} that utilizes 
-a combination of MathCAD and Excel. 
+mass transfer links and pipes. 
 
 \subsubsection{Clay/Shale GDSM}
 
@@ -1377,14 +1371,14 @@ case, while the other is a fast pathway simulating a disturbed case
 
 \subsubsection{Granite GDSM}
 
-\gls{LANL} and \gls{SNL} have created a model of the granite repository concept  
+\gls{LANL} has created a model of the granite repository concept  
 in a saturated, reducing environment.
 
 Waste form degradation is modeled as a constant, fractional rate to represent 
 dissolution for both canonical borosilicate glass and commercial used fuel 
 waste forms.  
 
-Though waste package failure is conservatively assumed to be instantaneous,
+Though waste package failure is assumed to be instantaneous,
 waste package release into the near field is solubility limited as is the near 
 field to far field interface. 
 
@@ -1496,7 +1490,7 @@ in its damaged state immediately after excavation and forever thereafter.
 This model only tracks 15 radionuclides of importance.  These are chosen to be those
 with half lives over 1000 years and most toxicity or mobility
 \cite{andra_argile:_2005}. The behavior of radionuclides in 
-glass vitrification forms can be summarized by categorizing them into mobile,
+glass vitrification forms are categorized into mobile,
 intermediate, and well retained elements. 
 
 Some specific codes and the method with which they were used in the \gls{ANDRA} 
@@ -1555,11 +1549,6 @@ and advection is modeled, but is negligible.
 %permeability value is not included in calculations for the normal evolution 
 %scenario, but it is taken into account in the altered evolution scenarios 
 %because of its greater influence.  
-
-Tools used in the ALLIANCES software platform include Castem, PorFlow and Trace
-for hydraulic calculations and radionuclide transport and Prediver and Colonbo for
-waste package failure.
-
 
 
 %\subsection{SKB Model} 
