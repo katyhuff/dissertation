@@ -81,15 +81,17 @@ and simplifying $A(z,t)$ gives
 A(z,t) =& 
 \left(\frac{1}{2}\right)\erfc{\left[\frac{Rz-vt}{2\sqrt{DRt}}\right]} \nonumber\\
 &+ \left(v\infty\right)\exp{\left[\frac{2vz}{2D}\right]}\erfc{ \left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}
-\intertext{which remains valid only if }
-\left[\frac{Rz+vt}{2\sqrt{DRt}}\right] \ge 2.
+\intertext{which remains valid at long distances and times, when }
+\left[\frac{Rz+vt}{2\sqrt{DRt}}\right] >> 2
+\intertext{such that}
+A(z,t) =& 
+\left(\frac{1}{2}\right)\erfc{\left[\frac{Rz-vt}{2\sqrt{DRt}}\right]} \\
 \end{align}
 Finally, simplifying $B(z,t)$ accordingly,
 \begin{align}
 B(z,t) =& 
 \left(- C_i\right)\Bigg\{ \frac{1}{2}\erfc{\left[\frac{Rz - vt}{2\sqrt{DRt}}\right]}\nonumber\\
-&+ \left(\frac{v^2t}{\pi RD}\right)^{1/2}\exp{\left[-\frac{(Rz-vt)^2}{4DRt}\right]}\nonumber\\ 
-&- \frac{1}{2} \left(1+\frac{vz}{D} + \frac{v^2t}{DR}\right) \exp{\left[\frac{vz}{D}\right]}\erfc{\left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}\Bigg\}.
+&+ \left(\frac{v^2t}{\pi RD}\right)^{1/2}\exp{\left[-\frac{(Rz-vt)^2}{4DRt}\right]}\Bigg\}.
   \label{simple_genuchten}
 \end{align}
 
