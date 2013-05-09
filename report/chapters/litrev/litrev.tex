@@ -601,7 +601,8 @@ term waste form material behavior, however, waste form degradation is often
 modeled as a purely rate based model,
 
 \begin{align}
-  V_{wf}(t) = V_{wf}(0)\left(1 - \int_0^t f(\cdots)dt\right).
+  V_i(t) &= V_i(0)\left(1 - \int_0^t f(\cdots)dt\right)\\
+         &= \mbox{intact waste form volume }[m^3]\nonumber\\
   \label{wfdegrate}
 \end{align}
 
@@ -613,7 +614,7 @@ immediately, and therefore degradation will not begin until the onset of water
 contact,
 
 \begin{align}
-  V_{wf}(t) &= V_{wf}(0)\left(1 - \int_0^t f(\cdots)H(t-t_{wpf})dt\right).
+  V_i(t) &= V_i(0)\left(1 - \int_0^t f(\cdots)H(t-t_{wpf})dt\right).
   \intertext{where}
   t_{wpf} &=\mbox{time of waste package failure}\nonumber\\
   H(t-t_{wpf}) & = \mbox{Heaviside step function}\nonumber\\
