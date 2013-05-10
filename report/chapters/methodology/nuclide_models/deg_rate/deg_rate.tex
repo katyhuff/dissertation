@@ -1,7 +1,7 @@
 \subsection{Degradation Rate Radionuclide Transport Model}\label{sec:deg_rate}
 The degradation rate model, simulating the fractional degradation of the 
 material containment properties, is the simplest of implemented models and is most 
-appropriate for simplistic waste package failure or waste form degradation modeling. The fundamental 
+appropriate for simplistic modeling of a degrading barrier volume. The fundamental 
 concept is depicted in Figure \ref{fig:deg_volumes}.
 
 \input{./chapters/methodology/nuclide_models/deg_rate/deg_volumes}
@@ -57,16 +57,11 @@ m_{ij}(t_n) &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber\\
 
 \subsubsection{Boundary Interfaces}
 \label{sec:dr_bc}
-The mass $m_{df}(t_n)$ is the source term at the outer boundary, 
+The mass $m_{f}(t_n)$ is the source term at the outer boundary, 
 \begin{align}
-  \mathcal{S}_j(t_n) &= \mbox{ fixed source term flux at }r_j [kg]\nonumber\\ 
-                     &= m_{df}(t_n).
+  \mathcal{S}_j(t_n) &= \mbox{ fixed source term at }r_j [kg]\nonumber\\ 
+                     &= m_{f}(t_n).
 \end{align}
-Thus, for the case in which all engineered barrier components are represented by 
-degradation rate models, the source term at the outermost edge will be solely
-a function of the original central source and the degradation rates of the 
-components. 
-
 The concentration boundary condition must also be defined at the outer boundary 
 to support parent components that utilize the Dirichlet boundary condition. For 
 the degradation rate model, which incorporates no diffusion or advection, the 
@@ -105,9 +100,6 @@ as is the concentration. Thus,
 \mathcal{C}_j(t_n) &= \mbox{ fixed concentration flux from component j at }t_n [kg/m^2/s]\nonumber\\
                    &= -D\frac{\partial C(t_n)}{\partial r}\Bigg|_{r=r_j} + v_zC(t_n)\Bigg|_{r=r_j} \\
 \label{deg_rate_cauchy}
-            &= v_zC_0\nonumber
-\intertext{where}
-            C_0 &= \mbox{ a fixed concentration }[kg/m^3].\nonumber
 \end{align}
 
 %<++> &= \mbox{ <++> }[<++>] \nonumber\\
