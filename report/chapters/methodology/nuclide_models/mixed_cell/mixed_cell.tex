@@ -1,6 +1,5 @@
 \subsection{Mixed Cell Volume Radionuclide Transport Model}\label{sec:mixed_cell}
-Slightly more complex and suited to representing waste form and buffer 
-components, the mixed cell model incorporates solubility limited, congruent 
+Slightly more complex, the mixed cell model incorporates solubility limited, congruent 
 release under the influence of elemental solubility limits, sorption, dispersive 
 behavior, and advective behavior. Abstraction results concerning the 
 transition between primarily diffusive and primarily advective transport regimes 
@@ -24,14 +23,12 @@ pore fluid volumes,
 V_d(t_n) &= \mbox{ degraded volume at time }t_n [m^3]\nonumber\\
           &= V_{df}(t_n) + V_{ds}(t_n)
 \intertext{where}
-V_{df}(t_n) &= \mbox{ degraded solid volume at time }t_n[m^3]\nonumber\\
+V_{df}(t_n) &= \mbox{ degraded fluid volume at time }t_n[m^3]\nonumber\\
        &= \theta V_d(t_n)\\
        &= \theta d(t_n) V_T
-\intertext{and}
-d(t_n) &= \int_{t_0}^{t_n} f(\cdots)dt
 \end{align}
 \begin{align}
-V_{ds}(t_n) &= \mbox{ degraded fluid volume at time }t_n [m^3]\nonumber\\
+V_{ds}(t_n) &= \mbox{ degraded solid volume at time }t_n [m^3]\nonumber\\
        &= (1-\theta) V_d(t_n)\\
        &= (1-\theta) d(t_n) V_T
 \end{align}
@@ -63,12 +60,13 @@ C_{is} &= \frac{m_{is}}{V_{is}}.  \label{c_is}
 The contaminant mass in the degraded fluid is the contaminant mass that is 
 treated as 'released' or available to adjacent components. Mass contributions 
 from adjacent cells are calculated at each time step and redistributed across 
-the cell. This distribution of contaminant mass is restricted, however, by both 
-solubility limitation and sorption.  
+the cell. This distribution of contaminant mass is restricted, however,
+by dissolved concentration (often called solubility) limits
+and sorption.  
 
 \subsubsection{Sorption}
 
-The mass in both the free fluid and in the intact matrix exists in both 
+The mass in both the free fluid and in the intact volume, $V_i$, exists in both 
 sorbed and non-sorbed phases. The relationship between the sorbed mass 
 concentration in the solid phase (e.g. the pore walls),
 
@@ -133,11 +131,10 @@ m_{df} &= \frac{d^2 m_T\theta V_T}{dK_d(1-\theta)V_T}\left( \frac{1}{1+\frac{\th
 In addition to engineered barriers, contaminant transport is constrained by the 
 elemental solubility limit \cite{hedin_integrated_2002}, 
     \begin{align}
-      m_i &\leq V_w C_{sol,i}
+      m_{df,i} &\leq V_w C_{sol,i}
     \intertext{where}
-      m_i &= \mbox{ solubility limited mass of isotope i in volume }V_w [kg]\nonumber\\ 
-      V_w &= \mbox{ volume of the solution }[m^3]\nonumber\\
-      C_{sol,i} &= \mbox{ solubility limit, the maximum concentration of i }[kg/m^3].\nonumber
+      m_{df,i} &= \mbox{ solubility limited mass of isotope i in volume }V_{df} [kg]\nonumber\\ 
+      C_{sol,i} &= \mbox{ the maximum dissolved concentration limit of i }[kg/m^3].\nonumber
     \end{align}
 
 

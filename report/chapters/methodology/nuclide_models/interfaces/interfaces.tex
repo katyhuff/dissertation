@@ -3,10 +3,10 @@ The interfaces between the models are essential to the understanding of the
 models themselves. The interfaces define boundary conditions in a number of 
 forms based on information available internally to the component implementation. 
 
-In a saturated, reducing environment, contaminants are transported by dispersion 
+In groundwater transport, contaminants are transported by dispersion 
 and advection. It is customary to define the combination of molecular diffusion 
 and mechanical mixing as the dispersion tensor, $D$, such that, for a 
-conservative solute, the mass conservation equation becomes 
+conservative solute (infinitely soluble and non-sorbing), the mass conservation equation becomes 
 \cite{schwartz_fundamentals_2004, wang_introduction_1982, 
 van_genuchten_analytical_1982}:
 
@@ -27,7 +27,7 @@ van_genuchten_analytical_1982}:
       J_{dis} &= \mbox{ Total Dispersive Mass Flux }[kg/m^2/s]\nonumber\\
       J_{adv} &= \mbox{ Advective Mass Flux }[kg/m^2/s]\nonumber\\
       \tau &= \mbox{ Tortuosity }[-] \nonumber\\
-      \theta &= \mbox{ Porosity }[\%] \nonumber\\
+      \theta &= \mbox{ Porosity }[-] \nonumber\\
       D_m &= \mbox{ Molecular diffusion coefficient }[m^2/s]\nonumber\\
       D_{mdis} &= \mbox{ Coefficient of mechanical dispersivity}[m^2/s]\nonumber\\
       D &= \mbox{ Effective Dispersion Coefficient }[m^2/s]\nonumber\\
@@ -50,7 +50,7 @@ those boundary conditions serve as the interfaces between components in the
     \label{fig:flow}
   \end{figure}
 
-In addition to a specified source term, the first, specified-head or Dirichlet type boundary conditions define a specified species 
+The first, specified-concentration or Dirichlet type boundary conditions define a specified species 
 concentration on some section of the boundary of the representative volume, 
 
     \begin{align}
