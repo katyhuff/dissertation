@@ -762,13 +762,14 @@ temperature $T$, and other physical parameters.
 \end{align}
 
 \subsubsection{Degradation Rate Based}
-If it can be estimated, a fractional degradation rate can be used for waste 
-package degradation as it was in the waste form case,
+Rather than a discrete model, in which barriers fail completely at a collective 
+rate, a fractional degradation rate per barrier can be used. For this type of 
+model, the intact volume decreases at a fractional rate,
 
 \begin{align}
-  V_{wp}(t) &= V_{wp}(0)(1 - \int_0^t f(\cdots)dt)
+  V_i(t) &= V_i(0)(1 - \int_0^t f(\cdots)dt)
   \intertext{which, for a constant rate, becomes}
-  V_{wp}(t) &= V_{wp}(0)(1 - t).
+  V_i(t) &= V_i(0)(1 - t).
   \label{wfdegrate}
 \end{align}
 
