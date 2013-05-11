@@ -9,8 +9,8 @@ The problem design includes :
 \begin{itemize}
 \item{A source facility providing one waste stream per timestep}
 \item{An initial capacity of 5 1kg waste streams}
-\item{A waste form Component} 
-\item{A waste package Component}
+\item{Waste form Components each accepting 1 waste stream} 
+\item{Corresponding waste package Components, one per waste form}
 \item{A buffer Component}
 \item{A far field Component}
 \end{itemize}
@@ -19,12 +19,12 @@ The problem design includes :
 The Degradation Rate model should not release contaminants if the degradation 
 rate is 0. If the degradation rate is nonzero, however, contaminants should 
 become available immediately to the adjacent components, traveling quickly 
-accross the interfaces. 
+across the interfaces. 
 
 To observe these behaviors, four simulations were run to demonstrate that total 
-containment resulted from a degradation rate of 0 and that conrguent release 
+containment resulted from a degradation rate of 0 and that congruent release 
 resulted from nonzero degradation rates. A description of these verification 
-cases can be found in Table \ref{tab:lp_base}. The 0 degradation rate component was 
+cases can be found in Table \ref{tab:dr_base}. The 0 degradation rate component was 
 different for each of the four cases. This resulted in total containment at the 
 Waste Form, Waste Package, Buffer, and Far Field interfaces respectively. 
 Results of these base cases can be found in Figures 
@@ -35,19 +35,19 @@ Results of these base cases can be found in Figures
 \FloatBarrier
 
 \subsubsection{Mixed Cell Model}
-The Mixed Cell model behaves exactly similarly to the Degradation Rate 
-model, when sorption and solubility limitation in that model are disabled. When they are 
+The Mixed Cell model behaves similarly to the Degradation Rate 
+model, when sorption and solubility limitation in that model are disabled (as 
+in Figures \ref{fig:mcI} through \ref{fig:mcIff0}. When they are 
 enabled, however, expected to demonstrate sorption limited and solubility 
-limited transport. The extent to which sorption and solubility limitation meet 
+limited transport as in Figures \ref{fig:mcIIIall} through \ref{fig:mcII}. The extent to which sorption and solubility limitation meet 
 expectations is addressed in this base case.
 
-Dual and single parameter verification cases were run to explore the effects of sorption and 
-solubility limitation both separately and together. A description of these verification 
-cases can be found in Table \ref{tab:mc_base}. 
-Results of these base cases can be found in Figures \ref{fig:mcI} through 
-\ref{fig:mcII}.
+Dual and single parameter verification cases were run to explore the effects of 
+sorption and solubility limitation both separately and together.  Results from 
+two of these base cases can be found in Figures \ref{fig:mcI} through 
+\ref{fig:mcII}. The transport method between mixed cell components was the 
+source term method, for speed and clarity of result accuracy.
 
-\input{./chapters/demonstration/base/mc_base_tab}
 \input{./chapters/demonstration/base/mc_base_fig}
 \FloatBarrier
 
@@ -67,24 +67,39 @@ investigate the impact of using various models. Results of these base cases can 
 
 The transit time that parameterizes these models could be based on radioactive 
 tracer experiments in the field. Figures \ref{fig:lp_t_t_begin} 
-\ref{fig:lp_t_t_end} demonstrate the dependence of the resulting transport on 
+and \ref{fig:lp_t_t_end} demonstrate the dependence of the resulting transport on 
 transit time parameteriztion. These profiles match closely with the expected 
 analytical results demonstrated in Maloszewski and Zuber 
-\cite{zuber_lumped_1985}.
+\cite{maloszewski_lumped_1996}.
 
 \input{./chapters/demonstration/base/lp_t_t_fig}
 
-\subsubsection{One Dimensional Advective Dispersive Model}
-The One Dimensional Advective Dispersive Model contaminants if the porosity is 
+\subsubsection{One Dimensional Permeable Porous Medium Model}
+The One Dimensional PPM Model does not release contaminants if the porosity is 
 zero or if both the reference diffusivity and advective velocity are zero. 
 Else, however, contaminants are expected to  become available to the adjacent 
-components according to the analytical form of the solution.
+components according to the analytical form of the solution. The solution is 
+only valid for advection and dispersion values within a realistic range, and 
+the model accordingly can only be demonstrated for a very slow transport case. 
+
+Issues with floating point representable rational numbers, conversion, and 
+rounding within the treatment of material objects in the \Cyclus simulator 
+were encountered with this model. Crudely handled tolerances in the \Cyclus simulator 
+caused difficulty tracking and conserving very small quantites  in the \Cyder 
+library.
+
+A number of efforts to improve these results are forthcoming, including a 
+refactoring of the treatment of tolerances within \Cyclus as well as a 
+refactoring of the treatment of timesteps within \Cyder. Specifically, 
+calculations in \Cyder will be conducted over longer timescales than the native 
+month-long timescale of \Cyclus timesteps, somewhat alleviating the need to 
+track many miniscule material objects. 
 
 To observe the behavior of the solution and to demonstrate full containment in 
-cases where it is expected, simulations were run according to the descriptions 
-in Table \ref{tab:1d_base}.  Results of these base cases can be found in 
-Figures \ref{fig:1dI} through \ref{fig:1dIV}.  
+cases where it is expected, simulations were run. An example simulation, with 
+reference dispersion coefficient at $1\times 10^{-12}[m/s^2]$ and advective 
+velocity of $1\times 10^{-15}$ as well as an initial loading of one million kg 
+per waste form (to overwhelm numerical issues) is shown in Figure \ref{fig:1dppmall}.  
 
-%\input{./chapters/demonstration/base/1d_base_tab}
 \input{./chapters/demonstration/base/1d_base_fig}
 \FloatBarrier

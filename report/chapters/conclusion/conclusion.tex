@@ -13,18 +13,20 @@ In this work, key conceptual components and modeling methods for geologic
 radioactive waste disposal were identified as part of a literature review, 
 dominant physics of thermal and radionuclide transport were identified by 
 conducting sensitivity analyses with detailed codes. Accordingly, a basic set 
-of abstracted models were developed and implement within the \Cyder code. 
-\Cyder, in turn was developed for integrated, dynamic analysis within the 
-\Cyclus next generation fuel cycle simulator. 
+of abstracted models were developed and implemented within the \Cyder code. 
 
-A set of basic capabilities within the \Cyder library have been developed and
-validated and an assortment of advanced features and data are functional.
-The \Cyder source code in which these models are implemented as well as 
-associated documentation are freely available to interested researchers and 
-potential model developers. The application programming interface to this 
-software library is intentionally general, facilitating the incorporation of 
-the models presented here within external software tools in need of a 
-multicomponent disposal system simulator. 
+A set of basic capabilities within the \Cyder library have been developed and 
+validated and an assortment of advanced features, data, testing, and plotting 
+capabilities are functional.  The \Cyder source code in which these models are 
+implemented  is made freely available to interested researchers and potential 
+model developers \cite{huff_cyder_2013}. In addition to the source code and 
+supporting publications, the \Cyder code is well commented and produces 
+clickable, browsable automated documentation with each build. That 
+documentation is also available online.
+
+The application programming interface to this software library is intentionally 
+general, facilitating the incorporation of the models presented here within 
+external software tools in need of a multicomponent disposal system simulator. 
 
 Furthermore, this work contributes to an expanding ecosystem of computational 
 models available for use with the Cyclus fuel cycle simulator. This hydrologic 
@@ -38,9 +40,30 @@ development efforts will likely be led by developer use cases, but are likely
 to include a number of advanced features that have the potential to extend the 
 capabilities of this tool in significant ways. 
 
+Initially, improvements in the numerical robustness of the material tracking 
+capability in \Cyclus will be pursued in the short term. This effort will 
+support the unique needs of repository analyses to transport very small 
+material on long time scales.  
+
+Further validation of these models should include full benchmarks against the 
+\gls{GDSM} results including biosphere conversion of the released source term. 
+Furthermore, thermal benchmarks against recent \gls{UFD} work for various 
+design concepts woudl similarly improve the understanding of the range of 
+validity for the thermal model. 
+
+Thermal analysis in these results have been used to assess thermal performace 
+of a repository after emplacement. However, dynamic, thermal capacity limited 
+fuel cycle analyses concerning the variation of necessary cooling times among 
+repository concepts and fuel cycles should be conducted using the capacity 
+determination capability arrived at with this model.  
+
 One such feature may be the incorporation of fracture enabled transport in a 
 radionuclide transport model may benefit analyses of geologic host media such as 
 granite which exhibit significant cracking. Similarly, incorporation of a 
 biosphere model in the far field would substantively benefit the calculation of 
 fuel cycle metrics related to human and environmental effects and will support 
 myriad expected use cases of the tool.
+
+Additional radionuclide transport models, thermal transport models, and 
+supporting data will enrich the capabilities of this code. 
+
