@@ -7,11 +7,11 @@
 \documentclass[9pt]{beamer}
 \usetheme[white]{Wisconsin}
 %\title[short title]{long title}
-\title[ Thesis Defense ]{ An Integrated Used Fuel Disposition and Generic Repository Model for Fuel Cycle Analysis }
+\title[  ]{ An Integrated Used Fuel Disposition and Generic Repository Model for Fuel Cycle Analysis }
 %\subtitle[short subtitle]{long subtitle}
-\subtitle[PhD Defense]{PhD Defense}
+\subtitle[PhD Oral Examination]{}
 %\author[short name]{long name}
-\author[Kathryn D. Huff]{Kathryn D. Huff}
+\author[Kathryn D. Huff]{Kathryn D. Huff \\ PhD Candidate}
 %\date[short date]{long date}
 \date[5.17.2013]{May 17, 2013}
 %\institution[short name]{long name}
@@ -62,27 +62,29 @@
 \end{frame}
 
 \subsection{Future Fuel Cycle Options}
-\include{fuel_cycle_options}
+\include{motiv_fuel_cycle_options}
 \subsection{Geologic Disposal Concept Options}
-\include{concepts_components}
-\include{concepts_layouts}
-\include{concepts_geologies}
-\subsection{Fuel Cycle Simulator Capabilities}
-
-\section{Geologic Repository Performance}
-\subsection{Metrics}
-\include{performance_metrics}
+\include{motiv_concepts}
 \subsection{Thermal Loading}
-\include{performance_thermal}
+\include{motiv_thermal}
 \subsection{Radionuclide Transport and Release}
-\include{performance_release}
+\include{motiv_release}
+\subsection{Fuel Cycle Simulator Capabilities}
+\include{motiv_current_tools}
 
 \section{Modeling Paradigm}
-\subsection{Cyclus Modeling Paradigm}
-\subsection{Cyder Modeling Paradigm}
-
+\include{paradigm_ecosystem}
+\subsection{Cyclus}
+\include{paradigm_cyclus}
+\subsection{Cyder Overview}
+\include{paradigm_cyder}
+\subsection{Cyder Models}
+\include{paradigm_models}
+\subsection{Cyder Data}
+\include{paradigm_data}
 
 \section{Abstracted Models}
+\include{abstraction}
 \subsection{Thermal Transport in Cyder}
 \include{thermal_models}
 \subsection{Radionuclide Transport in Cyder}
@@ -90,11 +92,16 @@
 
 \section{Demonstration}
 \include{results}
-\subsection{Thermal Toy Cases}
-\subsection{Radionuclide Toy Cases}
-\subsection{Thermal Validation Cases}
-\subsection{Radionuclide Validation Cases}
+\subsection{Thermal Transport Toy Cases}
+\include{results_thermal_base}
+\subsection{Radionuclide Transport Toy Cases}
+\include{results_nuclide_base}
+\subsection{Thermal Transport Validation Cases}
+\include{results_thermal_bench}
+\subsection{Radionuclide Transport Validation Cases}
+\include{results_nuclide_bench}
 
+\section{Conclusion}
 \include{conclusion}
 %%--------------------------------%%
 %%--------------------------------%%
