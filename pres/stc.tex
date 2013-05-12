@@ -1,0 +1,48 @@
+
+\begin{frame}[ctb!]
+\frametitle{Specific Temperature Change Method}
+\footnotesize{
+Introduced by Radel, Wilson et al., the Specific Temperature Change (STC) method uses 
+a linear approximation to arrive at the thermal loading density limit 
+\cite{radel_repository_2007, radel_effect_2007}.  
+
+Since the thermal response in a system with a long term transient response is strong function of the 
+transient decay power, it is also a strong function of the isotopic 
+composition of the waste. Thus, the time dependent temperature change, $\Delta 
+T$, at the limiting radius, $r_{lim}$, can be approximated as proportional to the 
+mass loading density. First, $\Delta T$ is determined for a limiting loading density 
+of the particular material composition then it is normalized to a single 
+kilogram of that material, $\Delta t$, the so called STC. 
+
+\begin{align}
+ \Delta T(r_{lim}) &= m \cdot \Delta t(r_{lim})
+ \label{STC}
+ \intertext{where}
+ \Delta T &= \mbox{ Temperature change due to m }[^{\circ}K]\nonumber\\
+ m &= \mbox{ Mass of heat generating material }[kg]\nonumber \\
+ \Delta t &= \mbox{ Temperature change due to 1 kg }[^{\circ}K]\nonumber\\
+ r_{lim} &= \mbox{ Limiting radius } [m].\nonumber
+\end{align}
+}
+\end{frame}
+
+\begin{frame}[ctb!]
+\frametitle{Specific Temperature Change Superposition}
+\footnotesize{
+
+For an arbitrary waste stream composition, scaled curves, $\Delta t_i$, calculated in this 
+manner for individual isotopes can be superimposed for each isotope to arrive at an 
+approximate total temperature change.
+
+\begin{align}
+ \Delta T (r_{lim}) &\sim \sum_{i} m_i \Delta t_i(r_{lim})
+ \label{superposition}
+\intertext{where}
+ i &= \mbox{ An isotope in the material } [-]\nonumber\\
+ m_i &= \mbox{ mass of isotope i  } [kg]\nonumber\\
+ \Delta t_i &= \mbox{ Specifc temperature change due to \textsl{i} } [^{\circ}K].\nonumber
+\end{align}
+
+
+}
+\end{frame}
