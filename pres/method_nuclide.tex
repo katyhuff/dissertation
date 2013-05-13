@@ -360,7 +360,8 @@ source boundary are given in \cite{maloszewski_lumped_1996},
   solution with Cauchy and Neumann boundary conditions}
   \label{fig:1dinf}
 \end{figure}
-The solution is given (van Genuchten et al., \cite{van_genuchtem_analytical_1981})  for the
+
+The solution is given (van Genuchten et al., \cite{van_genuchten_analytical_1981})  for the
 boundary conditions :
 
 For the boundary conditions, 
@@ -377,11 +378,15 @@ For the boundary conditions,
 }
 \end{frame}
 
+\begin{frame}[ctb!]
+\frametitle{Radionuclide Transport: 1D Semi-Infinite, Cauchy B.C.}
+The solution is given (van Genuchten et al., 
+\cite{van_genuchten_analytical_1981}) as
 \begin{align}
 C(z,t) =& \begin{cases} 
   C_0A(z,t) + B(z,t) & 0<t\le t_0\\
   C_0A(z,t) + B(z,t) - C_0A(z,t-t_0)& t\ge t_0
-  \end{cases}
+  \end{cases}.
   \label{simple_genuchten}
   \end{align}
 \end{frame}
