@@ -7,11 +7,11 @@
 \documentclass[9pt]{beamer}
 \usetheme[white]{Wisconsin}
 %\title[short title]{long title}
-\title[ Thesis Defense ]{ An Integrated Used Fuel Disposition and Generic Repository Model for Fuel Cycle Analysis }
+\title[Integrated Used Fuel Disposition and Generic Repository Modeling ]{ An Integrated Used Fuel Disposition and Generic Repository Model for Fuel Cycle Analysis }
 %\subtitle[short subtitle]{long subtitle}
-\subtitle[PhD Defense]{PhD Defense}
+\subtitle[PhD Oral Examination]{}
 %\author[short name]{long name}
-\author[Kathryn D. Huff]{Kathryn D. Huff}
+\author[Kathryn D. Huff]{Kathryn D. Huff \\ PhD Candidate}
 %\date[short date]{long date}
 \date[5.17.2013]{May 17, 2013}
 %\institution[short name]{long name}
@@ -62,46 +62,50 @@
 \end{frame}
 
 \subsection{Future Fuel Cycle Options}
-\include{fuel_cycle_options}
+\input{motiv_fuel_cycle_options}
 \subsection{Geologic Disposal Concept Options}
-\include{concepts_components}
-\include{concepts_layouts}
-\include{concepts_geologies}
-\subsection{Fuel Cycle Simulator Capabilities}
-
-\section{Geologic Repository Performance}
-\subsection{Metrics}
-\include{performance_metrics}
+\input{motiv_concepts}
 \subsection{Thermal Loading}
-\include{performance_thermal}
+\input{motiv_thermal}
 \subsection{Radionuclide Transport and Release}
-\include{performance_release}
+\input{motiv_release}
+\subsection{Fuel Cycle Simulator Capabilities}
+\input{motiv_current_tools}
 
 \section{Modeling Paradigm}
-\subsection{Cyclus Modeling Paradigm}
-\subsection{Cyder Modeling Paradigm}
+\subsection{Cyder Overview}
+\input{paradigm_cyder}
+%\subsection{Cyder Models}
+%\input{paradigm_models}
+%\subsection{Cyder Data}
+%\input{paradigm_data}
 
-
-\section{Abstracted Models}
+\section{Abstraction Methodology}
+\input{method_abstraction}
 \subsection{Thermal Transport in Cyder}
-\include{thermal_models}
+\input{method_thermal}
 \subsection{Radionuclide Transport in Cyder}
-\include{nuclide_models}
+\input{method_nuclide}
 
 \section{Demonstration}
-\include{results}
-\subsection{Thermal Toy Cases}
-\subsection{Radionuclide Toy Cases}
-\subsection{Thermal Validation Cases}
-\subsection{Radionuclide Validation Cases}
+\input{results}
+\subsection{Thermal Transport Toy Cases}
+\input{results_thermal_base}
+\subsection{Radionuclide Transport Toy Cases}
+\input{results_nuclide_base}
+\subsection{Thermal Transport Validation Cases}
+\input{results_thermal_bench}
+\subsection{Radionuclide Transport Validation Cases}
+\input{results_nuclide_bench}
 
-\include{conclusion}
+\section{Conclusion}
+\input{conclusion}
 %%--------------------------------%%
 %%--------------------------------%%
 \begin{frame}[allowframebreaks]
   \frametitle{References}
   \bibliographystyle{plain}
-  {\footnotesize \bibliography{ne571} }
+  {\footnotesize \bibliography{defense} }
 
 \end{frame}
 

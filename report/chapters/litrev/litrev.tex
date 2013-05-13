@@ -762,13 +762,14 @@ temperature $T$, and other physical parameters.
 \end{align}
 
 \subsubsection{Degradation Rate Based}
-If it can be estimated, a fractional degradation rate can be used for waste 
-package degradation as it was in the waste form case,
+Rather than a discrete model, in which barriers fail completely at a collective 
+rate, a fractional degradation rate per barrier can be used. For this type of 
+model, the intact volume decreases at a fractional rate,
 
 \begin{align}
-  V_{wp}(t) &= V_{wp}(0)(1 - \int_0^t f(\cdots)dt)
+  V_i(t) &= V_i(0)(1 - \int_0^t f(\cdots)dt)
   \intertext{which, for a constant rate, becomes}
-  V_{wp}(t) &= V_{wp}(0)(1 - t).
+  V_i(t) &= V_i(0)(1 - t).
   \label{wfdegrate}
 \end{align}
 
@@ -999,10 +1000,6 @@ such that the mass conservation equation becomes:
   \rho_b &= \mbox{ bulk (dry) density }[kg/m^3].\nonumber
 \end{align}
 
-Precipitation is the reverse of dissolution and occurs when a solubility limit
-is reached. In a reducing environment, the approach to chemical equilibrium of 
-dissolution and precipitation is rate dependent and is highly dependent on 
-thermodynamics.
 
 Sorption includes both absorption and adsorption. Absorption is the 
 incorporation of a substance of one state into another of a different state.
@@ -1033,6 +1030,11 @@ reversible reaction,
   \intertext{and}
   K_d &= \mbox{species distribution coefficient.}
 \end{align}
+
+Precipitation is the reverse of dissolution and occurs when a solubility limit
+is reached. In a reducing environment, the approach to chemical equilibrium of 
+dissolution and precipitation is rate dependent and is highly dependent on 
+thermodynamics.
 
 Finally, a phenomenon called colloidal mobility can enhance radionuclide 
 transport in some geologic media. Mineral colloids, which are suspended molecular solids within a liquid 
