@@ -58,13 +58,15 @@
   \titlepage
 }
 
-\section{Motivation}
 %%--------------------------------%%
+\AtBeginSection[]{
 \begin{frame}
   \frametitle{Outline}
   \tableofcontents[currentsection]
 \end{frame}
+}
 
+\section{Motivation}
 \subsection{Fuel Cycle Simulator Capabilities}
 \input{motiv_current_tools}
 \subsection{Future Fuel Cycle Options}
@@ -88,14 +90,14 @@
 
 \section{Demonstration}
 \input{results}
-\subsection{Thermal Transport Toy Cases}
-\input{results_thermal_base}
 \subsection{Radionuclide Transport Toy Cases}
 \input{results_nuclide_base}
-\subsection{Thermal Transport Validation Cases}
-\input{results_thermal_bench}
 \subsection{Radionuclide Transport Validation Cases}
 \input{results_nuclide_bench}
+\subsection{Thermal Transport Toy Cases}
+\input{results_thermal_base}
+\subsection{Thermal Transport Validation Cases}
+\input{results_thermal_bench}
 
 \section{Conclusion}
 \input{conclusion}

@@ -1,7 +1,3 @@
-\begin{frame}
-\frametitle{Explain Clay GDSM Model.}
-here.
-\end{frame}
 
 \begin{frame}
   \frametitle{Nested Components}
@@ -94,116 +90,39 @@ For each timestep :
 }
 \end{frame}
 
+\begin{frame}
+\frametitle{Clay GDSM Model.}
+explain
+\end{frame}
 
 \begin{frame}
-  \frametitle{Radionuclide Transport: Rate Based Congruent Release}
+  \frametitle{Radionuclide Transport: Degradation Rate Based Release}
   \footnotesize{
-The implemented model incorporates the source term made available on the inner boundary into its available mass and defines the resulting boundary conditions at the outer boundary as solely a function of the degradation rate of that component.
-
-This results in the following expression for the mass transfer, 
-$m_{ij}(t)$, from cell $i$ to cell $j$ at time $t$ :
-
-\begin{align}
-  \dot{m}_{ij}(t) &= f_i(\cdots)m_i(t)
-  \label{deg_rate_source_cont}
-  \intertext{where}
-  \dot{m}_{ij} &= \mbox{ the rate of mass transfer from i to j }[kg/s]\nonumber\\
-  f_i &= \mbox{ fractional degradation rate in cell i }[1/s] \nonumber\\
-  m_i &= \mbox{ mass in cell i }[kg] \nonumber\\
-  t &= \mbox{ time  }[s].\nonumber
-\end{align}
-For a situation as in Cyder and Cyclus, with discrete timesteps, the mass transferred between discrete times $t_{n-1}$ and $t_n$ is a simple linear function of the transfer rate in \eqref{deg_rate_source_cont}, 
+In this model, the contaminants in the degraded fraction of the control volume 
+are available to adjacent components. The available contaminants
+$m_{ij}(t)$, at the boundary between cell $i$ to cell $j$ at time $t$ are thus
 
 \begin{align}
-  m_{ij}^n &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber\\
-           &= f_i(\cdots)m_i^{n-1}\left(t_n - t_{n-1}\right).
-           \label{deg_rate_source_discrete}
+\dot{m}_{ij}(t) &= f_im_i(t)
+\label{deg_rate_source_cont}
+\intertext{where}
+\dot{m}_{ij} &= \mbox{ the rate of mass transfer from i to j }[kg/s]\nonumber\\
+f_i &= \mbox{ degradation rate function in cell i }[1/s] \nonumber\\
+m_i &= \mbox{ mass in cell i }[kg] \nonumber\\
+t &= \mbox{ time  }[s].\nonumber
 \end{align}
 }
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{Radionuclide Transport: Rate Based Congruent Release}
-  \footnotesize{
-  \begin{align}
-    \intertext{\textbf{Source Term}}
-    m_{ij}^n &= f_i(\cdots)m_i^{n-1}\left(t_n - t_{n-1}\right),
-    \intertext{\textbf{Dirichlet}}
-    C_{ij}^n &= \frac{m_i^n}{V_{vi}} = \frac{\mbox{ solute mass in cell i }}{\mbox{ void volume in cell i}},
-    \intertext{\textbf{Neumann}}
-    \frac{\partial C}{\partial z}\hat{k}  &=\frac{ \left(\frac{\dot{m}}{\theta_{i0} V_T - C_{1} }\right) }{z_1 - z_0}\hat{k},
-  \intertext{\textbf{Cauchy}}
-    -\theta_i D_{zz} \frac{ \left(\frac{\dot{m}}{\theta_{i0} V_T - C_{1} 
-  }\right) }{z_1 - z_0}\hat{k} + \theta_i^n v_z^n C_i^n \hat{k}&= \theta_i^{n-1} 
-  v_z^{n-1} C_i^{n-1}\hat{k}
-    \intertext{where}
-    D_{zz} &= \mbox{ $\hat{k}$ component diffusion tensor component in $\hat{k}$ direction }[m^2/s] \nonumber\\
-    C_i &= \mbox{ concentration in cell i }[kg/m^3].\nonumber\\
-    \theta_i &= \mbox{ porosity in cell i }[-]. \nonumber
-  \end{align}
-  }
+  \frametitle{Radionuclide Transport: Degradation Rate Based Release}
+  \input{./images/deg_volumes}
 \end{frame}
 
 \begin{frame}
   \frametitle{Radionuclide Transport : Mixed Cell with Sorption and Solubility}
-  \footnotesize{
-  % Waste Form
-  \begin{columns}[c]
-  \column{0.45\textwidth}
-Before degradation, the volume of the intact matrix can be expressed as
-\begin{align}
-V_{im}(t_n) &= V_T.
-\end{align}
-
-The volume of free fluid can be expressed as
-\begin{align}
-V_{ff}(t_n) &= \theta V_T .
-\end{align}
-
-  \column{0.55\textwidth}
-  \begin{figure}[h!]
-    \begin{center}
-      \includegraphics[width=\textwidth]{images/mixed_cell_whole.eps}
-    \end{center}
-  \end{figure}
-\end{columns}
-    }
-\end{frame}
-
-\begin{frame}[ctb!]
-  \frametitle{Radionuclide Transport : Mixed Cell with Sorption and Solubility}
-  % Waste Form
-  \footnotesize{
-  \begin{columns}[c]
-  \column{0.45\textwidth}
-After some time degrading, the volume of the intact matrix can be expressed as
-\begin{align}
-V_{im}(t_n) &= V_T - V_T\int_{t_0}^{t_n} f(\cdots) dt.
-\label{vim}
-\end{align}
-
-The volume of free fluid can be expressed as
-\begin{align}
-V_{ff}(t_n) &= \theta V_T \int_{t_0}^{t_n} f(\cdots) dt.
-\label{vff}
-\end{align}
-
-Finally, the volume of the degraded and precipitated solids can be expressed as
-\begin{align}
-V_{ps}(t_n) &= (1 - \theta)V_T\int_{t_0}^{t_n} f(\cdots) dt.
-\label{vps} 
-\end{align}
- 
-
-\column{0.55\textwidth}
-  \begin{figure}[h!]
-    \begin{center}
-      \includegraphics[width=\textwidth]{images/mixed_cell_degraded.eps}
-    \end{center}
-  \end{figure}
-\end{columns}
-}
+  \input{./images/deg_sorb_volumes}
 \end{frame}
 
 \begin{frame}
@@ -240,19 +159,6 @@ m_{psc}  &= \mbox{ contaminant mass in degraded and precipitated solids }[kg]\no
     }
 \end{frame}
 
-\begin{frame}[ctb]
-\frametitle{Radionuclide Transport: Retardation Sensitivity Expected Behavior}
-\begin{figure}[ht]
-  \centering
-  \includegraphics[height=60mm]{images/Partitioning_Summary.eps}
-  \caption{Generated with the Used Fuel Disposition Campaign's Generic Disposal 
-  System Model for Clay, this graph demonstrates $K_d$ sensitivity. 
-  The peak annual dose due to an inventory, $N$, of each isotope.}
-  \label{fig:KdSum}
-\end{figure}
-\end{frame}
-
-
 \begin{frame}
   \frametitle{Radionuclide Transport : Mixed Cell Solubility Limitation}
   \footnotesize{
@@ -278,19 +184,6 @@ From this boundary condition in combination with global advective velocity
 data, all other boundary conditions can be found. 
     }
 \end{frame}
-
-\begin{frame}[ctb]
-\frametitle{Radionuclide Transport: Solubility Sensitivity Expected Behavior}
-\begin{figure}[ht]
-  \centering
-  \includegraphics[height=60mm]{images/Solubility_Summary.eps}
-  \caption{Generated with the Used Fuel Disposition Campaign's Generic Disposal 
-  System Model for Clay, this graph demonstrates solubility limit sensitivity. 
-  The peak annual dose due to an inventory, $N$, of each isotope.}
-  \label{fig:SolSum}
-\end{figure}
-\end{frame}
-
 
 \begin{frame}
   \frametitle{Radionuclide Transport: Lumped Parameter Transport Model}
