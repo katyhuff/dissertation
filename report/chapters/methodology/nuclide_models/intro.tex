@@ -1,15 +1,15 @@
-Each engineered barrier component within the \Cyder disposal system simulator calculates 
-radionuclide transport using a radionuclide transport model selected from the four presented in this 
-chapter. In order to be interchangeable within the simulation, radionuclide 
-transport models have identical boundary interfaces supporting an array of 
-boundary condition specifications. 
+Each engineered barrier component within the \Cyder disposal system simulator 
+calculates radionuclide transport using a radionuclide mass balance model 
+selected from the four presented in this chapter. The dominant physics of mass 
+transfer between components is also selected from a set of mass transfer modes 
+In order to be interchangeable within the simulation, radionuclide mass balance 
+models have identical boundary interfaces supporting an array of mass transfer 
+modes accross the boundaries.
 
-Radionuclide transport models may rely on a number of boundary condition forms.  
-Each radionuclide transport model interface therefore provides sufficient boundary condition 
-information to support the calculation methods of all other radionuclide 
-transport models. That 
+Each component interface provides sufficient boundary condition information to 
+support the calculation methods of all other radionuclide mass transport models. That 
 is, each must provide a superset of the boundary condition forms required by all 
-four models. In addition to a simplistic mass transfer source term boundary 
-condition, these include Dirichlet - specified species concentration along the 
-boundary, Neumann - concentration gradients along the boundary, and Cauchy - a
+four models. In addition to a simplistic source term interface, other 
+boundary forms include Dirichlet - specified species concentration along the 
+boundary, Neumann - concentration gradients along the boundary, and Cauchy - 
 specified concentration flux along the boundary.
