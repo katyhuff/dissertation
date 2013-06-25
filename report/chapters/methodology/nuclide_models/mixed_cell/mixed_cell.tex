@@ -1,4 +1,4 @@
-\subsection{Mixed Cell Volume Mass Balance Model}\label{sec:mixed_cell}
+\subsection{Mixed Cell Radionuclide Mass Balance Model}\label{sec:mixed_cell}
 
 Slightly more complex, the mixed cell model incorporates the influence of 
 elemental solubility limits and sorption. This model incorporates solubility and 
@@ -118,7 +118,8 @@ m_{df} &= \frac{d^2 m_T\theta V_T}{dK_d(1-\theta)V_T}\left( \frac{1}{1+\frac{\th
 \end{align}
 
 \subsubsection{Solubility}
-In addition to engineered barriers, contaminant transport is constrained by the 
+In addition to engineered barriers, dissolution of the contaminant into the 
+available fluid volume is constrained by the 
 elemental solubility limit \cite{hedin_integrated_2002}, 
     \begin{align}
       m_{df,i} &\leq V_w C_{sol,i}
@@ -126,85 +127,3 @@ elemental solubility limit \cite{hedin_integrated_2002},
       m_{df,i} &= \mbox{ solubility limited mass of isotope i in volume }V_{df} [kg]\nonumber\\ 
       C_{sol,i} &= \mbox{ the maximum dissolved concentration limit of i }[kg/m^3].\nonumber
     \end{align}
-
-\subsubsection{Calculation of Mass Transfer}
-The MixedCell model can operate in four modes, each dictating the method by 
-which mass transfer across the inner boundary is calculated.  Those modes 
-utilize the source term, Dirichlet, and Neumann interfaces to model prescribed, 
-flow, advective flow, or diffusive flow.
-Once calculated, that material object is removed from the 
-internal component ($m_{ij} = -\dot{m}_i$) such that its internal state can be 
-queried accurately in future timesteps.  
-
-For the case in which source term is used on the inner boundary, the mass 
-transferred from component $i$ to component $j$ in timestep $t_{n}$ is simply
-
-\begin{align} 
-m_{ij} &=  \mathcal{S}_i(t_n) \nonumber
-\intertext{where}
-\mathcal{S}_i(t_n) &= \mbox{ source term provided by component i at }t_n [kg].
-\end{align}
-
-For the case in which Dirichlet is used, the mass transferred is determined by 
-advection. One dimensional mass flux due to advection is the speed of flowing 
-water, $v_z$, scaled by the concentration of contaminants fixed by the Dirichlet 
-boundary condition, $C$, all integrated over the porous, degraded area perpendicular to 
-the flow, $\theta dxdy$,
-
-\begin{align}
-  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x\theta d v_z \mathcal{D}_i(t_n) dxdydt \label{mixed_adv}
-\intertext{which, for the Cyder components, becomes }
-m_{ij} &= \theta d v_z C 2rl (t_n - t_{n-1})\nonumber\\
-\intertext{where}
-\mathcal{D}_i(t_n) &= \mbox{ fixed C from component i at }t_n [kg/m^3]\nonumber\\
-r &= \mbox{ radius of the cylinder }[m]\nonumber\\
-l &= \mbox{ length of the cylinder }[m].\nonumber
-\end{align}
-
-For the case in which Neumann is chosen, the mass transfer is taken to be 
-dispersive, 
-
-\begin{align}
-  m_{ij} &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \theta d \mathcal{N}_i(t_n) dxdydt \label{mixed_adv}\\
-         &= \int_{t_{n-1}}^{t_n}\int_0^y\int_0^x -D \theta d \frac{\partial C}{\partial z}\Bigg|_{z=r_j} dxdydt \nonumber
-\intertext{which, for the Cyder components, becomes }
-m_{ij} &= -D \theta d \frac{\partial C}{\partial z}\Bigg|_{z=r_j} 2rl(t_n - t_{n-1}).\nonumber
-\end{align}
-
-\subsubsection{Boundary Interfaces}
-The source term of available contaminants is all mass in the available degraded fluid,
-\begin{align}
-\mathcal{S}_j(t_n) &= m_{df}(t_n). 
-\end{align}
-The desired boundary conditions can be expressed in terms of $m_{df}$. First, the 
-Dirichlet boundary condition is 
-\begin{align}
-\mathcal{D}_j(t_n) &= C_j(t_n)\nonumber\\ 
- &= \frac{m_{df}(t_n)}{V_{df}(t_n)}.
-\label{dirichlet_mixed}
-\end{align}
-
-From this boundary condition in combination with global advective velocity 
-data, porosity data,  and elemental dispersion coefficient data, all other 
-boundary conditions can be found. The Neumann boundary condition generated at 
-the external boundary of cell $j$ relies on up to date data from cell $k$ and 
-on internal state data from the previous time step, such that 
-
-\begin{align}
-\mathcal{N}_j(t_n)&= \frac{dC(t_n)}{dr}\Bigg|_{r=r_j}\nonumber\\ 
-                  &= \frac{C_k(r_{k-1/2},t_{n-1}) - C_i(r_{j-1/2}, t_n)}{r_{k-1/2} - r_{j-1/2}}
-\label{neumann_mixed}
-\intertext{where}
-r_{j-1/2} &= r_{j} - \frac{r_{j} - r_{i}}{2}.\nonumber\\
-r_{k-1/2} &= r_{k} - \frac{r_{k} - r_{j}}{2}.\nonumber
-\end{align}
-
-This expression for the concentration gradient can also be used in the Cauchy 
-boundary condition, which relies on the advective velocity and concentration 
-profile as well as the concentration gradient,
-
-\begin{align}
-v_z C_0 &= \frac{dC(t_n)}{dr}\Big|_{r=r_{j}} + v_{z}C_j(t_n).
-\label{cauchy_mixed}
-\end{align}
-
