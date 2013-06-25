@@ -1,14 +1,13 @@
 \subsection{Degradation Rate Radionuclide Mass Balance Model}\label{sec:deg_rate}
 The degradation rate model is the simplest of implemented models and is most 
-appropriate for simplistic modeling of a degrading barrier volume. It simulates 
-the fractional degradation of the contaminaent containment in the component.  
+appropriate for simplistic modeling of a degrading barrier volume. 
+The materials that constitute the engineered barriers in a 
+repository environment degrade over time. The implemented model of this nuclide 
+release behavior is based solely on a fractional degradation rate. 
 The fundamental concept is depicted in Figure \ref{fig:deg_volumes}.
 
 \input{./chapters/methodology/nuclide_models/deg_rate/deg_volumes}
 
-The materials that constitute the engineered barriers in a 
-repository environment degrade over time. The implemented model of this nuclide 
-release behavior is based solely on a fractional degradation rate. 
 The degraded volume is a simple fraction, $d$, of the total volume, $V_T$, such 
 that 
 \begin{align}
@@ -24,8 +23,7 @@ V_d(t) &= \mbox{ degraded volume at time t }[m^3]\nonumber
 d(t) &= \mbox{ the fraction that has been degraded by time t }[-].\nonumber
 \end{align}
 
-
-\subsubsection{Calculation of Mass Transfer}
+\subsubsection{Mass Balance Calculation}
 In this model, the contaminants in the degraded fraction of the control volume 
 are available to adjacent components. The available contaminants
 $m_{ij}(t)$, at the boundary between cell $i$ to cell $j$ at time $t$ are thus
@@ -55,7 +53,6 @@ m_{ij}(t_n) &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber\\
 \label{deg_rate_source_discrete}
 \end{align}
 
-\subsubsection{Boundary Interfaces}
 \label{sec:dr_bc}
 The mass $m_{f}(t_n)$ is the source term at the outer boundary, 
 \begin{align}
