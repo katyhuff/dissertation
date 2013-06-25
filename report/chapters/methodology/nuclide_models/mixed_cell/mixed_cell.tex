@@ -1,14 +1,8 @@
-\subsection{Mixed Cell Volume Radionuclide Transport Model}\label{sec:mixed_cell}
-Slightly more complex, the mixed cell model incorporates solubility limited, congruent 
-release under the influence of elemental solubility limits, sorption, dispersive 
-behavior, and advective behavior. Abstraction results concerning the 
-transition between primarily diffusive and primarily advective transport regimes 
-were used for benchmarking and to iteratively improve accuracy in the development 
-of this model.
+\subsection{Mixed Cell Volume Mass Balance Model}\label{sec:mixed_cell}
 
-A main nuclide transport component model used in this work is a mixed cell 
-component module incorporating solubility and sorption effects as well as  
-engineered material dissolution.
+Slightly more complex, the mixed cell model incorporates the influence of 
+elemental solubility limits and sorption. This model incorporates solubility and 
+sorption effects as well as  material dissolution.
 
 A graphical representation of the mixed cell model is given in Figure 
 \ref{fig:deg_sorb_volumes}.  
@@ -46,7 +40,7 @@ V_{is}(t_n) &= \mbox{ intact solid volume at time }t_n [m^3]\nonumber\\
        &= (1-\theta) (1-d(t_n))V_T.
 \end{align}
 
-This model distributes contaminant masses throughout the volume. Contaminant 
+This model distributes contaminant masses throughout each volume. Contaminant 
 masses and concentrations can therefore be expressed with notation indicating 
 in which volume they reside, such that
 
@@ -58,11 +52,7 @@ C_{is} &= \frac{m_{is}}{V_{is}}.  \label{c_is}
 \end{align}
 
 The contaminant mass in the degraded fluid is the contaminant mass that is 
-treated as 'released' or available to adjacent components. Mass contributions 
-from adjacent cells are calculated at each time step and redistributed across 
-the cell. This distribution of contaminant mass is restricted, however,
-by dissolved concentration (often called solubility) limits
-and sorption.  
+treated as 'available' to adjacent components. 
 
 \subsubsection{Sorption}
 
@@ -136,7 +126,6 @@ elemental solubility limit \cite{hedin_integrated_2002},
       m_{df,i} &= \mbox{ solubility limited mass of isotope i in volume }V_{df} [kg]\nonumber\\ 
       C_{sol,i} &= \mbox{ the maximum dissolved concentration limit of i }[kg/m^3].\nonumber
     \end{align}
-
 
 \subsubsection{Calculation of Mass Transfer}
 The MixedCell model can operate in four modes, each dictating the method by 
