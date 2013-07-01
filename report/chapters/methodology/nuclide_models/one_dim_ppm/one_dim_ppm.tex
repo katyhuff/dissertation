@@ -33,33 +33,25 @@ For the boundary conditions,
     0  &  \left( t>t_0 \right)\\
   \end{cases}
 \intertext{and}
-  \frac{\partial C}{\partial z}\big|_{z=\infty} &= 0
+  \frac{\partial C}{\partial z}\big|_{z=r} &= 0
   \intertext{and the initial condition,}
   C(z,0) &= C_i,
   \label{1dinfBC}
   \intertext{the solution is given as }
   C(z,t) &= \begin{cases} 
-  \left(C_0 - \frac{\gamma}{\mu}\right)A(z,t) + B(z,t) & 0<t\le t_0\\
-  \left(C_0 - \frac{\gamma}{\mu}\right)A(z,t) + B(z,t) - C_0A(z,t-t_0)& t\ge t_0
+  C_i + \left(C_0 - C_i\right)A\left(z,t\right) & 0<t\le t_0\\
+  C_i + \left(C_0 - C_i\right)A\left(z,t\right) - C_0A(z,t-t_0) & t\ge t_0.
   \end{cases}
-\intertext{where}
-  \gamma &= \mbox{ zero order source term in the fluid }[kg/m^3]\nonumber\\
-  \mu &= \mbox{first order general decay constant }[s^{-1}].\nonumber
 \end{align}
 
-
-For the vertical flow coordinate system, $A$ and $B$ are defined as
+For the vertical flow coordinate system, $A$ is defined as
 \begin{align}
-A(z,t) =& 
-\left(\frac{v}{v+u}\right)\exp{\left[\frac{(v-u)z}{2D}\right]}\erfc{\left[\frac{Rz-ut}{2\sqrt{DRt}}\right]} \nonumber\\
-&+ \left(\frac{v}{v-u}\right)\exp{\left[\frac{(v+u)z}{2D}\right]}\erfc{\left[\frac{Rz+ut}{2\sqrt{DRt}}\right]} \nonumber\\ 
-&+ \left(\frac{v^2}{2\mu D}\right) \exp{\left[\frac{vz}{D} - \frac{\mu t}{R}\right]}\erfc{\left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}\\
-B(z,t) =& 
-\left(\frac{\gamma}{\mu} - C_i\right)\Bigg\{ \frac{1}{2}\erfc{\left[\frac{Rz - vt}{2\sqrt{DRt}}\right]}\nonumber\\
+A(z,t) =& \left(\frac{1}{2}\right)\erfc{\left[\frac{Rz-vt}{2\sqrt{DRt}}\right]} \nonumber\\
 &+ \left(\frac{v^2t}{\pi RD}\right)^{1/2}\exp{\left[-\frac{(Rz-vt)^2}{4DRt}\right]}\nonumber\\ 
-&- \frac{1}{2} \left(1+\frac{vz}{D} + \frac{v^2t}{DR}\right) \exp{\left[\frac{vz}{D}\right]}\erfc{\left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}\Bigg\}\\
+&- \frac{1}{2} \left(1+\frac{vz}{D} + \frac{v^2t}{DR}\right) \exp{\left[\frac{vz}{D}\right]}\erfc{\left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}\\
+&+ \left(\frac{4v^2t}{\pi RD}\right)^{1/2}\left[1+\frac{v}{4d}\left(2L-z+\frac{vt}{R}\right)\right]\exp{\left[\frac{vL}{D} - \frac{R}{4Dt}\left(2L-z+\frac{vt}{R}\right)^2\right]}\nonumber\\
+&- \frac{v}{D}\left[2L - z + \frac{3vt}{2R} + \frac{v}{4D}\left(2L - z + \frac{vt}{R}\right)^2\right]\exp{\frac{vL}{D}}\erfc{\left[\frac{R(2L-z) + vt}{2\sqrt{DRt}}\right]}\nonumber
 \intertext{where}
-u =& v\sqrt{\left(1+\frac{4\mu D}{v^2}\right)}\nonumber\\
 R =& \mbox{Retardation factor }[-].\nonumber
 \end{align}
 
