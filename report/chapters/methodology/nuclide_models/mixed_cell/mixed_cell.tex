@@ -1,8 +1,8 @@
 \subsection{Mixed Cell Radionuclide Mass Balance Model}\label{sec:mixed_cell}
 
 Slightly more complex, the mixed cell model incorporates the influence of 
-elemental solubility limits and sorption. This model incorporates solubility and 
-sorption effects as well as  material dissolution.
+porosity, elemental solubility limits, and sorption in addition to the 
+degradation behavior of the Degradation Rate model. 
 
 A graphical representation of the mixed cell model is given in Figure 
 \ref{fig:deg_sorb_volumes}.  
@@ -10,8 +10,8 @@ A graphical representation of the mixed cell model is given in Figure
 
 After some time degrading, the total volume in the degraded region can be 
 expressed as in equation \eqref{deg_volumes}. Additionally, the intact and 
-degraded volumes can also be describe by their constituent solid matrix and 
-pore fluid volumes, 
+degraded volumes can also be described in terms of their constituent solid 
+matrix and pore fluid volumes, 
 
 \begin{align}
 V_d(t_n) &= \mbox{ degraded volume at time }t_n [m^3]\nonumber\\
@@ -40,7 +40,8 @@ V_{is}(t_n) &= \mbox{ intact solid volume at time }t_n [m^3]\nonumber\\
        &= (1-\theta) (1-d(t_n))V_T.
 \end{align}
 
-This model distributes contaminant masses throughout each volume. Contaminant 
+This model distributes contaminant masses throughout each sub-volume of the 
+component. Contaminant 
 masses and concentrations can therefore be expressed with notation indicating 
 in which volume they reside, such that
 
@@ -56,9 +57,9 @@ treated as 'available' to adjacent components.
 
 \subsubsection{Sorption}
 
-The mass in both the free fluid and in the intact volume, $V_i$, exists in both 
-sorbed and non-sorbed phases. The relationship between the sorbed mass 
-concentration in the solid phase (e.g. the pore walls),
+The mass in all volumes exists in both sorbed and non-sorbed phases. The 
+relationship between the sorbed mass concentration in the solid phase (e.g. the 
+pore walls), 
 
 \begin{align}
 s &=\frac{\mbox{ mass of sorbed contaminant} }{ \mbox{mass of total solid phase }}
@@ -75,7 +76,7 @@ surfaces and the amount of material in the solution. The MixedCell NuclideModel
 uses a linear isotherm model.
 
 With the linear isotherm model, the mass of contaminant sorbed into the 
-degraded and precipitated solids can be found 
+solid phase can be found 
 \cite{schwartz_fundamentals_2004}, according to the relationship 
 \begin{align}
 s_{i} &= K_{di} c_{i}
@@ -109,7 +110,7 @@ isotope subscripts and beginning with equations \eqref{c_df} and \eqref{linear_i
 \begin{align}
 m_{df} &= \frac{C_{df}}{V_{df}} = \frac{m_{ds}V_{df}}{K_dV_{ds}}\nonumber
 \intertext{and assuming the sorbate is in the degraded solids}
-       &= \frac{V_{df}}{K_dV_{ds}}\left(dm_T - m_{df}\right)\nonumber
+       &= \frac{V_{df}}{K_dV_{ds}}\left(dm_T - m_{df}\right),\nonumber
 \intertext{this can be rearranged to give}
 m_{df} &= \frac{dm_TV_{df}}{K_dV_{ds}}\frac{1}{\left( 1+ \frac{V_{df}}{K_dV_{ds}}\right)}.
 \intertext{Finally, in terms of total volume,}
@@ -118,7 +119,7 @@ m_{df} &= \frac{d^2 m_T\theta V_T}{dK_d(1-\theta)V_T}\left( \frac{1}{1+\frac{\th
 \end{align}
 
 \subsubsection{Solubility}
-In addition to engineered barriers, dissolution of the contaminant into the 
+Dissolution of the contaminant into the 
 available fluid volume is constrained by the 
 elemental solubility limit \cite{hedin_integrated_2002}, 
     \begin{align}
