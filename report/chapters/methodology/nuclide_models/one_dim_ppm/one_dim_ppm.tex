@@ -12,8 +12,11 @@ the primary kind of boundary condition used at the source for this model.
 
 The conceptual model in Figure \ref{fig:1dinf} represents solute transport in 
 one dimension with unidirectional flow upward (a conservative assumption) and a 
-semi-infinite boundary condition in the positive flow direction. The solution is 
-given in van Genuchten et. al, \cite{van_genuchten_analytical_1981} and described below.  
+semi-infinite boundary condition in the positive flow direction. 
+In Cyclus, radioactive decay is handled external to the components, so there is 
+no need to include production or decay.  An approximate solution for these conditions  
+made by Brenner \cite{brenner_analytical_1962} is described below as 
+it is given in van Genuchten et. al, \cite{van_genuchten_analytical_1982}, 
 
 \begin{figure}[h!]
   \begin{center}
@@ -48,44 +51,13 @@ For the vertical flow coordinate system, $A$ is defined as
 \begin{align}
 A(z,t) =& \left(\frac{1}{2}\right)\erfc{\left[\frac{Rz-vt}{2\sqrt{DRt}}\right]} \nonumber\\
 &+ \left(\frac{v^2t}{\pi RD}\right)^{1/2}\exp{\left[-\frac{(Rz-vt)^2}{4DRt}\right]}\nonumber\\ 
-&- \frac{1}{2} \left(1+\frac{vz}{D} + \frac{v^2t}{DR}\right) \exp{\left[\frac{vz}{D}\right]}\erfc{\left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}\\
+&- \frac{1}{2} \left(1+\frac{vz}{D} + \frac{v^2t}{DR}\right) \exp{\left[\frac{vz}{D}\right]}\erfc{\left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}\nonumber\\
 &+ \left(\frac{4v^2t}{\pi RD}\right)^{1/2}\left[1+\frac{v}{4d}\left(2L-z+\frac{vt}{R}\right)\right]\exp{\left[\frac{vL}{D} - \frac{R}{4Dt}\left(2L-z+\frac{vt}{R}\right)^2\right]}\nonumber\\
-&- \frac{v}{D}\left[2L - z + \frac{3vt}{2R} + \frac{v}{4D}\left(2L - z + \frac{vt}{R}\right)^2\right]\exp{\frac{vL}{D}}\erfc{\left[\frac{R(2L-z) + vt}{2\sqrt{DRt}}\right]}\nonumber
+&- \frac{v}{D}\left[2L - z + \frac{3vt}{2R} + \frac{v}{4D}\left(2L - z + \frac{vt}{R}\right)^2\right]\exp{\frac{vL}{D}}\erfc{\left[\frac{R(2L-z) + vt}{2\sqrt{DRt}}\right]}
 \intertext{where}
 R =& \mbox{Retardation factor }[-].\nonumber
 \end{align}
 
-In Cyclus, radioactive decay is handled external to the components, so $\mu$, 
-the constant of decay, goes to zero. Similarly, 
-take the zero order source term, $\gamma$ is taken to be zero, as no source term should emerge 
-without decay or external injection. Importantly, when $\mu\rightarrow 0$ then 
-$u\rightarrow v$. Simplifying $C(z,t)$ gives
-
-\begin{align}
-C(z,t) =& \begin{cases} 
-  C_0A(z,t) + B(z,t) & 0<t\le t_0\\
-  C_0A(z,t) + B(z,t) - C_0A(z,t-t_0)& t\ge t_0
-  \end{cases}
-  \label{simple_genuchten}
-  \end{align}
-and simplifying $A(z,t)$ gives 
-\begin{align}
-A(z,t) =& 
-\left(\frac{1}{2}\right)\erfc{\left[\frac{Rz-vt}{2\sqrt{DRt}}\right]} \nonumber\\
-&+ \left(v\infty\right)\exp{\left[\frac{2vz}{2D}\right]}\erfc{ \left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}
-\intertext{which remains valid at long distances and times, when }
-\left[\frac{Rz+vt}{2\sqrt{DRt}}\right] >> 2
-\intertext{such that}
-A(z,t) =& 
-\left(\frac{1}{2}\right)\erfc{\left[\frac{Rz-vt}{2\sqrt{DRt}}\right]} \\
-\end{align}
-Finally, simplifying $B(z,t)$ accordingly,
-\begin{align}
-B(z,t) =& 
-\left(- C_i\right)\Bigg\{ \frac{1}{2}\erfc{\left[\frac{Rz - vt}{2\sqrt{DRt}}\right]}\nonumber\\
-&+ \left(\frac{v^2t}{\pi RD}\right)^{1/2}\exp{\left[-\frac{(Rz-vt)^2}{4DRt}\right]}\Bigg\}.
-  \label{simple_genuchten}
-\end{align}
 
 
 \subsubsection{Calculating Mass Transfer}
