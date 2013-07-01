@@ -9,8 +9,11 @@ is depicted in Figure \ref{fig:deg_volumes}.
 
 \input{./chapters/methodology/nuclide_models/deg_rate/deg_volumes}
 
-The degraded volume is a simple fraction, $d$, of the total volume, $V_T$, such 
-that 
+For a situation as in \Cyder and \Cyclus, with discrete time steps, the time 
+steps are assumed to be small enough to assume a constant rate $m_{ij}$ over 
+the course of the time step.  The degraded volume, then, is a simple fraction, 
+$d$, of the total volume, $V_T$, such that 
+
 \begin{align}
 V_T &= V_i + V_d
 \label{deg_volumes}
@@ -24,9 +27,18 @@ V_d(t) &= \mbox{ degraded volume at time t }[m^3]\nonumber
 d(t) &= \mbox{ the fraction that has been degraded by time t }[-].\nonumber
 \end{align}
 
+In terms of a constant rate, the volume degraded between discrete times $t_{n-1}$ and 
+$t_n$ is thus a simple linear function of the transfer rate,
+
+\begin{align}
+m_{ij}(t_n) &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber\\
+         &= f_im_i(t_{n-1})\left[t_n - t_{n-1}\right].
+\label{deg_rate_source_discrete}
+\end{align}
+
 In this model, the contaminants in the degraded fraction of the control volume 
-are available to adjacent components. The available contaminants
-$m_{ij}(t)$, at the boundary between cell $i$ to cell $j$ at time $t$ are thus
+are available to adjacent components. The total contaminants $m_{ij}(t)$, 
+available for mass transfer from cell $i$ to cell $j$ at time $t$ are thus 
 
 \begin{align}
 \dot{m}_{ij}(t) &= f_im_i(t)
@@ -38,29 +50,13 @@ m_i &= \mbox{ mass in cell i }[kg] \nonumber\\
 t &= \mbox{ time  }[s].\nonumber
 \end{align}
 
-For a situation as in \Cyder and \Cyclus, with discrete time steps, the time steps are 
-assumed to be small enough to assume a constant rate $m_{ij}$ over the course 
-of the time step. This model incorporates the source term made available on the 
-inner boundary into its available mass and defines the resulting boundary 
-conditions at the outer boundary as solely a function of the degradation rate 
-of that component.  The mass transferred between discrete times $t_{n-1}$ and 
-$t_n$ is thus a simple linear function of the transfer rate in 
-\eqref{deg_rate_source_cont}, 
+During a timestep, this model incorporates the mass flux from the
+inner boundary into its available mass and recalculates the mass balance.
 
-\begin{align}
-m_{ij}(t_n) &= \int_{t_{n-1}}^{t_n}\dot{m}_{ij}(t')dt' \nonumber\\
-         &= f_im_i(t_{n-1})\left[t_n - t_{n-1}\right].
-\label{deg_rate_source_discrete}
-\end{align}
-
-\label{sec:dr_bc}
-The mass $m_{f}(t_n)$ is the source term at the outer boundary, 
-\begin{align}
-  \mathcal{S}_j(t_n) &= \mbox{ fixed source term at }r_j [kg]\nonumber\\ 
-                     &= m_{f}(t_n).
-\end{align}
-The concentration boundary condition must also be defined at the outer boundary 
-to support parent components that utilize the Dirichlet boundary condition. For 
+The concentration calculation results from the mass balance calculation in 
+\eqref{deg_rate_source_cont} 
+to support parent components that utilize the Dirichlet boundary condition. 
+For 
 the degradation rate model, which incorporates no diffusion or advection, the 
 concentration, $C_j$ at $r_j$, the boundary between cells $j$ and $k$, is the average 
 concentration in the saturated pore volume,
