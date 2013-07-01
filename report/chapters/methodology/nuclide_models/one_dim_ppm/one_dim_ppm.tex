@@ -65,13 +65,6 @@ The mass transfer rate relies on an algorithm similar to that of the
 LumpedNuclide model. However, the integral, by virtue of not having a closed 
 form solution, must be evaluated numerically. 
 
-A numerical integration library within the Boost suite of C++ libraries is used 
-to evaluate the integral of $C(t_n, r)$ in equation \eqref{simple_genuchten} 
-by plugging it into equation \eqref{lp_mass}.
+A numerical integration is to evaluate the integral of $C(t_n, r)$ in equation 
+\eqref{simple_genuchten} by plugging it into equation \eqref{lp_mass}.
 
-
-\subsubsection{Boundary Interfaces}
-The external boundary conditions are found exactly similarly to the method by 
-which the Degradation Rate model finds external boundary conditions in Section 
-\ref{sec:dr_bc}. This method is entirely based on contained mass and component 
-volume.  
