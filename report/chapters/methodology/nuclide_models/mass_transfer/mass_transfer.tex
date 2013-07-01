@@ -1,5 +1,5 @@
 % mixed
-\subsubsection{Calculation of Mass Transfer}
+\subsection{Calculation of Mass Transfer}
 The MixedCell model can operate in four modes, each dictating the method by 
 which mass transfer across the inner boundary is calculated.  Those modes 
 utilize the source term, Dirichlet, and Neumann interfaces to model prescribed, 
@@ -43,7 +43,7 @@ dispersive,
 m_{ij} &= -D \theta d \frac{\partial C}{\partial z}\Bigg|_{z=r_j} 2rl(t_n - t_{n-1}).\nonumber
 \end{align}
 
-\subsubsection{Boundary Interfaces}
+\subsection{Boundary Interfaces}
 The source term of available contaminants is all mass in the available degraded fluid,
 \begin{align}
 \mathcal{S}_j(t_n) &= m_{df}(t_n). 
@@ -82,7 +82,7 @@ v_z C_0 &= \frac{dC(t_n)}{dr}\Big|_{r=r_{j}} + v_{z}C_j(t_n).
 
 
 % lumped
-\subsubsection{Calculation of Mass Transfer}
+\subsection{Calculation of Mass Transfer}
 
 The LumpedNuclide model requires a specified internal concentration, so the 
 Dirichlet boundary condition is queried at the internal boundary of the lumped 
@@ -111,7 +111,7 @@ simply
 m_{ij} &= m_j(t_n) - m_j(t_{n-1}).
 \end{align}
 
-\subsubsection{Boundary Interfaces}
+\subsection{Boundary Interfaces}
 The external source term and boundary conditions are found exactly similarly to the method by 
 which the Degradation Rate model finds external boundary conditions in Section 
 \ref{sec:dr_bc}. This method is entirely based on contained mass and component 
