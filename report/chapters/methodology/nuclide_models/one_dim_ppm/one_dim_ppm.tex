@@ -12,7 +12,7 @@ the primary kind of boundary condition used at the source for this model.
 
 The conceptual model in Figure \ref{fig:1dinf} represents solute transport in 
 one dimension with unidirectional flow upward (a conservative assumption) and a 
-semi-infinite boundary condition in the positive flow direction. 
+finite boundary condition in the positive flow direction. 
 In Cyclus, radioactive decay is handled external to the components, so there is 
 no need to include production or decay.  An approximate solution for these conditions  
 made by Brenner \cite{brenner_analytical_1962} is described below as 
@@ -21,10 +21,10 @@ it is given in van Genuchten et. al, \cite{van_genuchten_analytical_1982},
 \begin{figure}[h!]
   \begin{center}
     \def\svgwidth{.5\textwidth}
-    \input{./chapters/methodology/nuclide_models/one_dim_ppm/1dinf.eps_tex}
+    \input{./chapters/methodology/nuclide_models/one_dim_ppm/1dfin.eps_tex}
   \end{center}
-  \caption[1D semi-infinite advection dispersion solution.]{A one dimensional, 
-  semi-infinite, unidirectional flow solution with Cauchy and Neumann boundary 
+  \caption[1D finite advection dispersion solution.]{A one dimensional, 
+  finite, unidirectional flow solution with Cauchy and Neumann boundary 
 conditions}
   \label{fig:1dinf}
 \end{figure}
@@ -36,7 +36,7 @@ For the boundary conditions,
     0  &  \left( t>t_0 \right)\\
   \end{cases}
 \intertext{and}
-  \frac{\partial C}{\partial z}\big|_{z=r} &= 0
+  \frac{\partial C}{\partial z}\big|_{z=L} &= 0
   \intertext{and the initial condition,}
   C(z,0) &= C_i,
   \label{1dinfBC}
@@ -54,17 +54,10 @@ A(z,t) =& \left(\frac{1}{2}\right)\erfc{\left[\frac{Rz-vt}{2\sqrt{DRt}}\right]} 
 &- \frac{1}{2} \left(1+\frac{vz}{D} + \frac{v^2t}{DR}\right) \exp{\left[\frac{vz}{D}\right]}\erfc{\left[\frac{Rz+vt}{2\sqrt{DRt}}\right]}\nonumber\\
 &+ \left(\frac{4v^2t}{\pi RD}\right)^{1/2}\left[1+\frac{v}{4D}\left(2L-z+\frac{vt}{R}\right)\right]\exp{\left[\frac{vL}{D} - \frac{R}{4Dt}\left(2L-z+\frac{vt}{R}\right)^2\right]}\nonumber\\
 &- \frac{v}{D}\left[2L - z + \frac{3vt}{2R} + \frac{v}{4D}\left(2L - z + \frac{vt}{R}\right)^2\right]\exp{\left[\frac{vL}{D}\right]}\erfc{\left[\frac{R(2L-z) + vt}{2\sqrt{DRt}}\right]}
+\label{simple_genuchten}
 \intertext{where}
+L =& \mbox{Length of the component }[m].\nonumber\\
 R =& \mbox{Retardation factor }[-].\nonumber
 \end{align}
 
-
-
-\subsubsection{Calculating Mass Transfer}
-The mass transfer rate relies on an algorithm similar to that of the 
-LumpedNuclide model. However, the integral, by virtue of not having a closed 
-form solution, must be evaluated numerically. 
-
-A numerical integration is to evaluate the integral of $C(t_n, r)$ in equation 
-\eqref{simple_genuchten} by plugging it into equation \eqref{lp_mass}.
 

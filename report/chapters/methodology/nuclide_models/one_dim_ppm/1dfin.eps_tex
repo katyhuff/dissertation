@@ -44,10 +44,10 @@
   \makeatother
   \begin{picture}(1,0.32163055)%
     \put(0,0){\includegraphics[width=\unitlength]{./chapters/methodology/nuclide_models/one_dim_ppm/1dfin.eps}}%
-    \put(0.50778109,0.30862622){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{3cm}$\frac{\partial C}{\partial x}\big|_L=0$}}}%
-    \put(0.33371936,0.11409013){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$C(x,0) = C_i$}}}%
-    \put(0.00292782,0.30667543){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{-3cm}$-D\frac{\partial C}{\partial x}\big|_{x=0} + vC = \begin{cases}vC_0 & t<t_0\\ 0 & t>t_0 \end{cases}$ }}}%
-    \put(0.50778109,0.00353984){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{4.2cm}$x=L$}}}%
-    \put(0.01201574,0.00353984){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{-1cm}$x=0$}}}%
+    \put(0.50778109,0.30862622){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{3cm}$\frac{\partial C}{\partial z}\big|_L=0$}}}%
+    \put(0.33371936,0.11409013){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$C(z,0) = C_i$}}}%
+    \put(0.00292782,0.30667543){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{-3cm}$-D\frac{\partial C}{\partial z}\big|_{z=0} + vC = \begin{cases}vC_0 & t<t_0\\ 0 & t>t_0 \end{cases}$ }}}%
+    \put(0.50778109,0.00353984){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{4.2cm}$z=L$}}}%
+    \put(0.01201574,0.00353984){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{-1cm}$z=0$}}}%
   \end{picture}%
 \endgroup
