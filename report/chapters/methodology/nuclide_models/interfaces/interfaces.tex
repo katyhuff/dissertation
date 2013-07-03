@@ -49,7 +49,8 @@ Advective flow across the boundary between two components relies on the
 fixed concentration Dirichlet boundary condition,
 
 \begin{align}
-\mathcal{D}_j(t_n) &= \mbox{ fixed concentration from component j at }t_n [kg/m^3].\nonumber\\ 
+\mathcal{D}_j(t_n) &= C(z,t_n)|_{z=r_j} \nonumber\\
+                   &= \mbox{ fixed concentration at j external boundary at }t_n [kg/m^3].\nonumber\\ 
 \end{align}
 
 Thus, in order to couple with other mass balance models, each mass balance 
@@ -67,8 +68,7 @@ boundary between cells $j$ and $k$, is the average concentration in the degraded
 volume, 
 
 \begin{align}
-\mathcal{D}_j(t_n) &= C_{d,j}(t_n)\nonumber\\ 
-                   &= \frac{m_{d}(t_n)}{V_{d}(t_n)} \label{deg_rate_dirichlet} \\
+C_d(r_j,t_n)       &= \frac{m_{d}(t_n)}{V_{d}(t_n)} \label{deg_rate_dirichlet} \\
                    &= \frac{\mbox{ solute mass in degraded fluid in cell j }}{\mbox{ degraded fluid volume in cell j}}.\nonumber 
 \end{align}
 
@@ -108,7 +108,26 @@ J_{adv,j}(t_n) &= \theta_k vC(r_k,t_n).
 \subsection{Dispersive Flow}
 
 Dispersive flow accross the boundary between two components relies on the fixed 
-concentration gradient Neumann boundary condition.
+concentration gradient Neumann boundary condition, 
+
+\begin{align}
+\frac{dC}{dz}\Bigg|_{z=r_j} &= \mbox{ fixed concentration gradient from component j at }t_n [kg/m^3/s].\nonumber
+\end{align}
+
+For mass balance models that are 0d in space (i.e. the Degradation Rate model 
+and the Mixed Cell model), the center-to-center difference between adjacent 
+components is taken,
+
+\begin{align}
+\mathcal{N}_j(t_n) &= \mbox{ fixed concentration gradient from component j at }t_n [kg/m^3/s]\nonumber\\
+                   &= \frac{dC(t_n)}{dr}\Bigg|_{r=r_j}\nonumber\\ 
+                   &= \frac{C_k(r_{k-1/2},t_{n-1}) - C_j(r_{j-1/2}, t_n)}{r_{k-1/2} - r_{j-1/2}}
+\label{neumann_dr}
+\intertext{where}
+r_{j-1/2} &= r_{j} - \frac{r_{j} - r_i}{2}\nonumber\\
+r_{k-1/2} &= r_{k} - \frac{r_{k} - r_j}{2}.\nonumber
+\end{align}
+
 
 
 
@@ -175,16 +194,6 @@ coefficient are known for each component.
 To support parent components that utilize the Neumann boundary condition, the 
 concentration gradient can be found if the concentration and the 
 radial midpoint of the external component, $k$, are specified.
-
-\begin{align}
-\mathcal{N}_j(t_n) &= \mbox{ fixed concentration gradient from component j at }t_n [kg/m^3/s]\nonumber\\
-                   &= \frac{dC(t_n)}{dr}\Bigg|_{r=r_j}\nonumber\\ 
-                   &= \frac{C_k(r_{k-1/2},t_{n-1}) - C_j(r_{j-1/2}, t_n)}{r_{k-1/2} - r_{j-1/2}}
-\label{neumann_dr}
-\intertext{where}
-r_{j-1/2} &= r_{j} - \frac{r_{j} - r_i}{2}\nonumber\\
-r_{k-1/2} &= r_{k} - \frac{r_{k} - r_j}{2}.\nonumber
-\end{align}
 
 
 To support parent components that utilize the Cauchy boundary condition, the 
