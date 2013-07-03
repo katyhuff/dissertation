@@ -70,38 +70,8 @@ concentration, $C_j$ at $r_j$, the boundary between cells $j$ and $k$, is the av
 concentration in degraded volume, 
 
 \begin{align}
-\mathcal{D}_j(t_n) &= \mbox{ fixed concentration from component j at }t_n [kg/m^3].\nonumber\\ 
-                   &= C_{j}(t_n)\nonumber\\ 
-                   &= C_{df}\nonumber\\
-                   &= \frac{m_{d}(t_n)}{V_{d}(t_n)}\\
-\label{deg_rate_dirichlet}\\
+C_{d} &= \frac{m_{d}(t_n)}{V_{d}(t_n)}\\
+\label{deg_rate_conc}\\
 &= \frac{\mbox{ solute mass in degraded fluid in cell j }}{\mbox{ degraded fluid volume in cell j}}.\nonumber 
 \end{align}
-
-To support parent components that utilize the Neumann boundary condition, the 
-concentration gradient can be found if the concentration and the 
-radial midpoint of the external component, $k$, are specified.
-
-\begin{align}
-\mathcal{N}_j(t_n) &= \mbox{ fixed concentration gradient from component j at }t_n [kg/m^3/s]\nonumber\\
-                   &= \frac{dC(t_n)}{dr}\Bigg|_{r=r_j}\nonumber\\ 
-                   &= \frac{C_k(r_{k-1/2},t_{n-1}) - C_j(r_{j-1/2}, t_n)}{r_{k-1/2} - r_{j-1/2}}
-\label{neumann_dr}
-\intertext{where}
-r_{j-1/2} &= r_{j} - \frac{r_{j} - r_i}{2}\nonumber\\
-r_{k-1/2} &= r_{k} - \frac{r_{k} - r_j}{2}.\nonumber
-\end{align}
-
-
-To support parent components that utilize the Cauchy boundary condition, the 
-degradation rate model assumes that the fluid velocity is constant across the cell 
-as is the concentration. Thus, 
-
-\begin{align}
-\mathcal{C}_j(t_n) &= \mbox{ fixed concentration flux from component j at }t_n [kg/m^2/s]\nonumber\\
-                   &= -D\frac{\partial C(t_n)}{\partial r}\Bigg|_{r=r_j} + v_zC(t_n)\Bigg|_{r=r_j} \\
-\label{deg_rate_cauchy}
-\end{align}
-
-%<++> &= \mbox{ <++> }[<++>] \nonumber\\
 
