@@ -11,22 +11,14 @@ solute (infinitely soluble and non-sorbing), the mass conservation equation
 becomes \cite{schwartz_fundamentals_2004, wang_introduction_1982, 
 van_genuchten_analytical_1982}:
 
-    \begin{align}
-      J &= J_{dis} + J_{adv}\nonumber\\
-      &= -\theta(D_{mdis} + \tau D_m)\nabla C + \theta vC\nonumber\\ 
-      &= -\theta D\nabla C + \theta vC \nonumber\\ 
-      \intertext{which, for uniform flow in $\hat{k}$, is}
-      &=\left(-\theta D_{xx} \frac{\partial C}{\partial x}
-             \right)\hat{\imath}
-             + \left( -\theta D_{yy} \frac{\partial C}{\partial y}
-            \right)\hat{\jmath}
-            + \left( -\theta D_{zz} \frac{\partial C}{\partial z}
-             + \theta v_zC 
-            \right)\hat{k},
-      \label{unidirflow}
+     \begin{align}
+      J &= J_{dis} + J_{adv}\nonumber
       \intertext{where}
       J_{dis} &= \mbox{ Total Dispersive Mass Flux }[kg/m^2/s]\nonumber\\
+      &= -\theta(D_{mdis} + \tau D_m)\nabla C \nonumber\\ 
+      &= -\theta D\nabla C \nonumber\\
       J_{adv} &= \mbox{ Advective Mass Flux }[kg/m^2/s]\nonumber\\
+      &= \theta vC\nonumber\\
       \tau &= \mbox{ Tortuosity }[-] \nonumber\\
       \theta &= \mbox{ Porosity }[-] \nonumber\\
       D_m &= \mbox{ Molecular diffusion coefficient }[m^2/s]\nonumber\\
@@ -36,9 +28,98 @@ van_genuchten_analytical_1982}:
       v &= \mbox{ Fluid Velocity in the medium }[m/s].\nonumber
     \end{align}
 
-Solutions to this equation can be categorized by their boundary conditions and 
-those boundary conditions serve as the interfaces between components in the 
-\Cyder library of nuclide transport models.
+For uniform flow in $\hat{k}$, 
+    \begin{align}
+      J &=\left(-\theta D_{xx} \frac{\partial C}{\partial x}
+             \right)\hat{\imath}
+             + \left( -\theta D_{yy} \frac{\partial C}{\partial y}
+            \right)\hat{\jmath}
+            + \left( -\theta D_{zz} \frac{\partial C}{\partial z}
+             + \theta v_zC 
+            \right)\hat{k}.
+      \label{unidirflow}
+    \end{align}
+
+Solutions to this equation can be categorized by their boundary conditions. 
+Those boundary conditions serve as the interfaces between components in the 
+\Cyder library of nuclide transport models by way of advective, dispersive, 
+coupled, and fixed fluxes.
+
+\subsection{Advective Flow}
+
+Advective flow across the boundary between two components relies on the 
+fixed concentration Dirichlet boundary condition,
+
+\begin{align}
+\end{align}
+
+Thus, in order to couple with other mass balance models, each mass balance 
+model calculates potential advective flow across its external boundary based on 
+the Dirichlet condition at its outer boundary. 
+
+\subsubsection{Degradation Rate Model Advective Flux Calculation}
+
+The concentration calculation results from the mass balance calculation in 
+\eqref{deg_rate_source_cont} to support parent components that utilize the 
+Dirichlet boundary condition.  
+For the degradation rate model, which 
+incorporates no diffusion or advection internally, the concentration, $C_j$ at $r_j$, the 
+boundary between cells $j$ and $k$, is the average concentration in degraded 
+volume, 
+
+\begin{align}
+\mathcal{D}_j(t_n) &= \mbox{ fixed concentration from component j at }t_n [kg/m^3].\nonumber\\ 
+                   &= C_{j}(t_n)\nonumber\\ 
+                   &= C_{d}\nonumber\\
+                   &= \frac{m_{d}(t_n)}{V_{d}(t_n)}\\
+\label{deg_rate_dirichlet}\\
+&= \frac{\mbox{ solute mass in degraded fluid in cell j }}{\mbox{ degraded fluid volume in cell j}}.\nonumber 
+\end{align}
+
+The resulting advective flux is then, 
+
+\begin{align}
+J_{adv,j}(t_n) &= \mbox{ potential advective flux from component j at }t_n [kg/m^2/s]\nonumber\\
+               &= \theta_k v \mathcal{D}_j(t_n)\nonumber\\
+               &= \theta_k v\frac{m_{d}(t_n)}{V_{d}(t_n)}.
+               \label{adv_deg_rate}
+\end{align}
+
+\subsubsection{Mixed Cell Model Advective Flux Calculation}
+
+The only difference between the Mixed Cell model and the Degradation Rate model 
+lies in the internal notion of the available concentration. Equation 
+\label{adv_deg_rate} becomes
+
+\begin{align}
+J_{adv,j}(t_n) &= \theta_k v\frac{m_{df}(t_n)}{V_{df}(t_n)}.
+               \label{adv_mixed}
+\end{align}
+
+\subsubsection{Lumped Parameter Advective Flux Calculation}
+
+\begin{align}
+J_{adv,j}(t_n) &= \theta_k vC(z,t_n)\Bigg|_{z=r_k}.
+               \label{adv_lumped}
+\end{align}
+
+\subsection{Dispersive Flow}
+
+Dispersive flow accross the boundary between two components relies on the fixed 
+concentration gradient Neumann boundary condition.
+
+
+
+\subsection{Advective and Dispersive Flow}
+
+Coupled advective and dispersive flow relies on both boundary conditions.
+
+\subsection{Maximum Flow}
+For debugging and testing purposes, the maximum flow mode transports all 
+available material in a component into the component external to it. 
+
+\subsection{Flow Mode Selection}
+
 
   \begin{figure}[htp!]
     \begin{center}
@@ -88,22 +169,6 @@ coefficient are known for each component.
 
 
 \subsection{Degradation Rate Mass Flow Calculations}
-The concentration calculation results from the mass balance calculation in 
-\eqref{deg_rate_source_cont} 
-to support parent components that utilize the Dirichlet boundary condition. 
-For 
-the degradation rate model, which incorporates no diffusion or advection, the 
-concentration, $C_j$ at $r_j$, the boundary between cells $j$ and $k$, is the average 
-concentration in degraded volume, 
-
-\begin{align}
-\mathcal{D}_j(t_n) &= \mbox{ fixed concentration from component j at }t_n [kg/m^3].\nonumber\\ 
-                   &= C_{j}(t_n)\nonumber\\ 
-                   &= C_{df}\nonumber\\
-                   &= \frac{m_{d}(t_n)}{V_{d}(t_n)}\\
-\label{deg_rate_dirichlet}\\
-&= \frac{\mbox{ solute mass in degraded fluid in cell j }}{\mbox{ degraded fluid volume in cell j}}.\nonumber 
-\end{align}
 
 To support parent components that utilize the Neumann boundary condition, the 
 concentration gradient can be found if the concentration and the 
@@ -132,7 +197,7 @@ as is the concentration. Thus,
 
 %<++> &= \mbox{ <++> }[<++>] \nonumber\\
 % mixed
-\subsection{Calculation of Mass Transfer}
+\subsection{Mixed Cell Calculation of Mass Transfer}
 The MixedCell model can operate in four modes, each dictating the method by 
 which mass transfer across the inner boundary is calculated.  Those modes 
 utilize the source term, Dirichlet, and Neumann interfaces to model prescribed, 
@@ -176,7 +241,7 @@ dispersive,
 m_{ij} &= -D \theta d \frac{\partial C}{\partial z}\Bigg|_{z=r_j} 2rl(t_n - t_{n-1}).\nonumber
 \end{align}
 
-\subsection{Boundary Interfaces}
+\subsection{Mixed Cell Boundary Interfaces}
 The source term of available contaminants is all mass in the available degraded fluid,
 \begin{align}
 \mathcal{S}_j(t_n) &= m_{df}(t_n). 
@@ -215,7 +280,7 @@ v_z C_0 &= \frac{dC(t_n)}{dr}\Big|_{r=r_{j}} + v_{z}C_j(t_n).
 
 
 % lumped
-\subsection{Calculation of Mass Transfer}
+\subsection{Lumped PArameter Calculation of Mass Transfer}
 
 The LumpedNuclide model requires a specified internal concentration, so the 
 Dirichlet boundary condition is queried at the internal boundary of the lumped 
@@ -244,7 +309,7 @@ simply
 m_{ij} &= m_j(t_n) - m_j(t_{n-1}).
 \end{align}
 
-\subsection{Boundary Interfaces}
+\subsection{Lumped Parameter Boundary Interfaces}
 The external source term and boundary conditions are found exactly similarly to the method by 
 which the Degradation Rate model finds external boundary conditions in Section 
 \ref{sec:dr_bc}. This method is entirely based on contained mass and component 
