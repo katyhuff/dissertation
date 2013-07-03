@@ -77,5 +77,15 @@ source boundary are given in Maloszewski and Zuber \cite{maloszewski_lumped_1996
   \label{lumpedsolns}
 \end{align}
 
-An actual use case might involve\ldots 
+Since \Cyclus handles decay outside of \Cyder, the use of these models relies on a 
+reference transit time and decay constant supplied by the user. The behavior of 
+the reference isotope, in this way, fully defines the behavior of all isotopes.
+
+For calculations later in this chapter concerning this model, it is important to 
+note that a linear concentration profile is assumed between the inlet and the 
+outlet,
+
+\begin{align}
+  C(z,t) = C_{in}(t)  + C_{out}(t)z.
+\end{align}
 
