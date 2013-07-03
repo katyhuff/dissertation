@@ -1,13 +1,14 @@
-\section{Interfaces}
-The interfaces between the models are essential to the understanding of the 
-models themselves. The interfaces define boundary conditions in a number of 
-forms based on information available internally to the component implementation. 
+\section{Radionuclide Mass Transfer in Cyder}
 
-In groundwater transport, contaminants are transported by dispersion 
-and advection. It is customary to define the combination of molecular diffusion 
-and mechanical mixing as the dispersion tensor, $D$, such that, for a 
-conservative solute (infinitely soluble and non-sorbing), the mass conservation equation becomes 
-\cite{schwartz_fundamentals_2004, wang_introduction_1982, 
+The interfaces between the models are essential to the understanding of the 
+\Cyder paradigm. The mass flow between components is based on the mass balance 
+calculaitons in the previous section.
+
+In groundwater transport, contaminants are transported by dispersion and 
+advection. It is customary to define the combination of molecular diffusion and 
+mechanical mixing as the dispersion tensor, $D$, such that, for a conservative 
+solute (infinitely soluble and non-sorbing), the mass conservation equation 
+becomes \cite{schwartz_fundamentals_2004, wang_introduction_1982, 
 van_genuchten_analytical_1982}:
 
     \begin{align}
@@ -80,12 +81,10 @@ in the $\hat{z}$ direction,
     \end{align}  
 
 The spatial concentration throughout the volume is sufficient to fully describe 
-implementation of the following nuclide transport models within \Cyder. This is 
-supported by implementation in which vertical advective velocity is uniform 
-throughout the system and in which parameters such as the dispersion coefficient 
-are known for each component. Since this is the case in \Cyder, description of 
-the Dirichlet condition is sufficient to fully define calculation of the Neumann 
-and Cauchy type conditions.
+implementation of advective, dispersive, and couple mass flow modes within 
+\Cyder. This is supported by implementation in which vertical advective velocity 
+is uniform throughout the system and in which parameters such as the dispersion 
+coefficient are known for each component. 
 
 
 \subsection{Degradation Rate Mass Flow Calculations}
