@@ -37,12 +37,25 @@ For uniform flow in $\hat{k}$,
       \label{unidirflow}
     \end{align}
 
-Solutions to this equation can be categorized by their boundary conditions. 
+Solutions to this equation can be categorized by their boundary conditions.  
 Those boundary conditions serve as the interfaces between components in the 
 \Cyder library of nuclide transport models by way of advective, dispersive, 
-coupled, and fixed fluxes.
+coupled, and fixed fluxes.  This is supported by implementation in which 
+vertical advective velocity is uniform throughout the system and in which 
+parameters such as the dispersion coefficient are known for each component. 
 
 \subsection{Dirichlet Boundary Condition}
+
+The first, specified-concentration or Dirichlet type boundary conditions define 
+a specified species concentration on some section of the boundary of the 
+representative volume, 
+
+    \begin{align}
+      C(\vec{r},t)\Big|_{\vec{r} \in \Gamma} &= C_0(t)
+      \intertext{where}
+      \vec{r} &= \mbox{ position vector }\nonumber\\
+      \Gamma &= \mbox{ domain boundary }.\nonumber
+    \end{align}
 
 The Dirichlet boundary condition can be provided by any mass balance model, 
 based on the concentration profile calculated in the previous section,
@@ -94,11 +107,18 @@ A &= \mbox{ surface area normal to the flow direction }[m^2]\nonumber\\
 
 \subsection{Neumann Boundary Condition}
 
-The fixed concentration gradient Neumann boundary condition,
+The second type, specified-flow or Neumann type boundary conditions describe a full set of 
+concentration gradients at the boundary of the domain,
+    \begin{align}
+      \frac{\partial C(\vec{r},t)}{\partial r}\Big|_{\vec{r}\in\Gamma} &= f(t)\\
+      f(t) &= \mbox{ known function }.\nonumber
+    \end{align}
+
+The Neumann boundary condition can be provided at the external boundary of any 
+mass balance model,
 \begin{align}
-\frac{\partial C}{\partial z}\Bigg|_{z=r_j} &= \mbox{ fixed concentration gradient in j at }r_j\mbox{ and } t_n [kg/m^3/s],\nonumber
+\frac{\partial C}{\partial z}\Bigg|_{z=r_j} &= \mbox{ fixed concentration gradient in j at }r_j\mbox{ and } t_n [kg/m^3/s].\nonumber
 \end{align}
-can be provided at the external boundary of any mass balance model.
 
 
 For mass balance models that are 0d in space (i.e. the Degradation Rate model 
@@ -151,8 +171,40 @@ m_{ij}(t_n) &= - A\Delta t D \frac{\partial C(z,t_n)}{\partial z}|_{z=r_i}.
 
 \subsection{Cauchy Boundary Condition}
 
-Coupled advective and dispersive flow is the sum of these two fluxes, and 
-relies on both boundary conditions.
+The third, head-dependent mixed boundary condition or Cauchy type, defines a 
+solute flux along a boundary.  The fixed concentration flux Cauchy boundary 
+condition can be provided at the external boundary of any mass balance model.  
+For a vertically oriented system with advective velocity in the $\hat{k}$ 
+direction,
+
+    \begin{align}
+      -D\frac{\partial C(z, t)}{\partial z}\Big|_{z \in \Gamma} + v_zC(z, t) &= v_zC(t) 
+      \intertext{where}
+      C(t) &= \mbox{ a known concentration function }[kg/m^{3}].\nonumber
+    \end{align}  
+
+On its inner boundary, the One Dimensional PPM model uses this fixed flux 
+boundary condition directly in its solution such that, 
+\begin{align}
+C_{0,j}(t_n) &=  
+\end{align}
+
+The resulting mass transfer into the external component containing the Lumped 
+Parameter model is 
+
+\begin{align}
+m_{ij}(t_n) &=\int C(z,t_n)dV - \int C(z, t_{n-1})dV.
+\end{align}
+
+In the Degradation Rate and Mixed Cell models, the Cauchy boundary condition 
+can be selected to enforce coupled advective and dispersive flow.  The 
+resulting mass transfer into the Degradation Rate or Mixed Cell model is then, 
+
+\begin{align}
+m_{ij}(t_n) &= A\Delta t \left( \theta_j v C(z,t_n)|_{z=r_i} - D \frac{\partial C(z,t_n)}{\partial z}|_{z=r_i} \right).
+\end{align}
+
+
 
 \subsection{Maximum Flow}
 For debugging and testing purposes, the maximum flow mode transports all 
@@ -185,50 +237,11 @@ are calculated numerically.
     \label{fig:flow}
   \end{figure}
 
-The first, specified-concentration or Dirichlet type boundary conditions define a specified species 
-concentration on some section of the boundary of the representative volume, 
 
-    \begin{align}
-      C(\vec{r},t)\Big|_{\vec{r} \in \Gamma} &= C_0(t)
-      \intertext{where}
-      \vec{r} &= \mbox{ position vector }\nonumber\\
-      \Gamma &= \mbox{ domain boundary }.\nonumber
-    \end{align}
-
-The second type, specified-flow or Neumann type boundary conditions describe a full set of 
-concentration gradients at the boundary of the domain,
-
-    \begin{align}
-      \frac{\partial C(\vec{r},t)}{\partial r}\Big|_{\vec{r}\in\Gamma} &= f(t)\\
-      f(t) &= \mbox{ known function }.\nonumber
-    \end{align}
-
-The third, head-dependent mixed boundary condition or Cauchy type, defines a solute 
-flux along a boundary. For a vertically oriented system with advective velocity 
-in the $\hat{k}$ direction,
-
-    \begin{align}
-      -D\frac{\partial C(z, t)}{\partial z}\Big|_{z \in \Gamma} + v_zC(z, t) &= v_zC(t) 
-      \intertext{where}
-      C(t) &= \mbox{ a known concentration function }[kg/m^{3}].\nonumber
-    \end{align}  
 
 The spatial concentration throughout the volume is sufficient to fully describe 
 implementation of advective, dispersive, and couple mass flow modes within 
-\Cyder. This is supported by implementation in which vertical advective velocity 
-is uniform throughout the system and in which parameters such as the dispersion 
-coefficient are known for each component. 
-
-\subsection{Degradation Rate Mass Flow Calculations}
-
-To support parent components that utilize the Neumann boundary condition, the 
-concentration gradient can be found if the concentration and the 
-radial midpoint of the external component, $k$, are specified.
-
-
-To support parent components that utilize the Cauchy boundary condition, the 
-degradation rate model assumes that the fluid velocity is constant across the cell 
-as is the concentration. Thus, 
+\Cyder. 
 
 \begin{align}
 \mathcal{C}_j(t_n) &= \mbox{ fixed concentration flux from component j at }t_n [kg/m^2/s]\nonumber\\
