@@ -1,5 +1,3 @@
-\section{Radionuclide Mass Transfer in Cyder}
-
 The interfaces between the models are essential to the understanding of the 
 \Cyder paradigm. The mass flow between components is based on the mass balance 
 calculaitons in the previous section.
@@ -51,6 +49,7 @@ Advective flow across the boundary between two components relies on the
 fixed concentration Dirichlet boundary condition,
 
 \begin{align}
+\mathcal{D}_j(t_n) &= \mbox{ fixed concentration from component j at }t_n [kg/m^3].\nonumber\\ 
 \end{align}
 
 Thus, in order to couple with other mass balance models, each mass balance 
@@ -64,16 +63,13 @@ The concentration calculation results from the mass balance calculation in
 Dirichlet boundary condition.  
 For the degradation rate model, which 
 incorporates no diffusion or advection internally, the concentration, $C_j$ at $r_j$, the 
-boundary between cells $j$ and $k$, is the average concentration in degraded 
+boundary between cells $j$ and $k$, is the average concentration in the degraded 
 volume, 
 
 \begin{align}
-\mathcal{D}_j(t_n) &= \mbox{ fixed concentration from component j at }t_n [kg/m^3].\nonumber\\ 
-                   &= C_{j}(t_n)\nonumber\\ 
-                   &= C_{d}\nonumber\\
-                   &= \frac{m_{d}(t_n)}{V_{d}(t_n)}\\
-\label{deg_rate_dirichlet}\\
-&= \frac{\mbox{ solute mass in degraded fluid in cell j }}{\mbox{ degraded fluid volume in cell j}}.\nonumber 
+\mathcal{D}_j(t_n) &= C_{d,j}(t_n)\nonumber\\ 
+                   &= \frac{m_{d}(t_n)}{V_{d}(t_n)} \label{deg_rate_dirichlet} \\
+                   &= \frac{\mbox{ solute mass in degraded fluid in cell j }}{\mbox{ degraded fluid volume in cell j}}.\nonumber 
 \end{align}
 
 The resulting advective flux is then, 
@@ -81,15 +77,14 @@ The resulting advective flux is then,
 \begin{align}
 J_{adv,j}(t_n) &= \mbox{ potential advective flux from component j at }t_n [kg/m^2/s]\nonumber\\
                &= \theta_k v \mathcal{D}_j(t_n)\nonumber\\
-               &= \theta_k v\frac{m_{d}(t_n)}{V_{d}(t_n)}.
-               \label{adv_deg_rate}
+               &= \theta_k v\frac{m_{d}(t_n)}{V_{d}(t_n)}.\label{adv_deg_rate}
 \end{align}
 
 \subsubsection{Mixed Cell Model Advective Flux Calculation}
 
 The only difference between the Mixed Cell model and the Degradation Rate model 
 lies in the internal notion of the available concentration. Equation 
-\label{adv_deg_rate} becomes
+\eqref{adv_deg_rate} becomes
 
 \begin{align}
 J_{adv,j}(t_n) &= \theta_k v\frac{m_{df}(t_n)}{V_{df}(t_n)}.
@@ -99,8 +94,15 @@ J_{adv,j}(t_n) &= \theta_k v\frac{m_{df}(t_n)}{V_{df}(t_n)}.
 \subsubsection{Lumped Parameter Advective Flux Calculation}
 
 \begin{align}
-J_{adv,j}(t_n) &= \theta_k vC(z,t_n)\Bigg|_{z=r_k}.
+J_{adv,j}(t_n) &= \theta_k vC(r_k,t_n).
                \label{adv_lumped}
+\end{align}
+
+\subsubsection{One Dimensional Advective Flux Calculation}
+
+\begin{align}
+J_{adv,j}(t_n) &= \theta_k vC(r_k,t_n).
+               \label{adv_1dppm}
 \end{align}
 
 \subsection{Dispersive Flow}
@@ -153,7 +155,7 @@ concentration gradients at the boundary of the domain,
 
 The third, head-dependent mixed boundary condition or Cauchy type, defines a solute 
 flux along a boundary. For a vertically oriented system with advective velocity 
-in the $\hat{z}$ direction,
+in the $\hat{k}$ direction,
 
     \begin{align}
       -D\frac{\partial C(z, t)}{\partial z}\Big|_{z \in \Gamma} + v_zC(z, t) &= v_zC(t) 
