@@ -1,0 +1,60 @@
+\subsubsection{Advection Dominated Mass Transfer}\label{sec:adv_mass_transfer}
+
+The first, specified-concentration or Dirichlet type boundary conditions define 
+a specified species concentration on some section of the boundary of the 
+representative volume, 
+
+    \begin{align}
+      C(\vec{r},t)\Big|_{\vec{r} \in \Gamma} &= C_0(t)
+      \intertext{where}
+      \vec{r} &= \mbox{ position vector }\nonumber\\
+      \Gamma &= \mbox{ domain boundary }.\nonumber
+    \end{align}
+
+The Dirichlet boundary condition can be provided by any mass balance model, 
+based on the concentration profile calculated in the previous section,
+
+\begin{align}
+C(z,t_n)|_{z=r_j} &= \mbox{ fixed concentration in j at }r_j\mbox{ and }t_n [kg/m^3].\nonumber\\ 
+                  &= \begin{cases} 
+                         \frac{m_{d}(t_n)}{V_{d}(t_n)}, & \mbox{Degradation Rate}\\
+                         \frac{m_{df}(t_n)}{V_{df}(t_n)}, & \mbox{Mixed Cell}\\
+                         C_{out}(t_n), & \mbox{Lumped Parameter}\\
+                         C(r_j,t_n), & \mbox{One Dimensional PPM}.
+                      \end{cases}
+\end{align}
+
+On its inner boundary, the Lumped Parameter model uses this fixed concentration 
+boundary condition directly in its solution such that, 
+\begin{align}
+C_{in,j}(t_n) &= C(z, t_n)|_{z=r_i}.
+\end{align}
+
+The resulting mass transfer into the external component containing the Lumped 
+Parameter model is 
+
+\begin{align}
+m_{ij}(t_n) &=\int C(z,t_n)dV - \int C(z, t_{n-1})dV.
+\end{align}
+
+In the Degradation Rate and Mixed Cell models, the Dirichlet boundary condition can 
+be chosen to enforce an advective flux on the inner boundary. This choice is 
+appropriate when the user expects a primarily advective interface between two 
+components. The advective flux across the boundary between two components $i$ 
+and $j$, 
+
+\begin{align}
+J_{adv,ij}(t_n) &= \mbox{ potential advective flux from i to j at }t_n[kg/m^2/s]\nonumber\\
+               &= \theta_j v C(z,t_n)|_{z=r_i}
+\end{align}
+relies on the fixed concentration Dirichlet boundary condition at the 
+interface, provided by the internal component.
+
+The resulting mass transfer into the Degradation Rate or Mixed Cell model
+is, therefore, 
+\begin{align}
+m_{ij}(t_n) &= A\Delta t \theta_j v C(z,t_n)|_{z=r_i}
+\intertext{where}
+A &= \mbox{ surface area normal to the flow direction }[m^2]\nonumber\\
+\Delta t &= \mbox{ length of the time step }[s]\nonumber
+\end{align}

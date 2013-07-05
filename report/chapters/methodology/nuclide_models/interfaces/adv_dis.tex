@@ -1,0 +1,36 @@
+\subsubsection{Coupled Advective Dispersive Mass Transfer}\label{sec:adv_dif_mass_transfer}
+
+The third, head-dependent mixed boundary condition or Cauchy type, defines a 
+solute flux along a boundary.  The fixed concentration flux Cauchy boundary 
+condition can be provided at the external boundary of any mass balance model.  
+For a vertically oriented system with advective velocity in the $\hat{k}$ 
+direction,
+
+    \begin{align}
+      -D\frac{\partial C(z, t)}{\partial z}\Big|_{z \in \Gamma} + v_zC(z, t) &= v_zC(t) 
+      \intertext{where}
+      C(t) &= \mbox{ a known concentration function }[kg/m^{3}].\nonumber
+    \end{align}  
+
+On its inner boundary, the One Dimensional PPM model uses this fixed flux 
+boundary condition directly in its solution such that, 
+\begin{align}
+C_{0,j}(t_n) &=  
+\end{align}
+
+The resulting mass transfer into the external component containing the Lumped 
+Parameter model is 
+
+\begin{align}
+m_{ij}(t_n) &=\int C(z,t_n)dV - \int C(z, t_{n-1})dV.
+\end{align}
+
+In the Degradation Rate and Mixed Cell models, the Cauchy boundary condition 
+can be selected to enforce coupled advective and dispersive flow.  The 
+resulting mass transfer into the Degradation Rate or Mixed Cell model is then, 
+
+\begin{align}
+m_{ij}(t_n) &= A\Delta t \left( \theta_j v C(z,t_n)|_{z=r_i} - D \frac{\partial C(z,t_n)}{\partial z}|_{z=r_i} \right).
+\end{align}
+
+
