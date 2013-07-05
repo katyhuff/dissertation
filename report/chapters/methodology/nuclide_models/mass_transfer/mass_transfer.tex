@@ -1,11 +1,11 @@
 \subsection{Mass Transfer Modes}\label{sec:mass_transfer}
-\input{./chapters/methodology/nuclide_models/interfaces/intro}
+\input{./chapters/methodology/nuclide_models/mass_transfer/intro}
 %\subsubsection{Advection Dominated Mass Transfer}\label{sec:adv_mass_transfer}
-\input{./chapters/methodology/nuclide_models/interfaces/adv}
+\input{./chapters/methodology/nuclide_models/mass_transfer/adv}
 %\subsubsection{Dispersion Dominated Mass Transfer}\label{sec:dis_mass_transfer}
-\input{./chapters/methodology/nuclide_models/interfaces/dis}
+\input{./chapters/methodology/nuclide_models/mass_transfer/dis}
 %\subsubsection{Coupled Advective Dispersive Mass Transfer}\label{sec:adv_dis_mass_transfer}
-\input{./chapters/methodology/nuclide_models/interfaces/adv_dis}
+\input{./chapters/methodology/nuclide_models/mass_transfer/adv_dis}
 
 
 \subsubsection{Maximum Flow Mass Transfer}\label{sed:max_flow_mass_transfer}
@@ -35,11 +35,11 @@ are calculated numerically.
 %  \begin{figure}[htp!]
 %    \begin{center}
 %      \def\svgwidth{\textwidth}
-%      \input{./chapters/methodology/nuclide_models/interfaces/flow.eps_tex}
+%      \input{./chapters/methodology/nuclide_models/mass_transfer/flow.eps_tex}
 %    \end{center}
-%    \caption[\Cyder Component interfaces provide a source term  and three 
+%    \caption[\Cyder Component mass_transfer provide a source term  and three 
 %    boundary condition types.]{The boundaries between components (e.g., waste form and waste 
-%      package) are robust interfaces defined by boundary condition types.}
+%      package) are robust mass_transfer defined by boundary condition types.}
 %    \label{fig:flow}
 %  \end{figure}
 %
@@ -61,7 +61,7 @@ are calculated numerically.
 %
 %The MixedCell model can operate in four modes, each dictating the method by 
 %which mass transfer across the inner boundary is calculated.  Those modes 
-%utilize the source term, Dirichlet, and Neumann interfaces to model prescribed, 
+%utilize the source term, Dirichlet, and Neumann mass_transfer to model prescribed, 
 %flow, advective flow, or diffusive flow.
 %Once calculated, that material object is removed from the 
 %internal component ($m_{ij} = -\dot{m}_i$) such that its internal state can be 
