@@ -1,1 +1,27 @@
-<+timesteps+>
+\subsection{Implicit Timestepping}\label{sec:timestepping}
+
+4.1.1 timestep algorithm
+
+presume/assume unidirectional flow from inside to outside, therefore:
+
+start with interior flows and work outwards
+
+at each mass transfer interface we desire to solve that flow model with most up-to-date information:
+
+first solve the internal mass distribution model for the interior (source) volume
+
+depending on the mass distribution model of the sink volume
+
+if 0-D model
+
+solve the explicit mass transfer model at the interface
+
+update the mass inventory of the source and sink volumes
+
+
+else
+
+solve the mass distribution model for the sink volume
+
+determine the implicit mass flux based on the updated sink parameters
+
