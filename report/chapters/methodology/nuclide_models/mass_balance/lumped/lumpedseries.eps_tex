@@ -1,6 +1,6 @@
 %% Creator: Inkscape inkscape 0.48.1, www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file '1dfin.eps' (pdf, eps, ps)
+%% Accompanies image file 'lumpedseries.eps' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -36,18 +36,18 @@
   }
   \providecommand\rotatebox[2]{#2}
   \ifx\svgwidth\undefined
-    \setlength{\unitlength}{839.10668835pt}
+    \setlength{\unitlength}{809.33515625pt}
   \else
     \setlength{\unitlength}{\svgwidth}
   \fi
   \global\let\svgwidth\undefined
   \makeatother
-  \begin{picture}(1,0.32163055)%
-    \put(0,0){\includegraphics[width=\unitlength]{./chapters/methodology/nuclide_models/one_dim_ppm/1dfin.eps}}%
-    \put(0.50778109,0.30862622){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{3cm}$\frac{\partial C}{\partial z}\big|_L=0$}}}%
-    \put(0.33371936,0.11409013){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$C(z,0) = C_i$}}}%
-    \put(0.00292782,0.30667543){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{-3cm}$-D\frac{\partial C}{\partial z}\big|_{z=0} + vC = \begin{cases}vC_0 & t<t_0\\ 0 & t>t_0 \end{cases}$ }}}%
-    \put(0.50778109,0.00353984){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{4.2cm}$z=L$}}}%
-    \put(0.01201574,0.00353984){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{\hspace{-1cm}$z=0$}}}%
+  \begin{picture}(1,0.20936268)%
+    \put(0,0){\includegraphics[width=\unitlength]{./chapters/methodology/nuclide_models/mass_balance/lumped/lumpedseries.eps}}%
+    \put(0.01498241,0.1893617){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$C_{in0}$}}}%
+    \put(0.1592984,0.19133863){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$C_{out0}=C_{in1}$}}}%
+    \put(0.38071469,0.19133863){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$C_{out1}=C_{in2}$}}}%
+    \put(0.61794644,0.19133863){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$C_{out2}=C_{in3}$}}}%
+    \put(0.85913206,0.19133863){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$C_{out3}$}}}%
   \end{picture}%
 \endgroup
