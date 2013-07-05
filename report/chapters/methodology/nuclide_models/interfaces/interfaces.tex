@@ -1,49 +1,3 @@
-The mass transfer interfaces between the mass balance models are essential to 
-the understanding of the \Cyder paradigm.  
-
-In groundwater transport, contaminants are transported by dispersion and 
-advection. It is customary to define the combination of molecular diffusion and 
-mechanical mixing as the dispersion tensor, $D$, such that, for a conservative 
-solute (infinitely soluble and non-sorbing), the mass conservation equation 
-becomes \cite{schwartz_fundamentals_2004, wang_introduction_1982, 
-van_genuchten_analytical_1982}:
-
-     \begin{align}
-      J &= J_{dis} + J_{adv}\nonumber
-      \intertext{where}
-      J_{dis} &= \mbox{ Total Dispersive Mass Flux }[kg/m^2/s]\nonumber\\
-      &= -\theta(D_{mdis} + \tau D_m)\nabla C \nonumber\\ 
-      &= -\theta D\nabla C \nonumber\\
-      J_{adv} &= \mbox{ Advective Mass Flux }[kg/m^2/s]\nonumber\\
-      &= \theta vC\nonumber\\
-      \tau &= \mbox{ Tortuosity }[-] \nonumber\\
-      \theta &= \mbox{ Porosity }[-] \nonumber\\
-      D_m &= \mbox{ Molecular diffusion coefficient }[m^2/s]\nonumber\\
-      D_{mdis} &= \mbox{ Coefficient of mechanical dispersivity}[m^2/s]\nonumber\\
-      D &= \mbox{ Effective Dispersion Coefficient }[m^2/s]\nonumber\\
-      C &= \mbox{ Concentration }[kg/m^3]\nonumber\\
-      v &= \mbox{ Fluid Velocity in the medium }[m/s].\nonumber
-    \end{align}
-
-For uniform flow in $\hat{k}$, 
-    \begin{align}
-      J &=\left(-\theta D_{xx} \frac{\partial C}{\partial x}
-             \right)\hat{\imath}
-             + \left( -\theta D_{yy} \frac{\partial C}{\partial y}
-            \right)\hat{\jmath}
-            + \left( -\theta D_{zz} \frac{\partial C}{\partial z}
-             + \theta v_zC 
-            \right)\hat{k}.
-      \label{unidirflow}
-    \end{align}
-
-Solutions to this equation can be categorized by their boundary conditions.  
-Those boundary conditions serve as the interfaces between components in the 
-\Cyder library of nuclide transport models by way of advective, dispersive, 
-coupled, and fixed fluxes.  This is supported by implementation in which 
-vertical advective velocity is uniform throughout the system and in which 
-parameters such as the dispersion coefficient are known for each component. 
-
 \subsection{Mass Transfer Modes}\label{sec:mass_transfer}
 \input{./chapters/methodology/nuclide_models/interfaces/intro}
 %\subsubsection{Advection Dominated Mass Transfer}\label{sec:adv_mass_transfer}
@@ -52,7 +6,6 @@ parameters such as the dispersion coefficient are known for each component.
 \input{./chapters/methodology/nuclide_models/interfaces/dis}
 %\subsubsection{Coupled Advective Dispersive Mass Transfer}\label{sec:adv_dis_mass_transfer}
 \input{./chapters/methodology/nuclide_models/interfaces/adv_dis}
-
 
 
 \subsubsection{Maximum Flow Mass Transfer}\label{sed:max_flow_mass_transfer}
@@ -72,6 +25,9 @@ m_{ij}(t_n) &= \begin{cases}
 
 The integrals for the Lumped Parameter model and the One Dimensional PPM model 
 are calculated numerically.
+
+\subsection{Implicit Timestepping}\label{sec:timestepping}
+\input{./chapters/methodology/nuclide_models/timesteps/timesteps}
 
 %
 %\subsection{Flow Mode Selection}
