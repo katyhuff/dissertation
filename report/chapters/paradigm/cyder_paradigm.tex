@@ -144,62 +144,9 @@ determines the contaminant transport inside the Component over time. The
 choices available for this NuclideModel are discussed further in Section 
 \ref{sec:nuclide_models}. 
 
-\subsubsection{Implicit Timestepping}
-
-Each Component passes some information radially outward to the nested 
-Component immediately containing it and some information radially 
-inward to the nested Component it contains. 
-
-
-In the case of radionuclide transport, for example, each Component model
-requires information about the radionuclides released from the Component it
-immediately contains.  Thus, nuclide release information is passed radially
-outward from the waste stream sequentially through each containment layer to
-the geosphere. However, the solutions within each Component often rely on the
-external boundary conditions of that Component.  Thus, the \Cyder model uses an
-implicit timestepping method to arrive at the future state of each Component,
-radially outward, as a function of both the past state and the current state. 
-
-That is, in Component $j$, some Component in a nested series, the mass flux 
-entering the Component at time $t_n$ is found from the initial state of the cell 
-at time $t_n$, the inner boundary 
-condition at time $t_n$ and the outer boundary condition at $t_{n-1}$.  
-
-\begin{align}
-  \dot{m}_{ij}^n &= f( m_j(t_{n-1}) , BC_i(t_n) , BC_j(t_{n-1}) . . . ) \nonumber\\
-  \intertext{where}
-  m_{ij}(t_n) &= \mbox{ contaminant mass flux from component i to j }[kg/timestep]\nonumber\\
-  BC_i(t_n)  &= \mbox{ inner conditions at }r_i\mbox{, and time }t_n \nonumber \\
-  BC_j(t_{n-1})  &= \mbox{ outer conditions at }r_j\mbox{, and time }t_{n-1} \nonumber\\
-  f &= \mbox{ functional form of contaminant transport into j. }\nonumber
-\end{align}
-
-Once the mass flux into the component is found, the mass is removed from the 
-inner cell, updating its state in preparation for the next time step.
-
-\begin{align}
-  m_i^\dagger(t_n)  &= m_i(t_n)  - m_{ij}(t_n) 
-  \intertext{where}
-  m_i^\dagger(t_n)  &= \mbox{ updated mass in component i }[kg]
-\end{align}
-
-In this way, the contained mass in the component is described as
-\begin{align}
-  m_j(t_n)  &= m_j(t_{n-1})  + \dot{m}_j(t_n) . \nonumber
-\end{align}
-
-Resulting concentration profiles across the component can then be calculated 
-and one can solve, numerically, for the outer boundary condition at $t_n$ 
-
-\begin{align}
-  BC_j(t_n) &= g\left( m_j(t_n) , C_j(t_n) \right)\nonumber\\
-  g &= \mbox{functional form of contaminant transport across j}\nonumber
-\end{align}
-
-This boundary condition can, in turn, be used by the component external to it, $k$ as the $t_n$ 
-inner boundary condition of its own solution and so on.
 
 \subsection{Output Tables}
+
 \Cyder output tables utilize the \Cyclus Table class and rely on the \Cyclus 
 simulation logic to record table entries in the cyclus.sqlite output database. 
 The current \Cyder output database includes a number of tables. First, a repository 
