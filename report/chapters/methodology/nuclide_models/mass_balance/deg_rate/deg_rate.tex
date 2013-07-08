@@ -32,22 +32,21 @@ f_n &= \mbox{ the constant rate over a time step }[1/s]\nonumber\\
 \end{align}
 
 In this model, all contaminants in the degraded fraction of the control volume 
-are available to adjacent components.
-
+are available to adjacent components such that,
 
 \begin{align}
 m_{jk}(t_n) &= m_{j,d}(t_n)
 \intertext{where}
-m_{jk} &= \mbox{ max contaminant mass available for transfer from j to k }[kg]\nonumber\\
+m_{jk} &= \mbox{ maximum contaminant mass available for transfer from j to k }[kg]\nonumber\\
 m_{j,d} &= \mbox{ mass in degraded volume of cell j }[kg] \nonumber\\
 t_n &= \mbox{ time }[s].\nonumber
 \end{align}
 
 The total contaminants $m_{d,j}(t_n)$, available in the degraded volume
 at time $t_n$ are calculated based on mass flux from the
-inner boundary ($m_{ij}(t_n)$), the updated ($^*$) mass in the degraded volume at the previous 
-timestep ($m_{j,d}^*(t_{n-1}$), and the mass released by degradation during the 
-current timestep ($m_{j,i}^*(t_{n-1})f_n\Delta t$). Specifically, 
+inner boundary, the updated mass in the degraded volume at the previous 
+timestep, and the mass released by degradation during the 
+current timestep. Specifically, 
 
 \begin{align}
 m_{d,j}(t_n) &= m_{ij}(t_n) + m_{d,j}^*(t_n) + m_{j,i}^*(t_{n-1})f_n\Delta t
