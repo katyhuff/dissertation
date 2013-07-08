@@ -1,7 +1,7 @@
 \subsubsection{Degradation Rate Radionuclide Mass Balance Model}\label{sec:deg_rate}
-The Degradation Rate mass balance model is the simplest implemented model and is most 
-appropriate for simplistic modeling of a degrading barrier volume.  Many 
-barrier materials in a repository environment degrade over time. The 
+Many barrier materials in a repository environment degrade over time.  The 
+Degradation Rate mass balance model is the simplest implemented model and is 
+most appropriate for simplistic modeling of a degrading barrier volume.  The 
 Degradation Rate mass balance model does not attempt to model the physical 
 mechanisms responsible for this degradation. Rather, it generically captures 
 this behavior as a simple fractional degradation rate.  The fundamental concept 
@@ -25,14 +25,13 @@ V_i(t) &= \mbox{ intact volume at time t }[m^3]\nonumber\\
 V_d(t) &= \mbox{ degraded volume at time t }[m^3]\nonumber
 \intertext{and}
 d(t) &= \mbox{ the fraction that has been degraded by time t }[-]\nonumber\\
-     &= \sum_{n=0}^{n=N}f_n\Delta t\nonumber\\
+     &= \sum_{n=0}^{N}f_n\Delta t\nonumber\\
 \intertext{where}
 f_n &= \mbox{ the constant rate over a time step }[1/s]\nonumber\\ 
 \Delta t &= \mbox{ the length of a timestep }[s].\nonumber
-f(t)
 \end{align}
 
-In this model, the contaminants in the degraded fraction of the control volume 
+In this model, all contaminants in the degraded fraction of the control volume 
 are available to adjacent components.
 
 
