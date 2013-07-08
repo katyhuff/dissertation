@@ -1,10 +1,10 @@
 \section{\textsc{Cyclus} Simulator Paradigm }
 
 The \Cyclus project \cite{wilson_cyclus:_2012} at the \gls{UW} Madison is the 
-simulation framework in which this disposal system simulator is designed to 
-operate.  Modular features within this software architecture provide a 
-great deal of flexibility, both in terms of modifying the underlying 
-modeling algorithms and exchanging components of a fuel cycle system.
+simulation framework in which the \Cyder disposal system simulator is designed 
+to operate.  Modular features within the \Cyclus software architecture provide 
+a great deal of flexibility, both in terms of modifying the underlying modeling 
+algorithms and exchanging components of a fuel cycle system.
 
 The \Cyclus fuel cycle simulator is the  result of lessons learned 
 from experience with previous nuclear fuel cycle simulation platforms.  
@@ -69,17 +69,17 @@ a region, institution, and facility  hierarchy. In this paradigm,
 the shared interface of polymorphic objects is abstracted from the 
 logic of their instantiation by the model definition they inherit.  
 
-In this way, \Cyclus allows a level of abstraction to exist between 
-the simulation and model instantiation as well as between model 
-instantiation and behavior.  An interface defines the set of shared 
-functions of a set of subclasses in an abstract superclass. In \Cyclus
-main superclasses are Regions, Institutions, and Facilities 
-while their subclasses are the concrete available model types (e.g. a 
-RecipeReactorFacility). See Figure \ref{fig:modularity}.
+In this way, \Cyclus allows a level of abstraction to exist between the 
+simulation and model instantiation as well as between model instantiation and 
+behavior.  An interface defines the set of shared functions of a set of 
+subclasses in an abstract superclass. In \Cyclus, the main superclasses are 
+Regions, Institutions, and Facilities while their subclasses are the concrete 
+available model types (e.g. a RecipeReactorFacility). See Figure 
+\ref{fig:modularity}.
 
-The interface for the FacilityModel class is the set of 
-virtual functions declared in the Facility class such as getName, 
-getID, executeOrder(), sendMaterial(), receiveMaterial() etc.  Through 
+The interface for FacilityModel objects is the set of 
+virtual functions declared in the FacilityModel class and implemented in the 
+concrete facility models that inherit from it. Through 
 such an interface, the members of a subclass can be treated as 
 interchangeable (polymorphic) instantiations of their shared 
 superclass. 
@@ -132,15 +132,15 @@ Like markets, the user may select which type of algorithm is used for
 each facility by selecting a FacilityModel and configuring it with a 
 particular set of parameters defined by that FacilityModel.  Changing 
 the parameters of a facility changes its performance and selecting a 
-different FacilityModel completely changes its behavior.  Unlike 
-markets, multiple independent instances of each facility configuration 
+different FacilityModel completely changes its behavior.  
+Multiple independent instances of each facility configuration 
 can be deployed to represent individual facilities.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Discrete Materials and Facilities}
 
-The disposal system simulator that is the subject of this work is a facility model 
+The \Cyder disposal system simulator that is the subject of this work is a facility model 
 within the \Cyclus simulation paradigm.  The \Cyclus modeling infrastructure is 
 designed such that every facility in a global nuclear fuel cycle is treated and 
 acts individually.  Each facility has two fundamental tasks: the transaction of 
@@ -150,7 +150,7 @@ receive fresh fuel assemblies from a fuel fabrication facility, transform them
 to used fuel assemblies using some approximation of the reactor physics, and 
 supply those used fuel assemblies to a storage facility. In this manner, 
 facilities can be thought of as black boxes in the simulation which request and 
-produce resources as in Figure \ref{fig:facility} 
+produce resources as in Figure \ref{fig:facility}.
 
 \begin{figure}[htb!]
   \begin{center}
@@ -161,12 +161,12 @@ produce resources as in Figure \ref{fig:facility}
 \end{figure}
 
 
-A facility configuration is created by selecting a FacilityModel and 
-defining the parameters for that facility configuration.
-Each FacilityModel will define its own set of parameters that 
-govern its performance.  The same FacilityModel may be used for 
-multiple facility configurations in the same region, each with 
-parameter values appropriate for that facility configuration.
+A facility configuration is created by selecting a FacilityModel and supplying 
+input parameters to define the performance of that facility configuration.  
+Each FacilityModel enumerates the set of parameters that govern its 
+performance.  The same FacilityModel may be used for multiple facility 
+configurations in the same region, each with parameter values appropriate for 
+that facility configuration.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -181,13 +181,17 @@ within the simulation.
 
 \subsection{Implications for \textsc{Cyder}}
 
-The above sections outline the fuel cycle simulation platform
-currently under development at \gls{UW} in which the \Cyder repository model
-at hand is implemented.  Implemented as a facility within this 
-framework, the \Cyder interface conforms to the FacilityModel 
-interface defined within the \Cyclus paradigm. Though some FacilityModels 
-make both requests and offers to the system, the \Cyder model is a type 
-of sink node, making only requests as in Figure \ref{fig:sinkfacility}.
+The above sections outline the \Cyclus fuel cycle simulation platform currently 
+under development at \gls{UW} in which the \Cyder repository model at hand is 
+implemented.  Implemented as a facility within this framework, the \Cyder 
+interface conforms to the FacilityModel interface defined within the \Cyclus 
+paradigm.  \Cyder is distinguished from other FacilityModels used in \Cyclus 
+when it overrides and supplements these behaviors and data with its own 
+functionality and the functionality of its subcomponents.
+
+The \Cyder repository is a subclass of the FacilityModel class.  That is, the 
+repository inherits data, parameters and behaviors from the \Cyclus simulation 
+FacilityModel class.  Though some FacilityModels make both requests and offers to the system, the \Cyder model is a type of sink node, making only requests as in Figure \ref{fig:sinkfacility}.
 
 \begin{figure}[htb!]
   \begin{center}
@@ -200,19 +204,13 @@ of sink node, making only requests as in Figure \ref{fig:sinkfacility}.
 
 That interface requires that a capacity be defined by the repository at every 
 \Cyclus timestep so that the repository may make appropriate requests of 
-disposable material.
+disposable material.  
 
-Furthermore, the capability for dynamic module loading possible within 
-the \Cyclus paradigm allows the disposal system subcomponents to be 
-interchangeably loaded at runtime, enabling comparison of various 
-repository subcomponents, physical models of varying levels of detail. 
-
-The \Cyder repository is a subclass of the FacilityModel class.  That is, the 
-repository inherits data, parameters and behaviors from the \Cyclus simulation 
-FacilityModel class. \Cyder is distinguished from other FacilityModels used in 
-\Cyclus when it overrides and supplements these behaviors and data with its own 
-functionality and the functionality of its subcomponents.
-
+The implementation of \Cyder within \Cyclus also enables the capability for 
+dynamic module loading possible within the \Cyclus paradigm allows the disposal 
+system subcomponents to be interchangeably loaded at runtime, enabling 
+comparison of various repository subcomponents, physical models of varying 
+levels of detail.  
 
 %%%%%%% As Paul Dirac once said. . . In science one tries to tell
 %%%%%%% people, in such a way as to be understood by everyone,
