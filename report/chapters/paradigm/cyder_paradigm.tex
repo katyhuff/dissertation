@@ -18,12 +18,12 @@ the spent fuel object, a history of its isotopic composition is recorded.  It
 arrives at the repository and is emplaced if it obeys all repository capacity 
 limits. 
 
-For waste streams that vary from each other in composition, the thermal 
-capacity of the repository to receive that waste stream must therefore be 
-recalculated.  Since disposable material in most simulations of interest will 
-be of variable composition and therefore heterogeneous in heat production 
-capability, the disposal system simulator will repeatedly need to recalculate its own 
-capacity as new materials are offered.  That capacity calculation will be 
+Since disposable material in most simulations of interest will be of variable 
+composition and therefore heterogeneous in heat production capability, the 
+disposal system simulator will repeatedly need to recalculate its own capacity 
+as new materials are offered.  For waste streams that vary from each other in 
+composition, the thermal capacity of the repository to receive that waste 
+stream must therefore be recalculated.  That capacity calculation will be 
 discussed in Section \ref{sec:thermal_models}. 
 
 \subsection{Waste Stream Conditioning}
@@ -52,7 +52,7 @@ pairings between commodities and waste forms.}
 \subsection{Waste Form Packaging}
 
 Waste packaging is the process of placing one or many waste forms into a 
-containment package (typcially metallic). Once the waste stream has been 
+containment package. Once the waste stream has been 
 conditioned into a waste form, that waste form Component is loaded into a waste 
 package Component, also according to allowed pairs dictated by the user, as 
 depicted in Figure \ref{fig:wf_packaging}.
@@ -71,11 +71,12 @@ and packages.}
 
 \subsection{Package Emplacement}
 
-Finally, the waste package is emplaced in a buffer component, which 
-contains many other waste packages, spaced evenly in a grid. The grid is 
-defined by the user input and depends on repository depth, $\Delta z$, waste 
-package spacing, $\Delta x$, and tunnel spacing, $\Delta y$ as in Figure 
-\ref{fig:repo_layout}.
+Finally, the waste package is emplaced in a buffer component, which contains 
+many other waste packages, spaced evenly along an axis in the x-dimension 
+within the larger repository grid. The location of each waste package within 
+the repository grid is defined by the user input and depends on repository 
+depth, $\Delta z$, waste package spacing, $\Delta x$, and tunnel spacing, 
+$\Delta y$ as in Figure \ref{fig:repo_layout}.
 
 \begin{figure}[htbp!]
 \begin{center}
@@ -99,21 +100,21 @@ Component as a nested volume in a release chain.
 
 Each Component is defined by a Geometry, some Material Data, a ThermalModel, 
 and a NuclideModel. It is also defined by the Parent Component which contains 
-it and the daughter components which it contains. An emplaced waste package 
+it and the Daughter Components which it contains. An emplaced waste package 
 Component, for example, possesses a pointer to the buffer that surrounds it, 
 its Parent Component. It also possesses a list of pointers to the waste form or 
-waste forms within it, its daughter components. 
+waste forms within it, its Daughter Components. 
 
 \subsubsection{Component Geometry}
 
-Each Component of the repository system (i.e. waste form, waste package, buffer, 
-and geologic medium) is modeled as a discrete control volume. Each control 
-volume performs its own mass balance at each time step and assesses its own 
-internal  heat transfer and degradation phenomena utilizing boundary condition 
-information provided by adjacent nested Components. This control volume is 
-defined by the Component Geomtry, a class which keeps track of the inner and 
-outer radii, length, and centroid coordinates of the (assumed cylindrical) 
-volume.
+Each Component of the repository system (i.e. waste form, waste package, 
+buffer, and geologic medium) is modeled as a discrete control volume. Each 
+control volume performs its own mass balance at each time step and assesses its 
+own internal  heat transfer and degradation phenomena utilizing interface 
+information provided by adjacent nested Components. The spatial extent of the 
+control volume is defined by the Component Geometry, a class which keeps track 
+of the inner and outer radii, length, and centroid coordinates of the (assumed 
+cylindrical) volume.
 
 \subsubsection{Component Material Data}
 
@@ -159,7 +160,7 @@ external boundary conditions of that Component.  Thus, the \Cyder model uses an
 implicit timestepping method to arrive at the future state of each Component,
 radially outward, as a function of both the past state and the current state. 
 
-That is, in Component j, some Component in a nested series, the mass flux 
+That is, in Component $j$, some Component in a nested series, the mass flux 
 entering the Component at time $t_n$ is found from the initial state of the cell 
 at time $t_n$, the inner boundary 
 condition at time $t_n$ and the outer boundary condition at $t_{n-1}$.  
@@ -227,4 +228,4 @@ Figure \ref{fig:cont_table}.
       \caption[An example \Cyder output table of contaminant history.]{An example of the \Cyder contaminants table in the cyclus.sqlite database.}
       \label{fig:cont_table}
     \end{center}
-  \end{figure}
+  end{figure}
