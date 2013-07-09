@@ -63,6 +63,8 @@ When a mass flux $m_{ij}(t_n)$ is determined between volumes $i$ and $j$, the
 mass is added to the exterior sink volume $j$. Accordingly, necessary updates 
 are made to the mass balance and concentration profile. 
 
+For each of the models, this mass balance is calculated thus :
+
 
 
 \subsubsection{Phase 5: Interior Mass Balance Update}
@@ -71,7 +73,7 @@ mass is simultanously added to the exterior sink volume $j$ (as in phase 4) and
 extracted from the interior source volume $i$.
 
 When the material is extracted from the interior source volume, an update is 
-made to the mass balance and concentration profile. 
+made to the mass balance and concentration profile.
 
 \begin{align}
 \end{align}
@@ -120,33 +122,6 @@ and one can solve, numerically, for the outer boundary condition at $t_n$
 
 This boundary condition can, in turn, be used by the component external to it, $k$ as the $t_n$ 
 inner boundary condition of its own solution and so on.
-
-
-
-4.1.1 timestep algorithm
-
-presume/assume unidirectional flow from inside to outside, therefore:
-
-start with interior flows and work outwards
-
-at each mass transfer interface we desire to solve that flow model with most up-to-date information:
-
-first solve the internal mass distribution model for the interior (source) volume
-
-depending on the mass distribution model of the sink volume
-
-if 0-D model
-
-solve the explicit mass transfer model at the interface
-
-update the mass inventory of the source and sink volumes
-
-
-else
-
-solve the mass distribution model for the sink volume
-
-determine the implicit mass flux based on the updated sink parameters
 
 
 
