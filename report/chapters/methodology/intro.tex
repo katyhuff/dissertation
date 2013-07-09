@@ -1,10 +1,6 @@
 Each engineered barrier component within the \Cyder disposal system simulator 
-relies on a radionuclide mass balance model selected from the four presented in 
-this chapter.  The dominant physics of mass transfer between components is 
-selected from a set of mass transfer modes representing forced, advective, 
-diffusive, and coupled flow.  In order to be interchangeable within the 
-simulation, the radionuclide mass balance models have boundary interfaces 
-designed to support the array of available mass transfer modes. 
+relies on a mass balance model, a mass transfer model, and a thermal model 
+selected from those four presented in this chapter. 
 
 Mass balance calculations range from simplistic rate based degradation model to 
 a semi-analytic one dimensional solution to the advection dispersion equation.  
@@ -12,6 +8,13 @@ Mass transfer modes also range in complexity, including a fictionally
 simplistic forced transfer mode mode as well as modes capturing advection 
 dominated, diffusion dominated, and coupled flow, respectively.
 
+The dominant physics of mass transfer between components is 
+selected from a set of mass transfer modes representing forced, advective, 
+diffusive, and coupled flow.  In order to be interchangeable within the 
+simulation, the radionuclide mass balance models have boundary interfaces 
+designed to support the array of available mass transfer modes. 
 
-Thermal calculations are undertaken using a specific temperature change model.
-<+fill-in+>
+Thermal calculations are undertaken using a specific temperature change model 
+based on a thermal response database populated sufficiently to support thermal 
+transport in clay, granite, and salt. This database captures the effect of 
+thermal diffusivity, thermal conductivity, and varying waste isotopics.
