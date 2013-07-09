@@ -12,19 +12,6 @@ direction,
       C(t) &= \mbox{ a known concentration function }[kg/m^{3}].\nonumber
     \end{align}  
 
-On its inner boundary, the One Dimensional PPM model uses this fixed flux 
-boundary condition directly in its solution such that, 
-\begin{align}
-C_{0,j}(t_n) &=  
-\end{align}
-
-The resulting mass transfer into the external component containing the Lumped 
-Parameter model is 
-
-\begin{align}
-m_{ij}(t_n) &=\int C(z,t_n)dV - \int C(z, t_{n-1})dV.
-\end{align}
-
 In the Degradation Rate and Mixed Cell models, the Cauchy boundary condition 
 can be selected to enforce coupled advective and dispersive flow.  The 
 resulting mass transfer into the Degradation Rate or Mixed Cell model is then, 
