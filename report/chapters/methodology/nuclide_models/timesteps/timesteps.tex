@@ -39,10 +39,10 @@ to the external component, $j$.
 \subsubsection{Phase 3: Mass Transfer Calculation}
 
 The mass transfer from the source volume $i$ to the sink volume $j$ is 
-calculated next, based on the up to date boundary conditions at $r_i$ 
-determined in Phase 2 and the initial conditions in volume $j$. The mass 
-transfer is calculated according to the mass transfer mode preference of the 
-mass balance model of volume $j$.  
+calculated next, based on the up to date conditions at $0\le r \le r_{i}$ 
+determined in Phase 2 and the initial conditions in volume $j$ where $r_i \le r 
+\le r_j$. The mass transfer is calculated according to the mass transfer mode 
+preference of the mass balance model of volume $j$.  
 
 The Degradation Rate and Mixed Cell models can be parameterized to utilize an 
 explicit mass transfer mode that captures either advection, dispersion, or 
@@ -60,15 +60,12 @@ models, the calculation behind this mass distribution and concentration profile
 is disscussed in Section \ref{sec:mass_balance}.
 
 \subsubsection{Phase 5: Interior Mass Balance Update}
+
 When a mass flux $m_{ij}(t_n)$ is determined between volumes $i$ and $j$, the 
 mass is simultanously added to the exterior sink volume $j$ (as in phase 4) and 
-extracted from the interior source volume $i$.
-
-When the material is extracted from the interior source volume, an update is 
-made to the mass balance and concentration profile.
-
-\begin{align}
-\end{align}
+extracted from the interior source volume $i$.  When the material is extracted 
+from the interior source volume, an update is made to the mass balance and 
+concentration profile.
 
 \subsubsection{old text}
 
