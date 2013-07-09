@@ -116,6 +116,7 @@ m_{df} &= \frac{dm_TV_{df}}{K_dV_{ds}}\frac{1}{\left( 1+ \frac{V_{df}}{K_dV_{ds}
 \intertext{Finally, in terms of total volume,}
 m_{df} &= \frac{d^2 m_T\theta V_T}{dK_d(1-\theta)V_T}\left( \frac{1}{1+\frac{\theta d V_T}{K_d(1-\theta)dV_T} }\right)\\  
        &= \frac{d m_T\theta }{K_d(1-\theta) + \theta}.
+       \label{sorption}
 \end{align}
 
 \paragraph{Solubility}
@@ -124,7 +125,12 @@ available fluid volume is constrained by the
 elemental solubility limit \cite{hedin_integrated_2002}, 
     \begin{align}
       m_{df,i} &\leq V_w C_{sol,i}
+      \label{solubility}
     \intertext{where}
       m_{df,i} &= \mbox{ solubility limited mass of isotope i in volume }V_{df} [kg]\nonumber\\ 
       C_{sol,i} &= \mbox{ the maximum dissolved concentration limit of i }[kg/m^3].\nonumber
     \end{align}
+
+
+The final available mass is therefore the $m_{df}$ from equation 
+\eqref{sorption} constrained by equation \eqref{solubility}.
