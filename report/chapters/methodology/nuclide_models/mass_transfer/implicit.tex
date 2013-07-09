@@ -1,0 +1,14 @@
+\subsubsection{Implicit Mass Transfer}
+
+On its inner boundary, the Lumped Parameter model uses the fixed concentration  
+Dirichlet boundary condition directly in its solution such that, 
+\begin{align}
+C_{in,j}(t_n) &= C(z, t_n)|_{z=r_i}.
+\end{align}
+
+The resulting mass transfer into the external component containing the Lumped 
+Parameter model is 
+
+\begin{align}
+m_{ij}(t_n) &=\int C(z,t_n)dV - \int C(z, t_{n-1})dV.
+\end{align}
