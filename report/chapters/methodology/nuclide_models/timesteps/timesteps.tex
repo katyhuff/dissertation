@@ -1,39 +1,12 @@
 \subsection{Implicit Timestepping}\label{sec:timestepping}
 
-4.1.1 timestep algorithm
-
-presume/assume unidirectional flow from inside to outside, therefore:
-
-start with interior flows and work outwards
-
-at each mass transfer interface we desire to solve that flow model with most up-to-date information:
-
-first solve the internal mass distribution model for the interior (source) volume
-
-depending on the mass distribution model of the sink volume
-
-if 0-D model
-
-solve the explicit mass transfer model at the interface
-
-update the mass inventory of the source and sink volumes
-
-
-else
-
-solve the mass distribution model for the sink volume
-
-determine the implicit mass flux based on the updated sink parameters
-
-
-
-
 Each Component passes some information radially outward to the nested 
 Component immediately containing it and some information radially 
 inward to the nested Component it contains. 
 
-
-In the case of radionuclide transport, for example, each Component model
+In the case of radionuclide transport, flow is assumed to travel outward from 
+the central Component (and up, in the $\hat{k}$ direction). In order to conduct 
+a mass balance at each time step, each Component model therefore first
 requires information about the radionuclides released from the Component it
 immediately contains.  Thus, nuclide release information is passed radially
 outward from the waste stream sequentially through each containment layer to
@@ -41,6 +14,10 @@ the geosphere. However, the solutions within each Component often rely on the
 external boundary conditions of that Component.  Thus, the \Cyder model uses an
 implicit timestepping method to arrive at the future state of each Component,
 radially outward, as a function of both the past state and the current state. 
+
+At each component interface where mass transfer occurs and within each 
+component where mass balances take place, the flow model is solved with the 
+most up to date information available. 
 
 That is, in Component $j$, some Component in a nested series, the mass flux 
 entering the Component at time $t_n$ is found from the initial state of the cell 
@@ -80,4 +57,33 @@ and one can solve, numerically, for the outer boundary condition at $t_n$
 
 This boundary condition can, in turn, be used by the component external to it, $k$ as the $t_n$ 
 inner boundary condition of its own solution and so on.
+
+
+
+4.1.1 timestep algorithm
+
+presume/assume unidirectional flow from inside to outside, therefore:
+
+start with interior flows and work outwards
+
+at each mass transfer interface we desire to solve that flow model with most up-to-date information:
+
+first solve the internal mass distribution model for the interior (source) volume
+
+depending on the mass distribution model of the sink volume
+
+if 0-D model
+
+solve the explicit mass transfer model at the interface
+
+update the mass inventory of the source and sink volumes
+
+
+else
+
+solve the mass distribution model for the sink volume
+
+determine the implicit mass flux based on the updated sink parameters
+
+
 
