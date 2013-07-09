@@ -19,17 +19,14 @@ functions from Maloszewski and Zuber \cite{maloszewski_lumped_1996}.
 
 Each lumped parameter component is modeled according to a 
 relationship between the incoming concentration, $C_{in}(t)$, and the outgoing 
-concentration, $C_{out}(t)$, \begin{align}
-  C_{out}(t) &= \int_{-\infty}^t C_{in}(t')g(t-t')e^{-\lambda(t-t')}dt'
-  \label{lumped1}
-  \intertext{equivalently}
+concentration, $C_{out}(t)$, 
+
+\begin{align}
   C_{out}(t) &= \int_0^\infty C_{in}(t-t')g(t')e^{-\lambda t'}dt'
   \label{lumped2}
   \intertext{where}
-  t'  &= \mbox{ time of entry }[s]\nonumber\\
-  t-t'  &= \mbox{ transit time }[s]\nonumber\\
-  g(t-t')  &= \mbox{ response function, a.k.a. transit time 
-  distribution}[-]\nonumber]\\
+  t'  &= \mbox{ transit time }[s]\nonumber\\
+  g(t')  &= \mbox{ response function, a.k.a. transit time distribution}[-]\nonumber]\\
   \lambda &= \mbox{ radioactive decay constant }[s^{-1}].\nonumber
 \end{align}
 
