@@ -24,19 +24,6 @@ C(z,t_n)|_{z=r_j} &= \mbox{ fixed concentration in j at }r_j\mbox{ and }t_n [kg/
                       \end{cases}
 \end{align}
 
-On its inner boundary, the Lumped Parameter model uses this fixed concentration 
-boundary condition directly in its solution such that, 
-\begin{align}
-C_{in,j}(t_n) &= C(z, t_n)|_{z=r_i}.
-\end{align}
-
-The resulting mass transfer into the external component containing the Lumped 
-Parameter model is 
-
-\begin{align}
-m_{ij}(t_n) &=\int C(z,t_n)dV - \int C(z, t_{n-1})dV.
-\end{align}
-
 In the Degradation Rate and Mixed Cell models, the Dirichlet boundary condition can 
 be chosen to enforce an advective flux on the inner boundary. This choice is 
 appropriate when the user expects a primarily advective interface between two 
@@ -58,4 +45,5 @@ m_{ij}(t_n) &= A\Delta t \theta_j v C(z,t_n)|_{z=r_i}
 A &= \mbox{ surface area normal to the flow direction }[m^2]\nonumber\\
 \Delta t &= \mbox{ length of the time step }[s].\nonumber
 \end{align}
+
 
