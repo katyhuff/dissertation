@@ -4,15 +4,15 @@ Each Component passes some information radially outward to the nested
 Component immediately containing it and some information radially 
 inward to the nested Component it contains. 
 
-In the case of radionuclide transport, flow is assumed to travel outward from 
+In \Cyder, radionuclide contaminant flow is assumed to travel outward from 
 the central Component (and up, in the $\hat{k}$ direction). In order to conduct 
 a mass balance in each Component at each time step, the mass flow and mass 
 balance calculations proceed from the innermost Component to the outermost 
 Component. As mass flows from inner components to outer components, the mass 
 balances in inner components are updated.  Thus, nuclide release information is 
 passed radially outward from the waste stream sequentially through each 
-containment layer to the geosphere.  This implicit timestepping method to 
-arrive at the future state of each Component, radially outward, as a function 
+containment layer to the geosphere.  This implicit timestepping method 
+arrives at the future state of each Component, radially outward, as a function 
 of both the past state and the current state of the system. 
 
 
