@@ -27,6 +27,24 @@ r_{j-1/2} &= r_{j} - \frac{r_{j} - r_i}{2}\nonumber\\
 r_{k-1/2} &= r_{k} - \frac{r_{k} - r_j}{2}.\nonumber
 \end{align}
 
+However, for mass balance models that are 1d in space (i.e. the Lumped Parameter model 
+and the One Dimensional PPM model), the derivative is taken based on the 
+concentration profile in the internal component as it approaches the boundary. 
+For the lumped parameter model, where the profile is assumed to be a linear 
+relationship between $C_{in}$ and $C_{out}$, the gradient is
+
+\begin{align} 
+\frac{\partial C(z,t_n)}{\partial z}\Bigg|_{z=r_j} &= \frac{C_{out} - C_{in}}{r_{j} - r_{i}}.
+\end{align}
+
+For the one dimensional permeable porous medium model, the analytical 
+derivative of equation \eqref{simple_genuchten} is evaluated at $r_j$.
+
+%\begin{align}
+%derivative..
+%\end{align}
+
+
 In the Degradation Rate and Mixed Cell models, the Neumann boundary condition 
 can be chosen to enforce a dispersive flux on the inner boundary. This choice 
 is appropriate when the user expects a primarily dispersive flow across the 
@@ -45,20 +63,3 @@ therefore,
 \begin{align}
 m_{ij}(t_n) &= - A\Delta t D \frac{\partial C(z,t_n)}{\partial z}|_{z=r_i}.
 \end{align}
-However, for mass balance models that are 1d in space (i.e. the Lumped Parameter model 
-and the One Dimensional PPM model), the derivative is taken based on the 
-concentration profile in the internal component as it approaches the boundary. 
-For the lumped parameter model, where the profile is assumed to be a linear 
-relationship between $C_{in}$ and $C_{out}$, the gradient is
-
-\begin{align} 
-\frac{\partial C(z,t_n)}{\partial z}\Bigg|_{z=r_j} &= \frac{C_{out} - C_{in}}{r_{j} - r_{i}}.
-\end{align}
-
-For the one dimensional permeable porous medium model, the analytical 
-derivative of equation \eqref{simple_genuchten} is evaluated at $r_j$.
-
-%\begin{align}
-%derivative..
-%\end{align}
-
