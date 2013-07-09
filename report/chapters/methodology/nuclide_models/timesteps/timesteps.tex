@@ -24,12 +24,11 @@ is the first timestep, the global intial state of the repository system is used.
 
 \subsubsection{Phase 2: Interior Mass Balance}
 
-The mass balance in the interior source volume $i$ is solved according to the mass 
-balance model by which it is represented. This calculation results in a 
-contaminant mass distribution and concentration profile within the volume $i$ 
-at time $t_n$. 
+The mass distrubution and concentration profile in the interior source volume 
+$i$ is solved based on the initial condition, any influxes, and the physics of 
+its mass balance model.  This calculation results in a contaminant mass 
+distribution and concentration profile within the volume $i$ at time $t_n$.  
 For each of the models, this mass balance is calculated thus :
-
 
 This mass distribution and concentration profile fully inform 
 the conditions on the boundary at $r_i$ and this information is made available 
