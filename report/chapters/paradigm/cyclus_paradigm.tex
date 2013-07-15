@@ -1,8 +1,8 @@
 \section{\textsc{Cyclus} Simulator Paradigm }
 
-The \Cyclus project \cite{wilson_cyclus:_2012} at the \gls{UW} Madison is the 
-simulation framework in which the \Cyder disposal system simulator is designed 
-to operate.  Modular features within the \Cyclus software architecture provide 
+The \Cyder disposal system simulator is designed to operate within the \Cyclus 
+fuel cycle simulation framework \cite{wilson_cyclus:_2012} from the \gls{UW} 
+Madison.  Modular features within the \Cyclus software architecture provide 
 a great deal of flexibility, both in terms of modifying the underlying modeling 
 algorithms and exchanging components of a fuel cycle system.
 
@@ -27,12 +27,12 @@ flexible, design choices have been made.
 \subsection{Dynamic Module Loading}
 
 The ability to dynamically load independently constructed modules is a
-heavy focus of \Cyclus development. Dynamically-loadable modules are
+key feature of the \Cyclus simulator. Dynamically-loadable modules are
 the primary mechanism for extending \Cyclus' capability. The primary
 benefit of this approach is encapsulation: the core of the code is
 completely independent of the individual models. Thus, any
 customization or extension is implemented only in the loadable
-module. A secondary benefit of this encapsulation is the ability for
+module. A secondary benefit is the ability for
 contributors to choose different distribution and licensing strategies
 for their contributions. By allowing models to have varied
 availability, the security concerns of developers can be
@@ -47,7 +47,7 @@ assuaged (See Figure \ref{fig:repo}).
   \label{fig:repo}
 \end{figure}
 
-Finally, this strategy allows individual developers to
+This strategy also allows individual developers to
 explore different levels of complexity within their modules, including
 wrapping other simulation tools as loadable modules within the \Cyclus 
 framework. This last benefit of dynamically-loadable modules addresses 
@@ -98,10 +98,10 @@ superclass.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Modularity and Extensibility}
 
-A modular code must have the traits of encapsulation and abstraction 
+Modular software must have the traits of encapsulation and abstraction 
 appropriate for a user or developer to flexibly make alterations to 
-the simulation performance with minimal modification to the code. An 
-extensible code should be both robustly suited to the addition of 
+the simulation performance with minimal modification to the code. For 
+extensibility, software should also be both robustly suited to the addition of 
 classes and subclasses as well as suited to communication with other codes.
 In \Cyclus, addition of new models by dynamic loading is possible without 
 any alteration of the software core. The modular design of \Cyclus stresses
@@ -140,17 +140,18 @@ can be deployed to represent individual facilities.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Discrete Materials and Facilities}
 
-The \Cyder disposal system simulator that is the subject of this work is a facility model 
-within the \Cyclus simulation paradigm.  The \Cyclus modeling infrastructure is 
-designed such that every facility in a global nuclear fuel cycle is treated and 
-acts individually.  Each facility has two fundamental tasks: the transaction of 
-goods or products with other facilities and the transformation of those goods 
-or products from an input form to an output form.  For example, a reactor will 
-receive fresh fuel assemblies from a fuel fabrication facility, transform them 
-to used fuel assemblies using some approximation of the reactor physics, and 
-supply those used fuel assemblies to a storage facility. In this manner, 
-facilities can be thought of as black boxes in the simulation which request and 
-produce resources as in Figure \ref{fig:facility}.
+The \Cyder disposal system simulator that is the subject of this work is a 
+facility model within the \Cyclus simulation paradigm.  The \Cyclus modeling 
+infrastructure is designed to be ``agent based'' such that every facility in a 
+global nuclear fuel cycle is treated and acts individually.  Each facility has 
+two fundamental tasks: the transaction of goods or products with other 
+facilities and the transformation of those goods or products from an input form 
+to an output form.  For example, a reactor will receive fresh fuel assemblies 
+from a fuel fabrication facility, transform them to used fuel assemblies using 
+some approximation of the reactor physics, and supply those used fuel 
+assemblies to a storage facility. In this manner, facilities can be thought of 
+as black boxes in the simulation which request and produce resources as in 
+Figure \ref{fig:facility}.
 
 \begin{figure}[htb!]
   \begin{center}
@@ -165,7 +166,7 @@ A facility configuration is created by selecting a FacilityModel and supplying
 input parameters to define the performance of that facility configuration.  
 Each FacilityModel enumerates the set of parameters that govern its 
 performance.  The same FacilityModel may be used for multiple facility 
-configurations in the same region, each with parameter values appropriate for 
+configurations in the same simulation, each with parameter values appropriate for 
 that facility configuration.
 
 
