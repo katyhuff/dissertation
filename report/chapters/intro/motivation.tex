@@ -22,11 +22,12 @@ integrates with the \Cyclus computational fuel cycle systems analysis platform
 
 To support analysis of numerous combinatoric fuel cycle possibilities, a 
 top-level simulation tool capable of modular substitution of various fuel cycle 
-facility, repository, and engineered barrier components is needed. The modular 
-natural and engineered barrier representations resulting from this work will assist in 
-informing current technology choices, identifying important parameters 
-contributing to key waste disposal metrics, and highlighting the most promising 
-waste disposal combinations with respect to metrics chosen by the user. 
+facility, repository, and engineered barrier components is needed. The 
+modularity of natural and engineered barrier representations resulting from this 
+work will assist in informing an array of current technology choices, 
+identifying important coupled parameters contributing to key waste disposal 
+metrics, and highlighting the most promising waste disposal combinations with 
+respect to metrics chosen by the user. 
 
 % Speed
 
@@ -36,23 +37,22 @@ alternatives. Therefore, a generic repository model appropriate for systems
 analysis must emphasize speed in accordance with use cases requiring repeated 
 simulations. Simultaneously, it must provide modeling options at a level of 
 detail that successfully captures significant aspects of the underlying 
-physics.  Often termed abstraction, the process of simplifying while 
-maintaining the salient features of the underlying physics is the method by 
-which thermal and radionuclide transport models were developed in this work. 
+physics.  Often termed abstraction, the process of simplifying calculations while 
+maintaining the salient features of the underlying physics 
+was used to develop thermal and radionuclide transport models in this work. 
 
 % The fuel cycle parameters that may be varied are numerous and coupled to the 
 % back end.
 
-Fuel cycle parameters of particular interest in fuel cycle systems 
-analysis have historically been those related to the front end of the fuel 
-cycle.
-However, parameters representing decisions concerning the back end
-of the fuel cycle are of increasing interest as the United States further
-investigates repository alternatives to Yucca Mountain.  Parameters such as
-repository geology, engineered barriers, appropriate loading strategies and
-schedules are all independent parameters up for debate. Due to the feedback 
-implication of repository capacity and performance, these
-parameters are coupled with decisions about the fuel cycle. 
+Parameters of particular interest in fuel cycle systems analysis have 
+historically been those related to the front end of the fuel cycle.  However, 
+parameters representing decisions concerning the back end of the fuel cycle are 
+of increasing interest as repositories are being considered internationally and 
+as the United States further investigates repository alternatives to the 
+\gls{YMR}.  Choices such as geologic media, engineered barriers, 
+appropriate loading strategies and schedules are all independent parameters up 
+for debate. Due to the coupled nature of repository capacity and 
+performance, these parameters are coupled with decisions about the fuel cycle. 
 
 % So we need a full systems analysis package, incorporating a repository. 
 
