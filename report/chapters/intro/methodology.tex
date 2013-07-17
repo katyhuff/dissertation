@@ -2,11 +2,11 @@
 
 In this work, concise dominant physics thermal and radionuclide transport models 
 were developed by comparison of analytical models with more detailed repository 
-modeling tools. The result of this work is a software library capable 
-of assessing a broad combinatoric domain of fuel cycle alternatives, potential 
-engineered barriers, repository design concepts, and geologic settings. Within 
-this software library, a suite of basic capabilities have been demonstrated and 
-validated and a few advanced features are operational. 
+modeling tools. The result of this work is a software library capable of 
+assessing a broad combinatoric domain of potential engineered barriers, 
+repository design concepts, and geologic settings in the context of fuel cycle 
+alternatives. Within this software library, a suite of basic capabilities have 
+been demonstrated and validated and a few advanced features are operational. 
 
 \subsection{Identification of the Modeling Domain}
 % Selection of base set of subcomponents to model
@@ -31,7 +31,7 @@ investigated and categorized within the literature review.  Of these, candidate
 computational tools appropriate for performing abstraction and regression 
 analyses were identified. Specifically, a suite of \gls{GDSM} tools developed by
 \gls{DOE} \gls{UFD} campaign was selected to inform radionuclide transport model 
-abstraction\cite{clayton_generic_2011} and two thermal analysis codes, also 
+abstraction\cite{clayton_generic_2011} and two thermal analysis tools, also 
 developed by the \gls{UFD} 
 campaign, were selected to inform the thermal abstraction process 
 \cite{huff_benchmarking_2012, huff_numerical_2012, greenberg_application_2012}.
@@ -45,18 +45,18 @@ repository performance  within the materials and media under consideration with
 respect to thermal and radionuclide transport.
 
 Sensitivity analysis concerning thermal parameters was undertaken with available 
-detailed models ( a 2D finite element thermal performance assessment code 
-\cite{huff_benchmarking_2012, huff_numerical_2012} and a computational 
-analytical model \cite{greenberg_application_2012}) to characterize the 
-parametric dependence of thermal loading in a specific geologic environment.  In 
-the conductive thermal transport regime found in enclosed saturated repository 
-concepts, thermal conductivity, thermal diffusivity, waste package spacing, and 
-near field thermal limits were the primary parameters distinguishing clay, salt, 
-and granite geologic settings. The results of these analyses provided the 
-database powering \Cyder's thermal capability. A benchmarking effort between 
-these models was conducted (see Appendix \ref{ch:thermal_accuracy}) and informed 
-the level of detail with which repository capacity and thermal evolution are 
-modeled in this work.  
+detailed models. These models, a 2D finite element thermal performance 
+assessment model \cite{huff_benchmarking_2012, huff_numerical_2012} and a 
+semi-analytic model \cite{greenberg_application_2012} were used to characterize 
+the parametric dependence of thermal loading in a specific geologic environment.  
+In the conductive thermal transport regime found in enclosed saturated 
+repository concepts, the primary parameters distinguishing clay, salt, and 
+granite geologic settings included thermal conductivity, thermal diffusivity, 
+waste package spacing, and near field thermal limits. The results of these 
+analyses provided the database powering \Cyder's thermal capability. A 
+benchmarking effort between these models was conducted (see Appendix 
+\ref{ch:thermal_accuracy}) and informed the level of detail with which 
+repository capacity and thermal evolution are modeled in this work.  
 
 Sensitivity analysis utilizing a \gls{UFD} \gls{GDSM} tool built on the 
 GoldSim simulation framework informed performance sensitivity to engineered 
@@ -64,7 +64,7 @@ barrier system failure parameters as well as hydrologic and geochemical
 radionuclide transport phenomena. In saturated geologic settings, key parameters 
 included dominant transport mechanism (diffusive or 
 advective), isotopic spent fuel inventory and composition, engineered barrier 
-failure, and redox state (insofar as it effected sorption behavior and 
+failure, and redox state (insofar as it affected sorption behavior and 
 solubility limitation).
 
 Particular hydrologic modeling needs identified in Appendix section 
