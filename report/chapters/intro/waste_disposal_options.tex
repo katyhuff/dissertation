@@ -17,19 +17,19 @@ and backfill materials vary from the crushed salt recommended for a salt
 repository \cite{hardin_generic_2011} to bentonite or concrete in other 
 geologic settings \cite{andra_argile:_2005}. For this reason, \Cyder
 was designed to be capable of modular substitution of engineered barrier 
-components and data in order to analyze the full option space.
+components and data in order to analyze the broad, relevant option space.
 
 % Various geologic media, WFs, WPs, EBSs have various physics
 
-The physical, hydrologic, and geochemical mechanisms that dictate 
-radionuclide and heat transport vary among the geologic and engineered 
-containment barriers in the disposal system option space.  Therefore, 
-to support the system level simulation effort, a disposal system model must
-capture the salient physics of these geologic options and quantify associated 
-disposal metrics.  Furthermore, in the same way that system level 
-modularity facilitates analysis, so too does modular linkage between subcomponent 
-process modules. The subcomponent models and repository environmental model in 
-this work therefore provide a cohesively integrated disposal system simulator.
+The physical, hydrologic, and geochemical mechanisms that dictate radionuclide 
+and heat transport vary among the geologic and engineered containment barriers 
+in the disposal system option space.  Therefore, to support the system level 
+simulation effort and quantification of associated disposal metrics, a disposal 
+system model must capture the salient physics of these geologic options.  
+Furthermore, in the same way that system level modularity facilitates analysis, 
+so too does modular linkage between subcomponent process modules. The 
+subcomponent models and repository environmental model in this work therefore 
+provide a cohesively integrated disposal system simulator.
 
 
 \subsubsection{Thermal Modeling Needs}
@@ -40,7 +40,7 @@ The decay heat from nuclear material generates a significant heat source within
 a repository. This decay heat varies among fuel cycles, is transported  
 differently in different geologic media \cite{greenberg_application_2012}, and 
 affects the resilience of engineered barrier choices \cite{andra_argile:_2005}. 
-Since repository loading capacity is constrained by the resistence of such 
+Since repository loading capacity is constrained by the resistance of such 
 barriers to degradation, allowable decay heat burden varies among repository 
 concepts. In order to distinguish among the performance of fuel 
 cycle, geologic media, and \gls{EBS} choices, an accordingly capable thermal 
@@ -61,27 +61,26 @@ cesium and strontium \cite{piet_which_2007}.
 
 % The capability to model heat in each component is necessary
 Second, the capability to model thermal evolution in each component is also 
-necessary as the repository capacity may be constrained by thermal limits in 
+necessary since the repository capacity may be constrained by thermal limits in 
 \glspl{EBS} components. Such thermal limits have their technical basis in the 
 temperature dependence of isolation integrity of the waste forms, waste 
 packages, and buffer materials. Alteration, corrosion, degradation, and 
-dissolution behaviors are often function of heat, in addition to redox 
+dissolution behaviors are often a function of heat, in addition to redox 
 conditions, and constrain loading density within the engineered barriers. 
 
 % Finally, the capability to model whole repository thermal capacity is 
 % necessary 
-In addition, the capability to model far field thermal evolution is necessary 
-in order to capture differences in thermal loading sensitivity among host rock 
+In addition, the capability to model far field thermal evolution is necessary in 
+order to capture differences in thermal loading sensitivity among host rock 
 choices. Thermal limits in the geologic environment can be based on the 
 mechanical integrity of the rock as well as mineralogical, hydrologic, and 
-geochemical phenomena. The isolating characteristics of a geologic 
-environment are most sensitive to hydrologic and geochemical effects of thermal 
-loading. Thus, heat load constraints are typically chosen to control hydrologic 
-and geochemical response to thermal loading. Thermal limits are a design 
-consequence driven by regulations that seek to passively steward the 
-repository's hydrologic and geochemical integrity against radionuclide  release 
-for the first million years of the repository.  Such constraints affect the 
-repository waste package spacing and repository footprint among other 
+geochemical phenomena. The isolating characteristics of a geologic environment 
+are most sensitive to hydrologic and geochemical effects of thermal loading. 
+Thus, heat load constraints are typically chosen to control hydrologic and 
+geochemical response to thermal loading. Thermal limits are a design consequence 
+driven by regulations that seek to passively steward the repository's hydrologic 
+and geochemical integrity against radionuclide  release.  Such constraints 
+affect the repository waste package spacing and repository footprint among other 
 parameters. 
 
 Finally, since some material and hydrologic phenomena affecting radionuclide 
@@ -114,36 +113,17 @@ level nuclear waste. Such regulations establish important limitations on
 capacity, design, and loading techniques for repository concepts under 
 consideration. Repository concepts developed in this work must therefore 
 quantify radionuclide transport through the geologic environment in order to 
-calculate contaminant releases and other post-processed performance metrics. 
+calculate contaminant releases that inform performance metrics. 
 
 In particular, the radionuclides in need of containment vary among fuel cycles 
 and travel differently through various geologic environments and engineered 
 barrier choices. Thus, in order to distinguish among the performance of fuel 
 cycle, geologic media, and \gls{EBS} options, a hydrologic radionuclide 
 contaminant transport modeling capability has been included in the repository 
-model.  These capabilities focused on hydrologic, geochemical, and 
-mechanical modeling behaviors identified as especially important to repository 
-performance by sensitivity analyses conducted with a detailed geologic 
-repository performance tool.  
-
-Particular hydrologic modeling needs identified in Appendix section 
-\ref{sec:AdvVelDiffCoeff} include the need to capture 
-differing behavior in advectively dominated and diffusively dominated transport 
-regimes. As advection and diffusion parameters vary among geologic media, and 
-performance is sensitive to the dominant mode of transport, this distinction is 
-necessary when modeling the far field in particular.
-
-Particular geochemical modeling needs identified in Appendix sections 
-\ref{sec:solubility} and \ref{sec:sorption} include the need for solubility and 
-sorption behaviors which vary greatly among host rock options and were 
-identified to, in some cases, significantly affect contaminant transport 
-behaviors. 
-
-Particular mechanical modeling needs identified in Appendix sections 
-\ref{sec:wfdeginv} and \ref{sec:wpfail} include the need for \gls{EBS} 
-degradation based failure modeling. Waste package and waste form degradation 
-and failure were shown in those sensitivity analyses to be important in 
-geologic settings where transport is dominated by a fast advective pathway. 
+model.  These capabilities focused on hydrologic, geochemical, and mechanical 
+modeling behaviors identified as especially important to repository performance 
+by sensitivity analyses conducted with a detailed geologic repository 
+performance tool.  
 
 Furthermore, to support varying modeling simplifications and assumptions common 
 in performance assessment, modeling capabilities are necessary at varying 
