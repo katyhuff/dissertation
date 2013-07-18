@@ -707,14 +707,12 @@ Some current common models addressed in this literature review appear in Table
 \subsubsection{Physical Model}
 
 When enough data exists, the waste package failure rate $f$ can
-be represented more realistically by fractional destruction according to
-experimentally observed corrosion and dissolution rate functions.
-
-However, this can be complicated to model even if the data exists. In
-particular, the corrosion rate will depend on the chosen material 
-as well as hydrologic and thermal conditions. Specifically, corrosion rates for 
-the same material are very different under dry oxidizing conditions and wet 
-reducing conditions. 
+be represented more realistically by fractional destruction according to 
+experimentally observed corrosion and dissolution rate functions.  However, this 
+can be complicated to model even if the data exists. In particular, the 
+corrosion rate will depend on the chosen material as well as hydrologic and 
+thermal conditions. Specifically, corrosion rates for the same material are very 
+different under dry oxidizing conditions and wet reducing conditions. 
 
 The rate $f$ of package  failure in this case will be a function of time $t$, 
 temperature $T$, and other physical parameters.
@@ -781,12 +779,10 @@ parameter. The time to failure, $t$ in the Weibull distribution gives a
 distribution for which the failure rate is proportional to a power of time 
 \cite{papoulis_probability_2002}. Its complementary cumulative distribution
 function is 
-
 \begin{align}
   F(t,\lambda,k) = 1-e^{-(t/\lambda)^k}.
   \label{weibullcdf}
 \end{align}
-
 For $k<1$, the rate of failure will decrease over time, while for a value of 
 $k>1$, the rate increases over time, appropriate for the aging process of 
 materials  \cite{papoulis_probability_2002}.
@@ -828,34 +824,27 @@ form, radionuclides are transported through the secondary engineered barrier,
 which includes the buffer, backfill, and tunnel wall. After transport through 
 the secondary \gls{EBS}, radionuclides reach the geologic medium. 
 
-Radionuclide transport through the \gls{EBS} and host rock is driven by 
-diffusion as well as advection. Radionuclide transport is retarded by sorption, 
-limited by solubility, and possibly enhanced by colloidal mobility 
-\cite{bracke_safety_2008}. 
-
-\subsubsection{Barrier Dissolution and Failure}
-
-The same models of waste package failure (instantaneous, rate based, and 
-probabilistic) can be applied to secondary engineered barriers (i.e., buffer 
-materials). While concretes are expected to 
-degrade over time, bentonite buffers are quite stable in a reducing 
-environment and help to keep the environment reducing. Furthermore, if 
-preserved by a low heat environment, plastically deforming bentonite
-clays tend to swell over time and exhibit increased isolating behavior.
-
-\subsubsection{Transport Through Degraded Barrier Matrix}
-
 Diffusive and advective transport occur in the barrier matrix both before and 
-after degradation. Before degradation, transport is primarily diffusive. 
-Thereafter, transport can become advective due to cracking. Cracking can be 
-modeled explicitly or as a continuum model.  
+after degradation.  The same models of waste package failure (instantaneous, 
+rate based, and probabilistic) can be applied to secondary engineered barriers 
+(i.e., buffer materials). While concretes are expected to degrade over time, 
+bentonite buffers are quite stable in a reducing environment and help to keep 
+the environment reducing. Furthermore, if preserved by a low heat environment, 
+plastically deforming bentonite clays tend to swell over time and exhibit 
+increased isolating behavior.  
+
+Before degradation, transport is primarily diffusive.  Thereafter, transport can 
+become advective due to cracking.  Radionuclide transport through the \gls{EBS} 
+and host rock is driven by diffusion as well as advection. Radionuclide 
+transport is retarded by sorption, limited by solubility, and possibly enhanced 
+by colloidal mobility \cite{bracke_safety_2008}. 
 
 
 %%%%
 
-\subsection{Hydrologic Transport Models}
+\subsection{Hydrologic Transport}
 
-Transport out of the \gls{EBS} and through the geosphere in clay, shale, granite,
+Transport through the geosphere in clay, shale, granite,
 and salt can largely be characterized as solute transport in permeable porous 
 media. While clay, shale and salt do not exhibit significant fracturing and can 
 often be modeled as homogeneous, granite is  characterized as a fractured 
@@ -863,13 +852,11 @@ permeable porous media.  Solute transport in both fractured and homogeneous
 permeable porous media has both porous and fracture flow paths and involves
 advection, hydraulic dispersion, and diffusion phenomena. 
 
-Advection is transport driven by bulk water velocity, diffusion is the 
-result of Brownian motion across concentration gradients, and hydraulic 
-dispersion is transport resulting from heterogeneities in the water velocity field. 
-
+Advection is transport driven by bulk water velocity, diffusion is the result of 
+Brownian motion across concentration gradients, and hydraulic dispersion is 
+transport resulting from heterogeneities in the water velocity field.  
 Fundamentally, the effect of these flows on mass transport through a 
-representative control volume is captured by the 
-conceptual expression 
+representative control volume is captured by the conceptual expression 
 
 \begin{align}
   \mbox{In} - \mbox{Out} &= \mbox{Change in Storage}
@@ -1079,7 +1066,7 @@ boundary,
 
 \section{Analytical Models of Heat Transport} \label{sec:analytical_heat}
  
-A comprehensive model of a repository must arrive at an appropriate notion of 
+A repository performance simulator appropriate for dynamic systems analysis must arrive at an appropriate notion of 
 heat-based waste loading and repository capacity.  This requires a model which addresses heat 
 transport through the repository as a function of spatial repository layout, 
 waste stream decay heat, and heat transfer properties of the engineered barrier  
@@ -1334,23 +1321,16 @@ case, while the other is a fast pathway simulating a disturbed case
 
 \subsubsection{Granite GDSM}
 
-\gls{LANL} has created a model of the granite repository concept  
-in a saturated, reducing environment.
-
-Waste form degradation is modeled as a constant, fractional rate to represent 
-dissolution for both canonical borosilicate glass and commercial used fuel 
-waste forms.  
-
-Though waste package failure is assumed to be instantaneous,
-waste package release into the near field is solubility limited as is the near 
-field to far field interface. 
-
+\gls{LANL} has created a model of the granite repository concept  in a 
+saturated, reducing environment.  Waste form degradation is modeled as a 
+constant, fractional rate to represent dissolution for both canonical 
+borosilicate glass and commercial used fuel waste forms.  Though waste package 
+failure is assumed to be instantaneous, waste package release into the near 
+field is solubility limited as is the near field to far field interface.  
 Transport through the buffer is modeled as entirely diffusive coupled with 
-sorption. Advection is neglected.
-
-The far field was represented using a model that includes advection, diffusion 
-and sorption. Specifically, the \gls{FEHM} code was coupled into GoldSim to 
-represent the far field.
+sorption. Advection is neglected.  The far field was represented using a model 
+that includes advection, diffusion and sorption.  Specifically, the \gls{FEHM} 
+code was coupled into GoldSim to represent the far field.
 
 \subsubsection{Salt GDSM}
 
@@ -1359,18 +1339,19 @@ bedded salt formation. The formation is located in a reducing, saturated
 environment. Once waste packages  are horizontally placed in a corner of the 
 alcove, the space is backfilled with crushed salt. 
 
-Decay heat induced salt consolidation and brine flow are primary focuses of 
-this analysis and inform radionuclide transport calculations. 
+Decay heat induced salt consolidation and brine flow are primary focuses of this 
+analysis and inform radionuclide transport calculations.  A constant, 
+temperature independent annual degradation rate model is used to represent waste 
+form dissolution for both canonical borosilicate glass and commercial used fuel 
+waste forms.
 
-A constant, temperature independent annual degradation rate model is used to 
-represent waste form dissolution for both canonical borosilicate glass and 
-commercial used fuel waste forms. Waste package failure is conservatively 
-assumed to be instantaneous, and all near field components are modeled as a 
-single mixed cell, the water volume of which is determined by the bulk volumes 
-and degraded porosities of contained materials (e.g. bentonite buffer). A block  
-of rock below the salt provides the pathway interface to an aquifer below. 
-Radionuclide transport into that interface is modeled as diffusive, advective, and 
-solubility limited.
+Waste package failure is conservatively assumed to be 
+instantaneous, and all near field components are modeled as a single mixed cell, 
+the water volume of which is determined by the bulk volumes and degraded 
+porosities of contained materials (e.g. bentonite buffer). A block  of rock 
+below the salt provides the pathway interface to an aquifer below.  Radionuclide 
+transport into that interface is modeled as diffusive, advective, and solubility 
+limited.  
 
 The far field is modeled using an equilibrium sorption model in addition 
 to solubility limited diffusion and advection. In such an equilibrium sorption 
