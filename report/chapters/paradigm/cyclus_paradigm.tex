@@ -75,7 +75,7 @@ behavior.  An interface defines the set of shared functions of a set of
 subclasses in an abstract superclass. In \Cyclus, the main superclasses are 
 Regions, Institutions, and Facilities while their subclasses are the concrete 
 available model types (e.g. a RecipeReactorFacility). See Figure 
-\ref{fig:modularity}.
+\ref{fig:modularity} for a schematic.
 
 The interface for FacilityModel objects is the set of 
 virtual functions declared in the FacilityModel class and implemented in the 
@@ -90,7 +90,7 @@ superclass.
   \end{center}
   \caption[Module Interfaces and Encapsulation in \Cyclus.]{Modules are defined solely 
   by their interfaces in a modular paradigm and can be arbitrarily 
-  interchanged with modules posessing equivalent interfaces.}
+  interchanged with modules possessing equivalent interfaces.}
   \label{fig:modularity}
 \end{figure}
 
@@ -163,18 +163,16 @@ Figure \ref{fig:facility}.
 
 
 A facility configuration is created by selecting a FacilityModel and supplying 
-input parameters to define the performance of that facility configuration.  
-Each FacilityModel enumerates the set of parameters that govern its 
-performance.  The same FacilityModel may be used for multiple facility 
-configurations in the same simulation, each with parameter values appropriate for 
-that facility configuration.
-
+input parameters to define its performance.  The same FacilityModel may be used 
+for multiple facility configurations in the same simulation, each with parameter 
+values appropriate for that facility configuration.  Each FacilityModel 
+independently enumerates the set of parameters that govern its performance.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Material movement is the primary unit of information in \Cyclus.  
 Discrete materials passed, traded, and modified between and within facilities 
-in the simulation are recorded at every timestep.  This material 
+in the simulation are recorded at every time step.  This material 
 history is stored in the output dataset of \Cyclus. In addition to 
 holding the map of isotopes and their masses, a material object holds 
 a comprehensive history of its own path as it moves through models 
@@ -204,7 +202,7 @@ FacilityModel class.  Though some FacilityModels make both requests and offers t
 \end{figure}
 
 That interface requires that a capacity be defined by the repository at every 
-\Cyclus timestep so that the repository may make appropriate requests of 
+\Cyclus time step so that the repository may make appropriate requests of 
 disposable material.  
 
 The implementation of \Cyder within \Cyclus also enables the capability for 
