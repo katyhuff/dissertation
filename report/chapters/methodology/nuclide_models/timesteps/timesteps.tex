@@ -68,47 +68,50 @@ When a mass flux $m_{ij}(t_n)$ is determined between volumes $i$ and $j$, the
 mass is simultaneously added to the exterior sink volume $j$ (as in phase 4) and 
 extracted from the interior source volume $i$.  When the material is extracted 
 from the interior source volume, the contained mass distribution and 
-concentration profile are updated to reflect this change.  
-
-\subsubsection{old text}
-
-
-That is, in Component $j$, some Component in a nested series, the mass flux 
-entering the Component at time $t_n$ is found from the initial state of the cell 
-at time $t_n$, the inner boundary 
-condition at time $t_n$ and the outer boundary condition at $t_{n-1}$.  
+concentration profile are updated to reflect this change,
 
 \begin{align}
-  \dot{m}_{ij}^n &= f( m_j(t_{n-1}) , BC_i(t_n) , BC_j(t_{n-1}) . . . ) \nonumber\\
-  \intertext{where}
-  m_{ij}(t_n) &= \mbox{ contaminant mass flux from component i to j }[kg/time step]\nonumber\\
-  BC_i(t_n)  &= \mbox{ inner conditions at }r_i\mbox{, and time }t_n \nonumber \\
-  BC_j(t_{n-1})  &= \mbox{ outer conditions at }r_j\mbox{, and time }t_{n-1} \nonumber\\
-  f &= \mbox{ functional form of contaminant transport into j. }\nonumber
+  m_{i}^*(t_n) &= m_i(t_n) - m_{ij}(t_n).
 \end{align}
 
-Once the mass flux into the component is found, the mass is removed from the 
-inner cell, updating its state in preparation for the next time step.
-
-\begin{align}
-  m_i^\dagger(t_n)  &= m_i(t_n)  - m_{ij}(t_n) 
-  \intertext{where}
-  m_i^\dagger(t_n)  &= \mbox{ updated mass in component i }[kg]
-\end{align}
-
-In this way, the contained mass in the component is described as
-\begin{align}
-  m_j(t_n)  &= m_j(t_{n-1})  + \dot{m}_j(t_n) . \nonumber
-\end{align}
-
-Resulting concentration profiles across the component can then be calculated 
-and one can solve, numerically, for the outer boundary condition at $t_n$ 
-
-\begin{align}
-  BC_j(t_n) &= g\left( m_j(t_n) , C_j(t_n) \right)\nonumber\\
-  g &= \mbox{functional form of contaminant transport across j}\nonumber
-\end{align}
-
-This boundary condition can, in turn, be used by the component external to it, $k$ as the $t_n$ 
-inner boundary condition of its own solution and so on.
-
+%\subsubsection{old text}
+%
+%That is, in Component $j$, some Component in a nested series, the mass flux 
+%entering the Component at time $t_n$ is found from the initial state of the cell 
+%at time $t_n$, the inner boundary 
+%condition at time $t_n$ and the outer boundary condition at $t_{n-1}$.  
+%
+%\begin{align}
+%  \dot{m}_{ij}^n &= f( m_j(t_{n-1}) , BC_i(t_n) , BC_j(t_{n-1}) . . . ) \nonumber\\
+%  \intertext{where}
+%  m_{ij}(t_n) &= \mbox{ contaminant mass flux from component i to j }[kg/time step]\nonumber\\
+%  BC_i(t_n)  &= \mbox{ inner conditions at }r_i\mbox{, and time }t_n \nonumber \\
+%  BC_j(t_{n-1})  &= \mbox{ outer conditions at }r_j\mbox{, and time }t_{n-1} \nonumber\\
+%  f &= \mbox{ functional form of contaminant transport into j. }\nonumber
+%\end{align}
+%
+%Once the mass flux into the component is found, the mass is removed from the 
+%inner cell, updating its state in preparation for the next time step.
+%
+%\begin{align}
+%  m_i^\dagger(t_n)  &= m_i(t_n)  - m_{ij}(t_n) 
+%  \intertext{where}
+%  m_i^\dagger(t_n)  &= \mbox{ updated mass in component i }[kg]
+%\end{align}
+%
+%In this way, the contained mass in the component is described as
+%\begin{align}
+%  m_j(t_n)  &= m_j(t_{n-1})  + \dot{m}_j(t_n) . \nonumber
+%\end{align}
+%
+%Resulting concentration profiles across the component can then be calculated 
+%and one can solve, numerically, for the outer boundary condition at $t_n$ 
+%
+%\begin{align}
+%  BC_j(t_n) &= g\left( m_j(t_n) , C_j(t_n) \right)\nonumber\\
+%  g &= \mbox{functional form of contaminant transport across j}\nonumber
+%\end{align}
+%
+%This boundary condition can, in turn, be used by the component external to it, $k$ as the $t_n$ 
+%inner boundary condition of its own solution and so on.
+%
