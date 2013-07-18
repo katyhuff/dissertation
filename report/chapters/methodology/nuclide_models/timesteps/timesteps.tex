@@ -1,26 +1,29 @@
-\subsection{Timestep Algorithm}\label{sec:timestepping}
+\subsection{Time Stepping Algorithm}\label{sec:time stepping}
 
 In \Cyder, radionuclide contaminant flow is assumed to travel outward from 
 the central Component (and up, in the $\hat{k}$ direction). In order to conduct 
 a mass balance in each Component at each time step, the mass flow and mass 
 balance calculations proceed from the innermost Component to the outermost 
 Component. As mass flows from inner components to outer components, the mass 
-balances in inner components are updated.  Thus, nuclide release information is 
+balances in both components are updated.  Thus, nuclide release information is 
 passed radially outward from the waste stream sequentially through each 
-containment layer to the geosphere.  This implicit timestepping method 
+containment layer to the geosphere.  This implicit time stepping method 
 arrives at the updated state of each Component, radially outward, as a function 
 of both the past state and the current state of the system. 
 
-To illustrate the algorithm by which mass flow calculations are conducted 
-through the system of components at each timestep, we will walk through the 
-phases of a single timestep for a simple pair of components. The source, $i$, 
-is the innermost and the sink, $j$, is the outermost component. 
+At each component interface where mass transfer occurs and within each component 
+where mass balances take place, the flow model is solved with the most up to 
+date information available.  To illustrate the algorithm by which mass flow 
+calculations are conducted through the system of components at each time step, we 
+will walk through the phases of a single time step for a simple pair of 
+components. The source, $i$, is the inner and the sink, $j$, is the outer
+component. 
 
 \subsubsection{Phase 1: Initial Conditions}
 
 The initial conditions in both the source and the sink at the beginning of a 
-timestep are equal to the final updated state of the previous timestep. If this 
-is the first timestep, the global intial state of the repository system is used. 
+time step are equal to the final updated state of the previous time step. If this 
+is the first time step, the global intial state of the repository system is used. 
 
 \subsubsection{Phase 2: Interior Mass Balance}
 
@@ -69,9 +72,6 @@ concentration profile are updated to reflect this change.
 
 \subsubsection{old text}
 
-At each component interface where mass transfer occurs and within each 
-component where mass balances take place, the flow model is solved with the 
-most up to date information available. 
 
 That is, in Component $j$, some Component in a nested series, the mass flux 
 entering the Component at time $t_n$ is found from the initial state of the cell 
@@ -81,7 +81,7 @@ condition at time $t_n$ and the outer boundary condition at $t_{n-1}$.
 \begin{align}
   \dot{m}_{ij}^n &= f( m_j(t_{n-1}) , BC_i(t_n) , BC_j(t_{n-1}) . . . ) \nonumber\\
   \intertext{where}
-  m_{ij}(t_n) &= \mbox{ contaminant mass flux from component i to j }[kg/timestep]\nonumber\\
+  m_{ij}(t_n) &= \mbox{ contaminant mass flux from component i to j }[kg/time step]\nonumber\\
   BC_i(t_n)  &= \mbox{ inner conditions at }r_i\mbox{, and time }t_n \nonumber \\
   BC_j(t_{n-1})  &= \mbox{ outer conditions at }r_j\mbox{, and time }t_{n-1} \nonumber\\
   f &= \mbox{ functional form of contaminant transport into j. }\nonumber
