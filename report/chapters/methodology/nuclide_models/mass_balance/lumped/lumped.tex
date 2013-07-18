@@ -1,11 +1,12 @@
 \subsubsection{Lumped Parameter Radionuclide Mass Balance Model}\label{sec:lumped}
 
 For systems in which the flow is sufficiently slow to be assumed constant over 
-a timestep, it is possible to model a system of volumes as a connected lumped 
-parameter models (Figure \ref{fig:lumpedseries}). Based on this lumped parameter 
-interpretation, the Lumped Parameter mass balance model implemented a response 
-function model capable of Piston Flow, Exponential, and Dispersion response 
-functions from Maloszewski and Zuber \cite{maloszewski_lumped_1996}.
+a time step, it is possible to model a system of volumes as a connected lumped 
+parameter models (Figure \ref{fig:lumpedseries}). 
+The Lumped Parameter mass balance model implements a response function model 
+based on this lumped parameter interpretation and capable of Piston Flow, 
+Exponential, and Dispersion response functions from Maloszewski and Zuber 
+\cite{maloszewski_lumped_1996}.
 
 \begin{figure}[htbp!]
   \begin{center}
@@ -78,9 +79,8 @@ Since \Cyclus handles decay outside of \Cyder, the use of these models relies on
 reference transit time and decay constant supplied by the user. The behavior of 
 the reference isotope, in this way, fully defines the behavior of all isotopes.
 
-For calculations later in this chapter concerning this model, it is important to 
-note that a linear concentration profile is assumed between the inlet and the 
-outlet,
+It is important to note that a linear concentration profile is assumed between 
+the inlet and the outlet,
 
 \begin{align}
   C(z,t) = C_{in}(t)  + \frac{C_{out}(t) - C_{in}(t)}{z_{out} - z_{in}}z.

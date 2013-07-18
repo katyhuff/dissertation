@@ -2,15 +2,19 @@
 %      Describe the technical problem clearly
 %      support it with a method
 
-An algorithm and supporting database for rapid thermal repository 
-loading calculation was implemented in \Cyder.  This algorithm employs a \gls{STC} 
+An algorithm and supporting database for rapid thermal repository loading 
+calculation was implemented in \Cyder.  This algorithm employs a \gls{STC} 
 method \cite{radel_effect_2007, radel_repository_2007} and has resulted from 
-combining detailed spent nuclear fuel composition data \cite{carter_fuel_2011} 
-with a detailed thermal repository performance analysis tool from \gls{LLNL}, 
-\gls{ANL}, and the \gls{UFD} campaign \cite{greenberg_application_2012}. By abstraction of 
-and benchmarking against these detailed thermal models, \Cyder captures the 
-dominant physics of thermal phenomena affecting repository capacity in various 
-geologic media and as a function of spent fuel composition.
+combining a number of resources provided by the \gls{UFD} campaign.  These 
+resources include detailed spent nuclear fuel composition data from Carter 
+\cite{carter_fuel_2011} and a detailed thermal repository performance analysis 
+tools from Greenberg at \gls{LLNL} and previously discussed in Section 
+\ref{sec:llnl_background} \cite{greenberg_application_2012}. 
+Benchmarking was conducted using an additional tool from Bauer 
+at \gls{ANL}, previously discussed in Section \ref{sec:SINDA} \cite{huff_numerical_2012}. By abstraction of and benchmarking against 
+these detailed thermal models, \Cyder captures the dominant physics of thermal 
+phenomena affecting repository capacity in various geologic media and as a 
+function of spent fuel composition.
 
 Abstraction based on detailed computational thermal repository performance 
 calculations with the \gls{LLNL} semi-analytic model has resulted in implementation 
