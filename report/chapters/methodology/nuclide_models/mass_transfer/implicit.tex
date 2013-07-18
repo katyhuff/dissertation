@@ -7,7 +7,24 @@ C_{in,j}(t_n) &= C(z, t_n)|_{z=r_i}.
 \end{align}
 
 The resulting mass transfer into the external component containing the Lumped 
-Parameter model is 
+Parameter model is calculated by taking the integral of that concentration 
+profile over the volume, 
+
+\begin{align}
+m_{ij}(t_n) &=\int C(z,t_n)dV - \int C(z, t_{n-1})dV.
+\end{align}
+
+
+In the case of the One Dimensional Permeable Porous Medium Model, 
+the Dirichlet boundary condition at the boundary is similarly used directly in 
+the solution as $C_0$ such that,
+
+\begin{align}
+  C_{0,j}(t_n) &= C(z, t_n)|_{z=r_i}.
+\end{align}
+
+The mass transfer on the inner boundary is similarly calculated by taking an 
+integral of that profile over the volume,
 
 \begin{align}
 m_{ij}(t_n) &=\int C(z,t_n)dV - \int C(z, t_{n-1})dV.
