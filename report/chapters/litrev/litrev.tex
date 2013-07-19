@@ -941,15 +941,7 @@ such that the mass conservation equation becomes:
 \begin{align}
   \nabla \left( \theta D\nabla C \right) - \nabla \left( \theta v \right) &= \frac{\partial(\theta C)}{\partial t}
   \label{massbal} 
-  \intertext{Adding sorption, by accounting for a change in mass storage,}
-  \nabla \left( \theta D\nabla C \right) - \nabla \left( \theta v \right)  &= 
-  \frac{\partial(\theta C)}{\partial t}  + \frac{\partial(s\rho_b)}{\partial t} 
-  \label{withsorption} 
-  \intertext{where}
-  s &= \mbox{sorption coefficient}\nonumber\\
-  \rho_b &= \mbox{ bulk (dry) density }[kg/m^3].\nonumber
-\end{align}
-
+  \end{align}
 
 Sorption includes both absorption and adsorption. Absorption is the 
 incorporation of a substance of one state into another of a different state.
@@ -961,10 +953,38 @@ of sorption is desorption in which the
 contaminant is returned to the pore or fracture fluid from the matrix
 \cite{ahn_mass_1988} . Reversible sorption is typically expressed in terms 
 the mass of a radionuclide sorbed into the rock and the mass left in solution. 
-Sorption is a sensitive function of the redox state of the environment.
+Sorption is a sensitive function of the redox state of the environment. Adding 
+sorption to equation \eqref{massbal}, by accounting for a change in mass 
+storage,
 
-If it is assumed that sorption can be approximated as a linear equilibrium, 
-reversible reaction,
+\begin{align}
+  \nabla \left( \theta D\nabla C \right) - \nabla \left( \theta v \right)  &= 
+  \frac{\partial(\theta C)}{\partial t}  + \frac{\partial(s\rho_b)}{\partial t} 
+  \label{withsorption} 
+  \intertext{where}
+  s &= \mbox{sorbed phase concentration}\nonumber\\
+  \rho_b &= \mbox{ bulk (dry) density }[kg/m^3].\nonumber
+\end{align}
+
+If sorption is approximated as a linear equilibrium, reversible reaction,
+
+\begin{align}
+s &= K_dC\\
+\intertext{where}
+K_d &= \mbox{ the distribution coefficient }[],\nonumber
+\end{align}
+then equation \eqref{withsorption} can be rewritten in terms of the so-called 
+retardation factor,
+
+\begin{align}
+  \nabla \left( \theta D\nabla C \right) - \nabla \left( \theta v \right)  &= R_f\frac{\partial \theta C}{\partial t} 
+  \label{withsorptionrf} 
+  \intertext{where}
+  R_f &= \mbox{retardation factor}\nonumber\\
+   &= 1+\frac{\rho b K_d}{\theta}.\nonumber\\
+\end{align}
+
+If sorption is approximated as a linear equilibrium, reversible reaction,
 
 \begin{align}
   \frac{\partial(s\rho_b)}{\partial t} &= \left( R_f - 1 
