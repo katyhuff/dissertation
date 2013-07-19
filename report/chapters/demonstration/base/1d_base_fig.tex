@@ -1,12 +1,41 @@
 
 \begin{figure}[ht]
-\includegraphics[width=0.8\textwidth]{./chapters/demonstration/base/1dppmff.eps}
-\caption[$^{235}U$ residence 1 Dimensional PPM Model.]{
-For the case in which transport through the waste form, waste package, and 
-buffer are represented by quickly degrading Mixed Cell models and the Far Field 
-is represented by the 1 Dimensional PPM model, material moves very slowly into 
-the far field. These results demonstrate numerical difficulties in timestep 10, 
-despite overloading this simulation with 1,000,000 initial kg per waste form.
+\centering
+\includegraphics[width=0.8\textwidth]{./chapters/demonstration/base/od.eps}
+\caption[1 Dimensional PPM Model.]{
+For the case in which transport through all components is represented by the 1 
+Dimensional PPM model, material moves very slowly into the far field. Indeed, 
+so slowly that the time steps are measured in 10s of years.
 }
 \label{fig:1dppmall}
+\begin{minipage}[b]{0.45\linewidth}
+
+  \includegraphics[width=\textwidth]{./chapters/demonstration/base/od2.eps}
+  \caption[Case ODI Waste Form Contaminants.]{
+    Waste Form 5 releases material at a slow, nearly constant rate into Waste 
+    Package 6.
+    }
+  \label{fig:drIVwf5}
+  \includegraphics[width=\textwidth]{./chapters/demonstration/base/od3.eps}
+  \caption[Case ODI Buffer Contaminants]{
+    The Buffer, component 7 very slowly receives material at a slow, nearly 
+    constant rate. It then very slowly releases material.
+    }
+  \label{fig:drIVbuff}
+\end{minipage}
+\hspace{0.05\linewidth}
+\begin{minipage}[b]{0.45\linewidth}
+  \includegraphics[width=\textwidth]{./chapters/demonstration/base/od1.eps}
+  \caption[Case ODI Waste Package Contaminants.]{ 
+    Waste Package 6 very slowly recieves then very slowly releases material. 
+    }
+  \label{fig:drIVwp6}
+  \includegraphics[width=\textwidth]{./chapters/demonstration/base/od0.eps}
+  \caption[Case ODI Waste Package Contaminants.]{ 
+    The Far Field, component 4, acheives total containment.
+    }
+  \label{fig:drIVff0}
+
+
+  \end{minipage}
 \end{figure}
