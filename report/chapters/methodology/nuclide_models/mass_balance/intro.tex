@@ -1,17 +1,15 @@
 The mass balance models selected to represent the physics of mass distribution 
-within each component are selected among four options. Two of these are 
-zero-dimensional in space and two are one-dimensional in space. 
+within each component are selected from among four options. The Degradation Rate 
+model and Mixed Cell model are control volumes that distribute contaminants 
+between a liquid and a solid phase. These models calcuate a homogenous 
+concentration profile throughout the volume and are therefore
+zero-dimensional in space. The Lumped Parameter model and the One Dimensional 
+Permeable Porous Medium model, however, calculate one dimensional concentration 
+profiles to arrive at a mass distribution throughout the volume. 
 
 These models are differentiated from one another by the physics that they 
-capture as well as the detail and accuracy with which they capture it. 
-Depending on the user's available data, need for accuracy, and need for speed, 
-some mass balance models will be more appropriate than others. 
+capture as well as the detail and accuracy with which they capture it.  
+Depending on the component being modeled, the user's available data, need for 
+accuracy, and need for speed, some mass balance models will be more appropriate 
+than others.  
 
-
-
-
-
-
-Introduce Concepts of how mass can be distributed : 
-- 0d models have a distributions between liquid and solid phase
-- 1d models have a distribution over space (and time?)
