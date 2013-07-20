@@ -1,9 +1,9 @@
 \section{Radionuclide Transport Base Cases}\label{sec:nuclide_base_cases}
 \subsection{Basic Transport and Containment Problem Specification}
-Basic transport and containment base cases were conducted to verify basic 
-transport and contaminant behavior of all the radionuclide transport models at 
-each component interface. These tests neglected thermal transport and capacity 
-estimation to simplify the verification procedure.  
+Basic transport and containment base cases were conducted to verify the 
+fundamental behavior of all the radionuclide transport models at each component 
+interface. These integration tests neglected thermal transport and capacity 
+estimation to simplify the results.  
 
 The problem design includes : 
 \begin{itemize}
@@ -17,9 +17,9 @@ The problem design includes :
 
 \subsubsection{Degradation Rate Model}
 The Degradation Rate model should not release contaminants if the degradation 
-rate is 0. If the degradation rate is nonzero, however, contaminants should 
-become available immediately to the adjacent components, traveling quickly 
-across the interfaces. 
+rate is 0. If the degradation rate is nonzero, however, and a fixed maximum 
+transport mode is selected, contaminants should become available immediately to 
+the adjacent components, traveling quickly across the interfaces. 
 
 To observe these behaviors, four simulations were run to demonstrate that total 
 containment resulted from a degradation rate of 0 and that congruent release 
@@ -35,18 +35,19 @@ Results of these base cases can be found in Figures
 \FloatBarrier
 
 \subsubsection{Mixed Cell Model}
-The Mixed Cell model behaves similarly to the Degradation Rate 
-model, when sorption and solubility limitation in that model are disabled (as 
-in Figures \ref{fig:mcI} through \ref{fig:mcIff0}. When they are 
-enabled, however, expected to demonstrate sorption limited and solubility 
-limited transport as in Figures \ref{fig:mcIIIall} through \ref{fig:mcII}. The extent to which sorption and solubility limitation meet 
-expectations is addressed in this base case.
+The Mixed Cell model behaves similarly to the Degradation Rate model, when 
+sorption and solubility limitation in that model are disabled (as in Figures 
+\ref{fig:mcI} through \ref{fig:mcIff0}. When they are enabled, however, expected 
+to demonstrate sorption limited and solubility limited transport as in Figures 
+\ref{fig:mcIIIall} through \ref{fig:mcII}. The extent to which sorption and 
+solubility limitation meet expectations is addressed in this base case.
 
 Dual and single parameter verification cases were run to explore the effects of 
 sorption and solubility limitation both separately and together.  Results from 
 two of these base cases can be found in Figures \ref{fig:mcI} through 
-\ref{fig:mcII}. The transport method between mixed cell components was the 
-source term method, for speed and clarity of result accuracy.
+\ref{fig:mcII}.
+The fixed maximum transport mode was use between mixed cell components for speed 
+and clarity of results.
 
 \input{./chapters/demonstration/base/mc_base_fig}
 \FloatBarrier
@@ -68,7 +69,7 @@ investigate the impact of using various models. Results of these base cases can 
 The transit time that parameterizes these models could be based on radioactive 
 tracer experiments in the field. Figures \ref{fig:lp_t_t_begin} 
 and \ref{fig:lp_t_t_end} demonstrate the dependence of the resulting transport on 
-transit time parameteriztion. These profiles match closely with the expected 
+transit time parameteriztion. These profiles demonstrate the trends seen in the 
 analytical results demonstrated in Maloszewski and Zuber 
 \cite{maloszewski_lumped_1996}.
 
@@ -82,24 +83,11 @@ components according to the analytical form of the solution. The solution is
 only valid for advection and dispersion values within a realistic range, and 
 the model accordingly can only be demonstrated for a very slow transport case. 
 
-Issues with floating point representable rational numbers, conversion, and 
-rounding within the treatment of material objects in the \Cyclus simulator 
-were encountered with this model. Crudely handled tolerances in the \Cyclus simulator 
-caused difficulty tracking and conserving very small quantites  in the \Cyder 
-library.
-
-A number of efforts to improve these results are forthcoming, including a 
-refactoring of the treatment of tolerances within \Cyclus as well as a 
-refactoring of the treatment of timesteps within \Cyder. Specifically, 
-calculations in \Cyder will be conducted over longer timescales than the native 
-month-long timescale of \Cyclus timesteps, somewhat alleviating the need to 
-track many miniscule material objects. 
-
 To observe the behavior of the solution and to demonstrate full containment in 
-cases where it is expected, simulations were run. An example simulation, with 
+cases where it is expected, simulations were run with . An example simulation, with 
 reference dispersion coefficient at $1\times 10^{-12}[m/s^2]$ and advective 
-velocity of $1\times 10^{-15}$ as well as an initial loading of one million kg 
-per waste form (to overwhelm numerical issues) is shown in Figure \ref{fig:1dppmall}.  
+velocity of $1\times 10^{-15}$ [j] 
+per waste form (to overwhelm numerical issues) is shown in Figure \ref{fig:odall}.  
 
 \input{./chapters/demonstration/base/1d_base_fig}
 \FloatBarrier
