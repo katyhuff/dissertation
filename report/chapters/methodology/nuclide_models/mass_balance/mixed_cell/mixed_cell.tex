@@ -67,7 +67,7 @@ s &=\frac{\mbox{ mass of sorbed contaminant} }{ \mbox{mass of total solid phase 
 \end{align}
 and the dissolved liquid concentration, 
 \begin{align}
-c &=\frac{\mbox{ mass of dissolved contaminant} }{ \mbox{volume of total liquid phase }}
+C &=\frac{\mbox{ mass of dissolved contaminant} }{ \mbox{volume of total liquid phase }}
 \label{liquid_conc}
 \end{align}
 can be characterized by a sorption `isotherm' model. A sorption isotherm 
@@ -84,7 +84,7 @@ s_{i} &= K_{di} c_{i}
 \intertext{where}
 s_i &= \mbox{ the solid concentration of isotope i }[kg/kg]\nonumber\\
 K_{di} &= \mbox{ the distribution coefficient of isotope i}[m^3/kg]\nonumber\\
-c_i &= \mbox{ the liquid concentration of isotope i }[kg/m^3].\nonumber
+C_i &= \mbox{ the liquid concentration of isotope i }[kg/m^3].\nonumber
 \end{align}
 
 Thus, from \eqref{solid_conc},
@@ -103,19 +103,22 @@ the pore fluid by sorption.  So too, contaminant mass released from the intact
 matrix by degradation is distributed between dissolved mass in the free fluid 
 and sorbed mass in the degraded and precipitated solids.
 
-To solve for the boundary conditions in this model, the amount of non-sorbed 
+To begin solving for the boundary conditions in this model, the amount of non-sorbed 
 contaminant mass in the degraded fluid volume must be found. Dropping the 
 isotope subscripts and beginning with equations \eqref{c_df} and \eqref{linear_iso},
 
 \begin{align}
-m_{df} &= \frac{C_{df}}{V_{df}} = \frac{m_{ds}V_{df}}{K_dV_{ds}}\nonumber
+m_{df} &= C_{df}V_{df}
 \intertext{and assuming the sorbate is in the degraded solids}
-       &= \frac{V_{df}}{K_dV_{ds}}\left(dm_T - m_{df}\right),\nonumber
-\intertext{this can be rearranged to give}
-m_{df} &= \frac{dm_TV_{df}}{K_dV_{ds}}\frac{1}{\left( 1+ \frac{V_{df}}{K_dV_{ds}}\right)}.
+m_{df} &= \frac{s_{ds}V_{df}}{K_d},\nonumber\\
+\intertext{then applying the definition of $s_{ds}$ and $m_{ds}$}
+m_{df} &= \frac{\frac{m_{ds}}{m_T}V_{df}}{K_d}\nonumber\\
+       &= \frac{(dm_T-m_{df})V_{df}}{K_dm_T}.\nonumber
+\intertext{This can be rearranged to give}
+m_{df} &= \frac{dV_{df}}{K_d}\frac{1}{\left( 1+ \frac{V_{df}}{K_dm_T}\right)}\nonumber\\
+       &= \frac{dV_{df}}{\left( K_d+ \frac{V_{df}}{m_T}\right)}.
 \intertext{Finally, in terms of total volume,}
-m_{df} &= \frac{d^2 m_T\theta V_T}{dK_d(1-\theta)V_T}\left( \frac{1}{1+\frac{\theta d V_T}{K_d(1-\theta)dV_T} }\right)\\  
-       &= \frac{d m_T\theta }{K_d(1-\theta) + \theta}.
+m_{df} &= \frac{d^2 \theta V_T}{dK_d + \frac{d \theta V_T}{m_T}}.
        \label{sorption}
 \end{align}
 
