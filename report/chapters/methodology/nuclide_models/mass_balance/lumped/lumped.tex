@@ -61,9 +61,11 @@ functions used commonly in chemical engineering applications
 \end{align}
 
 The latter of these, the Dispersion Model satisfies the one dimensional 
-advection-dispersion equation, and is therefore the most physically relevant for 
-this application. The solutions to these for constant concentration at the 
-source boundary are given in Maloszewski and Zuber \cite{maloszewski_lumped_1996}, 
+advection-dispersion equation, and is therefore the most physically relevant 
+for this application. A constant inlet concentration is assumed over the span 
+of a time step such that $C_{in}(t) = C_0$, and the solutions to these for 
+constant concentration at the source boundary are given in Maloszewski and 
+Zuber \cite{maloszewski_lumped_1996} accordingly, 
 
 \begin{align}
   C_{out}(t) &=\begin{cases}
@@ -83,6 +85,6 @@ It is important to note that a linear concentration profile is assumed between
 the inlet and the outlet,
 
 \begin{align}
-  C(z,t) = C_{in}(t)  + \frac{C_{out}(t) - C_{in}(t)}{z_{out} - z_{in}}z.
+  C(z,t) = C_{in}(t)  + \frac{C_{out}(t) - C_{in}(t)}{z_{out} - z_{in}}(z-z_{in}).
 \end{align}
 
