@@ -11,8 +11,9 @@ representative volume,
       \Gamma &= \mbox{ domain boundary }.\nonumber
     \end{align}
 
-The Dirichlet boundary condition can be provided by any mass balance model, 
-based on the concentration profile calculated in the previous section,
+The right hand side of the Dirichlet boundary condition can be provided by any 
+mass balance model, $j$, at its external boundary, $r_j$, based on the 
+concentration profile it calculates (see Section \ref{sec:mass_balance}),
 
 \begin{align}
 C(z,t_n)|_{z=r_j} &= \mbox{ fixed concentration in j at }r_j\mbox{ and }t_n [kg/m^3].\nonumber\\ 
@@ -27,12 +28,12 @@ C(z,t_n)|_{z=r_j} &= \mbox{ fixed concentration in j at }r_j\mbox{ and }t_n [kg/
 In the Degradation Rate and Mixed Cell models, the Dirichlet boundary condition can 
 be chosen to enforce an advective flux on the inner boundary. This choice is 
 appropriate when the user expects a primarily advective interface between two 
-components. The advective flux across the boundary between two components $i$ 
-and $j$, 
+components. The advective flux across the boundary between two components $j$ 
+and $k$, 
 
 \begin{align}
-J_{adv,ij}(t_n) &= \mbox{ potential advective flux from i to j at }t_n[kg/m^2/s]\nonumber\\
-               &= \theta_j v C(z,t_n)|_{z=r_i}
+J_{adv,jk}(t_n) &= \mbox{ potential advective flux from j to k at }t_n[kg/m^2/s]\nonumber\\
+               &= \theta_k v C(z,t_n)|_{z=r_j}
 \end{align}
 relies on the fixed concentration Dirichlet boundary condition at the 
 interface, provided by the internal component.
@@ -40,7 +41,7 @@ interface, provided by the internal component.
 The resulting mass transfer into the Degradation Rate or Mixed Cell model
 is, therefore, 
 \begin{align}
-m_{ij}(t_n) &= A\Delta t \theta_j v C(z,t_n)|_{z=r_i}
+m_{jk}(t_n) &= A\Delta t \theta_k v C(z,t_n)|_{z=r_j}
 \intertext{where}
 A &= \mbox{ surface area normal to the flow direction }[m^2]\nonumber\\
 \Delta t &= \mbox{ length of the time step }[s].\nonumber
