@@ -14,11 +14,11 @@ available material in a component into the component external to it.
 
 The total available mass for each mass balance model can be expressed,
 \begin{align}
-m_{ij}(t_n) &= \begin{cases}
-                         m_{d}(t_n), & \mbox{Degradation Rate}\\
-                         m_{df}(t_n), & \mbox{Mixed Cell}\\
-                         \int C(z,t_n)dV, & \mbox{Lumped Parameter}\\
-                         \int C(z,t_n)dV, & \mbox{One Dimensional PPM}.
+m_{jk}(t_n) &= \begin{cases}
+                         m_{j,d}(t_n), & \mbox{Degradation Rate}\\
+                         m_{j,df}(t_n), & \mbox{Mixed Cell}\\
+                         \int C(z,t_n)dV_j, & \mbox{Lumped Parameter}\\
+                         \int C(z,t_n)dV_j, & \mbox{One Dimensional PPM}.
                \end{cases}
 \end{align}
 
