@@ -6,24 +6,24 @@ Dirichlet boundary condition directly in its solution such that,
 C_{k,in}(t_n) &= C(z, t_n)|_{z=r_j}.
 \end{align}
 
-The resulting mass transfer into the external component containing the Lumped 
+The resulting mass transfer into the external component $k$ containing the Lumped 
 Parameter model is calculated by taking the integral of that concentration 
 profile over the volume, 
 
 \begin{align}
-m_{jk}(t_n) &=\int C(z,t_n)dV_j - \int C(z, t_{n-1})dV_j.
+m_{jk}(t_n) &=\int C(z,t_n)dV_k - \int C(z, t_{n-1})dV_k.
 \end{align}
 
 
-In the case of the One Dimensional Permeable Porous Medium Model, 
-the Dirichlet boundary condition at the boundary is similarly used directly in 
+In the similar case of the One Dimensional Permeable Porous Medium Model, 
+the Dirichlet boundary condition at the boundary is also used directly in 
 the solution as $C_0$ such that,
 
 \begin{align}
   C_{k,0}(t_n) &= C(z, t_n)|_{z=r_j}.
 \end{align}
 
-The mass transfer on the inner boundary is similarly calculated by taking an 
+The mass transfer on the inner boundary is again calculated by taking an 
 integral of that profile over the volume,
 
 \begin{align}

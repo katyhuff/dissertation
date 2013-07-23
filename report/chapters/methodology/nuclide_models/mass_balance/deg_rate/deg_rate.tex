@@ -37,24 +37,23 @@ are available to adjacent components such that,
 \begin{align}
 m_{jk}(t_n) &= m_{j,d}(t_n)
 \intertext{where}
-m_{jk} &= \mbox{ maximum contaminant mass available for transfer from j to k }[kg]\nonumber\\
 m_{j,d} &= \mbox{ mass in degraded volume of cell j }[kg] \nonumber\\
 t_n &= \mbox{ time }[s].\nonumber
 \end{align}
 
-The total contaminants $m_{d,j}(t_n)$, available in the degraded volume
+The total contaminants $m_{j,d}(t_n)$, available in the degraded volume
 at time $t_n$ are calculated based on mass flux from the
 inner boundary, the updated mass in the degraded volume at the previous 
 time step, and the mass released by degradation during the 
 current time step. Specifically, 
 
 \begin{align}
-m_{d,j}(t_n) &= m_{ij}(t_n) + m_{d,j}^*(t_n) + m_{j,i}^*(t_{n-1})f_n\Delta t
+m_{k,d}(t_n) &= m_{jk}(t_n) + m_{k,d}^*(t_{n-1}) + m_{k,i}^*(t_{n-1})f_n\Delta t
 \label{deg_rate_source_cont}
 \intertext{where}
-m_{ij}(t_n) &= \mbox{ incoming mass from the inner boundary }[kg]\nonumber\\
-m_{j,d}^*(t_{n-1}) &= \mbox{ mass in the degraded volume at the end of }t_{n-1}\mbox{ }[kg]\nonumber\\
-m_{j,i}^*(t_{n-1})f_n\Delta t &= \mbox{ mass in the intact volume at the end of }t_{n-1}\mbox{ }[kg]\nonumber\\
+m_{jk}(t_n) &= \mbox{ incoming mass from the inner boundary }[kg]\nonumber\\
+m_{k,d}^*(t_{n-1}) &= \mbox{ mass in the degraded volume of k at the end of }t_{n-1}\mbox{ }[kg]\nonumber\\
+m_{k,i}^*(t_{n-1})&= \mbox{ mass in the intact volume of k at the end of }t_{n-1}\mbox{ }[kg]\nonumber\\
 f_n&= \mbox{ degradation rate during the time step }t_n\mbox{ }[kg]\nonumber\\
 \Delta t &= t_n-t_{n-1}\mbox{ }[s].\nonumber
 \end{align}
