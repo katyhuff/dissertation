@@ -53,22 +53,20 @@ m_{k,d}(t_n) &= m_{jk}(t_n) + m_{k,d}^*(t_{n-1}) + m_{k,i}^*(t_{n-1})f_n\Delta t
 \intertext{where}
 m_{jk}(t_n) &= \mbox{ incoming mass from the inner boundary }[kg]\nonumber\\
 m_{k,d}^*(t_{n-1}) &= \mbox{ mass in the degraded volume of k at the end of }t_{n-1}\mbox{ }[kg]\nonumber\\
-m_{k,i}^*(t_{n-1})&= \mbox{ mass in the intact volume of k at the end of }t_{n-1}\mbox{ }[kg]\nonumber\\
+m_{k,i}^*(t_{n-1}) &= \mbox{ mass in the intact volume of k at the end of }t_{n-1}\mbox{ }[kg]\nonumber\\
 f_n&= \mbox{ degradation rate during the time step }t_n\mbox{ }[kg]\nonumber\\
 \Delta t &= t_n-t_{n-1}\mbox{ }[s].\nonumber
 \end{align}
 
 The concentration calculation results from the mass balance calculation in 
-\eqref{deg_rate_source_cont} 
-to support parent components that utilize the Dirichlet boundary condition. 
-For 
-the degradation rate model, which incorporates no diffusion or advection, the 
-concentration, $C_j$ at $r_j$, the boundary between cells $j$ and $k$, is the average 
-concentration in degraded volume, 
+\eqref{deg_rate_source_cont} to support parent components that utilize the 
+Dirichlet boundary condition.  For the degradation rate model, which 
+incorporates no diffusion or advection, the concentration, $C_j$ at $r_j$, the 
+boundary between cells $j$ and $k$, is the average concentration in degraded 
+volume, 
 
 \begin{align}
-C_{d} &= \frac{m_{d}(t_n)}{V_{d}(t_n)}\\
-\label{deg_rate_conc}\\
+C_{d} &= \frac{m_{d}(t_n)}{V_{d}(t_n)} \label{deg_rate_conc}\\
 &= \frac{\mbox{ solute mass in degraded fluid in cell j }}{\mbox{ degraded fluid volume in cell j}}.\nonumber 
 \end{align}
 
