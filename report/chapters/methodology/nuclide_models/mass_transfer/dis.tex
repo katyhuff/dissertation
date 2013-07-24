@@ -16,8 +16,10 @@ mass balance model,
 
 
 For mass balance models that are 0-dimensional in space (i.e. the Degradation 
-Rate model and the Mixed Cell model), the center-to-center difference between 
-adjacent components is taken,
+Rate model and the Mixed Cell model), which lack spatial variation in the 
+concetration profile, the differential must be approximated. Taking the 
+center-to-center difference between adjacent components is one convenient way 
+to make this approximation, and is the method implemented in \Cyder, such that 
 
 \begin{align}
 \frac{\partial C(z,t_n)}{\partial z}\Bigg|_{z=r_j} &= \frac{C_k(r_{k-1/2},t_{n-1}) - C_j(r_{j-1/2}, t_n)}{r_{k-1/2} - r_{j-1/2}}
@@ -50,12 +52,12 @@ boundary. This choice is appropriate when the user expects a primarily
 dispersive flow across the boundary. The dispersive flux in one dimension, 
 \begin{align}
       J_{dis} &= \mbox{ Total Dispersive Mass Flux }[kg/m^2/s]\nonumber\\
-      &= -\theta D\frac{\partial C}{\partial z}\Big|_{z=r_j} \nonumber
+      &= -\theta D\frac{\partial C}{\partial z} \nonumber
 \end{align}
 relies on the fixed gradient Neumann boundary condition at the interface. 
 The resulting mass transfer into the Degradation Rate or Mixed Cell model is, 
 therefore, 
 
 \begin{align}
-m_{jk}(t_n) &= - A\Delta t D \frac{\partial C(z,t_n)}{\partial z}|_{z=r_j}.
+m_{jk}(t_n) &= - A\Delta t \theta_k D \frac{\partial C(z,t_n)}{\partial z}|_{z=r_j}.
 \end{align}

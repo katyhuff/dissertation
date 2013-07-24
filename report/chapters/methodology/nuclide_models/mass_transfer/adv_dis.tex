@@ -17,12 +17,12 @@ can be selected to enforce coupled advective and dispersive flow,
 
 \begin{align}
   J_{coupled} &= J_{adv} + J_{dis} \nonumber\\
-  &= \theta vC(z,t_n)|_{z=r_j} -\theta D\frac{\partial C}{\partial z}\big|_{z=r_j}.
+  &= \theta vC(z,t_n) -\theta D\frac{\partial C}{\partial z}.
 \end{align}
 
 The resulting mass transfer into the Degradation Rate or Mixed Cell model is then, 
 
 \begin{align}
-m_{jk}(t_n) &= A\Delta t \left( \theta_j v C(z,t_n)|_{z=r_j} - D \frac{\partial C(z,t_n)}{\partial z}|_{z=r_j} \right).
+m_{jk}(t_n) &= A\Delta t \left( \theta_k v C(z,t_n)|_{z=r_j} - \theta_k D \frac{\partial C(z,t_n)}{\partial z}|_{z=r_j} \right).
 \end{align}
 
