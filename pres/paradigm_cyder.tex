@@ -3,8 +3,7 @@
   \frametitle{Cyder Paradigm : Modularity }
   A modular repository framework facilitates 
   \begin{itemize}
-    \item  interchangable subcomponents (e.g. buffer material) so that 
-      the impact on the disposal system performance may be observed
+    \item  interchangable subcomponents 
     \item and simulations with varying levels of detail.
   \end{itemize}
  \pause
@@ -19,11 +18,10 @@
 
 \begin{frame}[ctb!]
   \frametitle{Cyder Paradigm : Waste Stream Acceptance}
-  \footnotesize{
-  
-To participate in fuel cycle simulation, the repository model must accept arbitrary 
-spent fuel and high level waste streams. A waste stream is a material data 
-object resulting from the Cyclus simulated fuel cycle.  
+To participate in fuel cycle simulation, the repository model must accept 
+\textbf{arbitrary} spent fuel and high level waste \textbf{material data 
+objects} resulting from the Cyclus simulated fuel cycle.  
+
   \begin{figure}[htbp!]
     \begin{center}
       \includegraphics[height=5cm]{./images/sinkfacility.eps}
@@ -33,7 +31,6 @@ object resulting from the Cyclus simulated fuel cycle.
     \label{fig:sinkfacility}
   \end{figure}
 % Sink Facility ?
-}
 \end{frame}
 
 \begin{frame}[ctb!]
@@ -41,16 +38,15 @@ object resulting from the Cyclus simulated fuel cycle.
   \footnotesize{
 
     \textbf{Waste conditioning} is the process of packing a waste stream into an appropriate 
-waste form.  The Cyder model loads discrete waste forms with discrete waste 
-stream contaminant vectors as depicted in Figure \ref{fig:ws_conditioning}.
+waste form. 
   
 \begin{figure}[htbp!]
 \begin{center}
 \def\svgwidth{.5\textwidth}
 \input{./images/ws_conditioning.eps_tex}
 \end{center}
-\caption{Waste streams are conditioned into the appropriate waste form 
-according to user-specified pairings.}
+\caption{In Cyder, discrete waste streams are conditioned into the appropriate 
+discrete waste form according to user-specified pairings.}
 \label{fig:ws_conditioning}
 \end{figure}
 }
@@ -61,17 +57,15 @@ according to user-specified pairings.}
   \footnotesize{
 
     \textbf{Waste packaging} is the process of placing one or many waste forms into a 
-containment package. Once the waste stream has been conditioned into a waste 
-form, that waste form Component is loaded into a waste package Component as 
-depicted in Figure \ref{fig:wf_packaging}.  
+containment package. 
 
 \begin{figure}[htbp!]
 \begin{center}
 \def\svgwidth{.5\textwidth}
 \input{./images/wf_packaging.eps_tex}
 \end{center}
-\caption{Waste forms are loaded into the appropriate waste package 
-according to user-specified pairings.}
+\caption{In Cyder, one or more waste forms are loaded into the appropriate 
+waste package according to user-specified pairings.}
 \label{fig:wf_packaging}
 \end{figure}
 }
