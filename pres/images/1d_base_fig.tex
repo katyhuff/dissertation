@@ -1,14 +1,38 @@
-\begin{frame}[ctb!]
-  \frametitle{One Dimensional Permeable Porous Medium Base Case}
+
 \begin{figure}[ht]
-\includegraphics[width=0.8\textwidth]{./images/1dppmff.eps}
-\caption[$^{235}U$ residence 1 Dimensional PPM Model.]{
-For the case in which transport through the waste form, waste package, and 
-buffer are represented by quickly degrading Mixed Cell models and the Far Field 
-is represented by the 1 Dimensional PPM model, material moves very slowly into 
-the far field. These results demonstrate numerical difficulties in timestep 10, 
-despite overloading this simulation with 1,000,000 initial kg per waste form.
+\centering
+\includegraphics[width=0.6\textwidth]{./images/od.eps}
+\caption[1 Dimensional PPM Model.]{
+For the case in which transport through all components is represented by the 1 
+Dimensional PPM model, material moves very slowly into the far field. 
 }
-\label{fig:1dppmall}
+\label{fig:odall}
+\begin{minipage}[b]{0.45\linewidth}
+
+  \includegraphics[width=\textwidth]{./images/od2.eps}
+  \caption[Case ODI Waste Form Contaminants.]{
+    Waste Form 5 slowly releases material into Waste Package 6.
+    }
+  \label{fig:drIVwf5}
+  \includegraphics[width=\textwidth]{./images/od3.eps}
+  \caption[Case ODI Buffer Contaminants]{
+    The Buffer, component 7 very slowly receives then releases material.
+    }
+  \label{fig:drIVbuff}
+\end{minipage}
+\hspace{0.05\linewidth}
+\begin{minipage}[b]{0.45\linewidth}
+  \includegraphics[width=\textwidth]{./images/od1.eps}
+  \caption[Case ODI Waste Package Contaminants.]{ 
+    Waste Package 6 very slowly recieves then releases material. 
+    }
+  \label{fig:drIVwp6}
+  \includegraphics[width=\textwidth]{./images/od0.eps}
+  \caption[Case ODI Waste Package Contaminants.]{ 
+    The Far Field, component 4, acheives total containment.
+    }
+  \label{fig:drIVff0}
+
+
+  \end{minipage}
 \end{figure}
-\end{frame}
