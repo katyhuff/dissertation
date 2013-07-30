@@ -126,4 +126,40 @@
   \input{geology_barrier_fig}
 }
 \end{frame}
+\input{concepts_layouts}
 \setcounter{framenumber}{\value{finalframe}}
+\section{Mixed Cell Model}
+
+\begin{frame}
+  \frametitle{Radionuclide Transport : Mixed Cell Sorption}
+  \footnotesize{
+
+The mass of contaminant sorbed into the degraded and precipitated solids can be
+found using a linear isotherm model \cite{schwartz_fundamentals_2004},
+characterized by the relationship 
+\begin{align}
+s_{i} &= K_{di} c_{i}
+\label{linear_iso}
+\intertext{where}
+s_i &= \mbox{ the solid concentration of isotope i }[kg/kg]\nonumber\\
+K_{di} &= \mbox{ the distribution coefficient of isotope i}[m^3/kg]\nonumber\\
+c_i &= \mbox{ the liquid concentration of isotope i }[kg/m^3].\nonumber
+\end{align}
+
+  From the sorbed contaminant mass, we find the non-sorbed contaminant mass in the free fluid,
+
+\begin{align}
+m_{ffl}   &= m_{ffT} - \frac{1}{2} \left(m_{ffT} - m_{psm} - \frac{V_{ff}}{K_d}\right) \nonumber\\
+          & \mp \frac{1}{2} \sqrt{m_{ffT}^2 + 2m_{ffT}\left(m_{psm} - 
+          \frac{V_{ff}}{K_d}\right) + \left(m_{psm} + 
+          \frac{V_{ff}}{K_d}\right)^2}.
+\label{m_ffl_full}
+\intertext{where}
+m_{ffT}  &= \mbox{ total degraded contaminant mass }[kg]\nonumber\\
+m_{psm}  &= \mbox{ noncontaminant mass in degraded and precipitated solids }[kg]\nonumber\\
+m_{psc}  &= \mbox{ contaminant mass in degraded and precipitated solids }[kg]\nonumber\\
+\rho_b   &= \mbox{ bulk (dry) density of the medium }[kg/m^3].\nonumber\\
+\end{align}
+
+    }
+\end{frame}
