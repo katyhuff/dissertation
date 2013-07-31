@@ -4,6 +4,7 @@
 %
 \documentclass[letterpaper]{article}
 \usepackage[top=1.0in,bottom=1.0in,left=1.0in,right=1.0in]{geometry}
+\usepackage{xspace}
 \usepackage{verbatim}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -22,6 +23,8 @@ urlcolor = Blue
 ]{hyperref}
 \def\thesection       {\arabic{section}}
 \def\thesubsection     {\thesection.\alph{subsection}}
+\newcommand{\Cyder}{\textsc{Cyder}\xspace}
+\newcommand{\Cyclus}{\textsc{Cyclus}\xspace}
 
 \author{K. Huff
 \\ \href{mailto:khuff@cae.wisc.edu}{\texttt{khuff@cae.wisc.edu}}
@@ -32,39 +35,76 @@ urlcolor = Blue
 \begin{document}
 \maketitle
 
-\textbf{Title}
+\section*{Title}
 
+Introduce yourself.
 
-\textbf{Outline}
-
-
-\section{Motivation}
-
-\textbf{Top Level Fuel Cycle Simulators}
-
-
-\subsection{Future Fuel Cycle Options}
-\textbf{Future Fuel Cycle Options}
+\section*{Outline}
 
 
 
-\subsection{Geologic Disposal Options}
-\textbf{Disposal Geology Options Considered}
+\section*{Top Level Fuel Cycle Simulators}
+
+Nuclear fuel cycle simulation seeks to provide a system level overview of the 
+movement of materials and other quantities of interest among facilities as 
+nuclear energy is produced. Using fuel cycle simulation tools, the potential 
+impact of novel technologies and policies can be approximated. 
+
+\Cyclus is one such simulation tool. The \Cyder tool, which is the primary 
+subject of this work, represents the geologic repository, here.
+
+\section*{Future Fuel Cycle Options}
+
+A number of potential nuclear fuel cycles are being considered domestically. 
+
+\section*{Disposal Geology Options Considered}
+
+A number of potential nuclear waste repository geologies are being considered 
+domestically. 
+
+\section*{Repository Components}
 
 
 
-\textbf{Repository Components}
+\section*{Need for an Integrated Repository Model}
+
+An integrated repository performance model enables the analysis of global fuel
+cycle metrics concerned with material routing, intermediate storage time, and
+repository performance. Post-processed analysis of these metrics can neglect
+feedback effects of geologic disposal capacity constraints and repository
+performance within the fuel cycle system.
 
 
-
-\subsection{Fuel Cycle Simulator Capabilities}
-\textbf{Need for an Integrated Repository Model}
+\section*{Outline}
 
 
-\textbf{Outline}
+\section*{Waste Stream Acceptance}
+The Cyder Facility dynamically accepts material from the coupled fuel
+cycle simulation. The capacity decision is the interface at which feedbacks 
+occur.
 
-\section{Modeling Paradigm}
-\textbf{Cyder Paradigm: Modularity}
+\section*{Waste Form Conditioning}
+
+Waste conditioning is the process of packing a waste stream into an appropriate 
+waste form.
+In Cyder, discrete waste streams are conditioned into the appropriate
+discrete waste form according to user-specified pairings.
+
+\section*{Waste Packaging}
+Waste packaging is the process of placing one or many waste forms into a 
+containment package.
+In Cyder, one or more waste forms are loaded into the appropriate waste
+package according to user-specified pairings. 
+
+
+\section*{Wate Package Emplacement}
+
+Finally, the waste package is emplaced in a buffer component, which contains 
+many other waste packages, spaced evenly in a grid. The grid is defined by the 
+user input and depends on repository depth, z, waste package spacing, x, and 
+tunnel spacing, y as in Figure 10.
+
+\section*{Cyder Paradigm: Modularity}
 A modular repository framework facilitates
 \begin{itemize}
 \item interchangable subcomponents
@@ -76,10 +116,31 @@ Integration with a fuel cycle simulator facilitates
 \item and fuel cycle impacts on disposal system performance.
 \end{itemize}
 
-\section{Demonstration}
+\section*{<++>}
+\section*{<++>}
+\section*{<++>}
+\section*{<++>}
+\section*{<++>}
+\section*{<++>}
 
 
-\begin{frame}[ctb!]
+\pagebreak
+\bibliographystyle{ieeetr}
+\bibliography{paper}
+
+
+
+
+
+
+\section*{Cyder Advective Diffusive Sensitivity}
+Increased advection and increased diffusion lead to greater release. Also, when 
+both are varied, a boundary between diffusive and advective
+regimes can be seen. An example of these results are shown here.
+Advection vs. Diffusion Sensitivity in Cyder. Dual advective velocity 
+and reference diffusivity sensitivity for a non-sorbing, infinitely soluble 
+nuclide.
+
   \section*{Thermal Base Case Demonstration}
 A validation exercise comparing the combined scaling and  
 superposition calculations demonstrates an average error of 1.1\% and a 
@@ -97,14 +158,6 @@ Here, percent error is
 T_{STC}\right|}{ \Delta T_{LLNL}}.
 \end{align}
 
-
-\section*{Cyder Advective Diffusive Sensitivity}
-Increased advection and increased diffusion lead to greater release. Also, when 
-both are varied, a boundary between diffusive and advective
-regimes can be seen. An example of these results are shown here.
-Advection vs. Diffusion Sensitivity in Cyder. Dual advective velocity 
-and reference diffusivity sensitivity for a non-sorbing, infinitely soluble 
-nuclide.
 \section*{LLNL Model Waste Package Spacing Sensitivity}
   Figure \ref{fig:Cm242spacing_sens} shows the trend in which increased waste 
   package spacing of a medium decreases areal thermal energy 
@@ -196,23 +249,6 @@ $\alpha_{th}$ vs. $K_{th}$ Sensitivity in Cyder. Cyder trends agree
   those of the LLNL model. The importance of the limiting radius decreases with 
   increased $K_{th}$. The above example thermal profile results from 10kg of 
   $^{242}Cm$
-
-
-\section{Conclusion}
-\textbf{<++>}
-\textbf{<++>}
-\textbf{<++>}
-
-An integrated repository performance model enables the analysis of global fuel
-cycle metrics concerned with material routing, intermediate storage time, and
-repository performance. Post-processed analysis of these metrics can neglect
-feedback effects of geologic disposal capacity constraints and repository
-performance within the fuel cycle system.
-
-
-\pagebreak
-\bibliographystyle{ieeetr}
-\bibliography{paper}
 \end{document}
 
 
