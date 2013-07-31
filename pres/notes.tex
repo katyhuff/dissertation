@@ -120,19 +120,110 @@ Integration with a fuel cycle simulator facilitates
 \section*{<++>}
 \section*{<++>}
 \section*{<++>}
+\section*{<++>}
+\section*{<++>}
+\section*{<++>}
+\section*{<++>}
+\section*{<++>}
+
+  \section*{Nested Components}
+  The NuclideModel in a Component can be interchangeably represented by any of 
+  the four nuclide transport models. 
+
+  \section*{Advection Dispersion Equation}
+<++>
+
+  \section*{Component Interfaces}
+Solutions to this equation can be categorized by their boundary conditions and 
+those boundary conditions serve as the interfaces between components in the 
+Cyder library of nuclide transport models.
+
+\section*{Implicit Timestepping}
+Each Component passes some information radially outward to the nested 
+Component immediately containing it and some information radially 
+inward to the nested Component it contains. 
+
+Mass distribution in Component 0 at time $t_n$ is found from the inner boundary 
+condition at time $t_n$ and the outer boundary condition at $t_{n-1}$. Outer 
+boundary conditions are solved for numerically at $t_n$.
+
+\section*{Clay GDSM Model.}
+explain
+
+  \section*{Radionuclide Transport: Degradation Rate Based Release}
+In this model, the contaminants in the degraded fraction of the control volume 
+are available to adjacent components. The available contaminants
+$m_{ij}(t)$, at the boundary between cell $i$ to cell $j$ at time $t$ are thus
+
+  \section*{Radionuclide Transport: Degradation Rate Based Release}
+<++>
+
+  \section*{Radionuclide Transport : Mixed Cell with Sorption and Solubility}
+<++>
+
+  \section*{Radionuclide Transport : Mixed Cell Sorption}
+<++>
+The mass of contaminant sorbed into the degraded and precipitated solids can be
+found using a linear isotherm model \cite{schwartz_fundamentals_2004},
+characterized by the relationship 
+
+  \section*{Radionuclide Transport : Mixed Cell Solubility Limitation}
+In addition to engineered barriers, contaminant transport is constrained by 
+  the solubility limit \cite{hedin_integrated_2002}, 
+
+  \section*{Radionuclide Transport: Lumped Parameter Transport Model}
+The method by which each lumped parameter component is modeled is
+according to a relationship between the incoming concentration, $C_{in}(t)$,
+and the outgoing concentration, $C_{out}(t)$.
+
+  \section*{Radionuclide Transport: Lumped Parameter Transport Model}
+Selection of the response function is usually based on experimental tracer
+results in the medium at hand. However, some functions used commonly in
+chemical engineering applications \cite{maloszewski_lumped_1996} include the
+Piston Flow Model (PFM), Exponental Model (EM), and Dispersion Model (DM). 
+
+  \section*{Radionuclide Transport: Lumped Parameter Transport Model}
+The solutions to these for constant concentration at the 
+source boundary are given by Maolszewski and Zuber.
+
+  \section*{Radionuclide Transport: 1D Finite, Cauchy B.C.}
+  A one dimensional, finite, unidirectional flow,
+  solution with Cauchy and Neumann boundary conditions
+
+  \section*{Radionuclide Transport: 1D Finite, Cauchy B.C.}
+For the boundary conditions, 
+
+  \section*{Radionuclide Transport: 1D Finite, Cauchy B.C.}
+For the vertical flow coordinate system, $A$ is defined as
+
+\section*{Demonstration}
+<++>
 \section*{Degradation Rate Model Base Case I}
+<++>
 \section*{Degradation Rate Model Base Case I}
+<++>
 \section*{Degradation Rate Model Base Case II}
+<++>
 \section*{Degradation Rate Model Base Case II}
+<++>
 \section*{Degradation Rate Model Base Case III}
+<++>
 \section*{Degradation Rate Model Base Case III}
+<++>
 \section*{Degradation Rate Model Base Case IV}
+<++>
 \section*{Degradation Rate Model Base Case IV}
+<++>
 \section*{Mixed Cell Model Base Case  II}
+<++>
 \section*{Mixed Cell Model Base Case  II}
+<++>
 \section*{Lumped Parameter Model Base Case}
+<++>
 \section*{1dppm Base Case I}
+<++>
 \section*{1dppm Base Case I}
+<++>
 \section*{Clay GDSM Solubility Sensitivity}
 For solubility limits above the threshold, increase to the limit had no effect on the peak dose. This demonstrates the 
 situation in which the solubility limit is so high that even complete 
