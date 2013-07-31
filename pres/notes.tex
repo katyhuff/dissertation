@@ -122,17 +122,47 @@ Integration with a fuel cycle simulator facilitates
 \section*{<++>}
 \section*{<++>}
 \section*{<++>}
+\section*{Clay GDSM Solubility Sensitivity}
+For solubility limits above the threshold, increase to the limit had no effect on the peak dose. This demonstrates the 
+situation in which the solubility limit is so high that even complete 
+dissolution of the waste inventory into the pore water is insufficient to reach 
+the solubility limit.
+\section*{Cyder Solubility Sensitivity}
+In the parametric analysis of \Cyder performance, it was shown that the 
+solubility sensitivity behavior closely matched that of the GDSM 
+sensitivity behaviors. In agreement with expectations, \Cyder results in Figure 
+\ref{fig:sol_result}, demonstrate a sharp turnover 
+where the solubility limit exceeds the point at which it limits movement. 
+
+\section*{Clay GDSM Sorption Sensitivity}
+It is clear from Figures \ref{fig:KdSumFactor} and \ref{fig:KdSum} that 
+for retardation coefficients greater than the threshold , the 
+relationship between peak annual dose and retardation coefficient is a strong 
+inverse one. 
+\section*{Cyder Sorption Sensitivity}
+
+In Figure \ref{fig:kd_result}, increasing the retardation 
+coefficient results in a smooth but dramatic turnover. 
 
 
-\pagebreak
-\bibliographystyle{ieeetr}
-\bibliography{paper}
+\section*{Clay GDSM Degradation Rate Sensitivity}
+
+Highly soluble and non-sorbing $^{129}I$ demonstrates a direct proportionality between dose rate and 
+fractional degradation rate until a turnover where other natural system 
+parameters dampen transport. Highly soluble and non-sorbing $^{129}I$ demonstrates a direct 
+proportionality to the inventory multiplier.
+
+$^{129}I$ waste form degradation rate sensitivity.
+$^{129}I$ inventory multiplier sensitivity.
 
 
+\section*{Cyder Degradation Rate Sensitivity}
+In the parametric sensitivity analysis conducted with the \Cyder tool, waste 
+form degradation rate sensitvity similarly shows the two regimes noted in the 
+GDSM analysis.  
 
-
-
-
+Sensitivity demonstration of the degradation rate in \Cyder for an 
+arbitrary isotope.
 
 
 \section*{GDSM Model Advective Diffusive Sensitivity}
@@ -257,6 +287,10 @@ $\alpha_{th}$ vs. $K_{th}$ Sensitivity in Cyder. Cyder trends agree
   those of the LLNL model. The importance of the limiting radius decreases with 
   increased $K_{th}$. The above example thermal profile results from 10kg of 
   $^{242}Cm$
+
+\pagebreak
+\bibliographystyle{ieeetr}
+\bibliography{paper}
 \end{document}
 
 
