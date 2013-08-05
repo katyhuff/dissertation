@@ -120,26 +120,28 @@ repository depth, z, waste package spacing, x, and tunnel spacing, y as in
 the figure.
 
 \section{Cyder Paradigm: Modularity}
-A modular repository framework facilitates
-\begin{itemize}
-\item interchangable subcomponents
-\item and simulations with varying levels of detail.
-\end{itemize}
-Integration with a fuel cycle simulator facilitates
-\begin{itemize}
-\item analysis of feedback effects upon the fuel cycle
-\item and fuel cycle impacts on disposal system performance.
-\end{itemize}
+
+If we look down along the z axis at the footprint of the repository concept 
+modeled in cyder, we see that each of these barriers is treated as a distinct 
+component in Cyder. This allows Cyder to modularly encapsulate the behaviors of 
+the various components I just addressed. In order to facilitate interchangable 
+subcomponents and simulations with varying levels of detail, it treats each of 
+the barrier components of the repository as distinct simulation objects. 
+
 
 \section{Cyder Paradigm: Modularity}
-<++>
-\section{Cyder Paradigm: Modularity}
-<++>
-\section{Cyder Paradigm: Modularity}
-<++>
 
-  \section{Nested Components}
-  Each Component has : 
+If we look individually at each component..
+
+\section{Cyder Paradigm: Modularity}
+
+we see that in \Cyder , each component has its own contaminant transport model 
+and its own thermal transport model. These, as well as the data that the user 
+provides to parameterize them, determine the physics approximated within each 
+component. 
+
+\section{Nested Components}
+So, to review, in \Cyder , each Component has : 
   \begin{itemize}
     \item a Geometry to describe its dimensions and location
     \item a NuclideModel for contaminant transport 
@@ -243,25 +245,46 @@ change (note log scale).
   The NuclideModel in a Component can be interchangeably represented by any of 
   the four nuclide transport models. 
 
+\section{Clay GDSM Model.}
+
+Now that we've addressed the physical layout of the model, I'll add that the 
+implemented physics was based on an abstraction process. I had access to a 
+detailed computational model of radionuclide transport in a nuclear waste 
+repository. This Generic Disposal System Model had the conceptual layout 
+expressed by this picture, and involved a full set of engineered barrier 
+systems. Though it was very detailed it ran slowly, so the goal of Cyder was 
+not to replicate it or simply link to it. Rather, the goal in the Cyder project 
+was to capture the dominant physics that are seen in this model. By conducting 
+sensitivity analyses with this model, I arrived at important parameters and 
+performance responses that informed the model development that follows in this 
+section of the talk.
+
   \section{Advection Dispersion Equation}
-<++>
+  One thing that I found from this abstraction process is that we want to be 
+  able to capture mass transfer between the models in advectively dominated, 
+  dispersively dominated, or coupled flow regimes.
 
-  \section{Component Interfaces}
-Solutions to this equation can be categorized by their boundary conditions and 
-those boundary conditions serve as the interfaces between components in the 
-Cyder library of nuclide transport models.
+\section{Timestepping Algorithm}
 
-\section{Implicit Timestepping}
 Each Component passes some information radially outward to the nested 
 Component immediately containing it and some information radially 
 inward to the nested Component it contains. 
 
-Mass distribution in Component 0 at time $t_n$ is found from the inner boundary 
-condition at time $t_n$ and the outer boundary condition at $t_{n-1}$. Outer 
-boundary conditions are solved for numerically at $t_n$.
+If we begin at timestep $t_n$, the mass distribution and concentration 
+profile in an inner component is found according to its mass balance model.
 
-\section{Clay GDSM Model.}
-explain
+\section{Timestepping Algorithm}
+
+Based on the interface conditions at time $t_n$ in component j and the 
+internal conditions in component k at $t_{n-1}$, the mass transfer can be 
+found. Here, for some components, the physics of mass transfer can be selected. 
+This mass transfer is either advective, dispersive, or coupled. 
+
+\section{Timestepping Algorithm}
+
+Finally, when the appropriate mass is transferred from j to k, components j and 
+k both update their mass and concentration profiles accordingly.
+
 
   \section{Radionuclide Transport: Degradation Rate Based Release}
 In this model, the contaminants in the degraded fraction of the control volume 
@@ -310,18 +333,6 @@ For the boundary conditions,
 For the vertical flow coordinate system, $A$ is defined as
 
 \section{Demonstration}
-<++>
-\section{Degradation Rate Model Base Case I}
-<++>
-\section{Degradation Rate Model Base Case I}
-<++>
-\section{Degradation Rate Model Base Case II}
-<++>
-\section{Degradation Rate Model Base Case II}
-<++>
-\section{Degradation Rate Model Base Case III}
-<++>
-\section{Degradation Rate Model Base Case III}
 <++>
 \section{Degradation Rate Model Base Case IV}
 <++>
