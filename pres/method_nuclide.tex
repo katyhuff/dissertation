@@ -12,6 +12,11 @@
 \end{frame}
 
 \begin{frame}
+\frametitle{Clay GDSM Model}
+\input{./images/clay_gdsm}
+\end{frame}
+
+\begin{frame}
   \frametitle{Advection Dispersion Equation}
   \footnotesize{
     In a saturated, reducing environment, contaminants are transported by 
@@ -38,74 +43,87 @@
 
 \end{frame}
 
-\begin{frame}
-  \frametitle{Component Interfaces}
-  \footnotesize{
-Solutions to this equation can be categorized by their boundary conditions and 
-those boundary conditions serve as the interfaces between components in the 
-Cyder library of nuclide transport models.
-
-  \begin{figure}[htp!]
-    \begin{center}
-      \def\svgwidth{\textwidth}
-      \input{images/flow.eps_tex}
-    \end{center}
-    \caption{The boundaries between components are robust interfaces defined by 
-    Source Term, Dirichlet, Neumann, and Cauchy boundary conditions.}
-    \label{fig:flow}
-  \end{figure}
-  }
-\end{frame}
-
-\begin{frame}
-\frametitle{Implicit Timestepping}
-\footnotesize{Each Component passes some information radially outward to the nested 
-Component immediately containing it and some information radially 
-inward to the nested Component it contains. 
-
-Mass distribution in Component 0 at time $t_n$ is found from the inner boundary 
-condition at time $t_n$ and the outer boundary condition at $t_{n-1}$. Outer 
-boundary conditions are solved for numerically at $t_n$.
-For each timestep :
-
-\begin{align}
-  BC(i, r_o, c_1, t_n) &= f( BC(i, r_i, c_0, t_n), BC(i, r_o, c_1, t_{n-1}) )
-  \intertext{where}
-  BC  &= \mbox{boundary condition }\nonumber\\
-  i &= \mbox{the isotope }\nonumber\\
-  r_i &= \mbox{the inner boundary radius } [m]\nonumber\\
-  r_o &= \mbox{the outer boundary radius } [m]\nonumber\\
-  c_0 &= \mbox{the innermost Component}\nonumber\\
-  c_1 &= \mbox{the Component that contains c}_0\nonumber\\
-  f &= \mbox{functional form of the contaminant transport algorithm}\nonumber\\
-  t_n &= \mbox{timestep n.}\nonumber
-\end{align}
-}
-\end{frame}
+%\begin{frame}
+%  \frametitle{Component Interfaces}
+%  \footnotesize{
+%Solutions to this equation can be categorized by their boundary conditions and 
+%those boundary conditions serve as the interfaces between components in the 
+%Cyder library of nuclide transport models.
+%
+%  \begin{figure}[htp!]
+%    \begin{center}
+%      \def\svgwidth{\textwidth}
+%      \input{images/flow.eps_tex}
+%    \end{center}
+%    \caption{The boundaries between components are robust interfaces defined by 
+%    Source Term, Dirichlet, Neumann, and Cauchy boundary conditions.}
+%    \label{fig:flow}
+%  \end{figure}
+%  }
+%\end{frame}
 
 \begin{frame}
-\frametitle{Clay GDSM Model.}
-explain
-\end{frame}
+\frametitle{Timestepping Algorithm}
 
+\begin{figure}[htbp!]
+  \begin{center}
+    \def\svgwidth{.5\textwidth}
+    \input{images/vols.eps_tex}
+  \end{center}
+  \caption{Two components share an interface at $r_k$ and contain mass and 
+  concentration profiles at the beginning of timestep $t_n$.}
+  \label{fig:vols}
+\end{figure}
+
+\end{frame}
 \begin{frame}
-  \frametitle{Radionuclide Transport: Degradation Rate Based Release}
-  \footnotesize{
-In this model, the contaminants in the degraded fraction of the control volume 
-are available to adjacent components. The available contaminants
-$m_{ij}(t)$, at the boundary between cell $i$ to cell $j$ at time $t$ are thus
+\frametitle{Timestepping Algorithm}
 
-\begin{align}
-\dot{m}_{ij}(t) &= f_im_i(t)
-\label{deg_rate_source_cont}
-\intertext{where}
-\dot{m}_{ij} &= \mbox{ the rate of mass transfer from i to j }[kg/s]\nonumber\\
-f_i &= \mbox{ degradation rate function in cell i }[1/s] \nonumber\\
-m_i &= \mbox{ mass in cell i }[kg] \nonumber\\
-t &= \mbox{ time  }[s].\nonumber
-\end{align}
-}
+\begin{figure}[htbp!]
+  \begin{center}
+    \def\svgwidth{.5\textwidth}
+    \input{images/vols_trans.eps_tex}
+  \end{center}
+  \caption{The mass balance model in component k calculates the appropriate 
+  mass transfer based on boundary information from component j.}
+  \label{fig:vols_trans}
+\end{figure}
+
 \end{frame}
+\begin{frame}
+\frametitle{Timestepping Algorithm}
+
+\begin{figure}[htbp!]
+  \begin{center}
+    \def\svgwidth{.5\textwidth}
+    \input{images/vols_update.eps_tex}
+  \end{center}
+  \caption{Based on the mass transfer, both components update their mass and 
+  concentration profiles based on their mass balance model.}
+  \label{fig:vols_update}
+\end{figure}
+
+\end{frame}
+
+
+%\begin{frame}
+%  \frametitle{Radionuclide Transport: Degradation Rate Based Release}
+%  \footnotesize{
+%In this model, the contaminants in the degraded fraction of the control volume 
+%are available to adjacent components. The available contaminants
+%$m_{ij}(t)$, at the boundary between cell $i$ to cell $j$ at time $t$ are thus
+
+%\begin{align}
+%\dot{m}_{ij}(t) &= f_im_i(t)
+%\label{deg_rate_source_cont}
+%\intertext{where}
+%\dot{m}_{ij} &= \mbox{ the rate of mass transfer from i to j }[kg/s]\nonumber\\
+%f_i &= \mbox{ degradation rate function in cell i }[1/s] \nonumber\\
+%m_i &= \mbox{ mass in cell i }[kg] \nonumber\\
+%t &= \mbox{ time  }[s].\nonumber
+%\end{align}
+%}
+%\end{frame}
 
 
 \begin{frame}
@@ -146,17 +164,6 @@ In addition to engineered barriers, contaminant transport is constrained by
       C_{sol,i} &= \mbox{ solubility limit, the maximum concentration of i }[kg/m^3].\nonumber
     \end{align}
 
-
-The desired boundary conditions can be expressed in terms of $m_{ffl}$. First, the 
-Dirichlet boundary condition is 
-\begin{align}
-C(x,y,z,t) = \frac{m_{ffl}(t)}{V_{ff}(t)}\forall (x,y,x) \in \Gamma.
-\label{dirichlet_mixed}
-\end{align}
-
-From this boundary condition in combination with global advective velocity 
-data, all other boundary conditions can be found. 
-    }
 \end{frame}
 
 \begin{frame}
