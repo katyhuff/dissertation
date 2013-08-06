@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="New document 1">
+   sodipodi:docname="modularity.svg">
   <defs
      id="defs4">
     <marker
@@ -40,7 +40,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
      inkscape:cx="39.229631"
-     inkscape:cy="590.31303"
+     inkscape:cy="428.68862"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -57,7 +57,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -492,7 +492,7 @@
        sodipodi:type="star" />
     <path
        sodipodi:type="star"
-       style="opacity:0.79399145;fill:#596bd3;fill-opacity:0.45814981;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="opacity:0.79399145000000004;fill:#ff6600;fill-opacity:0.45814980999999999;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="path4399"
        sodipodi:sides="6"
        sodipodi:cx="439.41635"
@@ -520,11 +520,11 @@
        sodipodi:cx="439.41635"
        sodipodi:sides="6"
        id="path4401"
-       style="opacity:0.79399145;fill:#60b541;fill-opacity:0.58590309;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="opacity:0.79399145000000004;fill:#ffdd55;fill-opacity:0.58590308999999996;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        sodipodi:type="star" />
     <path
        sodipodi:type="star"
-       style="opacity:0.79399145;fill:#9b43c0;fill-opacity:0.53303965;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="opacity:0.79399145000000004;fill:#ff80b2;fill-opacity:0.53303964999999998;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="path4403"
        sodipodi:sides="6"
        sodipodi:cx="439.41635"
@@ -537,7 +537,7 @@
        inkscape:rounded="0.17"
        inkscape:randomized="0"
        d="m 460.62955,682.64635 c -5.49523,3.60625 -32.73005,5.16462 -38.60077,2.20874 -5.87071,-2.95589 -20.83771,-25.76275 -21.2132,-32.32489 -0.37548,-6.56213 11.89234,-30.92736 17.38757,-34.53361 5.49523,-3.60624 32.73005,-5.16462 38.60077,-2.20873 5.87071,2.95588 20.83772,25.76275 21.2132,32.32488 0.37549,6.56213 -11.89234,30.92737 -17.38757,34.53361 z"
-       transform="matrix(0.75485721,0,0,0.75485721,-36.756756,404.8887)" />
+       transform="matrix(0.75485721,0,0,0.75485721,-196.75676,404.8887)" />
     <path
        sodipodi:type="star"
        style="opacity:0.79399145000000004;fill:#ffffff;fill-opacity:0.53303963;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -576,7 +576,7 @@
        sodipodi:type="star" />
     <path
        sodipodi:type="star"
-       style="opacity:0.79399145;fill:#ff6400;fill-opacity:0.53303965;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="opacity:0.79399145000000004;fill:#5599ff;fill-opacity:0.53303964999999998;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="path4409"
        sodipodi:sides="3"
        sodipodi:cx="329.30972"
@@ -608,7 +608,7 @@
        sodipodi:cx="329.30972"
        sodipodi:sides="3"
        id="path4411"
-       style="opacity:0.79399145;fill:#d2a718;fill-opacity:0.53303965;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="opacity:0.79399145000000004;fill:#5f5fd3;fill-opacity:0.53303964999999998;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        sodipodi:type="star" />
   </g>
 </svg>
