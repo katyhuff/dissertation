@@ -49,6 +49,6 @@
   \global\let\svgscale\undefined%
   \makeatother%
   \begin{picture}(1,0.80228993)%
-    \put(0,0){\includegraphics[width=\unitlength]{modularity_colors.eps}}%
+    \put(0,0){\includegraphics[width=\unitlength]{./images/modularity_colors.eps}}%
   \end{picture}%
 \endgroup%

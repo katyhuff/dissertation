@@ -52,38 +52,54 @@ First, we'll address motivation for this work.
 Nuclear fuel cycle simulation seeks to provide a system level overview of the 
 movement of materials and other quantities of interest among facilities as 
 nuclear energy is produced. Using fuel cycle simulation tools, the potential 
-impact of novel technologies and policies can be approximated. \Cyclus is one 
+impact of novel technologies and policies can be approximated. \Cyclus, 
+developed here at the University of Wisconsin - Madison, is one 
 such simulation tool. The \Cyder tool, which is the primary subject of this 
 work, represents the geologic repository at the back end of the cycle in this 
-diagram.
+diagram. 
 
 \section{Future Fuel Cycle Options}
 
-A number of potential nuclear fuel cycles are being considered domestically. 
-These upstream decisions affect the material destined for the repository and 
-present an array of challenges for emplacement and containment.
+A number of potential nuclear fuel cycles are being considered domestically and 
+internationally. Current options being considered domestically are categorized 
+in this table. These upstream technology and policy decisions affect the 
+material destined for the repository and that material presents an array of 
+challenges for emplacement and containment.  
 
 \section{Disposal Geology Options Considered}
 
-A number of geologic media for potential nuclear waste repositories are being 
-considered domestically. Most geologic media being considered internationally are 
-reducing, saturated concepts.  
+Simultaneously, a number of potential geologic media being considered nuclear 
+waste disposal are reducing, saturated concepts.
 
 \section{Repository Components}
 
 Repository concepts in these various geologic media accordingly have various 
-engineered barrier choices. These are the first containment barriers that are 
-breached in a repository simulation.
+engineered barrier choices. These typically include a waste form, such as an 
+oxide fuel pellet or glass log, a waste package containing it, and buffer or 
+backfill material within the excavated tunnel. These are the first containment 
+barriers that are breached in a repository simulation.
 
 \section{Need for an Integrated Repository Model}
 
-An integrated repository performance model enables the analysis of global fuel 
-cycle metrics concerned with material routing, intermediate storage time, and 
-repository performance.  Without integration, only post-processed analysis of 
-these metrics is possible. This method can neglect feedback effects of geologic 
-disposal capacity constraints and repository performance within the fuel cycle 
-system in addition to being more cumbersome to use. However, no fuel cycle 
-simulators have integrated repository performance until now. 
+To inform the simultaneous consideration of alternative fuel cycle technologies 
+and an array of repository concepts, an integrated fuel cycle simulator and 
+repository performance model is necessary.
+
+Integration enables the analysis of global fuel cycle metrics concerned with 
+material routing, intermediate storage time, and repository performance.  
+Without integration, only post-processed analysis of these metrics is possible. 
+This method can neglect feedback effects of geologic disposal capacity 
+constraints and repository performance within the fuel cycle system in addition 
+to being more cumbersome to use. However, no fuel cycle simulators have 
+integrated repository performance until now. 
+
+\section{Cyder Contributions}
+
+The scope of this work seeks to answer that need. By conducting sensitivity 
+analyses of more detailed models and using the resulting trends to inform  
+medium fidelity, high speed models of thermal and radionuclide transport, the 
+\Cyder tool is the most sophisticated repository performance model yet capable 
+of integration with a fuel cycle simulator.
 
 \section{Outline}
 
