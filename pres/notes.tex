@@ -85,6 +85,10 @@ To inform the simultaneous consideration of alternative fuel cycle technologies
 and an array of repository concepts, an integrated fuel cycle simulator and 
 repository performance model is necessary.
 
+Such a performance model must incorporate radionuclide contaminant transport to 
+inform dose metrics and thermal transport to inform repository capacity and 
+coupled performance metrics.
+
 Integration enables the analysis of global fuel cycle metrics concerned with 
 material routing, intermediate storage time, and repository performance.  
 Without integration, only post-processed analysis of these metrics is possible. 
@@ -101,6 +105,9 @@ medium fidelity, high speed models of thermal and radionuclide transport, the
 \Cyder tool is the most sophisticated repository performance model yet capable 
 of integration with a fuel cycle simulator.
 
+We'll focus on the development of abstracted physical models of thermal and 
+contaminant transport.
+
 \section{Outline}
 
 Now, I will discuss the methodology with which contaminant and thermal 
@@ -109,7 +116,10 @@ transport are modeled within the tool I've written.
 \section{Waste Stream Acceptance}
 
 The Cyder Facility dynamically accepts material from the coupled fuel
-cycle simulation. The capacity decision is the interface at which feedbacks 
+cycle simulation. This material is in the form of material data objects, which 
+define the isotopic vector of a material.
+
+The capacity decision is the interface at which feedbacks 
 occur.
 
 \section{Waste Form Conditioning}
@@ -147,7 +157,7 @@ the barrier components of the repository as distinct simulation objects.
 
 \section{Cyder Paradigm: Modularity}
 
-If we look individually at each component..
+If we look individually at a single component..
 
 \section{Cyder Paradigm: Modularity}
 
@@ -349,7 +359,28 @@ For the boundary conditions,
 For the vertical flow coordinate system, $A$ is defined as
 
 \section{Demonstration}
-<++>
+There are three ways in which the methods implemented in \Cyder are checked for 
+their expected behavior. 
+
+The first is a large suite of unit tests which assess 
+the promised behavior of each unit of code. In this case, each unit is a 
+single function in the API. This suite of tests is provided 
+alongside \Cyder and can be run on any computer on which \Cyder is installed. 
+
+Ths second method of checking for expected behavior is a suite of base cases 
+that is also provided with the code. These cases address the expected behavior 
+of a \Cyder repository integrated within a \Cyclus simulation. These are 'toy' 
+cases insofar as they do not seek to represent reality.  Rather, they seek to 
+test basic or extreme modes of simulation level behavior.
+
+The final method is a suite of more sophisticated base cases which interrogate 
+the extent to which a \Cyclus simulation utilizing the models in \Cyder is able 
+to capture the dominatnt physics identified in the sensitivity analyses I 
+conducted.
+
+Selected toy and demonstration base cases will be discussed, but  This talk will 
+neglect discussion of the unit tests, as it is sufficient to say that they pass. 
+
 \section{Degradation Rate Model Base Case IV}
 <++>
 \section{Degradation Rate Model Base Case IV}
@@ -364,11 +395,13 @@ For the vertical flow coordinate system, $A$ is defined as
 <++>
 \section{1dppm Base Case I}
 <++>
+
 \section{Clay GDSM Solubility Sensitivity}
 For solubility limits above the threshold, increase to the limit had no effect on the peak dose. This demonstrates the 
 situation in which the solubility limit is so high that even complete 
 dissolution of the waste inventory into the pore water is insufficient to reach 
 the solubility limit.
+
 \section{Cyder Solubility Sensitivity}
 In the parametric analysis of \Cyder performance, it was shown that the 
 solubility sensitivity behavior closely matched that of the GDSM 
