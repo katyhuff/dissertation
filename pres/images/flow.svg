@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1052.3622"
+   height="744.09448"
+   id="svg3899"
+   version="1.1"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="flow.svg">
+  <defs
+     id="defs3901">
+    <inkscape:path-effect
+       is_visible="true"
+       id="path-effect8784"
+       effect="spiro" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect8780"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect8776"
+       is_visible="true" />
+    <inkscape:path-effect
+       is_visible="true"
+       id="path-effect8772"
+       effect="spiro" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect8768"
+       is_visible="true" />
+    <inkscape:path-effect
+       is_visible="true"
+       id="path-effect8764"
+       effect="spiro" />
+    <marker
+       inkscape:stockid="TriangleInL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="TriangleInL"
+       style="overflow:visible">
+      <path
+         id="path5196"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(-0.8)" />
+    </marker>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect7974"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect7970"
+       is_visible="true" />
+    <inkscape:path-effect
+       is_visible="true"
+       id="path-effect7763"
+       effect="spiro" />
+    <inkscape:path-effect
+       is_visible="true"
+       id="path-effect7761"
+       effect="spiro" />
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="TriangleOutL"
+       style="overflow:visible">
+      <path
+         id="path5205"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;marker-start:none"
+         transform="scale(0.8)" />
+    </marker>
+    <marker
+       inkscape:stockid="Tail"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Tail"
+       style="overflow:visible">
+      <g
+         id="g5098"
+         transform="scale(-1.2)">
+        <path
+           id="path5100"
+           d="M -3.8048674,-3.9585227 L 0.54352094,0"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;marker-start:none;marker-end:none;stroke-linecap:round" />
+        <path
+           id="path5102"
+           d="M -1.2866832,-3.9585227 L 3.0617053,0"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;marker-start:none;marker-end:none;stroke-linecap:round" />
+        <path
+           id="path5104"
+           d="M 1.3053582,-3.9585227 L 5.6537466,0"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;marker-start:none;marker-end:none;stroke-linecap:round" />
+        <path
+           id="path5106"
+           d="M -3.8048674,4.1775838 L 0.54352094,0.21974226"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;marker-start:none;marker-end:none;stroke-linecap:round" />
+        <path
+           id="path5108"
+           d="M -1.2866832,4.1775838 L 3.0617053,0.21974226"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;marker-start:none;marker-end:none;stroke-linecap:round" />
+        <path
+           id="path5110"
+           d="M 1.3053582,4.1775838 L 5.6537466,0.21974226"
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8;marker-start:none;marker-end:none;stroke-linecap:round" />
+      </g>
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;">
+      <path
+         id="path5089"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect6615"
+       is_visible="true" />
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;">
+      <path
+         id="path5083"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.95239968"
+     inkscape:cx="370.96353"
+     inkscape:cy="422.53205"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="2560"
+     inkscape:window-height="1392"
+     inkscape:window-x="1280"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata3904">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-308.2677)">
+    <rect
+       style="fill:#000000;fill-opacity:0;fill-rule:nonzero;stroke:#000000;stroke-width:4.46260023;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3907"
+       width="164.65486"
+       height="341.21423"
+       x="25.253813"
+       y="417.98639" />
+    <text
+       xml:space="preserve"
+       x="32.345188"
+       y="444.35187"
+       id="text3909"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4196"
+         x="32.345188"
+         y="444.35187"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia">Waste Form</tspan><tspan
+         sodipodi:role="line"
+         id="tspan4206"
+         x="32.345188"
+         y="479.35187"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia" /><tspan
+         sodipodi:role="line"
+         x="32.345188"
+         y="506.2814"
+         id="tspan3146"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#502d16;font-family:Georgia;-inkscape-font-specification:Georgia">q'''(0,t)</tspan><tspan
+         sodipodi:role="line"
+         x="32.345188"
+         y="531.28137"
+         id="tspan4214"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#502d16;font-family:Georgia;-inkscape-font-specification:Georgia">T(r,t)</tspan><tspan
+         sodipodi:role="line"
+         x="32.345188"
+         y="556.28137"
+         id="tspan4216"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#502d16;font-family:Georgia;-inkscape-font-specification:Georgia">m(r,t)</tspan><tspan
+         sodipodi:role="line"
+         x="32.345188"
+         y="581.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#502d16;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan3324">\dot{m} &amp;= \epsilon m_0</tspan><tspan
+         sodipodi:role="line"
+         x="32.345188"
+         y="606.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#502d16;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan3157"> C(r_{bc},t) </tspan><tspan
+         sodipodi:role="line"
+         x="32.345188"
+         y="631.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#502d16;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan3159">\frac{\partial C(\vec{r},t)}{\partial r} </tspan><tspan
+         sodipodi:role="line"
+         x="32.345188"
+         y="656.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#502d16;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan3161">-nD_{ij}\frac{\partial C}{\partial x_j}\hat{i} + q_iC\hat{i} </tspan><tspan
+         sodipodi:role="line"
+         x="32.345188"
+         y="681.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#784421;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan3163" /><tspan
+         sodipodi:role="line"
+         x="32.345188"
+         y="706.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#216778;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan3165">φw(rf,t)</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3913"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb"><flowRegion
+         id="flowRegion3915"><rect
+           id="rect3917"
+           width="0"
+           height="59.598999"
+           x="46.467018"
+           y="118.81006" /></flowRegion><flowPara
+         id="flowPara3919" /></flowRoot>    <text
+       sodipodi:linespacing="125%"
+       id="text3949"
+       y="444.35187"
+       x="306.34518"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="444.35187"
+         x="306.34518"
+         sodipodi:role="line"
+         id="tspan4003">Package</tspan><tspan
+         id="tspan3953"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="479.35187"
+         x="306.34518"
+         sodipodi:role="line" /><tspan
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="506.2814"
+         x="306.34518"
+         sodipodi:role="line"
+         id="tspan4263">T(r,t)</tspan><tspan
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="531.28137"
+         x="306.34518"
+         sodipodi:role="line"
+         id="tspan4259">q''(r<tspan
+   style="font-size:14px"
+   id="tspan3130">p</tspan>,t)</tspan><tspan
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="556.28137"
+         x="306.34518"
+         sodipodi:role="line"
+         id="tspan4321">m(r,t)</tspan><tspan
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="581.28137"
+         x="306.34518"
+         sodipodi:role="line"
+         id="tspan4251">\dot{m} &amp;= \epsilon m_0</tspan><tspan
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="606.28137"
+         x="306.34518"
+         sodipodi:role="line"
+         id="tspan3199"> C(r_{bc},t) </tspan><tspan
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="631.28137"
+         x="306.34518"
+         sodipodi:role="line"
+         id="tspan3201">\frac{\partial C(\vec{r},t)}{\partial r} </tspan><tspan
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="656.28137"
+         x="306.34518"
+         sodipodi:role="line"
+         id="tspan3203">-nD_{ij}\frac{\partial C}{\partial x_j}\hat{i} + q_iC\hat{i}</tspan><tspan
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="681.28137"
+         x="306.34518"
+         sodipodi:role="line"
+         id="tspan3197" /><tspan
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="706.28137"
+         x="306.34518"
+         sodipodi:role="line"
+         id="tspan8790" /><tspan
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#216778;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="731.28137"
+         x="306.34518"
+         sodipodi:role="line"
+         id="tspan8792">φ<tspan
+   style="font-size:14px;fill:#216778"
+   id="tspan3114">w</tspan>(rf,t)</tspan><tspan
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="756.28137"
+         x="306.34518"
+         sodipodi:role="line"
+         id="tspan8786" /><tspan
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="781.28137"
+         x="306.34518"
+         sodipodi:role="line"
+         id="tspan8788" /><tspan
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="806.28137"
+         x="306.34518"
+         sodipodi:role="line"
+         id="tspan4247" /><tspan
+         id="tspan3959"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia"
+         y="831.28137"
+         x="306.34518"
+         sodipodi:role="line" /></text>
+    <rect
+       style="fill:#000000;fill-opacity:0;fill-rule:nonzero;stroke:#000000;stroke-width:4.54936886;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3961"
+       width="171.45906"
+       height="340.53955"
+       x="552.44958"
+       y="417.98639" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="566.34521"
+       y="444.35187"
+       id="text3963"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="566.34521"
+         y="444.35187"
+         id="tspan3965"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia">Buffer</tspan><tspan
+         sodipodi:role="line"
+         x="566.34521"
+         y="479.35187"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan4085" /><tspan
+         sodipodi:role="line"
+         x="566.34521"
+         y="506.2814"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan4293">T(r,t)</tspan><tspan
+         sodipodi:role="line"
+         x="566.34521"
+         y="531.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan4295">q''(r<tspan
+   style="font-size:14px"
+   id="tspan3136">b</tspan>,t)</tspan><tspan
+         sodipodi:role="line"
+         x="566.34521"
+         y="556.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan4301">m(r,t)</tspan><tspan
+         sodipodi:role="line"
+         x="566.34521"
+         y="581.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan8794">\dot{m} &amp;= \epsilon m_0</tspan><tspan
+         sodipodi:role="line"
+         x="566.34521"
+         y="606.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan3205"> C(r_{bc},t) </tspan><tspan
+         sodipodi:role="line"
+         x="566.34521"
+         y="631.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan3207">\frac{\partial C(\vec{r},t)}{\partial r} </tspan><tspan
+         sodipodi:role="line"
+         x="566.34521"
+         y="656.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan3209">-nD_{ij}\frac{\partial C}{\partial x_j}\hat{i} + q_iC\hat{i}</tspan><tspan
+         sodipodi:role="line"
+         x="566.34521"
+         y="681.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan4130" /><tspan
+         sodipodi:role="line"
+         x="566.34521"
+         y="706.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#216778;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan4132">φw(rb,t)</tspan><tspan
+         sodipodi:role="line"
+         x="566.34521"
+         y="731.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan8804" /><tspan
+         sodipodi:role="line"
+         x="566.34521"
+         y="756.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#004455;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan8798" /><tspan
+         sodipodi:role="line"
+         x="566.34521"
+         y="781.28137"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan4287" /><tspan
+         sodipodi:role="line"
+         x="566.34521"
+         y="806.28137"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan3973" /></text>
+    <rect
+       style="fill:#000000;fill-opacity:0;fill-rule:nonzero;stroke:#000000;stroke-width:4.46241379;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3989"
+       width="164.65486"
+       height="341.18576"
+       x="837.25378"
+       y="417.98639" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="844.34521"
+       y="444.35187"
+       id="text3991"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="844.34521"
+         y="444.35187"
+         id="tspan3993"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia">Geology</tspan><tspan
+         sodipodi:role="line"
+         x="844.34521"
+         y="479.35187"
+         style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan4097" /><tspan
+         sodipodi:role="line"
+         x="844.34521"
+         y="506.2814"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan4307">T(r,t)</tspan><tspan
+         sodipodi:role="line"
+         x="844.34521"
+         y="531.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan4309">q''(r<tspan
+   style="font-size:14px"
+   id="tspan3140">g</tspan>,t)</tspan><tspan
+         sodipodi:role="line"
+         x="844.34521"
+         y="556.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan4315">m(r,t)</tspan><tspan
+         sodipodi:role="line"
+         x="844.34521"
+         y="581.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan4317">\dot{m} &amp;= \epsilon m_0</tspan><tspan
+         sodipodi:role="line"
+         x="844.34521"
+         y="606.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan3211"> C(r_{bc},t) </tspan><tspan
+         sodipodi:role="line"
+         x="844.34521"
+         y="631.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan3213">\frac{\partial C(\vec{r},t)}{\partial r} </tspan><tspan
+         sodipodi:role="line"
+         x="844.34521"
+         y="656.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#552200;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan3215">-nD_{ij}\frac{\partial C}{\partial x_j}\hat{i} + q_iC\hat{i}</tspan><tspan
+         sodipodi:role="line"
+         x="844.34521"
+         y="681.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan8802" /><tspan
+         sodipodi:role="line"
+         x="844.34521"
+         y="706.28137"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#216778;font-family:Georgia;-inkscape-font-specification:Georgia"
+         id="tspan8800">φ<tspan
+   style="font-size:14px;fill:#216778"
+   id="tspan3118">w</tspan>(r<tspan
+   style="font-size:14px;fill:#216778"
+   id="tspan3144">b</tspan>,t)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb-rl;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="69.700523"
+       y="355.18576"
+       id="text4143"
+       sodipodi:linespacing="125%"
+       transform="translate(0,308.2677)"><tspan
+         sodipodi:role="line"
+         id="tspan4145"
+         x="355.18576"
+         y="69.700523" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+       x="12.002351"
+       y="780.24512"
+       id="text4158"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4160"
+         x="12.002351"
+         y="780.24512">r=0</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb-rl;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="175.76654"
+       y="77.393799"
+       id="text4162"
+       sodipodi:linespacing="125%"
+       transform="translate(0,308.2677)"><tspan
+         sodipodi:role="line"
+         id="tspan4164"
+         x="77.393799"
+         y="175.76654" /></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4166"
+       y="776.24512"
+       x="172.00235"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+       xml:space="preserve"><tspan
+         y="776.24512"
+         x="172.00235"
+         id="tspan4168"
+         sodipodi:role="line">r=rf</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4174"
+       y="778.24512"
+       x="532.00232"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+       xml:space="preserve"><tspan
+         y="778.24512"
+         x="532.00232"
+         id="tspan4176"
+         sodipodi:role="line">r=rp</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4182"
+       y="778.24512"
+       x="820.00232"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+       xml:space="preserve"><tspan
+         y="778.24512"
+         x="820.00232"
+         id="tspan4184"
+         sodipodi:role="line">r=rb</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4190"
+       y="780.24512"
+       x="978.00232"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+       xml:space="preserve"><tspan
+         y="780.24512"
+         x="978.00232"
+         id="tspan4192"
+         sodipodi:role="line">r=rg</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb-rl;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="657.60931"
+       y="303.66797"
+       id="text4279"
+       sodipodi:linespacing="125%"
+       transform="translate(0,308.2677)"><tspan
+         sodipodi:role="line"
+         id="tspan4281"
+         x="303.66797"
+         y="657.60931" /><tspan
+         sodipodi:role="line"
+         id="tspan4283"
+         x="303.66797"
+         y="607.60931" /></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4323"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb"><flowRegion
+         id="flowRegion4325"><rect
+           id="rect4327"
+           width="51.51778"
+           height="88.893425"
+           x="43.436558"
+           y="190.53088" /></flowRegion><flowPara
+         id="flowPara4329" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4359"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb"><flowRegion
+         id="flowRegion4361"><rect
+           id="rect4363"
+           width="485.88336"
+           height="40.406101"
+           x="373.75644"
+           y="164.26692" /></flowRegion><flowPara
+         id="flowPara4365" /></flowRoot>    <path
+       style="fill:none;stroke:#ba7130;stroke-width:3.45834422;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.5;stroke-opacity:1;stroke-dasharray:none;marker-mid:url(#TriangleOutL)"
+       d="m 190.72559,546.76052 76.25475,0 0,0"
+       id="path7759"
+       inkscape:path-effect="#path-effect7761"
+       inkscape:original-d="m 190.72559,546.76052 c 75.92887,74.90149 76.25475,0 76.25475,0 l 0,0"
+       inkscape:connector-curvature="0" />
+    <rect
+       y="417.98639"
+       x="289.25381"
+       height="341.21423"
+       width="164.65486"
+       id="rect7813"
+       style="fill:#000000;fill-opacity:0;fill-rule:nonzero;stroke:#000000;stroke-width:4.46260023;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot7815"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:tb-rl;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(0,308.2677)"><flowRegion
+         id="flowRegion7817"><rect
+           id="rect7819"
+           width="638.41638"
+           height="45.456863"
+           x="262.63965"
+           y="10.723735" /></flowRegion><flowPara
+         id="flowPara7821">Qua</flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+       x="207.36554"
+       y="360.57013"
+       id="text7823"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7825"
+         x="207.36554"
+         y="360.57013"
+         style="font-weight:bold;-inkscape-font-specification:Georgia Bold">Quantities Calculated Each Timestep</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       inkscape:original-d="m 208.72559,644.76052 c 79.88707,74.90149 80.22993,0 80.22993,0 l 0,0"
+       inkscape:path-effect="#path-effect7974"
+       id="path7972"
+       d="m 208.72559,644.76052 80.22993,0 0,0"
+       style="fill:none;stroke:#072741;stroke-width:3.547;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.5;stroke-opacity:0.49038462999999999;stroke-dasharray:none;marker-start:url(#TriangleInL);marker-mid:none" />
+    <path
+       style="fill:none;stroke:#072741;stroke-width:3.54699993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.5;stroke-opacity:0.49038463;stroke-dasharray:none;marker-start:url(#TriangleInL);marker-mid:none"
+       d="m 472.72559,646.76052 80.22993,0 0,0"
+       id="path8770"
+       inkscape:path-effect="#path-effect8772"
+       inkscape:original-d="m 472.72559,646.76052 c 79.88707,74.90149 80.22993,0 80.22993,0 l 0,0"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       inkscape:original-d="m 744.51959,646.76052 c 91.67352,74.90149 92.06696,0 92.06696,0 l 0,0"
+       inkscape:path-effect="#path-effect8776"
+       id="path8774"
+       d="m 744.51959,646.76052 92.06696,0 0,0"
+       style="fill:none;stroke:#072741;stroke-width:3.7996614;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.5;stroke-opacity:0.49038463;stroke-dasharray:none;marker-start:url(#TriangleInL);marker-mid:none" />
+    <path
+       inkscape:connector-curvature="0"
+       inkscape:original-d="m 454.72559,546.76052 c 74.21743,74.90149 74.53596,0 74.53596,0 l 0,0"
+       inkscape:path-effect="#path-effect8780"
+       id="path8778"
+       d="m 454.72559,546.76052 74.53596,0 0,0"
+       style="fill:none;stroke:#ba7130;stroke-width:3.4191463;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.5;stroke-opacity:1;stroke-dasharray:none;marker-mid:url(#TriangleOutL)" />
+    <path
+       style="fill:none;stroke:#ba7130;stroke-width:3.68479443;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4.5;stroke-opacity:1;stroke-dasharray:none;marker-mid:url(#TriangleOutL)"
+       d="m 726.72559,546.76052 86.56792,0 0,0"
+       id="path8782"
+       inkscape:path-effect="#path-effect8784"
+       inkscape:original-d="m 726.72559,546.76052 c 86.19798,74.90149 86.56792,0 86.56792,0 l 0,0"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+       x="268.00235"
+       y="780.24512"
+       id="text3118"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3120"
+         x="268.00235"
+         y="780.24512">r=rf</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+       x="432.00235"
+       y="778.24512"
+       id="text3122"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3124"
+         x="432.00235"
+         y="778.24512">r=rp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+       x="696.00232"
+       y="780.24512"
+       id="text3126"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3128"
+         x="696.00232"
+         y="780.24512">r=rb</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3189"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion3191"><rect
+           id="rect3193"
+           width="31.49938"
+           height="48.299049"
+           x="49.34903"
+           y="168.7058" /></flowRegion><flowPara
+         id="flowPara3195"></flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3217"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Sans;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion3219"><rect
+           id="rect3221"
+           width="1534.0198"
+           height="114.44775"
+           x="-184.79637"
+           y="479.49969" /></flowRegion><flowPara
+         id="flowPara3223"></flowPara></flowRoot>  </g>
+</svg>
