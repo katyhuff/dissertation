@@ -635,7 +635,7 @@ In the Ahn models, radionuclides with lower solubility limits are modeled with
 a solubility limited release model.  Solubility values are assumed from TSPA
 for this model, and elements with a solubility of less than $~5\times 10^{-2}
 $ mol/m$^3$ are taken to be
-`low.' Elements in this `low' category include Zr, Nb, Sn and some toxic actinides 
+``low.'' Elements in this ``low'' category include Zr, Nb, Sn and some toxic actinides 
 such as Th and Ra for an oxidizing, unsaturated environment similar to \gls{YMR}.
 It should be noted that in a reducing environment, the actinides are not as mobile, 
 and the high and low solubility radionuclides will differ from this model.
@@ -656,14 +656,14 @@ package length, respectively. $D_e$ is the effective diffusion coefficient
 \subsubsection{Flow Assumptions}
 
 Water heavily affects the waste form degradation rate and is treated differently 
-in various models. While some (`flowthrough models') assume water moves through 
+in various models. Some ``flow through'' models assume water moves through 
 the waste packages at a constant volumetric rate. Ahn 
 \cite{ahn_environmental_2007}, for example models the water flow beginning at one 
 waste package and travelling through the matrix and buffer space to the next 
 waste package, contacting each waste package consecutively and then flowing on 
 into the near field. In this way, the water is increasingly contaminated as its 
 path through the waste packages proceeds.  Others adopt assumptions 
-incorporating weather based predictions of hydrologic activity 
+incorporating climate-based predictions of hydrologic activity 
 \cite{ahn_environmental_2007}.  
 
 %%%%
@@ -773,7 +773,7 @@ accurate predictions of failure based on small empirical data sets
 
 
 In this expression, $k$ is a shape parameter and $\lambda$ is a scale
-parameter. The time to failure, $t$ in the Weibull distribution gives a 
+parameter. The time to failure, $t$, in the Weibull distribution gives a 
 distribution for which the failure rate is proportional to a power of time 
 \cite{papoulis_probability_2002}. Its complementary cumulative distribution
 function is 
@@ -806,8 +806,8 @@ limited by a release resistance coefficient. The release is assumed  to occur
 through a hole in the waste canister that exists throughout the simulation, and
 the resistance coefficient limiting flow through the hole represents the
 magnitude of the canister flaw in combination with the buffer-geosphere
-interface\cite{hedin_integrated_2002}.  Other models also use an instantaneous 
-waste package failure mode for all waste  packages simultaneously, in which 
+interface\cite{hedin_integrated_2002}. A special case of this is instantaneous 
+waste package failure, in which all waste  packages simultaneously such that
 failure occurs either at the onset of the simulation or at some distinct time 
 during the simulation. 
 
@@ -879,7 +879,7 @@ volume,  solute transport in a permeable medium of homogeneous porosity can be
 written (as in Schwartz and Zhang \cite{schwartz_fundamentals_2004})
 
 \begin{align} 
-  \frac{\partial \theta C}{\partial t} & = - \nabla \cdot  (F_c + F_{dc} + F_d) + m 
+  \theta\frac{\partial C}{\partial t} & = - \nabla \cdot  (F_c + F_{dc} + F_d) + m 
   \label{solperm}
   \intertext{where} 
   \displaybreak[0]
@@ -960,7 +960,7 @@ storage,
   \frac{\partial(\theta C)}{\partial t}  + \frac{\partial(s\rho_b)}{\partial t} 
   \label{withsorption} 
   \intertext{where}
-  s &= \mbox{sorbed phase concentration}\nonumber\\
+  s &= \mbox{solid concentration }[kg/kg]\nonumber\\
   \rho_b &= \mbox{ bulk (dry) density }[kg/m^3].\nonumber
 \end{align}
 
@@ -969,7 +969,7 @@ If sorption is approximated as a linear equilibrium, reversible reaction,
 \begin{align}
 s &= K_dC\\
 \intertext{where}
-K_d &= \mbox{ the distribution coefficient }[],\nonumber
+K_d &= \mbox{ the distribution coefficient }[m^3/kh],\nonumber
 \end{align}
 then equation \eqref{withsorption} can be rewritten in terms of the so-called 
 retardation factor,
@@ -979,30 +979,8 @@ retardation factor,
   \label{withsorptionrf} 
   \intertext{where}
   R_f &= \mbox{retardation factor}\nonumber\\
-   &= 1+\frac{\rho b K_d}{\theta}.\nonumber\\
+   &= 1+\frac{\rho_b K_d}{\theta}.\nonumber\\
 \end{align}
-
-If sorption is approximated as a linear equilibrium, reversible reaction,
-
-\begin{align}
-  \frac{\partial(s\rho_b)}{\partial t} &= \left( R_f - 1 
-  \right)\frac{\partial(\theta C)}{\partial t}
-  \intertext{equation \eqref{withsorption} becomes}
-  \nabla \left( \theta D\nabla C \right) - \nabla \left( nv \right) &= 
-  R_f\frac{\partial(\theta C)}{\partial t}    
-  \label{withlinsorption}
-  \intertext{where}
-  R_f &= \mbox{retardation factor}\\
-  &= 1+\frac{\rho_bK_d}{n}\\
-  \rho_b &=\mbox{bulk density of the rock matrix}
-  \intertext{and}
-  K_d &= \mbox{species distribution coefficient.}
-\end{align}
-
-Precipitation is the reverse of dissolution and occurs when a solubility limit
-is reached. In a reducing environment, the approach to chemical equilibrium of 
-dissolution and precipitation is rate dependent and is highly dependent on 
-thermodynamics.
 
 Finally, a phenomenon called colloidal mobility can enhance radionuclide 
 transport in some geologic media. Mineral colloids, which are suspended molecular solids within a liquid 
@@ -1053,6 +1031,7 @@ equation,
   \label{diffusion}
 \end{align}
 
+
 Solutions to these equations can be categorized by their boundary conditions. 
 The first, or Dirichlet type boundary conditions define a specified species 
 concentration on some section of the boundary of the representative volume, 
@@ -1062,7 +1041,7 @@ concentration on some section of the boundary of the representative volume,
 \end{align}
 
 The second type or Neumann type boundary conditions describe a full set of 
-fluxes at  the boundary of the domain
+diffusive fluxes at  the boundary of the domain
 
 \begin{align}
   D\frac{\partial C(\vec{r},t)}{\partial r} = \theta\vec{J} \hspace{1mm}\mbox{ for } \vec{r} \in \Gamma.
@@ -1072,12 +1051,12 @@ fluxes at  the boundary of the domain
   \vec{J}= \mbox{ solute mass flux } [kg/m^2\cdot s].\nonumber
 \end{align}
 
-The third, Cauchy, type describes a combination of the Dirichlet and Neumann 
-type conditions, defining both a concentration at a boundary and a flux at that 
-boundary, 
+The third, Cauchy, type defines a linear combination of the concentration 
+gradient and a concentration at that boundary, 
 
 \begin{align}
-  -D\frac{\partial C(\vec{r}, t)}{\partial r}\Bigg|_{r\in \Gamma} + v_zC_j\Bigg|_{r\in\Gamma}
+  -D\frac{\partial C(\vec{r}, t)}{\partial r}\Bigg|_{r\in \Gamma} + 
+  v_zC_j\Bigg|_{r\in\Gamma} = \mbox{a known value }[kg/m^2s]
 \end{align}
 
 
@@ -1136,8 +1115,8 @@ temperature gradient $\nabla T [K/m]$ by the expression
   \label{fourier}
 \end{align}
 
-For the one dimensional case, equation \ref{fourier} can be reduced using a 
-finite difference approximation. For a body at $x_1$ with temperature $T_1$
+For the one dimensional case, equation \ref{fourier} can be approximated using a 
+finite difference method. For a body at $x_1$ with temperature $T_1$
 and a body with temperature $T_2$ at position $x_2$,
 
 \begin{align}
@@ -1367,7 +1346,7 @@ waste forms.
 Waste package failure is conservatively assumed to be 
 instantaneous, and all near field components are modeled as a single mixed cell, 
 the water volume of which is determined by the bulk volumes and degraded 
-porosities of contained materials (e.g. bentonite buffer). A block  of rock 
+porosities of contained materials (e.g. crushed salt). A block  of rock 
 below the salt provides the pathway interface to an aquifer below.  Radionuclide 
 transport into that interface is modeled as diffusive, advective, and solubility 
 limited.  
