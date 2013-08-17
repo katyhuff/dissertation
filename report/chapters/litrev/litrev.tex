@@ -510,8 +510,8 @@ barrier choice can be expected to outlast the timescale of the diffusive pathway
 \subsubsection{Geochemistry}
 
 This environment is very reducing in the near field and less in the very 
-far field near the earth's surface. The very high salinity of this environment
-is due to its depth indicates historically low flow. While this increases 
+far field near the earth's surface. The very high expected salinity of this 
+environment, due to its depth, indicates historically low flow. While this increases 
 corrosion rates of engineered barriers, the isolation worth of this concept 
 does not depend significantly on the engineered barrier components, relying 
 instead on the diffusion path length.  
@@ -578,7 +578,7 @@ begin immediately at emplacement \cite{hedin_integrated_2002}. However, in
 models of unsaturated media \cite{ahn_environmental_2004, 
 ahn_environmental_2007} , the waste form may not come into contact with water 
 immediately, and therefore degradation will not begin until the onset of water 
-contact,
+contact. Either environment can be represented by the general expression, 
 
 \begin{align}
   V_i(t) &= V_i(0)\left(1 - \int_0^t f(\cdots)H(t-t_{wpf})dt\right).
@@ -602,7 +602,7 @@ sorption or solubility and becomes available according to the fractional
 degradation rate until the waste form is completely degraded 
 \cite{ahn_environmental_2004, ahn_environmental_2007}.
 
-If congruent release neglects transport retarding factors such as solubility 
+If congruent release neglects transport limiting factors such as solubility 
 limitation, it is most appropriate when applied to highly soluble radionuclides. 
 In \cite{ahn_environmental_2004, ahn_environmental_2007} the transport of highly 
 soluble radionuclides (those with high solubility limits) are modeled as 
@@ -611,7 +611,7 @@ this type include most of the fission products, but not the actinides.
 
 \subsubsection{Solubility Limitation}
 
-In order to account for solubility limitation, a threshold of elemental 
+In order to account for solubility limitation, an upper limit of elemental 
 dissolved concentration, the reduced mobility of radionuclides with lower 
 solubilities can be modeled \cite{hedin_integrated_2002} as a reduction in the 
 amount of solute available for transport. For radionuclides with low 
@@ -626,15 +626,15 @@ less than the solubility limit such that
   C_{sol, i} &= \mbox{ the maximum concentration of i } [kg\cdot m^{-3}].\nonumber
 \end{align}
 
-That is, the mass $m_{1i}$ in $[kg]$ of a radionuclide $i$ dissolved into the waste package
-void volume $V_1$ in $[m^3]$, at a time t, is limited by the solubility limit, 
-the maximum concentration, $C_{sol}$ in $[kg/m^3]$ at which that radionuclide is 
+That is, the mass $m_{1i}$ in  kg of a radionuclide $i$ dissolved into the waste package
+void volume $V_1$ in m$^3$, at a time t, is limited by the solubility limit, 
+the maximum concentration, $C_{sol}$ in kg/m$^3$ at which that radionuclide is 
 soluble \cite{hedin_integrated_2002}.
 
 In the Ahn models, radionuclides with lower solubility limits are modeled with
 a solubility limited release model.  Solubility values are assumed from TSPA
 for this model, and elements with a solubility of less than $~5\times 10^{-2}
-[mol/m^3]$ are taken to be
+$ mol/m$^3$ are taken to be
 `low.' Elements in this `low' category include Zr, Nb, Sn and some toxic actinides 
 such as Th and Ra for an oxidizing, unsaturated environment similar to \gls{YMR}.
 It should be noted that in a reducing environment, the actinides are not as mobile, 
@@ -1409,7 +1409,8 @@ advective transfer.  Further transport through the near and far field rock
 medium is modeled in two modes, one representing the unsaturated zone, and one
 representing the saturated zone.
 
-Waste package failure and radionuclide release are modeled with two TSPA
+Waste package failure and radionuclide release are modeled with two 
+\gls{TSPA}
 code modules called EBSFAIL and EBSREL. The waste package failure rate is
 determined from EBSFAIL, which incorporates waste form chemistry, humidity,
 oxidation, etc and upon contact from water begins the degradation process. The
