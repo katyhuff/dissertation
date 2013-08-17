@@ -5,7 +5,7 @@ The following literature review first addresses current integration of
 repository modeling within systems analysis, followed by a discussion of the 
 disposal system concepts and geologic host media under consideration 
 domestically and internationally.  Finally, a review of analytical and 
-computational models of radionuclide and thermal transport follow. 
+computational models of radionuclide and thermal transport follows. 
 
 \section{Repository Capabilities within Systems Analysis Tools}
 \label{sec:SA_repos}
@@ -45,8 +45,7 @@ values such as mass, volumes, radiotoxicity, or heat production of accumulated
 \gls{NUWASTE} \cite{abkowitz_nuclear_2010},
 \gls{DANESS} \cite{van_den_durpel_daness:_2006}, 
 \gls{NFCSim} \cite{schneider_nfcsim_2004}, and
-ORION \cite{gregg_orion_2011}
-) 
+ORION \cite{gregg_orion_2011}) 
 fail to address the impact of those waste streams on the performance of the 
 geologic disposal system \cite{wilson_comparing_2011}.  Two tools, \gls{COSI} 
 \cite{boucher_international_2010} and \gls{VISION} \cite{yacout_vision_2006, 
@@ -65,8 +64,7 @@ A few sophisticated fuel cycle tools  (e.g.,
 tracking and have demonstrated the improved flexibility of that strategy over more 
 traditional flow sheet calculations. A few (e.g., 
 \gls{NUWASTE} \cite{abkowitz_nuclear_2010} and
-\gls{COSI} \cite{boucher_international_2010}
-) utilize discrete material tracking to 
+\gls{COSI} \cite{boucher_international_2010}) utilize discrete material tracking to 
 provide per-package metrics including heat generation and radiotoxicity. 
 
 
@@ -75,8 +73,8 @@ simulator tools. Some (e.g.,
 \gls{COSI} \cite{boucher_international_2010},
 \gls{DANESS} \cite{van_den_durpel_daness:_2006}, 
 ORION \cite{gregg_orion_2011}, and
-\gls{VISION} \cite{yacout_vision_2006, wilson_comparing_2011, radel_repository_2007, boucher_international_2010}
-) are capable of tracking thousands or arbitrary numbers of isotopes. Others (e.g., 
+\gls{VISION} \cite{yacout_vision_2006, wilson_comparing_2011, radel_repository_2007, boucher_international_2010}) 
+are capable of tracking thousands or arbitrary numbers of isotopes. Others (e.g., 
 \gls{NUWASTE} \cite{abkowitz_nuclear_2010}) track tens of isotopes, while still 
 others neglect isotopic granularity (e.g., 
 \gls{CAFCA} \cite{guerin_impact_2009}).
@@ -90,14 +88,14 @@ geologic media, and many (e.g.,
 \gls{DANESS} \cite{van_den_durpel_daness:_2006}, 
 ORION \cite{gregg_orion_2011},
 \gls{NUWASTE} \cite{abkowitz_nuclear_2010}, and
-\gls{VISION} \cite{yacout_vision_2006, wilson_comparing_2011, radel_repository_2007, boucher_international_2010}
-) are too restrictively licensed for broad use and development. 
+\gls{VISION} \cite{yacout_vision_2006, wilson_comparing_2011, radel_repository_2007, boucher_international_2010}) 
+are too restrictively distributed or licensed for broad use and development. 
 
 
 The current capabilities of these tools suggest that sensitivity of repository 
 performance metrics to fuel cycle decisions can be calculated using a variety of 
 methods that have yet to be explored. Based on the flexibility of discrete material 
-tracking, power of dynamic modeling, and flexibility of open access the \Cyder 
+tracking, the power of dynamic modeling, and the flexibility of open access the \Cyder 
 tool has emphasized those strategies. Also, recognizing the need for a tool 
 that analyzes repository performance for generic geologic settings, the \Cyder tool 
 employs both thermal and contaminant transport capabilities.
@@ -105,7 +103,8 @@ employs both thermal and contaminant transport capabilities.
 \subsection{Repository Focused Fuel Cycle Analyses}
 
 While top level fuel cycle system analyses fail to incorporate repository 
-models, some repository focused fuel cycle sensitivity analyses have been conducted. 
+models, some repository focused fuel cycle sensitivity analyses have been 
+conducted using existing tools. 
 Most domestic repository focused analyses have emphasized used fuel disposition and
 waste management in the \glsreset{YMR}\gls{YMR}. These have been conducted by
 Ahn \cite{ahn_environmental_2007}, 
@@ -114,7 +113,7 @@ Li \cite{li_examining_2007},
 Piet \cite{piet_which_2007}, 
 Radel \cite{radel_determination_2007}, 
 Wigeland \cite{wigeland_criteria_2006,wigeland_separations_2006}, 
-and others. With a focus on \gls{YMR} capacity benefit, 
+and others. With a focus on \gls{YMR} capacity, 
 repository performance metrics of interest for these analyses were heat, source 
 term, and more global environmental impact metrics.  
 
@@ -129,7 +128,7 @@ The \gls{TSM} model can only be run by its development team and runs a typical
 simulation, processing 70,000 MTHM, in 12-15 hours \cite{turner_discrete_2010}. 
 
 The TSM framework is based on the commercial SimCAD platform. The simulation 
-steps through times in 8 hour time steps during the waste cask transportation, 
+steps through time in 8 hour time steps during the waste cask transportation, 
 processing and emplacement. This event based simulator is primarily focused on 
 the operation stage of the Yucca Mountain repository, but is equipped with a 
 thermal management model that informs waste package emplacement.
@@ -246,7 +245,7 @@ matrix \cite{andra_argile:_2005}.
 %Clays tend to have higher sorption capacity for cations (what interesting 
 %elements are cations?) \cite{bahr_private_2011}.
 Radionuclides that are relatively highly mobile in a clay environment dominate 
-potential long-term to the public from clay repository concepts.  Tor most fuel 
+potential long-term dose to the public from clay repository concepts.  For most fuel 
 cycles, these include $^{129}I$, $^{79}Se$, and $^{36}Cl$ 
 \cite{swift_applying_2010}. 
 
@@ -264,7 +263,7 @@ integral of this phenomenon determines total bentonite alteration. While short
 bursts of heat might be allowable, because the bentonite will not alter 
 immediately, the kinetic alteration into smectite clays is hastened by 
 temperatures above approximately 100$^{\circ}C$\cite{pusch_alteration_1987}. 
-Well understood behavior for argillaceous clay and bentonite buffer backfill
+Well understood behavior for argillite and bentonite buffer backfill
 is conservatively assumed by the \gls{ANDRA} assessment to occur only under  
 90$^{\circ}C$, which is effectively a limit at the waste package interface with 
 the bentonite buffer material\cite{andra_argile:_2005} .
@@ -279,15 +278,14 @@ uses a maximum heat limit in the bentonite buffer of $125^{\circ}C$
 % gradients on either side of the formation, controls slow vertical water flow 
 
 The thermal conductivity of clay is also typically lower than 
-$2[W\cdot m^{-1} \cdot K^{-1}]$. 
+2 W/m$\cdot$K.
 Accordingly, thermal loading constraints are more restrictive than in more 
 conductive materials. 
 In particular, Belgium (ref. 
 \cite{ondraf-niras_technical_2001}) 
-used values between 1.25 and 1.7 $[W\cdot m^{-1}\cdot K^{-1}]$,
-France (ref. \cite{andra_argile:_2005}) used values between 1.9 and 2.7 
-$[W\cdot m^{-1}\cdot K^{-1}]$, and Switzerland (ref. 
-\cite{johnson_calculations_2002}) used 1.8 $[W\cdot m^{-1}\cdot K^{-1}]$.
+used values between 1.25 and 1.7 W/m$\cdot$K,
+France (ref. \cite{andra_argile:_2005}) used values between 1.9 and 2.7 W/m$\cdot$K, and Switzerland (ref. 
+\cite{johnson_calculations_2002}) used 1.8 W/m$\cdot$K.
 
 % (Inset 3.5). The velocities of this water flow are fairly different in detail 
 % because of the medium's pore structure. Moreover, some pores are not connected 
@@ -389,11 +387,11 @@ interface with the buffer of $100^{\circ}C$.  \cite{von_lensa_red-impact_2008}
 
 This relatively high resistance to heat  induced mechanical failure is due to the 
 high thermal conductivity of granite, which is typically found to be between 
-2.4 and 4 $[W\cdot m^{-1}\cdot K^{-1}]$.  In particular Sweden (ref. 
-\cite{ab_long-term_2006}) used 3.4 - 4 $[W\cdot m^{-1}\cdot K^{-1}]$  and 2.45 
-- 2.9 $[W\cdot m^{-1}\cdot K^{-1}]$,  France (ref.  \cite{andra_argile:_2005}) 
-used 2.4 - 3.8 $[W\cdot m^{-1}\cdot K^{-1}]$, and  Finland (ref. 
-\cite{posiva_interim_2010}) used 2.3 - 3.2 $[W\cdot m^{-1}\cdot K^{-1}]$.
+2.4 and 4 W/m$\cdot$K.  In particular Sweden (ref. 
+\cite{ab_long-term_2006}) used 3.4 - 4 W/m$\cdot$K and 2.45 - 2.9 W/m$\cdot$K,
+France (ref.  \cite{andra_argile:_2005}) 
+used 2.4 - 3.8 W/m$\cdot$K, and Finland (ref.
+\cite{posiva_interim_2010}) used 2.3 - 3.2 W/m$\cdot$K.
 
 The effective thermal limit for granite disposal concepts, however, is usually 
 related to the bentonite limit, which is similar to the bentonite limits of clay 
@@ -1443,8 +1441,8 @@ sensitive to the concentration of an isotope \emph{i} in the waste package
 volume.  
 
 \subsection{ANDRA Dossier 2005} The ANDRA Dossier 2005 studies provided
-detailed radionuclide transport calculations for both argillaceous clay and granite
-formations. 
+detailed radionuclide transport calculations for both argillite, a clay-rich 
+rock, and granite formations. 
 
 In particular, in the \gls{ANDRA} clay model, complicated saturation and 
 resaturation phenomena are neglected and it is assumed that the initial 
