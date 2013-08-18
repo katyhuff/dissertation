@@ -88,9 +88,11 @@ reference transit time and decay constant supplied by the user. The behavior of
 the reference isotope, in this way, fully defines the behavior of all isotopes.
 
 It is important to note that a linear concentration profile is assumed between 
-the inlet and the outlet,
+the inlet and the outlet of a given Component in \Cyder,
 
 \begin{align}
   C(z,t) = C_{in}(t)  + \frac{C_{out}(t) - C_{in}(t)}{z_{out} - z_{in}}(z-z_{in}).
 \end{align}
+This is an approximation that could be improved by direct use of the response 
+functions themselves, under a change of variables from time to length. 
 
