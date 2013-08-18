@@ -187,7 +187,7 @@ $^{79}Se$
 %Furthermore, rather 
 %than being primarily kinetically limited, as in an oxidizing environment, 
 %sorption behavior is primarily thermodynamically limited 
-%\cite{nutt_personal_2011, schwartz_fundamentals_2004}. 
+% \cite{nutt_personal_2011, schwartz_fundamentals_2004}. 
 
 Various engineered barrier system components have also been modeled as a part of 
 this effort.  Specifically, in order to cover the option space demonstrated by 
@@ -262,11 +262,11 @@ of bentonite buffer materials are reduced after this alteration. The time
 integral of this phenomenon determines total bentonite alteration. While short 
 bursts of heat might be allowable, because the bentonite will not alter 
 immediately, the kinetic alteration into smectite clays is hastened by 
-temperatures above approximately 100$^{\circ}C$\cite{pusch_alteration_1987}. 
+temperatures above approximately 100$^{\circ}C$ \cite{pusch_alteration_1987}. 
 Well understood behavior for argillite and bentonite buffer backfill
 is conservatively assumed by the \gls{ANDRA} assessment to occur only under  
 90$^{\circ}C$, which is effectively a limit at the waste package interface with 
-the bentonite buffer material\cite{andra_argile:_2005} .
+the bentonite buffer material \cite{andra_argile:_2005} .
 The \gls{NAGRA} Opalinus Clay assessment less conservatively 
 uses a maximum heat limit in the bentonite buffer of $125^{\circ}C$
 \cite{johnson_project_2002} .
@@ -298,7 +298,7 @@ France (ref. \cite{andra_argile:_2005}) used values between 1.9 and 2.7 W/m$\cdo
 %determines average flow speeds within the layer (Darcy flux, inset 3.5) at 
 %around 3 cm per 100,000 years, which corresponds to a water transfer velocity 
 %of about 30 cm per 100,000 years, considering the kinematic porosity.  
-%\cite{argile_geo_evo} 
+% \cite{argile_geo_evo} 
 
 % Water flow in a porous medium is dominated by darcy flow.  This would be a 
 % great place to describe darcy's law! 
@@ -569,7 +569,9 @@ modeled as a purely rate based model,
 
 \begin{align}
   V_i(t) &= V_i(0)\left(1 - \int_0^t f(\cdots)dt\right)\\
-         &= \mbox{intact waste form volume }[m^3]\nonumber\\
+         &= \mbox{intact waste form volume }[m^3]\nonumber
+  \intertext{where}
+  f(\cdots) &= \mbox{ a known degradation rate function }
   \label{wfdegrate}
 \end{align}
 
@@ -594,7 +596,7 @@ contact. Either environment can be represented by the general expression,
 
 
 Importantly, the rate is often assumed to be slower in reducing environments than 
-oxidizing ones\cite{swift_applying_2010}.
+oxidizing ones \cite{swift_applying_2010}.
 
 In either case, radionuclide release is often modeled as congruent with the 
 degradation of the waste matrix. That is, release is modeled as unimpeded by 
@@ -752,7 +754,7 @@ probability distribution function, equation \eqref{rate} becomes
 
 
 \begin{align}
-  \sum_{t=0}^{t=t}n_F=N\cdot F(t).
+  \sum_{t=0}^{t=t}n_F(t)=N\cdot F(t).
   \label{cdf}
 \end{align}
 
@@ -802,11 +804,11 @@ the time to failure,
 
 
 The Hedin model of waste package failure is effectively instantaneous, but
-limited by a release resistance coefficient. The release is assumed  to occur
+limited by a release resistance coefficient \cite{hedin_integrated_2002}. The release is assumed  to occur
 through a hole in the waste canister that exists throughout the simulation, and
 the resistance coefficient limiting flow through the hole represents the
 magnitude of the canister flaw in combination with the buffer-geosphere
-interface\cite{hedin_integrated_2002}. A special case of this is instantaneous 
+interface \cite{hedin_integrated_2002}. A special case of this is instantaneous 
 waste package failure, in which all waste  packages simultaneously such that
 failure occurs either at the onset of the simulation or at some distinct time 
 during the simulation. 
@@ -1142,7 +1144,7 @@ across the boundary of that object. If the Biot number is low $(<0.1)$, and
 therefore conduction is faster within the object than at the boundary, the 
 assumption of a uniform internal temperature is appropriate and the lumped 
 parameter model may be expected to give a result within $5\%$ 
-error\cite{incropera_fundamentals_2006}. This assists in choosing the size of 
+error \cite{incropera_fundamentals_2006}. This assists in choosing the size of 
 distinct lumps within a conceptual model. 
 
 The lumped capacitance model can address multiple media and multiple heat
@@ -1219,10 +1221,10 @@ emplacement paths, similar to the line loading and areal power density metrics.
 However, a temperature integral takes account of heat transfer behavior in the
 rock, includes the effects of myriad \gls{SNF} compositions, and gives the thermal
 integration over time for any specific location within the rock.  Man-Sung Yim
-calls this the Specific Temperature Increase method\cite{li_specific_2008}
+calls this the Specific Temperature Increase method \cite{li_specific_2008}
 though other researchers have other names for this method. Tracy Radel calls
 her temperature metric at a point in the rock the Specific Temperature
-Change\cite{radel_repository_2007}.
+Change \cite{radel_repository_2007}.
 
 In a repository with linear drifts, the heat flux from the drifts can be
 expressed as the superposition of the linear heat flux contributions of all the
@@ -1381,7 +1383,7 @@ flow velocities obtained from simulations run using the \gls{FEHM} code
 meshed in three full dimensions with the \gls{CUBIT} meshing tool 
 \cite{clayton_generic_2011}.
 
-\subsection{Li Model\cite{li_methodology_2006}} As a function of time, water
+\subsection{Li Model \cite{li_methodology_2006}} As a function of time, water
 enters the Engineered Barrier System and corrodes the waste packages.  These
 fail and from the failed waste packages radionuclides are released according to
 advective transfer.  Further transport through the near and far field rock
@@ -1608,7 +1610,7 @@ repository footprint, the density of drifts, or vertical expansion. The  ``full 
 Mountain design alternative gives a maximum repository capacity of 97,000
 tonnes. In addition, the current design for the repository has flexibility for
 ``additional repository capacity'' which would give a 119,000 tonne capacity at
-1.04 tonnes/m.\cite{doe_yucca_2002} 
+1.04 tonnes/m. \cite{doe_yucca_2002} 
 
 In addition to variable drift spacing, other modifications to repository layout
 have had promising results in terms of heat-limited repository capacity. The
@@ -1621,20 +1623,20 @@ third levels of repository space, and hybrid solutions involving combinations
 of these ideas. In particular, EPRI suggests either an expansion of the
 footprint with redesign of the current line load design plan or a
 multi-level plan that repeats the footprint and line load design of the current
-plan\cite{kessler_room_2006}.
+plan \cite{kessler_room_2006}.
 
 %Specific Temperature Change analysis by Radel, Wilson, et al. find a maximum
 %thermal capacity of 1.09 tonnes/m for commercial SNF (at an ELF of $49
-%GWd_{th}/m$)\cite{radel_effect_2007}. 
+%GWd_{th}/m$) \cite{radel_effect_2007}. 
 
 Layout options such as age based fuel mixing also allows for decreases in drift 
 spacing. In aged based fuel mixing, aged (long cool time) SNF is loaded in a 
 mixture with young SNF. This age based fuel mixing has been shown to achieve a 
 $48\%$ increase in the repository capacity as constrained by heat
-load\cite{nicholson_thermal_2007}. This factor uses a fiducial default
+load \cite{nicholson_thermal_2007}. This factor uses a fiducial default
 footprint of $4.6 km^2$ used in the NRC TSPA.  The reported $48\%$ increase in
 capacity results in total repository capacity of 103,600
-tonnes\cite{williams_total_2001}.
+tonnes \cite{williams_total_2001}.
 
 
 \subsection{Other Numerical Methods}
