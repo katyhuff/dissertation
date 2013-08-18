@@ -32,15 +32,21 @@ concentration, $C_{out}(t)$,
 \end{align}
 
 Selection of the response function is usually based on experimental tracer 
-results in the medium at hand. If such detailed flow  data is not available, 
+results in the medium at hand. If such detailed transport  data is not available, 
 functions used commonly in chemical engineering applications 
-\cite{maloszewski_lumped_1996} include the Piston Flow Model (PFM), 
+\cite{maloszewski_lumped_1996} include the Piston Flow Model (PFM), which 
+approximates pure advection,
 
 \begin{align}
-  g_{PFM}(t') &= \delta{(t'-t_t))}
-  \intertext{ the Exponential Model (EM) }
+  g_{PFM}(t') &= \delta{(t'-t_t))},
+\end{align}
+the Exponential Model (EM) which approximates a well-mixed flow case,
+\begin{align}
   g_{EM}(t') &= \frac{1}{t_t}e^{-\frac{t'}{t_t}}
-  \intertext{ and the Dispersion Model (DM), }
+\end{align}
+and the so-called Dispersion Model (DM), which actually approximates the solution to both 
+advective and dispersive transport,
+\begin{align}
   g_{DM}(t') &= \left( \frac{\emph{Pe }t_t}{4\pi t'} \right)^{\frac{1}{2}}
   \frac{1}{t'}e^{- \frac{\emph{Pe }t_t\left( 1- \frac{t'}{t_t}  \right)^2} 
   {4t'}}, \intertext{where}

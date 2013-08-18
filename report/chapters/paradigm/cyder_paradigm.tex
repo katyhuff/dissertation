@@ -98,7 +98,8 @@ transport evolution as a result of an arbitrary waste stream. The disposal
 system simulator in this work conducts this calculation by  treating each containment 
 Component as a nested volume in a release chain. 
 
-Each Component is defined by a Geometry, some Material Data, a ThermalModel, 
+Each Component is defined by a number of distinct object classes. Most 
+importantly, those include a Geometry, some MaterialData, a ThermalModel, 
 and a NuclideModel. It is also defined by the Parent Component which contains 
 it and the Daughter Components which it contains. An emplaced waste package 
 Component, for example, possesses a pointer to the buffer that surrounds it, 
@@ -127,8 +128,8 @@ Each table in the database holds data related to one of a canonical set of
 engineered barrier and geologic medium materials (e.g. clay, glass, etc.).  
 The columns of that table hold data required to support all \Cyder models. 
 Thermal diffusivity and thermal conductivity comprise the thermal data in the 
-table for each material. The hydrologic and chemical data in the database has 
-one table for each material. Each table contains relative diffusivity 
+table for each material. The hydrologic and chemical data in the database are 
+included in one table for each material. Each table contains relative diffusivity 
 coefficients, solubility limits, and sorption parameters for each element.  
 
 \subsubsection{Component ThermalModel}
