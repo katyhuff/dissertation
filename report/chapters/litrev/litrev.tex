@@ -1412,7 +1412,6 @@ model defines $w_{ci}$ as:
 \begin{equation}
   w_{ci}(t)=C_i(t)q_{out}(t). 
 \end{equation}
-
 where $q_{out}$ is the volumetric flow rate of the water $[m^3/yr]$, and 
 $C_i$ is the concentration on isotope $i$ in the waste package volume 
 $m_i/V_{wp}$ in $[mol/m^3]$. These assumptions fail to take into account any
@@ -1420,14 +1419,15 @@ differences in the varying solubilities of the isotopes, but are quite
 sensitive to the concentration of an isotope \emph{i} in the waste package
 volume.  
 
-\subsection{ANDRA Dossier 2005} The ANDRA Dossier 2005 studies provided
+\subsection{ANDRA Dossier 2005} The ANDRA Dossier 2005 studies, developed for 
+the French radioactive waste disposal program, provided
 detailed radionuclide transport calculations for both argillite, a clay-rich 
 rock, and granite formations. 
 
 In particular, in the \gls{ANDRA} clay model, complicated saturation and 
 resaturation phenomena are neglected and it is assumed that the initial 
 repository condition is fully resaturated. Additionally, it conservatively 
-assumes that the evacuation disturbed zone does not heal. Rather, it is modeled 
+assumes that the excavation disturbed zone does not heal. Rather, it is modeled 
 in its damaged state immediately after excavation and forever thereafter.
 
 This model only tracks 15 radionuclides of importance.  These are chosen to be those
@@ -1471,12 +1471,12 @@ clay assessment are listed in Table  \ref{tab:andra}.
 Waste form dissolution and package release was assumed to be immediate for some
 waste forms and corrosion rate based for those where appropriate data were
 available. Vitrified waste package releases were either modeled with a simple
-model or a two phase phenomenological model. 
+model or a phenomenological model. 
 
 %(pg198 for references to themath)
 
 Transport through the backfill is modeled as diffusive, with high permeability 
-after degradation.  The evacuation disturbed zone has both a fracture zone and a 
+after degradation.  The excavation disturbed zone has both a fracture zone and a 
 microfissure zone.  In the host formation, movement is dominated by diffusion, 
 and advection is modeled, but is negligible.
 
@@ -1514,7 +1514,7 @@ and advection is modeled, but is negligible.
 
 Detailed heat transport models seek to quantify the heat evolution within a 
 repository environment due to heat generating waste forms. Such models are 
-detailed with respect to their detailed spatial and temporal resolution or 
+detailed with respect to their spatial and temporal resolution or 
 with respect to the incorporation and coupling of numerous physical phenomena. 
 Such codes typically utilize finite difference or finite element methods in 
 many dimensions or sophisticated numerical solvers, respectively. 
