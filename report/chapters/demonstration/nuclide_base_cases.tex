@@ -10,10 +10,10 @@ fundamental behavior of all the radionuclide transport models at each component
 interface. These integration tests neglected thermal transport and capacity 
 estimation to simplify the results.  
 
-The problem design includes : 
+The problem design includes the following : 
 \begin{itemize}
 \item{A source facility providing one waste stream per time step}
-\item{An initial capacity of 5 1kg waste streams}
+\item{An initial capacity of five 1 kg waste streams}
 \item{Waste form Components each accepting 1 waste stream} 
 \item{Corresponding waste package Components, one per waste form}
 \item{A buffer Component}
@@ -24,9 +24,11 @@ The problem design includes :
 The Degradation Rate model should not release contaminants if the degradation 
 rate is 0. If the degradation rate is nonzero, however, and a fixed maximum 
 transport mode is selected, contaminants should become available immediately to 
-the adjacent components, traveling quickly across the interfaces. 
+the adjacent components, traveling across the interfaces entirely at each 
+time step. 
 
-To observe these behaviors, four simulations were run to demonstrate that total 
+To observe these behaviors, four simulations were run to demonstrate that, for 
+the fixed maximum transfer mode, total 
 containment resulted from a degradation rate of 0 and that congruent release 
 resulted from nonzero degradation rates. A description of these verification 
 cases can be found in Table \ref{tab:dr_base}. The 0 degradation rate component was 
