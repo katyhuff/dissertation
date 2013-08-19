@@ -21,20 +21,21 @@ consideration.
 \includegraphics[width=0.7\textwidth]{./chapters/demonstration/spacing/Cm242spacing_sens.eps}
 \end{center}
 \caption[Thermal Sensitivity to $K_{th}$ and $s$]{Increased waste package 
-spacing decreases areal thermal energy deposition 
+spacing decreases temperature change 
 (here represented by \gls{STC}) in the near field (here $r_{calc} = 0.5$ m).}
 \label{fig:Cm242spacing_sens}
 \end{figure}
 
-Figure \ref{fig:Cm242spacing_sens} shows the trend in which increased waste package spacing of a medium decreases areal thermal energy 
-deposition in the near field. This indicates that waste package spacing is 
-an important parameter for repository concept design.
+Figure \ref{fig:Cm242spacing_sens} shows the trend in which increased waste 
+package spacing of a medium decreases temperature change in the near field. This 
+indicates that waste package spacing is an important parameter for repository 
+concept design.  
 
 Similarly, the location of the limiting radius has a strong effect on the 
 waste package loading limit, for a fixed limiting temperature. In Figure 
 \ref{fig:Cm242r_lim_sens}, the trend is demonstrated in which increased limiting 
 radius (i.e. distance between the waste packages and the limiting radius) 
-decreases the temperature at the limit, as expecte, as expectedd.
+decreases the temperature at the limit, as expected.
 
 
 \begin{figure}[htbp!]
@@ -42,7 +43,7 @@ decreases the temperature at the limit, as expecte, as expectedd.
 \includegraphics[width=0.7\textwidth]{./chapters/demonstration/spacing/Cm242r_lim_sens.eps}
 \end{center}
 \caption[Thermal Sensitivity to $r_{lim}$ and $s$]{Increased limiting radius 
-decreases thermal energy deposition contributing to the thermal limit
+decreases temperature change contributing to the thermal limit
 (here represented by \gls{STC}).}
 \label{fig:Cm242r_lim_sens}
 \end{figure}
@@ -50,6 +51,37 @@ decreases thermal energy deposition contributing to the thermal limit
 
 \FloatBarrier
 \subsubsection{Cyder Results}
+
+
+In a similar analysis, spacing and limiting radius were investigated. Figure 
+\ref{fig:spacing_cyder} shows that the same spacing trend noted for the LLNL model was noted in the \Cyder model. 
+
+\begin{figure}[htbp!]
+\begin{center}
+\includegraphics[height=0.7\textheight]{./thermal_demonstration/spacing/spacing.eps}
+\end{center}
+\caption[Spacing Sensitivity in Cyder]
+{Cyder results agree with those of the LLNL model. The spacing between packages 
+is inversely related to the temperature change in the medium at the limiting 
+radius. The above example thermal profile results from 10kg of $^{242}Cm$.}
+\label{fig:spacing_cyder}
+\end{figure}
+
+
+Similarly, figure \ref{fig:r_lim_cyder} shows the same trend for $r_{lim}$ in \Cyder as seen in the LLNL model.
+
+\begin{figure}[htbp!]
+\begin{center}
+\includegraphics[height=0.7\textheight]{./thermal_demonstration/spacing/lim_radius.eps}
+\end{center}
+\caption[$r_{lim}$ Sensitivity in Cyder]
+{Cyder results agree with those of the LLNL model. Increased limiting radius 
+reduces the change in temperature at that radius. The above example thermal 
+profile results from 10kg of $^{242}Cm$.}
+\label{fig:r_lim_cyder}
+\end{figure}
+\end{frame}
+
 
 In a similar analysis, the thermal diffusivity was compared both with the 
 spacing between waste packages and the limiting radius. 
@@ -59,7 +91,6 @@ increased waste package spacing in a repository concept decreases areal thermal 
 in the near field.  Additionally, analysis with the \Cyder STC database 
 demonstrates the way in which the importance of $r_{lim}$, the limiting radius, 
 impacts the maximum calculated temperature at that radius. 
-
 
 \begin{figure}[htbp!]
 \begin{center}

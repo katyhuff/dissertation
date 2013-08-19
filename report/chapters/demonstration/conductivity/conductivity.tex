@@ -13,28 +13,48 @@ $[W\cdot m^{-1} \cdot K^{-1}]$, this sensitivity analysis succeeds in capturing 
 thermal conductivities witnessed in high thermal conductivity salt deposits as 
 well as low thermal conductivity clays.
 
-\begin{figure}[htbp!]
-\begin{center}
-\includegraphics[width=0.7\textwidth]{./chapters/demonstration/conductivity/Cm242kth_alpha_low.eps}
-\end{center}
-\caption[$K_{th}$ Sensitivity for Low $\alpha_{th}$ in LLNL Model]{Increased thermal conductivity decreases thermal energy deposition 
-(here represented by \gls{STC}) in the near field (here $r_{calc} = 0.5 m$).}
-\label{fig:Cm242Kth_alpha_low}
-\end{figure}
+  \begin{figure}[htbp!]
+    \begin{center}
+      \includegraphics[width=0.7\textwidth]{./chapters/demonstration/conductivity/conductivity.eps}
+    \end{center}
+    \caption[$K_{th}$ Sensitivity in LLNL Model]{Increased thermal conductivity 
+      decreases the temperature (here represented by STC) at the limiting 
+    radius.}
+    \label{fig:Cm242Kth_alpha_low}
+  \end{figure}
 
-Figure \ref{fig:Cm242Kth_alpha_low} shows the trend in which increased thermal conductivity of a medium decreases thermal energy 
-deposition in the near field. This indicates, then that thermal conductivity is 
+Figure \ref{fig:Cm242Kth_alpha_low} shows the trend in which increased thermal 
+conductivity of a medium decreases temperature change 
+in the near field. This indicates, then that thermal conductivity is 
 an important parameter for repository geologic medium selection. 
 
 \FloatBarrier
 \subsubsection{Cyder Results}
+In a similar analysis, the thermal conductivity was investigated. Figure 
+\ref{fig:conductivity_cyder} shows that the same trend noted for the LLNL model 
+was noted in the 
+\Cyder model.
 
-In a similar analysis, the thermal conductivity was compared both with the 
-spacing between waste packages and the limiting radius. 
+  \begin{figure}[htbp!]
+    \begin{center}
+      \includegraphics[width=0.7\textwidth]{./chapters/demonstration/conductivity/conductivity_cyder.eps}
+    \end{center}
+    \caption[$K_{th}$ Sensitivity in Cyder]
+    {Cyder results agree with those of the LLNL model. Increased $K_{th}$ 
+    decreases 
+    temperature change at the limiting radius. The above example thermal 
+    profile results from 10kg of $^{242}Cm$, $\alpha_{th}=2\times 10^{-7}$, 
+    $s=5m$, 
+    and $r_{lim}=0.25m$.}
+    \label{fig:conductivity_cyder}
+  \end{figure}
 
-Figures \ref{fig:kr} and \ref{fig:ks} validate the trend noted above that 
-increased thermal conductivity of a medium decreases thermal energy deposition 
-in the near field.  Additionally, analysis with the \Cyder STC database 
+
+In additional dual parameter studies, the importance of the thermal conductivity 
+was compared both with the spacing between waste packages and the limiting 
+radius. Figures \ref{fig:kr} and \ref{fig:ks} validate the trend noted above 
+that increased thermal conductivity of a medium decreases temperature change in 
+the near field.  Additionally, analysis with the \Cyder STC database 
 demonstrates the way in which the importance of spacing and the importance of 
 the limiting radius decrease with increasing $K_{th}$.
 
@@ -59,5 +79,4 @@ increased $K_{th}$. The above example thermal profile results from 10kg of
 $^{242}Cm$}
 \label{fig:ks}
 \end{figure}
-
 

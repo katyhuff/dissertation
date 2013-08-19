@@ -17,13 +17,16 @@ thermal diffusivities witnessed in high thermal diffusivity salt deposits as
 well as low thermal diffusivity clays.
 
 \begin{figure}[htbp!]
-\begin{center}
-\includegraphics[width=0.7\textwidth]{./chapters/demonstration/diffusivity/Cm242alpha_kth_low.eps}
-\end{center}
-\caption[$K_{th}$ Sensitivity to $\alpha_{th}$ for low $k_{th}$]{Increased thermal 
-diffusivity increases temperatures (here represented by \gls{STC}) in the near field (here $r_{calc} = 0.5 m$).}
-\label{fig:Cm242alpha_kth_low}
-\end{figure}
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{./chapters/demonstration/diffusivity/diffusivity.eps}
+  \end{center}
+  \caption[$K_{th}$ Sensitivity to $\alpha_{th}$]{Increased thermal 
+    diffusivity decreases temperature change (here represented by STC) at the 
+    limiting radius (here $r_{calc} = 0.5m$).}
+    \label{fig:Cm242alpha_kth_low}
+  \end{figure}
+\end{frame}
+
 
 
 Figure \ref{fig:Cm242alpha_kth_low} shows the trend in which increased thermal 
@@ -47,11 +50,26 @@ repository geologic medium selection.
 \FloatBarrier
 \subsubsection{Cyder Results}
 
-In a similar analysis, the thermal diffusivity was compared both with the 
-spacing between waste packages and the limiting radius. 
+In a similar analysis, the thermal diffusivity was investigated. Figure 
+\ref{fig:diffusivity_cyder} shows that the same trend noted for the LLNL model was noted in the 
+\Cyder model.
+
+\begin{figure}[htbp!]
+    \begin{center}
+      \includegraphics[width=0.7\textwidth]{./chapters/demonstration/diffusivity/diffusivity_cyder.eps}
+      \caption[$\alpha_{th}$ Sensitivity in Cyder]{Cyder trends agree with those 
+        of the LLNL model, in which increased thermal diffusivity results in 
+        reduced temperature change at the limiting radius. The above example 
+        thermal profile results from 10kg of $^{242}Cm$.} 
+        \label{fig:diffusivity_cyder}
+      \end{center}
+    \end{figure}
+
+Additional dual paramter studies compared thermal diffusivity importance with the spacing 
+between waste packages and the limiting radius.  
 
 Figures \ref{fig:ar} and \ref{fig:ak} validate the trend noted above that 
-increased thermal diffusivity of a medium decreases thermal energy deposition 
+increased thermal diffusivity of a medium decreases temperature change 
 in the near field.  Additionally, analysis with the \Cyder STC database 
 demonstrates the way in which the importance of $K_{th}$ remains constant, but 
 the importance of the limiting radius decreases with increasing $\alpha_{th}$.
@@ -79,3 +97,5 @@ increased $K_{th}$. The above example thermal profile results from 10kg of
 $^{242}$Cm}
 \label{fig:ak}
 \end{figure}
+
+
