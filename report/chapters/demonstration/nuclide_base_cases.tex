@@ -13,7 +13,7 @@ estimation to simplify the results.
 The problem design includes the following : 
 \begin{itemize}
 \item{A source facility providing one waste stream per time step}
-\item{An initial capacity of five 1 kg waste streams}
+\item{An initial capacity of five 1 kg waste streams (in most cases)}
 \item{Waste form Components each accepting 1 waste stream} 
 \item{Corresponding waste package Components, one per waste form}
 \item{A buffer Component}
@@ -63,6 +63,7 @@ two of these base cases can be found in Figures \ref{fig:mcI} through
 \ref{fig:mcII}.
 The fixed maximum transport mode was use between mixed cell components for speed 
 and clarity of results.
+
 In the two following simulations, a waste form with 1 kg is introduced to the repository once 
 per time step for the first five time steps. Those five waste packages are 
 placed into a single buffer component, which is contained by a single far field 
@@ -73,6 +74,7 @@ the far field has a degradation rate of 0.1 per time step.
 \FloatBarrier
 
 \subsubsection{Lumped Parameter Model}
+
 The Lumped Parameter model, with its three formulations (Exponential Model, 
 Dispersion Model, and Piston flow Model) is not expected to receive 
 contaminants if the porosity or advective velocity are zero. Otherwise, 
@@ -83,6 +85,11 @@ To observe the behaviors of each of the three formulations and to demonstrate
 full containment in cases where it is expected, simulations were run to 
 investigate the impact of using various models. Results of these base cases can be found in Figures 
 \ref{fig:lpBegin} through \ref{fig:lpEnd}.
+
+In the three following simulations, a waste form with 1 kg is introduced to the repository once 
+per time step for the first five time steps. Those five waste packages are 
+placed into a single buffer component, which is contained by a single far field 
+component. All are represented by the Lumped Parameter Model.
 
 \input{./chapters/demonstration/base/lp_base_fig}
 
