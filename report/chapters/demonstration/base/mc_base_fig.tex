@@ -1,10 +1,13 @@
 
 
+In the first of these two simulations, no sorption or solubility limitation is 
+applied such that the results are, as expected, identical to the identical 
+degradation rate case, DRIV.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.6\textwidth]{./chapters/demonstration/base/mcI.eps}
-\caption[$^{235}U$ residence. Mixed Cell Sorption Limitation Without Solubility Limitation.]{
+\caption[$^{235}U$ residence. Mixed Cell Without Sorption or Solubility Limitation.]{
 For the MCI case in which total containment is only is assumed in the far field, 
 but sorption and solubility limitation neglected, demonstrates results identical to 
 DRIV, as expected.}
@@ -39,12 +42,16 @@ DRIV, as expected.}
 
   \end{minipage}
 \end{figure}
+\FloatBarrier
+
+In the second of these two simulations, no sorption is applied, but solubility 
+limitation is set to 0.001 kg/m$^3$ for all isotopes. 
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.6\textwidth]{./chapters/demonstration/base/mcIII.eps}
 \caption[$^{235}U$ residence. Mixed Cell Coupled Sorption and Solubility Limitation.]{
-For the MCII case in which containment is affected by both sorption and solubility limitation, 
+For the MCII case in which containment is affected by solubility limitation, 
 ($F_{d}=0.1$ for all components), $^{235}U$ travels more slowly than in the MCI case 
 before permanent residence in the far field component.
 }
@@ -53,13 +60,13 @@ before permanent residence in the far field component.
 
   \includegraphics[width=\textwidth]{./chapters/demonstration/base/mcIII1.eps}
   \caption[Case MCII Waste Form Contaminants.]{
-    Waste Form 5 ($F_d = 0.1$) releases material with degradation. 
+    Waste Form 5 ($F_d = 0.1$, $S_{ref} = 0.001kg/m^3$) releases material with degradation. 
     }
   \label{fig:mcIIIwf5}
   
   \includegraphics[width=\textwidth]{./chapters/demonstration/base/mcIII3.eps}
   \caption[Case MCII Buffer Contaminants]{
-    The Buffer, component 7 ($F_d=0.1$), receives and then releases material.
+    The Buffer, component 7 ($F_d=0.1$, $S_{ref}=0.001kg/m^3$), receives and then releases material.
     }
   \label{fig:mcIIIbuff}
 
@@ -68,12 +75,13 @@ before permanent residence in the far field component.
 \begin{minipage}[b]{0.45\linewidth}
   \includegraphics[width=\textwidth]{./chapters/demonstration/base/mcIII2.eps}
   \caption[Case MCII Waste Package Contaminants.]{ 
-    Waste Package 6 ($F_d = 0.1$) receives then releases material. 
+    Waste Package 6 ($F_d = 0.1$, $S_{ref}=0.001kg/m^3$) receives then releases material. 
     }
   \label{fig:mcIIIwp6}
 
   \includegraphics[width=\textwidth]{./chapters/demonstration/base/mcIII0.eps}
-  \caption[Case MCII Waste Package Contaminants.]{All material is released into the Far Field, component 4 ($F_d=0.0$).}
+  \caption[Case MCII Waste Package Contaminants.]{All material is released into 
+    the Far Field, component 4 ($F_d=0.0$, $S_{ref} = 0.001kg/m^3$).}
   \label{fig:mcII}
 
 

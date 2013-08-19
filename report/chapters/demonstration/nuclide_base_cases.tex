@@ -30,11 +30,18 @@ time step.
 To observe these behaviors, four simulations were run to demonstrate that, for 
 the fixed maximum transfer mode, total 
 containment resulted from a degradation rate of 0 and that congruent release 
-resulted from nonzero degradation rates. A description of these verification 
+resulted from nonzero degradation rates. 
+In the four following simulations, a waste form with 1 kg is introduced to the repository once 
+per time step for the first five time steps. Those five waste packages are 
+placed into a single buffer component, which is contained by a single far field 
+component. All are represented by the Degratdation Rate Model. 
+
+Further destails of these verification 
 cases can be found in Table \ref{tab:dr_base}. The 0 degradation rate component was 
 different for each of the four cases. This resulted in total containment at the 
 Waste Form, Waste Package, Buffer, and Far Field interfaces respectively. 
 Results of these base cases can be found in Figures 
+
 \ref{fig:drIwf5} through \ref{fig:drIVff0}.
 \FloatBarrier
 \input{./chapters/demonstration/base/dr_base_tab}
@@ -56,6 +63,11 @@ two of these base cases can be found in Figures \ref{fig:mcI} through
 \ref{fig:mcII}.
 The fixed maximum transport mode was use between mixed cell components for speed 
 and clarity of results.
+In the two following simulations, a waste form with 1 kg is introduced to the repository once 
+per time step for the first five time steps. Those five waste packages are 
+placed into a single buffer component, which is contained by a single far field 
+component. All are represented by the Mixed Cell Model. Each component except 
+the far field has a degradation rate of 0.1 per time step.
 
 \input{./chapters/demonstration/base/mc_base_fig}
 \FloatBarrier
@@ -92,10 +104,14 @@ only valid for advection and dispersion values within a realistic range, and
 the model accordingly can only be demonstrated for a very slow transport case. 
 
 To observe the behavior of the solution and to demonstrate full containment in 
-cases where it is expected, simulations were run with . An example simulation, with 
-reference dispersion coefficient at $1\times 10^{-12}$ m/s$^2$ and advective 
-velocity of $1\times 10^{-15}$ m/yr 
-per waste form (to overwhelm numerical issues) is shown in Figure \ref{fig:odall}.  
+cases where it is expected, simulations were run with each component represented 
+by a One Dimensional PPM Model, which uses an implicit mass transfer mode. An 
+example simulation, with reference dispersion coefficient at $1\times 10^{-12}$ 
+m/s$^2$ and advective velocity of $1\times 10^{-15}$ m/yr 
+In this simulation, a waste form with 1000 kg 
+is loaded into a waste package. That waste package is the only package in the 
+buffer and far field components that contain it.
 
 \input{./chapters/demonstration/base/1d_base_fig}
 \FloatBarrier
+is shown in Figure \ref{fig:odall}. 
