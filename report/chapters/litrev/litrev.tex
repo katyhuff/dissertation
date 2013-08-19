@@ -633,27 +633,12 @@ void volume $V_1$ in m$^3$, at a time t, is limited by the solubility limit,
 the maximum concentration, $C_{sol}$ in kg/m$^3$ at which that radionuclide is 
 soluble \cite{hedin_integrated_2002}.
 
-In the Ahn models, radionuclides with lower solubility limits are modeled with
-a solubility limited release model.  Solubility values are assumed from TSPA
-for this model, and elements with a solubility of less than $~5\times 10^{-2}
-$ mol/m$^3$ are taken to be
-``low.'' Elements in this ``low'' category include Zr, Nb, Sn and some toxic actinides 
-such as Th and Ra for an oxidizing, unsaturated environment similar to \gls{YMR}.
+In the Ahn models \cite{ahn_environmental_2004, ahn_environmental_2007}, radionuclides with lower solubility limits are modeled with a solubility limited release model.  Solubility values are assumed from TSPA for this model, and elements with a solubility of less than $~5\times 10^{-2} $ mol/m$^3$ are taken to be ``low.'' Elements in this ``low'' category include Zr, Nb, Sn and some toxic actinides such as Th and Ra for an oxidizing, unsaturated environment similar to \gls{YMR}.
 It should be noted that in a reducing environment, the actinides are not as mobile, 
 and the high and low solubility radionuclides will differ from this model.
 This model suggests that dissolution of radionuclides into the water 
 is dominated by diffusion, which is largely dependent upon the concentration 
-gradient between the waste matrix and the water. The mass balance driving 
-radionuclide release takes the form:
-
-\begin{equation}
- \dot{m_i}=8\theta D_eS_iL\sqrt{\frac{vr_0}{\pi D_e}}
-\end{equation} 
-
-where $\theta$, v, $r_0$, and L are the geometric and
-hydrologic factors porosity, water velocity, waste package radius, and waste
-package length, respectively. $D_e$ is the effective diffusion coefficient
-($m^2/yr$)  and $S_i$ is the solubility ($kg/m^3$) of isotope $i$.
+gradient between the waste matrix and the water. 
 
 \subsubsection{Flow Assumptions}
 
@@ -1383,7 +1368,9 @@ flow velocities obtained from simulations run using the \gls{FEHM} code
 meshed in three full dimensions with the \gls{CUBIT} meshing tool 
 \cite{clayton_generic_2011}.
 
-\subsection{Li Model \cite{li_methodology_2006}} As a function of time, water
+\subsection{Li Model \cite{li_methodology_2006}} In a case study evaluating 
+transmutation effects on repository benefit, Jun Li approximated Yucca Mountain 
+Repository performance for three fuel cycles. As a function of time, water
 enters the Engineered Barrier System and corrodes the waste packages.  These
 fail and from the failed waste packages radionuclides are released according to
 advective transfer.  Further transport through the near and far field rock
